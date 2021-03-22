@@ -1,5 +1,5 @@
 # Plus-Energie-Quartier-Excel ("PE-Excel")
-## Konzeptpapier 
+## Introduction
 ### Starting Point: Positive Energy District Simulation with Excel
 **History**
 The PE-Excel has been developed by the research group [sustainable buildings and cities](https://res.technikum-wien.at/sbc/) at the University of Applied Science Vienna. The initial goal was to create a efficient yet flexible platform for simulating PEDs with an hourly energy balance resolution. It combines three different models and simulations into a comprehensive evaluation framework for the performance of PEDs. The three main parts integrated in this framework are
@@ -7,6 +7,9 @@ The PE-Excel has been developed by the research group [sustainable buildings and
 * LCA results in up to 5 Variants (manually imported from eco2soft LCA calculator)  
 * Hourly energy balance including determined DSM strategies for onsite PV excess and offsite Wind Peak Shaving used in TABS, DHW, Batteries and Ecars
 
+![grafik](https://user-images.githubusercontent.com/80957185/112003855-9088d400-8b21-11eb-91b0-c3f231016cc3.png)
+
+## What are the Benefits?
 Starting from this infamous "Plusenergieexcel". It has some great merits alongside some very painful flaws:
 **The Good:**
 * Dynamic: It had hourly resolution: Energy balance, load profiles, PV generation, everything was known for each 8760 h of the year and could be used with a sensible algorithm trying to optimize for own consumption, CO2 emission, etc
@@ -31,10 +34,18 @@ So the main pain points here are:
 3. No easy way to calculate and store variations
 4. Updateability
 
+## How to Use it?
+- No installation is necessary as the program is running in Microsoft Excel and can be opened as .xls file
+- Within -RED- sheets a User-Input is Required - A detailed Documentation of the Inputs is found in the corresponding Sheets
+- Within -ORANGE- sheets Inputs of other Documents or load-profiles such as the PHPP-Document can be loaded
+- Within -GREEN- seets no Inputs are necessary. Only Results can be read from there. If wanted also different variations of the Calculation can be changed
+
+## What should be improved?
  ### Solve Unwieldy filesize, crashes.
-We have 2 areas of improvement here
+We have 3 areas of improvement here
 1. Reduce File Size to improve Handling
 2. Reduce Calculation and Update Time
+3. Add an English Version of the Program
 
 **Reduce File Size to improve Handling**
 Target range: <= 10 MB would be ideal  because emailable, but probably unfeasible
