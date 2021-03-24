@@ -1,6 +1,6 @@
 # Deutsch
 ### Startpunkt: Plusenergie-Quartier Simulation mit Excel
-Das PE-Excel wurde von der Forschungsgruppe [Nachhaltige Gebäude und Städte](https://res.technikum-wien.at/sbc/) an der Fachhochschule Technikum Wien entwickelt. Das ursprüngliche Ziel war es, eine effiziente und dennoch flexible Plattform für die Simulation von PEQs mit einer stündlichen Energiebilanzauflösung zu schaffen. Es kombiniert drei verschiedene Modelle und Simulationen zu einem umfassenden Bewertungsrahmen für die Leistung von PEQs. Die drei Hauptteile, die in diesem Rahmenwerk integriert sind, sind
+Das PE-Excel wurde von der Forschungsgruppe [Nachhaltige Gebäude und Städte](https://res.technikum-wien.at/sbc/) an der [Fachhochschule Technikum Wien](https://www.technikum-wien.at/) entwickelt. Das ursprüngliche Ziel war es, eine effiziente und dennoch flexible Plattform für die Simulation von PEQs mit einer stündlichen Energiebilanzauflösung zu schaffen. Es kombiniert drei verschiedene Modelle und Simulationen zu einem umfassenden Bewertungsrahmen für die Leistung von PEQs. Die drei Hauptteile, die in diesem Rahmenwerk integriert sind, sind
 * Stündliche PV-Simulationsergebnisse 
 * LCA-Ergebnisse in bis zu 5 Varianten (manuell importiert vom eco2soft LCA-Rechner)  
 * Stündliche Energiebilanz einschließlich ermittelter DSM-Strategien für den PV-Überschuss vor Ort und das Offsite-Wind-Peak-Shaving, die in TABS, DHW, Batterien und Ecars verwendet werden
@@ -42,7 +42,7 @@ Die Hauptschmerzpunkte sind hier also:
 
 # English
 ### Starting Point: Positive Energy District Simulation with Excel
-The PE-Excel has been developed by the research group [sustainable buildings and cities](https://res.technikum-wien.at/sbc/) at the University of Applied Science Vienna. The initial goal was to create a efficient yet flexible platform for simulating PEDs with an hourly energy balance resolution. It combines three different models and simulations into a comprehensive evaluation framework for the performance of PEDs. The three main parts integrated in this framework are
+The PE-Excel has been developed by the research group [sustainable buildings and cities](https://res.technikum-wien.at/sbc/) at the [University of Applied Science Technikum Vienna](https://www.technikum-wien.at/). The initial goal was to create a efficient yet flexible platform for simulating PEDs with an hourly energy balance resolution. It combines three different models and simulations into a comprehensive evaluation framework for the performance of PEDs. The three main parts integrated in this framework are
 * Hourly PV Simulation Results 
 * LCA results in up to 5 Variants (manually imported from eco2soft LCA calculator)  
 * Hourly energy balance including determined DSM strategies for onsite PV excess and offsite Wind Peak Shaving used in TABS, DHW, Batteries and Ecars
