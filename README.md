@@ -34,7 +34,7 @@ Die Hauptschmerzpunkte sind hier also:
 
 ## Arbeiten im PEExcel
 
-* neu bei GitHub? 				[Erste Schritte in GIT | Getting started with GIT](https://github.com/simonschaluppe/peexcel/wiki/1.-Erste-Schritte-in-GIT-%7C-Getting-started-with-GIT)
+* Entwickler und neu bei GitHub? 				[Erste Schritte in GIT - Nur Entwickler | Getting started with GIT - Developer Only](https://github.com/simonschaluppe/peexcel/wiki/1.-Erste-Schritte-in-GIT---Nur-Entwickler-%7C-Getting-started-with-GIT---Developer-only)
 * Arbeiten als Benutzer: 			[Benutzerhandbuch | user Handling](https://github.com/simonschaluppe/peexcel/wiki/2.-Benutzerhandbuch-%7C-user-Handling)
 * Arbeiten als Entwickler: 			[Entwickler Handbuch | Developer Handling](https://github.com/simonschaluppe/peexcel/wiki/3.-Entwickler-Handbuch-%7C-Developer-Handling)
 * Probleme die Sie nicht alleine Lösen können?	[Issue Erstellen | Open an Issue](https://github.com/simonschaluppe/peexcel/wiki/4.-Issue-Erstellen-%7C-Open-an-Issue)
@@ -76,7 +76,7 @@ So the main pain points here are:
 
 ## Working in PEExcel
 
-* new to GitHub? 				[Erste Schritte in GIT | Getting started with GIT](https://github.com/simonschaluppe/peexcel/wiki/1.-Erste-Schritte-in-GIT-%7C-Getting-started-with-GIT)
+* Developer and new to GitHub? 				[Erste Schritte in GIT - Nur Entwickler | Getting started with GIT - Developer Only](https://github.com/simonschaluppe/peexcel/wiki/1.-Erste-Schritte-in-GIT---Nur-Entwickler-%7C-Getting-started-with-GIT---Developer-only)
 * Working as user: 			[Benutzerhandbuch | user Handling](https://github.com/simonschaluppe/peexcel/wiki/2.-Benutzerhandbuch-%7C-user-Handling)
 * Working as developer: 			[Entwickler Handbuch | Developer Handling](https://github.com/simonschaluppe/peexcel/wiki/3.-Entwickler-Handbuch-%7C-Developer-Handling)
 * Problems you can not solve on your own?	[Issue Erstellen | Open an Issue](https://github.com/simonschaluppe/peexcel/wiki/4.-Issue-Erstellen-%7C-Open-an-Issue)
