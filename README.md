@@ -1,7 +1,39 @@
-# Plus-Energie-Quartier-Excel ("PE-Excel")
-## Introduction
+# Deutsch
+### Startpunkt: Plusenergie-Quartier Simulation mit Excel
+Das PE-Excel wurde von der Forschungsgruppe [Nachhaltige Gebäude und Städte](https://res.technikum-wien.at/sbc/) an der Fachhochschule Technikum Wien entwickelt. Das ursprüngliche Ziel war es, eine effiziente und dennoch flexible Plattform für die Simulation von PEQs mit einer stündlichen Energiebilanzauflösung zu schaffen. Es kombiniert drei verschiedene Modelle und Simulationen zu einem umfassenden Bewertungsrahmen für die Leistung von PEQs. Die drei Hauptteile, die in diesem Rahmenwerk integriert sind, sind
+* Stündliche PV-Simulationsergebnisse 
+* LCA-Ergebnisse in bis zu 5 Varianten (manuell importiert vom eco2soft LCA-Rechner)  
+* Stündliche Energiebilanz einschließlich ermittelter DSM-Strategien für den PV-Überschuss vor Ort und das Offsite-Wind-Peak-Shaving, die in TABS, DHW, Batterien und Ecars verwendet werden
+
+![grafik](https://user-images.githubusercontent.com/80957185/112003855-9088d400-8b21-11eb-91b0-c3f231016cc3.png)
+
+## Was sind die Vorteile?
+Ausgehend von diesem wenig bekannten "Plusenergieexcel". Hat es einige große Vorzüge neben einigen sehr schmerzhaften Fehlern:
+**Das Gute:**
+* Dynamisch: Es hat eine stündliche Auflösung: Energiebilanz, Lastprofile, PV-Erzeugung, alles war für alle 8760 h des Jahres bekannt war konnte mit einem vernünftigen Algorithmus verwendet werden, der versuchte, den Eigenverbrauch, CO2-Emissionen usw. zu optimieren
+* Voreinstellungen: Es sind bereits alle Voreinstellungen vorhanden: Steckdosen verschiedener Nutzungen (Wohnen, Büro, etc.), Wirkungsgrade der Umwandlungssysteme
+* Einfach zu bedienen: Es ist ein fahrfertiges Auto: Alle Komponenten sind bereits ineinander verzahnt, man muss nur noch ein paar Grundflächen angeben und erhält sofort Ergebnisse
+* Nachvollziehbar: Es ist ... relativ ... klar, wie die Simulation abläuft: jeder Zeitschritt eine Zeile, jede Berechnung eine Spalte
+* Es ist ein One-Stop-Shop: Man hat alle notwendigen Eingabedaten, Simulationslogik, Ergebnisse und Visualisierungen übersichtlich in einer Datei
+* leicht anpassbar und erweiterbar: Einfach ein paar Formeln draufklatschen
+	
+**Das Schlechte:**
+* Keine Versionskontrolle: Jede Simulationseingabe und -ausgabe war eine einzige Datei. Neue Variante bedeutet -> neue Datei. Sobald Sie getrennte Dateien haben, haben Sie keine Möglichkeit zu wissen, welche Eingaben gleich sind und welche sich unterscheiden (außer durch Dateinamenprosa und Speicher, die beide nicht sehr gut kommunizierbar sind). An diesem Punkt müssen Sie darauf vertrauen, dass Sie (und Ihre Mitarbeiter) ab diesem Punkt keine Fehler mehr machen, oder Sie riskieren, eine Menge Arbeit zu verlieren
+* Keine Eingabeprüfung: Es gibt im Grunde keine Möglichkeit, die Eingaben auf Fehler zu prüfen oder zu validieren, außer dass man jede einzelne Zelle überprüft, "nachschaut" und "plausibilisiert"
+	
+**Das Hässliche:**
+* Unhandlich: Die Datei ist über 35 MB groß. Das ist nicht verschickbar. Das wird sehr schnell langweilig.
+* Unstabil: Die Berechnung dauert sehr lange und ist instabil. Viele Laptops kommen mit den Anforderungen, all diese Daten im Speicher zu halten, nicht zurecht und stürzen ab... und lassen den Benutzer oft auch nicht richtig speichern. Dann viel Spaß beim Wiederherstellen Ihrer Arbeit und beim Überprüfen aller Änderungen, die Sie zuvor vorgenommen haben. Welche haben es geschafft und welche nicht. Können Sie sich an alle erinnern? 
+* Nicht aktualisierbar: Das Ändern der Berechnung bedeutet das Ändern der gesamten Datei. Da Eingaben nicht ohne weiteres zwischen Dateien übertragbar sind, bedeutet dies, dass Sie nicht gegen andere Projekte prüfen können. Ich wiederhole: Sie können ältere Projekteingabedaten nicht mit neueren Dateien verwenden.
+	
+Die Hauptschmerzpunkte sind hier also:
+1. Unhandliche Dateigröße, Abstürze.
+2. Keine flexible Möglichkeit, Berechnung / Simulation / Algorithmus zu ändern
+3. Keine einfache Möglichkeit zur Berechnung und Speicherung von Variationen
+4. Aktualisierbarkeit
+
+# English
 ### Starting Point: Positive Energy District Simulation with Excel
-**History**
 The PE-Excel has been developed by the research group [sustainable buildings and cities](https://res.technikum-wien.at/sbc/) at the University of Applied Science Vienna. The initial goal was to create a efficient yet flexible platform for simulating PEDs with an hourly energy balance resolution. It combines three different models and simulations into a comprehensive evaluation framework for the performance of PEDs. The three main parts integrated in this framework are
 * Hourly PV Simulation Results 
 * LCA results in up to 5 Variants (manually imported from eco2soft LCA calculator)  
@@ -33,72 +65,3 @@ So the main pain points here are:
 2. No flexible way to change calculation / simulation / algorithm
 3. No easy way to calculate and store variations
 4. Updateability
-
-## How to Use it?
-- No installation is necessary as the program is running in Microsoft Excel and can be opened as .xls file
-- Within -RED- sheets a User-Input is Required - A detailed Documentation of the Inputs is found in the corresponding Sheets
-- Within -ORANGE- sheets Inputs of other Documents or load-profiles such as the PHPP-Document can be loaded
-- Within -GREEN- seets no Inputs are necessary. Only Results can be read from there. If wanted also different variations of the Calculation can be changed
-
-## What should be improved?
- ### Solve Unwieldy filesize, crashes.
-We have 3 areas of improvement here
-1. Reduce File Size to improve Handling
-2. Reduce Calculation and Update Time
-3. Add an English Version of the Program
-
-**Reduce File Size to improve Handling**
-Target range: <= 10 MB would be ideal  because emailable, but probably unfeasible
-Initial size: 40-50 MB
-Current Size 11/2020 (.xlsb): 25 MB
-
-To reduce file size it is first neccessary to identify their main causes:
-* Pictures, especially uncompressed: This is a tradeoff between the documentation and visualization pictures typcally provide. If compressed and used sparinggly, this shouldnt be an issue. 
-* widespread formatting over entire columns and rows: Storing formatting requires much more space than just the formulas and values. use formatting primaarily to distinguish between different cell types: Different sorts of User Input, Calculations and Logic, Links, Default Values, etc. Some formatting information such as colors can be used to find cells of certain type for targetted testing, saving and loading. In any way, make sure to restrict formatting to used cells only. 
-* long chains of formula logic: For Excel to carry out all calculations in a workbook it first needs to resolve all internal (and external) references between cells. To this end Excel creates a so called "calculation chain". This is basically a directed graph whose nodes are batches of independent thus parallel calculations connected by arrows of dependency. For large sets of calculations, this dependency chain can become so long that it amounts for a significant part of the file size: In the case of the PE-Excel the calculation chain initially amounted to upwards of 50% of space. Unfortunately this can only be addressed indirectly: Reduce lookups and references in general, most importantly between worksheets.   
-
-### Enable Variations
-Problem: No easy way to calculate and store variations
-This is important because it 
-* facilitates semi-automatic and automatic testing: Test-cases can be defined as fixed Variations of a base Variant
-* reduces the number of Excel files required to store relevant input sets
-
-### Flexibility to change calculation / simulation / algorithm
-This is an important and rather complex topic.
-First, there is a distinction between technical programmability and content of the simulation.
-
-### Enable Updateability
-There are now git systems that can log, diff and merge Excel files. I tried xltrails and it didnt work for the Workbooks of our size. 
-In the current PE-Excel, you can save and load the content and address of all cells of a specifiable formatting set, namely their background colors. This has some obvious flaws but if the structure and positition of the inputs stays relatively constant and is backed with default values, this can be used to transfer project specific information between PE-Excels of different version.
-
-# pyped  
-## Concept for transitioning from Excel to Python
-
-pyped stands for **python positive energy district** and is designed for the
-following tasks:
-1. Wrapping (quasi-)dynamic peb simulation methods
-    * PE-Excel
-        * Map xls variables to python datastructs
-    * Casaclima excel?
-    * Classes?
-* Perform time series calculation
-* flexible /optional sub-energy models. Sub-model agnostic?
-* comprehensive model representation
-    (eco, lca, comfort)
-3. (Visual representation)
-    * Plots
-4. User interfaces
-    * simtower
-        * Modelling / Learning tool
-
-Möglicherweise eigene Projekte, vielleicht hier als feature dabei:
-* Meta-Wrapper? bzw API
-    * city gml > all data (energy ADE)
-    * cityJSON > same but less and less maintained. more lightweight and native
-    * BIM / IFC > gibts sicher schon einiges, um die Therm. Hülle und HLKS zu bekommen
-    * Open IFC vomBednar? Integral? wieh hat das geheißen?
-
-* Git-style version control system for Variant Exploration and documentation
-
-Ziele Was ist das Ziel von pyped
-Zu 1. Mai
