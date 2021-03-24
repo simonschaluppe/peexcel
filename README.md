@@ -32,6 +32,14 @@ Die Hauptschmerzpunkte sind hier also:
 3. Keine einfache Möglichkeit zur Berechnung und Speicherung von Variationen
 4. Aktualisierbarkeit
 
+## Arbeiten im PEExcel
+
+* neu bei GitHub? 				[Erste Schritte in GIT | Getting started with GIT](https://github.com/simonschaluppe/peexcel/wiki/1.-Erste-Schritte-in-GIT-%7C-Getting-started-with-GIT)
+* Arbeiten als Benutzer: 			[Benutzerhandbuch | user Handling](https://github.com/simonschaluppe/peexcel/wiki/2.-Benutzerhandbuch-%7C-user-Handling)
+* Arbeiten als Entwickler: 			[Entwickler Handbuch | Developer Handling](https://github.com/simonschaluppe/peexcel/wiki/3.-Entwickler-Handbuch-%7C-Developer-Handling)
+* Probleme die Sie nicht alleine Lösen können?	[Issue Erstellen | Open an Issue](https://github.com/simonschaluppe/peexcel/wiki/4.-Issue-Erstellen-%7C-Open-an-Issue)
+* Noch folgende Projekte:			[pyPED](https://github.com/simonschaluppe/peexcel/wiki/5.-pyPED)
+
 # English
 ### Starting Point: Positive Energy District Simulation with Excel
 The PE-Excel has been developed by the research group [sustainable buildings and cities](https://res.technikum-wien.at/sbc/) at the University of Applied Science Vienna. The initial goal was to create a efficient yet flexible platform for simulating PEDs with an hourly energy balance resolution. It combines three different models and simulations into a comprehensive evaluation framework for the performance of PEDs. The three main parts integrated in this framework are
@@ -65,3 +73,11 @@ So the main pain points here are:
 2. No flexible way to change calculation / simulation / algorithm
 3. No easy way to calculate and store variations
 4. Updateability
+
+## Working in PEExcel
+
+* new to GitHub? 				[Erste Schritte in GIT | Getting started with GIT](https://github.com/simonschaluppe/peexcel/wiki/1.-Erste-Schritte-in-GIT-%7C-Getting-started-with-GIT)
+* Working as user: 			[Benutzerhandbuch | user Handling](https://github.com/simonschaluppe/peexcel/wiki/2.-Benutzerhandbuch-%7C-user-Handling)
+* Working as developer: 			[Entwickler Handbuch | Developer Handling](https://github.com/simonschaluppe/peexcel/wiki/3.-Entwickler-Handbuch-%7C-Developer-Handling)
+* Problems you can not solve on your own?	[Issue Erstellen | Open an Issue](https://github.com/simonschaluppe/peexcel/wiki/4.-Issue-Erstellen-%7C-Open-an-Issue)
+* Projects to be continued:			[pyPED](https://github.com/simonschaluppe/peexcel/wiki/5.-pyPED)
