@@ -9,29 +9,21 @@ Das PE-Excel wurde von der Forschungsgruppe [Nachhaltige Gebäude und Städte](h
 
 ## Was sind die Vorteile?
 Ausgehend von diesem wenig bekannten "Plusenergieexcel". Hat es einige große Vorzüge neben einigen sehr schmerzhaften Fehlern:
+
 **Das Gute:**
 * Dynamisch: Es hat eine stündliche Auflösung: Energiebilanz, Lastprofile, PV-Erzeugung, alles war für alle 8760 h des Jahres bekannt war konnte mit einem vernünftigen Algorithmus verwendet werden, der versuchte, den Eigenverbrauch, CO2-Emissionen usw. zu optimieren
-* Voreinstellungen: Es sind bereits alle Voreinstellungen vorhanden: Steckdosen verschiedener Nutzungen (Wohnen, Büro, etc.), Wirkungsgrade der Umwandlungssysteme
+* Defaults: Es sind bereits alle Defaults vorhanden: Lastprofile verschiedener Nutzungen (Wohnen, Büro, etc.), Wirkungsgrade der Umwandlungssysteme
 * Einfach zu bedienen: Es ist ein fahrfertiges Auto: Alle Komponenten sind bereits ineinander verzahnt, man muss nur noch ein paar Grundflächen angeben und erhält sofort Ergebnisse
 * Nachvollziehbar: Es ist ... relativ ... klar, wie die Simulation abläuft: jeder Zeitschritt eine Zeile, jede Berechnung eine Spalte
 * Es ist ein One-Stop-Shop: Man hat alle notwendigen Eingabedaten, Simulationslogik, Ergebnisse und Visualisierungen übersichtlich in einer Datei
 * leicht anpassbar und erweiterbar: Einfach ein paar Formeln draufklatschen
 	
-**Das Schlechte:**
+**Schwächen und Probleme:**
 * Keine Versionskontrolle: Jede Simulationseingabe und -ausgabe war eine einzige Datei. Neue Variante bedeutet -> neue Datei. Sobald Sie getrennte Dateien haben, haben Sie keine Möglichkeit zu wissen, welche Eingaben gleich sind und welche sich unterscheiden (außer durch Dateinamenprosa und Speicher, die beide nicht sehr gut kommunizierbar sind). An diesem Punkt müssen Sie darauf vertrauen, dass Sie (und Ihre Mitarbeiter) ab diesem Punkt keine Fehler mehr machen, oder Sie riskieren, eine Menge Arbeit zu verlieren
 * Keine Eingabeprüfung: Es gibt im Grunde keine Möglichkeit, die Eingaben auf Fehler zu prüfen oder zu validieren, außer dass man jede einzelne Zelle überprüft, "nachschaut" und "plausibilisiert"
+* Unhandlich: Die Datei ist über 30 MB groß. Das ist nicht verschickbar.
+* Unstabil: Die Berechnung dauert sehr lange und ist instabil. Viele Laptops kommen mit den Anforderungen, all diese Daten im Speicher zu halten, nicht zurecht und stürzen ab... und lassen den Benutzer oft auch nicht richtig speichern. D
 	
-**Das Hässliche:**
-* Unhandlich: Die Datei ist über 35 MB groß. Das ist nicht verschickbar. Das wird sehr schnell langweilig.
-* Unstabil: Die Berechnung dauert sehr lange und ist instabil. Viele Laptops kommen mit den Anforderungen, all diese Daten im Speicher zu halten, nicht zurecht und stürzen ab... und lassen den Benutzer oft auch nicht richtig speichern. Dann viel Spaß beim Wiederherstellen Ihrer Arbeit und beim Überprüfen aller Änderungen, die Sie zuvor vorgenommen haben. Welche haben es geschafft und welche nicht. Können Sie sich an alle erinnern? 
-* Nicht aktualisierbar: Das Ändern der Berechnung bedeutet das Ändern der gesamten Datei. Da Eingaben nicht ohne weiteres zwischen Dateien übertragbar sind, bedeutet dies, dass Sie nicht gegen andere Projekte prüfen können. Ich wiederhole: Sie können ältere Projekteingabedaten nicht mit neueren Dateien verwenden.
-	
-Die Hauptschmerzpunkte sind hier also:
-1. Unhandliche Dateigröße, Abstürze.
-2. Keine flexible Möglichkeit, Berechnung / Simulation / Algorithmus zu ändern
-3. Keine einfache Möglichkeit zur Berechnung und Speicherung von Variationen
-4. Aktualisierbarkeit
-
 ## Arbeiten im PEExcel
 
 * Entwickler und neu bei GitHub? 				[Erste Schritte in GIT - Nur Entwickler | Getting started with GIT - Developer Only](https://github.com/simonschaluppe/peexcel/wiki/2.-Erste-Schritte-in-GIT---Nur-Entwickler-%7C-Getting-started-with-GIT---Developer-only)
@@ -42,7 +34,7 @@ Die Hauptschmerzpunkte sind hier also:
 
 # English
 ### Starting Point: Positive Energy District Simulation with Excel
-The PE-Excel has been developed by the research group [sustainable buildings and cities](https://res.technikum-wien.at/sbc/) at the [University of Applied Science Technikum Vienna](https://www.technikum-wien.at/). The initial goal was to create a efficient yet flexible platform for simulating PEDs with an hourly energy balance resolution. It combines three different models and simulations into a comprehensive evaluation framework for the performance of PEDs. The three main parts integrated in this framework are
+The PE-Excel has been developed by the research group [sustainable buildings and cities](https://res.technikum-wien.at/sbc/) at the [University of Applied Science Technikum Vienna](https://www.technikum-wien.at/en/). The initial goal was to create a efficient yet flexible platform for simulating PEDs with an hourly energy balance resolution. It combines three different models and simulations into a comprehensive evaluation framework for the performance of PEDs. The three main parts integrated in this framework are
 * Hourly PV Simulation Results 
 * LCA results in up to 5 Variants (manually imported from eco2soft LCA calculator)  
 * Hourly energy balance including determined DSM strategies for onsite PV excess and offsite Wind Peak Shaving used in TABS, DHW, Batteries and Ecars
