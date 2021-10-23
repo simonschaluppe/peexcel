@@ -17,18 +17,14 @@ def testbook():
 def test_migrate():
     assert m.migrate()
 
-def test_parse_peexcel(testbook):
-    pee = m.parse_peexcel(testbook)
-    assert "direct_inputs" in pee.keys()
-    assert "results" in pee.keys()
-    assert pee["results"]["Ergebnis_1"].value == 3
-    # testing formulas is tricky, as xlwings saves the english translation
-    assert pee["results"]["Ergebnis_1"].formula != "=WURZEL(9)"
-    assert pee["results"]["Ergebnis_1"].formula == "=SQRT(9)"
-
-
 def test_single_names(testbook):
     result = m.single_names(testbook, starts_with="Userinput_")
     assert result["Userinput_test1"] is not None
     assert result["Userinput_test1"].value == "testinput"
     assert result["Userinput_test2"].formula == "=A1"
+
+    result = m.single_names(testbook, starts_with="Ergebnis_")
+    assert result["Ergebnis_1"].value == 3
+    # testing formulas is tricky, as xlwings saves the english translation
+    assert result["Ergebnis_1"].formula != "=WURZEL(9)"
+    assert result["Ergebnis_1"].formula == "=SQRT(9)"

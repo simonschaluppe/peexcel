@@ -1,9 +1,10 @@
 # script to migrate a PEExcel to another Version / File
 import logging
-from dataclasses import dataclass
+import os
+from dataclasses import dataclass, field
 from datetime import datetime
 from pathlib import Path
-from typing import Dict
+from typing import Dict, List
 
 import xlwings as xw
 
@@ -12,7 +13,8 @@ logging.basicConfig(level=logging.WARNING)
 # Migrate PEExcel
 
 ## Old book
-
+TEST_PATH = Path("test_PlusenergieExcel_Performance.xlsx")
+TEST_SAVE_DIR = Path("test/")
 ### Check that it is a valid book
 
 ### Parse the excel
@@ -35,18 +37,52 @@ logging.basicConfig(level=logging.WARNING)
 ### Write to new Excel
 
 @dataclass
-class Metadata:
-    file: str
+class PEExcel:
+    file: Path
     extraction_date: datetime = datetime.now()
+    version: str = "0.0"
+    _inputs: List = field(default_factory=list)
+    _results: List = field(default_factory=list)
+
+    @property
+    def results(self):
+        return self._results
+
+    @property
+    def inputs(self):
+        return self._inputs
+
+
+    def info(self):
+        return dict(
+            file=self.file,
+            date=self.extraction_date,
+            version=self.version
+        )
 
 
 @dataclass
 class Cell:
     value: 'typing.Any'
-    formula: str
-    sheet: str
-    address: str
     name: str = ""
+    formula: str = ""
+    sheet: str = ""
+    address: str = ""
+
+    def csv_line(self, delimiter=";"):
+        str_vals = [str(v) for v in self.__dict__.values()]
+        return delimiter.join(str_vals)
+
+    @classmethod
+    def csv_header(cls, delimiter=";"):
+        return "value;name;formula;sheet;address"
+
+@dataclass
+class Direktinput(Cell):
+    pass
+@dataclass
+class Ergebnis(Cell):
+    pass
 
 
 def single_names(book: xw.Book, starts_with:str="") -> Dict[str, Cell]:
@@ -78,20 +114,65 @@ def single_names(book: xw.Book, starts_with:str="") -> Dict[str, Cell]:
     return di
 
 
-def parse_peexcel(book: xw.Book):
-    di = single_names(book, starts_with="Userinput_")
-    results = single_names(book, starts_with="Ergebnis_")
-    return dict(
-        direct_inputs=di,
-        results=results
+
+def write_csv(path:Path, list_of_cells:List[Cell], meta_data):
+    with open(path, mode="w") as f:
+        m = [f"# {k}; {v}\n" for k, v in meta_data.items()]
+        f.writelines(m)
+
+        f.write(Cell.csv_header())
+        f.write("\n")
+        for v in list_of_cells:
+            f.write(v.csv_line())
+            f.write("\n")
+
+
+
+
+def save_excel_data_as_csvs(directory:Path, peexcel:PEExcel, overwrite=False):
+    if directory is None:
+        directory = TEST_SAVE_DIR
+        overwrite = True
+    if directory.is_dir() and not overwrite:
+        raise RuntimeError(f"{directory=} ALREADY EXISTS!")
+
+    if not directory.is_dir():
+        os.makedirs(directory)
+
+    write_csv(directory / "test_di.csv",
+              list_of_cells=peexcel.inputs,
+              meta_data=peexcel.info()
+              )
+    write_csv(directory / "test_results.csv",
+              list_of_cells=peexcel.results,
+              meta_data=peexcel.info()
+              )
+
+
+def migrate(source_path:Path,
+            target_path:Path=None,
+            save_csv=True
+            ):
+    if not target_path and not save_csv:
+        raise UserWarning("Either target excel path or save_csv=True required")
+
+    book = xw.Book(source_path)
+    peexcel = PEExcel(
+        file=source_path,
+        _inputs=single_names(book, starts_with="Userinput_").values(),
+        _results=single_names(book, starts_with="Ergebnis_").values(),
     )
 
+    if save_csv:
+        save_excel_data_as_csvs(
+            directory=TEST_SAVE_DIR,
+            peexcel=peexcel,
+            overwrite=True
+        )
+
+    return 0
 
 
-
-def migrate():
-    path = Path("test_PlusenergieExcel_Performance.xlsx")
-    # book = xw.Book(path)
 
 if __name__ == "__main__":
-    pass
+    migrate(TEST_PATH)
