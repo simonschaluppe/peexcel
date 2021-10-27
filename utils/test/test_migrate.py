@@ -5,19 +5,32 @@ from unittest import TestCase
 import pytest
 import xlwings
 
-from . import migrate as m
-from . import excel
-
-def test_migrate():
-    assert m.migrate()
+from .. import migrate as m
+from .. import excel
 
 
-@pytest.fixture(scope="module")
-def testbook():
-    path = Path("test_PlusenergieExcel_Performance.xlsx")
-    book = xlwings.Book(path)
+
+
+
+@pytest.fixture
+def testbook_path():
+    return Path("test_PlusenergieExcel_Performance.xlsx")
+
+@pytest.fixture
+def testbook(testbook_path):
+    logging.debug(testbook_path)
+    book = xlwings.Book(testbook_path)
     # assert type(book) is xlwings.Book
     return book
+
+
+def test_migrate(testbook_path):
+    assert 0 == m.migrate(source_path=testbook_path,
+                     target_path=testbook_path,
+                     save_csv=False
+                     )
+
+
 
 def test_single_names(testbook):
     result = excel.single_names(testbook, starts_with="Userinput_")
