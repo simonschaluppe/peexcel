@@ -75,6 +75,7 @@ class PEExcel:
 
     @classmethod
     def parse(cls, path):
+        logging.warn(path)
         book = xw.Book(path)
         return cls(file=path,
                    _inputs=single_names(book, starts_with="Userinput_").values(),
@@ -176,10 +177,62 @@ def single_names(book: xw.Book, starts_with: str = "") -> Dict[str, Cell]:
     return di
 
 def variations(book: xw.Book):
-    # get header info
-    header_list = book.sheets["Varianten"].range("A2:OK2").value
+    """returns the named range 'Varianten___' and the same length headers"""
+    vars1 = book.names["Varianten____"].refers_to_range
+    cols = len(vars1.columns)
+    headers = book.sheets["Varianten"][1,:cols]
 
-    vars1 = book.names["Varianten____"].value
+    if len(headers.columns) != len(vars1.columns):
+        raise KeyError(f"Mismatching number of header and variation body columns")
+
+    return headers, vars1
+
+
+def append_variations_to_aggregation_sheet(
+        peexcel_path: Path,
+        agg_book_path: Path,
+        agg_sheet_name:str,
+        close_after:bool=True,
+):
+    compare_book = xw.Book(agg_book_path)
+
+    aggregation_sheet_name = agg_sheet_name
+    sheetnames = [s.name for s in compare_book.sheets]
+    if aggregation_sheet_name not in sheetnames:
+        raise IndexError
+
+    aggregation_sheet = compare_book.sheets[aggregation_sheet_name]
+    # %%
+
+    peexcel = xw.Book(peexcel_path)
+    headers, databody = variations(peexcel)
+
+    #TODO: extract method append_to_bottom(aggregation_sheet, databody)
+    firstrow = aggregation_sheet["A3"].end("down").row
+    lastrow = firstrow + len(databody.rows)
+    firstcol, lastcol = 0, len(databody.columns)
+
+    print(firstrow, firstcol, "to", lastrow, lastcol)
+
+    # %%
+    insert_range = aggregation_sheet[firstrow:lastrow, firstcol:lastcol]
+    insert_range.value = databody.value
+
+    # %%
+    lastrow_new = aggregation_sheet["A3"].end("down").row
+    insert_range = aggregation_sheet[firstrow:lastrow_new, firstcol:lastcol]
+    insert_range.columns[5].value = str(peexcel_path)
+    insert_range.columns[6].value = peexcel.name.split("_")[1]
+    sht = compare_book.sheets[aggregation_sheet_name]
+
+    if close_after:
+        peexcel.close()
+
+
+def append_to_bottom(aggregation_sheet: xw.Sheet, databody: xw.Range):
+    pass
+
+
 
 if __name__ == "__main__":
     names = nameslist(xw.Book("test_PlusenergieExcel_Performance.xlsx"))
