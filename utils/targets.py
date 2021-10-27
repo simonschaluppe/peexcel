@@ -90,4 +90,8 @@ class ZQSynergy(Zielwert):
                       scale=1/NGF_to_BGF,
                       )
 
+    def context_factor_density_gfa(self, *args, **kwargs):
+        return -self.alpha_zielwert_bgf(*args, **kwargs)
 
+    def context_factor_density_nfa(self, *args, **kwargs):
+        return -self.alpha_zielwert_ngf(*args, **kwargs)

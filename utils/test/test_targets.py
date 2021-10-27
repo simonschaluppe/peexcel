@@ -49,3 +49,16 @@ def test_ZQSynergy_GFZ_as_nparray():
                                    -50.62752137, -53.10856187, -54.98354668, -56.45037153, -57.62923077])
     for i, j in zip(ngf065_results, zqs_results_ngf065):
         assert i == pytest.approx(j, 0.001)
+
+def test_contextfactors():
+    zqsynergy = targets.ZQSynergy()
+    assert zqsynergy.alpha_zielwert_bgf(1) == -zqsynergy.context_factor_density_gfa(1)
+    assert zqsynergy.alpha_zielwert_ngf(1) == -zqsynergy.context_factor_density_nfa(1)
+
+    GFZ = np.linspace(0.0, 8, 11)
+    bgf_results = zqsynergy.context_factor_density_gfa(GFZ=GFZ)
+    zqs_results = np.array([100., 15.89678947, -11.71271429, -21.99860784,
+                            -27.37183582, -30.67345783, -32.90788889, -34.52056522,
+                            -35.73930534, -36.6927415, -37.459])
+    for i, j in zip(bgf_results, zqs_results):
+        assert i == pytest.approx(-j, 0.001)
