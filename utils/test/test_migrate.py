@@ -14,12 +14,13 @@ from .. import excel
 
 @pytest.fixture
 def testbook_path():
-    return Path("test_PlusenergieExcel_Performance.xlsx")
+   return Path("test_PlusenergieExcel_Performance.xlsx").absolute()
 
 @pytest.fixture
 def testbook(testbook_path):
     logging.debug(testbook_path)
-    book = xlwings.Book(testbook_path)
+    # TODO: for some reason, the testbook needs to be already open
+    book = xlwings.Book(testbook_path, update_links=False)
     # assert type(book) is xlwings.Book
     return book
 

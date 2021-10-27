@@ -9,11 +9,13 @@ from typing import Dict, List
 
 import xlwings as xw
 
+from utils import excel
+
 logging.basicConfig(level=logging.ERROR)
 # Migrate PEExcel
 
 ## Old book
-TEST_PATH = Path("test_PlusenergieExcel_Performance.xlsx")
+TEST_PATH = Path("test/test_PlusenergieExcel_Performance.xlsx")
 TEST_SAVE_DIR = Path("test/")
 
 from utils.excel import PEExcel
@@ -38,7 +40,6 @@ from utils.csv_handler import save_excel_data_to_dir
 ## New book
 
 ### Write to new Excel
-
 
 
 

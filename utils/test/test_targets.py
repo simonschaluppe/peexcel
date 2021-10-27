@@ -61,4 +61,5 @@ def test_contextfactors():
                             -27.37183582, -30.67345783, -32.90788889, -34.52056522,
                             -35.73930534, -36.6927415, -37.459])
     for i, j in zip(bgf_results, zqs_results):
+        logging.debug(f"asserting {i} == {j} +- 0.1%)")
         assert i == pytest.approx(-j, 0.001)
