@@ -8,7 +8,7 @@ from typing import Dict, List
 
 import xlwings as xw
 
-logging.basicConfig(level=logging.ERROR)
+logging.basicConfig(level=logging.INFO)
 # Migrate PEExcel
 
 ## Old book
@@ -177,7 +177,7 @@ def single_names(book: xw.Book, starts_with: str = "") -> Dict[str, Cell]:
     return di
 
 def variations(book: xw.Book):
-    """returns the named range 'Varianten___' and the same length headers"""
+    """returns the named range 'Varianten___'"""
     vars1 = book.names["Varianten____"].refers_to_range
     cols = len(vars1.columns)
     headers = book.sheets["Varianten"][1,:cols]
@@ -191,8 +191,8 @@ def variations(book: xw.Book):
 def append_variations_to_aggregation_sheet(
         peexcel_path: Path,
         agg_book_path: Path,
-        agg_sheet_name:str,
-        close_after:bool=True,
+        agg_sheet_name: str,
+        close_peexcel: bool=True,
 ):
     compare_book = xw.Book(agg_book_path)
 
@@ -202,32 +202,39 @@ def append_variations_to_aggregation_sheet(
         raise IndexError
 
     aggregation_sheet = compare_book.sheets[aggregation_sheet_name]
-    # %%
 
+    logging.info(f"Opening {peexcel_path}")
     peexcel = xw.Book(peexcel_path)
     headers, databody = variations(peexcel)
 
     #TODO: extract method append_to_bottom(aggregation_sheet, databody)
-    firstrow = aggregation_sheet["A3"].end("down").row
+    firstrow = aggregation_sheet["A4"].end("down").row
     lastrow = firstrow + len(databody.rows)
     firstcol, lastcol = 0, len(databody.columns)
 
-    print(firstrow, firstcol, "to", lastrow, lastcol)
+    logging.info(f"inserting {lastrow-firstrow} variants at sheet {agg_sheet_name} from row{firstrow}-col{firstcol} to row{lastrow}-{lastcol}")
 
-    # %%
     insert_range = aggregation_sheet[firstrow:lastrow, firstcol:lastcol]
     insert_range.value = databody.value
 
-    # %%
-    lastrow_new = aggregation_sheet["A3"].end("down").row
+    lastrow_new = aggregation_sheet["A4"].end("down").row
     insert_range = aggregation_sheet[firstrow:lastrow_new, firstcol:lastcol]
     insert_range.columns[5].value = str(peexcel_path)
     insert_range.columns[6].value = peexcel.name.split("_")[1]
     sht = compare_book.sheets[aggregation_sheet_name]
 
-    if close_after:
+    if close_peexcel:
+        logging.info(f"Closing {peexcel.name}")
         peexcel.close()
 
+def end(range:xw.Range):
+    """
+    end() works exactly like ctrl_arrow movement.
+    will stop at any empty cell encountered
+    """
+    lastrow = range.end("down")
+    lastcol = lastrow.end("right")
+    return (lastrow.row, lastcol.column)
 
 def append_to_bottom(aggregation_sheet: xw.Sheet, databody: xw.Range):
     pass
@@ -235,4 +242,28 @@ def append_to_bottom(aggregation_sheet: xw.Sheet, databody: xw.Range):
 
 
 if __name__ == "__main__":
-    names = nameslist(xw.Book("test_PlusenergieExcel_Performance.xlsx"))
+    # names = nameslist(xw.Book("test_PlusenergieExcel_Performance.xlsx"))
+    excel_paths = [
+        # r"C:\Users\Simon Schneider\Nextcloud\EE\1_Forschung\2_Laufend\ZQ Austria\Quartiersdaten\PlusenergieExcel_Aichinger_211021.xlsb",
+        # r"C:\Users\Simon Schneider\Nextcloud\EE\1_Forschung\2_Laufend\ZQ Austria\Quartiersdaten\PlusenergieExcel_AmBichl_211022.xlsb",
+        # r"C:\Users\Simon Schneider\Nextcloud\EE\1_Forschung\2_Laufend\ZQ Austria\Quartiersdaten\PlusenergieExcel_Glan_211022.xlsb",
+        # r"C:\Users\Simon Schneider\Nextcloud\EE\1_Forschung\2_Laufend\ZQ Austria\Quartiersdaten\PlusenergieExcel_Gneis_211022.xlsb",
+        # r"C:\Users\Simon Schneider\Nextcloud\EE\1_Forschung\2_Laufend\ZQ Austria\Quartiersdaten\PlusenergieExcel_Graz_211022.xlsb",
+        # r"C:\Users\Simon Schneider\Nextcloud\EE\1_Forschung\2_Laufend\ZQ Austria\Quartiersdaten\PlusenergieExcel_Pilzgasse_211022.xlsb",
+        r"C:\Users\Simon Schneider\Nextcloud\EE\1_Forschung\2_Laufend\ZQ Austria\Quartiersdaten\PlusenergieExcel_Pilzgasse_211022_ms.xlsb",
+    ]
+
+    paths = [Path(ep) for ep in excel_paths]
+
+    aggregation_excel_path = Path(
+        r"C:\Users\Simon Schneider\Nextcloud\EE\1_Forschung\2_Laufend\ZQ Austria\Quartiersdaten\Quartiersvergleich211027.xlsm")
+    aggregation_sheet = "PEExcel Import"
+
+    for path in paths:
+        append_variations_to_aggregation_sheet(
+            peexcel_path=path,
+            agg_book_path=aggregation_excel_path,
+            agg_sheet_name=aggregation_sheet,
+            close_peexcel=False
+        )
+
