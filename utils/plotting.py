@@ -6,10 +6,10 @@ import numpy as np
 from utils.targets import ZQSynergy
 
 
-def target_of_gfz(ax, df, ylims=(-75,150), xlims=(0,8), no_legend=False):
+def target_of_gfz(ax, df, ylims=(-75,150), xlims=(0,8), no_legend=False, **kwargs):
     if no_legend: # names with leading underscore dont show
         df.columns = ["_" + col for col in df.columns]
-    df.plot(ax=ax, linestyle="solid", linewidth=1, )
+    df.plot(ax=ax, **kwargs) #linestyle, linewidth, etc
     ax.set_ylim(*ylims); ax.set_xlim(*xlims)
     ax.set_xlabel("Geschoßflächenzahl [-]")
     ax.grid()

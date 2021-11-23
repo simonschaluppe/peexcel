@@ -19,110 +19,102 @@ def parameters(p1: tuple, p2: tuple, p3: tuple, fPE=1., scale=1.):
 
 
 
+from functools import partial
+
+
 def target(
         GFZ,
-        fPE=1.63, # OIB 2019 Jahresmittel
         A=35.2,
         dx=0.15,
         EUI=27.3,
-        cutoff=300,
+        fPE=1.63,  # OIB 2019 Jahresmittel
         scale=1.,
+        cutoff=300.,
         gfzscale=1.,
 ) -> pd.DataFrame:
     curve = (fPE * (A/(dx + GFZ*gfzscale) - EUI )) * scale
     return np.minimum(curve, cutoff) if cutoff else curve
 
-
-from functools import partial
-
 def zq_synergy_gfa(GFZ):
-    return target(
-        GFZ=GFZ,
-        fPE=1.63,
-        A=35.2,
-        dx=0.15,
-        EUI=27.3,
-        cutoff=100.,
-    )
+    return target(GFZ=GFZ, A=35.2, dx=0.15, EUI=27.3, fPE=1.63, cutoff=100.)
 
-
-
-
-class Zielwert:
-    @abstractmethod
-    def alpha_zielwert_bgf(self):
-        pass
-    @abstractmethod
-    def alpha_zielwert_ngf(self):
-        pass
-    @abstractmethod
-    def beta_zielwert_bgf(self):
-        pass
-    @abstractmethod
-    def beta_zielwert_ngf(self):
-        pass
-    @abstractmethod
-    def omega_zielwert_bgf(self):
-        pass
-    @abstractmethod
-    def omega_zielwert_ngf(self):
-        pass
 
 @dataclass
-class ZQ1(Zielwert):
-    fPE: float  = 1.63  # OIB 2019 Jahresmittel
-    A: float    = 37
-    dx: float   = 0.085
-    EUI: float  = 29.143558  # = dy - PEB/fPE
+class Zielwert:
+    A: float
+    dx: float
+    EUI: float              # = dy - PEB/fPE
+    fPE: float      = 1.63  # OIB 2019 Jahresmittel
+    NGF_to_BGF: float = 0.8
+    cutoff: float   = None
 
     def alpha_zielwert_bgf(self, GFZ):
-        return target(GFZ=GFZ,
-                      fPE=self.fPE,
-                      A=self.A,
-                      dx=self.dx,
-                      EUI=self.EUI,
-                      cutoff=None,
-                      )
+        return target(GFZ=GFZ, A=self.A, dx=self.dx, EUI=self.EUI, fPE=self.fPE, cutoff=self.cutoff)
 
-    def alpha_zielwert_ngf(self, GFZ, NGF_to_BGF=0.8):
-        return target(GFZ=GFZ,
-                      fPE=self.fPE,
-                      A=self.A,
-                      dx=self.dx,
-                      EUI=self.EUI,
-                      cutoff=None,
-                      scale=1/NGF_to_BGF,
-                      )
-
-
-class ZQSynergy(Zielwert):
-    fPE: float  = 1.63  # OIB 2019 Jahresmittel
-    A: float    = 35.2
-    dx: float   = 0.15
-    EUI: float  = 27.3  # = dy - PEB/fPE
-    cutoff: float = 100.
-
-    def alpha_zielwert_bgf(self, GFZ):
-        return target(GFZ=GFZ,
-                      fPE=self.fPE,
-                      A=self.A,
-                      dx=self.dx,
-                      EUI=self.EUI,
-                      cutoff=self.cutoff,
-                      )
-
-    def alpha_zielwert_ngf(self, GFZ, NGF_to_BGF=0.8):
-        return target(GFZ=GFZ,
-                      fPE=self.fPE,
-                      A=self.A,
-                      dx=self.dx,
-                      EUI=self.EUI,
-                      cutoff=self.cutoff,
-                      scale=1/NGF_to_BGF,
-                      )
+    def alpha_zielwert_ngf(self, GFZ):
+        return target(GFZ=GFZ, A=self.A, dx=self.dx, EUI=self.EUI, fPE=self.fPE, scale=1 / self.NGF_to_BGF,
+                      cutoff=self.cutoff)
 
     def context_factor_density_gfa(self, *args, **kwargs):
         return -self.alpha_zielwert_bgf(*args, **kwargs)
 
     def context_factor_density_nfa(self, *args, **kwargs):
         return -self.alpha_zielwert_ngf(*args, **kwargs)
+
+
+    @classmethod
+    def from_points(cls, list_of_tuples, decimals=2, cutoff=None, fPE=1.63, scale=1.):
+        A, dx, EUI, fPE, scale = parameters(*list_of_tuples, fPE=fPE, scale=scale)
+        A, dx, EUI = round(A, decimals), round(dx, decimals), round(EUI, decimals)
+        zielwert = cls(A=A, dx=dx, EUI=EUI, fPE=fPE, cutoff=cutoff)
+        zielwert._points = list_of_tuples
+        return zielwert
+
+    @classmethod
+    def ZQ1(cls):
+        return cls(
+            A = 37,
+            dx = 0.085,
+            EUI = 29.143558,  # = dy - PEB/fPE
+            fPE = 1.63,  # OIB 2019 Jahresmittel
+            cutoff = None,
+        )
+    @classmethod
+    def ZQSynergyOktober(cls):
+        return cls(
+            A=35.2,
+            dx=0.15,
+            EUI=27.3,  # = dy - PEB/fPE
+            fPE=1.63,  # OIB 2019 Jahresmittel
+            cutoff=100.,
+        )
+
+    @classmethod
+    def ZQSynergy(cls):
+        return cls(
+            A=35.2,
+            dx=0.15,
+            EUI=27.3,  # = dy - PEB/fPE
+            fPE=1.63,  # OIB 2019 Jahresmittel
+            cutoff=100.,
+        )
+
+@dataclass
+class ZQ1(Zielwert):
+    """deprecated, use Zielwert.ZQ1() instead"""
+    A: float    = 37
+    dx: float   = 0.085
+    EUI: float  = 29.143558  # = dy - PEB/fPE
+    fPE: float  = 1.63  # OIB 2019 Jahresmittel
+    cutoff: float = None
+
+class ZQSynergy(Zielwert):
+    """deprecated, use Zielwert.ZQ1() instead"""
+    A: float    = 35.2
+    dx: float   = 0.15
+    EUI: float  = 27.3  # = dy - PEB/fPE
+    fPE: float  = 1.63  # OIB 2019 Jahresmittel
+    cutoff: float = 100.
+
+if __name__ == "__main__":
+    t = ZQ1()
