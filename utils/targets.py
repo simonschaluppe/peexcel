@@ -5,17 +5,48 @@ import numpy as np
 import pandas as pd
 
 
+def parameters(p1: tuple, p2: tuple, p3: tuple, fPE=1., scale=1.):
+    x1, y1 = p1
+    x2, y2 = p2
+    x3, y3 = p3
+    y1, y2, y3 = y1/fPE/scale, y2/fPE/scale, y3/fPE/scale
+
+    EUI = (y3*x3-y1*x1 + (y1*x1 - y2*x2)*((y1-y3)/(y1-y2))) / ((x2-x1)*(y1-y3)/(y1-y2) + (x1 - x3))
+    dx = ((y3*x3 - y2*x2) + EUI*(x3-x2))/(y2-y3)
+    A = (y3 + EUI)*(dx+x3)
+
+    return (A,dx,EUI,fPE,scale)
+
+
+
 def target(
         GFZ,
         fPE=1.63, # OIB 2019 Jahresmittel
         A=35.2,
         dx=0.15,
         EUI=27.3,
-        cutoff=100,
-        scale=1.
+        cutoff=300,
+        scale=1.,
+        gfzscale=1.,
 ) -> pd.DataFrame:
-    curve = (fPE * (A/(dx + GFZ) - EUI )) * scale
+    curve = (fPE * (A/(dx + GFZ*gfzscale) - EUI )) * scale
     return np.minimum(curve, cutoff) if cutoff else curve
+
+
+from functools import partial
+
+def zq_synergy_gfa(GFZ):
+    return target(
+        GFZ=GFZ,
+        fPE=1.63,
+        A=35.2,
+        dx=0.15,
+        EUI=27.3,
+        cutoff=100.,
+    )
+
+
+
 
 class Zielwert:
     @abstractmethod

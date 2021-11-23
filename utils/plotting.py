@@ -6,6 +6,24 @@ import numpy as np
 from utils.targets import ZQSynergy
 
 
+def target_of_gfz(ax, df, ylims=(-75,150), xlims=(0,8), no_legend=False):
+    if no_legend: # names with leading underscore dont show
+        df.columns = ["_" + col for col in df.columns]
+    df.plot(ax=ax, linestyle="solid", linewidth=1, )
+    ax.set_ylim(*ylims); ax.set_xlim(*xlims)
+    ax.set_xlabel("Geschoßflächenzahl [-]")
+    ax.grid()
+
+def plot_context_factor(ax, df, ylims=(-75,150), xlims=(0,5), no_legend=False, **kwargs):
+    if no_legend: # names with leading underscore dont show
+        df.columns = ["_" + col for col in df.columns]
+    df.plot(ax=ax, linestyle="solid", linewidth=1.3, **kwargs)
+    ax.set_ylim(*ylims); ax.set_xlim(*xlims)
+    ax.set_xlabel("Floor space index")
+    ax.grid()
+
+    #ax.legend(title='', bbox_to_anchor=(1, 1), loc='upper left')
+
 def xy_balance_plot(
         ax,
         xmax=200,
@@ -102,7 +120,12 @@ def example_demand_supply_bars():
 
     fig.show()
 
+def peb_series(ax, data, series, var_name):
+    ax.plot(np.arange(series), var_name,
+            data=data, linestyle='-', marker='o')
+
 if __name__ == "__main__":
     example_demand_supply_bars()
+
 
 

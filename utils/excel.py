@@ -180,7 +180,7 @@ def variations(book: xw.Book):
     """returns the named range 'Varianten___'"""
     vars1 = book.names["Varianten____"].refers_to_range
     cols = len(vars1.columns)
-    headers = book.sheets["Varianten"][1,:cols]
+    headers = book.sheets["Varianten"][2,:cols] #TODO: get rid of magic number
 
     if len(headers.columns) != len(vars1.columns):
         raise KeyError(f"Mismatching number of header and variation body columns")
@@ -244,19 +244,18 @@ def append_to_bottom(aggregation_sheet: xw.Sheet, databody: xw.Range):
 if __name__ == "__main__":
     # names = nameslist(xw.Book("test_PlusenergieExcel_Performance.xlsx"))
     excel_paths = [
-        # r"C:\Users\Simon Schneider\Nextcloud\EE\1_Forschung\2_Laufend\ZQ Austria\Quartiersdaten\PlusenergieExcel_Aichinger_211021.xlsb",
-        # r"C:\Users\Simon Schneider\Nextcloud\EE\1_Forschung\2_Laufend\ZQ Austria\Quartiersdaten\PlusenergieExcel_AmBichl_211022.xlsb",
-        # r"C:\Users\Simon Schneider\Nextcloud\EE\1_Forschung\2_Laufend\ZQ Austria\Quartiersdaten\PlusenergieExcel_Glan_211022.xlsb",
-        # r"C:\Users\Simon Schneider\Nextcloud\EE\1_Forschung\2_Laufend\ZQ Austria\Quartiersdaten\PlusenergieExcel_Gneis_211022.xlsb",
-        # r"C:\Users\Simon Schneider\Nextcloud\EE\1_Forschung\2_Laufend\ZQ Austria\Quartiersdaten\PlusenergieExcel_Graz_211022.xlsb",
-        # r"C:\Users\Simon Schneider\Nextcloud\EE\1_Forschung\2_Laufend\ZQ Austria\Quartiersdaten\PlusenergieExcel_Pilzgasse_211022.xlsb",
-        r"C:\Users\Simon Schneider\Nextcloud\EE\1_Forschung\2_Laufend\ZQ Austria\Quartiersdaten\PlusenergieExcel_Pilzgasse_211022_ms.xlsb",
+        r"C:\Users\Simon Schneider\Nextcloud\EE\1_Forschung\2_Laufend\ZQ Austria\Quartiersdaten\PlusenergieExcel_Aichinger_211105.xlsb",
+        r"C:\Users\Simon Schneider\Nextcloud\EE\1_Forschung\2_Laufend\ZQ Austria\Quartiersdaten\PlusenergieExcel_AmBichl_211105.xlsb",
+        r"C:\Users\Simon Schneider\Nextcloud\EE\1_Forschung\2_Laufend\ZQ Austria\Quartiersdaten\PlusenergieExcel_Glan_211105.xlsb",
+        r"C:\Users\Simon Schneider\Nextcloud\EE\1_Forschung\2_Laufend\ZQ Austria\Quartiersdaten\PlusenergieExcel_Gneis_211105.xlsb",
+        r"C:\Users\Simon Schneider\Nextcloud\EE\1_Forschung\2_Laufend\ZQ Austria\Quartiersdaten\PlusenergieExcel_Graz_211105.xlsb",
+        r"C:\Users\Simon Schneider\Nextcloud\EE\1_Forschung\2_Laufend\ZQ Austria\Quartiersdaten\PlusenergieExcel_Pilzgasse_211105.xlsb",
     ]
 
     paths = [Path(ep) for ep in excel_paths]
 
     aggregation_excel_path = Path(
-        r"C:\Users\Simon Schneider\Nextcloud\EE\1_Forschung\2_Laufend\ZQ Austria\Quartiersdaten\Quartiersvergleich211027.xlsm")
+        r"C:\Users\Simon Schneider\Nextcloud\EE\1_Forschung\2_Laufend\ZQ Austria\Quartiersdaten\Quartiersvergleich211108.xlsm")
     aggregation_sheet = "PEExcel Import"
 
     for path in paths:
@@ -264,6 +263,6 @@ if __name__ == "__main__":
             peexcel_path=path,
             agg_book_path=aggregation_excel_path,
             agg_sheet_name=aggregation_sheet,
-            close_peexcel=False
+            close_peexcel=True
         )
 
