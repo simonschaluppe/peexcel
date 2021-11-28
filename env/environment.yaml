@@ -20,6 +20,7 @@ dependencies:
   - jupyter
   - matplotlib
   - numpy
+  - openpyxl
   - pandas
   - seaborn
   - xlrd
@@ -28,5 +29,5 @@ dependencies:
 
 
   - pip: # for packages not available on anaconda channels
- #   -
+    - pyzmq
 
