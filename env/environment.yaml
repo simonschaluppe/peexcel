@@ -22,6 +22,7 @@ dependencies:
   - numpy
   - openpyxl
   - pandas
+  - requests
   - seaborn
   - xlrd
   - xlwings
