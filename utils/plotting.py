@@ -19,10 +19,11 @@ def target_of_gfz(ax, df, ylims=(-75,150), xlims=(0,8), no_legend=False, **kwarg
 def plot_context_factor(ax, df, ylims=(-75,150), xlims=(0,5), no_legend=False, **kwargs):
     if no_legend: # names with leading underscore dont show
         df.columns = ["_" + col for col in df.columns]
-    df.plot(ax=ax, linestyle="solid", linewidth=1.3, **kwargs)
+    ax = df.plot(ax=ax, linestyle="solid", linewidth=1.3, **kwargs)
     ax.set_ylim(*ylims); ax.set_xlim(*xlims)
     ax.set_xlabel("Floor space index")
     ax.grid()
+    return ax
 
     #ax.legend(title='', bbox_to_anchor=(1, 1), loc='upper left')
 
