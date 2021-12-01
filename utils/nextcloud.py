@@ -9,7 +9,10 @@ import requests
 
 FHTW_NEXTCLOUD_URL = "https://cloud.technikum-wien.at/remote.php/dav/files"
 
-LOCAL_NEXTCLOUD = [r"C:\Users\Simon Schneider\Nextcloud"]
+LOCAL_NEXTCLOUD = [ # add your local nextcloud paths here to try and automatically load from disk, instead of cloud
+    r"C:\Users\Simon Schneider\Nextcloud",
+    r"C:\Users\lektor\nextcloud",
+]
 
 
 def get(file_path, verbose=False, force=False):
