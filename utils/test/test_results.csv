@@ -1,0 +1,5 @@
+# file; test_PlusenergieExcel_Performance.xlsx
+# date; 2021-10-24 18:38:42.269586
+# version; 0.0
+value;name;formula;sheet;address;refers_to_range;refers_to
+3.0;Ergebnis_1;=SQRT(9);Tabelle1;$A$4;;('',);False

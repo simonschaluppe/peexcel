@@ -1,0 +1,34 @@
+# create this python environment by running the following commands
+# in a command interface tool from the peexcel main directory (switch directories or adjust file path accordingly):
+
+# > conda create env -f env/environment.yaml
+
+# this will create the environment specified here with name "peexcel". note windows: path \ instead of /
+# to use this newly created environment, you simply
+
+# > conda activate peexcel
+
+name: peexcel
+channels:
+  - conda-forge
+  - bioconda
+  - default
+dependencies:
+  - python>=3.8
+  - pip
+#  - mamba # esp for windows build
+  - jupyter
+  - matplotlib
+  - numpy
+  - openpyxl
+  - pandas
+  - requests
+  - seaborn
+  - xlrd
+  - xlwings
+  - yaml
+
+
+  - pip: # for packages not available on anaconda channels
+    - pyzmq
+
