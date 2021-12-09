@@ -58,6 +58,18 @@ class Zielwert:
     def __str__(self):
         return f"Zielwert '{self.name}': {self.bezug}, A={self.A:.3f}, dx={self.dx:.3f}, EUI={self.EUI:.3f}"
 
+    @property
+    def _bezug_str(self):
+        return str(self.bezug).split(".")[-1]
+
+    def formula(self):
+        f = r"\frac{"
+        cbc = r"}"
+        cbo = r"{"
+        string = f"$PE(GFZ) = minimum({self.fPE} * ({f}{round(self.A,1)}{cbc}{cbo}GFZ + {self.dx}{cbc} - {round(self.EUI,1)}), {round(self.cutoff,1)}) " \
+                 f"[kWh_{'{PE}'}/m²_{'{'+f'{self._bezug_str}'+'}'}a]$"
+        return string
+
     def df(self, GFZ=np.linspace(0, 5, 50), verbose=False):
         return pd.DataFrame({
             self.__str__(): self.alpha(GFZ)},
@@ -71,6 +83,14 @@ class Zielwert:
         return self.A, self.dx, self.EUI, self.fPE
 
     def set_reference(self, bezug: Bezug):
+        if type(bezug) is str:
+            if bezug.upper() == "BGF":
+                bezug = Bezug.BGF
+            elif bezug.upper() == "NGF":
+                bezug = Bezug.NGF
+            else:
+                raise KeyError()
+
         if self.bezug is bezug:
             return
         if bezug is Bezug.NGF:
