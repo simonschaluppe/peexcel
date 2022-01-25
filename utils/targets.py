@@ -108,6 +108,7 @@ class Zielwert:
     def alpha(self, GFZ, scale=1):
         return target(GFZ=GFZ, A=self.A, dx=self.dx, EUI=self.EUI, fPE=self.fPE, cutoff=self.cutoff, scale=scale)
 
+
     def alpha_zielwert_bgf(self, GFZ):
         bezug = self.bezug
         self.set_reference(bezug=Bezug.BGF)
