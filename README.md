@@ -2,24 +2,23 @@
 Das Plusenergie Excel wird laufend weiterentwickelt. Die aktuelle Version kann unter diesem Link heruntergeladen werden:
 https://github.com/simonschaluppe/peexcel/blob/master/peexcel/PlusenergieExcel_Performance.xlsb
 
-# Plusenergie-Excel
-### Startpunkt: Plusenergie-Quartier Simulation mit Excel
-Das PE-Excel wurde von der Forschungsgruppe [Nachhaltige Gebäude und Städte](https://res.technikum-wien.at/sbc/) an der [Fachhochschule Technikum Wien](https://www.technikum-wien.at/) entwickelt. Das ursprüngliche Ziel war es, eine effiziente und dennoch flexible Plattform für die Simulation von PEQs mit einer stündlichen Energiebilanzauflösung zu schaffen. Es kombiniert drei verschiedene Modelle und Simulationen zu einem umfassenden Bewertungsrahmen für die Leistung von PEQs:  Gebäudebetrieb, Mobilitätsenergie und Graue Energie werden in einer stündlichen Bilanzierung abgebildet. Ziele und wesentliche Aspekte des Tools sind:
+# Plusenergie-Excel zur Operationalisierung der PEQ Definition nach Zukunftsquartier und Aspern Klimafit Ansatz
+###  Plusenergie-Quartier Simulation mit Excel
+Das PE-Excel wurde von der Forschungsgruppe [Nachhaltige Gebäude und Städte](https://res.technikum-wien.at/sbc/) an der [Fachhochschule Technikum Wien](https://www.technikum-wien.at/) entwickelt. Das Ziel war es, eine effiziente und dennoch flexible Plattform für die Simulation von PEQs mit einer stündlichen Energiebilanzauflösung zu schaffen. Es kombiniert drei verschiedene Modelle und Simulationen zu einem umfassenden Bewertungsrahmen für die Leistung von PEQs:  Gebäudebetrieb, Mobilitätsenergie und Graue Energie werden abgebildet. Ziele und wesentliche Aspekte des Tools sind:
 * Realitätsnahe und wissenschaftlich abgesicherte Methodik zur Bewertung und Nachweisführung von Plus-Energie-Quartieren als ein wesentlicher Baustein eines 2040 klimaneutralen Staats Österreich 2040.
 * Dynamische Modellierung der Energieströme für alle relevanten Energieströme inkl. E-Mobilität, um Aussagen über die dynamischen Effekte des Quartiers tätigen zu können. 
 * Abbildung von netzdienlichem Einsatz externer erneuerbarer Energie durch instationäre Betrachtung. Inklusion von intelligenter, energieflexibler Regelung zur Einbindung von (hochvolatilen) erneuerbaren Energiequellen (Windkraft, Sonnenkraft etc.). 
 * Einbindung des Speicherpotentials von Gebäudespeichermasse zur besseren Integration erneuerbarer Energien. 
-* Realitätsnahe Kostenberechnung durch dynamische Methoden, die innovative und zukunftsfähige Geschäftsmodelle robust bezüglich Wirtschaftlichkeit abbilden können (z.B. Energiegemeinschaften). 
 * Hebung von Synergien mit dem klimaaktiv Kriterienkatalog: Standard für Siedlungen und Quartiere  (Zusammenführung in PEQ Beta und Omega). 
 * Abschätzbarkeit der Eigendeckung durch lokale erneuerbare Energien (z.B. PV) als wesentlicher Indikator für Systemdienlichkeit und Wirtschaftlichkeit.  
 * Verwendbarkeit bestehender Daten in Form von PHPPs und Energieausweisen. 
-* Einfache Variantenbildung, Simulation und Vergleich einer großen Anzahl von Varianten. 
-* Einfache Iterierbarkeit im Rahmen des Planungsprozesses. 
+* Varianten: Bildung, Simulation und Vergleich einer großen Anzahl von Varianten. 
+* Einfache Iterierbarkeit und Anpassbarkeit im Rahmen des Planungsprozesses. 
 * Keine Abhängigkeit von proprietären, kostenpflichtigen Tools. 
-* One-Stop-Shop zur Bewertung
-* Einfache Nachvollziehbarkeit der Berechnungen.
+* One-Stop-Shop zur Bewertung  
+* Direkte Nachvollziehbarkeit der Berechnungen
 * Reduktion der notwendigen Input-Daten, indem soweit wie möglich mit Defaults gearbeitet wird. 
-* Erweiterbarkeit und Anpassbarkeit des Simulationsmodells.
+* Erweiterbarkeit und Anpassbarkeit des Simulationsmodells bei Bedarf direkt im Excel.
 * Offener Zugang: Das Excel-Tool zur Operationalisierung ist öffentlich zugänglich. 
 
 ![grafik](https://user-images.githubusercontent.com/80957185/112003855-9088d400-8b21-11eb-91b0-c3f231016cc3.png)
