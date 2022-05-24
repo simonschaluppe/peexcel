@@ -2,31 +2,27 @@
 Das Plusenergie Excel wird laufend weiterentwickelt. Die aktuelle Version kann unter diesem Link heruntergeladen werden:
 https://github.com/simonschaluppe/peexcel/blob/master/peexcel/PlusenergieExcel_Performance.xlsb
 
-# Plusenergie-Excel
-### Startpunkt: Plusenergie-Quartier Simulation mit Excel
-Das PE-Excel wurde von der Forschungsgruppe [Nachhaltige Gebäude und Städte](https://res.technikum-wien.at/sbc/) an der [Fachhochschule Technikum Wien](https://www.technikum-wien.at/) entwickelt. Das ursprüngliche Ziel war es, eine effiziente und dennoch flexible Plattform für die Simulation von PEQs mit einer stündlichen Energiebilanzauflösung zu schaffen. Es kombiniert drei verschiedene Modelle und Simulationen zu einem umfassenden Bewertungsrahmen für die Leistung von PEQs. Die drei Hauptteile, die in diesem Rahmenwerk integriert sind, sind
-* Stündliche PV-Simulationsergebnisse 
-* LCA-Ergebnisse in bis zu 5 Varianten (manuell importiert vom eco2soft LCA-Rechner)  
-* Stündliche Energiebilanz einschließlich ermittelter DSM-Strategien für den PV-Überschuss vor Ort und das Offsite-Wind-Peak-Shaving, die in TABS, DHW, Batterien und Ecars verwendet werden
+# Plusenergie-Excel zur Operationalisierung der PEQ Definition nach Zukunftsquartier und Aspern Klimafit Ansatz
+###  Plusenergie-Quartier Simulation mit Excel
+Das PE-Excel wurde von der Forschungsgruppe [Nachhaltige Gebäude und Städte](https://res.technikum-wien.at/sbc/) an der [Fachhochschule Technikum Wien](https://www.technikum-wien.at/) entwickelt. Das Ziel war es, eine effiziente und dennoch flexible Plattform für die Simulation von PEQs mit einer stündlichen Energiebilanzauflösung zu schaffen. Es kombiniert drei verschiedene Modelle und Simulationen zu einem umfassenden Bewertungsrahmen für die Leistung von PEQs:  Gebäudebetrieb, Mobilitätsenergie und Graue Energie werden abgebildet. Ziele und wesentliche Aspekte des Tools sind:
+* Realitätsnahe und wissenschaftlich abgesicherte Methodik zur Bewertung und Nachweisführung von Plus-Energie-Quartieren als ein wesentlicher Baustein eines 2040 klimaneutralen Staats Österreich 2040.
+* Dynamische Modellierung der Energieströme für alle relevanten Energieströme inkl. E-Mobilität, um Aussagen über die dynamischen Effekte des Quartiers tätigen zu können. 
+* Abbildung von netzdienlichem Einsatz externer erneuerbarer Energie durch instationäre Betrachtung. Inklusion von intelligenter, energieflexibler Regelung zur Einbindung von (hochvolatilen) erneuerbaren Energiequellen (Windkraft, Sonnenkraft etc.). 
+* Einbindung des Speicherpotentials von Gebäudespeichermasse zur besseren Integration erneuerbarer Energien. 
+* Hebung von Synergien mit dem klimaaktiv Kriterienkatalog: Standard für Siedlungen und Quartiere  (Zusammenführung in PEQ Beta und Omega). 
+* Abschätzbarkeit der Eigendeckung durch lokale erneuerbare Energien (z.B. PV) als wesentlicher Indikator für Systemdienlichkeit und Wirtschaftlichkeit.  
+* Verwendbarkeit bestehender Daten in Form von PHPPs und Energieausweisen. 
+* Varianten: Bildung, Simulation und Vergleich einer großen Anzahl von Varianten. 
+* Einfache Iterierbarkeit und Anpassbarkeit im Rahmen des Planungsprozesses. 
+* Keine Abhängigkeit von proprietären, kostenpflichtigen Tools. 
+* One-Stop-Shop zur Bewertung  
+* Direkte Nachvollziehbarkeit der Berechnungen
+* Reduktion der notwendigen Input-Daten, indem soweit wie möglich mit Defaults gearbeitet wird. 
+* Erweiterbarkeit und Anpassbarkeit des Simulationsmodells bei Bedarf direkt im Excel.
+* Offener Zugang: Das Excel-Tool zur Operationalisierung ist öffentlich zugänglich. 
 
 ![grafik](https://user-images.githubusercontent.com/80957185/112003855-9088d400-8b21-11eb-91b0-c3f231016cc3.png)
 
-## Was sind die Vorteile?
-Ausgehend von diesem wenig bekannten "Plusenergieexcel". Hat es einige große Vorzüge neben einigen sehr schmerzhaften Fehlern:
-
-**Das Gute:**
-* Dynamisch: Es hat eine stündliche Auflösung: Energiebilanz, Lastprofile, PV-Erzeugung, alles war für alle 8760 h des Jahres bekannt war konnte mit einem vernünftigen Algorithmus verwendet werden, der versuchte, den Eigenverbrauch, CO2-Emissionen usw. zu optimieren
-* Defaults: Es sind bereits alle Defaults vorhanden: Lastprofile verschiedener Nutzungen (Wohnen, Büro, etc.), Wirkungsgrade der Umwandlungssysteme
-* Einfach zu bedienen: Es ist ein fahrfertiges Auto: Alle Komponenten sind bereits ineinander verzahnt, man muss nur noch ein paar Grundflächen angeben und erhält sofort Ergebnisse
-* Nachvollziehbar: Es ist ... relativ ... klar, wie die Simulation abläuft: jeder Zeitschritt eine Zeile, jede Berechnung eine Spalte
-* Es ist ein One-Stop-Shop: Man hat alle notwendigen Eingabedaten, Simulationslogik, Ergebnisse und Visualisierungen übersichtlich in einer Datei
-* leicht anpassbar und erweiterbar: Einfach ein paar Formeln draufklatschen
-	
-**Schwächen und Probleme:**
-* Keine Versionskontrolle: Jede Simulationseingabe und -ausgabe war eine einzige Datei. Neue Variante bedeutet -> neue Datei. Sobald Sie getrennte Dateien haben, haben Sie keine Möglichkeit zu wissen, welche Eingaben gleich sind und welche sich unterscheiden (außer durch Dateinamenprosa und Speicher, die beide nicht sehr gut kommunizierbar sind). An diesem Punkt müssen Sie darauf vertrauen, dass Sie (und Ihre Mitarbeiter) ab diesem Punkt keine Fehler mehr machen, oder Sie riskieren, eine Menge Arbeit zu verlieren
-* Keine Eingabeprüfung: Es gibt im Grunde keine Möglichkeit, die Eingaben auf Fehler zu prüfen oder zu validieren, außer dass man jede einzelne Zelle überprüft, "nachschaut" und "plausibilisiert"
-* Unhandlich: Die Datei ist über 30 MB groß. Das ist nicht verschickbar.
-* Unstabil: Die Berechnung dauert sehr lange und ist instabil. Viele Laptops kommen mit den Anforderungen, all diese Daten im Speicher zu halten, nicht zurecht und stürzen ab... und lassen den Benutzer oft auch nicht richtig speichern. D
 	
 ## Arbeiten im PEExcel
 
@@ -45,24 +41,6 @@ The PE-Excel has been developed by the research group [sustainable buildings and
 
 ![grafik](https://user-images.githubusercontent.com/80957185/112003855-9088d400-8b21-11eb-91b0-c3f231016cc3.png)
 
-## What are the Benefits?
-Starting from this infamous "Plusenergieexcel". It has some great merits alongside some very painful flaws:
-**The Good:**
-* Dynamic: It had hourly resolution: Energy balance, load profiles, PV generation, everything was known for each 8760 h of the year and could be used with a sensible algorithm trying to optimize for own consumption, CO2 emission, etc
-* Defaults: It had all defaults already set up: Plugloads of different usages (residential, office, etc), efficiencies of conversion systems
-* Easy to use: It was a car ready to drive: all components already interlocked, just give us some floor areas and we have results immediately
-* Comprehensible: It was … relatively .. clear how the simulation was carried out: each timestep one row, each calculation one column
-* It was a One-Stop-Shop: you had all your neccessary input data, simulation logic, results and visualisations neatly organized in one file
-* easily customizeable and extendable: Just slap some formulas on
-	
-**The Bad:**
-* No Version Control: each Simulation input and output was one single file. New variant means -> new file. Once you have separated files, you have no way of knowing which inputs are the same and which differ (except by filename prose and memory, which are both not very well communicatable). At this point you have to trust that you (and your collaborators) dont do any mistakes from this point onwards anymore or risk binning alot of work
-* No Input-check: There is basically no way to check for errors or validate the inputs except checking every single cell, "glancing" and "plausibility"
-	
-**The Ugly:**
-* Unwieldy: The file is upwards of 35 MB. That is not emailable. This gets old real fast.
-* Unstable: The calculation takes a long time and is unstable. Many Laptops cant handle the requirements to keep all that data in memory and crash… often not letting the user save properly either. Then have fun restoring your work and checking for all the changes you made previously. Which ones made it and which didnt. Do you remember all of them? 
-* Not updateable: Changing the calculation means changing the whole file. Since inputs are not readily transferrable between files, this means that you cannot check against other projects. I repeat: You cannot use older project input data with newer files.
 	
 So the main pain points here are:
 1. Unwieldy filesize, crashes.
