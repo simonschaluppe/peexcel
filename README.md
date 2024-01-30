@@ -1,3 +1,5 @@
+![image](https://github.com/simonschaluppe/peexcel/assets/22156735/2856e7d9-54d9-4ea9-a894-1128f435c139)
+
 ## Download Link für das Plusenergie-Excel
 Das Plusenergie Excel wird laufend weiterentwickelt. Die aktuelle Version kann unter diesem Link heruntergeladen werden:
 https://github.com/simonschaluppe/peexcel/blob/master/peexcel/PlusenergieExcel_Performance.xlsb
