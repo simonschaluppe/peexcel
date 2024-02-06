@@ -3,6 +3,8 @@
 ## Download Link für das Plusenergie-Excel
 Das Plusenergie Excel wird laufend weiterentwickelt. Die aktuelle Version kann unter diesem Link heruntergeladen werden:
 https://github.com/simonschaluppe/peexcel/blob/master/peexcel/PlusenergieExcel_Performance.xlsb
+Leitfaden: 
+https://github.com/simonschaluppe/peexcel/blob/master/docs/Leitfaden%20PEQ%20Definition%20und%20Operationalisierung_StandJuni2023.pdf
 
 # Plusenergie-Excel zur Operationalisierung der PEQ Definition nach Zukunftsquartier und Aspern Klimafit Ansatz
 ###  Plusenergie-Quartier Simulation mit Excel
