@@ -4,6 +4,8 @@
 Das Plusenergie Excel wird laufend weiterentwickelt. Die aktuelle Version kann unter diesem Link heruntergeladen werden:
 https://github.com/simonschaluppe/peexcel/blob/master/peexcel/PlusenergieExcel_Performance.xlsb
 
+[Leitfaden PEQ Definition und Operationalisierung](https://github.com/simonschaluppe/peexcel/blob/master/docs/Leitfaden%20PEQ%20Definition%20und%20Operationalisierung_StandJuni2023.pdf)
+
 # Plusenergie-Excel zur Operationalisierung der PEQ Definition nach Zukunftsquartier und Aspern Klimafit Ansatz
 ###  Plusenergie-Quartier Simulation mit Excel
 Das PE-Excel wurde von der Forschungsgruppe [Nachhaltige Gebäude und Städte](https://res.technikum-wien.at/sbc/) an der [Fachhochschule Technikum Wien](https://www.technikum-wien.at/) entwickelt. Das Ziel war es, eine effiziente und dennoch flexible Plattform für die Simulation von PEQs mit einer stündlichen Energiebilanzauflösung zu schaffen. Es kombiniert drei verschiedene Modelle und Simulationen zu einem umfassenden Bewertungsrahmen für die Leistung von PEQs:  Gebäudebetrieb, Mobilitätsenergie und Graue Energie werden abgebildet. Ziele und wesentliche Aspekte des Tools sind:
