@@ -56,7 +56,7 @@ class Zielwert:
     name: str = "generic"
 
     def __str__(self):
-        return f"Zielwert '{self.name}': {self.bezug}, A={self.A:.3f}, dx={self.dx:.3f}, EUI={self.EUI:.3f}"
+        return f"Zielwert '{self.name}': {self.bezug}, A={self.A:.1f}, dx={self.dx:.1f}, EUI={self.EUI:.1f}"
 
     @property
     def _bezug_str(self):
@@ -129,8 +129,11 @@ class Zielwert:
     def context_factor_density_nfa(self, *args, **kwargs):
         return -self.alpha_zielwert_ngf(*args, **kwargs)
 
-    def plot(self, ax, ylims=(-75, 150), xlims=(0, 5), no_legend=False, **kwargs):
-        ax = self.df.plot(ax=ax, **kwargs)  # linestyle, linewidth, etc
+    def plot(self, ax=None, ylims=(-75, 150), xlims=(0, 5), no_legend=False, **kwargs):
+        if ax is None:
+            import matplotlib.pyplot as plt
+            fig, ax = plt.subplots()
+        ax = self.df().plot(ax=ax, **kwargs)  # linestyle, linewidth, etc
         ax.set_ylim(*ylims)
         ax.set_xlim(*xlims)
         ax.set_xlabel("Geschoßflächenzahl [-]")

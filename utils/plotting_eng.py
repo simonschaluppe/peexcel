@@ -13,7 +13,7 @@ def target_of_gfz(ax, df, ylims=(-75,150), xlims=(0,8), no_legend=False, **kwarg
             df.columns = ["_" + col for col in df.columns]
     df.plot(ax=ax, **kwargs) #linestyle, linewidth, etc
     ax.set_ylim(*ylims); ax.set_xlim(*xlims)
-    ax.set_xlabel("Floor Space Index [-]")
+    ax.set_xlabel("Floor Area Ratio (FAR) [-]")
     ax.grid()
 
 
@@ -22,7 +22,7 @@ def plot_context_factor(ax, df, ylims=(-75,200), xlims=(0,5), no_legend=False, *
         df.columns = ["_" + col for col in df.columns]
     ax = df.plot(ax=ax, linestyle="solid", linewidth=1.3, **kwargs)
     ax.set_ylim(*ylims); ax.set_xlim(*xlims)
-    ax.set_xlabel("Floor space index")
+    ax.set_xlabel("Floor area ratio")
     ax.grid()
     return ax
 
@@ -47,14 +47,12 @@ def xy_balance_plot(
                 linewidth=0.5,
                 color="grey",
                 )
-        ax.text(xmax*0.5-dy/2, xmax*0.75-xmax*0.25+dy/2,f"FSI {round(gfz,2)}", size=7, rotation=45)
+        ax.text(xmax*0.5-dy/2, xmax*0.75-xmax*0.25+dy/2,f"FAR {round(gfz,2)}", size=7, rotation=45)
         ax.text(xmax*0.5-dy/2+20, xmax*0.75-xmax*0.25+dy/2+20,f"target {round(dy,2)}", size=5, rotation=45)
         #TODO: annotate lines with gfz
 
 
     #plot points
-
-
 
     # axis formatting
     ax.set(ylim=(0,ymax))
