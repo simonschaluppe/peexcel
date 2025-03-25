@@ -15,26 +15,29 @@ logging.basicConfig(level=logging.INFO)
 
 def parse_xlsx(file):
     """reads a Export.xlsx, returns a _suitable data structure"""
+
+    # if sheet available.
     df_in = pd.read_excel(file, sheet_name="IN")
-
+    df_out = pd.read_excel(file, sheet_name="OUT")
     inputs = {}
-
-    base_header = ["Icon", "Name", "Einheit", "Kommentar", "Type", "var_name", "ka"]
-    scenarios = [c for c in df_in.columns if c not in base_header]
+    outputs = {}
+    in_header = ["Icon", "Name", "Einheit", "Kommentar", "Type", "var_name", "ka"]
+    in_scenarios = [c for c in df_in.columns if c not in in_header]
 
     for _, row in df_in.iterrows():
         key = row["var_name"] if pd.notna(row.get("var_name")) else row.get("Name")
         if pd.isna(key):
             continue  # Skip unnamed rows
-
         inputs[key] = {
-            field: row[field] for field in base_header if field in df_in.columns
+            field: row[field] for field in in_header if field in df_in.columns
         }
-        inputs[key]["values"] = {scenario: row[scenario] for scenario in scenarios}
+        inputs[key]["values"] = {scenario: row[scenario] for scenario in in_scenarios}
+
+    # TODO: scenario in - out matching - whats available?
 
     return {
-        "base_header": base_header,
-        "scenarios": scenarios,
+        "base_header": in_header,
+        "scenarios": in_scenarios,
         "inputs": inputs,
         "outputs": {},
         "pv": {},
@@ -51,8 +54,12 @@ class Project:
         self.scenarios = self.raw_xlsx["scenarios"]
 
     def scenario(self, name=None):
-        name = name or self.scenarios[0]
-        if not name in self.scenarios:
+        if not name:
+            logging.info(
+                f"No scenario named, defaulting to the first scenario: '{self.scenarios[0]}"
+            )
+            name = self.scenarios[0]
+        elif not name in self.scenarios:
             raise ValueError(
                 f"Scenario '{name}' not in Project scenarios: {self.scenarios}"
             )
@@ -228,10 +235,9 @@ def single_names(book: xw.Book, starts_with: str = "") -> Dict[str, Cell]:
             logging.warning(f"REFERENCE Broken: '{name.name}': {name.refers_to} ")
             continue
 
-        size = range.size
-
-        if size != 1:
-            logging.info(f"Ignoring {name.name=} range of size ")
+        if range.size != 1:
+            logging.info(f"Ignoring {name.name=} range of size {range.size} ")
+            continue
 
         di[name.name] = Cell(
             name=name.name,
