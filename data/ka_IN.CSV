@@ -1,0 +1,874 @@
+Icon	Name	Einheit	Kommentar	Type	var_name	REF	ka	STAGE	Default Var	Neues Projekt	Test_PG2	Test_AB	Test_RU	TESTWuerfel	Alliiertenviertel Bestand	Pgteilgeühlt	Beispielquartier ohne Kühlung	Test	Spalte2	Spalte3	Spalte4	Kurze ID	Kurze ID_2	Kurze ID_2_2	Kurze ID_2_2_2_2	test_2
+🏙️	Wohnbau NGF (m²)	m²NGF		Abgelöst in Klimaaktiv		Gebäude	0	7 809,0	100	7 809,0	14029,0	4280,5	7809,0	100	130784,00	14028,96	14028,96	7 809,0				7809,03	7809,03	7809,03	7809,03	7809,03
+🏙️	Büro NGF (m²)	m²NGF		Abgelöst in Klimaaktiv		Gebäude	0	0,0	0	0,0	10082,6	0,0	0,0	0	13609,60	10082,64	10082,64	0,0				0	0	0	0	0
+🏙️	Schule NGF (m²)	m²NGF		Abgelöst in Klimaaktiv		Gebäude	0	0,0	0	0,0	0,0	0,0	0,0	0		0,00	0,00	0,0				0	0	0	0	0
+🏙️	Kiga NGF (m²)	m²NGF		Abgelöst in Klimaaktiv		Gebäude	0	0,0	0	0,0	618,3	0,0	0,0	0		618,32	618,32	0,0				0	0	0	0	0
+🏙️	Handel NGF (m²)	m²NGF		Abgelöst in Klimaaktiv		Gebäude	0	0,0	0	0,0	2074,9	0,0	0,0	0		2074,88	2074,88	0,0				0	0	0	0	0
+🏙️	Summe NGF (m²)	m²NGF		Abgelöst in Klimaaktiv		Gebäude	0	7 809,0	100	7 809,0	26804,8	4280,5	7809,0	100	144393,60	26804,80	26804,80	7 809,0				7809,03	7809,03	7809,03	7809,03	7809,03
+🏙️	Anteil NonFood an Handel			Abgelöst in Klimaaktiv		Gebäude	0	0,0	0	0,0	1,0	0,0	0,0	0	0,00	1,00	1,00	0,0				0	0	0	0	0
+🏙️	Bauteilfläche Hülle Außenwand (exkl. Fenster) (m²)			Abgelöst in Klimaaktiv		Gebäude	0	3 795,4	2400	3 795,4	6082,0	2220,1	3795,4	2400	112841,87	6081,98	6081,98	3 795,4				3795,39	3795,39	3795,39	3795,39	3795,39
+🏙️	Bauteilfläche Hülle Fenster (m²)			Abgelöst in Klimaaktiv		Gebäude	0	1 409,4	1600	1 409,4	4163,6	881,2	1409,4	1600	30765,38	4163,61	4163,61	1 409,4				1409,35	1409,35	1409,35	1409,35	1409,35
+🏙️	Bauteilfläche Hülle Dach (m²)			Abgelöst in Klimaaktiv		Gebäude	0	2 176,5	1000	2 176,5	6813,5	1830,1	2176,5	1000	33823,93	6813,49	6813,49	2 176,5				2176,5	2176,5	2176,5	2176,5	2176,5
+🏙️	Bauteilfläche Hülle Decke gegen Erdreich / Keller (m²)			Abgelöst in Klimaaktiv		Gebäude	0	2 296,8	1000	2 296,8	3660,1	1710,3	2296,8	1000	33823,93	3660,14	3660,14	2 296,8				2296,84	2296,84	2296,84	2296,84	2296,84
+🏗️	Gewählte Variante			Obsolet		eco2soft	0	Sanierung 2		Sanierung 2	Massgrob	Aktuell	Sanierung 2			Massgrob	0,00	Sanierung 2				Sanierung 2	Sanierung 2	Sanierung 2	Sanierung 2	Sanierung 2
+🏗️	U-Wert Außenwand (exkl. Fenster) (W/m²K)			Abgelöst in Klimaaktiv		eco2soft	0	0,2	0,15	0,2	0,2	0,1	0,2	0,15	0,93	0,17	0,17	0,2				0,181789625	0,181789625	0,181789625	0,181789625	0,181789625
+🏗️	U-Wert Fenster (W/m²K)			Abgelöst in Klimaaktiv		eco2soft	0	0,9	0,6	0,9	0,8	0,7	0,9	0,6	1,95	0,76	0,76	0,9				0,85	0,85	0,85	0,85	0,85
+🏗️	U-Wert Dach (W/m²K)			Abgelöst in Klimaaktiv		eco2soft	0	0,1	0,12	0,1	0,1	0,1	0,1	0,12	0,65	0,11	0,11	0,1				0,139290576	0,139290576	0,139290576	0,139290576	0,139290576
+🏗️	U-Wert Decke gegen Erdreich / Keller (W/m²K)			Abgelöst in Klimaaktiv		eco2soft	0	0,2	0,12	0,2	0,2	0,1	0,2	0,12	0,92	0,20	0,20	0,2				0,2	0,2	0,2	0,2	0,2
+🏗️	g-Wert Fenster			Abgelöst in Klimaaktiv		eco2soft	0	0,6	0,5	0,6	0,4	0,5	0,6	0,5	0,72	0,39	0,39	0,6				0,55	0,55	0,55	0,55	0,55
+🏗️	Speicherkapazität spezifisch Wirksame Wärmekapazität (Wh/m²K)			Abgelöst in Klimaaktiv		eco2soft	0	135,0	200	135,0	204,0	132,0	135,0	200	204,00	204,00	204,00	135,0				135	135	135	135	135
+🏗️	Außenwand (exkl. Fenster) GWP 100S (kg CO2equiv/m²a)			Alt		eco2soft	0	0,0	0	0,0	0,8	0,0	0,0	0		0,80	0,80	0,0				0	0	0	0	0
+🏗️	Fenster GWP 100S (kg CO2equiv/m²a)			Alt		eco2soft	0	0,0	0	0,0	0,2	0,0	0,0	0		0,23	0,23	0,0				0	0	0	0	0
+🏗️	Dach GWP 100S (kg CO2equiv/m²a)			Alt		eco2soft	0	0,0	0	0,0	1,1	0,0	0,0	0		1,06	1,06	0,0				0	0	0	0	0
+🏗️	Decke gegen Erdreich / Keller GWP 100S (kg CO2equiv/m²a)			Alt		eco2soft	0	0,0	0	0,0	1,6	0,0	0,0	0		1,64	1,64	0,0				0	0	0	0	0
+🏗️	Zwischen-geschoßdecken GWP 100S (kg CO2equiv/m²a)			Alt		eco2soft	0	0,0	0	0,0	1,6	0,0	0,0	0		1,64	1,64	0,0				0	0	0	0	0
+🏗️	Allgemein baulich GWP 100S (kg CO2equiv/m²a)			Alt		eco2soft	0	0,0	0	0,0	0,8	0,0	0,0	0		0,75	0,75	0,0				0	0	0	0	0
+🏗️	PV-Anlage GWP 100S (kg CO2equiv/m²a)			Alt		eco2soft	0	0,0	0	0,0	0,0	0,0	0,0	0		0,00	0,00	0,0				0	0	0	0	0
+🏗️	Erdwärme-sonden GWP 100S (kg CO2equiv/m²a)			Alt		eco2soft	0	0,0	0	0,0	0,2	0,0	0,0	0		0,20	0,20	0,0				0	0	0	0	0
+🏗️	Komfort-lüftung GWP 100S (kg CO2equiv/m²a)			Alt		eco2soft	0	0,0	0	0,0	0,1	0,0	0,0	0		0,06	0,06	0,0				0	0	0	0	0
+🏗️	Solarthermie GWP 100S (kg CO2equiv/m²a)			Alt		eco2soft	0	0,0	0	0,0	0,0	0,0	0,0	0		0,00	0,00	0,0				0	0	0	0	0
+🏗️	Allgemein Haustechnik GWP 100S (kg CO2equiv/m²a)			Alt		eco2soft	0	0,0	0	0,0	1,3	0,0	0,0	0		1,25	1,25	0,0				0	0	0	0	0
+	Wärme-brücken-zuschlag			Abgelöst in Klimaaktiv		Gebäude	0	0,1	0,1	0,1	0,1	0,1	0,1	0,1	0,05	0,10	0,10	0,1				0,05	0,05	0,05	0,05	0,05
+	Transmission gesamt (W/K/m²NGF)			Zwischenrechnung		Gebäude	0	1,1		1,1		0,3	1,1			0,00	0,23	1,1				1,144372826	1,144372826	1,144372826	1,144372826	1,144372826
+	Durchschn. Raumhöhe für die Berechnung des Lüfungs-volumen (m)			Abgelöst in Klimaaktiv		Gebäude	0	2,5	2,9	2,5	2,6	2,5	2,5	2,9	2,50	2,60	2,60	2,5				2,5	2,5	2,5	2,5	2,5
+	Gewinne durch opake Bauteile 			Abgelöst in Klimaaktiv		Gebäude	0	1,1	1,06560157	1,1	1,1	1,1	1,1	1,06560157	1,07	1,07	1,07	1,1				1,06560157	1,06560157	1,06560157	1,06560157	1,06560157
+	Mobiler Sommerlicher Sonnenschutz			Alt		Gebäude	0	1,0	1	1,0	1,0	0,6	1,0	1	0,96	0,96	0,96	1,0				0,960593877	0,960593877	0,960593877	0,960593877	0,960593877
+	Referenz g-Wert			Alt		Gebäude	0	0,5	0,5	0,5	0,5	0,5	0,5	0,5	0,50	0,50	0,50	0,5				0,5	0,5	0,5	0,5	0,5
+	Faktor Solare Gewinne Kühlsaison			Zwischenrechnung		Gebäude	0	1,2	1,023610344	1,2	1,0	0,6	1,2	1,023610344		1,02	0,81	1,2				1,228332412	1,228332412	1,228332412	1,228332412	1,228332412
+	Anzahl Fahrzeuge/Stellplätze			Alt		Gebäude	0	60,0		60,0	190,0	61,0	60,0			190,00	190,00	60,0				60	60	60	60	60
+	m²NF/Person aus UAP Studie Wohnen			Alt		Gebäude	0	36,2		36,2	41,7	25,8	36,2		36,20	41,70	41,70	36,2				36,2	36,2	36,2	36,2	36,2
+	m²NF/Person aus UAP Studie Büro			Alt		Gebäude	0	5,8		5,8	5,9	5,8	5,8		5,80	5,90	5,90	5,8				5,8	5,8	5,8	5,8	5,8
+	m²NF/Person aus UAP Studie Ausbildung			Alt		Gebäude	0	2,6		2,6	2,5	2,6	2,6		2,60	2,50	2,50	2,6				2,6	2,6	2,6	2,6	2,6
+	m²NF/Person aus UAP Studie Handel			Alt		Gebäude	0	20,0		20,0	10,7	20,0	20,0		20,00	10,70	10,70	20,0				20	20	20	20	20
+🔥	Heizung: Raumtemp.Minimum (°C)			Alt		Heizung	0	22,0	22	22,0	21,0	22,0	22,0	22	21,00	21,00	21,00	22,0				22	22	22	22	22
+🔥	Heizung: Raumtemp.Maximum (°C)			Alt		Heizung	0	25,0	25	25,0	25,0	25,0	25,0	25	21,00	25,00	25,00	25,0				25	25	25	25	25
+🔥	Wirkungsgrad Verteilungsverluste			Alt		Heizung	0	1,0	0,95	1,0	1,0	0,9	1,0	0,95	0,85	0,95	0,95	1,0				0,95	0,95	0,95	0,95	0,95
+🔥	Maximale Wärmeleistung Raumseitig (Wtherm/m²)			Alt		Heizung	0	60,0	30	60,0	23,7	9,8	60,0	30	90,00	23,73	23,73	60,0				60	60	60	60	60
+🔥	JAZ Wärme pumpe Wohnen			Alt		Heizung	0	5,0	4	5,0	4,6	2,9	5,0	4	4,50	4,61	4,61	5,0				5	5	5	5	5
+🔥	JAZ Wärme pumpe Büro & Gewerbe			Alt		Heizung	0	5,0	4	5,0	4,6	2,9	5,0	4	4,50	4,61	4,61	5,0				5	5	5	5	5
+🔥	JAZ Wärme pumpe Handel			Alt		Heizung	0	5,0	4	5,0	4,6	2,9	5,0	4	4,50	4,61	4,61	5,0				5	5	5	5	5
+🔥	JAZ Wärme pumpe Bildung			Alt		Heizung	0	5,0	4	5,0	4,6	2,9	5,0	4	4,50	4,61	4,61	5,0				5	5	5	5	5
+🔥	Flächengewichtete JAZ			Zwischenrechnung		Heizung	0	5,0	4	5,0	4,6	2,9	5,0	4	4,50	4,60	4,61	5,0				5	5	5	5	5
+🔥	Wirkungs-grad Fern-wärme			Alt		Heizung	0	1,0	0,95	1,0	1,0	1,0	1,0	0,95	0,80	0,95	0,95	1,0				0,95	0,95	0,95	0,95	0,95
+🔥	Wirkungs-grad Erdgas			Alt		Heizung	0	1,0	0,95	1,0	1,0	1,0	1,0	0,95	0,80	0,95	0,95	1,0				0,95	0,95	0,95	0,95	0,95
+❄️	Kühlung Raumtemp.Minimum (°C)			Alt		Kühlung	0	25,0	26	25,0	25,0	25,0	25,0	26	26,00	25,00	25,00	25,0				25	25	25	25	25
+❄️	Kühlung Raumtemp.Maximum (°C)			Alt		Kühlung	0	23,0	23	23,0	23,0	23,0	23,0	23	26,00	23,00	23,00	23,0				23	23	23	23	23
+❄️	Wirkungsgrad Verteilungsverluste			Alt		Kühlung	0	1,0	0,95	1,0	1,0	1,0	1,0	0,95	0,85	0,95	0,95	1,0				0,95	0,95	0,95	0,95	0,95
+❄️	Maximale Kühlleistung (Wtherm/m²)			Alt		Kühlung	0	50,0	40	50,0	25,3	10,0	50,0	40	50,00	25,33	25,33	50,0				50	50	50	50	50
+❄️				Obsolet			0	0,0	4,84	0,0	4,8	3,0		4,84		4,84	0,00	0,0				0	0	0	0	0
+❄️	JAZ Wärme pumpe Wohnen			Alt		Kühlung	0	7,5	6	7,5	5,4	5,0	7,5	6	5,00	5,40	5,40	7,5				7,5	7,5	7,5	7,5	7,5
+❄️	JAZ Wärme pumpe Büro & Gewerbe			Alt		Kühlung	0	7,5	6	7,5	5,4	5,0	7,5	6	5,00	5,40	5,40	7,5				7,5	7,5	7,5	7,5	7,5
+❄️	JAZ Wärme pumpe Handel			Alt		Kühlung	0	7,5	6	7,5	5,4	5,0	7,5	6	5,00	5,40	5,40	7,5				7,5	7,5	7,5	7,5	7,5
+❄️	JAZ Wärme pumpe Bildung			Alt		Kühlung	0	7,5	6	7,5	5,4	5,0	7,5	6	5,00	5,40	5,40	7,5				7,5	7,5	7,5	7,5	7,5
+❄️	Flächengewichtete JAZ			Zwischenrechnung		Kühlung	0	7,5	6	7,5		5,0	7,5	6	5,00	0,00	5,40	7,5				7,5	7,5	7,5	7,5	7,5
+💧	Temperatur Minimum (°C)			Alt		Warm wasser	0	60,0	60	60,0	60,0	60,0	60,0	60	60,00	60,00	60,00	60,0				60	60	60	60	60
+💧	Temperatur Maximum (°C)			Alt		Warm wasser	0	70,0	70	70,0	70,0	70,0	70,0	70	70,00	70,00	70,00	70,0				70	70	70	70	70
+💧	Wirkungsgrad (Verteilungsverluste)			Alt		Warm wasser	0	1,0	0,95	1,0	1,00	1,00	1,00	0,95	1,00	1,00	1,00	1,0				1	1	1	1	1
+💧	Speicher Verluste (W)			Zwischenrechnung		Warm wasser	0	0,0		0,0		100,0				0,00	184,23	0,0				0	0	0	0	0
+💧	Warmwasserspeicher (l/Person*Tag)			Alt		Warm wasser	0	50,0	50	50,0	9,8	470,0	50,0	50	50,00	9,84	9,84	50,0				50	50	50	50	50
+💧	Leistung Wärme pumpe (W/m²)			Alt		Warm wasser	0	15,9	20	15,9	14,8	9,5	15,9	20	15,95	14,76	14,76	15,9				15,94810612	15,94810612	15,94810612	15,94810612	15,94810612
+💧	Wirkungs grad Aufheizen			Alt		Warm wasser	0	0,7	0,8	0,7	0,8	1,0	0,7	0,8	0,70	0,80	0,80	0,7				0,7	0,7	0,7	0,7	0,7
+💧	JAZ Wärme pumpe Wohnen			Alt		Warm wasser	0	3,0	2,3	3,0	2,3	5,0	3,0	2,3	3,00	2,30	2,30	3,0				3	3	3	3	3
+💧	JAZ Wärme pumpe Büro & Gewerbe			Alt		Warm wasser	0	3,0	2,3	3,0	1,0	5,0	3,0	2,3	3,00	0,95	0,95	3,0				3	3	3	3	3
+💧	JAZ Wärmepumpe Handel			Alt		Warm wasser	0	3,0	2,3	3,0	1,0	5,0	3,0	2,3	3,00	0,95	0,95	3,0				3	3	3	3	3
+💧	JAZ Wärmepumpe Bildung			Alt		Warm wasser	0	3,0	2,3	3,0	2,3	5,0	3,0	2,3	3,00	2,30	2,30	3,0				3	3	3	3	3
+💧	Flächengewichtete JAZ (Berechnung)			Zwischenrechnung		Warm wasser	0	3,0		3,0		4,0	3,0			0,00	1,69	3,0				3	3	3	3	3
+⚡	Hilfsstromanteil Wärme pumpen			Alt		Hilfsstrom	0	0,0	0,02	0,0	0,0	0,0	0,0	0,02	0,02	0,02	0,02	0,0				0,02	0,02	0,02	0,02	0,02
+⚡	Hilfsstrom anteil Gasheizung/Fernwärme (bezogen auf Heizenergie inkl verteil)			Alt		Hilfsstrom	0	0,0	0,02	0,0	0,0	0,0	0,0	0,02	0,02	0,02	0,02	0,0				0,02	0,02	0,02	0,02	0,02
+🤸‍♂️	Freigabesignal			Alt		Netzdienlichkeit	0	0,5	0,5	0,5	0,5	0,5	0,5	0,5	0,50	0,50	0,50	0,5				0,5	0,5	0,5	0,5	0,5
+🤸‍♂️	Maximale Ladeleistung (W/m²)			Alt		Netzdienlichkeit	0	40,0	50	40,0	58,5	50,0	40,0	50	40,00	58,50	58,50	40,0				40	40	40	40	40
+💨	Anteil Lüftungsstrom wenn ohne Wärmerückgewinnung			Alt		Lüftung	0	1,0	0	1,0	0,0	1,0	1,0	0	1,00	0,00	1,00	1,0				1	1	1	1	1
+💨	Wirkungsgrad Wärmerückgewinnung			Abgelöst in Klimaaktiv		Lüftung	0	0,0	0	0,0	0,0	0,0	0,0	0	0,00	0,00	0,00	0,0				0	0	0	0	0
+💨	Wirkungsgrad Kälterückgewinnung			Alt		Lüftung	0	0,0	0	0,0	0,0	0,0	0,0	0	0,00	0,00	0,00	0,0				0	0	0	0	0
+💨	Wirkungsgrad Übergangszeit			Alt		Lüftung	0	0,5	0	0,5	0,5	0,4	0,5	0	0,50	0,50	0,50	0,5				0,5	0,5	0,5	0,5	0,5
+💧	Epatrone Temperatur Maximum (°C)			Alt		Warm wasser	0	90,0	90	90,0	90,0	70,0	90,0	90	90,00	90,00	90,00	90,0				90	90	90	90	90
+💧	Epatrone Wirkungsgrad			Alt		Warm wasser	0	0,9	0,9	0,9	0,9	0,9	0,9	0,9	0,90	0,90	0,90	0,9				0,9	0,9	0,9	0,9	0,9
+💧	Epatrone Anschlussleistung [W/l]			Alt		Warm wasser	0	1,6		1,6		3,2	1,6		1,55	0,00	0,00	1,6				1,551851852	1,551851852	1,551851852	1,551851852	1,551851852
+🔌🚗	Anzahl Fahrzeuge			Alt		ECars	0	0,0	60	0,0	60,0	30,5		60	5232,05	60,00	60,00	0,0				0	0	0	0	0
+🔌🚗	Batterie-kapazität je Fahrzeug (Wh)			Alt		ECars	0	41 000,0	41000	41 000,0	41000,0	41000,0	41000,0	41000	41000,00	41000,00	41000,00	41 000,0				41000	41000	41000	41000	41000
+🔌🚗	Verluste Batterie (2%/Wo)			Alt		ECars	0	0,0	0,000119048	0,0	0,0	0,0	0,0	0,000119048	0,00	0,00	0,00	0,0				0,000119048	0,000119048	0,000119048	0,000119048	0,000119048
+🔌🚗	Jahresver brauch Emob  (Wh)			Zwischenrechnung		ECars	0	-		-		22857405,9	-			0,00	0,00	-				-	-	-	-	-
+🔌🚗	Speicher Spezifisch (Wh/m²)			Zwischenrechnung		ECars	0	-		-		132,0	-		0,00	0,00	91,77	-				-	-	-	-	-
+🔌🚗	Anteil der Fahrzeuge die der Ladekurve (Spitzenladungszeiten) folgen					ECars	0	0,0	0,7	0,0	0,7	0,4	0,0	0,7	0,00	0,70	0,70	0,0				0	0	0	0	0
+🔌🚗	Konstantes Laden von Fahrzeugen die nicht der Ladekurve folgen (W/m²)			Zwischenrechnung		ECars	0	0,0		0,0		0,4	0,0		0,00	0,00	0,00	0,0				0	0	0	0	0
+🔌🚗	Maximale Ladeleistung (ein 11kW Ladeanschluss je Fahrzeug) (W/m²)			Zwischenrechnung		ECars	0	-		-		35,4	-		0,00	0,00	24,62	-				-	-	-	-	-
+🔌🚗	Minimaler Ladezustand der erreicht werden soll			Alt		ECars	0	0,5	0,5	0,5	0,5	0,5	0,5	0,5	0,50	0,50	0,50	0,5				0,5	0,5	0,5	0,5	0,5
+🔌🚗	Wirkungs grad Ladung			Alt		ECars	0	0,9	0,9	0,9	0,9	0,9	0,9	0,9	0,90	0,90	0,90	0,9				0,9	0,9	0,9	0,9	0,9
+🔌🚗	Anteil Elektroautos			Alt		ECars	0	0,7	0,7	0,7	0,7	0,5	0,7	0,7	0,70	0,70	0,70	0,7				0,7	0,7	0,7	0,7	0,7
+🔌🚗	Energieverbrauch (kWh/km)			Alt		ECars	0	0,2	0,17	0,2	0,2	0,2	0,2	0,17	0,17	0,17	0,17	0,2				0,17	0,17	0,17	0,17	0,17
+🔌🚗	Variation km-Leistung Wohnen			Alt		ECars	0	1,0	1	1,0	1,0	1,0	1,0	1	1,00	1,00	1,00	1,0				1	1	1	1	1
+🔌🚗	Variation km-Leistung Büro			Alt		ECars	0	1,0	1	1,0	1,0	1,0	1,0	1	1,00	1,00	1,00	1,0				1	1	1	1	1
+🔌🚗	Variation km-Leistung Ausbildung			Alt		ECars	0	1,0	1	1,0	1,0	1,0	1,0	1	1,00	1,00	1,00	1,0				1	1	1	1	1
+🔌🚗	Variation km-Leistung Handel			Alt		ECars	0	1,0	1	1,0	1,0	1,0	1,0	1	1,00	1,00	1,00	1,0				1	1	1	1	1
+🔋	kWh			Obsolet		Batterie	0	0,0		0,0	1,0	0,0				1,00	0,00	0,0				0	0	0	0	0
+🔋	Kapazität Batterie (Wh/m²)			Alt		Batterie	0	1 003,0	180	1 003,0	180,0	18,0	1003,0	180	67202,68	180,00	180,00	1 003,0				1003,02513	1003,02513	1003,02513	1003,02513	1003,02513
+🔋	Verluste Batterie (2%/Wo)			Alt		Batterie	0	0,0	0,000119048	0,0	0,0	0,0	0,0	0,000119048	0,00	0,00	0,00	0,0				0,000119048	0,000119048	0,000119048	0,000119048	0,000119048
+🔋	Maximale Lade-/ Entladeleistung (W/m²)			Alt		Batterie	0	501,5	1,2	501,5	1,2	27,8	501,5	1,2	501,51	1,20	1,20	501,5				501,5125649	501,5125649	501,5125649	501,5125649	501,5125649
+🔋				Obsolet			0	0,0		0,0	6,8	0,0			0,00	6,80	0,00	0,0				0	0	0	0	0
+🔋	Wirkungsgrad Ladung			Alt		Batterie	0	0,9	1	0,9	1,0	0,9	0,9	1	0,90	1,00	1,00	0,9				0,9	0,9	0,9	0,9	0,9
+🔋	Wirkungsgrad Entladung			Alt		Batterie	0	0,9	0,9	0,9	0,9	0,9	0,9	0,9	0,90	0,90	0,90	0,9				0,9	0,9	0,9	0,9	0,9
+🚗	Regionstyp			Alt		Mobilität	0	93,0	93 opt Pilz	93,0	93 opt Pilz	11 - Mobilitätstool	93,0	93 opt Pilz	93,00	93 opt Pilz	93 opt Pilz	93,0				93	93	93	93	93
+🚗	Zuordnung der Jahres mobilität Wohnen			Alt		Mobilität	0	0,5	0,49	0,5	0,5	0,5	0,5	0,49	0,50	0,49	0,49	0,5				0,5	0,5	0,5	0,5	0,5
+🚗	Zuordnung der Jahres mobilität Büro			Alt		Mobilität	0	0,2	0,21	0,2	0,2	0,2	0,2	0,21	0,17	0,21	0,21	0,2				0,17	0,17	0,17	0,17	0,17
+🚗	Zuordnung der Jahres mobilität Ausbildung			Alt		Mobilität	0	0,0	0,03	0,0	0,0	0,0	0,0	0,03	0,03	0,03	0,03	0,0				0,03	0,03	0,03	0,03	0,03
+🚗	Zuordnung der Jahres mobilität Handel			Alt		Mobilität	0	0,3	0,27	0,3	0,3	0,3	0,3	0,27	0,29	0,27	0,27	0,3				0,29	0,29	0,29	0,29	0,29
+🚗	Verkehrsleistung Zu Fuß (pro Person)			Alt		Mobilität	0	235,0	430,3196652	235,0	430,3	203,2	235,0	430,3196652	235,00	430,32	430,32	235,0				235	235	235	235	235
+🚗	Verkehrsleistung Fahrrad (pro Person)			Alt		Mobilität	0	116,0	1377,161296	116,0	1377,2	899,1	116,0	1377,161296	116,00	1377,16	1377,16	116,0				116	116	116	116	116
+🚗	Verkehrsleistung Moped (pro Person)			Alt		Mobilität	0	146,0	86,27415601	146,0	86,3	101,1	146,0	86,27415601	146,00	86,27	86,27	146,0				146	146	146	146	146
+🚗	Verkehrsleistung PKW-LenkerIn (pro Person)			Alt		Mobilität	0	4 291,0	3330,139367	4 291,0	3330,1	4640,3	4291,0	3330,139367	4291,00	3330,14	3330,14	4 291,0				4291	4291	4291	4291	4291
+🚗	Verkehrs leistung PKW-MitfahrerIn (pro Person)			Alt		Mobilität	0	2 035,0	1278,560502	2 035,0	1278,6	2703,9	2035,0	1278,560502	2035,00	1278,56	1278,56	2 035,0				2035	2035	2035	2035	2035
+🚗	Verkehrs leistung Stadt/ Regionalbus (pro Person)			Alt		Mobilität	0	165,0	135,0552898	165,0	135,1	715,5	165,0	135,0552898	165,00	135,06	135,06	165,0				165	165	165	165	165
+🚗	Verkehrs leistung Straßenbahn/U-Bahn (pro Person)			Alt		Mobilität	0	1 978,0	2125,86394	1 978,0	2125,9	0,0	1978,0	2125,86394	1978,00	2125,86	2125,86	1 978,0				1978	1978	1978	1978	1978
+🚗	Verkehrs leistung Eisenbahn (pro Person)			Alt		Mobilität	0	1 463,0	1645,175909	1 463,0	1645,2	1806,2	1463,0	1645,175909	1463,00	1645,18	1645,18	1 463,0				1463	1463	1463	1463	1463
+🚗	Verkehrs leistung Reisebus (pro Person)			Alt		Mobilität	0	67,0	87,12779509	67,0	87,1	195,1	67,0	87,12779509	67,00	87,13	87,13	67,0				67	67	67	67	67
+	spez. Wärme kapazität Luft (Wh/m3K)			Alt		Physik	2	0,34	0,34	0,34	0,3	0,3	0,3	0,34	0,34	0,34	0,34	0,34				0,34	0,34	0,34	0,34	0,34
+	spez. Wärme kapazität Wasser (Wh/kgK)			Alt		Physik	2	1,161111111	1,161111111	1,161111111	1,2	1,2	1,2	1,161111111	1,16	1,16	1,16	1,161111111				1,161111111	1,161111111	1,161111111	1,161111111	1,161111111
+	spez. Wärme kapazität Wasser (kJ/kgK)			Alt		Physik	2	4,18	4,18	4,18	4,2	4,2	4,2	4,18	4,18	4,18	4,18	4,18				4,18	4,18	4,18	4,18	4,18
+				Obsolet			0	0,0		0,0		0,0				0,00	0,00	0,0				0	0	0	0	0
+🔛	Gebäudehülle			Obsolet		Switch	0	27,0		27,0	6,0	-	27,0			6,00	0,00	27,0				27	27	27	27	27
+🌞	Photovoltaikvarianten			Alt		Switch	0	6,0	4	6,0	13,0	5,0	6,0	4	8,00	4,00	13,00	6,0				6	6	6	6	6
+🔛	Netzdienlichkeitsprofil			Alt		Switch	0	10,0	10	10,0	10,0	10,0	10,0	10	1,00	10,00	10,00	10,0				10	10	10	10	10
+🔛	Regionstyp Mobilität			Obsolet		Switch	0	10,0		10,0	1,0	-	10,0			1,00	-	10,0				10	10	10	10	10
+🔛	Anteil der Fahrzeuge die der Ladekurve (Spitzenladungszeiten) folgen			Obsolet		Switch	0	6,0		6,0	3,0	-	6,0		6,00	3,00	-	6,0				6	6	6	6	6
+🔛	Variation km-Leistung Wohnen			Obsolet		Switch	0	6,0		6,0	1,0	-	6,0		6,00	1,00	-	6,0				6	6	6	6	6
+🔛	Variation km-Leistung Büro			Obsolet		Switch	0	6,0		6,0	1,0	-	6,0		6,00	1,00	-	6,0				6	6	6	6	6
+🔛	Variation km-Leistung Ausbildung			Obsolet		Switch	0	6,0		6,0	1,0	-	6,0		6,00	1,00	-	6,0				6	6	6	6	6
+🔛	Variation km-Leistung Handel			Obsolet		Switch	0	6,0		6,0	1,0	-	6,0		6,00	1,00	-	6,0				6	6	6	6	6
+🔛	DirektInput &Dashboard			Obsolet		Switch	0	1,0		1,0	1,0	1,0	1,0		0,00	1,00	2,00	1,0				1	1	1	1	1
+🔛	Freigabe/Verwendung Abwärme			Alt		Switch	0	FALSCH	FALSCH	FALSCH	FALSCH	FALSCH	FALSCH	FALSCH	0,00	FALSCH	FALSCH	FALSCH				FALSCH	FALSCH	FALSCH	FALSCH	FALSCH
+🔛	Lüftungsanlage			Alt		Switch	0	FALSCH	WAHR	FALSCH	WAHR	WAHR	FALSCH	WAHR	1,00	WAHR	WAHR	FALSCH				FALSCH	FALSCH	FALSCH	FALSCH	FALSCH
+🔛	Netzdienlichkeit (DSM) aktiv			Alt		Switch	0	WAHR	WAHR	WAHR	WAHR	WAHR	WAHR	WAHR	0,00	WAHR	WAHR	WAHR				WAHR	WAHR	WAHR	WAHR	WAHR
+🌞	PV			Alt		Switch	0	WAHR	WAHR	WAHR	WAHR	WAHR	WAHR	WAHR	0,00	WAHR	WAHR	WAHR				WAHR	WAHR	WAHR	WAHR	WAHR
+🔛	Kühlung			Alt		Switch	0	WAHR	WAHR	WAHR	WAHR	WAHR	WAHR	WAHR	0,00	WAHR	WAHR	WAHR				WAHR	WAHR	WAHR	WAHR	WAHR
+🔛	Elektropatrone			Alt		Switch	0	FALSCH	FALSCH	FALSCH	FALSCH	FALSCH	FALSCH	FALSCH	0,00	FALSCH	FALSCH	FALSCH				FALSCH	FALSCH	FALSCH	FALSCH	FALSCH
+🔛	EBatterie			Alt		Switch	0	FALSCH	FALSCH	FALSCH	FALSCH	WAHR	FALSCH	FALSCH	0,00	FALSCH	FALSCH	FALSCH				FALSCH	FALSCH	FALSCH	FALSCH	FALSCH
+🔛	ECars			Alt		Switch	0	FALSCH	WAHR	FALSCH	WAHR	FALSCH	FALSCH	WAHR	0,00	WAHR	WAHR	FALSCH				FALSCH	FALSCH	FALSCH	FALSCH	FALSCH
+🏠	Fensterfläche Nord (m² brutto)			Abgelöst in Klimaaktiv		Fenster	0	550,4	1459,27	550,4	1459,3	113,9	550,4	1459,27	9106,51	1459,27	1459,27	550,4				550,37	550,37	550,37	550,37	550,37
+🏠	Fensterfläche Ost (m² brutto)			Abgelöst in Klimaaktiv		Fenster	0	129,2	690,72	129,2	690,7	136,1	129,2	690,72	6912,55	690,72	690,72	129,2				129,15	129,15	129,15	129,15	129,15
+🏠	Fensterfläche Süd (m² brutto)			Abgelöst in Klimaaktiv		Fenster	0	605,5	1335,13	605,5	1335,1	180,2	605,5	1335,13	8829,11	1335,13	1335,13	605,5				605,5	605,5	605,5	605,5	605,5
+🏠	Fensterfläche West (m² brutto)			Abgelöst in Klimaaktiv		Fenster	0	107,4	678,49	107,4	678,5	313,2	107,4	678,49	5917,20	678,49	678,49	107,4				107,42	107,42	107,42	107,42	107,42
+🏠	Fensterfläche Horizontal (m² brutto)			Abgelöst in Klimaaktiv		Fenster	0	0,0	0	0,0	0,0	0,0	0,0	0	0,00	0,00	0,00	0,0				0	0	0	0	0
+🏠	g-Wert Nord			Abgelöst in Klimaaktiv		Fenster	0	0,5	0,394893265	0,5	0,4	0,4	0,5	0,394893265	0,72	0,39	0,39	0,5				0,5	0,5	0,5	0,5	0,5
+🏠	g-Wert Ost			Abgelöst in Klimaaktiv		Fenster	0	0,5	0,394893265	0,5	0,4	0,5	0,5	0,394893265	0,72	0,39	0,39	0,5				0,5	0,5	0,5	0,5	0,5
+🏠	g-Wert Süd			Abgelöst in Klimaaktiv		Fenster	0	0,5	0,394893265	0,5	0,4	0,5	0,5	0,394893265	0,72	0,39	0,39	0,5				0,5	0,5	0,5	0,5	0,5
+🏠	g-Wert West			Abgelöst in Klimaaktiv		Fenster	0	0,5	0,394893265	0,5	0,4	0,5	0,5	0,394893265	0,72	0,39	0,39	0,5				0,5	0,5	0,5	0,5	0,5
+🏠	g-Wert Horizontal			Abgelöst in Klimaaktiv		Fenster	0	0,5	0,394893265	0,5	0,4	0,0	0,5	0,394893265	0,72	0,39	0,39	0,5				0,5	0,5	0,5	0,5	0,5
+🏠	Abminderungsfaktor solare Einstrahlung Heizen Nord			Abgelöst in Klimaaktiv		Fenster	0	0,4	0,647957706	0,4	0,65	0,37	0,40	0,647957706	0,40	0,65	0,65	0,4				0,4	0,4	0,4	0,4	0,4
+🏠	Abminderungsfaktor solare Einstrahlung Heizen Ost			Abgelöst in Klimaaktiv		Fenster	0	0,4	0,607798252	0,4	0,61	0,45	0,40	0,607798252	0,40	0,61	0,61	0,4				0,4	0,4	0,4	0,4	0,4
+🏠	Abminderungsfaktor solare Einstrahlung Heizen Süd			Abgelöst in Klimaaktiv		Fenster	0	0,4	0,685302245	0,4	0,69	0,44	0,40	0,685302245	0,40	0,69	0,69	0,4				0,4	0,4	0,4	0,4	0,4
+🏠	Abminderungsfaktor solare Einstrahlung Heizen West			Abgelöst in Klimaaktiv		Fenster	0	0,4	0,607798252	0,4	0,61	0,39	0,40	0,607798252	0,40	0,61	0,61	0,4				0,4	0,4	0,4	0,4	0,4
+🏠	Abminderungsfaktor solare Einstrahlung Heizen Horizontal			Abgelöst in Klimaaktiv		Fenster	0	0,0	0	0,0	0,00	0,00	0,00	0	0,00	0,00	0,00	0,0				0	0	0	0	0
+🏠	Verhältnis Abminderung Kühlung/Heizung Nord			Abgelöst in Klimaaktiv		Fenster	0	1,0	0,267873961	1,0	0,27	1,04	1,00	0,267873961	0,81	0,27	0,27	1,0				1	1	1	1	1
+🏠	Verhältnis Abminderung Kühlung/Heizung Ost			Abgelöst in Klimaaktiv		Fenster	0	1,0	0,285553389	1,0	0,29	1,19	1,00	0,285553389	0,81	0,29	0,29	1,0				1	1	1	1	1
+🏠	Verhältnis Abminderung Kühlung/Heizung Süd			Abgelöst in Klimaaktiv		Fenster	0	1,0	0,230398206	1,0	0,23	0,73	1,00	0,230398206	0,81	0,23	0,23	1,0				1	1	1	1	1
+🏠	Verhältnis Abminderung Kühlung/Heizung West			Abgelöst in Klimaaktiv		Fenster	0	1,0	0,285553389	1,0	0,29	0,96	1,00	0,285553389	0,81	0,29	0,29	1,0				1	1	1	1	1
+🏠	Verhältnis Abminderung Kühlung/Heizung Horizontal			Abgelöst in Klimaaktiv		Fenster	0	1,0	1	1,0	1,00	1,00	1,00	1	0,00	1,00	1,00	1,0				1	1	1	1	1
+👤	Betriebszeit_-			Alt		Skalierungsfaktoren	0	1,0	1	1,0	1,0	1,0	1,0	1	1,00	1,00	1,00	1,0				1	1	1	1	1
+👤	Personen_Pers_m2	-		Alt		Skalierungsfaktoren	0	1,0	1	1,0	1,0	1,0	1,0	1	1,00	1,00	1,00	1,0				1	1	1	1	1
+👤	Innere Wärmen Sommer gesamt inkl. Verdungskälte	-		Alt		Skalierungsfaktoren	0	1,0	1	1,0	1,0	1,0	1,0	1	1,00	1,00	1,00	1,0				1	1	1	1	1
+👤	Innere Wärmen Winter gesamt inkl. Verdungskälte	-		Alt		Skalierungsfaktoren	0	1,0	1	1,0	1,0	1,0	1,0	1	1,00	1,00	1,00	1,0				1	1	1	1	1
+👤	Luftwechsel_Anlage_1_h	-		Abgelöst in Klimaaktiv		Skalierungsfaktoren	0	1,0	1	1,0	1,0	1,0	1,0	1	1,00	1,00	1,00	1,0				1	1	1	1	1
+👤	Luftwechsel_Infiltration_1_h	-		Abgelöst in Klimaaktiv		Skalierungsfaktoren	0	1,0	1	1,0	1,0	1,0	1,0	1	2,37	1,00	1,00	1,0				1	1	1	1	1
+👤	Warmwasserbedarf_W_m2	-		Alt		Skalierungsfaktoren	0	1,0	1	1,0	1,0	1,0	1,0	1	1,00	1,00	1,00	1,0				1	1	1	1	1
+👤	Lüfterstrom_W_m2	-		Alt		Skalierungsfaktoren	0	1,0	1	1,0	1,0	1,0	1,0	1	1,00	1,00	1,00	1,0				1	1	1	1	1
+👤	Aufzug, Regelung etc._W_m2	-		Alt		Skalierungsfaktoren	0	1,0	1	1,0	1,0	0,9	1,0	1	1,00	1,00	1,00	1,0				1	1	1	1	1
+👤	Beleuchtung_W_m2	-		Alt		Skalierungsfaktoren	0	1,0	1	1,0	1,0	1,0	1,0	1	1,00	1,00	1,00	1,0				1	1	1	1	1
+👤	Nutzerstrom_W_m2	-		Alt		Skalierungsfaktoren	0	1,0	1	1,0	1,0	0,9	1,0	1	1,00	1,00	1,00	1,0				1	1	1	1	1
+🌞	PV Skalierung	-		Alt		Skalierungsfaktoren	0	0,9	0,9	0,9	0,9	0,9	0,9	0,9	1,00	0,90	0,90	0,9				0,9	0,9	0,9	0,9	0,9
+⚖️	JAZ Kühlen Erdgas und FW Variante			Alt			0	2,5	2,5	2,5	2,5	2,5	2,5	2,5	2,50	2,50	2,50	2,5				2,5	2,5	2,5	2,5	2,5
+⚖️	CO2,PE Profil			Alt			0	3,0	3	3,0	3,0	3,0	3,0	3	3,00	3,00	3,00	3,0				3	3	3	3	3
+	Wetterdaten			Abgelöst in Klimaaktiv			0	6,0	1	6,0	1,0	5,0	6,0	1	6,00	1,00	1,00	6,0				6	6	6	6	6
+🔀	Wohnen aktiv Kühlen?			Alt			0	WAHR	WAHR	WAHR	WAHR	WAHR	WAHR	WAHR	WAHR	WAHR	WAHR	WAHR				WAHR	WAHR	WAHR	WAHR	WAHR
+🔀	Büro aktiv Kühlen?			Alt			0	WAHR	WAHR	WAHR	WAHR	WAHR	WAHR	WAHR	WAHR	WAHR	WAHR	WAHR				WAHR	WAHR	WAHR	WAHR	WAHR
+🔀	Handel aktiv Kühlen?			Alt			0	WAHR	WAHR	WAHR	WAHR	WAHR	WAHR	WAHR	WAHR	WAHR	WAHR	WAHR				WAHR	WAHR	WAHR	WAHR	WAHR
+🔀	Bildung aktiv Kühlen?			Alt			0	WAHR	WAHR	WAHR	WAHR	WAHR	WAHR	WAHR	WAHR	WAHR	WAHR	WAHR				WAHR	WAHR	WAHR	WAHR	WAHR
+	Grundstücksfläche			Alt			2	4662,0	7323,4	0,0	7323,4	7000,0	4662,0	7323,4	48131,20	7323,40	7323,40	4662,0				4662	4662	4662	4662	4662
+	Fernwärme PE-Faktor			Alt			0	7,0	7	7,0	7	1	7	7	7,00	7,00	7,00	7,0				7	7	7	7	7
+	Netzdienlichkeitsstrategie			Alt			0	2,0	2	2,0	2	2	2	2	2,00	2,00	2,00	2,0				2	2	2	2	2
+	Verhältnis NGF/BGF			Alt		Gebäude	0	0,8	0,8	0,8	80%	80%	80%	0,8	0,80	0,80	0,80	0,8				0,8	0,8	0,8	0,8	0,8
+👤	Profil HEIZEN			Abgelöst in Klimaaktiv		Switch	0	1,0	1	1,0	1	1	1	1	1,00	1,00	1,00	1,0				1	1	1	1	1
+👤	Profil KÜHLEN			Abgelöst in Klimaaktiv		Switch	0	1,0	4	1,0	4	2	1	4	1,00	4,00	4,00	1,0				1	1	1	1	1
+👤	ÖNORM/OIB-Energiesummen			Alt		Nutzungsspezfische Skalierungsfaktoren	0	1,0	3	1,0	3	3	1	3	1,00	3,00	3,00	1,0				1	1	1	1	1
+👤	Lüfterstrom			Alt			0	1,0	1	1,0	1	5	1	1	2,00	1,00	1,00	1,0				1	1	1	1	1
+👤	Luftwechsel Anlage			Alt			0	2,0	1	2,0	1	5	2	1	2,00	1,00	1,00	2,0				2	2	2	2	2
+👤	Innere Wärmen Sommer			Abgelöst in Klimaaktiv			0	1,0	3	1,0	3	1	1	3	1,00	3,00	3,00	1,0				1	1	1	1	1
+👤	Innere Wärmen Winter			Abgelöst in Klimaaktiv			0	1,0	3	1,0	3	1	1	3	1,00	3,00	3,00	1,0				1	1	1	1	1
+👤	Warmwasser Wärmebedarf			Alt			0	1,0	3	1,0	3	1	1	3	1,00	3,00	3,00	1,0				1	1	1	1	1
+👤	Strombedarf Aufzug, Regelung, Etc			Alt			0	1,0	3	1,0	3	1	1	3	1,00	3,00	3,00	1,0				1	1	1	1	1
+👤	Beleuchtung			Alt			0	1,0	3	1,0	3	1	1	3	1,00	3,00	3,00	1,0				1	1	1	1	1
+👤	Nutzerstrom			Alt			0	1,0	3	1,0	3	1	1	3	1,00	3,00	3,00	1,0				1	1	1	1	1
+⚖️	"Erdgas" PE-Faktor			Alt			0	3,0	3	3,0	3	3	3	3	3,00	3,00	3,00	3,0				3	3	3	3	3
+Alt	Alt	Alt	Alt	Alt		Alt	1	Alt	Alt	Alt	Alt	Alt	Alt	Alt	Alt	Alt	Alt	Alt				Alt	Alt	Alt	Alt	Alt
+							0																			
+📝	Projektname			Neu (default, nicht berechenbar)	project_name	='🏙️'!$D$5	2	Rugierstraße		Rugierstraße	Test_PG2	Test_AB	Rugierstraße	Test_AB	WieNeu+ Alliiertenviertel	Test_AB	Beispiel PG	Rugierstraße				Rugierstraße	Rugierstraße	Rugierstraße	Rugierstraße	Rugierstraße
+📝	ProjektURL			Neu (default, nicht berechenbar)	project_url	='🏙️'!D6	2	0,0		0,0							0,00	0,0				0	0	0	0	0
+🧭	Adresse			Neu (default, nicht berechenbar)	location_address	='🏙️'!$D$12	2	Rugierstraße 28		Rugierstraße 28			Rugierstraße 28			0,00	Pilzgasse 22	Rugierstraße 28				Rugierstraße 28	Rugierstraße 28	Rugierstraße 28	Rugierstraße 28	Rugierstraße 28
+🧭	Gemeinde			Neu (default, nicht berechenbar)	municipality_name	='🏙️'!D14	2	Wien-Donaustadt		0,0							Wien-Floridsdorf	Wien-Donaustadt				Wien-Donaustadt	Wien-Donaustadt	Wien-Donaustadt	Wien-Donaustadt	Wien-Donaustadt
+📝	Erstellungsdatum			Neu (default, nicht berechenbar)		='🏙️'!$D$7	2	28.02.2024		28.02.2024			28.02.2024			0,00	45682,00	28.02.2024				28.02.2024	28.02.2024	28.02.2024	28.02.2024	28.02.2024
+📝	Projektbeschreibung			Neu (default, nicht berechenbar)		='🏙️'!$D$8	2	0,0		0,0						0,00	Dieses Projekt stellt ein Beispielquartier mit 2 Wohngebäuden und einem Bürogebäude dar. Es entspricht geometrisch dem Deklarationsbeispiel Pilzgasse	0,0				0	0	0	0	0
+📝	Variante / Scenario			Neu (aus alt Berechenbar)	project_scenario_name	='🏙️'!D9	2	0,0									Basis	0,0				0	0	0	0	0
+🧭	Postleitzahl			Neu (default, nicht berechenbar)	location_postcode	='🏙️'!$D$15	2	0,0		0,0						0,00	Keine Daten	0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+		16	Parameter				0																			
+🌦️	Wetterdatensatz Name			Neu (aus alt Berechenbar)	weather_name	='🏙️'!$D$19	2	Wien 2020		Wien 2020	Hohe Warte 2010	Innsbruck 2020	Wien 2020		Wien 2020	Hohe Warte 2010	Hohe Warte 2010	Wien 2020				Wien 2020	Wien 2020	Wien 2020	Wien 2020	Wien 2020
+🌦️	Wetterdatensatz Nummer			Zwischenrechnung	weather_index	=VERGLEICH(K219;list_weathers;0)	0	6,0		6,0						1,00	1,00	6,0				6	6	6	6	6
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+		8	Parameter				0																			
+🏙️	BGF Wohnen	m²BGF		Neu (aus alt Berechenbar)		='🏙️'!D28	2	4 800,0		0,0	17 536,2	5 350,6	9 761,3		163480	17536,2	17536,2	4 800,0				4800	4800	4800	4800	4800
+🏙️	BGF Büro	m²BGF		Neu (aus alt Berechenbar)		='🏙️'!D29	2	4 800,0		0,0	12603,3	0	0		17012	12603,3	12603,3	4 800,0				4800	4800	4800	4800	4800
+🏙️	BGF Bildung sekundär	m²BGF		Neu (aus alt Berechenbar)		='🏙️'!D31	2	0,0		0,0	0	0	0		0	0	0	0,0				0	0	0	0	0
+🏙️	BGF Bildung primär	m²BGF		Neu (aus alt Berechenbar)		='🏙️'!D30	2	0,0		0,0	772,9	0	0		0	772,9	772,9	0,0				0	0	0	0	0
+🏙️	BGF Lebensmittelhandel	m²BGF		Neu (aus alt Berechenbar)		='🏙️'!D32	2	0,0		0,0	0	0	0		0	0	0	0,0				0	0	0	0	0
+🏙️	BGF Handel sonstiger	m²BGF		Neu (aus alt Berechenbar)		='🏙️'!D33	2	0,0		0,0	2593,6	0	0		0	2593,6	2593,6	0,0				0	0	0	0	0
+🏙️	BGF Sonstige	m²BGF		Neu (aus alt Berechenbar)		='🏙️'!D34	2	0,0		0,0	0	0	0		0	0	0	0,0				0	0	0	0	0
+🏙️	BGF Quartier	m²BGF		Zwischenrechnung	GFA_total	=SUMME(K227:K233)	0	9600,0		0,0						33506,00	33506,00	9600,0				9600	9600	9600	9600	9600
+🏙️	NGF/BGF Wohnen	Faktor		Neu (aus alt Berechenbar)		='🏙️'!F42	2	80,0%		0,0%	0,8	0,8	0,8		0,80	0,80	0,80	80,0%				0,8	0,8	0,8	0,8	0,8
+🏙️	NGF/BGF  Büro	Faktor		Neu (aus alt Berechenbar)		='🏙️'!F43	2	80,0%		0,0%	0,8	0,8	0,8		0,80	0,80	0,80	80,0%				0,8	0,8	0,8	0,8	0,8
+🏙️	NGF/BGF Bildung sekundär	Faktor		Neu (aus alt Berechenbar)		='🏙️'!F45	2	80,0%		0,0%	0,8	0,8	0,8		0,80	0,80	0,80	80,0%				0,8	0,8	0,8	0,8	0,8
+🏙️	NGF/BGF Bildung primär	Faktor		Neu (aus alt Berechenbar)		='🏙️'!F44	2	80,0%		0,0%	0,8	0,8	0,8		0,80	0,80	0,80	80,0%				0,8	0,8	0,8	0,8	0,8
+🏙️	NGF/BGF Lebensmittelhandel	Faktor		Neu (aus alt Berechenbar)		='🏙️'!F46	2	80,0%		0,0%	0,8	0,8	0,8		0,80	0,80	0,80	80,0%				0,8	0,8	0,8	0,8	0,8
+🏙️	NGF/BGF Handel sonstiger	Faktor		Neu (aus alt Berechenbar)		='🏙️'!F47	2	80,0%		0,0%	0,8	0,8	0,8		0,80	0,80	0,80	80,0%				0,8	0,8	0,8	0,8	0,8
+🏙️	NGF/BGF Sonstige	Faktor		Neu (aus alt Berechenbar)		='🏙️'!F48	2	80,0%		0,0%	0,8	0,8	0,8		0,80	0,80	0,80	80,0%				0,8	0,8	0,8	0,8	0,8
+🏙️	NGF/BGF Quartier	Faktor		Zwischenrechnung	NFA_to_GFA_ratio	=NFA_total/GFA_total	0	80,0%		80,0%						0,80	0,80	80,0%				0,8	0,8	0,8	0,8	0,8
+🏙️	NGF Wohnen	m²NGF		Zwischenrechnung	NFA_residential	=K227*K235	0	3840,0		0,0						14028,96	14028,96	3840,0				3840	3840	3840	3840	3840
+🏙️	NGF Büro	m²NGF		Zwischenrechnung	NFA_office	=K228*K236	0	3840,0		0,0						10082,64	10082,64	3840,0				3840	3840	3840	3840	3840
+🏙️	NGF Bildung sekundär	m²NGF		Zwischenrechnung	NFA_schoolsec	=K229*K237	0	0,0		0,0						0,00	0,00	0,0				0	0	0	0	0
+🏙️	NGF Bildung primär	m²NGF		Zwischenrechnung	NFA_schoolprim	=K230*K238	0	0,0		0,0						618,32	618,32	0,0				0	0	0	0	0
+🏙️	NGF Handel Lebensmittel	m²NGF		Zwischenrechnung	NFA_retailfood	=K231*K239	0	0,0		0,0						0,00	0,00	0,0				0	0	0	0	0
+🏙️	NGF Handel sonstiger	m²NGF		Zwischenrechnung	NFA_retailother	=K232*K240	0	0,0		0,0						2074,88	2074,88	0,0				0	0	0	0	0
+🏙️	NGF Sonstige	m²NGF		Zwischenrechnung	NFA_other	=K233*K241	0	0,0		0,0						0,00	0,00	0,0				0	0	0	0	0
+🏙️	NGF Quartier	m²NGF		Zwischenrechnung	NFA_total	=SUMME(K243:K249)	0	7680,0		0,0						26804,80	26804,80	7680,0				7680	7680	7680	7680	7680
+🏙️	Pro NGF ( Kehrwert NGF)	1/m²NGF		Zwischenrechnung	per_NFA	=1/NFA_total	0	0,000130208		0,000130208							0,00	0,000130208				0,000130208	0,000130208	0,000130208	0,000130208	0,000130208
+🏙️	Bebaubare Grundstücksfläche	m²GF		Neu (aus alt Berechenbar)		='🏙️'!D55	2	4662,0		0,0	7 323,4	7 000,0	4 662,0		48 131,2	7 323,4	7 323,4	4662,0				4662	4662	4662	4662	4662
+🏙️	Geschoßflächenzahl	GFZ			FSI	=GFA_total/K252	0	2,1	0		0,0	0,0	1,0					2,1				2,059202059	2,059202059	2,059202059	2,059202059	2,059202059
+🏙️	Sanierung Anteil Wohnen					='🏙️'!D61	2	1,0	0		0,0	0,0	1,0					1,0				1	1	1	1	1
+🏙️	Sanierung Anteil Büro					='🏙️'!D62	2	1,0	0		0,0	0,0	1,0					1,0				1	1	1	1	1
+🏙️	Sanierung Anteil Bildung sekundär					='🏙️'!D63	2	1,0	0		0,0	0,0	1,0					1,0				1	1	1	1	1
+🏙️	Sanierung Anteil Bildung primär					='🏙️'!D64	2	1,0	0		0,0	0,0	1,0					1,0				1	1	1	1	1
+🏙️	Sanierung Anteil Lebensmittelhandel					='🏙️'!D65	2	1,0	0		0,0	0,0	1,0					1,0				1	1	1	1	1
+🏙️	Sanierung Anteil Handel Sonstiger					='🏙️'!D66	2	1,0	0		0,0	0,0	1,0					1,0				1	1	1	1	1
+🏙️	Sanierung Anteil Sonstige					='🏙️'!D67	2	1,0	0		0,0	0,0	1,0					1,0				1	1	1	1	1
+🏙️	Sanierungsanteil im Quartier				renovation_share		0	100%										100%				1	1	1	1	1
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+		42	Parameter				0																			
+↕️	Raumhöhe Wohnen	m Netto		Neu (aus alt Berechenbar)	rh_residential	='🏙️'!D42	2	2,500		0,000	2,6	2,5	2,5		2,50	2,60	2,60	2,500				2,5	2,5	2,5	2,5	2,5
+↕️	Raumhöhe Büro	m Netto		Neu (aus alt Berechenbar)	rh_office	='🏙️'!D43	2	2,500		0,000	2,6	2,5	2,5		2,50	2,60	2,60	2,500				2,5	2,5	2,5	2,5	2,5
+↕️	Raumhöhe sekundäre Bildungseinrichtung/ Universität	m Netto		Neu (aus alt Berechenbar)	rh_schoolsec	='🏙️'!D45	2	2,500		0,000	2,6	2,5	2,5		2,50	2,60	2,60	2,500				2,5	2,5	2,5	2,5	2,5
+↕️	Raumhöhe primäre Bildundseinrichtung/ Kindergarten	m Netto		Neu (aus alt Berechenbar)	rh_schoolprim	='🏙️'!D44	2	2,500		0,000	2,6	2,5	2,5		2,50	2,60	2,60	2,500				2,5	2,5	2,5	2,5	2,5
+↕️	Raumhöhe Lebensmittelhandel	m Netto		Neu (aus alt Berechenbar)	rh_retailfood	='🏙️'!D46	2	2,500		0,000	2,6	2,5	2,5		2,50	2,60	2,60	2,500				2,5	2,5	2,5	2,5	2,5
+↕️	Raumhöhe Handel sonstiger	m Netto		Neu (aus alt Berechenbar)	rh_retailother	='🏙️'!D47	2	2,500		0,000	2,6	2,5	2,5		2,50	2,60	2,60	2,500				2,5	2,5	2,5	2,5	2,5
+↕️	Raumhöhe Sonstige Nutzung	m Netto		Neu (aus alt Berechenbar)	rh_other	='🏙️'!D48	2	2,500		0,000	2,6	2,5	2,5		2,50	2,60	2,60	2,500				2,5	2,5	2,5	2,5	2,5
+↕️	Raumhöhe Quartier	m Netto		Zwischenrechnung	rh_avg	=SUMMENPRODUKT(K269:K275;K243:K249)/NFA_total	0	2,500		0,000						2,60	2,60	2,500				2,5	2,5	2,5	2,5	2,5
+↕️	Raumvolumen Quartier	m³netto		Zwischenrechnung	NFV_total	=NFA_total*rh_avg	0	19200,0									69692,48	19200,0				19200	19200	19200	19200	19200
+↕️	Raumvolumen ungekühlt	m³netto		Zwischenrechnung	NFV_u	=SUMMENPRODUKT(K243:K249;K269:K275;Cool_Passive_Shares)	0	9600,0										9600,0				9600	9600	9600	9600	9600
+↕️	Raumvolumen gekühlt	m³netto		Zwischenrechnung	NFV_c	=SUMMENPRODUKT(K243:K249;K269:K275;COOL_active_shares)	0	9600,0										9600,0				9600	9600	9600	9600	9600
+↕️	Höhe Geschoßdecken	m		Neu (default, nicht berechenbar)			1	0,4										0,4				0,4	0,4	0,4	0,4	0,4
+↕️	Raumvolumen Quartier brutto	m³brutto		Zwischenrechnung	GFV		0	22272,0										22272,0				22272	22272	22272	22272	22272
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+		16	Parameter				0																			
+🧊	Hüllfläche Außenwand	m² Brutto	exkl. Fenster	Neu (aus alt Berechenbar)	hull_ext_wall_wo_window_m2	='🧱'!D11	2	3795,4		#BEZUG!	6 082,0	2 220,1	3 795,4		112841,87	6081,98	6081,98	3795,4				3795,39	3795,39	3795,39	3795,39	3795,39
+🧊	Hüllfläche Dach	m² Brutto		Neu (aus alt Berechenbar)	hull_roof_m2	='🧱'!D12	2	2176,5		#BEZUG!	6 813,5	1 830,1	2 176,5		33823,93	6813,49	6813,49	2176,5				2176,5	2176,5	2176,5	2176,5	2176,5
+🧊	Hüllfläche Kellerdecke / Fundament	m² Brutto		Neu (aus alt Berechenbar)	hull_fundament_m2	='🧱'!D13	2	2296,8		#BEZUG!	3 660,1	1 710,3	2 296,8		33823,93	3660,14	3660,14	2296,8				2296,84	2296,84	2296,84	2296,84	2296,84
+🧊	Hüllfläche Fenster Nord	m² Brutto	inkl. Rahmen	Neu (aus alt Berechenbar)		='🧱'!D18	2	550,4		#BEZUG!	1 459,3	113,9	550,4		9106,51	1459,27	1459,27	550,4				550,37	550,37	550,37	550,37	550,37
+🧊	Hüllfläche Fenster Ost	m² Brutto	inkl. Rahmen	Neu (aus alt Berechenbar)		='🧱'!D19	2	129,2		#BEZUG!	690,7	136,1	129,2		6912,55	690,72	690,72	129,2				129,15	129,15	129,15	129,15	129,15
+🧊	Hüllfläche Fenster Süd	m² Brutto	inkl. Rahmen	Neu (aus alt Berechenbar)		='🧱'!D20	2	605,5		#BEZUG!	1 335,1	180,2	605,5		8829,11	1335,13	1335,13	605,5				605,5	605,5	605,5	605,5	605,5
+🧊	Hüllfläche Fenster West	m² Brutto	inkl. Rahmen	Neu (aus alt Berechenbar)		='🧱'!D21	2	107,4		#BEZUG!	678,5	313,2	107,4		5917,20	678,49	678,49	107,4				107,42	107,42	107,42	107,42	107,42
+🧊	Hüllfläche Fenster Horizontal	m² Brutto	inkl. Rahmen	Neu (aus alt Berechenbar)		='🧱'!D22	2	0,0		#BEZUG!	0,0	0,0	0,0		0,00	0,00	0,00	0,0				0	0	0	0	0
+🧊	Hüllfläche Fenster gesamt	m² Brutto		Zwischenrechnung	hull_window_m2	=SUMME(K288:K291)	0	1392,4		#BEZUG!						4163,61	4163,61	1392,4				1392,44	1392,44	1392,44	1392,44	1392,44
+🧊	Hüllfläche Fensterflächenanteil			Zwischenrechnung	hull_fenestration_rate	=K293/(K293+K285)	0	27%		#BEZUG!						0,41	0,41	27%				0,268405094	0,268405094	0,268405094	0,268405094	0,268405094
+	Hüllfläche gesamt	m² Brutto		Zwischenrechnung		=hull_ext_wall_wo_window_m2+hull_roof_m2+hull_fundament_m2+hull_window_m2	0	9661,2										9661,2				9661,17	9661,17	9661,17	9661,17	9661,17
+	lc				lc	=K281/(hull_ext_wall_wo_window_m2+hull_roof_m2+hull_fundament_m2+hull_window_m2)	0	2,3										2,3				2,305310847	2,305310847	2,305310847	2,305310847	2,305310847
+	Geschoßanzahl					=GFA_total/hull_roof_m2	0	4,4										4,4				4,410751206	4,410751206	4,410751206	4,410751206	4,410751206
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+		21	Parameter				0																			
+🧱	U-Wert Außenwände	W/m²K		Neu (aus alt Berechenbar)		='🧱'!F11	2	0,18		#BEZUG!	0,17	0,12	0,18		0,93	0,17	0,17	0,18				0,181789625	0,181789625	0,181789625	0,181789625	0,181789625
+🧱	U-Wert Dach	W/m²K		Neu (aus alt Berechenbar)		='🧱'!F12	2	0,14		#BEZUG!	0,11	0,11	0,14		0,65	0,11	0,11	0,14				0,139290576	0,139290576	0,139290576	0,139290576	0,139290576
+🧱	U-Wert Kellerdecke / Fundament	W/m²K		Neu (aus alt Berechenbar)		='🧱'!F13	2	0,20		#BEZUG!	0,20	0,10	0,20		0,92	0,20	0,20	0,20				0,2	0,2	0,2	0,2	0,2
+🧱	U-Wert Fenster Nord	W/m²K	inkl. Rahmen	Neu (aus alt Berechenbar)		='🧱'!F27	2	0,85		#BEZUG!	0,76	0,69	0,85		1,95	0,76	0,76	0,85				0,85	0,85	0,85	0,85	0,85
+🧱	U-Wert Fenster Ost	W/m²K	inkl. Rahmen	Neu (aus alt Berechenbar)		='🧱'!F28	2	0,85		#BEZUG!	0,76	0,69	0,85		1,95	0,76	0,76	0,85				0,85	0,85	0,85	0,85	0,85
+🧱	U-Wert Fenster Süd	W/m²K	inkl. Rahmen	Neu (aus alt Berechenbar)		='🧱'!F29	2	0,85		#BEZUG!	0,76	0,69	0,85		1,95	0,76	0,76	0,85				0,85	0,85	0,85	0,85	0,85
+🧱	U-Wert Fenster West	W/m²K	inkl. Rahmen	Neu (aus alt Berechenbar)		='🧱'!F30	2	0,85		#BEZUG!	0,76	0,69	0,85		1,95	0,76	0,76	0,85				0,85	0,85	0,85	0,85	0,85
+🧱	U-Wert Fenster Horizontal	W/m²K	inkl. Rahmen	Neu (aus alt Berechenbar)		='🧱'!F31	2	0,85		#BEZUG!	0,76	0,69	0,85		1,95	0,76	0,76	0,85				0,85	0,85	0,85	0,85	0,85
+🧱	Wärmebrückenzuschlag		Anteil des Transmissionsleitwerts	Neu (aus alt Berechenbar)		='🧱'!D35	2	0,05		0,00	0,10	0,13	0,05		0,05	0,10	0,10	0,05				0,05	0,05	0,05	0,05	0,05
+🧱	Transmissionsleitwert Außenwände	W/m²K				=K285*K306*per_NFA	0	0,08984										0,08984				0,08983887	0,08983887	0,08983887	0,08983887	0,08983887
+🧱	Transmissionsleitwert Dach	W/m²K				=K286*K307*per_NFA	0	0,03947										0,03947				0,039474732	0,039474732	0,039474732	0,039474732	0,039474732
+🧱	Transmissionsleitwert Kellerdecke / Fundament	W/m²K				=K287*K308*per_NFA	0	0,05981										0,05981				0,059813542	0,059813542	0,059813542	0,059813542	0,059813542
+🧱	Transmissionsleitwert Fenster	W/m²K				=SUMMENPRODUKT(K288:K292;K309:K313)*per_NFA	0	0,15411										0,15411				0,154111198	0,154111198	0,154111198	0,154111198	0,154111198
+🧱	Transmissionsleitwert Wärmebrücken	W/m²K				=SUMME(K315:K318)*K314	0	0,01716										0,01716				0,017161917	0,017161917	0,017161917	0,017161917	0,017161917
+🧱	Transmissionsleitwert absolut	MW/K	ink. Wärmebrückenzuschlag	Zwischenrechnung	transmittance_MW	=transmittance_Wm²*NFA_total/1000000	0	0,00277		#BEZUG!						0,01	0,01	0,00277				0,002767874	0,002767874	0,002767874	0,002767874	0,002767874
+🧱	Transmissionsleitwert spezifisch	W/m²K	ink. Wärmebrückenzuschlag	Zwischenrechnung	transmittance_Wm²	=SUMME(K315:K319)	0	0,36040		#BEZUG!						0,23	0,23	0,36040				0,360400259	0,360400259	0,360400259	0,360400259	0,360400259
+							0	0,0										0,0				0	0	0	0	0
+🧱	Spezif. wirksame Wärmekapazität	Wh/m²K		Neu (aus alt Berechenbar)	heat_capacity_effective_m²	#NV	1	204,0		204,0	204,00	132,00	135,00		204,00	204,00	204,00	204,0				204	204	204	204	204
+🧱	Spezif. wirksame Wärmekapazität ungekühlter Bereich	Wh/m²K	Kann separat eingegebn werden	Zwischenrechnung	heat_cap_eff_uncooled_m2	=heat_capacity_effective_m²	2	204,0		102,0							204,00	204,0				204	204	204	204	204
+🧱	Spezif. wirksame Wärmekapazität gekühlter Bereich	Wh/m²K	Kann separat eingegebn werden	Zwischenrechnung	heat_cap_eff_cooled_m2	=heat_capacity_effective_m²	2	204,0		102,0						0,00	204,00	204,0				204	204	204	204	204
+🧱	Wirksame Wärmekapazität	MWh/K		Zwischenrechnung	heat_capacity_effective_abs	#NV	1	0,0		1,6						5,47		0,0				0	0	0	0	0
+🧱	Wirksame Wärmekapazität Ungekühlt	MWh/K		Nicht verwendet	heat_capacity_effective_uncooled_abs	=heat_capacity_effective_abs	2	0,0		0,0						0,00	0,00	0,0				0	0	0	0	0
+🧱	Wirksame Wärmekapazität Gekühlt	MWh/K		Nicht verwendet	heat_capacity_effective_cooled_abs	=heat_capacity_effective_abs	2	0,0		0,0						5,47	0,00	0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+		39	Parameter				0																			
+🏢	g-Wert Fenster Nord			Neu (aus alt Berechenbar)		='🧱'!D27	2	0,50		#BEZUG!	0,39	0,39	0,50		0,72	0,39	0,39	0,50				0,5	0,5	0,5	0,5	0,5
+🏢	g-Wert Fenster Ost			Neu (aus alt Berechenbar)		='🧱'!D28	2	0,50		#BEZUG!	0,39	0,50	0,50		0,72	0,39	0,39	0,50				0,5	0,5	0,5	0,5	0,5
+🏢	g-Wert Fenster Süd			Neu (aus alt Berechenbar)		='🧱'!D29	2	0,50		#BEZUG!	0,39	0,50	0,50		0,72	0,39	0,39	0,50				0,5	0,5	0,5	0,5	0,5
+🏢	g-Wert Fenster West			Neu (aus alt Berechenbar)		='🧱'!D30	2	0,50		#BEZUG!	0,39	0,50	0,50		0,72	0,39	0,39	0,50				0,5	0,5	0,5	0,5	0,5
+🏢	g-Wert Fenster Horizontal			Neu (aus alt Berechenbar)		='🧱'!D31	2	0,50		#BEZUG!	0,39	0,00	0,50		0,72	0,39	0,39	0,50				0,5	0,5	0,5	0,5	0,5
+🏢	Einstrahlungsfaktor Fenster Nord			Neu (aus alt Berechenbar)		='🧱'!D54	2	0,40		0,00	0,65	0,37	0,40		0,40	0,65	0,65	0,40				0,4	0,4	0,4	0,4	0,4
+🏢	Einstrahlungsfaktor Fenster Ost			Neu (aus alt Berechenbar)		='🧱'!D55	2	0,40		Fc	0,61	0,45	0,40		0,40	0,61	0,61	0,40				0,4	0,4	0,4	0,4	0,4
+🏢	Einstrahlungsfaktor Fenster Süd			Neu (aus alt Berechenbar)		='🧱'!D56	2	0,40		1,00	0,69	0,44	0,40		0,40	0,69	0,69	0,40				0,4	0,4	0,4	0,4	0,4
+🏢	Einstrahlungsfaktor Fenster West			Neu (aus alt Berechenbar)		='🧱'!D57	2	0,40		0,80	0,61	0,39	0,40		0,40	0,61	0,61	0,40				0,4	0,4	0,4	0,4	0,4
+🏢	Einstrahlungsfaktor Fenster Horizontal			Neu (aus alt Berechenbar)		='🧱'!D58	2	0,00		0,70	0,00	0,00	0,00		0,00	0,00	0,00	0,00				0	0	0	0	0
+🏢	Faktor Sommer Nord			Neu (aus alt Berechenbar)		='🧱'!F54	2	0,400		0,000	0,17	0,38	0,40		0,33	0,17	0,17	0,400				0,4	0,4	0,4	0,4	0,4
+🏢	Faktor Sommer Ost			Neu (aus alt Berechenbar)		='🧱'!F55	2	0,400		0,000	0,17	0,54	0,40		0,33	0,17	0,17	0,400				0,4	0,4	0,4	0,4	0,4
+🏢	Faktor Sommer Süd			Neu (aus alt Berechenbar)		='🧱'!F56	2	0,400		0,000	0,16	0,32	0,40		0,33	0,16	0,16	0,400				0,4	0,4	0,4	0,4	0,4
+🏢	Faktor Sommer  West			Neu (aus alt Berechenbar)		='🧱'!F57	2	0,400		0,000	0,17	0,37	0,40		0,33	0,17	0,17	0,400				0,4	0,4	0,4	0,4	0,4
+🏢	Faktor Sommer  Horizontal			Neu (aus alt Berechenbar)		='🧱'!F58	2	0,000		0,000	0,00	0,00	0,00		0,00	0,00	0,00	0,000				0	0	0	0	0
+🏢	Verhältnis Sommer/Winter Nord			Neu (aus alt Berechenbar)		=K355/K350	0	1,00		#DIV/0!	0,27	1,04	1,00		0,81	0,27	0,27	1,00				1	1	1	1	1
+🏢	Verhältnis Sommer/Winter Ost			Neu (aus alt Berechenbar)		=K356/K351	0	1,00		#WERT!	0,29	1,19	1,00		0,81	0,29	0,29	1,00				1	1	1	1	1
+🏢	Verhältnis Sommer/Winter  Süd			Neu (aus alt Berechenbar)		=K357/K352	0	1,00		0,00	0,23	0,73	1,00		0,81	0,23	0,23	1,00				1	1	1	1	1
+🏢	Verhältnis Sommer/Winter  West			Neu (aus alt Berechenbar)		=K358/K353	0	1,00		0,00	0,29	0,96	1,00		0,81	0,29	0,29	1,00				1	1	1	1	1
+🏢	Verhältnis Sommer/Winter Horizontal			Neu (aus alt Berechenbar)		=WENNFEHLER(K359/K354;1)	0	1,00		0,00	1,00	1,00	1,00		0,00	1,00	1,00	1,00				1	1	1	1	1
+🏢	Zuschlag opake Bauteile			Neu (aus alt Berechenbar)		='⚙'!$B$46	2	1,06560157		1,06560157	1,07	1,07	1,07		1,07	1,07	1,07	1,06560157				1,06560157	1,06560157	1,06560157	1,06560157	1,06560157
+🏢	Apertur Winter Nord	m²	Effektiv, inkl opake Anteile	Zwischenrechnung		=K288*K345*K350*K$365	0	117,3		#BEZUG!						397,88	397,88	117,3				117,2950273	117,2950273	117,2950273	117,2950273	117,2950273
+🏢	Apertur Winter ost	m²	Effektiv, inkl opake Anteile	Zwischenrechnung		=K289*K346*K351*K$365	0	27,5		#BEZUG!						176,66	176,66	27,5				27,52448856	27,52448856	27,52448856	27,52448856	27,52448856
+🏢	Apertur Winter Süd	m²	Effektiv, inkl opake Anteile	Zwischenrechnung		=K290*K347*K352*K$365	0	129,0		#BEZUG!						385,02	385,02	129,0				129,0443502	129,0443502	129,0443502	129,0443502	129,0443502
+🏢	Apertur Winter West	m²	Effektiv, inkl opake Anteile	Zwischenrechnung		=K291*K348*K353*K$365	0	22,9		#BEZUG!						173,53	173,53	22,9				22,89338414	22,89338414	22,89338414	22,89338414	22,89338414
+🏢	Apertur Winter Horizontal	m²	Effektiv, inkl opake Anteile	Zwischenrechnung		=K292*K349*K354*K$365	0	0,0		#BEZUG!						0,00	0,00	0,0				0	0	0	0	0
+🏢	Apertur Sommer Nord	m²	Effektiv, inkl opake Anteile	Zwischenrechnung		=K288*K355*K345*K$365	0	117,3		#BEZUG!						106,58	106,58	117,3				117,2950273	117,2950273	117,2950273	117,2950273	117,2950273
+🏢	Apertur Sommer Ost	m²	Effektiv, inkl opake Anteile	Zwischenrechnung		=K289*K356*K346*K$365	0	27,5		#BEZUG!						50,45	50,45	27,5				27,52448856	27,52448856	27,52448856	27,52448856	27,52448856
+🏢	Apertur Sommer Süd	m²	Effektiv, inkl opake Anteile	Zwischenrechnung		=K290*K357*K347*K$365	0	129,0		#BEZUG!						88,71	88,71	129,0				129,0443502	129,0443502	129,0443502	129,0443502	129,0443502
+🏢	Apertur Sommer West	m²	Effektiv, inkl opake Anteile	Zwischenrechnung		=K291*K358*K348*K$365	0	22,9		#BEZUG!						49,55	49,55	22,9				22,89338414	22,89338414	22,89338414	22,89338414	22,89338414
+🏢	Apertur Sommer Horizontal	m²	Effektiv, inkl opake Anteile	Zwischenrechnung		=K292*K359*K349*K$365	0	0,0		#BEZUG!						0,00	0,00	0,0				0	0	0	0	0
+🏢	Mobiler Sonnenschutz Fc-Wert			Neu (default, nicht berechenbar)	shad_mobile_factor	='🧱'!D62	2	1,0		0,3	1,00	1,00	1,00		1,00	1,00	1,00	1,0				1	1	1	1	1
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+		44	Parameter				0																			
+💨	Luftdichtheit n50	1/h		Neu (aus alt Berechenbar)		='🧱'!D40	2	0,4		0,0	4,0	0,0	100,0	0,0	0,0	0,0	3 070,0	0,4				0,4	0,4	0,4	0,4	0,4
+💨	Verhältnis Blower Door / Reale Infiltration			Neu (default, nicht berechenbar)		#NV	1	10,0		#DIV/0!						1,00	1,00	10,0				10	10	10	10	10
+💨	Luftwechsel Infiltration	1/h			vent_infiltration_ACH	=K389/K390	0	0,04										0,04				0,04	0,04	0,04	0,04	0,04
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+💨	Mechanische Lüftung Wohnen	Anteil		Neu (aus alt Berechenbar)		='💨L'!D19	2	1,0		#BEZUG!	1,00	1,00	0,00	1,00	1,00	1,00	0,00	0,5				0,5	0,5	0,5	0,5	0,5
+💨	Mechanische Lüftung Büro	Anteil		Neu (aus alt Berechenbar)		='💨L'!D20	2	1,0		#BEZUG!	1,00	1,00	0,00	1,00	1,00	1,00	1,00	1,0				1	1	1	1	1
+💨	Mechanische Lüftung Bildung sekundär	Anteil		Neu (aus alt Berechenbar)		='💨L'!D22	2	0,0		#BEZUG!	1,00	1,00	0,00	1,00	1,00	1,00	1,00	0,0				0	0	0	0	0
+💨	Mechanische Lüftung Bildung primär	Anteil		Neu (aus alt Berechenbar)		='💨L'!D21	2	0,0		#BEZUG!	1,00	1,00	0,00	1,00	1,00	1,00	1,00	0,0				0	0	0	0	0
+💨	Mechanische Lüftung Handel Lebensmittel	Anteil		Neu (aus alt Berechenbar)		='💨L'!D23	2	0,0		#BEZUG!	1,00	1,00	0,00	1,00	1,00	1,00	1,00	0,0				0	0	0	0	0
+💨	Mechanische Lüftung Handel sonstiger	Anteil		Neu (aus alt Berechenbar)		='💨L'!D24	2	0,0		#BEZUG!	1,00	1,00	0,00	1,00	1,00	1,00	1,00	0,0				0	0	0	0	0
+💨	Mechanische Lüftung Sonstige Nutzung	Anteil		Neu (aus alt Berechenbar)		='💨L'!D25	2	0,0		#BEZUG!	1,00	1,00	0,00	1,00	1,00	1,00	1,00	0,0				0	0	0	0	0
+💨	Fensterlüftung Wohnen	Anteil		Zwischenrechnung		=1-K395	0	0,0									1,00	0,5				0,5	0,5	0,5	0,5	0,5
+💨	Fensterlüftung Büro	Anteil		Zwischenrechnung		=1-K396	0	0,0									0,00	0,0				0	0	0	0	0
+💨	Fensterlüftung Bildung sekundär	Anteil		Zwischenrechnung		=1-K397	0	1,0									0,00	1,0				1	1	1	1	1
+💨	Fensterlüftung Bildung primär	Anteil		Zwischenrechnung		=1-K398	0	1,0									0,00	1,0				1	1	1	1	1
+💨	Fensterlüftung Handel Lebensmittel	Anteil		Zwischenrechnung		=1-K399	0	1,0									0,00	1,0				1	1	1	1	1
+💨	Fensterlüftung Handel sonstiger	Anteil		Zwischenrechnung		=1-K400	0	1,0									0,00	1,0				1	1	1	1	1
+💨	Fensterlüftung Sonstige Nutzung	Anteil		Zwischenrechnung		=1-K401	0	1,0									0,00	1,0				1	1	1	1	1
+💨	Fensterlüftung Nettogeschoßfläche	m²NGF		Zwischenrechnung	NFA_windowvent	=NFA_total-NFA_mechvent	0	0,0		0,0						0,00	14028,96	1920,0				1920	1920	1920	1920	1920
+💨	Fensterlüftung Raumvolumen	m³netto		Zwischenrechnung	NFV_windowvent	=NFV_total-K412	0	0,0									36475,30	4800,0				4800	4800	4800	4800	4800
+💨	Mechanische Lüftung Nettogeschoßfläche	m²NGF		Zwischenrechnung	NFA_mechvent	=SUMMENPRODUKT(K$395:K$401;K243:K249)	0	7680,0		#BEZUG!						26804,80	12775,84	5760,0				5760	5760	5760	5760	5760
+💨	Mechanische Lüftung Raumvolumen	m³netto		Zwischenrechnung	NFV_mechvent	=SUMMENPRODUKT(K$395:K$401;K243:K249;K269:K275)	0	19200,0									33217,18	14400,0				14400	14400	14400	14400	14400
+💨	Nachtauskühlung	Bool		Neu (default, nicht berechenbar)		=[@Buffer]	0	0,0		0,0	0,00	0,00	0,00		0,00	1,00	0,00	0,0				0	0	0	0	0
+💨	Nachtauskühlung Fensterstellung Wohnen			Neu (default, nicht berechenbar)		='💨L'!D54	2	geöffnet		#BEZUG!	geschlossen	geschlossen	geschlossen		geschlossen	geöffnet	geöffnet	geöffnet				geöffnet	geöffnet	geöffnet	geöffnet	geöffnet
+💨	Nachtauskühlung Fensterstellung Büro			Neu (default, nicht berechenbar)		='💨L'!D55	2	geöffnet		#BEZUG!	geschlossen	geschlossen	geschlossen		geschlossen	geöffnet	geschlossen	geschlossen				geschlossen	geschlossen	geschlossen	geschlossen	geschlossen
+💨	Nachtauskühlung Fensterstellung Bildung sekundär			Neu (default, nicht berechenbar)		='💨L'!D57	2	geschlossen		#BEZUG!	geschlossen	geschlossen	geschlossen		geschlossen	geöffnet	geschlossen	geschlossen				geschlossen	geschlossen	geschlossen	geschlossen	geschlossen
+💨	Nachtauskühlung Fensterstellung Bildung primär			Neu (default, nicht berechenbar)		='💨L'!D56	2	geschlossen		#BEZUG!	geschlossen	geschlossen	geschlossen		geschlossen	geöffnet	geschlossen	geschlossen				geschlossen	geschlossen	geschlossen	geschlossen	geschlossen
+💨	Nachtauskühlung Fensterstellung Handel Lebensmittel			Neu (default, nicht berechenbar)		='💨L'!D58	2	geschlossen		#BEZUG!	geschlossen	geschlossen	geschlossen		geschlossen	geöffnet	geschlossen	geschlossen				geschlossen	geschlossen	geschlossen	geschlossen	geschlossen
+💨	Nachtauskühlung Fensterstellung Handel sonstiger			Neu (default, nicht berechenbar)		='💨L'!D59	2	geschlossen		#BEZUG!	geschlossen	geschlossen	geschlossen		geschlossen	geöffnet	geschlossen	geschlossen				geschlossen	geschlossen	geschlossen	geschlossen	geschlossen
+💨	Nachtauskühlung Fensterstellung Sonstige Nutzung			Neu (default, nicht berechenbar)		='💨L'!D60	2	geschlossen		#BEZUG!	geschlossen	geschlossen	geschlossen		geschlossen	geöffnet	geschlossen	geschlossen				geschlossen	geschlossen	geschlossen	geschlossen	geschlossen
+💨	Nachtauskühlung Luftwechsel	m³/h		Zwischenrechnung	ACH_night_m³	=SUMMENPRODUKT(K402:K408;K269:K275;K243:K249;SVERWEIS(K414:K420;'💨L'!K54:L56;2;FALSCH))	0	0,0		#BEZUG!							72 950,6	9600,0				9600	9600	9600	9600	9600
+💨	Luftwechsel Wohnen	1/h	Maximal	Neu (aus alt Berechenbar)		='💨L'!D8	2	0,4		#BEZUG!	0,4	0,1	0,4		0,40	0,40	0,40	0,4				0,4	0,4	0,4	0,4	0,4
+💨	Luftwechsel Büro	1/h	Maximal	Neu (aus alt Berechenbar)		='💨L'!D9	2	1,5		#BEZUG!	0,3	0,3	1,5		1,50	0,30	0,30	1,5				1,5	1,5	1,5	1,5	1,5
+💨	Luftwechsel Bildung sekundär	1/h	Maximal	Neu (aus alt Berechenbar)		='💨L'!D11	2	1,0		#BEZUG!	1,0	0,2	1,0		0,96	0,96	0,96	1,0				0,958949097	0,958949097	0,958949097	0,958949097	0,958949097
+💨	Luftwechsel Bildung primär	1/h	Maximal	Neu (aus alt Berechenbar)		='💨L'!D10	2	1,0		#BEZUG!	1,0	0,2	1,0		0,96	0,96	0,96	1,0				0,958949097	0,958949097	0,958949097	0,958949097	0,958949097
+💨	Luftwechsel Handel Lebensmittel	1/h	Maximal	Neu (aus alt Berechenbar)		='💨L'!D12	2	1,5		#BEZUG!	0,5	0,3	1,5		1,50	0,45	0,45	1,5				1,5	1,5	1,5	1,5	1,5
+💨	Luftwechsel Handel sonstiger	1/h	Maximal	Neu (aus alt Berechenbar)		='💨L'!D13	2	1,5		#BEZUG!	0,5	0,3	1,5		1,50	0,45	0,45	1,5				1,5	1,5	1,5	1,5	1,5
+💨	Luftwechsel Sonstige Nutzung	1/h	Maximal	Neu (default, nicht berechenbar)		='💨L'!D14	2	0,0		#BEZUG!	0,0	0,0	0,0		0,00	0,00	0,00	0,0				0	0	0	0	0
+💨	Skalierung Luftwechsel Wohnen			Zwischenrechnung	vent_scale_residential	=K422/MAX(Nutzung_Wohnen[Bedarf Luftwechsel])	0	1,0		#BEZUG!							1,00	1,0				1	1	1	1	1
+💨	Skalierung Luftwechsel Büro			Zwischenrechnung	vent_scale_office	=K423/MAX(Nutzung_Büro[Bedarf Luftwechsel])	0	1,0		#BEZUG!							0,20	1,0				1	1	1	1	1
+💨	Skalierung Luftwechsel Bildung sekundär			Zwischenrechnung	vent_scale_school_sec	=K424/MAX(Nutzung_Schule[Bedarf Luftwechsel])	0	1,0		#BEZUG!							1,00	1,0				1	1	1	1	1
+💨	Skalierung Luftwechsel Bildung primär			Zwischenrechnung	vent_scale_school_prim	=K425/MAX(Nutzung_KIGA[Bedarf Luftwechsel])	0	1,0		#BEZUG!							1,00	1,0				1	1	1	1	1
+💨	Skalierung Luftwechsel Handel Lebensmittel			Zwischenrechnung	vent_scale_supermarket	=K426/MAX(Nutzung_Handel_Food[Bedarf Luftwechsel])	0	1,0		#BEZUG!							0,30	1,0				1	1	1	1	1
+💨	Skalierung Luftwechsel Handel sonstiger			Zwischenrechnung	vent_scale_retail	=K427/MAX(Nutzung_Handel_NonFood[Bedarf Luftwechsel])	0	1,0		#BEZUG!							0,30	1,0				1	1	1	1	1
+💨	Skalierung Luftwechsel Sonstige Nutzung			Zwischenrechnung	vent_scale_other	#NV	0																			
+💨	Lüfterstrom mech. Wohnen	Anteil		Neu (aus alt Berechenbar)	Ev_scale_residential	='💨L'!D41	2	1,0		#BEZUG!							1,00	1,0				1	1	1	1	1
+💨	Lüfterstrom mech. Büro	Anteil		Neu (aus alt Berechenbar)	Ev_scale_office	='💨L'!D42	2	1,0		#BEZUG!							1,00	1,0				1	1	1	1	1
+💨	Lüfterstrom mech.  Bildung sekundär	Anteil		Neu (aus alt Berechenbar)	Ev_scale_school_sec	='💨L'!D43	2	1,0		#BEZUG!							1,00	1,0				1	1	1	1	1
+💨	Lüfterstrom mech.  Bildung primär	Anteil		Neu (aus alt Berechenbar)	Ev_scale_school_prim	='💨L'!D44	2	1,0		#BEZUG!							1,00	1,0				1	1	1	1	1
+💨	Lüfterstrom mech.  Handel Lebensmittel	Anteil		Neu (aus alt Berechenbar)	Ev_scale_retail_food	='💨L'!D45	2	1,0		#BEZUG!							1,00	1,0				1	1	1	1	1
+💨	Lüfterstrom mech.  Handel sonstiger	Anteil		Neu (aus alt Berechenbar)	Ev_scale_retail_other	='💨L'!D46	2	1,0		#BEZUG!							1,00	1,0				1	1	1	1	1
+💨	Lüfterstrom mech.  Sonstige Nutzung	Anteil		Neu (aus alt Berechenbar)	Ev_scale_other	='💨L'!D47	2	1,0		#BEZUG!							1,00	1,0				1	1	1	1	1
+💨	Wärmerückgewinnung Winter Wohnen		Maximal	Neu (aus alt Berechenbar)		='💨L'!D30	2	0,8		#BEZUG!	0,0	0,0	0,0		0,00	0,00	0,00	0,8				0,8	0,8	0,8	0,8	0,8
+💨	Wärmerückgewinnung Winter Büro		Maximal	Neu (aus alt Berechenbar)		='💨L'!D31	2	0,8		#BEZUG!	0,0	0,0	0,0		0,00	0,00	0,80	0,8				0,8	0,8	0,8	0,8	0,8
+💨	Wärmerückgewinnung Winter Bildung sekundär		Maximal	Neu (aus alt Berechenbar)		='💨L'!D33	2	0,0		#BEZUG!	0,0	0,0	0,0		0,00	0,00	0,00	0,0				0	0	0	0	0
+💨	Wärmerückgewinnung Winter Bildung primär		Maximal	Neu (aus alt Berechenbar)		='💨L'!D32	2	0,0		#BEZUG!	0,0	0,0	0,0		0,00	0,00	0,00	0,0				0	0	0	0	0
+💨	Wärmerückgewinnung Winter Handel Lebensmittel		Maximal	Neu (aus alt Berechenbar)		='💨L'!D34	2	0,0		#BEZUG!	0,0	0,0	0,0		0,00	0,00	0,00	0,0				0	0	0	0	0
+💨	Wärmerückgewinnung Winter Handel sonstiger		Maximal	Neu (aus alt Berechenbar)		='💨L'!D35	2	0,0		#BEZUG!	0,0	0,0	0,0		0,00	0,00	0,00	0,0				0	0	0	0	0
+💨	Wärmerückgewinnung Winter Sonstige Nutzung		Maximal	Neu (aus alt Berechenbar)		='💨L'!D36	2	0,0		#BEZUG!	0,0	0,0	0,0		0,00	0,00	0,00	0,0				0	0	0	0	0
+💨	Wärmerückgewinnung Sommer Wohnen			Neu (aus alt Berechenbar)		='💨L'!F30	2	0,2									0,00	0,2				0,2	0,2	0,2	0,2	0,2
+💨	Wärmerückgewinnung Sommer Büro			Neu (aus alt Berechenbar)		='💨L'!F31	2	0,2									0,80	0,2				0,2	0,2	0,2	0,2	0,2
+💨	Wärmerückgewinnung Sommer Bildung sekundär			Neu (aus alt Berechenbar)		='💨L'!F32	2	0,0									0,00	0,0				0	0	0	0	0
+💨	Wärmerückgewinnung Sommer Bildung primär			Neu (aus alt Berechenbar)		='💨L'!F33	2	0,0									0,00	0,0				0	0	0	0	0
+💨	Wärmerückgewinnung Sommer Handel Lebensmittel			Neu (aus alt Berechenbar)		='💨L'!F34	2	0,0									0,00	0,0				0	0	0	0	0
+💨	Wärmerückgewinnung Sommer Handel sonstiger			Neu (aus alt Berechenbar)		='💨L'!F35	2	0,0									0,00	0,0				0	0	0	0	0
+💨	Wärmerückgewinnung Sommer Sonstige Nutzung			Neu (aus alt Berechenbar)		='💨L'!F36	2	0,0									0,00	0,0				0	0	0	0	0
+💨	Wärmerückgewinnung Übergangszeit Wohnen			Neu (aus alt Berechenbar)		='💨L'!E30	2	0,0									0,50	0,0				0	0	0	0	0
+💨	Wärmerückgewinnung Übergangszeit Büro			Neu (aus alt Berechenbar)		='💨L'!E31	2	0,0									0,50	0,0				0	0	0	0	0
+💨	Wärmerückgewinnung Übergangszeit Bildung sekundär			Neu (aus alt Berechenbar)		='💨L'!E32	2	0,0									0,50	0,0				0	0	0	0	0
+💨	Wärmerückgewinnung Übergangszeit Bildung primär			Neu (aus alt Berechenbar)		='💨L'!E33	2	0,0									0,50	0,0				0	0	0	0	0
+💨	Wärmerückgewinnung Übergangszeit Handel Lebensmittel			Neu (aus alt Berechenbar)		='💨L'!E34	2	0,0									0,50	0,0				0	0	0	0	0
+💨	Wärmerückgewinnung Übergangszeit Handel sonstiger			Neu (aus alt Berechenbar)		='💨L'!E35	2	0,0									0,50	0,0				0	0	0	0	0
+💨	Wärmerückgewinnung Übergangszeit Sonstige Nutzung			Neu (default, nicht berechenbar)		='💨L'!E36	2	0,0									0,50	0,0				0	0	0	0	0
+💨	Quartiersanteil Fensterlüftung		pro Quartiersvolumen!			=SUMMENPRODUKT(K269:K275;K243:K249;K402:K408)/NFV_total	0	0%										25%				0,25	0,25	0,25	0,25	0,25
+💨	Fensterlüftung Anteil ohne aktive Kühlung		pro Quartiersvolumen!		Vent_share_window_uncooled	=WENNFEHLER(SUMMENPRODUKT(K243:K249;Cool_Passive_Shares;MTRANS(vent_window_shares);K269:K275)/NFV_total;0)	0	0,000%										25,000%				0,25	0,25	0,25	0,25	0,25
+💨	Fensterlüftung Anteil mit aktiver Kühlung		pro Quartiersvolumen!		Vent_share_window_cooled	=WENNFEHLER(SUMMENPRODUKT(K243:K249;COOL_active_shares;MTRANS(vent_window_shares);K269:K275)/NFV_total;0)	0	0,00%										0,00%				0	0	0	0	0
+💨	Quartiersanteil Mechanische Lüftung		pro Quartiersvolumen!			=SUMMENPRODUKT(K269:K275;K243:K249;K395:K401)/NFV_total	0	100%										75%				0,75	0,75	0,75	0,75	0,75
+💨	Quartiersanteil Mechanische Lüftung ohne aktiver Kühlung		pro Quartiersvolumen!		Vent_share_mech_uncooled	=WENNFEHLER(SUMMENPRODUKT(K243:K249;Cool_Passive_Shares;MTRANS(vent_mech_shares);K269:K275)/NFV_total;0)	0	50%										25%				0,25	0,25	0,25	0,25	0,25
+💨	Quartiersanteil Mechanische Lüftung mit aktiver Kühlung		pro Quartiersvolumen!		Vent_share_mech_cooled	=WENNFEHLER(SUMMENPRODUKT(K243:K249;COOL_active_shares;MTRANS(vent_mech_shares);K269:K275)/NFV_total;0)	0	50%										50%				0,5	0,5	0,5	0,5	0,5
+💨	Test				test_NFV_shares	=100%=SUMME(Vent_share_window_uncooled;Vent_share_window_cooled;Vent_share_mech_uncooled;Vent_share_mech_cooled)	0	WAHR										WAHR				WAHR	WAHR	WAHR	WAHR	WAHR
+💨							0	0,0										0,0				0	0	0	0	0
+💨							0	0,0										0,0				0	0	0	0	0
+💨							0	0,0										0,0				0	0	0	0	0
+💨							0	0,0										0,0				0	0	0	0	0
+💨							0	0,0										0,0				0	0	0	0	0
+💨							0	0,0										0,0				0	0	0	0	0
+💨							0	0,0										0,0				0	0	0	0	0
+💨							0	0,0										0,0				0	0	0	0	0
+💨							0	0,0										0,0				0	0	0	0	0
+💨							0	0,0										0,0				0	0	0	0	0
+		93	Parameter																							
+👤	Innere Wärmen Wohnen Maximal	kWh/m²NGFa	Input fehlt	Neu (aus alt Berechenbar)		=[@Buffer]	0	56,9	56,93173547	56,9	56,9	56,9	56,9	0	56,93	56,93	56,93	56,9				56,93173547	56,93173547	56,93173547	56,93173547	56,93173547
+👤	Innere Wärmen Wohnen Minimal	kWh/m²NGFa	Input fehlt	Neu (aus alt Berechenbar)		=[@Buffer]	0	28,5	28,46586773	28,5	28,5	28,5	28,5	0	28,47	28,47	28,47	28,5				28,46586773	28,46586773	28,46586773	28,46586773	28,46586773
+👤	Innere Wärmen Büro Maximal	kWh/m²NGFa	Input fehlt	Neu (aus alt Berechenbar)		=[@Buffer]	0	75,3	75,33792868	75,3	75,3	75,3	75,3	0	75,34	75,34	75,34	75,3				75,33792868	75,33792868	75,33792868	75,33792868	75,33792868
+👤	Innere Wärmen Büro Minimal	kWh/m²NGFa	Input fehlt	Neu (aus alt Berechenbar)		=[@Buffer]	0	37,7	37,66896434	37,7	37,7	37,7	37,7	0	37,67	37,67	37,67	37,7				37,66896434	37,66896434	37,66896434	37,66896434	37,66896434
+👤	Innere Wärmen Bildung sekundär Maximal	kWh/m²NGFa	Input fehlt	Neu (aus alt Berechenbar)		=[@Buffer]	0	106,5	106,5427101	106,5	106,5	106,5	106,5	0	106,54	106,54	106,54	106,5				106,5427101	106,5427101	106,5427101	106,5427101	106,5427101
+👤	Innere Wärmen Bildung sekundär Minimal	kWh/m²NGFa	Input fehlt	Neu (aus alt Berechenbar)		=[@Buffer]	0	53,3	53,27135506	53,3	53,3	53,3	53,3	0	53,27	53,27	53,27	53,3				53,27135506	53,27135506	53,27135506	53,27135506	53,27135506
+👤	Innere Wärmen Bildung primär Maximal	kWh/m²NGFa	Input fehlt	Neu (aus alt Berechenbar)		=[@Buffer]	0	54,0	53,99825259	54,0	54,0	54,0	54,0	0	54,00	54,00	54,00	54,0				53,99825259	53,99825259	53,99825259	53,99825259	53,99825259
+👤	Innere Wärmen Bildung primär Minimal	kWh/m²NGFa	Input fehlt	Neu (aus alt Berechenbar)		=[@Buffer]	0	27,0	26,99912629	27,0	27,0	27,0	27,0	0	27,00	27,00	27,00	27,0				26,99912629	26,99912629	26,99912629	26,99912629	26,99912629
+👤	Innere Wärmen Handel Lebensmittel Maximal	kWh/m²NGFa	Input fehlt	Neu (aus alt Berechenbar)		=[@Buffer]	0	80,8	80,81834147	80,8	80,8	80,8	80,8	0	80,82	80,82	80,82	80,8				80,81834147	80,81834147	80,81834147	80,81834147	80,81834147
+👤	Innere Wärmen Handel Lebensmittel Minimal	kWh/m²NGFa	Input fehlt	Neu (aus alt Berechenbar)		=[@Buffer]	0	40,4	40,40917073	40,4	40,4	40,4	40,4	0	40,41	40,41	40,41	40,4				40,40917073	40,40917073	40,40917073	40,40917073	40,40917073
+👤	Innere Wärmen Handel sonstiger Maximal	kWh/m²NGFa	Input fehlt	Neu (aus alt Berechenbar)		=[@Buffer]	0	80,8	80,81834147	80,8	80,8	80,8	80,8	0	80,82	80,82	80,82	80,8				80,81834147	80,81834147	80,81834147	80,81834147	80,81834147
+👤	Innere Wärmen Handel sonstiger Minimal	kWh/m²NGFa	Input fehlt	Neu (aus alt Berechenbar)		=[@Buffer]	0	40,4	40,40917073	40,4	40,4	40,4	40,4	0	40,41	40,41	40,41	40,4				40,40917073	40,40917073	40,40917073	40,40917073	40,40917073
+👤	Innere Wärmen Sonstige Nutzung Maximal	kWh/m²NGFa	Input fehlt	Neu (default, nicht berechenbar)		=[@Buffer]	0	50,0	50	50,0	50,0	50,0	50,0	0	50,00	50,00	50,00	50,0				50	50	50	50	50
+👤	Innere Wärmen Sonstige Nutzung Minimal	kWh/m²NGFa	Input fehlt	Neu (default, nicht berechenbar)		=[@Buffer]	0	25,0	25	25,0	25,0	25,0	25,0	0	25,00	25,00	25,00	25,0				25	25	25	25	25
+👤	WWWB Wohnen	kWh/m²NGFa	Input fehlt	Neu (aus alt Berechenbar)	DHW_demand_residential_kWhm2	=[@Buffer]	0	12,8	15,96790392	12,8	19,7	12,8	12,8	0	12,78	19,65	19,65	12,8				12,77501343	12,77501343	12,77501343	12,77501343	12,77501343
+👤	WWWB Büro	kWh/m²NGFa	Input fehlt	Neu (aus alt Berechenbar)	DHW_demand_office_kWhm2	=[@Buffer]	0	3,0	5,1328125	3,0	3,2	3,0	3,0	0	3,03	3,19	3,19	3,0				3,026406694	3,026406694	3,026406694	3,026406694	3,026406694
+👤	WWWB Bildung sekundär	kWh/m²NGFa	Input fehlt	Neu (aus alt Berechenbar)	DHW_demand_schoolsec_kWhm2	=[@Buffer]	0	3,4	5,703125	3,4	5,2	3,4	3,4	0	3,36	5,17	5,17	3,4				3,362336654	3,362336654	3,362336654	3,362336654	3,362336654
+👤	WWWB Bildung primär	kWh/m²NGFa	Input fehlt	Neu (aus alt Berechenbar)	DHW_demand_schoolprim_kWhm2	=[@Buffer]	0	3,4	5,703125	3,4	5,2	3,4	3,4	0	3,36	5,17	5,17	3,4				3,362336654	3,362336654	3,362336654	3,362336654	3,362336654
+👤	WWWB Handel Lebensmittel	kWh/m²NGFa	Input fehlt	Neu (aus alt Berechenbar)	DHW_demand_retailfood_kWhm2	=[@Buffer]	0	6,3	9,125	6,3	6,7	6,3	6,3	0	6,34	6,67	6,67	6,3				6,339990711	6,339990711	6,339990711	6,339990711	6,339990711
+👤	WWWB Handel sonstiger	kWh/m²NGFa	Input fehlt	Neu (aus alt Berechenbar)	DHW_demand_retailother_kWhm2	=[@Buffer]	0	6,3	9,125	6,3	6,7	6,3	6,3	0	6,34	6,67	6,67	6,3				6,339990711	6,339990711	6,339990711	6,339990711	6,339990711
+👤	WWWB Sonstige Nutzung	kWh/m²NGFa	Input fehlt	Neu (default, nicht berechenbar)	DHW_demand_other_kWhm2	=[@Buffer]	0	5,0	5	5,0	5,00	5,00	5,00	0	5,00	5,00	5,00	5,0				5	5	5	5	5
+👤	Allgemeinstrom Wohnen	kWh/m²NGFa	Input fehlt	Neu (aus alt Berechenbar)		=[@Buffer]	0	1,8	1,752	1,8	1,75	1,75	1,75	0	1,75	1,75	1,75	1,8				1,752	1,752	1,752	1,752	1,752
+👤	Allgemeinstrom Büro	kWh/m²NGFa	Input fehlt	Neu (aus alt Berechenbar)		=[@Buffer]	0	1,8	1,752	1,8	1,75	1,75	1,75	0	1,75	1,75	1,75	1,8				1,752	1,752	1,752	1,752	1,752
+👤	Allgemeinstrom Bildung sekundär	kWh/m²NGFa	Input fehlt	Neu (aus alt Berechenbar)		=[@Buffer]	0	0,9	0,876	0,9	0,88	0,88	0,88	0	0,88	0,88	0,88	0,9				0,876	0,876	0,876	0,876	0,876
+👤	Allgemeinstrom Bildung primär	kWh/m²NGFa	Input fehlt	Neu (aus alt Berechenbar)		=[@Buffer]	0	0,9	0,876	0,9	0,88	0,88	0,88	0	0,88	0,88	0,88	0,9				0,876	0,876	0,876	0,876	0,876
+👤	Allgemeinstrom Handel lebensmittel	kWh/m²NGFa	Input fehlt	Neu (aus alt Berechenbar)		=[@Buffer]	0	1,8	1,752	1,8	1,75	1,75	1,75	0	1,75	1,75	1,75	1,8				1,752	1,752	1,752	1,752	1,752
+👤	Allgemeinstrom Handel sonstiger	kWh/m²NGFa	Input fehlt	Neu (aus alt Berechenbar)		=[@Buffer]	0	1,8	1,752	1,8	1,75	1,75	1,75	0	1,75	1,75	1,75	1,8				1,752	1,752	1,752	1,752	1,752
+👤	Allgemeinstrom Sonstige Nutzung	kWh/m²NGFa	Input fehlt	Neu (default, nicht berechenbar)		=[@Buffer]	0	1,0	1	1,0	1,00	1,00	1,00	0	1,00	1,00	1,00	1,0				1	1	1	1	1
+👤	Nutzerstrom Wohnen	kWh/m²NGFa	Input fehlt	Neu (aus alt Berechenbar)		=[@Buffer]	0	26,7	20,52860312	26,7	26,72	26,72	26,72	0	26,72	26,72	26,72	26,7				26,71828764	26,71828764	26,71828764	26,71828764	26,71828764
+👤	Nutzerstrom Büro	kWh/m²NGFa	Input fehlt	Neu (aus alt Berechenbar)		=[@Buffer]	0	19,4	24,63654231	19,4	19,45	19,45	19,45	0	19,45	19,45	19,45	19,4				19,44724004	19,44724004	19,44724004	19,44724004	19,44724004
+👤	Nutzerstrom Bildung sekundär	kWh/m²NGFa	Input fehlt	Neu (aus alt Berechenbar)		=[@Buffer]	0	11,8	51,32413479	11,8	11,75	11,75	11,75	0	11,75	11,75	11,75	11,8				11,75208902	11,75208902	11,75208902	11,75208902	11,75208902
+👤	Nutzerstrom Bildung primär	kWh/m²NGFa	Input fehlt	Neu (aus alt Berechenbar)		=[@Buffer]	0	6,8	30,79448087	6,8	6,75	6,75	6,75	0	6,75	6,75	6,75	6,8				6,752089015	6,752089015	6,752089015	6,752089015	6,752089015
+👤	Nutzerstrom Handel Lebensmittel	kWh/m²NGFa	Input fehlt	Neu (aus alt Berechenbar)		=[@Buffer]	0	30,8	30,79567789	30,8	30,80	30,80	30,80	0	30,80	30,80	30,80	30,8				30,79567789	30,79567789	30,79567789	30,79567789	30,79567789
+👤	Nutzerstrom Handel sonstiger	kWh/m²NGFa	Input fehlt	Neu (aus alt Berechenbar)		=[@Buffer]	0	4,4	30,79567789	4,4	4,42	4,42	4,42	0	4,42	4,42	4,42	4,4				4,423491562	4,423491562	4,423491562	4,423491562	4,423491562
+👤	Nutzerstrom Sonstige Nutzung	kWh/m²NGFa	Input fehlt	Neu (default, nicht berechenbar)		=[@Buffer]	0	0,0		0,0	0,0	0,0	0,0		0,00	0,00	0,00	0,0				0	0	0	0	0
+	Belegungsdichte Wohnen	m²NF/Pers		Deklarationsparameter		#NV	1	41,7										41,7				41,7	41,7	41,7	41,7	41,7
+	Belegungsdichte Büro	m²NF/Pers				#NV	1	5,9										5,9				5,9	5,9	5,9	5,9	5,9
+	Belegungsdichte Ausbildung	m²NF/Pers				#NV	1	2,5										2,5				2,5	2,5	2,5	2,5	2,5
+	Belegungsdichte Handel	m²NF/Pers				#NV	1	10,7										10,7				10,7	10,7	10,7	10,7	10,7
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+		61	Parameter				0																			
+♨️	Heizperiode Jänner	Bool	Input fehlt	Neu (aus alt Berechenbar)		='🔥H'!D52	2	WAHR	1	WAHR	WAHR	WAHR	WAHR	1	WAHR	1,00	1,00	WAHR				WAHR	WAHR	WAHR	WAHR	WAHR
+♨️	Heizperiode Februar	Bool	Input fehlt	Neu (aus alt Berechenbar)		='🔥H'!D53	2	WAHR	1	WAHR	WAHR	WAHR	WAHR	1	WAHR	1,00	1,00	WAHR				WAHR	WAHR	WAHR	WAHR	WAHR
+♨️	Heizperiode März	Bool	Input fehlt	Neu (aus alt Berechenbar)		='🔥H'!D54	2	WAHR	1	WAHR	WAHR	WAHR	WAHR	1	WAHR	1,00	1,00	WAHR				WAHR	WAHR	WAHR	WAHR	WAHR
+♨️	Heizperiode April	Bool	Input fehlt	Neu (aus alt Berechenbar)		='🔥H'!D55	2	FALSCH	0	FALSCH	FALSCH	FALSCH	FALSCH	0	FALSCH	0,00	0,00	FALSCH				FALSCH	FALSCH	FALSCH	FALSCH	FALSCH
+♨️	Heizperiode Mai	Bool	Input fehlt	Neu (aus alt Berechenbar)		='🔥H'!D56	2	FALSCH	0	FALSCH	FALSCH	FALSCH	FALSCH	0	FALSCH	0,00	0,00	FALSCH				FALSCH	FALSCH	FALSCH	FALSCH	FALSCH
+♨️	Heizperiode Juni	Bool	Input fehlt	Neu (aus alt Berechenbar)		='🔥H'!D57	2	FALSCH	0	FALSCH	FALSCH	FALSCH	FALSCH	0	FALSCH	0,00	0,00	FALSCH				FALSCH	FALSCH	FALSCH	FALSCH	FALSCH
+♨️	Heizperiode Juli	Bool	Input fehlt	Neu (aus alt Berechenbar)		='🔥H'!D58	2	FALSCH	0	FALSCH	FALSCH	FALSCH	FALSCH	0	FALSCH	0,00	0,00	FALSCH				FALSCH	FALSCH	FALSCH	FALSCH	FALSCH
+♨️	Heizperiode August	Bool	Input fehlt	Neu (aus alt Berechenbar)		='🔥H'!D59	2	FALSCH	0	FALSCH	FALSCH	FALSCH	FALSCH	0	FALSCH	0,00	0,00	FALSCH				FALSCH	FALSCH	FALSCH	FALSCH	FALSCH
+♨️	Heizperiode September	Bool	Input fehlt	Neu (aus alt Berechenbar)		='🔥H'!D60	2	FALSCH	0	FALSCH	FALSCH	FALSCH	FALSCH	0	FALSCH	0,00	0,00	FALSCH				FALSCH	FALSCH	FALSCH	FALSCH	FALSCH
+♨️	Heizperiode Oktober	Bool	Input fehlt	Neu (aus alt Berechenbar)		='🔥H'!D61	2	WAHR	1	WAHR	WAHR	WAHR	WAHR	1	WAHR	1,00	1,00	WAHR				WAHR	WAHR	WAHR	WAHR	WAHR
+♨️	Heizperiode November	Bool	Input fehlt	Neu (aus alt Berechenbar)		='🔥H'!D62	2	WAHR	1	WAHR	WAHR	WAHR	WAHR	1	WAHR	1,00	1,00	WAHR				WAHR	WAHR	WAHR	WAHR	WAHR
+♨️	Heizperiode Dezember	Bool	Input fehlt	Neu (aus alt Berechenbar)		='🔥H'!D63	2	WAHR	1	WAHR	WAHR	WAHR	WAHR	1	WAHR	1,00	1,00	WAHR				WAHR	WAHR	WAHR	WAHR	WAHR
+♨️	spez. thermische Leistung Abgabesystem	W/m²	raumseitig	Neu (aus alt Berechenbar)	QHmax_room_m²	='🔥H'!D9	2	60,0		0,0	23,7	9,807646513	60		90,00	23,73	23,73	60,0				60	60	60	60	60
+♨️	Thermische Leistung Abgabesystem	MW	raumseitig	Zwischenrechnung	QHmax_room_MW	=K555*K250/1000000	0	0,46		0,00						0,64	0,64	0,46				0,4608	0,4608	0,4608	0,4608	0,4608
+♨️	Thermische Leistung HZEL1	W/m²	raumseitig, Elektrische Heizung PRIO1	Neu (aus alt Berechenbar)	QHmax_1el_m²	='🔥H'!D23	2	40,0		0,0	23,7	9,8	60,0		90,00	23,73	23,73	40,0				40	40	40	40	40
+♨️	Thermische Leistung HZTH2	W/m²	raumseitig, thermische Heizung PRIO 2	Neu (aus alt Berechenbar)	QHmax_2th_m²	='🔥H'!D30	2	20,0		0,0	23,7	9,8	60,0		90,00	23,73	0,00	20,0				20	20	20	20	20
+♨️	Thermische Leistung HZEL3	W/m²	raumseitig, Elektrisch, PRIO3	Neu (default, nicht berechenbar)	QHmax_3el_m²	='🔥H'!D37	2	60,0		0,0	23,7	9,8	60,0		90,00	23,73	0,00	60,0				60	60	60	60	60
+♨️	Thermische Leistung HZTH4	W/m²	raumseitig, thermisch PRIO4	Neu (default, nicht berechenbar)	QHmax_4th_m²	='🔥H'!D44	2	60,0		0,0	23,7	9,8	60,0		90,00	23,73	0,00	60,0				60	60	60	60	60
+♨️	Verteilverluste HZEL1			Neu (aus alt Berechenbar)	QH_distr_loss_1el	='🔥H'!D25	2	5,3%	5%	0,0%	0,05	0,05	0,05	0,05	0,05	0,15	0,05	5,3%				0,052861628	0,052861628	0,052861628	0,052861628	0,052861628
+♨️	Verteilverluste HZTH2			Neu (aus alt Berechenbar)	QH_distr_loss_2th	='🔥H'!D32	2	5,3%	5%	0,0%	0,05	0,05	0,05	0,05	0,05	0,95	0,05	5,3%				0,052861628	0,052861628	0,052861628	0,052861628	0,052861628
+♨️	Verteilverluste HZEL3			Neu (aus alt Berechenbar)	QH_distr_loss_3el	='🔥H'!D39	2	5,3%	5%	0,0%	0,05	0,05	0,05	0,05	0,05	0,95	0,05	5,3%				0,052861628	0,052861628	0,052861628	0,052861628	0,052861628
+♨️	Verteilverluste HZTH4			Neu (aus alt Berechenbar)	QH_distr_loss_4th	='🔥H'!D47	2	0,0%	5%	0,0%	0,05	0,05	0,05	0,05	0,05	0,95	0,00	0,0%				0	0	0	0	0
+♨️	Wirkungsgrad Erzeugung HZEL1			Neu (aus alt Berechenbar)		='🔥H'!D24	2	4,0	100%	0,0	4,6	2,878467602	5		4,5	4,6	4,61	4,0				4	4	4	4	4
+♨️	Wirkungsgrad Erzeugung HZTH2			Neu (aus alt Berechenbar)		='🔥H'!D31	2	1,0	100%	0,0	0,95	0,95	0,95		0,95	0,95	0,95	1,0				0,95	0,95	0,95	0,95	0,95
+♨️	Wirkungsgrad Erzeugung HZEL3			Neu (default, nicht berechenbar)		='🔥H'!D38	2	4,0	100%	0,0	0	0	0		0	0	0	4,0				4	4	4	4	4
+♨️	Wirkungsgrad Erzeugung HZTH4			Neu (default, nicht berechenbar)		='🔥H'!D45	2	0,0	100%	0,0	0	0	0		0	0	0	0,0				0	0	0	0	0
+♨️	Wirkungsgrad-Kehrwert Erzeugung HZEL1		weil schneller als divison durch Wirkugsgrad	Zwischenrechnung	QH_generation_eff_1el	=WENNFEHLER(1/'🔥H'!D24;0)	0	25,0%		0,0%							0,2	25,0%				0,25	0,25	0,25	0,25	0,25
+♨️	Wirkungsgrad-Kehrwert Erzeugung HZTH2			Zwischenrechnung	QH_generation_eff_2th	=WENNFEHLER(1/'🔥H'!D31;0)	0	105,3%		0,0%							1,1	105,3%				1,052631579	1,052631579	1,052631579	1,052631579	1,052631579
+♨️	Wirkungsgrad-Kehrwert Erzeugung HZEL3			Zwischenrechnung	QH_generation_eff_3el	=WENNFEHLER(1/'🔥H'!D38;0)	0	25,0%		0,0%							0,0	25,0%				0,25	0,25	0,25	0,25	0,25
+♨️	Wirkungsgrad-Kehrwert Erzeugung HZTH4			Zwischenrechnung	QH_generation_eff_4th	=WENNFEHLER(1/'🔥H'!D45;0)	0	0,0%		0,0%							0,0	0,0%				0	0	0	0	0
+♨️	Hilfsstromanteil HZAbwärme			Neu (default, nicht berechenbar)	QH_aux_wasteheat	#NV	1	5%									0,1	5%				0,05	0,05	0,05	0,05	0,05
+♨️	Hilfsstromanteil HZEL1		am thermischen Energiebedarf	Neu (aus alt Berechenbar)	QH_aux_el_to_th_1el	='🔥H'!D26	2	2,0%		0,0%	0,02	0,02	0,02		0,02	0,02	0,02	2,0%				0,02	0,02	0,02	0,02	0,02
+♨️	Hilfsstromanteil HZTH2		am thermischen Energiebedarf	Neu (aus alt Berechenbar)	QH_aux_el_to_th_2th	='🔥H'!D33	2	2,0%		0,0%	0,02	0,02	0,02		0,02	0,02	0,02	2,0%				0,02	0,02	0,02	0,02	0,02
+♨️	Hilfsstromanteil HZEL3		am thermischen Energiebedarf	Neu (default, nicht berechenbar)	QH_aux_el_to_th_3el	='🔥H'!D40	2	2,0%		0,0%	0	0	0		0,00	0,00	0,00	2,0%				0,02	0,02	0,02	0,02	0,02
+♨️	Hilfsstromanteil HZTH4		am thermischen Energiebedarf	Neu (default, nicht berechenbar)	QH_aux_el_to_th_4th	='🔥H'!D47	2	0,0%		0,0%	0	0	0		0,00	0,00	0,00	0,0%				0	0	0	0	0
+♨️	Anlagenleistung 1 el	W/m²	Für maxLastberechnung inkl Warmwasser				0	0,0									0,00	0,0				0	0	0	0	0
+♨️	Anlagenleistung 3 el	W/m²	Für maxLastberechnung inkl Warmwasser				0	0,0									0,00	0,0				0	0	0	0	0
+							0	0,0									0,00	0,0				0	0	0	0	0
+							0	0,0									0,00	0,0				0	0	0	0	0
+♨️	Energieträger HZTH2			Neu (default, nicht berechenbar)	heat_th2_carrier_type	='🔥H'!D29	2	Fernwärme aus hocheffizienter KWK(1) (Defaultwert)	Fernwärme Wien	0,0	Fernwärme Wien	Fernwärme Wien	Fernwärme Wien	Fernwärme Wien	Fernwärme Wien	Fernwärme Wien	Fernwärme Wien	Fernwärme aus hocheffizienter KWK(1) (Defaultwert)				Fernwärme aus hocheffizienter KWK(1) (Defaultwert)	Fernwärme aus hocheffizienter KWK(1) (Defaultwert)	Fernwärme aus hocheffizienter KWK(1) (Defaultwert)	Fernwärme aus hocheffizienter KWK(1) (Defaultwert)	Fernwärme aus hocheffizienter KWK(1) (Defaultwert)
+♨️	Energieträger HZTH4			Neu (default, nicht berechenbar)	heat_th4_carrier_type	='🔥H'!D43	2	Fernwärme Wien	Fernwärme Wien	0,0	Fernwärme Wien	Fernwärme Wien	Fernwärme Wien	Fernwärme Wien	Fernwärme Wien	Fernwärme Wien	Fernwärme Wien	Fernwärme Wien				Fernwärme Wien	Fernwärme Wien	Fernwärme Wien	Fernwärme Wien	Fernwärme Wien
+♨️	Heizen Raumtemperatur Minimum	°C		Neu (aus alt Berechenbar)	Tsetheat_min	='🔥H'!D5	2	22,0		0,0	21,0	22,0	22,0	22,0	21,0	21,0	21,0	22,0				22	22	22	22	22
+		43	Parameter				0																			
+❄️	Kühlperiode Jänner	Bool	Input fehlt	Neu (aus alt Berechenbar)		='❄️K'!D54	2	FALSCH	FALSCH	0,00	FALSCH	FALSCH	FALSCH	FALSCH	FALSCH	FALSCH	0,00	FALSCH				FALSCH	FALSCH	FALSCH	FALSCH	FALSCH
+❄️	Kühlperiode Februar	Bool	Input fehlt	Neu (aus alt Berechenbar)		='❄️K'!D55	2	FALSCH	FALSCH	0,00	FALSCH	FALSCH	FALSCH	FALSCH	FALSCH	FALSCH	0,00	FALSCH				FALSCH	FALSCH	FALSCH	FALSCH	FALSCH
+❄️	Kühlperiode März	Bool	Input fehlt	Neu (aus alt Berechenbar)		='❄️K'!D56	2	FALSCH	FALSCH	0,00	FALSCH	FALSCH	FALSCH	FALSCH	FALSCH	FALSCH	0,00	FALSCH				FALSCH	FALSCH	FALSCH	FALSCH	FALSCH
+❄️	Kühlperiode April	Bool	Input fehlt	Neu (aus alt Berechenbar)		='❄️K'!D57	2	FALSCH	WAHR	1,00	WAHR	FALSCH	FALSCH	WAHR	FALSCH	WAHR	1,00	FALSCH				FALSCH	FALSCH	FALSCH	FALSCH	FALSCH
+❄️	Kühlperiode Mai	Bool	Input fehlt	Neu (aus alt Berechenbar)		='❄️K'!D58	2	WAHR	WAHR	1,00	WAHR	WAHR	WAHR	WAHR	WAHR	WAHR	1,00	WAHR				WAHR	WAHR	WAHR	WAHR	WAHR
+❄️	Kühlperiode Juni	Bool	Input fehlt	Neu (aus alt Berechenbar)		='❄️K'!D59	2	WAHR	WAHR	1,00	WAHR	WAHR	WAHR	WAHR	WAHR	WAHR	1,00	WAHR				WAHR	WAHR	WAHR	WAHR	WAHR
+❄️	Kühlperiode Juli	Bool	Input fehlt	Neu (aus alt Berechenbar)		='❄️K'!D60	2	WAHR	WAHR	1,00	WAHR	WAHR	WAHR	WAHR	WAHR	WAHR	1,00	WAHR				WAHR	WAHR	WAHR	WAHR	WAHR
+❄️	Kühlperiode August	Bool	Input fehlt	Neu (aus alt Berechenbar)		='❄️K'!D61	2	WAHR	WAHR	1,00	WAHR	WAHR	WAHR	WAHR	WAHR	WAHR	1,00	WAHR				WAHR	WAHR	WAHR	WAHR	WAHR
+❄️	Kühlperiode September	Bool	Input fehlt	Neu (aus alt Berechenbar)		='❄️K'!D62	2	WAHR	WAHR	1,00	WAHR	WAHR	FALSCH	WAHR	FALSCH	WAHR	1,00	WAHR				WAHR	WAHR	WAHR	WAHR	WAHR
+❄️	Kühlperiode Oktober	Bool	Input fehlt	Neu (aus alt Berechenbar)		='❄️K'!D63	2	FALSCH	WAHR	1,00	WAHR	FALSCH	FALSCH	WAHR	FALSCH	WAHR	1,00	FALSCH				FALSCH	FALSCH	FALSCH	FALSCH	FALSCH
+❄️	Kühlperiode November	Bool	Input fehlt	Neu (aus alt Berechenbar)		='❄️K'!D64	2	FALSCH	FALSCH	0,00	FALSCH	FALSCH	FALSCH	FALSCH	FALSCH	FALSCH	0,00	FALSCH				FALSCH	FALSCH	FALSCH	FALSCH	FALSCH
+❄️	Kühlperiode Dezember	Bool	Input fehlt	Neu (aus alt Berechenbar)		='❄️K'!D65	2	FALSCH	FALSCH	0,00	FALSCH	FALSCH	FALSCH	FALSCH	FALSCH	FALSCH	0,00	FALSCH				FALSCH	FALSCH	FALSCH	FALSCH	FALSCH
+❄️	Aktive Kühlung Anteil Wohnen			Neu (aus alt Berechenbar)		='❄️K'!D8	2	0,0		0,0	1,0	1,0	1,0		0,00	0,00	0,00	0,0				0	0	0	0	0
+❄️	Aktive Kühlung Anteil Büro			Neu (aus alt Berechenbar)		='❄️K'!D9	2	1,0		0,0	1,0	1,0	1,0		0,00	0,10	0,00	1,0				1	1	1	1	1
+❄️	Aktive Kühlung Anteil Schule sekundär			Neu (aus alt Berechenbar)		='❄️K'!D11	2	1,0		0,0	1,0	1,0	1,0		0,00	1,00	0,00	1,0				1	1	1	1	1
+❄️	Aktive Kühlung Anteil Schule primär			Neu (aus alt Berechenbar)		='❄️K'!D10	2	1,0		0,0	1,0	1,0	1,0		0,00	1,00	0,00	1,0				1	1	1	1	1
+❄️	Aktive Kühlung Anteil Handel Lebensmittel			Neu (aus alt Berechenbar)		='❄️K'!D12	2	1,0		0,0	1,0	1,0	1,0		0,00	1,00	0,00	1,0				1	1	1	1	1
+❄️	Aktive Kühlung Anteil Handel Sonstige			Neu (aus alt Berechenbar)		='❄️K'!D13	2	1,0		0,0	1,0	1,0	1,0		0,00	1,00	0,00	1,0				1	1	1	1	1
+❄️	Aktive Kühlung Anteil Sonstige Nutzung			Neu (aus alt Berechenbar)		='❄️K'!D14	2	1,0		#BEZUG!	1,0	1,0	1,0		0,00	1,00	0,00	1,0				1	1	1	1	1
+❄️	Keine Aktive Kühlung Anteil Wohnen			Neu (aus alt Berechenbar)		=1-K598	0	1,0										1,0				1	1	1	1	1
+❄️	Keine Aktive Kühlung Anteil Büro			Neu (aus alt Berechenbar)		=1-K599	0	0,0										0,0				0	0	0	0	0
+❄️	Keine Aktive Kühlung Anteil Schule sekundär			Neu (aus alt Berechenbar)		=1-K600	0	0,0										0,0				0	0	0	0	0
+❄️	KeineAktive Kühlung Anteil Schule primär			Neu (aus alt Berechenbar)		=1-K601	0	0,0										0,0				0	0	0	0	0
+❄️	Keine Aktive Kühlung Anteil Handel Lebensmittel			Neu (aus alt Berechenbar)		=1-K602	0	0,0										0,0				0	0	0	0	0
+❄️	Keine Aktive Kühlung Anteil Handel Sonstige			Neu (aus alt Berechenbar)		=1-K603	0	0,0										0,0				0	0	0	0	0
+❄️	Keine Aktive Kühlung Anteil Sonstige Nutzung			Neu (aus alt Berechenbar)		=1-K604	0	0,0										0,0				0	0	0	0	0
+❄️	Fläche Aktive Kühlung			Zwischenrechnung	NFA_cooled	=SUMMENPRODUKT(K598:K604;K243:K249)	0	3840,0		#BEZUG!						26804,80	0,00	3840,0				3840	3840	3840	3840	3840
+❄️	NGF Anteil Aktive Kühlung			Zwischenrechnung	NFAfrac_cooled	=NFA_cooled/NFA_total	0	0,5		0,5						1,00	0,00	0,5				0,5	0,5	0,5	0,5	0,5
+❄️	NGF Anteil ohne aktive Kühlung			Zwischenrechnung	NFAfrac_uncooled	=1-K613	0	0,5		0,5						0,00	1,00	0,5				0,5	0,5	0,5	0,5	0,5
+❄️	spez. thermische Leistung Aufnahmesystem	W/m²	raumseitig	Neu (aus alt Berechenbar)	QCmax_room_m2	='❄️K'!D50	2	50,0000		#BEZUG!	25,3	10,0	50,0		50,0	25,3	50,0	50,0000				50	50	50	50	50
+❄️	Thermische Leistung Aufnahmesystem	MW	raumseitig	Zwischenrechnung	QCmax_room_MW	=QCmax_room_m2*NFA_cooled/1000000	0	0,19		0,19							0,0	0,19				0,192	0,192	0,192	0,192	0,192
+❄️	Thermische Leistung Freecooling	W/m²		Neu (default, nicht berechenbar)	QCmax_freecooling	='❄️K'!D22	2	0,0		0,0	0	0	0		0,00	0,00	0,00	0,0				0	0	0	0	0
+❄️	Thermische Leistung 1 EL	W/m²		Neu (aus alt Berechenbar)	QCmax_1el	='❄️K'!D28	2	30,0		0,0	25,3	25,3	0,0	0,0	0,0	25,33	0,00	30,0				30	30	30	30	30
+❄️	Thermische Leistung 2 TH	W/m²		Neu (default, nicht berechenbar)	QCmax_2th	='❄️K'!D35	2	40,0		0,0		0	0	0	0	0,00	0,00	40,0				40	40	40	40	40
+❄️	Thermische Leistung 3 EL	W/m²		Neu (default, nicht berechenbar)	QCmax_3el	='❄️K'!D42	2	0,0		0,0		0	0	0	0	0,00	0,00	0,0				0	0	0	0	0
+❄️	Verteilverluste Freecooling	W/m²		Neu (default, nicht berechenbar)		='❄️K'!D23	2	0,0		0,0		0,05	0,05	0,05	0,05	0,00	0,05	0,0				0	0	0	0	0
+❄️	Verteilverluste 1 El			Neu (default, nicht berechenbar)	QC_distr_losses_1el	='❄️K'!D30	2	0,0		0,0		0,05	0,05	0,05	0,05	0,00	0,05	0,0				0	0	0	0	0
+❄️	Verteilverluste 2th			Neu (default, nicht berechenbar)	QC_distr_losses_2th	='❄️K'!D37	2	0,0		0,0		0,05	0,05	0,05	0,05	0,00	0,05	0,0				0	0	0	0	0
+❄️	Verteilverluste 3el			Neu (default, nicht berechenbar)	QC_distr_losses_3el	='❄️K'!D44	2	0,0		0,0		0,05	0,05	0,05	0,05	0,00	0,05	0,0				0	0	0	0	0
+❄️	Wirkungsgrad Erzeugung 0 Freecooling			Obsolet		#NV	0									0,00										
+❄️	Wirkungsgrad Erzeugung 1 El			Neu (aus alt Berechenbar)		='❄️K'!D29	2	5,0		0,0						0,00	5,40	5,0				5	5	5	5	5
+❄️	Wirkungsgrad Erzeugung 2 TH			Neu (default, nicht berechenbar)		='❄️K'!D36	2	0,9		0,0						0,00	0,95	0,9				0,9	0,9	0,9	0,9	0,9
+❄️	Wirkungsgrad Erzeugung 3 EL			Neu (default, nicht berechenbar)		='❄️K'!D43	2	0,0		0,0						0,00	2,50	0,0				0	0	0	0	0
+❄️	Wirkungsgrad-Kehrwert Erzeugung 0 Freecooling			Zwischenrechnung		=WENNFEHLER(1/K625;0)	0	0,0		0,0							0,00	0,0				0	0	0	0	0
+❄️	Wirkungsgrad-Kehrwert Erzeugung 1 El			Zwischenrechnung	QC_to_EC_1	=WENNFEHLER(1/K626;0)	0	0,2		0,0							0,19	0,2				0,2	0,2	0,2	0,2	0,2
+❄️	Wirkungsgrad-Kehrwert Erzeugung 2 TH			Zwischenrechnung	QC_generation_eff_2th	=WENNFEHLER(1/K627;0)	0	1,1		0,0							1,05	1,1				1,111111111	1,111111111	1,111111111	1,111111111	1,111111111
+❄️	Wirkungsgrad-Kehrwert Erzeugung 3 EL			Zwischenrechnung	QC_to_EC_3	=WENNFEHLER(1/K628;0)	0	0,0		0,0							0,40	0,0				0	0	0	0	0
+❄️	Hilfsstromanteil Freecooling			Neu (default, nicht berechenbar)	QC_aux_fc	='❄️K'!D24	2	0,0		0,0						0,00	0,05	0,0				0	0	0	0	0
+❄️	Hilfsstromanteil KLEL1			Neu (aus alt Berechenbar)	QC_aux_1el	='❄️K'!D31	2	0,0		0,0						0,00	0,02	0,0				0	0	0	0	0
+❄️	Hilfsstromanteil KLTh2			Neu (aus alt Berechenbar)	QC_aux_2th	='❄️K'!D38	2	0,0		0,0						0,00	0,02	0,0				0	0	0	0	0
+❄️	Hilfsstromanteil KLEL3			Neu (aus alt Berechenbar)	QC_aux_3el	='❄️K'!D45	2	0,0		0,0						0,00	0,02	0,0				0	0	0	0	0
+❄️	Energieträger Freecooling			Obsolet		#NV	0									0,00										
+❄️	Energieträger System 2 Thermisch			Neu (default, nicht berechenbar)	cool_th2_carrier_type	='❄️K'!D34	2	Fernwärme Wien		0,0						0,00	Mapping fehlt	Fernwärme Wien				Fernwärme Wien	Fernwärme Wien	Fernwärme Wien	Fernwärme Wien	Fernwärme Wien
+❄️	Kühlen Solltemperatur Maximum	°C		Neu (aus alt Berechenbar)	Tsetcool_max	='❄️K'!D5	2	25,0		elektrische Systeme: jegliche Art der Wärmepumpe und direkt elektrische Erzeugung. Thermische Systeme: Heizkessel, Wärmenetze direkt, Abwärme direkt, solare Systeme direkt. Es sind jeweils 2 Systeme vorhanden, um unterschiedliche Reihenfolgen bei Grundlast-Spitzenlast zu ermöglichen. Die raumseitige, thermische Leistung in Watt pro Quadratmeter zur Deckelung eventueller Grundlastanlagen, Demand-Side-Management. Der Wirkungsgrad entspricht hier der Jahresarbeitszahl einer Wärmepumpe, definiert den Verlust an der Heizungsanlage und betrifft ausschließlich den Heizbetrieb. Bei zusätzlicher Nutzung zur Kühlung oder zur Warmwasserbereitung sind gesonderte JAZ erforderlich. Der Wirkungsgrad des Verteilsystems ist abhängig von der Art des Abgabesystems zu definieren. Hilfsstrom wird als Anteil des Nutzenergiebedarfs berechnet. Default thermischer Leistung 40 W/m² zur Deckung des Energiebedarfs gemäß EnEV	25,0	25,0	25,0		26,0	25,0	25,0	25,0				25	25	25	25	25
+		55	Parameter				0																			
+💧	Temperatur Minimum	°C		Neu (aus alt Berechenbar)	DHW_Tmin	='💧WW'!D33	2	60,0	60	#NAME?	60	60	60	60	60	60	60	60,0				60	60	60	60	60
+💧	Temperatur Maximum Eingabe	°C		Neu (aus alt Berechenbar)		='🔋'!D42	2	70,0	70	0,0	70	70	70	70	70	70	70	70,0				70	70	70	70	70
+💧	Temperatur Maximum Effektiv	°C		Zwischenrechnung	DHW_Tmax	=MIN(K642;DHW_Tmax_constant)	0	70,0									70	70,0				70	70	70	70	70
+💧	Warmwasser System 1 Anteil Wohnen			Neu (default, nicht berechenbar)		='💧WW'!D21	2	1,0	1	0,0	1	1	1	1	1,00	1,0	1,0	0,5				0,5	0,5	0,5	0,5	0,5
+💧	Warmwasser System 1 Anteil Büro			Neu (default, nicht berechenbar)		='💧WW'!D22	2	1,0	1	0,0	1	1	1	1	1,00	1,0	1,0	1,0				1	1	1	1	1
+💧	Warmwasser System 1 Anteil Schule sekundär			Neu (default, nicht berechenbar)		='💧WW'!D24	2	1,0	1	0,0	1	1	1	1	1,00	1,0	1,0	1,0				1	1	1	1	1
+💧	Warmwasser System 1 Anteil Schule primär			Neu (default, nicht berechenbar)		='💧WW'!D23	2	1,0	1	0,0	1	1	1	1	1,00	1,0	1,0	1,0				1	1	1	1	1
+💧	Warmwasser System 1 Anteil Handel Lebensmittel			Neu (default, nicht berechenbar)		='💧WW'!D25	2	1,0	1	0,0	1	1	1	1	1,00	1,0	1,0	1,0				1	1	1	1	1
+💧	Warmwasser System 1 Anteil Handel Sonstige			Neu (default, nicht berechenbar)		='💧WW'!D26	2	1,0	1	0,0	1	1	1	1	1,00	1,0	1,0	1,0				1	1	1	1	1
+💧	Warmwasser System 1 Anteil Sonstige Nutzung			Neu (default, nicht berechenbar)		='💧WW'!D27	2	1,0	1	0,0	1	1	1	1	1,00	1,0	1,0	1,0				1	1	1	1	1
+💧	Warmwasser-Speichergröße Wohnen	liter		Zwischenrechnung		=DHW_storage_liter_pPerson*'⚙'!B59/'⚙'!B47*NFA_residential	0	460,4		#DIV/0!							1 682,1	460,4				460,4316547	460,4316547	460,4316547	460,4316547	460,4316547
+💧	Warmwasser-Speichergröße Büro	liter		Zwischenrechnung		=DHW_storage_liter_pPerson*'⚙'!B60/'⚙'!B48*NFA_office	0	325,4		#DIV/0!							854,5	325,4				325,4237288	325,4237288	325,4237288	325,4237288	325,4237288
+💧	Warmwasser-Speichergröße Schule sekundär	liter		Zwischenrechnung		=DHW_storage_liter_pPerson*DHW_storage_liter_pPerson*'⚙'!B61/'⚙'!B49*NFA_schoolsec	0	0,0		#DIV/0!							0,0	0,0				0	0	0	0	0
+💧	Warmwasser-Speichergröße Schule primär	liter		Zwischenrechnung		=DHW_storage_liter_pPerson*'⚙'!B62/'⚙'!B50*NFA_schoolprim	0	0,0		#DIV/0!							144,5	0,0				0	0	0	0	0
+💧	Warmwasser-Speichergröße Handel Lebensmittel	liter		Zwischenrechnung		=DHW_storage_liter_pPerson*DHW_storage_liter_pPerson*'⚙'!B63/'⚙'!B51*NFA_retailfood	0	0,0		#DIV/0!							0,0	0,0				0	0	0	0	0
+💧	Warmwasser-Speichergröße Handel Sonstige	liter		Zwischenrechnung		=DHW_storage_liter_pPerson*'⚙'!B64/'⚙'!B51*NFA_retailother	0	0,0		#DIV/0!							484,8	0,0				0	0	0	0	0
+💧	Warmwasser-Speichergröße Sonstige Nutzung	liter		Zwischenrechnung		=DHW_storage_liter_pPerson*DHW_storage_liter_pPerson*'⚙'!B65/'⚙'!B52*NFA_other	0	0,0		#DIV/0!							0,0	0,0				0	0	0	0	0
+💧	Warmwasser-Speichergröße 1	liter		Zwischenrechnung	DHW_storage_1_liter	=SUMMENPRODUKT(K644:K650;K651:K657)	0	785,9		#DIV/0!							3 165,8	555,6				555,6395562	555,6395562	555,6395562	555,6395562	555,6395562
+💧	Warmwasser-Speichergröße 2	liter		Zwischenrechnung	DHW_storage_2_liter	=SUMME(K651:K657)-DHW_storage_1_liter	0	0,0		#DIV/0!							0,0	230,2				230,2158273	230,2158273	230,2158273	230,2158273	230,2158273
+💧	Warmwasser System 1 in Verwendung	bool		Zwischenrechnung	DHW_1_is_used	=WENN(DHW_storage_1_liter;WAHR;FALSCH)	0	WAHR									WAHR	WAHR				WAHR	WAHR	WAHR	WAHR	WAHR
+💧	Warmwasser System 2 in Verwendung	bool		Zwischenrechnung	DHW_2_is_used	=WENN(DHW_storage_2_liter;WAHR;FALSCH)	0	FALSCH									FALSCH	WAHR				WAHR	WAHR	WAHR	WAHR	WAHR
+💧	Warmwasser Ladeleistung 1	kW		Zwischenrechnung	DHW_thermal_power_1_kW	=DHW_thermal_power_Wpl*DHW_storage_1_liter/1000	0	0,2		0,2							0,9	0,2				0,166691867	0,166691867	0,166691867	0,166691867	0,166691867
+💧	Warmwasser Ladeleistung 2	kW		Zwischenrechnung		=DHW_thermal_power_Wpl*DHW_storage_2_liter/1000	0	0,0		0,0							0,0	0,1				0,069064748	0,069064748	0,069064748	0,069064748	0,069064748
+💧	Warmwasser Verluste: Speicher1		0-100%	Neu (default, nicht berechenbar)	DHW_losses_1	='💧WW'!D9	2	0,050	0,05	0,000	0,05	0,05	0,05	0,05	0,05	0,05	0,05	0,050				0,05	0,05	0,05	0,05	0,05
+💧	Warmwasser Verluste: Speicher2		0-100%	Neu (default, nicht berechenbar)	DHW_losses_2	='💧WW'!D15	2	0,050	0,05	0,000	0,05	0,05	0,05	0,05	0,05	0,05	0,05	0,050				0,05	0,05	0,05	0,05	0,05
+💧	Warmwasser Verluste: Wirkungsgrad Verteilsystem 1			Neu (default, nicht berechenbar)	DHW_efficiency_distribution_1	='💧WW'!D8	2	0,900	0,95	0,000	1	1	1	0,95	1	1	1	0,900				0,9	0,9	0,9	0,9	0,9
+💧	Warmwasser Verluste: Wirkungsgrad Verteilsystem 2			Neu (default, nicht berechenbar)	DHW_efficiency_distribution_2	='💧WW'!D14	2	1,000	0	0,000	0	0	0	0	0	0	0	1,000				1	1	1	1	1
+💧	Warmwasser Verlustaufschlag Verteilsystem 1			Zwischenrechnung	DHW_1_incl_distribution_factor	=WENNFEHLER(1/DHW_efficiency_distribution_1;0)	0	1,1									1	1,1				1,111111111	1,111111111	1,111111111	1,111111111	1,111111111
+💧	Warmwasser Verlustaufschlag Verteilsystem 2			Zwischenrechnung	DHW_2_incl_distribution_factor	=WENNFEHLER(1/DHW_efficiency_distribution_2;0)	0	1,0									0	1,0				1	1	1	1	1
+💧	Warmwasser Flexibilität Speichernutzung 1					#NV	0			#BEZUG!		1					#BEZUG!	#BEZUG!				#BEZUG!	#BEZUG!	#BEZUG!	#BEZUG!	#BEZUG!
+💧	Warmwasser Flexibilität Direktheizung 1					#NV	0			#BEZUG!							#BEZUG!	#BEZUG!				#BEZUG!	#BEZUG!	#BEZUG!	#BEZUG!	#BEZUG!
+💧	Warmwasser System 1 Energieträger			Neu (default, nicht berechenbar)	DHW_carriertype_1	='💧WW'!D6	2	Strom	Strom	0,0	Strom	Strom	Strom	Strom	Strom	Strom	Strom	Strom				Strom	Strom	Strom	Strom	Strom
+💧	Warmwasser System 1 ist elektrisch			Zwischenrechnung	DHW_1_is_electric	=WENN(DHW_carriertype_1="Strom";WAHR;FALSCH)	0	WAHR		WAHR							WAHR	WAHR				WAHR	WAHR	WAHR	WAHR	WAHR
+💧	Warmwasser System 2 Energieträger				DHW_carriertype_2	='💧WW'!D12	2	Fernwärme Wien	Strom	0,0	Strom	Strom	Strom	Strom	Strom	Strom	Strom	Fernwärme Wien				Fernwärme Wien	Fernwärme Wien	Fernwärme Wien	Fernwärme Wien	Fernwärme Wien
+💧	Warmwasser System 2 ist elektrisch			Zwischenrechnung	DHW_2_is_electric	=WENN(DHW_carriertype_2="Strom";WAHR;FALSCH)	0	FALSCH		FALSCH							WAHR	FALSCH				FALSCH	FALSCH	FALSCH	FALSCH	FALSCH
+💧	Warmwasser System 1 Wirkungsgrad			Neu (aus alt Berechenbar)	DHW_1_efficiency	='💧WW'!D7	2	1,7	3,0	0,0	3,0	3,0	3,0	3,0	3,0	3,0	1,7	1,7				1,687697278	1,687697278	1,687697278	1,687697278	1,687697278
+💧	Warmwasser System 2 Wirkungsgrad			Neu (default, nicht berechenbar)	DHW_2_efficiency	='💧WW'!D13	2	1,0	1	0,0	1	1	1	1	1	1	1	1,0				1	1	1	1	1
+💧	Warmwasser System 1 Wirkungsgradkehrwert			Zwischenrechnung	DHW_conversion_1	=1/K676	0	0,6		#DIV/0!							0,6	0,6				0,592523323	0,592523323	0,592523323	0,592523323	0,592523323
+💧	Warmwasser System 2 Wirkungsgradkehrwert			Zwischenrechnung	DHW_conversion_2	=1/K677	0	1,0		#DIV/0!							1,0	1,0				1	1	1	1	1
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+		48	Parameter				0																			
+🌞	PV Nutzung	Bool		Neu (aus alt Berechenbar)	PV_is_used	='🌞PV'!D7	2	WAHR	WAHR	0,0	WAHR	WAHR	WAHR	WAHR	0	WAHR	WAHR	WAHR				WAHR	WAHR	WAHR	WAHR	WAHR
+🌞	PV Profil Name			Neu (aus alt Berechenbar)		='🌞PV'!D8	2	"Rugier_Flachdach
+Steildach
+Terrassen DG1
+Geländer/Brüstungen"	Azi24Tilt27Wp460	0,0	Var_Planstand_Pilzgasse	MinPEQ	AICH_PV NO/SW 10,2 kWp	Azi24Tilt27Wp460	Azi80Tilt27Wp460	Azi24Tilt27Wp460	Var_Planstand_Pilzgasse	"Rugier_Flachdach
+Steildach
+Terrassen DG1
+Geländer/Brüstungen"				"Rugier_Flachdach
+Steildach
+Terrassen DG1
+Geländer/Brüstungen"	"Rugier_Flachdach
+Steildach
+Terrassen DG1
+Geländer/Brüstungen"	"Rugier_Flachdach
+Steildach
+Terrassen DG1
+Geländer/Brüstungen"	"Rugier_Flachdach
+Steildach
+Terrassen DG1
+Geländer/Brüstungen"	"Rugier_Flachdach
+Steildach
+Terrassen DG1
+Geländer/Brüstungen"
+🌞	PV Profil ID			Zwischenrechnung	PV_id	=VERGLEICH(K690;pv_profile_names;0)	0	33,0	4	#NV	13	14	15	4	8	4	13	33,0				33	33	33	33	33
+🌞	PV Skalierungsfaktor Profil			Neu (default, nicht berechenbar)	PV_scale	='🌞PV'!D9	2	1,0	1	0,0	1	1	1	1	1,00	1,0	1,0	1,0				1	1	1	1	1
+🌞	PV Wechselrichter Effizienz			Neu (aus alt Berechenbar)	PV_efficiency	='🌞PV'!D60	2	0,9	0,90	0,0	0,90	0,94	0,90	0,90	1,00	0,90	0,90	0,9				0,9	0,9	0,9	0,9	0,9
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+		12	Parameter				0																			
+🔋	Flex PV Nutzung			Neu (aus alt Berechenbar)	FLEX_PV_is_used	='🔋'!D6	2	WAHR	WAHR	0,0	WAHR	WAHR	WAHR	WAHR	0	WAHR	WAHR	WAHR				WAHR	WAHR	WAHR	WAHR	WAHR
+🔋	Flex Signal Nutzung			Neu (aus alt Berechenbar)	FLEX_is_used	='🔋'!D10	2	WAHR	WAHR	0,0	WAHR	WAHR	WAHR	WAHR	0	WAHR	WAHR	WAHR				WAHR	WAHR	WAHR	WAHR	WAHR
+🔋	Flex Signal Name			Neu (aus alt Berechenbar)		='🔋'!D11	2	Wind AT 2020	Wind AT 2020	0	Wind AT 2020	Wind AT 2020	Wind AT 2020	Wind AT 2020	Wind 2013	Wind AT 2020	Wind AT 2020	Wind AT 2020				Wind AT 2020	Wind AT 2020	Wind AT 2020	Wind AT 2020	Wind AT 2020
+🔋	Flex Signal ID			Abgelöst in Klimaaktiv	FLEX_signal_ID	=[@Buffer]	0	10,0	10	10,0	10	10	10	10	1	10	10	10,0				10	10	10	10	10
+🔋	Flex Maximale Leistung	W/m²		Neu (aus alt Berechenbar)	FLEX_grid_maxpower_Wm2	='🔋'!D12	2	15	40	0	58,5	50	40	40	40	58,5	58,5	10				10	10	10	10	10
+🔋	Flex Netzbezug deckt Nutzerstrom	bool	muss jetzt nicht mehr automatisch Wahr sein	Neu (default, nicht berechenbar)	FLEX_is_used_for_plugloads	='🔋'!D13	2	WAHR									WAHR	FALSCH				FALSCH	FALSCH	FALSCH	FALSCH	FALSCH
+🔋	Flex Netzbezug deckt HVAC Minimum	bool	muss jetzt nicht mehr automatisch Wahr sein	Neu (default, nicht berechenbar)	FLEX_is_used_for_HVAC_min	='🔋'!D14	2	WAHR									WAHR	FALSCH				FALSCH	FALSCH	FALSCH	FALSCH	FALSCH
+🔋	Flex Netzbezug deckt EV Minimum	bool	muss jetzt nicht mehr automatisch Wahr sein	Neu (default, nicht berechenbar)	FLEX_is_used_for_ev_min	='🔋'!D15	2	WAHR									WAHR	FALSCH				FALSCH	FALSCH	FALSCH	FALSCH	FALSCH
+♨️	Flexibles Heizen über Solltemperatur		Kelvin	Neu (aus alt Berechenbar)	flex_heat_dT	='🔋'!D21	2	3,0	3	0,0	4	3	3	3	0	4	4	1,0				1	1	1	1	1
+♨️	Flexibles Heizen Maximale Raumtemperatur		°C	Zwischenrechnung	Tsetheat_flex	=Tsetheat_min+K709	0	25,0		22,0	25,0	25,0	25,0	25,0	21,0	25,0	25,0	23,0				23	23	23	23	23
+♨️	Flexibles Heizsystem	Text		Neu (aus alt Berechenbar)		='🔋'!D22	2	System 1									System 1	System 1				System 1	System 1	System 1	System 1	System 1
+♨️	Flexibles Heizen mit Heizsystem 1	bool		Neu (aus alt Berechenbar)	FLEX_heat1_use	=WENN(K711="System 1";WAHR;FALSCH)	0	WAHR									WAHR	WAHR				WAHR	WAHR	WAHR	WAHR	WAHR
+♨️	Flexibles Heizen mit Heizsystem 3	bool		Neu (default, nicht berechenbar)	FLEX_heat3_use	=WENN(K711="System 3";WAHR;FALSCH)	0	FALSCH									FALSCH	FALSCH				FALSCH	FALSCH	FALSCH	FALSCH	FALSCH
+❄️	Flexibles Kühlen unter Solltemperatur		Kelvin	Neu (aus alt Berechenbar)	flex_cool_dT	='🔋'!D24	2	2,0	3	0,0	2	2	2	3	0	2	2	2,0				2	2	2	2	2
+❄️	Flexibles Kühlen Minimale Raumtemperatur		°C	Neu (aus alt Berechenbar)	Tsetcool_flex	=Tsetcool_max-K714	0	23,0		25,0							23,0	23,0				23	23	23	23	23
+❄️	Flexibles Kühlsystem	Text		Neu (aus alt Berechenbar)		='🔋'!D25	2	System 1									System 1	System 1				System 1	System 1	System 1	System 1	System 1
+❄️	Flexibles Kühlen mit Kühlsystem 1	bool		Neu (aus alt Berechenbar)	FLEX_cool1_use	=WENN(K716="System 1";WAHR;FALSCH)	0	WAHR									WAHR	WAHR				WAHR	WAHR	WAHR	WAHR	WAHR
+❄️	Flexibles Kühlen mit Kühlsystem 3	bool		Neu (default, nicht berechenbar)	FLEX_cool3_use	=WENN(K716="System 3";WAHR;FALSCH)	0	FALSCH									FALSCH	FALSCH				FALSCH	FALSCH	FALSCH	FALSCH	FALSCH
+🔋	Batterie Nutzung			Neu (aus alt Berechenbar)	Batt_is_used	='🔋'!D29	2	WAHR	FALSCH	0,0	FALSCH	WAHR	FALSCH	FALSCH	0	FALSCH	FALSCH	WAHR				WAHR	WAHR	WAHR	WAHR	WAHR
+🔋	Batterie Kapazität	kWh		Neu (aus alt Berechenbar)		='🔋'!D33	2	250,0	1382,4	0,0	1382,4	138,2	7703,2	1382,4	516116,6	1382,4	4824,9	500,0				500	500	500	500	500
+🔋	Batterie Kapazität spezifisch	W/m²		Zwischenrechnung	Batt_cap_Wh_per_NFA	=K720/NFA_total*1000	0	32,6	180	0,0	180	18	1003,02513	180	67202,68369	180	180	65,1				65,10416667	65,10416667	65,10416667	65,10416667	65,10416667
+🔋	Maximale Be/Entladeleistung 	%		Neu (aus alt Berechenbar)		='🔋'!D34	2	2,0	1,2	0,0	1,2	27,8	501,5125649	1,2	501,5125649	1,2	1,2	2,0				2	2	2	2	2
+🔋	Batterie Leistung spezifisch	W/m²		Zwischenrechnung	Batt_max_power_specific	=K721*K722	0	65,1		0,0							216,0	130,2				130,2083333	130,2083333	130,2083333	130,2083333	130,2083333
+🔋	Wirkungsgrad Ladung	%		Neu (aus alt Berechenbar)	Batt_eff_factor_charge	='🔋'!D35	2	0,9	1,000	0,0	1,000	0,900	0,900	1,000	0,900	1,000	1,000	0,9				0,9	0,9	0,9	0,9	0,9
+🔋	Wirkungsgrad Entladung	%		Neu (aus alt Berechenbar)	Batt_eff_factor_discharge	='🔋'!D36	2	0,9	0,900	0,0	0,900	0,900	0,900	0,900	0,900	0,900	0,900	0,9				0,9	0,9	0,9	0,9	0,9
+🔋	Batterie Selbstentladung	%/h		Neu (aus alt Berechenbar)		='🔋'!D37	2	0,02000	0,02	0,00000	0,02	0,02	0,02	0,02	0,02	0,02	0,02	0,02000				0,02	0,02	0,02	0,02	0,02
+🔋	Batterie Selbstentladung pro Stunde			Zwischenrechnung	Batt_auto_discharge_factor	=K726/7/24	0	0,00012		1,00000							0,0	0,00012				0,000119048	0,000119048	0,000119048	0,000119048	0,000119048
+🔋	Batterie Initialer SOC	%		Zwischenrechnung	Batt_SOC_init	#NV	1	50%									0,5	50%				0,5	0,5	0,5	0,5	0,5
+🔋	Batterie Nutzung für Nutzerstrom	bool		Neu (default, nicht berechenbar)	Batt_is_used_for_plugloads	#NV	1	WAHR									WAHR	WAHR				WAHR	WAHR	WAHR	WAHR	WAHR
+🔋	Batterie Nutzung für HKLS Minimum	bool		Neu (default, nicht berechenbar)	Batt_is_used_for_HVACminimum	#NV	1	WAHR									WAHR	WAHR				WAHR	WAHR	WAHR	WAHR	WAHR
+🔋	Batterie Nutzung für Ecars	bool		Neu (default, nicht berechenbar)	Batt_is_used_for_EV	#NV	1	WAHR									WAHR	WAHR				WAHR	WAHR	WAHR	WAHR	WAHR
+🔋	Batterie wird flexibel  durch Netz geladen?	bool		Neu (default, nicht berechenbar)	Batt_is_gridcharged	='🔋'!D16	2	WAHR									WAHR	WAHR				WAHR	WAHR	WAHR	WAHR	WAHR
+💧	Flexible Speicherbeladung	bool				='🔋'!D41	0	FALSCH									0,0	0,0				0	0	0	0	0
+																	0,0	0,0				0	0	0	0	0
+							0	0,0									0,0	0,0				0	0	0	0	0
+		36	Parameter				0																			
+🚗	MIV simulieren	bool		Neu (aus alt Berechenbar)	EV_simulation	='🚗'!D4	2	WAHR									WAHR	WAHR				WAHR	WAHR	WAHR	WAHR	WAHR
+🚗	Mobilitätsregion	str			mobility_region	=SVERWEIS(K206;gemeinden;3;FALSCH)	0	93,0									93,0	93,0				93	93	93	93	93
+🚗	Zielverkehrsanteil Wohnen	%		Zwischenrechnung	mobshare_residential	=SVERWEIS(mobility_region; Regionstypen; 2;FALSCH)	0	50%									0,5	50%				0,5	0,5	0,5	0,5	0,5
+🚗	Zielverkehrsanteil Büro	%		Zwischenrechnung	mobshare_office	=SVERWEIS(mobility_region; Regionstypen; 3;FALSCH)	0	17%									0,2	17%				0,17	0,17	0,17	0,17	0,17
+🚗	Zielverkehrsanteil Ausbildung	%		Zwischenrechnung	mobshare_school	=SVERWEIS(mobility_region; Regionstypen; 4;FALSCH)	0	3%									0,0	3%				0,03	0,03	0,03	0,03	0,03
+🚗	Zielverkehrsanteil Handel	%		Zwischenrechnung	mobshare_retail	=SVERWEIS(mobility_region; Regionstypen; 5;FALSCH)	0	29%									0,3	29%				0,29	0,29	0,29	0,29	0,29
+🚗	Pkm Zu Fuß	Pkm		Zwischenrechnung	pkm_pedestrian	=SVERWEIS(mobility_region; Regionstypen; 6;FALSCH)	0	235									235,0	235				235	235	235	235	235
+🚗	Pkm Fahrrad	Pkm		Zwischenrechnung	pkm_bike	=SVERWEIS(mobility_region; Regionstypen; 7;FALSCH)	0	116									116,0	116				116	116	116	116	116
+🚗	Pkm Moped	Pkm		Zwischenrechnung	pkm_mofa	=SVERWEIS(mobility_region; Regionstypen; 8;FALSCH)	0	146									146,0	146				146	146	146	146	146
+🚗	Pkm PKW-LenkerIn	Pkm		Zwischenrechnung	pkm_car_driver	=SVERWEIS(mobility_region; Regionstypen; 9;FALSCH)	0	4 291									4 291,0	4 291				4291	4291	4291	4291	4291
+🚗	Pkm PKW-MitfahrerIn	Pkm		Zwischenrechnung	pkm_car_passenger	=SVERWEIS(mobility_region; Regionstypen; 10;FALSCH)	0	2 035									2 035,0	2 035				2035	2035	2035	2035	2035
+🚗	Pkm Stadt/ Regionalbus	Pkm		Zwischenrechnung	pkm_bus	=SVERWEIS(mobility_region; Regionstypen; 11;FALSCH)	0	165									165,0	165				165	165	165	165	165
+🚗	Pkm Straßenbahn/U-Bahn	Pkm		Zwischenrechnung	pkm_tram_metro	=SVERWEIS(mobility_region; Regionstypen; 12;FALSCH)	0	1 978									1 978,0	1 978				1978	1978	1978	1978	1978
+🚗	Pkm Eisenbahn	Pkm		Zwischenrechnung	pkm_train	=SVERWEIS(mobility_region; Regionstypen; 13;FALSCH)	0	1 463									1 463,0	1 463				1463	1463	1463	1463	1463
+🚗	Pkm Reisebus	Pkm		Zwischenrechnung	pkm_distancebus	=SVERWEIS(mobility_region; Regionstypen; 14;FALSCH)	0	67									67,0	67				67	67	67	67	67
+🚗	Stellplätze	Anzahl		Neu (aus alt Berechenbar)	parking_spots_in_district	='🚗'!D26	2	190,0					190				190,0	190,0				190	190	190	190	190
+🚗	Fahrzeuge	Anzahl		Neu (aus alt Berechenbar)		='🚗'!D32	2	100,0					60				150,0	100,0				100	100	100	100	100
+🚗	Anteil-Ecars	%	Am Mobilitätsbedarf	Neu (aus alt Berechenbar)	EV_share	='🚗'!D30	2	0,7					0,7				0,7	0,7				0,7	0,7	0,7	0,7	0,7
+🚗	Ecar Energieverbrauch	kWh/km		Neu (aus alt Berechenbar)	EV_demand_kWhpkm	='🚗'!D39	2	0,170					0,17				0,2	0,170				0,17	0,17	0,17	0,17	0,17
+🚗	Ecar Speicher pro Fahrzeug	kWh/EV		Neu (aus alt Berechenbar)		='🚗'!D34	2	41,0					41				41,0	41,0				41	41	41	41	41
+🚗	Ecar Speicher im Quartier	kWh		Zwischenrechnung	EV_storage_total_kWh	=K756*K753	0	4100,0									6 150,0	4100,0				4100	4100	4100	4100	4100
+🚗	Ecar Selbstentladung wöchentlich	%/Woche		Neu (aus alt Berechenbar)		='🚗'!D36	2	2,00%					0,02				0,0	2,00%				0,02	0,02	0,02	0,02	0,02
+🚗	Ecar Selbstentladung stündlich	%/h		Zwischenrechnung	EV_selfdischarge_per_h	=K758/24/7	0	0,01%									0,0	0,01%				0,000119048	0,000119048	0,000119048	0,000119048	0,000119048
+🚗	Ecar Mindest-Speicherstand	%		Neu (aus alt Berechenbar)	EV_soc_minimum	='🚗'!D35	2	0,5					0,5				0,5	0,5				0,5	0,5	0,5	0,5	0,5
+🚗	Ecar Batterie-Effizienz Beladung	%		Neu (aus alt Berechenbar)	EV_charging_efficiency	='🚗'!D37	2	0,9					0,9				0,9	0,9				0,9	0,9	0,9	0,9	0,9
+🚗	Ecar Batterie-Effizienz Beladung Kehrwert			Zwischenrechnung	EV_charging_losses_surcharge_factor	=WENNFEHLER(1/K761;0)	0	1,1									1,1	1,1				1,111111111	1,111111111	1,111111111	1,111111111	1,111111111
+🚗	Ecar Batterie Maximale Beladungsleistung	%		Neu (default, nicht berechenbar)	EV_max_charging_power_ratio	='🚗'!D38	2	1,0					0,5				0,5	1,0				1	1	1	1	1
+🚗	Verbrenner Energieverbrauch	kWh/km				=[@Buffer]	0	0,0									0,0	0,0				0	0	0	0	0
+🚗	Konversionsfaktor Benzin	kWhPE/kWhEE			Fossil_demand_kWhpkm	#NV	1	1,2									0,0	1,2				1,2	1,2	1,2	1,2	1,2
+🚗	Moped im Verhältnis zu Auto				moped_factor	#NV	1	0,25										0,25				0,25	0,25	0,25	0,25	0,25
+🚗	Anteil Ecars, die konstant vor Ort laden	%	Rest konstantes Laden		EV_share_constant_charging	#NV	1	0,9										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+		44	Parameter				0																			
+⚖	Strom Konversionsprofil				conversion_profile_grid	#NV	1	OIB2019 (interpolierte Monatswerte)									0,0	OIB2019 (interpolierte Monatswerte)				OIB2019 (interpolierte Monatswerte)	OIB2019 (interpolierte Monatswerte)	OIB2019 (interpolierte Monatswerte)	OIB2019 (interpolierte Monatswerte)	OIB2019 (interpolierte Monatswerte)
+⚖	Fernwärme Konversionsprofil					#NV	1	7,0									0,0	7,0				7	7	7	7	7
+⚖						=[@Buffer]	0	0,0									0,0	0,0				0	0	0	0	0
+⚖						=[@Buffer]	0	0,0									0,0	0,0				0	0	0	0	0
+⚖	Strom Konversionsprofil Spaltennummer				fPE_grid_column	=VERGLEICH(conversion_profile_grid;fPE[#Kopfzeilen];0)	0	5									0,0	5				5	5	5	5	5
+⚖						=[@Buffer]	0	0,0									0,0	0,0				0	0	0	0	0
+⚖	PE Heizen 2 ist Fernwärme 	bool		#WERT!	heat_th2_is_dh		0	1,00										1,00				1	1	1	1	1
+⚖	PE Heizen 4 ist Fernwärme 	bool			heat_th4_is_dh		0	1,00										1,00				1	1	1	1	1
+⚖	PE Kühlen 2 ist Fernwärme 	bool			cool_th2_is_dh		0	1,00										1,00				1	1	1	1	1
+⚖	PE WWWB 1 ist Fernwärme 	bool			dhw1_is_dh		0	0,00										0,00				0	0	0	0	0
+⚖	PE WWWB 2 ist Fernwärme 	bool			dhw2_is_dh		0	1,00										1,00				1	1	1	1	1
+⚖	PE Heizen 2 ist Erdgas 				heat_th2_is_ng		0	0,00										0,00				0	0	0	0	0
+⚖	PE Heizen 4 ist Erdgas 				heat_th4_is_ng		0	0,00										0,00				0	0	0	0	0
+⚖	PE Kühlen 2 ist Erdgas 				cool_th2_is_ng		0	0,00										0,00				0	0	0	0	0
+⚖	PE WWWB 1 ist Erdgas 				dhw1_is_ng		0	0,00										0,00				0	0	0	0	0
+⚖	PE WWWB 2 ist Erdgas 				dhw2_is_ng		0	0,00										0,00				0	0	0	0	0
+⚖	PE Heizen 2 ist Biomasse 				heat_th2_is_bio		0	0,00										0,00				0	0	0	0	0
+⚖	PE Heizen 4 ist Biomasse 				heat_th4_is_bio		0	0,00										0,00				0	0	0	0	0
+⚖	PE Kühlen 2 ist Biomasse 				cool_th2_is_bio		0	0,00										0,00				0	0	0	0	0
+⚖	PE WWWB 1 ist Biomasse 				dhw1_is_bio		0	0,00										0,00				0	0	0	0	0
+⚖	PE WWWB 2 ist Biomasse 				dhw2_is_bio		0	0,00										0,00				0	0	0	0	0
+⚖	PE Heizen 2 ist Sonstige 				heat_th2_is_other		0	0,00										0,00				0	0	0	0	0
+⚖	PE Heizen 4 ist Sonstige 				heat_th4_is_other		0	0,00										0,00				0	0	0	0	0
+⚖	PE Kühlen 2 ist Sonstige 				cool_th2_is_other		0	0,00										0,00				0	0	0	0	0
+⚖	PE WWWB 1 ist Sonstige 				dhw1_is_other		0	1,00										1,00				1	1	1	1	1
+⚖	PE WWWB 2 ist Sonstige 				dhw2_is_other		0	0,00										0,00				0	0	0	0	0
+⚖							0	0,0										0,0				0	0	0	0	0
+⚖							0	0,0										0,0				0	0	0	0	0
+⚖							0	0,0										0,0				0	0	0	0	0
+⚖							0	0,0										0,0				0	0	0	0	0
+⚖							0	0,0										0,0				0	0	0	0	0
+⚖							0	0,0										0,0				0	0	0	0	0
+⚖							0	0,0										0,0				0	0	0	0	0
+⚖							0	0,0										0,0				0	0	0	0	0
+⚖	PE-Konversionsfaktor Heizen 2 Thermisch 	kWhPE/kWhEE				=SVERWEIS(heat_th2_carrier_type;cf_constant;2;FALSCH)	0	0,8500									0,0	0,8500				0,85	0,85	0,85	0,85	0,85
+⚖	PE-Konversionsfaktor Heizen 4 Thermisch 	kWhPE/kWhEE				=SVERWEIS(heat_th4_carrier_type;cf_constant;2;FALSCH)	0	0,3300									0,0	0,3300				0,33	0,33	0,33	0,33	0,33
+⚖	PE-Konversionsfaktor Kühlen 2 Thermisch 	kWhPE/kWhEE				=SVERWEIS(cool_th2_carrier_type;cf_constant;2;FALSCH)	0	0,3300									0,0	0,3300				0,33	0,33	0,33	0,33	0,33
+⚖	PE-Konversionsfaktor WWWB 1 Thermisch	kWhPE/kWhEE				=WENNFEHLER(SVERWEIS(DHW_carriertype_1;cf_constant;2;FALSCH);0)	0	0,0000									0,0	0,0000				0	0	0	0	0
+⚖	PE-Konversionsfaktor WWWB 2 Thermisch	kWhPE/kWhEE				=WENNFEHLER(SVERWEIS(DHW_carriertype_2;cf_constant;2;FALSCH);0)	0	0,3300									0,0	0,3300				0,33	0,33	0,33	0,33	0,33
+⚖	THG-Konversionsfaktor Heizen 2 Thermisch 	kgCO2eq/kWhEE				=SVERWEIS(heat_th2_carrier_type;cf_constant;5;FALSCH)	0	0,0250									0,0	0,0250				0,025	0,025	0,025	0,025	0,025
+⚖	THG-Konversionsfaktor Heizen 4 Thermisch 	kgCO2eq/kWhEE				=SVERWEIS(heat_th4_carrier_type;cf_constant;5;FALSCH)	0	0,0200									0,0	0,0200				0,02	0,02	0,02	0,02	0,02
+⚖	THG-Konversionsfaktor Kühlen 2 Thermisch 	kgCO2eq/kWhEE				=SVERWEIS(cool_th2_carrier_type;cf_constant;5;FALSCH)	0	0,0200									0,0	0,0200				0,02	0,02	0,02	0,02	0,02
+⚖	THG-Konversionsfaktor WWWB 1 Thermisch	kgCO2eq/kWhEE				=WENNFEHLER(SVERWEIS(DHW_carriertype_1;cf_constant;5;FALSCH);0)	0	0,0000									0,0	0,0000				0	0	0	0	0
+⚖	THG-Konversionsfaktor WWWB 2 Thermisch	kgCO2eq/kWhEE				=WENNFEHLER(SVERWEIS(DHW_carriertype_2;cf_constant;5;FALSCH);0)	0	0,0200									0,0	0,0200				0,02	0,02	0,02	0,02	0,02
+						=[@Buffer]	0	0,0									0,0	0,0				0	0	0	0	0
+						=[@Buffer]	0	0,0									0,0	0,0				0	0	0	0	0
+						=[@Buffer]	0	0,0										0,0				0	0	0	0	0
+🏆	Primärenergiefaktor	kWhPE/kWhEE	f_PE			#NV	1	1,63										1,63				1,63	1,63	1,63	1,63	1,63
+🏆	Ausnutzungsfaktor Erneuerbare	kWhEE/m²GF	A			#NV	1	38										38				38	38	38	38	38
+🏆	Skalierungsfaktor	-	dx			#NV	1	0,15										0,15				0,15	0,15	0,15	0,15	0,15
+🏆	Energieintensität Bedarf	kWhEE/m²NGFa	EUI			#NV	1	33										33				33	33	33	33	33
+🏆	Maximum	kWhPE/m²NGFa	cutoff			#NV	1	125										125				125	125	125	125	125
+🏆	Kontextfaktor Dichte im Quartier	kWhPE/m²NGFa			context_factor_density	=-MIN(K828*(K829/(FSI+K830)-K831);K832)	0	25,8										25,8				25,75272756	25,75272756	25,75272756	25,75272756	25,75272756
+🏆	Mobilitätsbudget Wohnen	kWhPE/m²NGFa				#NV	1	14,11									0,0	14,11				14,1077404	14,1077404	14,1077404	14,1077404	14,1077404
+🏆	Mobilitätsbudget Büro	kWhPE/m²NGFa				#NV	1	41,47									0,0	41,47				41,46615677	41,46615677	41,46615677	41,46615677	41,46615677
+🏆	Mobilitätsbudget Ausbildung	kWhPE/m²NGFa				#NV	1	12,93									0,0	12,93				12,93478731	12,93478731	12,93478731	12,93478731	12,93478731
+🏆	Mobilitätsbudget Handel + Sonstige	kWhPE/m²NGFa				#NV	1	29,97									0,0	29,97				29,9681092	29,9681092	29,9681092	29,9681092	29,9681092
+🏆	Kontextfaktor Mobilität im Quartier	kWhPE/m²NGFa			context_factor_mobility	=per_NFA*(K834*NFA_residential+K835*NFA_office+K836*(NFA_schoolprim+NFA_schoolsec)+K837*(NFA_retailfood+NFA_retailother+NFA_other))	0	27,8									0,0	27,8				27,78694858	27,78694858	27,78694858	27,78694858	27,78694858
+🏆	Kontextfaktor Sanierung	kWhPE/m²NGFa				#NV	1	15,00									0,0	15,00				15	15	15	15	15
+🏆	Kontextfaktor Sanierung im Quartier	kWhPE/m²NGFa			context_factor_renovation	=K839*SUMMENPRODUKT(Renovation_shares;NFA_shares)	0	15,0									0,0	15,0				15	15	15	15	15
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0
+							0	0,0										0,0				0	0	0	0	0

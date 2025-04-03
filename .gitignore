@@ -1,3 +1,6 @@
+
+*~
+
 # Ignore PNG images
 *.png
 
@@ -12,12 +15,14 @@
 *.webp
 *.svg
 
-# Optional: ignore image folders (if any)
+#  folders
 images/
 assets/images/
 .idea
 .vscode
 docs/Meetings/
-
-
+Excel Files/PEExcel Archive/
+**/ribbon/
 **/Intern/
+**/__pycache__/
+**/.ipynb_checkpoints/

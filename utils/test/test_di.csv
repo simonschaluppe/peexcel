@@ -1,6 +1,0 @@
-# file; test_PlusenergieExcel_Performance.xlsx
-# date; 2021-10-24 18:38:42.269586
-# version; 0.0
-value;name;formula;sheet;address;refers_to_range;refers_to
-testinput;Userinput_test1;testinput;Tabelle1;$A$1;;('',);False
-testinput;Userinput_test2;=A1;Tabelle1;$A$2;;('',);False
