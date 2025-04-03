@@ -1,112 +1,90 @@
 <customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui" onLoad="captureRibbonUI">
-	<ribbon>
-		<tabs>
-			<tab id="peexcel" label="klimaaktiv PEQ">
+  <ribbon>
+    <tabs>
 
-				<group id="inputs" label="Klimaaktiv Plus-Energie-Quartier Eingabe">
+      <tab id="peexcel" label="klimaaktiv PEQ">
 
-     <button id="gotoDirektInput"
-          label="Start"
-          supertip="Beginnen Sie hier, die Basisvariante des Quartiers zu beschreiben"
-          tag="Input"
-          size="large"
-          onAction="call_Goto_start"
-          imageMso="OpenStartPage"
-           /> 
-	<button id="district" label="🏙 Quartier" onAction="call_Goto_district" />
-	<button id="weather" label="🌦 Wetter" onAction="call_Goto_weather" />	
-	<button id="hull" label="🧱 Hülle" onAction="call_Goto_hull" /> 	
-	<button id="heating" label="🔥 Heizung" onAction="call_Goto_heating" /> 	
-	<button id="cooling" label="❄ Kühlung" onAction="call_Goto_cooling" /> 	
-	<button id="ventilation" label="💨 Lüftung" onAction="call_Goto_ventilation" /> 	
-	<button id="dhw" label="💧 Warmwasser" onAction="call_Goto_dhw" /> 	
-	<button id="pv" label="🌞 PV" onAction="call_Goto_pv" /> 	
-	<button id="flex" label="🔋 Batterie" onAction="call_Goto_flex" /> 	
-	<button id="mobility" label="🚗 MIV" onAction="call_Goto_mobility" /> 	
-	<button id="emissions" label="☁ Emissionen" onAction="call_Goto_emissions" /> 
+        <group id="inputs" label="Klimaaktiv Plus-Energie-Quartier Eingabe">
+          <button id="gotoDirektInput"
+                  label="Start"
+                  supertip="Beginnen Sie hier, die Basisvariante des Quartiers zu beschreiben"
+                  tag="Input"
+                  size="large"
+                  onAction="call_Goto_start"
+                  imageMso="OpenStartPage" />
+          <button id="district"     label="🏙 Quartier" onAction="call_Goto_district" />
+          <button id="weather"      label="🌦 Wetter" onAction="call_Goto_weather" />
+          <button id="hull"         label="🧱 Hülle" onAction="call_Goto_hull" />
+          <button id="heating"      label="🔥 Heizung" onAction="call_Goto_heating" />
+          <button id="cooling"      label="❄ Kühlung" onAction="call_Goto_cooling" />
+          <button id="ventilation"  label="💨 Lüftung" onAction="call_Goto_ventilation" />
+          <button id="dhw"          label="💧 Warmwasser" onAction="call_Goto_dhw" />
+          <button id="pv"           label="🌞 PV" onAction="call_Goto_pv" />
+          <button id="flex"         label="🔋 Batterie" onAction="call_Goto_flex" />
+          <button id="mobility"     label="🚗 MIV" onAction="call_Goto_mobility" />
+          <button id="emissions"    label="☁ Emissionen" onAction="call_Goto_emissions" />
+        </group>
 
-</group>
-
-    <group id="sysbound" label="Nachweise">
-      
-     <button id="sysAlpha" label="PEQ im Betrieb" imageMso="PersonaStatusBusy" onAction="call_Goto_PEQ" /> 
-     <button id="sysBeta" label="PEQ mit Mobilität" imageMso="PersonaStatusAway" onAction="call_Goto_PEQm" /> 
-     <button id="sysOmega" label="Klimaneutrales PEQ" imageMso="PersonaStatusOnline" onAction="call_Goto_KAPEQ" /> 
-    </group>
-
-
-				
-<group id="vars" label="Varianten">
-	<button id="navVarianten"
-							label="Varianten"
-				                	onAction="call_Load"
-				                	tag="Varianten"
-               					supertip="Gespeicherte Variante laden, simulieren, vergleichen, exportieren"
-               					imageMso="_3DStyle" />
-
+        <group id="vars" label="Varianten">
+          <button id="navVarianten"
+                  label="Varianten"
+                  onAction="call_Load"
+                  tag="Varianten"
+                  supertip="Gespeicherte Variante laden, simulieren, vergleichen, exportieren"
+                  imageMso="_3DStyle" />
 <!--
-<dropDown id="ddLoadVariant"
-          label="Laden"
-          getItemCount="GetVariantCount"
-          getItemLabel="GetVariantLabel"
-          onAction="OnVariantSelected"
-          imageMso="TableColumnInsertRight" />
 -->
+          <dynamicMenu id="ddLoadVariant"
+                       label="Laden"
+                       getContent="BuildVariantMenu"
+                       imageMso="TableColumnInsertRight" />
 
-     <button id="resultsSaveVariant"
-	label="Aktuelle Eingabe als neue Variante speichern"
-      supertip="Aktuelle Eingabe als neue Variante speichern"
-      tag=" "
-      onAction="call_Save"
-      imageMso="RecordsSaveRecord" />
+                       
+          <button id="resultsSaveVariant"
+                  label="Aktuelle Eingabe als neue Variante speichern"
+                  supertip="Aktuelle Eingabe als neue Variante speichern"
+                  tag=" "
+                  onAction="call_Save"
+                  imageMso="RecordsSaveRecord" />
+        </group>
 
-</group>
+        <group id="results" label="Ergebnisse">
+          <button id="resultsDashboard"
+                  label="Dashboard"
+                  supertip="Gehe zum Dashboard"
+                  size="large"
+                  tag="Dashboard"
+                  onAction="call_Goto_Dashboard"
+                  imageMso="ChartAreaChart" />
+          <button id="resultsTable"
+                  label="Ergebnisse"
+                  supertip="Gehe zur Ergebnistabelle"
+                  size="large"
+                  tag="Ergebnisse"
+                  onAction="call_Goto_Results"
+                  imageMso="PivotTableLayoutReportLayout" />
+          <button id="resultsComparison"
+                  label="🔎 Variantenvergleich"
+                  supertip="Gehe zum Variantenvergleich"
+                  size="large"
+                  tag="Vergleich"
+                  onAction="call_Goto_Vergleich"
+                  imageMso="PivotChartMultiplePlots" />
+        </group>
 
-
-	   <group id="results" label="Ergebnisse">
-	     <button id="resultsDashboard"
-								label="Dashboard"
-								supertip="Gehe zum Dashboard"
-								size="large"
-								tag="Dashboard"
-								onAction="call_Goto_Dashboard"
-								imageMso="ChartAreaChart" />
-								
-       <button id="resultsTable"
-								label="Ergebnisse"
-								supertip="Gehe zur Ergebnistabelle"
-								size="large"
-								tag="Ergebnisse"
-								onAction="call_Goto_Results"
-								imageMso="PivotTableLayoutReportLayout" />
-
-	<button id="resultsComparison"
-								label="🔎 Variantenvergleich""
-								supertip="Gehe zum Variantenvergleich"
-								size="large"
-								tag="Vergleich"
-								onAction="call_Goto_Vergleich"
-								imageMso="PivotChartMultiplePlots" />
-								
-				</group>							
-	
-
-<group id="legacy" label="Kompatibilität">
-     <button id="Migrate"
-	label="navMigrate_label"
-      supertip="Migriert eine Zeile aus dem alten Variantenblatt"
-      tag=" "
-      onAction="Call_Migrate"
-      imageMso="GoLtrDown" />
-     
-
-	   </group>
+        <group id="sysbound" label="Nachweise">
+          <button id="sysAlpha" label="PEQ im Betrieb" imageMso="PersonaStatusBusy" onAction="call_Goto_PEQ" />
+          <button id="sysBeta" label="PEQ mit Mobilität" imageMso="PersonaStatusAway" onAction="call_Goto_PEQm" />
+          <button id="sysOmega" label="Klimaneutrales PEQ" imageMso="PersonaStatusOnline" onAction="call_Goto_KAPEQ" />
+        </group>
 
 
-			</tab>
-      <tab id="tabTools" label="🏗️ Projekt Tools">
-        <group id="groupProjekt" label="📋 Auswahl">
-          <dropDown id="projektDropdown" label="🧭 Projektbereich wählen:" onAction="OnDropDownChange" getSelectedItemIndex="GetSelectedIndex">
+
+        <group id="groupProjekt" label="👩🏽‍🔬🧪 Forschung">
+          <dropDown id="projektDropdown"
+                    label="📋 Input-Abschnitte"
+                    onAction="OnDropDownChange"
+                    getSelectedItemIndex="GetSelectedIndex">
             <item id="item1" label="📝 Projektbeschreibung" />
             <item id="item2" label="🌦️ Wetter" />
             <item id="item3" label="🔷 Quartier" />
@@ -124,10 +102,53 @@
             <item id="item15" label="🚗 Mobilität" />
             <item id="item16" label="⚖ Gewichtung" />
           </dropDown>
+
+		<dropDown id="sim2Dropdown"
+				label="🧮 Simulations-Bereiche"
+				onAction="OnSim2DropDownChange"
+				getSelectedItemIndex="GetSim2SelectedIndex">
+			<item label="📅 Datum und Zeit" id="C3" />
+			<item label="🔀 Regelung" id="Q3" />
+			<item label="🌡 Passive Wärmeverluste" id="AB3" />
+			<item label="♨ Nutzenergie Bedarf HKLS" id="BM3"/>
+			<item label="🚗 Nutzenergie Bedarf Emob" id="DN3" />
+			<item label="🔋 Batterie Entladung" id="DZ3" />
+			<item label="⚡ Strom Mindestbedarf" id="EL3" />
+			<item label="🔋 Flex Speicherpotential" id="FN3" />
+			<item label="🌞 PV Deckung" id="FX3" />
+			<item label="🔋 BatterieNutznug" id="GU3" />
+			<item label="🔋 Flexibler Netzbezug" id="HG3" />
+			<item label="🔌 Netzbezug konventionell" id="HY3" />
+			<item label="🔋 Flex realisiert" id="IL3" />
+			<item label="♨ Heizung realisiert" id="IU3" />
+			<item label="❄ Kühlung realisiert" id="JH3" />
+			<item label="💧 Warmwasser realisiert" id="JX3" />
+			<item label="🌡🔋 FinaleZustände T, SOC" id="KD3" />
+			<item label="🔥 EE Thermisch" id="KQ3" />
+			<item label="⚖ PE" id="LF3" />
+			<item label="☁ THG" id="LO3" />
+		</dropDown>
+
+
+          <button id="Migrate"
+                  label="alte PEExcel Variante migrieren"
+                  supertip="Migriert eine Zeile aus dem alten Variantenblatt"
+                  tag=" "
+                  onAction="Call_Migrate"
+                  imageMso="GoLtrDown" />
         </group>
+<!--
+
+        <group id="tools" label="Tools">
+          <button id="calcButton1"
+                  label="Fehler zurückverfolgen"
+                  supertip="If the active cell contains a formula error, jumps to the first preceding cell that also contains an error"
+                  onAction="call_jump_to_precedent_error"
+                  imageMso="VisibilityInherit" />
+        </group>
+-->
       </tab>
-		</tabs>
-	</ribbon>
+
+    </tabs>
+  </ribbon>
 </customUI>
-
-
