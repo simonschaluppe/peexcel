@@ -1,0 +1,23 @@
+# Ignore PNG images
+*.png
+
+# Ignore JPG and JPEG
+*.jpg
+*.jpeg
+
+# Ignore other image formats
+*.gif
+*.bmp
+*.tiff
+*.webp
+*.svg
+
+# Optional: ignore image folders (if any)
+images/
+assets/images/
+.idea
+.vscode
+docs/Meetings/
+
+
+**/Intern/
