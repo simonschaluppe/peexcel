@@ -309,9 +309,20 @@ class Project:
 
 
 if __name__ == "__main__":
+    """ import sys
+    print(sys.executable)
+    #sys.path.append("../")
+    print([p for p in sys.path])"""
 
-    xlp = Project("C:/Users/Simon Schneider/Code/peexcel/peexcel/IN_Export.xlsx")
-    print(xlp)
+    import os
+    from pathlib import Path
+    print(os.getcwd())
+    path = Path(os.getcwd()) /  "peexcel\peexcel\Project_Export.xlsx"
+
+    print( path)
+
+    xlp = Project(path)
+    # print(xlp)
     # names = nameslist(xw.Book("test_PlusenergieExcel_Performance.xlsx"))
     # excel_paths = [
     #     r"C:\Users\Simon Schneider\Nextcloud\EE\1_Forschung\2_Laufend\ZQ Austria\Quartiersdaten\PlusenergieExcel_Aichinger_211105.xlsb",
