@@ -1,4 +1,5 @@
 import logging
+from numpy import NaN
 import pandas as pd
 import json
 from copy import deepcopy
@@ -35,7 +36,7 @@ def parsesheet_in(df) -> dict:
 
     for _, row in df.iterrows():
         key = row["var_name"] if pd.notna(row.get("var_name")) else row.get("Name")
-        if pd.isna(key):
+        if pd.isna(key) or key is NaN:
             continue  # Skip unnamed rows
         inputs[key] = {field: row[field] for field in in_header if field in df.columns}
         inputs[key]["values"] = {scenario: row[scenario] for scenario in in_scenarios}
