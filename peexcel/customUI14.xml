@@ -46,6 +46,9 @@
                   tag=" "
                   onAction="call_Save"
                   imageMso="RecordsSaveRecord" />
+
+          
+          <button id="import"     label="⬇️ Projekt-Datei importieren" onAction="runImportDialog" />
         </group>
 
         <group id="results" label="Ergebnisse">
