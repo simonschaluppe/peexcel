@@ -41,8 +41,8 @@
 
                        
           <button id="resultsSaveVariant"
-                  label="Aktuelle Eingabe als neue Variante speichern"
-                  supertip="Aktuelle Eingabe als neue Variante speichern"
+                  label="Aktuelle Eingabe speichern"
+                  supertip="Aktuelle Eingabe als Variante speichern"
                   tag=" "
                   onAction="call_Save"
                   imageMso="RecordsSaveRecord" />
@@ -139,17 +139,14 @@
                   tag=" "
                   onAction="Call_Migrate"
                   imageMso="GoLtrDown" />
-        </group>
-<!--
 
-        <group id="tools" label="Tools">
-          <button id="calcButton1"
+          <button id="ErrorTrail"
                   label="Fehler zurückverfolgen"
                   supertip="If the active cell contains a formula error, jumps to the first preceding cell that also contains an error"
                   onAction="call_jump_to_precedent_error"
                   imageMso="VisibilityInherit" />
         </group>
--->
+
       </tab>
 
     </tabs>
