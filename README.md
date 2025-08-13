@@ -1,12 +1,19 @@
 <img src="https://github.com/simonschaluppe/peexcel/assets/22156735/2856e7d9-54d9-4ea9-a894-1128f435c139" height="300">
 
+[💡Präsentation: Der Klimaaktiv Plus-Energie-Standard im Überblick](https://github.com/simonschaluppe/peexcel/blob/master/docs/Der%20klimaaktiv%20Plus-Energie-Standard%20im%20%C3%9Cberblick.pdf)
+
+[📜Broschüre Klimaaktiv Plus-Energie-Standard](https://github.com/simonschaluppe/peexcel/blob/master/docs/Brosch%C3%BCre%20PEQ_klimaaktiv.pdf)
+
 ## Download Link für das Plusenergie-Excel
 Das Plusenergie Excel wird laufend weiterentwickelt. Die aktuelle Version kann unter diesem Link heruntergeladen werden:
 🧰 https://github.com/simonschaluppe/peexcel/blob/master/peexcel/ka_PEQ_Nachweistool.xlsb
 
-[📖 Handbuch zur Nachweisführung](https://github.com/simonschaluppe/peexcel/blob/265f48dae7bf66574af2408f21cc51178e96226b/docs/Handbuch%20zum%20Nachweisf%C3%BChrung.pdf)
+[📖 Handbuch zur Nachweisführung](https://github.com/simonschaluppe/peexcel/blob/master/docs/Handbuch%20zur%20Nachweisf%C3%BChrung.pdf)
 
 [📚 Leitfaden PEQ Definition und Operationalisierung](https://github.com/simonschaluppe/peexcel/blob/master/docs/Leitfaden%20PEQ%20Definition%20und%20Operationalisierung_StandJuni2023.pdf)
+
+<img width="1228" height="467" alt="image" src="https://github.com/user-attachments/assets/095a8e31-2daf-47f3-8174-8890566f9fb6" />
+
 
 # Excel zur Deklaration der PEQ Definition nach Zukunftsquartier und Aspern Klimafit Ansatz
 ###  Plusenergie-Quartier Simulation mit Excel
