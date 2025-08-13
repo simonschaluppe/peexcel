@@ -6,7 +6,7 @@
 
 ## Download Link für das Plusenergie-Excel
 Das Plusenergie Excel wird laufend weiterentwickelt. Die aktuelle Version kann unter diesem Link heruntergeladen werden:
-🧰 https://github.com/simonschaluppe/peexcel/blob/master/peexcel/ka_PEQ_Nachweistool.xlsb
+[🧰 Excel Tool (⚠ requires office 365)](https://github.com/simonschaluppe/peexcel/blob/master/peexcel/ka_PEQ_Nachweistool.xlsb)
 
 [📖 Handbuch zur Nachweisführung](https://github.com/simonschaluppe/peexcel/blob/master/docs/Handbuch%20zur%20Nachweisf%C3%BChrung.pdf)
 
