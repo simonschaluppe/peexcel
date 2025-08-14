@@ -13,39 +13,120 @@
                   onAction="call_Goto_start"
                   imageMso="OpenStartPage" />
           <button id="district"     label="🏙 Quartier" onAction="call_Goto_district" />
-          <button id="weather"      label="🌦 Wetter" onAction="call_Goto_weather" />
-          <button id="hull"         label="🧱 Hülle" onAction="call_Goto_hull" />
-          <button id="heating"      label="🔥 Heizung" onAction="call_Goto_heating" />
-          <button id="cooling"      label="❄ Kühlung" onAction="call_Goto_cooling" />
-          <button id="ventilation"  label="💨 Lüftung" onAction="call_Goto_ventilation" />
-          <button id="dhw"          label="💧 Warmwasser" onAction="call_Goto_dhw" />
-          <button id="pv"           label="🌞 PV" onAction="call_Goto_pv" />
-          <button id="flex"         label="🔋 Batterie" onAction="call_Goto_flex" />
-          <button id="mobility"     label="🚗 MIV" onAction="call_Goto_mobility" />
-          <button id="emissions"    label="☁ Emissionen" onAction="call_Goto_emissions" />
+          <splitButton id="splitWeather">
+            <button id="weather" getLabel="getWeatherName" onAction="call_Goto_weather" />
+            <menu id="menuWeather">
+              <dynamicMenu id="dynWeather" label="Wetter auswählen" getContent="GetDynamicMenuContent" tag="presets_weather" />
+            </menu>
+          </splitButton>
+
+          <splitButton id="splitHull">
+            <button id="hull" label="🧱 Hülle" onAction="call_Goto_hull" />
+            <menu id="menuHull">
+              <dynamicMenu id="dynHull" label="U-Werte" getContent="GetDynamicMenuContent" tag="presets_hull" />
+              <dynamicMenu id="dynHullairtight" label="Luftdichtheit" getContent="GetDynamicMenuContent" tag="presets_air_tightness" />
+            </menu>
+          </splitButton>
+
+          <splitButton id="splitHeating">
+            <button id="heating" label="🔥 Heizung" onAction="call_Goto_heating" />
+            <menu id="menuHeating">
+              <dynamicMenu id="dynHeating1" label="Auswahl Heizsystem" getContent="GetDynamicMenuContent" tag="presets_heating" />
+              <dynamicMenu id="dynHeating2" label="Auswahl Abgabesystem" getContent="GetDynamicMenuContent" tag="presets_emission_system" />
+              <dynamicMenu id="dynHeating3" label="Auswahl Bauweise" getContent="GetDynamicMenuContent" tag="presets_building_mass" />
+            </menu>
+          </splitButton>
+
+          <splitButton id="splitCooling">
+            <button id="cooling" label="❄ Kühlung" onAction="call_Goto_cooling" />
+            <menu id="menuCooling">
+              <dynamicMenu id="dynCooling" label="Auswahl Kühlsystem" getContent="GetDynamicMenuContent" tag="presets_cooling" />
+              <dynamicMenu id="dynHeating" label="Auswahl Abgabesystem" getContent="GetDynamicMenuContent" tag="presets_emission_system" />
+            </menu>
+          </splitButton>
+
+          <splitButton id="splitVentilation">
+            <button id="ventilation" label="💨 Lüftung" onAction="call_Goto_ventilation" />
+            <menu id="menuVentilation">
+              <dynamicMenu id="dynVentilation" label="Auswahl Lüftung" getContent="GetDynamicMenuContent" tag="presets_ventilation" />
+            </menu>
+          </splitButton>
+
+          <splitButton id="splitDHW">
+            <button id="dhw" label="💧 Warmwasser" onAction="call_Goto_dhw" />
+            <menu id="menuDHW">
+              <dynamicMenu id="dynDHW" label="WW Systeme" getContent="GetDynamicMenuContent" tag="presets_dhw" />
+            </menu>
+          </splitButton>
+
+          <splitButton id="splitPV">
+            <button id="pv" getLabel="getPVName" onAction="call_Goto_pv" />
+            <menu id="menuPV">
+              <dynamicMenu id="dynPV" label="Vorauswahl" getContent="GetDynamicMenuContent" tag="presets_pv" />
+            </menu>
+          </splitButton>
+
+          <splitButton id="splitFlex">
+            <button id="flex" label="🔋 Flexibilität" onAction="call_Goto_flex" />
+            <menu id="menuFlex">
+              <dynamicMenu id="dynFlex" label="Netzdienlichkeit" getContent="GetDynamicMenuContent" tag="presets_flex" />
+              <dynamicMenu id="dynBatt" label="Batterie" getContent="GetDynamicMenuContent" tag="presets_battery" />
+            </menu>
+          </splitButton>
+
+          <splitButton id="splitMobility">
+            <button id="mobility" label="🚗 MIV" onAction="call_Goto_mobility" />
+            <menu id="menuMobility">
+              <dynamicMenu id="dynMobility" label="Maßnahmen" getContent="GetDynamicMenuContent" tag="presets_mobility" />
+            </menu>
+          </splitButton>
+
+          <splitButton id="splitEmissions">
+            <button id="emissions" label="☁ Emissionen" onAction="call_Goto_emissions" />
+            <menu id="menuEmissions">
+              <dynamicMenu id="dynLCAConstructions" label="Baulich" getContent="GetDynamicMenuContent" tag="presets_lca_constructions" />
+              <dynamicMenu id="dynLCAHVAC" label="TGA" getContent="GetDynamicMenuContent" tag="presets_lca_hvac" />
+            </menu>
+          </splitButton>
+
+          <splitButton id="splitUsage">
+            <button id="usage" label="👥 Nutzung" onAction="call_Goto_usage" />
+            <menu id="menuUsage">
+              <dynamicMenu id="dynUsage" label="Nutzerstrom" getContent="GetDynamicMenuContent" tag="presets_usage" />
+            </menu>
+          </splitButton>
+
+
         </group>
 
-        <group id="vars" label="Varianten">
-          <button id="navVarianten"
-                  label="Varianten"
-                  onAction="call_Load"
-                  tag="Varianten"
-                  supertip="Gespeicherte Variante laden, simulieren, vergleichen, exportieren"
-                  imageMso="_3DStyle" />
-<!--
--->
-          <dynamicMenu id="ddLoadVariant"
-                       label="Laden"
-                       getContent="BuildVariantMenu"
-                       imageMso="TableColumnInsertRight" />
+        <group id="vars" label="Projekt-Varianten">
 
-                       
+
+          <labelControl id="ProjectNameLabel" getLabel="GetProjectName"/>
+          <labelControl id="ScenarioNameLabel" getLabel="GetScenarioName"/>
+
           <button id="resultsSaveVariant"
                   label="Aktuelle Eingabe speichern"
                   supertip="Aktuelle Eingabe als Variante speichern"
                   tag=" "
                   onAction="call_Save"
                   imageMso="RecordsSaveRecord" />
+
+          <button id="navVarianten"
+                  label="Varianten"
+                  onAction="call_Load"
+                  tag="Varianten-Manager"
+                  supertip="Gespeicherte Variante laden, simulieren, vergleichen, exportieren"
+                  imageMso="_3DStyle" />
+<!--
+-->
+          <dynamicMenu id="ddLoadVariant"
+                       label="Variante Laden"
+                       getContent="BuildVariantMenu"
+                       imageMso="TableColumnInsertRight" />
+
+                       
+
 
           
           <button id="import"     label="⬇️ Projekt-Datei importieren" onAction="runImportDialog" />
@@ -67,7 +148,7 @@
                   onAction="call_Goto_Results"
                   imageMso="PivotTableLayoutReportLayout" />
           <button id="resultsComparison"
-                  label="🔎 Variantenvergleich"
+                  label="🔎 Vergleich"
                   supertip="Gehe zum Variantenvergleich"
                   size="large"
                   tag="Vergleich"

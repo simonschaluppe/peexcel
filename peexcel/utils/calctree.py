@@ -1,4 +1,5 @@
 from typing import Dict, List, Optional
+from numpy import NaN
 import pandas as pd
 import networkx as nx
 import matplotlib.pyplot as plt
@@ -8,11 +9,12 @@ import excel
 
 
 class Node:
-    def __init__(self, name, parents, label, color):
+    def __init__(self, name, parents, label, color, meta):
         self.name = name
         self.label = label
         self.parents = parents
         self.color = color
+        self.meta = meta
 
 
 class CalcTree:
@@ -33,9 +35,9 @@ class CalcTree:
 
             return (
                 var_name
-                and var_name.lower() != "h"
                 and not var_name.lower().startswith("spalte")
-                and var_name == name
+                and not var_name is NaN
+                # and var_name == name
             )
 
         # IN variables
@@ -147,7 +149,7 @@ def build_dependency_graph(calc_tree: CalcTree) -> nx.DiGraph:
             sheet, "gray"
         )
 
-        G.add_node(key, label=label, color=color, sheet=sheet)
+        G.add_node(key, label=label, color=color, sheet=sheet, meta=meta)
 
         if isinstance(formula, str) and "=" in formula:
             refs = resolve_formula_refs(formula, sheet, in_df, all_vars)
@@ -156,6 +158,66 @@ def build_dependency_graph(calc_tree: CalcTree) -> nx.DiGraph:
                     G.add_edge(ref, key)
 
     return G
+
+
+import json
+
+
+def export_graph_as_json(G: nx.DiGraph, file_path: str):
+    """
+    Exportiert das gegebene Netzwerk als JSON im gewünschten Format.
+    """
+    elements = []
+    for i, node in enumerate(G.nodes):
+        info = G.nodes[node]
+        meta = info.get("meta")
+        label = info.get("label", node)
+        if not label or label is NaN or "Space" in label:
+            continue
+        e = meta.get("Einheit", "")
+        icon = meta.get("Icon", "")
+        element = {
+            "id": f"i{i}",
+            "Label": meta.get("Name", ""),
+            "Sheet": info.get("sheet", "Unknown"),
+            "Kategorie": meta.get("Kategorie", ""),
+            "Input": meta.get("ka", "No"),
+            "Einheit": e if e is not NaN else "",
+            "icon": icon if icon is not NaN else "",
+        }
+        # element["description"] = meta.get("Beschreibung", None) or meta.get(
+        #     "Kommentar", None
+        # ) must not return NaN
+        if var_name := meta.get("var_name", "") is NaN:
+            element["var_name"] = ""
+        else:
+            element["var_name"] = var_name or ""
+
+        # Weitere Felder aus meta hinzufügen (optional)
+        # for k, v in info.items():
+        #     if k not in element and isinstance(v, (str, int, float)):
+        #         element[k] = v
+
+        elements.append(element)
+
+    connections = []
+    for src, dst in G.edges():
+        connection = {
+            "from": G.nodes[src].get("label", src),
+            "to": G.nodes[dst].get("label", dst),
+            "direction": "directed",
+        }
+        connections.append(connection)
+
+    data = {
+        "elements": elements,
+        "connections": connections,
+    }
+
+    with open(file_path, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+
+    print(f"✔️ Graph exported to {file_path}")
 
 
 import plotly.graph_objects as go
@@ -366,14 +428,16 @@ def draw_dependency_graph_force_xlayered(G: nx.DiGraph):
 
 
 if __name__ == "__main__":
-    taxonomy_path = "../Taxonomy.xlsx"
-    p = excel.Project(taxonomy_path)
-    tax = p.taxonomy()
-    dfsim = pd.read_excel(taxonomy_path, sheet_name="SIM2")
-    tax["SIM2"] = {k: dfsim[k].loc[0] for k in dfsim.columns}
+    p = excel.Project("../Project_Export.xlsx")
+    # tax = p.taxonomy()
+    # dfsim = pd.read_excel("../Taxonomy.xlsx", sheet_name="SIM2")
+    # tax["SIM2"] = {k: dfsim[k].loc[0] for k in dfsim.columns}
 
-    c = CalcTree(p, sim2_path=taxonomy_path)
+    c = CalcTree(p, sim2_path="../Taxonomy.xlsx")
     graph = build_dependency_graph(c)
+    export_graph_as_json(graph, "calctree.json")
     # draw_dependency_graph(graph)
     # draw_dependency_graph_interactive(graph)
     # draw_dependency_graph_force_xlayered(graph)
+
+#   https://kumu.io/simonschaluppe/sandbox#peexcel
