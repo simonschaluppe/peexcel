@@ -38,3 +38,11 @@ Das Deklarationstool wurde von der Forschungsgruppe [Climate-fit Buildings and D
 
 ![image](https://github.com/user-attachments/assets/696c5440-e451-46fd-823e-d94ec4e45ea5)
 
+### Wissenschaftliche Publikationen
+[📝 Schneider, Simon, Thomas Zelger, David Sengl, und José Baptista. „A Quantitative Positive Energy District Definition with Contextual Targets“. Buildings 13, Nr. 5 (2023): 5. https://doi.org/10.3390/buildings13051210.](https://www.mdpi.com/2075-5309/13/5/1210)
+[📝 Bruckner, Helmut, Svitlana Alyokhina, Simon Schneider, u. a. „Lessons Learned from Four Real-Life Case Studies: Energy Balance Calculations for Implementing Positive Energy Districts“. Energies 18, Nr. 3 (2025): 560. https://doi.org/10.3390/en18030560.](https://doi.org/10.3390/en18030560)
+[📝 Schneider, Simon, Raphael Drexel, Thomas Zelger, und José Baptista. „PEExcel: A Fast One-Stop-Shop Assessment and Simulation Framework for Positive Energy Districts“. BauSim Conference, Bd. 10 (2024): 80–88. https://doi.org/10.26868/29761662.2024.11.](https://doi.org/10.26868/29761662.2024.11)
+[📝 Simon Schneider und José Baptista. „Annual hourly E-Mobility modelling and assessment in climate neutral Positive Energy Districts“. Conference paper presented auf EEEIC2025, Chania, Crete. o. J.]
+[📝Schneider, Simon, Thomas Zelger, Raphael Drexel, Manfred Schindler, Paul Krainer, und José Baptista. „Declaration-Ready Climate-Neutral PEDs: Budget-Based, Hourly LCA Including Mobility and Flexibility“. No. 2025091033. Preprint, Preprints, 12. September 2025. https://doi.org/10.20944/preprints202509.1033.v1.](https://www.preprints.org/manuscript/202509.1033/v1)
+
+
