@@ -1,0 +1,8 @@
+Metadata-Version: 2.4
+Name: peexcel
+Version: 0.0.0
+Summary: PE-Excel tooling
+Requires-Python: >=3.10
+Requires-Dist: pandas
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"

@@ -1,0 +1,414 @@
+var_name;Kategorie;Name;Bereich;Einheit;Label;Kommentar;Formel
+UED_plugloads;Nutzenergiebedarfe;Nutzerstrom;Quartier;kWh/m²NGFa;;;EUI_plugAuxLight-UED_lighting-UED_auxiliary
+UED_lighting;Nutzenergiebedarfe;Beleuchtung;Quartier;kWh/m²NGFa;;;SUMME(sim[Elight])/1000
+UED_auxiliary;Nutzenergiebedarfe;Allgemeinstrom;Quartier;kWh/m²NGFa;;;SUMME(sim[Eaux])/1000
+UED_heating;Nutzenergiebedarfe;Heiwärmebedarf;Quartier;kWh/m²NGFa;;;QH
+UED_cooling;Nutzenergiebedarfe;Külenergiebedarf;Quartier;kWh/m²NGFa;;;QC
+UED_dhw;Nutzenergiebedarfe;WWWB;Quartier;kWh/m²NGFa;;;SUMME(sim[[DHW_residential_kW]:[DHW_other_kW]])*per_NFA
+UED_ventilation;Nutzenergiebedarfe;Lüftungsenergiebedarf;Quartier;kWh/m²NGFa;;;EUIv_el
+UED_mim_electric;Nutzenergiebedarfe;E-Mobilität;Quartier;kWh/m²NGFa;;;UED_mob_el_total
+UED_mim_fossile;Nutzenergiebedarfe;Fossile Mobilität;Quartier;kWh/m²NGFa;;;EUI_mob_fossile
+QT;Wärmebilanz;Transmissionswärmeverl.;Quartier;kWh/m²NGFa;🧱 Transmissionswärmeverl.;;"SUMME(sim[QT_u] * NFAfrac_u; sim[QT_c] * NFAfrac_c) * -0,001"
+QV;Wärmebilanz;Lüftungswärmeverluste;Quartier;kWh/m²NGFa;💨 Lüftungswärmeverluste;;QV_u * NFAfrac_u + QV_c * NFAfrac_c
+QVn;Wärmebilanz;Nachtlüftung;Quartier;kWh/m²NGFa;🌒 Nachtlüftung;;NFAfrac_u * QVn_u
+QS;Wärmebilanz;Solare Gewinne;Quartier;kWh/m²NGFa;🌞 Solare Gewinne;;QS_u  *NFAfrac_u + QS_c * NFAfrac_c
+QI;Wärmebilanz;Innere Wärmen;Quartier;kWh/m²NGFa;👤 Innere Wärmen;;QI_u * NFAfrac_u + QI_c * NFAfrac_c
+QH;Wärmebilanz;Heizwärmebedarf;Quartier;kWh/m²NGFa;♨️ Heizwärmebedarf;;QH_u * NFAfrac_u + QH_c * NFAfrac_c
+QC;Wärmebilanz;Kühlbedarf (KB);Quartier;kWh/m²NGFa;❄️ Kühlbedarf (KB);;QC_c * NFAfrac_c
+QV_heatrecovery;Wärmebilanz;ML Wärmerückgewinnung;Quartier;kWh/m²NGFa;;;QV_heatrecovery_u * NFAfrac_u + QV_heatrecovery_c * NFAfrac_c
+QT_winter;Wärmebilanz;Transmissionswärmeverl.;Heizperiode;kWh/m²NGFa;;;"(SUMMENPRODUKT(sim[is_heating_period]; sim[QT_u])*NFAfrac_u +
+  SUMMENPRODUKT(sim[is_heating_period]; sim[QT_c])*NFAfrac_c  ) * -0,001"
+QV_winter;Wärmebilanz;Lüftungswärmeverluste;Heizperiode;kWh/m²NGFa;;;QV_inf_winter + QV_window_winter + QV_mechvent_winter
+QVn_winter;Wärmebilanz;Nachtlüftung;Heizperiode;kWh/m²NGFa;;;"SUMMENPRODUKT(sim[is_heating_period]; sim[Qv_nightvent]) * NFAfrac_u * -0,001"
+QS_winter;Wärmebilanz;Solare Gewinne;Heizperiode;kWh/m²NGFa;;;"(SUMMENPRODUKT(sim[is_heating_period]; sim[QS_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_heating_period]; sim[QS_c]) * NFAfrac_c) * 0,001"
+QI_winter;Wärmebilanz;Innere Wärmen;Heizperiode;kWh/m²NGFa;;;"(SUMMENPRODUKT(sim[is_heating_period]; sim[QI_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_heating_period]; sim[QI_c]) * NFAfrac_c) * 0,001"
+QH_winter;Wärmebilanz;Heizwärmebedarf;Heizperiode;kWh/m²NGFa;;;QH_min_winter + QH_flex_winter
+QC_winter;Wärmebilanz;Kühlbedarf (KB);Heizperiode;kWh/m²NGFa;;;QC_min_winter + QC_flex_winter
+QT_wall_winter;Wärmebilanz;Transmission AW;Heizperiode;kWh/m²NGFa;;;QT_winter * transmittance_walls_Wm2NFA / transmittance_Wm²
+QT_roof_winter;Wärmebilanz;Transmission Dach;Heizperiode;kWh/m²NGFa;;;QT_winter * transmittance_roof_Wm2NFA / transmittance_Wm²
+QT_ground_winter;Wärmebilanz;Transmission KD/EFB;Heizperiode;kWh/m²NGFa;;;QT_winter * transmittance_fundament_Wm2NFA / transmittance_Wm²
+QT_window_winter;Wärmebilanz;Transmission Fenster;Heizperiode;kWh/m²NGFa;;;QT_winter * transmittance_windows_Wm2NFA / transmittance_Wm²
+QT_psi_winter;Wärmebilanz;Transmission Wärmebrücken;Heizperiode;kWh/m²NGFa;;;QT_winter * transmittance_heatbridge_Wm2NFA / transmittance_Wm²
+QV_inf_winter;Wärmebilanz;Infiltration;Heizperiode;kWh/m²NGFa;;;"(SUMMENPRODUKT(sim[is_heating_period]; sim[Qvinf_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_heating_period]; sim[Qvinf_c]) * NFAfrac_c ) * -0,001"
+QV_window_winter;Wärmebilanz;Lüftung Fenster;Heizperiode;kWh/m²NGFa;;;"(SUMMENPRODUKT(sim[is_heating_period]; sim[Qvwindow_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_heating_period]; sim[Qvwindow_c]) * NFAfrac_c ) * -0,001"
+QV_mechvent_winter;Wärmebilanz;Mechanische Lüftung;Heizperiode;kWh/m²NGFa;;;"(SUMMENPRODUKT(sim[is_heating_period]; sim[Qvmechvent_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_heating_period]; sim[Qvmechvent_c]) * NFAfrac_c) * -0,001"
+QV_heatrecovery_winter;Wärmebilanz;ML Wärmerückgewinnung;Heizperiode;kWh/m²NGFa;;;"SUMMENPRODUKT(sim[is_heating_period]; sim[dT_uncooled]; sim[ACH_mechvent_u]-sim[ACH_mechvent_therm_u])*cp_air*per_NFA_uncooled * -0,001 * NFAfrac_u +
+ SUMMENPRODUKT(sim[is_heating_period]; sim[dT_cooled];   sim[ACH_mechvent_c]-sim[ACH_mechvent_therm_c])*cp_air*per_NFA_cooled   * -0,001 * NFAfrac_c"
+QH_min_winter;Wärmebilanz;Heizwärmebedarf Statisch;Heizperiode;kWh/m²NGFa;;;"(SUMMENPRODUKT(sim[is_heating_period]; sim[Qh_to_room_uncooled_min]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_heating_period]; sim[Qh_to_room_cooled_min]) * NFAfrac_c) * 0,001"
+QH_flex_winter;Wärmebilanz;Heizwärmebedarf Flexibel;Heizperiode;kWh/m²NGFa;;;"(SUMMENPRODUKT(sim[is_heating_period]; sim[Qh_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_heating_period]; sim[Qh_c]) * NFAfrac_c) * 0,001 - QH_min_winter"
+QC_min_winter;Wärmebilanz;Kühlbedarf Statisch;Heizperiode;kWh/m²NGFa;;;"(SUMMENPRODUKT(sim[is_heating_period]; sim[Qc_min_excl_losses]) * NFAfrac_c) * -0,001"
+QC_flex_winter;Wärmebilanz;Kühlbedarf Flexibel;Heizperiode;kWh/m²NGFa;;;"(SUMMENPRODUKT(sim[is_heating_period]; sim[Qc_flex_excl_losses]) * NFAfrac_c) * -0,001"
+QH_flexshare_winter;Wärmebilanz;Anteil Flexibler Heizung an Gesamtheizung;Heizperiode;;;;"WENNFEHLER(QH_flex_winter/QH_winter;0)"
+QC_flexshare_winter;Wärmebilanz;Anteil Flexibler Kühlung an Gesamtkühlung;Heizperiode;;Flexibilitätsanteil;;"WENNFEHLER(QC_flex_winter/QC_winter;0)"
+QT_summer;Wärmebilanz;Transmissionswärmeverl.;Kühlperiode;kWh/m²NGFa;;;"(SUMMENPRODUKT(sim[is_cooling_period]; sim[QT_u])*NFAfrac_u +
+  SUMMENPRODUKT(sim[is_cooling_period]; sim[QT_c])*NFAfrac_c  ) * -0,001"
+QV_summer;Wärmebilanz;Lüftungswärmeverluste;Kühlperiode;kWh/m²NGFa;;;QV_inf_summer + QV_window_summer + QV_mechvent_summer
+QVn_summer;Wärmebilanz;Nachtlüftung gekühlt;Kühlperiode;kWh/m²NGFa;;;"SUMMENPRODUKT(sim[is_cooling_period]; sim[Qv_nightvent]) * NFAfrac_u * -0,001"
+QS_summer;Wärmebilanz;Solare Gewinne;Kühlperiode;kWh/m²NGFa;;;"(SUMMENPRODUKT(sim[is_cooling_period]; sim[QS_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_cooling_period]; sim[QS_c]) * NFAfrac_c) * 0,001"
+QI_summer;Wärmebilanz;Innere Wärmen;Kühlperiode;kWh/m²NGFa;;;"(SUMMENPRODUKT(sim[is_cooling_period]; sim[QI_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_cooling_period]; sim[QI_c]) * NFAfrac_c) * 0,001"
+QH_summer;Wärmebilanz;Heizwärmebedarf;Kühlperiode;kWh/m²NGFa;;;QH_min_summer + QH_flex_summer
+QC_summer;Wärmebilanz;Kühlbedarf (KB);Kühlperiode;kWh/m²NGFa;;;QC_min_summer + QC_flex_summer
+QT_wall_summer;Wärmebilanz;Transmission AW;Kühlperiode;kWh/m²NGFa;;;QT_summer * transmittance_walls_Wm2NFA / transmittance_Wm²
+QT_roof_summer;Wärmebilanz;Transmission Dach;Kühlperiode;kWh/m²NGFa;;;QT_summer * transmittance_roof_Wm2NFA / transmittance_Wm²
+QT_ground_summer;Wärmebilanz;Transmission KD/EFB;Kühlperiode;kWh/m²NGFa;;;QT_summer * transmittance_fundament_Wm2NFA / transmittance_Wm²
+QT_window_summer;Wärmebilanz;Transmission Fenster;Kühlperiode;kWh/m²NGFa;;;QT_summer * transmittance_windows_Wm2NFA / transmittance_Wm²
+QT_psi_summer;Wärmebilanz;Transmission Wärmebrücken;Kühlperiode;kWh/m²NGFa;;;QT_summer * transmittance_heatbridge_Wm2NFA / transmittance_Wm²
+QV_inf_summer;Wärmebilanz;Infiltration;Kühlperiode;kWh/m²NGFa;;;"(SUMMENPRODUKT(sim[is_cooling_period]; sim[Qvinf_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_cooling_period]; sim[Qvinf_c]) * NFAfrac_c ) * -0,001"
+QV_window_summer;Wärmebilanz;Lüftung Fenster;Kühlperiode;kWh/m²NGFa;;;"(SUMMENPRODUKT(sim[is_cooling_period]; sim[Qvwindow_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_cooling_period]; sim[Qvwindow_c]) * NFAfrac_c ) * -0,001"
+QV_mechvent_summer;Wärmebilanz;Mechanische Lüftung;Kühlperiode;kWh/m²NGFa;;;"(SUMMENPRODUKT(sim[is_cooling_period]; sim[Qvmechvent_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_cooling_period]; sim[Qvmechvent_c]) * NFAfrac_c) * -0,001"
+QV_heatrecovery_summer;Wärmebilanz;ML Wärmerückgewinnung 2;Kühlperiode;kWh/m²NGFa;;;"SUMMENPRODUKT(sim[is_cooling_period]; sim[dT_uncooled]; sim[ACH_mechvent_u]-sim[ACH_mechvent_therm_u])*cp_air*per_NFA_uncooled * -0,001 * NFAfrac_u +
+ SUMMENPRODUKT(sim[is_cooling_period]; sim[dT_cooled];   sim[ACH_mechvent_c]-sim[ACH_mechvent_therm_c])*cp_air*per_NFA_cooled   * -0,001 * NFAfrac_c"
+QH_min_summer;Wärmebilanz;Heizwärmebedarf Statisch;Kühlperiode;kWh/m²NGFa;;;"(SUMMENPRODUKT(sim[is_cooling_period]; sim[Qh_to_room_uncooled_min]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_cooling_period]; sim[Qh_to_room_cooled_min]) * NFAfrac_c) * 0,001"
+QH_flex_summer;Wärmebilanz;Heizwärmebedarf Flexibel;Kühlperiode;kWh/m²NGFa;;;"(SUMMENPRODUKT(sim[is_cooling_period]; sim[Qh_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_cooling_period]; sim[Qh_c]) * NFAfrac_c) * 0,001 - QH_min_summer"
+QC_min_summer;Wärmebilanz;Kühlbedarf Statisch;Kühlperiode;kWh/m²NGFa;;;"(SUMMENPRODUKT(sim[is_cooling_period]; sim[Qc_min_excl_losses]) * NFAfrac_c) * -0,001"
+QC_flex_summer;Wärmebilanz;Kühlbedarf Flexibel;Kühlperiode;kWh/m²NGFa;;;"(SUMMENPRODUKT(sim[is_cooling_period]; sim[Qc_flex_excl_losses]) * NFAfrac_c) * -0,001"
+QH_flexshare_summer;Wärmebilanz;Anteil Flexibler Heizung an Gesamtheizung;Kühlperiode;;;;"WENNFEHLER(QH_flex_summer/QH_summer;0)"
+QC_flexshare_summer;Wärmebilanz;Anteil Flexibler Kühlung an Gesamtkühlung;Kühlperiode;;;;"WENNFEHLER(QC_flex_summer/QC_summer;0)"
+QT_u;Wärmebilanz;Transmissionswärmeverl.;Ungekühlt;kWh/m²NGFungekühlta;🧱 Transmissionswärmeverl.;;-0,001*SUMME(sim[QT_u])
+QV_u;Wärmebilanz;Lüftungswärmeverluste;Ungekühlt;kWh/m²NGFungekühlta;💨 Lüftungswärmeverluste;;QV_inf_u+QV_window_u+QV_mechvent_u
+QVn_u;Wärmebilanz;Nachtlüftung;Ungekühlt;kWh/m²NGFungekühlta;🌒 Nachtlüftung;;-0,001*SUMME(sim[Qv_nightvent])
+QS_u;Wärmebilanz;Solare Gewinne;Ungekühlt;kWh/m²NGFungekühlta;🌞 Solare Gewinne;;0,001*SUMME(sim[QS_u])
+QI_u;Wärmebilanz;Innere Wärmen;Ungekühlt;kWh/m²NGFungekühlta;👤 Innere Wärmen;;0,001*SUMME(sim[QI_u])
+QH_u;Wärmebilanz;Heizwärmebedarf;Ungekühlt;kWh/m²NGFungekühlta;♨️ Heizwärmebedarf;;QH_min_u+QH_flex_u
+QT_wall_u;Wärmebilanz;Transmission AW;Ungekühlt;kWh/m²NGFungekühlta;🧱 Transmission AW;;QT_u*IN!K315/transmittance_Wm²
+QT_roof_u;Wärmebilanz;Transmission Dach;Ungekühlt;kWh/m²NGFungekühlta;🧱 Transmission Dach;;QT_u*IN!K316/transmittance_Wm²
+QT_ground_u;Wärmebilanz;Transmission KD/EFB;Ungekühlt;kWh/m²NGFungekühlta;🧱 Transmission KD/EFB;;QT_u*IN!K317/transmittance_Wm²
+QT_window_u;Wärmebilanz;Transmission Fenster;Ungekühlt;kWh/m²NGFungekühlta;🧱 Transmission Fenster;;QT_u*IN!K318/transmittance_Wm²
+QT_psi_u;Wärmebilanz;Transmission Wärmebrücken;Ungekühlt;kWh/m²NGFungekühlta;🧱 Transmission Wärmebrücken;;QT_u*IN!K319/transmittance_Wm²
+QV_inf_u;Wärmebilanz;Infiltration;Ungekühlt;kWh/m²NGFungekühlta;💨 Infiltration;;-SUMME(sim[Qvinf_u])/1000
+QV_window_u;Wärmebilanz;Lüftung Fenster;Ungekühlt;kWh/m²NGFungekühlta;💨 Lüftung Fenster;;-SUMME(sim[Qvwindow_u])/1000
+QV_mechvent_u;Wärmebilanz;Mechanische Lüftung;Ungekühlt;kWh/m²NGFungekühlta;💨 Mechanische Lüftung;;-SUMME(sim[Qvmechvent_u])/1000
+QV_heatrecovery_u;Wärmebilanz;ML Wärmerückgewinnung;Ungekühlt;kWh/m²NGFungekühlta;🔀 ML Wärmerückgewinnung;;"SUMMENPRODUKT(sim[dT_uncooled];sim[ACH_mechvent_u]-sim[ACH_mechvent_therm_u])*cp_air*per_NFA_uncooled * -0,001"
+QH_min_u;Wärmebilanz;Heizwärmebedarf Statisch;Ungekühlt;kWh/m²NGFungekühlta;♨️ Heizwärmebedarf Statisch;;SUMME(sim[Qh_to_room_uncooled_min])/1000
+QH_flex_u;Wärmebilanz;Heizwärmebedarf Flexibel;Ungekühlt;kWh/m²NGFungekühlta;♨️ Heizwärmebedarf Flexibel;;SUMME(sim[Qh_u])/1000-QH_min_u
+QH_flexanteil_u;Wärmebilanz;Flexibilitätsanteil;Ungekühlt;%;Flexibilitätsanteil;;"WENNFEHLER(QH_flex_u/QH_u;0)"
+QT_c;Wärmebilanz;Transmissionswärmeverl.;Gekühlt;kWh/m²NGFgekühlta;🧱 Transmissionswärmeverl.;;-0,001*SUMME(sim[QT_c])
+QV_c;Wärmebilanz;Lüftungswärmeverluste;Gekühlt;kWh/m²NGFgekühlta;💨 Lüftungswärmeverluste;;QV_inf_c+QV_window_c+QV_mechvent_c
+QVn_c;Wärmebilanz;Nachtlüftung gekühlt;Gekühlt;kWh/m²NGFgekühlta;🌒 Nachtlüftung;;
+QS_c;Wärmebilanz;Solare Gewinne;Gekühlt;kWh/m²NGFgekühlta;🌞 Solare Gewinne;;SUMME(sim[QS_c])/1000
+QI_c;Wärmebilanz;Innere Wärmen;Gekühlt;kWh/m²NGFgekühlta;👤 Innere Wärmen;;0,001*SUMME(sim[QI_c])
+QH_c;Wärmebilanz;Heizwärmebedarf;Gekühlt;kWh/m²NGFgekühlta;♨️ Heizwärmebedarf;;QH_min_c+QH_flex_c
+QC_c;Wärmebilanz;Kühlbedarf (KB);Gekühlt;kWh/m²NGFgekühlta;❄️ Kühlbedarf (KB);;QC_min_c+QC_flex_c
+QT_wall_c;Wärmebilanz;Transmission AW;Gekühlt;kWh/m²NGFgekühlta;🧱 Transmission AW;;QT_c*IN!K315/transmittance_Wm²
+QT_roof_c;Wärmebilanz;Transmission Dach;Gekühlt;kWh/m²NGFgekühlta;🧱 Transmission Dach;;QT_c*IN!K316/transmittance_Wm²
+QT_ground_c;Wärmebilanz;Transmission KD/EFB;Gekühlt;kWh/m²NGFgekühlta;🧱 Transmission KD/EFB;;QT_c*IN!K317/transmittance_Wm²
+QT_window_c;Wärmebilanz;Transmission Fenster;Gekühlt;kWh/m²NGFgekühlta;🧱 Transmission Fenster;;QT_c*IN!K318/transmittance_Wm²
+QT_psi_c;Wärmebilanz;Transmission Wärmebrücken;Gekühlt;kWh/m²NGFgekühlta;🧱 Transmission Wärmebrücken;;QT_c*IN!K319/transmittance_Wm²
+QV_inf_c;Wärmebilanz;Infiltration;Gekühlt;kWh/m²NGFgekühlta;💨 Infiltration;;-SUMME(sim[Qvinf_c])/1000
+QV_window_c;Wärmebilanz;Lüftung Fenster;Gekühlt;kWh/m²NGFgekühlta;💨 Lüftung Fenster;;-SUMME(sim[Qvwindow_c])/1000
+QV_mechvent_c;Wärmebilanz;Mechanische Lüftung;Gekühlt;kWh/m²NGFgekühlta;💨 Mechanische Lüftung;;-SUMME(sim[Qvmechvent_c])/1000
+QV_heatrecovery_c;Wärmebilanz;ML Wärmerückgewinnung;Gekühlt;kWh/m²NGFgekühlta;🔀 ML Wärmerückgewinnung;;"SUMMENPRODUKT(sim[dT_cooled];sim[ACH_mechvent_c]-sim[ACH_mechvent_therm_c])*cp_air*per_NFA_cooled * -0,001"
+QH_min_c;Wärmebilanz;Heizwärmebedarf Statisch;Gekühlt;kWh/m²NGFgekühlta;♨️ Heizwärmebedarf Statisch;;SUMME(sim[Qh_to_room_cooled_min])/1000
+QH_flex_c;Wärmebilanz;Heizwärmebedarf Flexibel;Gekühlt;kWh/m²NGFgekühlta;♨️ Heizwärmebedarf Flexibel;;SUMME(sim[Qh_c])/1000-QH_min_c
+QC_min_c;Wärmebilanz;Kühlbedarf Statisch;Gekühlt;kWh/m²NGFgekühlta;❄️ Kühlbedarf Statisch;;-SUMME(sim[Qc_min_excl_losses])/1000
+QC_flex_c;Wärmebilanz;Kühlbedarf Flexibel;Gekühlt;kWh/m²NGFgekühlta;❄️ Kühlbedarf Flexibel;;-SUMME(sim[Qc_flex_excl_losses])/1000
+QC_flexanteil;Wärmebilanz;Flexibilitätsanteil;Gekühlt;;Flexibilitätsanteil;;"WENNFEHLER(QH_flex_c/QH_c;0)"
+QH_flexanteil_c;Wärmebilanz;Flexibilitätsanteil;Gekühlt;;Flexibilitätsanteil;;"WENNFEHLER(QC_flex_c/QC_c;0)"
+dTu winter;Komfort;Mittlere Temperaturüberschreitung ungekühlt;;K;;;"MITTELWERT(MITTELWERTWENNS(sim[Ti_final_uncooled];month;winter_months))-Tsetheat_min"
+dTc winter;Komfort;Mittlere Temperaturüberschreitung gekühlt;;K;;;"MITTELWERT(MITTELWERTWENNS(sim[Ti_final_cooled];month;winter_months))-Tsetheat_min"
+dTu summer;Komfort;Mittlere Temperaturunterschreitung ungekühlt;;°C;;;"Tsetcool_max - MITTELWERT(MITTELWERTWENNS(sim[Ti_final_uncooled];month;summer_months))"
+dTc summer;Komfort;Mittlere Temperaturunterschreitung gekühlt;;°C;;;"Tsetcool_max- MITTELWERT(MITTELWERTWENNS(sim[Ti_final_cooled];month;summer_months))"
+EUI_plugAuxLight;EE-Bilanz;Nutzerstrom, Beleuchtung und Allgemeinstrom;Endenergiebedarf;kWh/m²NGFa;;;PV_to_plugloads+Batt_to_plugloads+VRGrid_to_plugloads+Grid_to_plugloads+Eev_to_plugloads
+EUI_plugloads;EE-Bilanz;Nutzerstrom;Endenergiebedarf;kWh/m²NGFa;;;SUMME(sim[E_plugAuxLight])/1000-EUI_aixiliary-EUI_lighting
+EUI_auxiliary;EE-Bilanz;Beleuchtung;Endenergiebedarf;kWh/m²NGFa;;;SUMME(sim[Elight])/1000
+EUI_lighting;EE-Bilanz;Allgemeinstrom;Endenergiebedarf;kWh/m²NGFa;;;SUMME(sim[Eaux])/1000
+EUIh_el;EE-Bilanz;Heizen;Endenergiebedarf;kWh/m²NGFa;;;PV_to_Eh_min+PV_to_Eh_flex+Batt_to_Eh_min+VRGrid_to_Eh_min+VRGrid_to_Eh_flex+Eev_to_Eh_min+Grid_to_Eh_min
+EUIh_el_aux;EE-Bilanz;Heizen Hilfsstrom;Endenergiebedarf;kWh/m²NGFa;;;SUMME(sim[Eh_aux])/1000
+EUIc_el;EE-Bilanz;Kühlen;Endenergiebedarf;kWh/m²NGFa;;;PV_to_Ec_min+PV_to_Ec_flex+Batt_to_Ec_min+VRGrid_to_Ec_min+VRGrid_to_Ec_flex+Eev_to_Ec_min+Grid_to_Ec_min
+EUIc_el_aux;;Heizen Hilfsstrom;Endenergiebedarf;kWh/m²NGFa;;;SUMME(sim[Ec_aux])/1000
+EUIdhw_el;EE-Bilanz;Warmwasser;Endenergiebedarf;kWh/m²NGFa;;;PV_to_Edhw_min+PV_to_Edhw+Batt_to_Edhw_min+VRGrid_to_Edhw_min+VRGrid_to_Edhw_flex+Eev_to_Edhw_min+Grid_to_Edhw_min
+EUIv_el;EE-Bilanz;Lüftung;Endenergiebedarf;kWh/m²NGFa;;;PV_to_Ev_min+Batt_to_Ev_min+VRGrid_to_Ev_min+Eev_to_Ev_min+Grid_to_Ev_min
+EUIdhwdirect_el;EE-Bilanz;"WW
+E-Stab";Endenergiebedarf;kWh/m²NGFa;;;PV_to_Edhw_direct
+Batt_total_charge_input;EE-Bilanz;e-Speicher Beladung;Endenergiebedarf;kWh/m²NGFa;;;PV_to_Batt+VRGrid_to_Batt
+EUIev_el;EE-Bilanz;EV Quartiersladung;Endenergiebedarf;kWh/m²NGFa;;;PV_to_Eev_min+PV_to_Eev_flex+Batt_to_Eev_min+VRGrid_to_Eev_min+VRGrid_to_Eev_flex+Grid_to_Eev_min
+EUI_el_total;EE-Bilanz;Quartier;Endenergiebedarf;kWh/m²NGFa;Ohne Speicher;;EUI_plugAuxLight+EUIh_el+EUIc_el+EUIdhw_el+EUIv_el+EUIdhwdirect_el+EUIev_el
+PV_total;EE-Bilanz;PV Ertrag;Erneuerbare Erzeugung;kWh/m²NGFa;;;PV_total_direct+PV_total_flex+PV_to_Egrid
+PV_to_plugloads;EE-Bilanz;PV Direktdeckung Haushaltsstrom;Haushaltsstrom;kWh/m²NGFa;;;SUMME(sim[PV_to_user])/1000
+PV_to_Eh_min;EE-Bilanz;PV Direktdeckung Heizen;Heizen;kWh/m²NGFa;;;SUMME(sim[PV_to_Eh_min])/1000
+PV_to_Ec_min;EE-Bilanz;PV Direktdeckung Kühlen;Kühlen;kWh/m²NGFa;;;SUMME(sim[PV_to_Ec_min])/1000
+PV_to_Edhw_min;EE-Bilanz;PV Direktdeckung Warmwasser;Warmwasser;kWh/m²NGFa;;;SUMME(sim[PV_to_Edhw_min])/1000
+PV_to_Ev_min;EE-Bilanz;PV Direktdeckung Lüftung;Lüftung;kWh/m²NGFa;;;SUMME(sim[PV_to_Ev_min])/1000
+PV_to_Eev_min;EE-Bilanz;PV Direktdeckung MIV;MIV;kWh/m²NGFa;;;SUMME(sim[PV_to_Eev_min])/1000
+PV_total_direct;EE-Bilanz;PV Direktdeckung Quartier;Quartier;kWh/m²NGFa;;;PV_to_plugloads+PV_to_Eh_min+PV_to_Ec_min+PV_to_Edhw_min+PV_to_Ev_min+PV_to_Eev_min
+PV_to_Eh_flex;EE-Bilanz;PV Überdeckung Heizen;Heizen;kWh/m²NGFa;;;SUMME(sim[[PV_to_Eh_flex_1el]:[PV_to_Eh_flex_3el]])/1000
+PV_to_Ec_flex;EE-Bilanz;PV Überdeckung Kühlen;Kühlen;kWh/m²NGFa;;;SUMME(sim[[PV_to_Ec_flex_1el]:[PV_to_Ec_flex_3el]])/1000
+PV_to_Edhw;EE-Bilanz;PV Überdeckung Warmwasser;Warmwasser;kWh/m²NGFa;;;SUMME(sim[[PV_to_Edhw1_flex]:[PV_to_Edhw2_flex]])/1000
+PV_to_Edhw_direct;EE-Bilanz;"PV Überdeckung WW
+E-Stab";"WW
+E-Stab";kWh/m²NGFa;;;
+PV_to_Batt;EE-Bilanz;PV Überdeckung e-Speicher Beladung;e-Speicher Beladung;kWh/m²NGFa;;;SUMME(sim[PV_to_Batt])/1000
+PV_to_Eev_flex;EE-Bilanz;PV Überdeckung MIV;MIV;kWh/m²NGFa;;;SUMME(sim[PV_to_Eev_flex])/1000
+PV_total_flex;EE-Bilanz;PV Überdeckung Quartier;Quartier;kWh/m²NGFa;;;PV_to_Eh_flex+PV_to_Ec_flex+PV_to_Edhw+PV_to_Edhw_direct+PV_to_Batt+PV_to_Eev_flex
+PV_to_Egrid;EE-Bilanz;PV Netzeinspeisung;;kWh/m²NGFa;;;SUMME(sim[PV_to_Egrid])/1000
+Batt_to_plugloads;EE-Bilanz;E-Batterie → Nutzerstrom;Haushaltsstrom;kWh/m²NGFa;;;SUMME(sim[Batt_to_user])/1000
+Batt_to_HVAC;;E-Batterie → HKLS;;kWh/m²NGFa;;;SUMME(I169:I172)
+Batt_to_Eh_min;EE-Bilanz;E-Batterie;Heizen;kWh/m²NGFa;;;SUMME(sim[Batt_to_Eh_min])/1000
+Batt_to_Ec_min;EE-Bilanz;E-Batterie;Kühlen;kWh/m²NGFa;;;SUMME(sim[Batt_to_Ec_min])/1000
+Batt_to_Edhw_min;EE-Bilanz;E-Batterie;Warmwasser;kWh/m²NGFa;;;SUMME(sim[Batt_to_Edhw_min])/1000
+Batt_to_Ev_min;EE-Bilanz;E-Batterie;Lüftung;kWh/m²NGFa;;;SUMME(sim[Batt_to_Ev_min])/1000
+Batt_to_Eev_min;EE-Bilanz;E-Batterie;MIV;kWh/m²NGFa;;;SUMME(sim[Batt_to_Eev_min])/1000
+VRGrid_to_plugloads;EE-Bilanz;Flexible Direktdeckung → Nutzerstrom;Haushaltsstrom;kWh/m²NGFa;;;SUMME(sim[VRGrid_to_user])/1000
+VRGrid_to_Eh_min;EE-Bilanz;Flexible Direktdeckung → Heizen;Heizen;kWh/m²NGFa;;;SUMME(sim[VRGrid_to_Eh_min])/1000
+VRGrid_to_Ec_min;EE-Bilanz;Flexible Direktdeckung → Kühlen;Kühlen;kWh/m²NGFa;;;SUMME(sim[VRGrid_to_Ec_min])/1000
+VRGrid_to_Edhw_min;EE-Bilanz;Flexible Direktdeckung;Warmwasser;kWh/m²NGFa;;;SUMME(sim[VRGrid_to_Edhw_min])/1000
+VRGrid_to_Ev_min;EE-Bilanz;Flexible Direktdeckung;Lüftung;kWh/m²NGFa;;;SUMME(sim[VRGrid_to_Ev_min])/1000
+VRGrid_to_Eev_min;EE-Bilanz;Flexible Direktdeckung;MIV;kWh/m²NGFa;;;SUMME(sim[VRGrid_to_Eev_min])/1000
+VRGrid_to_min;EE-Bilanz;Flexible Direktdeckung;Quartier;kWh/m²NGFa;;;VRGrid_to_plugloads+VRGrid_to_Eh_min+VRGrid_to_Ec_min+VRGrid_to_Edhw_min+VRGrid_to_Ev_min+VRGrid_to_Eev_min
+VRGrid_to_Eh_flex;EE-Bilanz;Flexible Überdeckung → Heizen;Heizen;kWh/m²NGFa;;;SUMME(sim[[VRGrid_to_Eh_flex_1el]:[VRGrid_to_Eh_flex_3el]])/1000
+VRGrid_to_Ec_flex;EE-Bilanz;Flexible Überdeckung → Kühlen;Kühlen;kWh/m²NGFa;;;SUMME(sim[[VRGrid_to_Ec_flex_1el]:[VRGrid_to_Ec_flex_3el]])/1000
+VRGrid_to_Edhw_flex;EE-Bilanz;Flexible Überdeckung;Warmwasser;kWh/m²NGFa;;;SUMME(sim[[VRGrid_to_Edhw1_flex]:[VRGrid_to_Edhw2_flex]])/1000
+VRGrid_to_Batt;EE-Bilanz;Flexible Überdeckung → Batterie;e-Speicher Beladung;kWh/m²NGFa;;;SUMME(sim[VRGrid_to_Batt])/1000
+VRGrid_to_Eev_flex;EE-Bilanz;Flexible Überdeckung;MIV;kWh/m²NGFa;;;SUMME(sim[VRGrid_to_Eev_flex])/1000
+VRGrid_to_flex;EE-Bilanz;Flexible Überdeckung;Quartier;kWh/m²NGFa;;;VRGrid_to_Eh_flex+VRGrid_to_Ec_flex+VRGrid_to_Edhw_flex+VRGrid_to_Batt+VRGrid_to_Eev_flex
+VRGrid_to_building;EE-Bilanz;Flexible Deckung → Gebäude;Gebäude;kWh/m²NGFa;;;SUMME(sim[VRGrid_to_building])/1000
+Eev_to_plugloads;EE-Bilanz;E-Car Entladung → Nutzerstrom;Haushaltsstrom;kWh/m²NGFa;;;-SUMME(sim[Eev_to_user])/1000
+Eev_to_HVAC;;E-Car Entladung → HKLS;HKLS;kWh/m²NGFa;;;SUMME(I195:I198)
+Eev_to_Eh_min;EE-Bilanz;E-Car Entladung;Heizen;kWh/m²NGFa;;;-SUMME(sim[Eev_to_Eh_min])/1000
+Eev_to_Ec_min;EE-Bilanz;E-Car Entladung;Kühlen;kWh/m²NGFa;;;-SUMME(sim[Eev_to_Ec_min])/1000
+Eev_to_Edhw_min;EE-Bilanz;E-Car Entladung;Warmwasser;kWh/m²NGFa;;;-SUMME(sim[Eev_to_Edhw_min])/1000
+Eev_to_Ev_min;EE-Bilanz;E-Car Entladung;Lüftung;kWh/m²NGFa;;;-SUMME(sim[Eev_to_Ev_min])/1000
+Eev_discharge_loss;EE-Bilanz;E-Car Entladung;Verluste;kWh/m²NGFa;;;SUMME(sim[Eev_discharge_total])/1000-I200
+Eev_to_district;EE-Bilanz;E-Car Entladung;Quartier;kWh/m²NGFa;;;Eev_to_plugloads+Eev_to_Eh_min+Eev_to_Ec_min+Eev_to_Edhw_min+Eev_to_Ev_min
+Grid_to_plugloads;EE-Bilanz;Netzstrom → Nutzerstrom;Haushaltsstrom;kWh/m²NGFa;;;SUMME(sim[Grid_to_user])/1000
+Grid_to_Eh_min;EE-Bilanz;Netzstrom;Heizen;kWh/m²NGFa;;;SUMME(sim[Grid_to_Eh_min])/1000
+Grid_to_Ec_min;EE-Bilanz;Netzstrom;Kühlen;kWh/m²NGFa;;;SUMME(sim[Grid_to_Ec_min])/1000
+Grid_to_Edhw_min;EE-Bilanz;Netzstrom;Warmwasser;kWh/m²NGFa;;;SUMME(sim[Grid_to_Edhw_min])/1000
+Grid_to_Ev_min;EE-Bilanz;Netzstrom;Lüftung;kWh/m²NGFa;;;SUMME(sim[Grid_to_Ev_min])/1000
+Grid_to_building_min;EE-Bilanz;Netzstrom → Gebäude;Gebäude;kWh/m²NGFa;;;SUMME(sim[Grid_to_building_min])/1000
+Grid_to_Eev_min;EE-Bilanz;Netzstrom;MIV;kWh/m²NGFa;;;SUMME(sim[Grid_to_Eev_min])/1000
+Grid_to_min;EE-Bilanz;Netzstrom → Quartier;Quartier;kWh/m²NGFa;;;Grid_to_plugloads+Grid_to_Eh_min+Grid_to_Ec_min+Grid_to_Edhw_min+Grid_to_Ev_min+Grid_to_Eev_min
+Eev_ext_charge;EE-Bilanz;E-Car Ladung Außerhalb des Quartiers;Quartier;kWh/m²NGFa;;;"EV_charging_losses_surcharge_factor*SUMME(sim[Eev_Cext_res];sim[Eev_Cext_work];sim[Eev_Cext_retail])/1000"
+EUIh_district_heating;EE-Bilanz;Fernwärme;Heizen;kWh/m²NGFa;;;0,001*(heat_th2_is_dh*SUMME(sim[EUIh_2th])+heat_th4_is_dh*SUMME(sim[EUIh_4th]))
+EUIdhw_district_heating;EE-Bilanz;Fernwärme;Warmwasser;kWh/m²NGFa;;;0,001*(dhw1_is_dh*SUMME(sim[EUIdhw_1th])+dhw2_is_dh*SUMME(sim[EUIdhw_2th]))
+EUI_district_heating;EE-Bilanz;Fernwärme;Quartier;kWh/m²NGFa;;;EUIh_district_heating+EUIdhw_district_heating
+EUIh_natural_gas;EE-Bilanz;Gas;Heizen;kWh/m²NGFa;;;0,001*(heat_th2_is_ng*SUMME(sim[EUIh_2th])+heat_th4_is_ng*SUMME(sim[EUIh_4th]))
+EUIdhw_natural_gas;EE-Bilanz;Gas;Warmwasser;kWh/m²NGFa;;;0,001*(dhw1_is_ng*SUMME(sim[EUIdhw_1th])+dhw2_is_ng*SUMME(sim[EUIdhw_2th]))
+EUI_natural_gas;EE-Bilanz;Gas;Quartier;kWh/m²NGFa;;;EUIh_natural_gas+EUIdhw_natural_gas
+EUIh_biomass;EE-Bilanz;Biomasse;Heizen;kWh/m²NGFa;;;0,001*(heat_th2_is_bio*SUMME(sim[EUIh_2th])+heat_th4_is_bio*SUMME(sim[EUIh_4th]))
+EUIdhw_biomass;EE-Bilanz;Biomasse;Warmwasser;kWh/m²NGFa;;;0,001*(dhw1_is_bio*SUMME(sim[EUIdhw_1th])+dhw2_is_bio*SUMME(sim[EUIdhw_2th]))
+EUI_biomass;EE-Bilanz;Biomasse;Quartier;kWh/m²NGFa;;;EUIh_biomass+EUIdhw_biomass
+EUIh_other;EE-Bilanz;Sonstige;Heizen;kWh/m²NGFa;;;0,001*(heat_th2_is_other*SUMME(sim[EUIh_2th])+heat_th4_is_other*SUMME(sim[EUIh_4th]))
+EUIc_other;EE-Bilanz;Sonstige;Kühlen;kWh/m²NGFa;;;0,001*cool_th2_is_other*SUMME(sim[EUIc_2th])
+EUIdhw_other;EE-Bilanz;Sonstige;Warmwasser;kWh/m²NGFa;;;0,001*(dhw1_is_other*SUMME(sim[EUIdhw_1th])+dhw2_is_other*SUMME(sim[EUIdhw_2th]))
+EUI_other;EE-Bilanz;Sonstige;Quartier;kWh/m²NGFa;;;EUIh_other+EUIc_other+EUIdhw_other
+EUI_mob_fossil;EE-Bilanz;MIV Fossil;;kWh/m²NGFa;;;PEI_mob_fossile/pe_conversion_factor_gasoline
+EUIh_2th;EE-Bilanz;Heizen 2;Quartier;kWh/m²NGFa;;;SUMME(sim[EUIh_2th])/1000
+EUIh_4th;EE-Bilanz;Heizen 4;Quartier;kWh/m²NGFa;;;SUMME(sim[EUIh_4th])/1000
+EUIc_2th;EE-Bilanz;Kühlen 2;Quartier;kWh/m²NGFa;;;SUMME(sim[EUIc_2th])/1000
+EUIdhw_1th;EE-Bilanz;WWWB1;Quartier;kWh/m²NGFa;;;SUMME(sim[EUIdhw_1th])/1000
+EUIdhw_2th;EE-Bilanz;WWWB2;Quartier;kWh/m²NGFa;;;SUMME(sim[EUIdhw_2th])/1000
+Grid_total_flexandnotflex;EE-Bilanz;Netzstrom insg. (Flexibel und Inflexibel);Quartier;kWh/m²NGFa;;;VRGrid_to_building+Grid_to_min
+context_factor_density;PE-Bilanz;Kontextfaktor bauliche Dichte;;kWhPEges./m²NGFa;;;"-MIN(cfd_fPE*(cfd_A/(FSI+cfd_dx)-cfd_EUI);cfd_cutoff)"
+context_factor_mobility;PE-Bilanz;Kontextfaktor Mobilität;;kWhPEges./m²NGFa;;;per_NFA*(cfm_budget_residential*NFA_residential+cfm_budget_office*NFA_office+cfm_budget_school*(NFA_schoolprim+NFA_schoolsec)+cfm_budget_retail*(NFA_retailfood+NFA_retailother+NFA_other))
+context_factor_renovation;PE-Bilanz;Kontextfaktor Sanierung;;kWhPEges./m²NGFa;;;"cfr_budget*SUMMENPRODUKT(Renovation_shares;NFA_shares)"
+PEI_demand;PE-Netzäquivalenz-Bilanz;Betriebsenergie;;kWhPEges./m²NGFa;;;PEI_el_plugloads+PEI_el_hvac+PEI_district_heating+PEI_natural_gas+PEI_biomass+PEI_other
+PEI_el_plugloads;PE-Netzäquivalenz-Bilanz;Nutzerstrom;;kWhPEges./m²NGFa;;;SUMME(sim[PEI_el_user])/1000
+PEI_el_hvac;PE-Netzäquivalenz-Bilanz;HKLS Strom;;kWhPEges./m²NGFa;;;SUMME(sim[PEI_el_hvac])/1000
+PEI_district_heating;PE-Netzäquivalenz-Bilanz;HKLS Fernwärme;;kWhPEges./m²NGFa;;;SUMME(sim[PEI_district_heating])/1000
+PEI_natural_gas;PE-Netzäquivalenz-Bilanz;HKLS Erdgas;;kWhPEges./m²NGFa;;;SUMME(sim[PEI_natural_gas])/1000
+PEI_biomass;PE-Netzäquivalenz-Bilanz;HKLS Biomasse;;kWhPEges./m²NGFa;;;SUMME(sim[PEI_biomass])/1000
+PEI_other;PE-Netzäquivalenz-Bilanz;HKLS Sonstige;;kWhPEges./m²NGFa;;;SUMME(sim[PEI_other])/1000
+PEI_mob_total;PE-Netzäquivalenz-Bilanz;Mobilität (MIV);;kWhPEges./m²NGFa;;;PEI_mob_fossile+PEI_mob_el
+PEI_mob_fossile;PE-Netzäquivalenz-Bilanz;MIV Fossil;;kWhPEges./m²NGFa;;;EUI_mob_fossile*pe_conversion_factor_gasoline
+PEI_mob_el;PE-Netzäquivalenz-Bilanz;MIV Elektrisch;;kWhPEges./m²NGFa;;;UED_mob_el_target*EV_charging_losses_surcharge_factor*MITTELWERT(sim[cf_PEI_grid])
+PEI_storage_losses;PE-Netzäquivalenz-Bilanz;Speicher-Verluste;;kWhPEges./m²NGFa;;;"0,001*(SUMMENPRODUKT(sim[Batt_total_charge];sim[cf_PEI_flex_gridsub])/Batt_eff_factor_charge-SUMMENPRODUKT(sim[Batt_total_discharge];sim[cf_PEI_flex_gridsub])*Batt_eff_factor_discharge)"
+PEI_cf_density;PE-Netzäquivalenz-Bilanz;Kontext bauliche Dichte;;kWhPEges./m²NGFa;;;context_factor_density
+PEI_cf_mobility;PE-Netzäquivalenz-Bilanz;Kontext Mobilität;;kWhPEges./m²NGFa;;;mobility_is_included*context_factor_mobility
+PEI_cf_renovation;PE-Netzäquivalenz-Bilanz;Kontext Sanierung;;kWhPEges./m²NGFa;;;context_factor_renovation
+PEI_sub_PV;PE-Netzäquivalenz-Bilanz;Lokale Erneuerbare (Netzstrom Substitutionsäquivalent);;kWhPEges./m²NGFa;;;"SUMMENPRODUKT(sim[PV_yield];sim[cf_PEI_grid])/1000"
+PEI_sub_flex;PE-Netzäquivalenz-Bilanz;Energieflexibilität (Netzstrom Substitutionsäquivalent);;kWhPEges./m²NGFa;;;SUMME(sim[PEI_flex_grid_substitution])/1000
+PEI_balance;PE-Netzäquivalenz-Bilanz;PE-Bilanz Netzäquivalent;;kWhPEges./m²NGFa;;;PEI_cf_renovation+PEI_cf_mobility+PEI_cf_density+PEI_sub_flex+PEI_sub_PV-PEI_demand-PEI_mob_total-PEI_storage_losses
+PEI_grid_import;PE-ImportExport Bilanz;Netzbezug;;kWhPEges./m²NGFa;;;0,001*SUMME(sim[cf_PEI_grid]*sim[E_grid])
+PEI_flex_import;;Flexibler Bezug;;kWhPEges./m²NGFa;;;"SUMMENPRODUKT(sim[cf_PEI_flex_grid];sim[VRGrid_total_min_use]+sim[VRGrid_total_flex_use])/1000"
+PEI_evExtCharge_import;PE-ImportExport Bilanz;EV Externe Beladung;;kWhPEges./m²NGFa;;;"0,001*SUMMENPRODUKT(sim[cf_PEI_grid];sim[Eev_Cext_res]+sim[Eev_Cext_work]+sim[Eev_Cext_retail])*EV_charging_losses_surcharge_factor"
+PEI_import;PE-ImportExport Bilanz;Primärenergie-Import;;kWhPEges./m²NGFa;;;PEI_district_heating+PEI_natural_gas+PEI_flex_import+PEI_biomass+PEI_other+PEI_mob_fossile+PEI_grid_import+PEI_evExtCharge_import
+PEI_pv_export;PE-ImportExport Bilanz;PV Netzeinspeisung PE;;kWhPEges./m²NGFa;;;"SUMMENPRODUKT(sim[PV_to_Egrid];sim[cf_PEI_grid])/1000"
+PEI_evOtherTravel_export;PE-ImportExport Bilanz;EV Other Travels;;;;;UED_mob_el_other*EV_charging_losses_surcharge_factor*MITTELWERT(sim[cf_PEI_grid])
+PEI_export;PE-ImportExport Bilanz;Primärenergie-Export;;kWhPEges./m²NGFa;;;PEI_pv_export+PEI_evOtherTravel_export
+PEI_saldo_project;PE-ImportExport Bilanz;PE-IE-Bilanz Projektwert;;kWhPEges./m²NGFa;;;PEI_export-PEI_import
+PEI_saldo_target;PE-ImportExport Bilanz;PE-IE-Bilanz Zielwert;;kWhPEges./m²NGFa;;;-PEI_cf_density-PEI_cf_mobility-PEI_cf_renovation
+PEI_importExport_balance;PE-ImportExport Bilanz;importExport Saldo Projektwert - Zielwert;;kWhPEges./m²NGFa;;;PEI_saldo_project-PEI_saldo_target
+fPE_grid;;PE Faktor Netzstrom Statistisch;;;;;MITTELWERT(sim[cf_PEI_grid])
+fPE_eff;;PE Faktor Netzstrom Effektiv;;;;;(I262+I263+I264)/(Grid_to_min+VRGrid_to_min+VRGrid_to_flex+Eev_ext_charge)
+GWP_ee_walls_fossile;THG-Bilanz;Bauteil Außenwand fossil;;GWP 100A (kgCO2equiv/m²BGF);;;"WENNNV(SVERWEIS(GWP_walls_name;GWP_Katalog;4;FALSCH)*SVERWEIS(SVERWEIS(GWP_walls_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)"
+GWP_ee_walls_biogenic;THG-Bilanz;Bauteil Außenwand biogen;;GWP 100A (kgCO2equiv/m²BGF);;;"WENNNV(SVERWEIS(GWP_walls_name;GWP_Katalog;5;FALSCH)*MAX(SVERWEIS(GWP_walls_name;GWP_Katalog;7;FALSCH);55%)*SVERWEIS(SVERWEIS(GWP_walls_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)"
+GWP_life_walls;THG-Bilanz;Bauteil Außenwand Lebensdauer;;Jahre;;;"WENNNV(SVERWEIS(GWP_walls_name;GWP_Katalog;6;FALSCH);GHG_LCA_timeframe_years+1)"
+GWP_ee_lc_walls_fossil;;;;;;;"GWP_ee_walls_fossile*(1+ABRUNDEN(GHG_LCA_timeframe_years/GWP_life_walls; 0))"
+GWP_ee_lc_walls_biogenic;;;;;;;"GWP_ee_walls_biogenic*(1+ABRUNDEN(GHG_LCA_timeframe_years/GWP_life_walls; 0))"
+GWP_ee_lc_walls;THG-Bilanz;Bauteil Außenwand;;GWP 100A (kgCO2equiv/m²BGF);;;GWP_ee_lc_walls_fossil+GWP_ee_lc_walls_biogenic
+GWP_ee_windows_fossile;THG-Bilanz;Bauteil Fenster fossil;;GWP 100A (kgCO2equiv/m²BGF);;;"WENNNV(SVERWEIS(GWP_windows_name;GWP_Katalog;4;FALSCH)*SVERWEIS(SVERWEIS(GWP_windows_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)"
+GWP_ee_windows_bigenic;THG-Bilanz;Bauteil Fenster biogen;;GWP 100A (kgCO2equiv/m²BGF);;;"WENNNV(SVERWEIS(GWP_windows_name;GWP_Katalog;5;FALSCH)*MAX(SVERWEIS(GWP_windows_name;GWP_Katalog;7;FALSCH);55%)*SVERWEIS(SVERWEIS(GWP_windows_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)"
+GWP_life_windows;THG-Bilanz;Bauteil Fenster Lebensdauer;;Jahre;;;"WENNNV(SVERWEIS(GWP_windows_name;GWP_Katalog;6;FALSCH);GHG_LCA_timeframe_years+1)"
+GWP_ee_lc_windows_fossile;;;;;;;"(GWP_ee_windows_fossile)*(1+ABRUNDEN(GHG_LCA_timeframe_years/GWP_life_windows; 0))"
+GWP_ee_lc_windows_biogenic;;;;;;;"(GWP_ee_windows_bigenic)*(1+ABRUNDEN(GHG_LCA_timeframe_years/GWP_life_windows; 0))"
+GWP_ee_lc_windows;THG-Bilanz;Bauteil Fenster;;GWP 100A (kgCO2equiv/m²BGF);;;GWP_ee_lc_windows_fossile+GWP_ee_lc_windows_biogenic
+GWP_ee_roof_fossile;THG-Bilanz;Bauteil Dach fossil;;GWP 100A (kgCO2equiv/m²BGF);;;"WENNNV(SVERWEIS(GWP_roof_name;GWP_Katalog;4;FALSCH)*SVERWEIS(SVERWEIS(GWP_roof_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)"
+GWP_ee_roof_biogenic;THG-Bilanz;Bauteil Dach biogen;;GWP 100A (kgCO2equiv/m²BGF);;;"WENNNV(SVERWEIS(GWP_roof_name;GWP_Katalog;5;FALSCH)*MAX(SVERWEIS(GWP_roof_name;GWP_Katalog;7;FALSCH);55%)*SVERWEIS(SVERWEIS(GWP_roof_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)"
+GWP_life_roof;THG-Bilanz;Bauteil Dach Lebensdauer;;Jahre;;;"WENNNV(SVERWEIS(GWP_roof_name;GWP_Katalog;6;FALSCH);GHG_LCA_timeframe_years+1)"
+GWP_ee_lc_roof_fossile;;;;;;;"(GWP_ee_roof_fossile)*(1+ABRUNDEN(GHG_LCA_timeframe_years/GWP_life_roof; 0))"
+GWP_ee_lc_roof_biogenic;;;;;;;"(GWP_ee_roof_biogenic)*(1+ABRUNDEN(GHG_LCA_timeframe_years/GWP_life_roof; 0))"
+GWP_ee_lc_roof;THG-Bilanz;Bauteil Dach;;GWP 100A (kgCO2equiv/m²BGF);;;GWP_ee_lc_roof_fossile+GWP_ee_lc_roof_biogenic
+GWP_ee_ground_fossile;THG-Bilanz;Bauteil Decke gegen Erdreich / Keller fossil;;GWP 100A (kgCO2equiv/m²BGF);;;"WENNNV(SVERWEIS(GWP_ground_name;GWP_Katalog;4;FALSCH)*SVERWEIS(SVERWEIS(GWP_ground_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)"
+GWP_ee_ground_biogenic;THG-Bilanz;Bauteil Decke gegen Erdreich / Keller biogen;;GWP 100A (kgCO2equiv/m²BGF);;;"WENNNV(SVERWEIS(GWP_ground_name;GWP_Katalog;5;FALSCH)*MAX(SVERWEIS(GWP_ground_name;GWP_Katalog;7;FALSCH);55%)*SVERWEIS(SVERWEIS(GWP_ground_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)"
+GWP_life_ground;THG-Bilanz;Bauteil Decke gegen Erdreich / Keller Lebensdauer;;Jahre;;;"WENNNV(SVERWEIS(GWP_ground_name;GWP_Katalog;6;FALSCH);GHG_LCA_timeframe_years+1)"
+GWP_ee_lc_ground_fossile;;;;;;;"(GWP_ee_ground_fossile)*(1+ABRUNDEN(GHG_LCA_timeframe_years/GWP_life_ground; 0))"
+GWP_ee_lc_ground_biogenic;;;;;;;"(GWP_ee_ground_biogenic)*(1+ABRUNDEN(GHG_LCA_timeframe_years/GWP_life_ground; 0))"
+GWP_ee_lc_ground;THG-Bilanz;Bauteil Decke gegen Erdreich / Keller;;GWP 100A (kgCO2equiv/m²BGF);;;GWP_ee_lc_ground_fossile+GWP_ee_lc_ground_biogenic
+GWP_ee_ceilings_fossile;THG-Bilanz;Bauteil Zwischengeschoßdecken fossil;;GWP 100A (kgCO2equiv/m²BGF);;;"WENNNV(SVERWEIS(GWP_ceilings_name;GWP_Katalog;4;FALSCH)*SVERWEIS(SVERWEIS(GWP_ceilings_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)"
+GWP_ee_ceilings_biogenic;THG-Bilanz;Bauteil Zwischengeschoßdecken biogen;;GWP 100A (kgCO2equiv/m²BGF);;;"WENNNV(SVERWEIS(GWP_ceilings_name;GWP_Katalog;5;FALSCH)*MAX(SVERWEIS(GWP_ceilings_name;GWP_Katalog;7;FALSCH);55%)*SVERWEIS(SVERWEIS(GWP_ceilings_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)"
+GWP_life_ceilings;THG-Bilanz;Bauteil Zwischengeschoßdecken Lebensdauer;;Jahre;;;"WENNNV(SVERWEIS(GWP_ceilings_name;GWP_Katalog;6;FALSCH);GHG_LCA_timeframe_years+1)"
+GWP_ee_lc_ceilings_fossile;;;;;;;"(GWP_ee_ceilings_fossile)*(1+ABRUNDEN(GHG_LCA_timeframe_years/GWP_life_ceilings; 0))"
+GWP_ee_lc_ceilings_biogenic;;;;;;;"(GWP_ee_ceilings_biogenic)*(1+ABRUNDEN(GHG_LCA_timeframe_years/GWP_life_ceilings; 0))"
+GWP_ee_lc_ceil;THG-Bilanz;Bauteil Zwischengeschoßdecken;;GWP 100A (kgCO2equiv/m²BGF);;;GWP_ee_lc_ceilings_fossile+GWP_ee_lc_ceilings_biogenic
+GWP_ee_general_fossile;THG-Bilanz;Baulich Allgemein fossil;;GWP 100A (kgCO2equiv/m²BGF);;;"WENNNV(SVERWEIS(GWP_general_name;GWP_Katalog;4;FALSCH)*SVERWEIS(SVERWEIS(GWP_general_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)"
+GWP_ee_general_bigonenic;THG-Bilanz;Baulich Allgemein biogen;;GWP 100A (kgCO2equiv/m²BGF);;;"WENNNV(SVERWEIS(GWP_general_name;GWP_Katalog;5;FALSCH)*MAX(SVERWEIS(GWP_general_name;GWP_Katalog;7;FALSCH);55%)*SVERWEIS(SVERWEIS(GWP_general_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)"
+GWP_life_general;THG-Bilanz;Baulich Allgemein Lebensdauer;;Jahre;;;"WENNNV(SVERWEIS(GWP_general_name;GWP_Katalog;6;FALSCH);GHG_LCA_timeframe_years+1)"
+GWP_ee_lc_general_fossile;;;;;;;"(GWP_ee_general_fossile)*(1+ABRUNDEN(GHG_LCA_timeframe_years/GWP_life_general; 0))"
+GWP_ee_lc_general_biogenic;;;;;;;"(GWP_ee_general_bigonenic)*(1+ABRUNDEN(GHG_LCA_timeframe_years/GWP_life_general; 0))"
+GWP_ee_general;THG-Bilanz;Baulich Allgemein;;GWP 100A (kgCO2equiv/m²BGF);;;GWP_ee_lc_general_fossile+GWP_ee_lc_general_biogenic
+GWP_ee_other_fossile;THG-Bilanz;Baulich Andere fossil;;GWP 100A (kgCO2equiv/m²BGF);;;"WENNNV(SVERWEIS(GWP_other_name;GWP_Katalog;4;FALSCH)*SVERWEIS(SVERWEIS(GWP_other_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)"
+GWP_ee_other_biogenic;THG-Bilanz;Baulich Andere biogen;;GWP 100A (kgCO2equiv/m²BGF);;;"WENNNV(SVERWEIS(GWP_other_name;GWP_Katalog;5;FALSCH)*MAX(SVERWEIS(GWP_other_name;GWP_Katalog;7;FALSCH);55%)*SVERWEIS(SVERWEIS(GWP_other_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)"
+GWP_life_other;THG-Bilanz;Baulich Andere Lebensdauer;;Jahre;;;"WENNNV(SVERWEIS(GWP_other_name;GWP_Katalog;6;FALSCH);GHG_LCA_timeframe_years+1)"
+GWP_ee_lc_other_fossile;;;;;;;"(GWP_ee_other_fossile)*(1+ABRUNDEN(GHG_LCA_timeframe_years/GWP_life_other; 0))"
+GWP_ee_lc_other_biogenic;;;;;;;"(GWP_ee_other_biogenic)*(1+ABRUNDEN(GHG_LCA_timeframe_years/GWP_life_other; 0))"
+GWP_ee_lc_other;THG-Bilanz;Baulich Sammel-Maßnahmen;;GWP 100A (kgCO2equiv/m²BGF);;;GWP_ee_lc_other_fossile+GWP_ee_lc_other_biogenic
+GWP_ee_direct_fossile;THG-Bilanz;Baulich Direkteingabe fossil;;GWP 100A (kgCO2equiv/m²BGF);;;GWP_direct_fossile
+GWP_ee_direct_biogenic;THG-Bilanz;Baulich Direkteingabe biogen;;GWP 100A (kgCO2equiv/m²BGF);;;GWP_direct_biogenic*GWP_direct_biogenic_share
+GWP_life_direct;THG-Bilanz;"Baulich 
+Direkteingabe Lebensdauer";;Jahre;;;GWP_direct_life
+GWP_ee_lc_direct_fossile;;;;;;;"(GWP_ee_direct_fossile)*(1+ABRUNDEN(GHG_LCA_timeframe_years/I323; 0))"
+GWP_ee_lc_direct_biogenic;;;;;;;"(GWP_ee_direct_biogenic)*(1+ABRUNDEN(GHG_LCA_timeframe_years/I323; 0))"
+GWP_ee_lc_direct;THG-Bilanz;Baulich Direkteingabe;;GWP 100A (kgCO2equiv/m²BGF);;;GWP_ee_lc_direct_fossile+GWP_ee_lc_direct_biogenic
+GWP_ee_con_build;THG-Bilanz;Baulich Errichtung;;GWP 100A (kgCO2equiv/m²BGF);;;GWP_ee_walls_fossile+GWP_ee_walls_biogenic+GWP_ee_windows_fossile+GWP_ee_windows_bigenic+GWP_ee_roof_fossile+GWP_ee_roof_biogenic+GWP_ee_ground_fossile+GWP_ee_ground_biogenic+GWP_ee_ceilings_fossile+GWP_ee_ceilings_biogenic+GWP_ee_general_fossile+GWP_ee_general_bigonenic+GWP_ee_other_fossile+GWP_ee_other_biogenic++GWP_ee_direct_fossile+GWP_ee_direct_biogenic
+GWP_ee_rep_build;THG-Bilanz;Baulich Instandsetzung;;GWP 100A (kgCO2equiv/m²BGF);;;GWP_ee_lc_construction-GWP_ee_con_build
+GWP_ee_lc_fossil;;Baulich Fossil;;GWP 100A (kgCO2equiv/m²BGF);;;GWP_ee_lc_walls_fossil+GWP_ee_lc_windows_fossile+GWP_ee_lc_roof_fossile+GWP_ee_lc_ground_fossile+GWP_ee_lc_ceilings_fossile+GWP_ee_lc_general_fossile+GWP_ee_lc_other_fossile+GWP_ee_lc_direct_fossile
+GWP_ee_lc_biogenic;;Baulich Biogen;;GWP 100A (kgCO2equiv/m²BGF);;;GWP_ee_lc_walls_biogenic+GWP_ee_lc_windows_biogenic+GWP_ee_lc_roof_biogenic+GWP_ee_lc_ground_biogenic+GWP_ee_lc_ceilings_biogenic+GWP_ee_lc_general_biogenic+GWP_ee_lc_other_biogenic+GWP_ee_lc_direct_biogenic
+GWP_ee_lc_construction;THG-Bilanz;Baulich;;GWP 100A (kgCO2equiv/m²BGF);;;GWP_ee_lc_walls+GWP_ee_lc_windows+GWP_ee_lc_roof+GWP_ee_lc_ground+GWP_ee_lc_ceil+GWP_ee_lc_general+GWP_ee_lc_other+GWP_ee_lc_direct
+GWP_ee_tga_pv_fossile;THG-Bilanz;TGA PV fossil;;GWP 100A (kgCO2equiv/m²BGF);;;"WENNNV(SVERWEIS(GWP_pv_name;GWP_Katalog;4;FALSCH)*SVERWEIS(SVERWEIS(GWP_pv_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)"
+GWP_ee_tga_pv_biogenic;THG-Bilanz;TGA PV biogen;;GWP 100A (kgCO2equiv/m²BGF);;;"WENNNV(SVERWEIS(GWP_pv_name;GWP_Katalog;5;FALSCH)*SVERWEIS(SVERWEIS(GWP_pv_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)"
+GWP_life_tga_pv;THG-Bilanz;TGA PV Lebensdauer;;Jahre;;;"WENNNV(SVERWEIS(GWP_other_name;GWP_Katalog;6;FALSCH);GHG_LCA_timeframe_years+1)"
+GWP_ee_lc_pv;THG-Bilanz;TGA PV;;GWP 100A (kgCO2equiv/m²BGF);;;"(GWP_ee_tga_pv_fossile+GWP_ee_tga_pv_biogenic)*(1+ABRUNDEN(GHG_LCA_timeframe_years/GWP_life_tga_pv; 0))"
+GWP_ee_tga_boreholes_fossile;THG-Bilanz;TGA Erdsonden fossil;;GWP 100A (kgCO2equiv/m²BGF);;;"WENNNV(SVERWEIS(GWP_boreholes_name;GWP_Katalog;4;FALSCH)*SVERWEIS(SVERWEIS(GWP_boreholes_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)"
+GWP_ee_tga_boreholes_biogenic;THG-Bilanz;TGA Erdsonden biogen;;GWP 100A (kgCO2equiv/m²BGF);;;"WENNNV(SVERWEIS(GWP_boreholes_name;GWP_Katalog;5;FALSCH)*SVERWEIS(SVERWEIS(GWP_boreholes_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)"
+GWP_life_tga_boreholes;THG-Bilanz;TGA Erdsonden Lebensdauer;;Jahre;;;"WENNNV(SVERWEIS(GWP_boreholes_name;GWP_Katalog;6;FALSCH);GHG_LCA_timeframe_years+1)"
+GWP_ee_lc_boreholes;THG-Bilanz;TGA Erdsonden;;GWP 100A (kgCO2equiv/m²BGF);;;"(GWP_ee_tga_boreholes_fossile+GWP_ee_tga_boreholes_biogenic)*(1+ABRUNDEN(GHG_LCA_timeframe_years/GWP_life_tga_boreholes; 0))"
+GWP_ee_tga_ventilation_fossile;THG-Bilanz;TGA Lüftung fossil;;GWP 100A (kgCO2equiv/m²BGF);;;"WENNNV(SVERWEIS(GWP_ventilation_name;GWP_Katalog;4;FALSCH)*SVERWEIS(SVERWEIS(GWP_ventilation_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)"
+GWP_ee_tga_ventilation_biogenic;THG-Bilanz;TGA Lüftung biogen;;GWP 100A (kgCO2equiv/m²BGF);;;"WENNNV(SVERWEIS(GWP_ventilation_name;GWP_Katalog;5;FALSCH)*SVERWEIS(SVERWEIS(GWP_ventilation_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)"
+GWP_life_tga_ventilation;THG-Bilanz;TGA Lüftung Lebensdauer;;Jahre;;;"WENNNV(SVERWEIS(GWP_ventilation_name;GWP_Katalog;6;FALSCH);GHG_LCA_timeframe_years+1)"
+GWP_ee_lc_ventilation;THG-Bilanz;TGA Lüftung;;GWP 100A (kgCO2equiv/m²BGF);;;"(GWP_ee_tga_ventilation_fossile+GWP_ee_tga_ventilation_biogenic)*(1+ABRUNDEN(GHG_LCA_timeframe_years/GWP_life_tga_ventilation; 0))"
+GWP_ee_tga_solarthermal_fossile;THG-Bilanz;TGA Solarthermie fossil;;GWP 100A (kgCO2equiv/m²BGF);;;"WENNNV(SVERWEIS(GWP_solarthermal_name;GWP_Katalog;4;FALSCH)*SVERWEIS(SVERWEIS(GWP_solarthermal_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)"
+GWP_ee_tga_solarthermal_biogenic;THG-Bilanz;TGA Solarthermie biogen;;GWP 100A (kgCO2equiv/m²BGF);;;"WENNNV(SVERWEIS(GWP_solarthermal_name;GWP_Katalog;5;FALSCH)*SVERWEIS(SVERWEIS(GWP_solarthermal_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)"
+GWP_life_solarthermal;THG-Bilanz;TGA Solarthermie Lebensdauer;;Jahre;;;"WENNNV(SVERWEIS(GWP_solarthermal_name;GWP_Katalog;6;FALSCH);GHG_LCA_timeframe_years+1)"
+GWP_ee_lc_solarthermal;THG-Bilanz;TGA Solarthermie;;GWP 100A (kgCO2equiv/m²BGF);;;"(GWP_ee_tga_solarthermal_fossile+GWP_ee_tga_solarthermal_biogenic)*(1+ABRUNDEN(GHG_LCA_timeframe_years/GWP_life_solarthermal; 0))"
+GWP_ee_tga_battery_fossile;THG-Bilanz;TGA E-Batterie fossil;;GWP 100A (kgCO2equiv/m²BGF);;;"WENNNV(SVERWEIS(GWP_battery_name;GWP_Katalog;4;FALSCH)*SVERWEIS(SVERWEIS(GWP_battery_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)"
+GWP_ee_tga_battery_biogenic;THG-Bilanz;TGA E-Batterie biogen;;GWP 100A (kgCO2equiv/m²BGF);;;"WENNNV(SVERWEIS(GWP_battery_name;GWP_Katalog;5;FALSCH)*SVERWEIS(SVERWEIS(GWP_battery_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)"
+GWP_life_battery;THG-Bilanz;TGA E-Batterie Lebensdauer;;Jahre;;;"WENNNV(SVERWEIS(GWP_battery_name;GWP_Katalog;6;FALSCH);GHG_LCA_timeframe_years+1)"
+GWP_ee_lc_battery;THG-Bilanz;TGA E-Batterie;;GWP 100A (kgCO2equiv/m²BGF);;;"(GWP_ee_tga_battery_fossile+GWP_ee_tga_battery_biogenic)*(1+ABRUNDEN(GHG_LCA_timeframe_years/GWP_life_battery; 0))"
+GWP_ee_tga_storage_fossile;THG-Bilanz;TGA Speicher fossil;;GWP 100A (kgCO2equiv/m²BGF);;;"WENNNV(SVERWEIS(GWP_storage_name;GWP_Katalog;4;FALSCH)*SVERWEIS(SVERWEIS(GWP_storage_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)"
+GWP_ee_tga_storage_biogenic;THG-Bilanz;TGA Speicher biogen;;GWP 100A (kgCO2equiv/m²BGF);;;"WENNNV(SVERWEIS(GWP_storage_name;GWP_Katalog;5;FALSCH)*SVERWEIS(SVERWEIS(GWP_storage_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)"
+GWP_life_storage;THG-Bilanz;TGA Speicher Lebensdauer;;Jahre;;;"WENNNV(SVERWEIS(GWP_storage_name;GWP_Katalog;6;FALSCH);GHG_LCA_timeframe_years+1)"
+GWP_ee_lc_storage;THG-Bilanz;TGA Speicher;;GWP 100A (kgCO2equiv/m²BGF);;;"(GWP_ee_tga_storage_fossile+GWP_ee_tga_storage_biogenic)*(1+ABRUNDEN(GHG_LCA_timeframe_years/GWP_life_storage; 0))"
+GWP_ee_tga_general_fossile;THG-Bilanz;TGA Allgemein fossil;;GWP 100A (kgCO2equiv/m²BGF);;;"WENNNV(SVERWEIS(GWP_tga_general_name;GWP_Katalog;4;FALSCH)*SVERWEIS(SVERWEIS(GWP_tga_general_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)"
+GWP_ee_tga_general_biogenic;THG-Bilanz;TGA Allgemein biogen;;GWP 100A (kgCO2equiv/m²BGF);;;"WENNNV(SVERWEIS(GWP_solarthermal_name;GWP_Katalog;5;FALSCH)*SVERWEIS(SVERWEIS(GWP_tga_general_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)"
+GWP_life_tga_general;THG-Bilanz;TGA Allgemein Lebensdauer;;Jahre;;;"WENNNV(SVERWEIS(GWP_tga_general_name;GWP_Katalog;6;FALSCH);GHG_LCA_timeframe_years+1)"
+GWP_ee_lc_tga_general;THG-Bilanz;TGA Allgemein;;GWP 100A (kgCO2equiv/m²BGF);;;"(GWP_ee_tga_general_fossile+GWP_ee_tga_general_biogenic)*(1+ABRUNDEN(GHG_LCA_timeframe_years/GWP_life_tga_general; 0))"
+GWP_ee_tga_other_fossile;THG-Bilanz;TGA Andere fossil;;GWP 100A (kgCO2equiv/m²BGF);;;"WENNNV(SVERWEIS(GWP_tga_other_name;GWP_Katalog;4;FALSCH)*SVERWEIS(SVERWEIS(GWP_tga_other_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)"
+GWP_ee_tga_other_biogenic;THG-Bilanz;TGA Andere biogen;;GWP 100A (kgCO2equiv/m²BGF);;;"WENNNV(SVERWEIS(GWP_tga_other_name;GWP_Katalog;5;FALSCH)*SVERWEIS(SVERWEIS(GWP_tga_other_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)"
+GWP_life_tga_other;THG-Bilanz;TGA Andere Lebensdauer;;Jahre;;;"WENNNV(SVERWEIS(GWP_tga_other_name;GWP_Katalog;6;FALSCH);GHG_LCA_timeframe_years+1)"
+GWP_ee_lc_tga_other;THG-Bilanz;TGA Sammel-Maßnahmen;;GWP 100A (kgCO2equiv/m²BGF);;;"(GWP_ee_tga_other_fossile+GWP_ee_tga_other_biogenic)*(1+ABRUNDEN(GHG_LCA_timeframe_years/GWP_life_tga_other; 0))"
+GWP_ee_con_tga;THG-Bilanz;Errichtung TGA;;GWP 100A (kgCO2equiv/m²BGF);;;GWP_ee_tga_pv_fossile+GWP_ee_tga_pv_biogenic+GWP_ee_tga_boreholes_fossile+GWP_ee_tga_boreholes_biogenic+GWP_ee_tga_ventilation_fossile+GWP_ee_tga_ventilation_biogenic+GWP_ee_tga_solarthermal_fossile+GWP_ee_tga_solarthermal_biogenic+GWP_ee_tga_battery_fossile+GWP_ee_tga_battery_biogenic+GWP_ee_tga_storage_fossile+GWP_ee_tga_storage_biogenic+GWP_ee_tga_general_fossile+GWP_ee_tga_general_biogenic+GWP_ee_tga_other_fossile+GWP_ee_tga_other_biogenic
+GWP_ee_rep_tga;THG-Bilanz;Instandsetzung TGA;;GWP 100A (kgCO2equiv/m²BGF);;;I369-I367
+GWP_ee_lc_tga;THG-Bilanz;TGA;;GWP 100A (kgCO2equiv/m²BGF);;;GWP_ee_lc_pv+GWP_ee_lc_boreholes+GWP_ee_lc_ventilation+GWP_ee_lc_solarthermal+GWP_ee_lc_battery+GWP_ee_lc_storage+GWP_ee_lc_tga_general+GWP_ee_lc_tga_other
+GWP_ee_mob_fossile;THG-Bilanz;Errichtung Mobilität fossil;;GWP 100S (kgCO2equiv/m²BGF);;;GWP_miv_count_fossile*GWP_mobility_construction_fossil*1000/GFA_total
+GWP_ee_mob_ev;THG-Bilanz;Errichtung Mobilität Elektrisch;;GWP 100S (kgCO2equiv/m²BGF);;;GWP_miv_count_ev*GWP_mobility_construction_ev*1000/GFA_total
+GWP_ee_lc_mob;THG-Bilanz;Errichtung Mobilität;;GWP 100S (kgCO2equiv/m²BGF);;;GWP_ee_mob_fossile+GWP_ee_mob_ev
+GWP_oe_battery_charge;THG-Bilanz;Betrieb Batterie Beladung;pro Jahr;GWP pro Jahr (kgCO2equiv/m²BGFa);;;"SUMMENPRODUKT(sim[cf_GHG_grid];sim[VRGrid_to_Batt])/1000/NFA_to_GFA_ratio"
+GWP_emInt_grid_avg;;Emissions-Intensität Netzstrom allgemein;;gCO2eq/kWh;;;MITTELWERT(sim[cf_GHG_grid])*1000
+GWP_emInt_grid;;Emissions-Intensität Netzstrombezug;;gCO2eq/kWh;;;GWP_oe_grid_build*NFA_to_GFA_ratio/(Grid_to_min-Grid_to_Eev_min)*1000
+GWP_emInt_flex;;Emissions-Intensität Flexibler Netzbezug;;gCO2eq/kWh;;;GWP_oe_flex_build*NFA_to_GFA_ratio/(VRGrid_to_flex-VRGrid_to_Eev_flex+VRGrid_to_min-VRGrid_to_Eev_min)*1000
+GWP_emInt_batt_charge;;Emissions-Intensität Batterie Beladung;;gCO2eq/kWh;;;GWP_oe_battery_charge/Batt_total_charge_input*1000*NFA_to_GFA_ratio
+GWP_emInt_ev_charge;;Emissions-Intensität EV ladung;;gCO2eq/kWh;;;GWP_oe_mob_ev/EUIev_el_total*1000*NFA_to_GFA_ratio
+GWP_emInt_PV_feedin;;Emissions-Intensität Netzeinspeisung;;gCO2eq/kWh;;;GWP_oe_grid_feedin*NFA_to_GFA_ratio/PV_to_Egrid*1000
+GWP_oe_grid_build;THG-ImportExport Bilanz;Betrieb Gebäude Netzstrombezug;pro Jahr;GWP pro Jahr (kgCO2equiv/m²BGFa);;;"SUMMENPRODUKT(sim[cf_GHG_grid];sim[Grid_to_building_min])/1000/NFA_to_GFA_ratio"
+GWP_oe_flex_build;THG-Bilanz;Betrieb Gebäude Flexibler Netzbezug;pro Jahr;GWP pro Jahr (kgCO2equiv/m²BGFa);;;"SUMMENPRODUKT(sim[cf_GHG_grid];sim[VRGrid_to_building])/1000/NFA_to_GFA_ratio"
+GWP_oe_district_heating;THG-ImportExport Bilanz;Betrieb HKLS Fernwärme;pro Jahr;GWP pro Jahr (kgCO2equiv/m²BGFa);;;"SUMMENPRODUKT(EUI_th;is_district_heating;ghg_conversion_factors_thermal)/NFA_to_GFA_ratio"
+GWP_oe_natural_gas;THG-ImportExport Bilanz;Betrieb HKLS Erdgas;pro Jahr;GWP pro Jahr (kgCO2equiv/m²BGFa);;;"SUMMENPRODUKT(EUI_th;is_natural_gas;ghg_conversion_factors_thermal)/NFA_to_GFA_ratio"
+GWP_oe_biomass;THG-ImportExport Bilanz;Betrieb HKLS Biomasse;pro Jahr;GWP pro Jahr (kgCO2equiv/m²BGFa);;;"SUMMENPRODUKT(EUI_th;is_biomass;ghg_conversion_factors_thermal)/NFA_to_GFA_ratio"
+GWP_oe_other;THG-ImportExport Bilanz;Betrieb HKLS Sonstige;pro Jahr;GWP pro Jahr (kgCO2equiv/m²BGFa);;;"SUMMENPRODUKT(EUI_th;is_other_thermal_pe;ghg_conversion_factors_thermal)/NFA_to_GFA_ratio"
+GWP_oe_grid_feedin;THG-ImportExport Bilanz;Betrieb Netzeinspeisung;pro Jahr;GWP pro Jahr (kgCO2equiv/m²BGFa);;;"-SUMMENPRODUKT(sim[cf_GHG_grid];sim[PV_to_Egrid])/1000/NFA_to_GFA_ratio"
+GWP_oe_building;THG-ImportExport Bilanz;Betrieb Gebäude;pro Jahr;GWP pro Jahr (kgCO2equiv/m²BGFa);;;SUMME(I392:I398)
+GWP_oe_mob_ev;THG-Bilanz;GWP MIV elektrisch INSGESAMTE LADUNG;pro Jahr;GWP pro Jahr (kgCO2equiv/m²BGFa);;;"SUMMENPRODUKT(sim[cf_GHG_grid];sim[Grid_to_Eev_min]+sim[VRGrid_to_Eev_min]+sim[VRGrid_to_Eev_flex]+EV_charging_losses_surcharge_factor*(sim[Eev_Cext_res]+sim[Eev_Cext_work]+sim[Eev_Cext_retail]))/1000/NFA_to_GFA_ratio"
+GWP_oe_mob_ev_export;THG-ImportExport Bilanz;GWP MIV Export (Anderer Verkehr);pro Jahr;GWP pro Jahr (kgCO2equiv/m²BGFa);;;-GWP_emInt_grid_avg*UED_mob_el_other*EV_charging_losses_surcharge_factor/1000/NFA_to_GFA_ratio
+GWP_oe_mob_fossile;THG-Bilanz;GWP MIV fossil;pro Jahr;GWP pro Jahr (kgCO2equiv/m²BGFa);;;mobility_is_included*I474*GWP_mobility_car_gpPKm/1000/GFA_total
+GWP_oe_mob;THG-Bilanz;Mobilität (Ursächlich);pro Jahr;GWP pro Jahr (kgCO2equiv/m²BGFa);;;GWP_oe_mob_fossile+GWP_oe_mob_ev+GWP_oe_mob_ev_export
+GWP_oe;;GWP Quartier (Gebäude+MIV);;GWP pro Jahr (kgCO2equiv/m²BGFa);;;GWP_oe_mob+GWP_oe_building
+GWP_oe_lc_grid_build;THG-Bilanz;LZ Betrieb Gebäude Netzstrombezug;2025-2075;GWP 100S (kgCO2equiv/m²BGF);;;GWP_oe_grid_build*GWP_rcpi_grid
+GWP_oe_lc_flex_build;THG-Bilanz;LZ Betrieb Gebäude Flexibler Netzbezug;2025-2075;GWP 100S (kgCO2equiv/m²BGF);;;GWP_oe_flex_build*GWP_rcpi_grid
+GWP_oe_lc_district_heating;THG-Bilanz;LZ Betrieb HKLS Fernwärme;2025-2075;GWP 100S (kgCO2equiv/m²BGF);;;"NFA_to_GFA_ratio*SUMMENPRODUKT(EUI_th;is_district_heating;ghg_conversion_factors_thermal;GWP_rcpis_thermal)"
+GWP_oe_lc_natural_gas;THG-Bilanz;LZ Betrieb HKLS Erdgas;2025-2075;GWP 100S (kgCO2equiv/m²BGF);;;"NFA_to_GFA_ratio*SUMMENPRODUKT(EUI_th;is_natural_gas;ghg_conversion_factors_thermal;GWP_rcpis_thermal)"
+GWP_oe_lc_biomass;THG-Bilanz;LZ Betrieb HKLS Biomasse;2025-2075;GWP 100S (kgCO2equiv/m²BGF);;;"NFA_to_GFA_ratio*SUMMENPRODUKT(EUI_th;is_biomass;ghg_conversion_factors_thermal;GWP_rcpis_thermal)"
+GWP_oe_lc_other;THG-Bilanz;LZ Betrieb HKLS Sonstige;2025-2075;GWP 100S (kgCO2equiv/m²BGF);;;"NFA_to_GFA_ratio*SUMMENPRODUKT(EUI_th;is_other_thermal_pe;ghg_conversion_factors_thermal;GWP_rcpis_thermal)"
+GWP_oe_lc_grid_feedin;THG-Bilanz;LZ Betrieb Netzeinspeisung;2025-2075;GWP 100S (kgCO2equiv/m²BGF);;;GWP_oe_grid_feedin*GWP_rcpi_grid_substition
+GWP_oe_lc_building;THG-Bilanz;LZ Betrieb Gebäude;2025-2050;;;;SUMME(I409:I415)
+GWP_oe_lc_emission;;LZ Betrieb Gebäude Emissionen;;;;;SUMME(I409:I414)
+GWP_oe_lc_emission_savings;;LZ Betrieb Gebäude Vermiedene Emissionen;;;;;-GWP_oe_lc_grid_feedin
+GWP_oe_lc_mob_ev;THG-Bilanz;LCA OE MIV elektrisch;2025-2050;GWP 100S (kgCO2equiv/m²BGF);;;GWP_oe_mob_ev*GWP_rcpi_grid
+GWP_oe_lc_mob_export;THG-Bilanz;LV Mobilitäts-Export;2025-2075;GWP 100S (kgCO2equiv/m²BGF);;;GWP_oe_mob_ev_export*GWP_rcpi_grid
+GWP_oe_lc_mob_fossile;THG-Bilanz;LCA OE MIV fossil;2025-2050;GWP 100S (kgCO2equiv/m²BGF);;;GWP_oe_mob_fossile*GWP_rcpi_mob_fossile
+GWP_oe_lc_mob;THG-Bilanz;Mobilität;2025-2050;GWP 100S (kgCO2equiv/m²BGF);;;GWP_oe_lc_mob_ev+GWP_oe_lc_mob_export+GWP_oe_lc_mob_fossile
+GWP_lc_total;THG-Bilanz;THG-Emissionen 2025-2075;2025-2050;GWP 100S (kgCO2equiv/m²BGF);;;GWP_oe_lc_mob+GWP_oe_lc_building+GWP_ee_lc_mob+GWP_ee_lc_tga+GWP_ee_lc_construction
+GWP_lc_OE_total;THG-Bilanz;OE THG-Emissionen 2025-2075;2025-2050;GWP 100S (kgCO2equiv/m²BGF);;;GWP_oe_lc_mob+GWP_oe_lc_building
+GWP_lc_EE_total;THG-Bilanz;EE THG-Emissionen 2025-2075;2025-2050;GWP 100S (kgCO2equiv/m²BGF);;;+GWP_ee_lc_mob+GWP_ee_lc_tga+GWP_ee_lc_construction
+cost_E_grid;Stromkosten;Kosten Netzbezug;;€;;;SUMME(sim[cost_E_grid])
+cost_VRGrid_flex;Stromkosten;Kosten Flexibler Bezug;;€;;;SUMME(sim[cost_VRGrid_flex])
+cost_PV_to_Egrid;Stromkosten;Kosten Netzeinspeisung;;€;;;SUMME(sim[cost_PV_to_Egrid])*GFA_total
+cost_total;Stromkosten;Summe Kosten;;€;;;
+flex_signal_ratio;Netzdienlichkeit der Energieflexibilität;Freigabesignal Anteil Jahr;;;;;"ZÄHLENWENN(sim[Signal];1)/8760"
+flex_signal_ratio_winter;Netzdienlichkeit der Energieflexibilität;Freigabesignal Anteil  Winter;;;;;"SUMMENPRODUKT( (sim[Signal]=1) * ISTZAHL(VERGLEICH(month;winter_months;0)) ) / 8760 * 2"
+flex_signal_ratio_summer;Netzdienlichkeit der Energieflexibilität;Freigabesignal Anteil  Sommer;;;;;"SUMMENPRODUKT( (sim[Signal]=1) * ISTZAHL(VERGLEICH(month;summer_months;0)) ) / 8760 * 2"
+flex_GSRU;Netzdienlichkeit der Energieflexibilität;Flex GSRU;;;"""Zufällige Netzdienlichkeit, Deckung Mindestbedarfe""";;VRGrid_to_min/EUI_el_total
+flex_GSRI;Netzdienlichkeit der Energieflexibilität;Flex GSRI;;;;;VRGrid_to_flex/EUI_el_total
+flex_GSR;Netzdienlichkeit der Energieflexibilität;Flex GSR;;;;;I439+I440
+PV_own_consumption_direct;PV;PV Eigenverbrauch direkt;;;;;PV_total_direct/PV_total
+PV_own_consumption_flex;PV;PV Eigenverbrauch flex;;;;;PV_total_flex/PV_total
+PV_own_consumption;PV;PV Eigenverbrauch insgesamt;;;SCR;;PV_own_consumption_direct+PV_own_consumption_flex
+EUI_self_sufficiency;PV;Energie-Autonomie;;;;;(PV_total_direct+PV_total_flex)/EUI_el_total
+Batt_total_charge;Batterienutzung;Batterie Jährliche Beladung;;kWh/m²NGFa;;;SUMME(sim[Batt_total_charge])/1000
+Batt_total_discharge;Batterienutzung;Jährliche Entladung;;kWh/m²NGFa;;;SUMME(sim[Batt_total_discharge])/1000*Batt_eff_factor_discharge
+Batt_charge_losses;Batterienutzung;Verluste Beladung;;kWh/m²NGFa;;;Batt_total_charge_input-Batt_total_charge
+Batt_discharge_losses;Batterienutzung;Verluste Entladung;;kWh/m²NGFa;;;Batt_total_charge-Batt_total_discharge-Batt_cap_Wh_per_NFA/1000*Batt_SOC_init
+Batt_RTE;Batterienutzung;Round-Trip- Efficiency;;;;;"WENNFEHLER(Batt_total_discharge/Batt_total_charge_input;0)"
+Batt_FEC;Batterienutzung;Batterie Volladezyklen;;x;;;"WENNFEHLER(Batt_total_charge*1000/Batt_cap_Wh_per_NFA;0)"
+StatPAX;Mobilität;Quartier;;StatPAX;;;I462+I458+I457
+mob_annual_milage_district;Mobilität;Gesamtverkehr;;km/a;;;SUMME(I466:I469)
+mob_annual_mileage_PAX;Mobilität;Gesamtverkehr pro STATPAX;;km/PAX/a;;;mob_annual_milage_district/StatPAX
+UED_mob_el_target;Mobilität;EE-Bedarf Zielverkehr Elektrisch;;kWh/m²NGFa;;;mobility_is_included*I473*EV_demand_kWhpkm*per_NFA
+EUI_mob_fossile;Mobilität;EE-Bedarf Zielverkehr Fossil;;kWh/m²NGFa;;;mobility_is_included*I474*fossile_demand_kWhpkm*per_NFA
+EV_FEC;Mobilität;EV Volladezyklen;;;;;"WENNFEHLER(SUMME(sim[Eev_Cmin];sim[Eev_flex_final])/I484;0)"
+UED_mob_el_total;Mobilität;Gesamtverkehr elektrisch;;kWh/m²NGFa;;;mobility_is_included*I479*EV_share*EV_demand_kWhpkm*per_NFA
+UED_mob_el_other;Mobilität;Quell- und anderer Verkehr elektrisch;;kWh/m²NGFa;;;mobility_is_included*(I486-UED_mob_el_target)
+EUIev_el_total;Mobilität;EV Jährliche Beladung;;;;;EUIev_el+Eev_ext_charge
+Edhw_th;Warmwasser;WW Endenergiebedarf Thermisch;;kWh/m²NGFa;;;Edhw_1_th+Edhw_2_th
+Edhw_el;Warmwasser;WW Endenergiebedarf Elektrisch (inkl. Hilfsstrom);;kWh/m²NGFa;;;Edhw_1_el+Edhw_2_el
+Edhw_aux_el;Warmwasser;WW Hilfsstrom;;;;;Edhw_1_aux_el+Edhw_2_aux_el
+Edhw_1_th;Warmwasser;WW 1 Endenergie thermisch;;kWh/m²NGFa;;;SUMME(sim[Qdhw_1_total])/1000
+Edhw_1_el;Warmwasser;WW 1 Endenergie elektrisch (inkl. Hilfsstrom);;kWh/m²NGFa;;;"SUMME(sim[Edhw_1_min_el];sim[Edhw1_flex_final])/1000"
+Edhw_1_aux_el;Warmwasser;WW 1 Hilfsstrom;;kWh/m²NGFa;;;Edhw_1_th * DHW_1_el_aux
+Edhw_2_th;Warmwasser;WW 2 Endenergie thermisch;;kWh/m²NGFa;;;SUMME(sim[Qdhw_2_total])/1000
+Edhw_2_el;Warmwasser;WW 2 Endenergie elektrisch (inkl.Hilfsstrom);;kWh/m²NGFa;;;"SUMME(sim[Edhw_2_min_el];sim[Edhw2_flex_final])/1000"
+Edhw_2_aux_el;Warmwasser;WW 2 Hilfsstrom;;kWh/m²NGFa;;;Edhw_2_th * DHW_2_el_aux
