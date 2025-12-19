@@ -44,3 +44,49 @@ def read_dataset_dir(root: str | Path) -> dict[str, pd.DataFrame]:
         "IN": _read_csv(root / "IN.csv"),
         "OUT": _read_csv(root / "OUT.csv"),
     }
+
+def normalize_table(
+    df: pd.DataFrame,
+    *,
+    key_cols: list[str],
+) -> pd.DataFrame:
+    """
+    Normalize a table for stable diffs:
+    - strip whitespace from all cells
+    - stable sort by key columns
+    - reset index
+    """
+    if not key_cols:
+        raise ValueError("key_cols must be provided")
+
+    missing = [c for c in key_cols if c not in df.columns]
+    if missing:
+        raise ValueError(f"Missing key columns: {missing}")
+
+    out = df.copy()
+
+    # strip whitespace everywhere
+    for col in out.columns:
+        out[col] = out[col].astype(str).str.strip()
+
+    # stable sort
+    out = out.sort_values(by=key_cols, kind="stable")
+
+    return out.reset_index(drop=True)
+
+def normalize_dataset(
+    tables: dict[str, pd.DataFrame],
+    *,
+    key_cols: dict[str, list[str]],
+) -> dict[str, pd.DataFrame]:
+    """
+    Normalize all tables in a dataset.
+    key_cols: e.g. {"IN": ["var_name"], "OUT": ["var_name"]}
+    """
+    out: dict[str, pd.DataFrame] = {}
+    for name, df in tables.items():
+        if name in key_cols:
+            out[name] = normalize_table(df, key_cols=key_cols[name])
+        else:
+            out[name] = df.copy()
+    return out
