@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "peexcel"
+version = "0.0.0"
+description = "PE-Excel tooling"
+requires-python = ">=3.10"
+dependencies = [
+  "pandas",
+  "openpyxl",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest",
+  "ruff",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]

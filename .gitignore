@@ -16,8 +16,6 @@
 *.svg
 
 #  folders
-images/
-assets/images/
 .idea
 .vscode
 docs/Meetings/
@@ -26,3 +24,12 @@ Excel Files/PEExcel Archive/
 **/Intern/
 **/__pycache__/
 **/.ipynb_checkpoints/
+
+env/
+.idea/
+.venv/
+__pycache__/
+*.pyc
+~$*.xls*
+.DS_Store
+.ipynb_checkpoints/

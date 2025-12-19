@@ -1,0 +1,418 @@
+﻿var_name;ka;Type;Name;Einheit;Kommentar;Icon;Formel;bind_type
+project_name;2;userinput;Projektname;;;📝;🏙️!$D$5;formula_ref
+project_url;2;userinput;ProjektURL;;;📝;🏙️!D6;formula_ref
+location_address;2;userinput;Adresse;;;📝;🏙️!$D$12;formula_ref
+municipality_name;2;userinput;Gemeinde;;;📝;🏙️!D14;formula_ref
+project_creation_date;2;userinput;Erstellungsdatum;;;📝;🏙️!$D$7;formula_ref
+project_description;2;userinput;Projektbeschreibung;;;📝;🏙️!D8;formula_ref
+project_scenario_name;2;userinput;Variante / Scenario;;;📝;🏙️!D9;formula_ref
+location_postcode;2;userinput;Postleitzahl;;;📝;🏙️!$D$15;formula_ref
+mobility_mode;1;value;Mobilitätsverfahren;;;📝;;direct
+scenario_version;2;userinput;Tool Version;;;📝;🏙️!F7;formula_ref
+weather_name;2;userinput;Wetterdatensatz Name;;;🌦️;🏙️!$D$19;formula_ref
+GFA_residential;2;userinput;BGF Wohnen;m²BGF;;🏙️;🏙️!D28;formula_ref
+GFA_office;2;userinput;BGF Büro;m²BGF;;🏙️;🏙️!D29;formula_ref
+GFA_schoolsec;2;userinput;BGF Bildung sekundär;m²BGF;;🏙️;🏙️!D30;formula_ref
+GFA_schoolprim;2;userinput;BGF Bildung primär;m²BGF;;🏙️;🏙️!D31;formula_ref
+GFA_retailfood;2;userinput;BGF Lebensmittelhandel;m²BGF;;🏙️;🏙️!D32;formula_ref
+GFA_retailother;2;userinput;BGF Handel sonstiger;m²BGF;;🏙️;🏙️!D33;formula_ref
+GFA_other;2;userinput;BGF Sonstige;m²BGF;;🏙️;🏙️!D34;formula_ref
+NFA_to_GFA_ratio_residential;2;userinput;NGF/BGF Wohnen;Faktor;;🏙️;🏙️!F42;formula_ref
+NFA_to_GFA_ratio_office;2;userinput;NGF/BGF  Büro;Faktor;;🏙️;🏙️!F43;formula_ref
+NFA_to_GFA_ratio_schoolsec;2;userinput;NGF/BGF Bildung sekundär;Faktor;;🏙️;🏙️!F44;formula_ref
+NFA_to_GFA_ratio_schoolprim;2;userinput;NGF/BGF Bildung primär;Faktor;;🏙️;🏙️!F45;formula_ref
+NFA_to_GFA_ratio_retailfood;2;userinput;NGF/BGF Lebensmittelhandel;Faktor;;🏙️;🏙️!F46;formula_ref
+NFA_to_GFA_ratio_retailother;2;userinput;NGF/BGF Handel sonstiger;Faktor;;🏙️;🏙️!F47;formula_ref
+NFA_to_GFA_ratio_other;2;userinput;NGF/BGF Sonstige;Faktor;;🏙️;🏙️!F48;formula_ref
+plot_area;2;userinput;Bebaubare Grundstücksfläche;m²GF;;🏙️;🏙️!D55;formula_ref
+renovation_ratio_residential;2;userinput;Sanierung Anteil Wohnen;;;🏙️;🏙️!D61;formula_ref
+renovation_ratio_office;2;userinput;Sanierung Anteil Büro;;;🏙️;🏙️!D62;formula_ref
+renovation_ratio_schoolsec;2;userinput;Sanierung Anteil Bildung sekundär;;;🏙️;🏙️!D63;formula_ref
+renovation_ratio_schoolprim;2;userinput;Sanierung Anteil Bildung primär;;;🏙️;🏙️!D64;formula_ref
+renovation_ratio_retailfood;2;userinput;Sanierung Anteil Lebensmittelhandel;;;🏙️;🏙️!D65;formula_ref
+renovation_ratio_retailother;2;userinput;Sanierung Anteil Handel Sonstiger;;;🏙️;🏙️!D66;formula_ref
+renovation_ratio_other;2;userinput;Sanierung Anteil Sonstige;;;🏙️;🏙️!D67;formula_ref
+building_count;1;value;Anzahl Baukörper;;;🏙️;;direct
+storey_count_avg;1;value;Anzahl Geschoße;;;🏙️;;direct
+rh_residential;2;userinput;Raumhöhe Wohnen;m Netto;;↕️;🏙️!D42;formula_ref
+rh_office;2;userinput;Raumhöhe Büro;m Netto;;↕️;🏙️!D43;formula_ref
+rh_schoolsec;2;userinput;Raumhöhe sekundäre Bildungseinrichtung/ Universität;m Netto;;↕️;🏙️!D44;formula_ref
+rh_schoolprim;2;userinput;Raumhöhe primäre Bildundseinrichtung/ Kindergarten;m Netto;;↕️;🏙️!D45;formula_ref
+rh_retailfood;2;userinput;Raumhöhe Lebensmittelhandel;m Netto;;↕️;🏙️!D46;formula_ref
+rh_retailother;2;userinput;Raumhöhe Handel sonstiger;m Netto;;↕️;🏙️!D47;formula_ref
+rh_other;2;userinput;Raumhöhe Sonstige Nutzung;m Netto;;↕️;🏙️!D48;formula_ref
+rh_ceiling;1;value;Höhe Geschoßdecken;m;;↕️;;direct
+hull_ext_wall_wo_window_m2;2;userinput;Hüllfläche Außenwand;m² Brutto;exkl. Fenster;🧊;🧱!D11;formula_ref
+hull_roof_m2;2;userinput;Hüllfläche Dach;m² Brutto;;🧊;🧱!D12;formula_ref
+hull_fundament_m2;2;userinput;Hüllfläche Kellerdecke / Fundament;m² Brutto;;🧊;🧱!D13;formula_ref
+hull_windows_north_m2;2;userinput;Hüllfläche Fenster Nord;m² Brutto;inkl. Rahmen;🧊;🧱!D18;formula_ref
+hull_windows_east_m2;2;userinput;Hüllfläche Fenster Ost;m² Brutto;inkl. Rahmen;🧊;🧱!D19;formula_ref
+hull_windows_south_m2;2;userinput;Hüllfläche Fenster Süd;m² Brutto;inkl. Rahmen;🧊;🧱!D20;formula_ref
+hull_windows_west_m2;2;userinput;Hüllfläche Fenster West;m² Brutto;inkl. Rahmen;🧊;🧱!D21;formula_ref
+hull_windows_horizontal_m2;2;userinput;Hüllfläche Fenster Horizontal;m² Brutto;inkl. Rahmen;🧊;🧱!D22;formula_ref
+hull_transmittance_walls;2;userinput;U-Wert Außenwände;W/m²K;;🧱;🧱!F11;formula_ref
+hull_transmittance_roof;2;userinput;U-Wert Dach;W/m²K;;🧱;🧱!F12;formula_ref
+hull_transmittance_fundament;2;userinput;U-Wert Kellerdecke / Fundament;W/m²K;;🧱;🧱!F13;formula_ref
+hull_transmittance_windows_north;2;userinput;U-Wert Fenster Nord;W/m²K;inkl. Rahmen;🧱;🧱!F28;formula_ref
+hull_transmittance_windows_east;2;userinput;U-Wert Fenster Ost;W/m²K;inkl. Rahmen;🧱;🧱!F29;formula_ref
+hull_transmittance_windows_south;2;userinput;U-Wert Fenster Süd;W/m²K;inkl. Rahmen;🧱;🧱!F30;formula_ref
+hull_transmittance_windows_west;2;userinput;U-Wert Fenster West;W/m²K;inkl. Rahmen;🧱;🧱!F31;formula_ref
+hull_transmittance_windows_horizontal;2;userinput;U-Wert Fenster Horizontal;W/m²K;inkl. Rahmen;🧱;🧱!F32;formula_ref
+hull_transmittance_heatbridge;2;userinput;Wärmebrückenzuschlag;;Anteil des Transmissionsleitwerts;🧱;🧱!D36;formula_ref
+heat_capacity_effective_m²;2;userinput;Spezif. wirksame Wärmekapazität;Wh/m²K;;🧱;🧱!D77;formula_ref
+window_total_transmittance_north;2;userinput;g-Wert Fenster Nord;;;🏢;🧱!D28;formula_ref
+window_total_transmittance_east;2;userinput;g-Wert Fenster Ost;;;🏢;🧱!D29;formula_ref
+window_total_transmittance_south;2;userinput;g-Wert Fenster Süd;;;🏢;🧱!D30;formula_ref
+window_total_transmittance_west;2;userinput;g-Wert Fenster West;;;🏢;🧱!D31;formula_ref
+window_total_transmittance_horizontal;2;userinput;g-Wert Fenster Horizontal;;;🏢;🧱!D32;formula_ref
+window_irradiation_factor_winter_north;2;userinput;Einstrahlungsfaktor Fenster Nord;;;🏢;🧱!D55;formula_ref
+window_irradiation_factor_winter_east;2;userinput;Einstrahlungsfaktor Fenster Ost;;;🏢;🧱!D56;formula_ref
+window_irradiation_factor_winter_south;2;userinput;Einstrahlungsfaktor Fenster Süd;;;🏢;🧱!D57;formula_ref
+window_irradiation_factor_winter_west;2;userinput;Einstrahlungsfaktor Fenster West;;;🏢;🧱!D58;formula_ref
+window_irradiation_factor_winter_horizontal;2;userinput;Einstrahlungsfaktor Fenster Horizontal;;;🏢;🧱!D59;formula_ref
+window_irradiation_factor_summer_north;2;userinput;Einstrahlungsfaktor Sommer Nord;;;🏢;🧱!F55;formula_ref
+window_irradiation_factor_summer_east;2;userinput;Einstrahlungsfaktor Sommer Ost;;;🏢;🧱!F56;formula_ref
+window_irradiation_factor_summer_south;2;userinput;Einstrahlungsfaktor Sommer Süd;;;🏢;🧱!F57;formula_ref
+window_irradiation_factor_summer_west;2;userinput;Einstrahlungsfaktor Sommer  West;;;🏢;🧱!F58;formula_ref
+window_irradiation_factor_summer_horizontal;2;userinput;Einstrahlungsfaktor Sommer  Horizontal;;;🏢;🧱!F59;formula_ref
+irradiation_opaque_surcharge;1;value;Zuschlag opake Bauteile;;;🏢;;direct
+fc_residential;2;userinput;Fc-Wert Wohnen;;;🏢;🧱!D64;formula_ref
+fc_office;2;userinput;Fc-Wert Büro;;;🏢;🧱!D65;formula_ref
+fc_edusec;2;userinput;Fc-Wert Sekundäre Bildungseinrichtung oder Universität;;;🏢;🧱!D66;formula_ref
+fc_eduprim;2;userinput;Fc-Wert Kindergarten und Volksschule;;;🏢;🧱!D67;formula_ref
+fc_retailfood;2;userinput;Fc-Wert Lebensmittelhandel;;;🏢;🧱!D68;formula_ref
+fc_retailother;2;userinput;Fc-Wert Handel;;;🏢;🧱!D69;formula_ref
+fc_other;2;userinput;Fc-Wert Sonstige;;;🏢;🧱!D70;formula_ref
+illuminance_min_residential;2;userinput;Lux-Wert Wohnen;lux;;🏢;🧱!F64;formula_ref
+illuminance_min_office;2;userinput;Lux-Wert Büro;lux;;🏢;🧱!F65;formula_ref
+illuminance_min_schoolsec;2;userinput;Lux-Wert Sekundäre Bildungseinrichtung oder Universität;lux;;🏢;🧱!F66;formula_ref
+illuminance_min_schoolprim;2;userinput;Lux-Wert Kindergarten und Volksschule;lux;;🏢;🧱!F67;formula_ref
+illuminance_min_retailfood;2;userinput;Lux-Wert Lebensmittelhandel;lux;;🏢;🧱!F68;formula_ref
+illuminance_min_retailother;2;userinput;Lux-Wert Handel;lux;;🏢;🧱!F69;formula_ref
+illuminance_min_other;2;userinput;Lux-Wert Sonstige;lux;;🏢;🧱!F70;formula_ref
+illuminance_efficiency_dirt;1;value;Abminderungsfaktor Verschmutzung;;;🏢;;direct
+illuminance_efficiency_glazing_ratio;2;userinput;Abminderungsfaktor Verglasungsanteil;;;🏢;🧱!D25;formula_ref
+vent_air_tightness;2;userinput;Luftdichtheit n50;1/h;;💨;🧱!D41;formula_ref
+vent_tightness_ratio_blowerdoor_to_real;1;value;Verhältnis Blower Door / Reale Infiltration;;;💨;;direct
+vent_share_mechanical_residential;2;userinput;Mechanische Lüftung Wohnen;Anteil;;💨;💨L!D19;formula_ref
+vent_share_mechanical_office;2;userinput;Mechanische Lüftung Büro;Anteil;;💨;💨L!D20;formula_ref
+vent_share_mechanical_schoolsec;2;userinput;Mechanische Lüftung Bildung sekundär;Anteil;;💨;💨L!D21;formula_ref
+vent_share_mechanical_schoolprim;2;userinput;Mechanische Lüftung Bildung primär;Anteil;;💨;💨L!D22;formula_ref
+vent_share_mechanical_retailfood;2;userinput;Mechanische Lüftung Handel Lebensmittel;Anteil;;💨;💨L!D23;formula_ref
+vent_share_mechanical_retailother;2;userinput;Mechanische Lüftung Handel sonstiger;Anteil;;💨;💨L!D24;formula_ref
+vent_share_mechanical_other;2;userinput;Mechanische Lüftung Sonstige Nutzung;Anteil;;💨;💨L!D25;formula_ref
+vent_night_residential;2;userinput;Nachtauskühlung Fensterstellung Wohnen;;;💨;💨L!D54;formula_ref
+vent_night_office;2;userinput;Nachtauskühlung Fensterstellung Büro;;;💨;💨L!D55;formula_ref
+vent_night_schoolsec;2;userinput;Nachtauskühlung Fensterstellung Bildung sekundär;;;💨;💨L!D57;formula_ref
+vent_night_schoolprim;2;userinput;Nachtauskühlung Fensterstellung Bildung primär;;;💨;💨L!D56;formula_ref
+vent_night_retailfood;2;userinput;Nachtauskühlung Fensterstellung Handel Lebensmittel;;;💨;💨L!D58;formula_ref
+vent_night_retailother;2;userinput;Nachtauskühlung Fensterstellung Handel sonstiger;;;💨;💨L!D59;formula_ref
+vent_night_other;2;userinput;Nachtauskühlung Fensterstellung Sonstige Nutzung;;;💨;💨L!D60;formula_ref
+vent_ach_max_residential;2;userinput;Luftwechsel Wohnen;1/h;Maximal;💨;💨L!D8;formula_ref
+vent_ach_max_office;2;userinput;Luftwechsel Büro;1/h;Maximal;💨;💨L!D9;formula_ref
+vent_ach_max_schoolsec;2;userinput;Luftwechsel Bildung sekundär;1/h;Maximal;💨;💨L!D10;formula_ref
+vent_ach_max_schoolprim;2;userinput;Luftwechsel Bildung primär;1/h;Maximal;💨;💨L!D11;formula_ref
+vent_ach_max_retailfood;2;userinput;Luftwechsel Handel Lebensmittel;1/h;Maximal;💨;💨L!D12;formula_ref
+vent_ach_max_retailother;2;userinput;Luftwechsel Handel sonstiger;1/h;Maximal;💨;💨L!D13;formula_ref
+vent_ach_max_other;2;userinput;Luftwechsel Sonstige Nutzung;1/h;Maximal;💨;💨L!D14;formula_ref
+Ev_scale_residential;2;userinput;Lüfterstrom mech. Wohnen;Anteil;;💨;💨L!D41;formula_ref
+Ev_scale_office;2;userinput;Lüfterstrom mech. Büro;Anteil;;💨;💨L!D42;formula_ref
+Ev_scale_school_sec;2;userinput;Lüfterstrom mech.  Bildung sekundär;Anteil;;💨;💨L!D43;formula_ref
+Ev_scale_school_prim;2;userinput;Lüfterstrom mech.  Bildung primär;Anteil;;💨;💨L!D44;formula_ref
+Ev_scale_retail_food;2;userinput;Lüfterstrom mech.  Handel Lebensmittel;Anteil;;💨;💨L!D45;formula_ref
+Ev_scale_retail_other;2;userinput;Lüfterstrom mech.  Handel sonstiger;Anteil;;💨;💨L!D46;formula_ref
+Ev_scale_other;2;userinput;Lüfterstrom mech.  Sonstige Nutzung;Anteil;;💨;💨L!D47;formula_ref
+vent_heat_recovery_winter_residential;2;userinput;Wärmerückgewinnung Winter Wohnen;;Maximal;💨;💨L!D30;formula_ref
+vent_heat_recovery_winter_office;2;userinput;Wärmerückgewinnung Winter Büro;;Maximal;💨;💨L!D31;formula_ref
+vent_heat_recovery_winter_schoolsec;2;userinput;Wärmerückgewinnung Winter Bildung sekundär;;Maximal;💨;💨L!D32;formula_ref
+vent_heat_recovery_winter_schoolprim;2;userinput;Wärmerückgewinnung Winter Bildung primär;;Maximal;💨;💨L!D33;formula_ref
+vent_heat_recovery_winter_retailfood;2;userinput;Wärmerückgewinnung Winter Handel Lebensmittel;;Maximal;💨;💨L!D34;formula_ref
+vent_heat_recovery_winter_retailother;2;userinput;Wärmerückgewinnung Winter Handel sonstiger;;Maximal;💨;💨L!D35;formula_ref
+vent_heat_recovery_winter_other;2;userinput;Wärmerückgewinnung Winter Sonstige Nutzung;;Maximal;💨;💨L!D36;formula_ref
+vent_heat_recovery_summer_residential;2;userinput;Wärmerückgewinnung Sommer Wohnen;;;💨;💨L!F30;formula_ref
+vent_heat_recovery_summer_office;2;userinput;Wärmerückgewinnung Sommer Büro;;;💨;💨L!F31;formula_ref
+vent_heat_recovery_summer_schoolsec;2;userinput;Wärmerückgewinnung Sommer Bildung sekundär;;;💨;💨L!F32;formula_ref
+vent_heat_recovery_summer_schoolprim;2;userinput;Wärmerückgewinnung Sommer Bildung primär;;;💨;💨L!F33;formula_ref
+vent_heat_recovery_summer_retailfood;2;userinput;Wärmerückgewinnung Sommer Handel Lebensmittel;;;💨;💨L!F34;formula_ref
+vent_heat_recovery_summer_retailother;2;userinput;Wärmerückgewinnung Sommer Handel sonstiger;;;💨;💨L!F35;formula_ref
+vent_heat_recovery_summer_other;2;userinput;Wärmerückgewinnung Sommer Sonstige Nutzung;;;💨;💨L!F36;formula_ref
+usage_concurrency_winter_res;2;userinput;Gleichzeitigkeitsfaktor Innere Wärmen Winter Wohnen;;;👤;👤!F21;formula_ref
+usage_concurrency_winter_office;2;userinput;Gleichzeitigkeitsfaktor Innere Wärmen Winter Büro;;;👤;👤!F22;formula_ref
+usage_concurrency_winter_edusec;2;userinput;Gleichzeitigkeitsfaktor Innere Wärmen Winter Bildung sekundär;;;👤;👤!F23;formula_ref
+usage_concurrency_winter_eduprim;2;userinput;Gleichzeitigkeitsfaktor Innere Wärmen Winter Bildung primär;;;👤;;ui_writeback
+usage_concurrency_winter_retailfood;2;userinput;Gleichzeitigkeitsfaktor Innere Wärmen Winter Handel Lebensmittel;;;👤;👤!F25;formula_ref
+usage_concurrency_winter_retailother;2;userinput;Gleichzeitigkeitsfaktor Innere Wärmen Winter Handel sonstiger;;;👤;👤!F26;formula_ref
+usage_concurrency_winter_other;2;userinput;Gleichzeitigkeitsfaktor Innere Wärmen Winter Sonstige Nutzung;;;👤;👤!F27;formula_ref
+usage_concurrency_summer_res;2;userinput;Gleichzeitigkeitsfaktor Innere Wärmen Sommer Wohnen;;;👤;👤!I21;formula_ref
+usage_concurrency_summer_office;2;userinput;Gleichzeitigkeitsfaktor Innere Wärmen Sommer Büro;;;👤;👤!I22;formula_ref
+usage_concurrency_summer_edusec;2;userinput;Gleichzeitigkeitsfaktor Innere Wärmen Sommer Bildung sekundär;;;👤;👤!I23;formula_ref
+usage_concurrency_summer_eduprim;2;userinput;Gleichzeitigkeitsfaktor Innere Wärmen Sommer Bildung primär;;;👤;👤!I24;formula_ref
+usage_concurrency_summer_retailfood;2;userinput;Gleichzeitigkeitsfaktor Innere Wärmen Sommer Handel Lebensmittel;;;👤;👤!I25;formula_ref
+usage_concurrency_summer_retailother;2;userinput;Gleichzeitigkeitsfaktor Innere Wärmen Sommer Handel sonstiger;;;👤;👤!I26;formula_ref
+usage_concurrency_summer_other;2;userinput;Gleichzeitigkeitsfaktor Innere Wärmen Sommer Sonstige Nutzung;;;👤;👤!I27;formula_ref
+DHW_demand_residential_kWhm2;1;value;WWWB Wohnen;kWh/m²NGFa;Input fehlt;👤;;direct
+DHW_demand_office_kWhm2;1;value;WWWB Büro;kWh/m²NGFa;Input fehlt;👤;;direct
+DHW_demand_schoolsec_kWhm2;1;value;WWWB Bildung sekundär;kWh/m²NGFa;Input fehlt;👤;;direct
+DHW_demand_schoolprim_kWhm2;1;value;WWWB Bildung primär;kWh/m²NGFa;Input fehlt;👤;;direct
+DHW_demand_retailfood_kWhm2;1;value;WWWB Handel Lebensmittel;kWh/m²NGFa;Input fehlt;👤;;direct
+DHW_demand_retailother_kWhm2;1;value;WWWB Handel sonstiger;kWh/m²NGFa;Input fehlt;👤;;direct
+DHW_demand_other_kWhm2;1;value;WWWB Sonstige Nutzung;kWh/m²NGFa;Input fehlt;👤;;direct
+aux_el_demand_residential_kWhm2;2;userinput;Allgemeinstrom Wohnen;kWh/m²NGFa;Input fehlt;👤;👤!L9;formula_ref
+aux_el_demand_office_kWhm2;2;userinput;Allgemeinstrom Büro;kWh/m²NGFa;Input fehlt;👤;👤!L10;formula_ref
+aux_el_demand_schoolsec_kWhm2;2;userinput;Allgemeinstrom Bildung sekundär;kWh/m²NGFa;Input fehlt;👤;👤!L11;formula_ref
+aux_el_demand_schoolprim_kWhm2;2;userinput;Allgemeinstrom Bildung primär;kWh/m²NGFa;Input fehlt;👤;👤!L12;formula_ref
+aux_el_demand_retailfood_kWhm2;2;userinput;Allgemeinstrom Handel lebensmittel;kWh/m²NGFa;Input fehlt;👤;👤!L13;formula_ref
+aux_el_demand_retailother_kWhm2;2;userinput;Allgemeinstrom Handel sonstiger;kWh/m²NGFa;Input fehlt;👤;👤!L14;formula_ref
+aux_el_demand_other_kWhm2;2;userinput;Allgemeinstrom Sonstige Nutzung;kWh/m²NGFa;Input fehlt;👤;👤!L15;formula_ref
+Plugloads_scale_res;2;userinput;Nutzerstrom Wohnen;Faktor;;👤;👤!F9;formula_ref
+Plugloads_scale_office;2;userinput;Nutzerstrom Büro;Faktor;;👤;👤!F10;formula_ref
+Plugloads_scale_schoolsec;2;userinput;Nutzerstrom Bildung sekundär;Faktor;;👤;👤!F11;formula_ref
+Plugloads_scale_schoolprim;2;userinput;Nutzerstrom Bildung primär;Faktor;;👤;👤!F12;formula_ref
+Plugloads_scale_retailfood;2;userinput;Nutzerstrom Handel Lebensmittel;Faktor;;👤;👤!F13;formula_ref
+Plugloads_scale_retailother;2;userinput;Nutzerstrom Handel sonstiger;Faktor;;👤;👤!F14;formula_ref
+Plugloads_scale_other;2;userinput;Nutzerstrom Sonstige Nutzung;Faktor;;👤;👤!F15;formula_ref
+density_NFApPers_residential;1;value;Belegungsdichte Wohnen;m²NF/Pers;;🚗;;direct
+density_NFApPers_office;1;value;Belegungsdichte Büro;m²NF/Pers;;🚗;;direct
+density_NFApPers_edu;1;value;Belegungsdichte Ausbildung Sekundär;m²NF/Pers;;🚗;;direct
+density_NFApPers_retail;1;value;Belegungsdichte Handel Supermarkt;m²NF/Pers;;🚗;;direct
+density_NFApPers_edu_rpim;1;value;Belegungsdichte Ausbildung Primär;m²NF/Pers;;🚗;;direct
+density_NFApPers_retail_other;1;value;Belegungsdichte Handel Sonstige;m²NF/Pers;;🚗;;direct
+mob_simultaneity_edu;2;userinput;Gleichzeitigkeitsfaktorsfaktor Ausbildung;;1 statistische Nutzer ist x realer Nutzer zwecks Wege, die ins Quartier führen);🚗;🚗!D74;formula_ref
+mob_simultaneity_retail;2;userinput;Gleichzeitigkeitsfaktorsfaktor Einkaufen;;wieviele Verkaufsflchen werden von mehreren Nutzern aufgesucht?;🚗;🚗!D75;formula_ref
+mob_simultaneity_office;1;value;Gleichzetigkeitsfaktor Arbeit;;;🚗;;direct
+mob_motorization_perNFA_residential;1;value;Autos pro Nutzung Wohnen;pro 100m²;;🚗;;direct
+mob_motorization_perNFA_work;1;value;Autos pro Nutzung Arbeit;pro 100m²;;🚗;;direct
+mob_motorization_perNFA_retail;2;userinput;Autos pro Nutzung Einkaufen;pro 100m²;;🚗;🚗!D33;formula_ref
+Plight_max_office;2;userinput;Beleuchtung maximal Büro;W/m²;;💡;👤!U10;formula_ref
+Plight_max_schoolsec;2;userinput;Beleuchtung maximal Ausbildung Sekundär;W/m²;;💡;👤!U11;formula_ref
+Plight_max_schoolprim;2;userinput;Beleuchtung maximal Ausbildung Primär;W/m²;;💡;👤!U12;formula_ref
+Plight_min_office;2;userinput;Beleuchtung minimal Büro;W/m²;;💡;👤!T10;formula_ref
+Plight_min_schoolsec;2;userinput;Beleuchtung minimal Ausbildung Sekundär;W/m²;;💡;👤!T11;formula_ref
+Plight_min_schoolprim;2;userinput;Beleuchtung minimal Ausbildung Primär;W/m²;;💡;👤!T12;formula_ref
+lighting_factor_office;2;userinput;Beleuchtung Skalierung Büro;kWh/m²a;;💡;👤!V10;formula_ref
+lighting_factor_schoolsec;2;userinput;Beleuchtung Skalierung Ausbildung Sekundär;kWh/m²a;;💡;👤!V11;formula_ref
+lighting_factor_schoolprim;2;userinput;Beleuchtung Skalierung Ausbildung Primär;kWh/m²a;;💡;👤!V12;formula_ref
+Daylightcoefficient_office;2;userinput;Tageslichtkoeffizient Büro;-;;💡;👤!R10;formula_ref
+Daylightcoefficient_schoolsec;2;userinput;Tageslichtkoeffizient Ausbildung Sekundär;-;;💡;👤!R11;formula_ref
+Daylightcoefficient_schoolprim;2;userinput;Tageslichtkoeffizient Ausbildung Primär;-;;💡;👤!R12;formula_ref
+heating_month1;2;userinput;Heizperiode Jänner;Bool;Input fehlt;♨️;;ui_writeback
+heating_month2;2;userinput;Heizperiode Februar;Bool;Input fehlt;♨️;;ui_writeback
+heating_month3;2;userinput;Heizperiode März;Bool;Input fehlt;♨️;;ui_writeback
+heating_month4;2;userinput;Heizperiode April;Bool;Input fehlt;♨️;;ui_writeback
+heating_month5;2;userinput;Heizperiode Mai;Bool;Input fehlt;♨️;;ui_writeback
+heating_month6;2;userinput;Heizperiode Juni;Bool;Input fehlt;♨️;;ui_writeback
+heating_month7;2;userinput;Heizperiode Juli;Bool;Input fehlt;♨️;;ui_writeback
+heating_month8;2;userinput;Heizperiode August;Bool;Input fehlt;♨️;;ui_writeback
+heating_month9;2;userinput;Heizperiode September;Bool;Input fehlt;♨️;;ui_writeback
+heating_month10;2;userinput;Heizperiode Oktober;Bool;Input fehlt;♨️;;ui_writeback
+heating_month11;2;userinput;Heizperiode November;Bool;Input fehlt;♨️;;ui_writeback
+heating_month12;2;userinput;Heizperiode Dezember;Bool;Input fehlt;♨️;;ui_writeback
+QHmax_room_m²;2;userinput;spez. thermische Leistung Abgabesystem;W/m²;raumseitig;♨️;🔥H!D11;formula_ref
+QHmax_1el_m²;2;userinput;Thermische Leistung HZEL1;W/m²;raumseitig, Elektrische Heizung PRIO1;♨️;🔥H!D25;formula_ref
+QHmax_2th_m²;2;userinput;Thermische Leistung HZTH2;W/m²;raumseitig, thermische Heizung PRIO 2;♨️;🔥H!D32;formula_ref
+QHmax_3el_m²;2;userinput;Thermische Leistung HZEL3;W/m²;raumseitig, Elektrisch, PRIO3;♨️;🔥H!D39;formula_ref
+QHmax_4th_m²;2;userinput;Thermische Leistung HZTH4;W/m²;raumseitig, thermisch PRIO4;♨️;🔥H!D46;formula_ref
+QH_distr_loss_1el;2;userinput;Verteilverluste HZEL1;;;♨️;🔥H!D27;formula_ref
+QH_distr_loss_2th;2;userinput;Verteilverluste HZTH2;;;♨️;🔥H!D34;formula_ref
+QH_distr_loss_3el;2;userinput;Verteilverluste HZEL3;;;♨️;🔥H!D41;formula_ref
+QH_distr_loss_4th;2;userinput;Verteilverluste HZTH4;;;♨️;🔥H!D49;formula_ref
+heat_cop_1el;2;userinput;Wirkungsgrad Erzeugung HZEL1;;;♨️;🔥H!D26;formula_ref
+heat_cop_2th;2;userinput;Wirkungsgrad Erzeugung HZTH2;;;♨️;🔥H!D33;formula_ref
+heat_cop_3el;2;userinput;Wirkungsgrad Erzeugung HZEL3;;;♨️;🔥H!D40;formula_ref
+heat_cop_4th;2;userinput;Wirkungsgrad Erzeugung HZTH4;;;♨️;🔥H!D47;formula_ref
+QH_aux_wasteheat;1;value;Hilfsstromanteil HZAbwärme;;;♨️;;direct
+QH_aux_el_to_th_1el;2;userinput;Hilfsstromanteil HZEL1;;am thermischen Energiebedarf;♨️;🔥H!D28;formula_ref
+QH_aux_el_to_th_2th;2;userinput;Hilfsstromanteil HZTH2;;am thermischen Energiebedarf;♨️;🔥H!D35;formula_ref
+QH_aux_el_to_th_3el;2;userinput;Hilfsstromanteil HZEL3;;am thermischen Energiebedarf;♨️;🔥H!D42;formula_ref
+QH_aux_el_to_th_4th;2;userinput;Hilfsstromanteil HZTH4;;am thermischen Energiebedarf;♨️;🔥H!D49;formula_ref
+heat_th2_carrier_type;2;userinput;Energieträger HZTH2;;;♨️;🔥H!D31;formula_ref
+heat_th4_carrier_type;2;userinput;Energieträger HZTH4;;;♨️;🔥H!D45;formula_ref
+Tsetheat_min;2;userinput;Heizen Raumtemperatur Minimum;°C;;♨️;🔥H!D7;formula_ref
+cooling_month1;2;userinput;Kühlperiode Jänner;Bool;Input fehlt;❄️;;ui_writeback
+cooling_month2;2;userinput;Kühlperiode Februar;Bool;Input fehlt;❄️;;ui_writeback
+cooling_month3;2;userinput;Kühlperiode März;Bool;Input fehlt;❄️;;ui_writeback
+cooling_month4;2;userinput;Kühlperiode April;Bool;Input fehlt;❄️;;ui_writeback
+cooling_month5;2;userinput;Kühlperiode Mai;Bool;Input fehlt;❄️;;ui_writeback
+cooling_month6;2;userinput;Kühlperiode Juni;Bool;Input fehlt;❄️;;ui_writeback
+cooling_month7;2;userinput;Kühlperiode Juli;Bool;Input fehlt;❄️;;ui_writeback
+cooling_month8;2;userinput;Kühlperiode August;Bool;Input fehlt;❄️;;ui_writeback
+cooling_month9;2;userinput;Kühlperiode September;Bool;Input fehlt;❄️;;ui_writeback
+cooling_month10;2;userinput;Kühlperiode Oktober;Bool;Input fehlt;❄️;;ui_writeback
+cooling_month11;2;userinput;Kühlperiode November;Bool;Input fehlt;❄️;;ui_writeback
+cooling_month12;2;userinput;Kühlperiode Dezember;Bool;Input fehlt;❄️;;ui_writeback
+cool_share_residential;2;userinput;Aktive Kühlung Anteil Wohnen;;;❄️;❄️K'!D10;formula_ref
+cool_share_office;2;userinput;Aktive Kühlung Anteil Büro;;;❄️;❄️K'!D11;formula_ref
+cool_share_schoolsec;2;userinput;Aktive Kühlung Anteil Schule sekundär;;;❄️;❄️K'!D12;formula_ref
+cool_share_schoolprim;2;userinput;Aktive Kühlung Anteil Schule primär;;;❄️;❄️K'!D13;formula_ref
+cool_share_retailfood;2;userinput;Aktive Kühlung Anteil Handel Lebensmittel;;;❄️;❄️K'!D14;formula_ref
+cool_share_retailother;2;userinput;Aktive Kühlung Anteil Handel Sonstige;;;❄️;❄️K'!D15;formula_ref
+cool_share_other;2;userinput;Aktive Kühlung Anteil Sonstige Nutzung;;;❄️;❄️K'!D16;formula_ref
+QCmax_room_m2;2;userinput;spez. thermische Leistung Aufnahmesystem;W/m²;raumseitig;❄️;❄️K'!D23;formula_ref
+QCmax_freecooling;2;userinput;Thermische Leistung Freecooling;W/m²;;❄️;❄️K'!D29;formula_ref
+QCmax_1el;2;userinput;Thermische Leistung 1 EL;W/m²;;❄️;❄️K'!D35;formula_ref
+QCmax_2th;2;userinput;Thermische Leistung 2 TH;W/m²;;❄️;❄️K'!D43;formula_ref
+QCmax_3el;2;userinput;Thermische Leistung 3 EL;W/m²;;❄️;❄️K'!D50;formula_ref
+QC_distr_losses_1el;2;userinput;Verteilverluste 1 El;;;❄️;❄️K'!D37;formula_ref
+QC_distr_losses_2th;2;userinput;Verteilverluste 2th;;;❄️;❄️K'!D45;formula_ref
+QC_distr_losses_3el;2;userinput;Verteilverluste 3el;;;❄️;❄️K'!D52;formula_ref
+cool_cop_1el;2;userinput;Wirkungsgrad Erzeugung 1 El;;;❄️;❄️K'!D36;formula_ref
+cool_cop_2th;2;userinput;Wirkungsgrad Erzeugung 2 TH;;;❄️;❄️K'!D44;formula_ref
+cool_cop_3el;2;userinput;Wirkungsgrad Erzeugung 3 EL;;;❄️;❄️K'!D51;formula_ref
+QC_aux_fc;2;userinput;Hilfsstromanteil Freecooling;;;❄️;❄️K'!D30;formula_ref
+QC_aux_1el;2;userinput;Hilfsstromanteil KLEL1;;;❄️;❄️K'!D38;formula_ref
+QC_aux_2th;2;userinput;Hilfsstromanteil KLTh2;;;❄️;❄️K'!D46;formula_ref
+QC_aux_3el;2;userinput;Hilfsstromanteil KLEL3;;;❄️;❄️K'!D53;formula_ref
+cool_th2_carrier_type;2;userinput;Energieträger System 2 Thermisch;;;❄️;❄️K'!D42;formula_ref
+Tsetcool_max;2;userinput;Kühlen Solltemperatur Maximum;°C;;❄️;❄️K'!D7;formula_ref
+DHW_Tmin;2;userinput;Temperatur Minimum;°C;;💧;💧WW!D48;formula_ref
+DHW_Tmax_input;2;userinput;Temperatur Maximum Eingabe;°C;;💧;🔋!D43;formula_ref
+DHW_1_share_residential;2;userinput;Warmwasser System 1 Anteil Wohnen;;;💧;💧WW!D22;formula_ref
+DHW_1_share_office;2;userinput;Warmwasser System 1 Anteil Büro;;;💧;💧WW!D23;formula_ref
+DHW_1_share_schoolsec;2;userinput;Warmwasser System 1 Anteil Schule sekundär;;;💧;💧WW!D24;formula_ref
+DHW_1_share_schoolprim;2;userinput;Warmwasser System 1 Anteil Schule primär;;;💧;💧WW!D25;formula_ref
+DHW_1_share_retailfood;2;userinput;Warmwasser System 1 Anteil Handel Lebensmittel;;;💧;💧WW!D26;formula_ref
+DHW_1_share_retailother;2;userinput;Warmwasser System 1 Anteil Handel Sonstige;;;💧;💧WW!D27;formula_ref
+DHW_1_share_other;2;userinput;Warmwasser System 1 Anteil Sonstige Nutzung;;;💧;💧WW!D28;formula_ref
+DHW_losses_1;2;userinput;Warmwasser Verluste: Speicher1;;0-100%;💧;💧WW!D10;formula_ref
+DHW_losses_2;2;userinput;Warmwasser Verluste: Speicher2;;0-100%;💧;💧WW!D17;formula_ref
+DHW_efficiency_distribution_1;2;userinput;Warmwasser Verluste: Wirkungsgrad Verteilsystem 1;;;💧;💧WW!D9;formula_ref
+DHW_efficiency_distribution_2;2;userinput;Warmwasser Verluste: Wirkungsgrad Verteilsystem 2;;;💧;💧WW!D16;formula_ref
+DHW_carriertype_1;2;userinput;Warmwasser System 1 Energieträger;;;💧;💧WW!D7;formula_ref
+DHW_carriertype_2;2;userinput;Warmwasser System 2 Energieträger;;;💧;💧WW!D14;formula_ref
+DHW_1_efficiency;2;userinput;Warmwasser System 1 Wirkungsgrad;;;💧;💧WW!D8;formula_ref
+DHW_2_efficiency;2;userinput;Warmwasser System 2 Wirkungsgrad;;;💧;💧WW!D15;formula_ref
+DHW_1_el_aux;1;value;WW-System 1 Hilfsstromanteil;;;💧;;direct
+DHW_2_el_aux;2;userinput;WW-System 2 Hilfsstromanteil;;;💧;💧WW!D18;formula_ref
+PV_is_used;2;userinput;PV Nutzung;Bool;;🌞;;ui_writeback
+PV_profile_name;2;userinput;PV Profil Name;;;🌞;🌞PV!D8;formula_ref
+PV_scale;2;userinput;PV Skalierungsfaktor Profil;;;🌞;🌞PV!D9;formula_ref
+PV_efficiency;1;value;PV Wechselrichter Effizienz;;;🌞;;direct
+PV_m2_per_kWp;2;userinput;Spezifische PV Fläche;m2/kWp;;🌞;🌞PV!D10;formula_ref
+FLEX_PV_is_used;2;userinput;Flex PV Nutzung;;;🔋;;ui_writeback
+FLEX_is_used;2;userinput;Flex Signal Nutzung;;;🔋;;ui_writeback
+FLEX_signal_name;2;userinput;Flex Signal Name;;;🔋;🚦Signals!D5;formula_ref
+FLEX_grid_maxpower_Wm2;1;value;Flex Maximale Leistung;W/m²;;🔋;;direct
+FLEX_is_used_for_plugloads;1;value;Flex Netzbezug deckt Nutzerstrom;bool;muss jetzt nicht mehr automatisch Wahr sein;🔋;;direct
+FLEX_is_used_for_HVAC_min;1;value;Flex Netzbezug deckt HVAC Minimum;bool;muss jetzt nicht mehr automatisch Wahr sein;🔋;;direct
+FLEX_is_used_for_ev_min;1;value;Flex Netzbezug deckt EV Minimum;bool;muss jetzt nicht mehr automatisch Wahr sein;🔋;;direct
+flex_heat_dT;2;userinput;Flexibles Heizen über Solltemperatur;;Kelvin;♨️;🔋!D22;formula_ref
+FLEX_choice_heat_system;2;userinput;Flexibles Heizsystem;Text;;♨️;🔋!D23;formula_ref
+flex_cool_dT;2;userinput;Flexibles Kühlen unter Solltemperatur;;Kelvin;❄️;🔋!D25;formula_ref
+FLEX_choice_cool_system;2;userinput;Flexibles Kühlsystem;Text;;❄️;🔋!D26;formula_ref
+Batt_is_used;2;userinput;Batterie Nutzung;;;🔋;;ui_writeback
+Batt_cap_kWh;2;userinput;Batterie Kapazität;kWh;;🔋;🔋!D34;formula_ref
+Batt_c_rate;2;userinput;Maximale Be/Entladeleistung ;%;;🔋;🔋!D35;formula_ref
+Batt_eff_factor_charge;2;userinput;Wirkungsgrad Ladung;%;;🔋;🔋!D36;formula_ref
+Batt_eff_factor_discharge;2;userinput;Wirkungsgrad Entladung;%;;🔋;🔋!D37;formula_ref
+Batt_self_discharge_rate;2;userinput;Batterie Selbstentladung;%/h;;🔋;🔋!D38;formula_ref
+Batt_SOC_init;1;value;Batterie Initialer SOC;%;;🔋;;direct
+Batt_is_used_for_plugloads;1;value;Batterie Nutzung für Nutzerstrom;bool;;🔋;;direct
+Batt_is_used_for_HVACminimum;1;value;Batterie Nutzung für HKLS Minimum;bool;;🔋;;direct
+Batt_is_used_for_EV;1;value;Batterie Nutzung für Ecars;bool;;🔋;;direct
+Batt_is_gridcharged;2;userinput;Batterie wird flexibel  durch Netz geladen?;bool;;🔋;;ui_writeback
+flex_dhw_use;1;value;Flexible WW-Speicherbeladung;bool;;🔋;;direct
+Batt_is_not_used_during_signals;1;value;Batterie wird während Netzsignal nicht entladen;;;🔋;;direct
+mobility_is_included;2;userinput;MIV simulieren;bool;;🚗;;ui_writeback
+parking_spots_in_district;2;userinput;Stellplätze;Anzahl;;🚗;🚗!D81;formula_ref
+mobility_vehicle_count;2;userinput;Fahrzeuge;Anzahl;;🚗;🚗!D77;formula_ref
+EV_share;2;userinput;Anteil Ecars;%;Am Mobilitätsbedarf;🚗;🚗!D38;formula_ref
+EV_demand_kWhpkm;2;userinput;Ecar Energieverbrauch;kWh/km;;🚗;🚗!D59;formula_ref
+EV_battsize_kWh;2;userinput;Ecar Speicher pro Fahrzeug;kWh/EV;;🚗;🚗!D55;formula_ref
+EV_self_discharge_per_week;2;userinput;Ecar Selbstentladung wöchentlich;%/Woche;;🚗;🚗!D56;formula_ref
+EV_soc_minimum;1;value;Ecar Mindest-Speicherstand;%;;🚗;;direct
+EV_charging_efficiency;2;userinput;Ecar Batterie-Effizienz Beladung;%;;🚗;🚗!D57;formula_ref
+EV_max_charging_power_ratio;1;value;Ecar Batterie Maximale Beladungsleistung;%;;🚗;;direct
+EV_soc_min_work;1;value;Ecar Mindestspeicherstand Arbeit;;;🚗;;direct
+EV_soc_min_retail;1;value;Ecar Mindestspeicherstand Handel;;;🚗;;direct
+moped_factor;1;value;Moped im Verhältnis zu Auto;;;🚗;;direct
+EV_share_constant_charging;1;value;Anteil Ecars, die konstant vor Ort laden;%;Rest konstantes Laden;🚗;;direct
+mob_pkm_factor;2;userinput;Reduktionsfaktor JPkm MIV;Anteil;;🚗;🚗!D29;formula_ref
+EV_experimental_calculation;1;value;New Calculation Method;;;🚗;;direct
+EV_soc_min_ext;2;userinput;Ecar Mindest-Speicherstand Extern;;;🚗;🚗!D66;formula_ref
+EV_soc_min_discharge;2;userinput;Ecar Mindest-Speicherstand Entladung;;;🚗;🚗!D71;formula_ref
+fossile_demand_kWhpkm;1;value;Fossiler Energieverbrauch;kWh/km;;🚗;;direct
+ev_bidirectional_use;2;userinput;Bidirektionales Laden;;;🚗;;ui_writeback
+GWP_walls_name;2;userinput;Typ Außenwand;;;☁;☁THG'!D21;formula_ref
+GWP_windows_name;2;userinput;Typ Fenster;;;☁;☁THG'!D22;formula_ref
+GWP_roof_name;2;userinput;Typ Dach;;;☁;☁THG'!D23;formula_ref
+GWP_ground_name;2;userinput;Typ Decke gegen Erdreich;;;☁;☁THG'!D24;formula_ref
+GWP_ceilings_name;2;userinput;Typ Zwischendecken;;;☁;☁THG'!D25;formula_ref
+GWP_general_name;2;userinput;Typ Bauliche Maßnahmen Allgemein;;;☁;☁THG'!D26;formula_ref
+GWP_other_name;2;userinput;Typ Andere bauliche Maßnahmen;;;☁;☁THG'!D28;formula_ref
+GWP_ref_area_walls;2;userinput;Bezugsfläche Außenwand;m²;;☁;☁THG'!F21;formula_ref
+GWP_ref_area_windows;2;userinput;Bezugsfläche Fenster;m²;;☁;☁THG'!F22;formula_ref
+GWP_ref_area_roof;2;userinput;Bezugsfläche Dach;m²;;☁;☁THG'!F23;formula_ref
+GWP_ref_area_fundament;2;userinput;Bezugsfläche Fundament;m²;;☁;☁THG'!F24;formula_ref
+GWP_ref_area_ceilings;2;userinput;Bezugsfläche Zwischengeschoßdecken;m²;;☁;☁THG'!F25;formula_ref
+GWP_pv_name;2;userinput;Typ PV-Anlage;;;☁;☁THG'!D42;formula_ref
+GWP_boreholes_name;2;userinput;Typ Erdwärmesonden;;;☁;☁THG'!D43;formula_ref
+borehole_count;2;userinput;Anzahl Erdsonden;Stk Erdsonden;;☁;☁THG'!E43;formula_ref
+GWP_ventilation_name;2;userinput;Typ Komfortlüftung;;;☁;☁THG'!D44;formula_ref
+GWP_solarthermal_name;2;userinput;Typ Solarthermie;;;☁;☁THG'!D45;formula_ref
+GWP_battery_name;2;userinput;Typ E-Batterie;;;☁;☁THG'!D47;formula_ref
+GWP_storage_name;2;userinput;Typ Pufferspeicher;;;☁;☁THG'!D48;formula_ref
+GWP_tga_general_name;2;userinput;Typ  Allgemein;;;☁;☁THG'!D49;formula_ref
+GWP_tga_other_name;2;userinput;Typ  Andere bauliche Maßnahmen;;;☁;☁THG'!D51;formula_ref
+;2;userinput;Direkteingabe GWP Fossil;;;☁;☁THG'!D30;formula_ref
+;2;userinput;Direkteingabe GWP Biogen;;;☁;☁THG'!D31;formula_ref
+;2;userinput;Direkteingabe Biogener Anteil;;;☁;☁THG'!G31;formula_ref
+;2;userinput;Direkteingabe Lebensdauer;;;☁;☁THG'!D32;formula_ref
+GWP_mobility_construction_fossil;2;userinput;GWP Verbrenner ;t CO2/Fahrzeug;;☁;☁THG'!D56;formula_ref
+GWP_mobility_construction_ev;1;value;GWP E-Car;t CO2/Fahrzeug;;☁;;direct
+GHG_LCA_timeframe_years;1;value;Betrachtungszeitraum Ökobilanz;;;☁;;direct
+GWP_mobility_moped_gpPKm;1;value;GWP Mobilität Moped;GWP 100S (gCO2equiv/Pkm);;☁;;direct
+GWP_mobility_car_gpPKm;1;value;GWP Mobilität PKW;GWP 100S (gCO2equiv/Pkm);;☁;;direct
+year_rcp0;1;value;Bezugsjahr Ausgangssituation;;;☁;;direct
+year_rcp1;1;value;Bezugsjahr Stütztstelle 1;;;☁;;direct
+year_rcp2;1;value;Bezugsjahr Stütztstelle 2;;;☁;;direct
+year_rcp3;1;value;Bezugsjahr Stütztstelle 3;;;☁;;direct
+grid_rcp1;1;value;Absenkfaktor 1 Netzstrom;;;☁;;direct
+grid_rcp2;1;value;Absenkfaktor 2 Netzstrom;;;☁;;direct
+grid_rcp3;1;value;Absenkfaktor 3 Netzstrom;;;☁;;direct
+rcp1_renewable;1;value;Absenkfaktor 1 Erneuerbare;;;☁;;direct
+rcp2_renewable;1;value;Absenkfaktor 2 Erneuerbare;;;☁;;direct
+rcp3_renewable;1;value;Absenkfaktor 3 Erneuerbare;;;☁;;direct
+rcp1_fossil;1;value;Absenkfaktor 1 Andere Fossile;;;☁;;direct
+rcp2_fossil;1;value;Absenkfaktor 2 Andere Fossile;;;☁;;direct
+rcp3_fossil;1;value;Absenkfaktor 3 Andere Fossile;;;☁;;direct
+fPE_grid_profile;2;userinput;Strom Konversionsprofil PE;;;⚖;🚦Signals!D2;formula_ref
+district_heating_conversion_profile;1;value;Fernwärme Konversionsprofil;;;⚖;;direct
+fGHG_grid_profile;2;userinput;Strom Konversionsprofil THG;;;⚖;🚦Signals!D3;formula_ref
+fPE_flex_factor;1;value;Flexibler Netzbezug Anteil PE-Faktor;;;⚖;;direct
+pe_conversion_factor_gasoline;1;value;PE-Konversionsfaktor Kraftstoff;kWhPE/kWhEE;;⚖;;direct
+cfd_fPE;1;value;Primärenergiefaktor;kWhPE/kWhEE;f_PE;🏆;;direct
+cfd_A;1;value;Ausnutzungsfaktor Erneuerbare;kWhEE/m²GF;A;🏆;;direct
+cfd_dx;1;value;Skalierungsfaktor;-;dx;🏆;;direct
+cfd_EUI;1;value;Energieintensität Bedarf;kWhEE/m²NGFa;EUI;🏆;;direct
+cfd_cutoff;1;value;Maximum;kWhPE/m²NGFa;cutoff;🏆;;direct
+cfm_budget_residential;1;value;Mobilitätsbudget Wohnen;kWhPE/m²NGFa;;🏆;;direct
+cfm_budget_office;1;value;Mobilitätsbudget Büro;kWhPE/m²NGFa;;🏆;;direct
+cfm_budget_school;1;value;Mobilitätsbudget Ausbildung;kWhPE/m²NGFa;;🏆;;direct
+cfm_budget_retail;1;value;Mobilitätsbudget Handel + Sonstige;kWhPE/m²NGFa;;🏆;;direct
+cfr_budget;1;value;Kontextfaktor Sanierung;kWhPE/m²NGFa;;🏆;;direct
+e_kWhm2a;1;value;Test precision kWhm2NFAa;;;☑;;direct
+EV_charging_stations;2;userinput;Anzahl Ladestationen;-;;🚗;🚗!D48;formula_ref
+EV_charging_station_power;2;userinput;Leistung Ladestation;kW;;🚗;🚗!D49;formula_ref
+daylightcontr_office;1;value;Anteil Tageslichtgesteuert Büro;;;💡;;direct
+daylightcontr_schoolsec;1;value;Anteil Tageslichtgesteuert Ausbildung Sekundär;;;💡;;direct
+daylightcontr_schoolprim;1;value;Anteil Tageslichtgesteuert Ausbildung Primär;;;💡;;direct
+lighting_factor_retailfood;2;userinput;Beleuchtung Skalierung Büro;kWh/m²a;;💡;👤!V13;formula_ref
+lighting_factor_retailother;2;userinput;Beleuchtung Skalierung Ausbildung Sekundär;kWh/m²a;;💡;👤!V14;formula_ref
+lighting_factor_other;2;userinput;Beleuchtung Skalierung Ausbildung Primär;kWh/m²a;;💡;👤!V15;formula_ref
+DHW_occupancy_residential;2;userinput;Personenbelegung Wohnen;m²NF/Pers;;💧;;ui_writeback
+DHW_occupancy_office;2;userinput;Personenbelegung Büro;m²NF/Pers;;💧;;ui_writeback
+DHW_occupancy_schoolsec;2;userinput;Personenbelegung Bildung sekundär;m²NF/Pers;;💧;;ui_writeback
+DHW_occupancy_schoolprim;2;userinput;Personenbelegung Bildung primär;m²NF/Pers;;💧;;ui_writeback
+DHW_occupancy_retailfood;2;userinput;Personenbelegung Handel Lebensmittel;m²NF/Pers;;💧;;ui_writeback
+DHW_occupancy_retailother;2;userinput;Personenbelegung Handel sonstiger;m²NF/Pers;;💧;;ui_writeback
+DHW_occupancy_other;2;userinput;Personenbelegung Sonstige;m²NF/Pers;;💧;;ui_writeback
+DHW_concurrency_residential;2;userinput;WW Gleichzeitigkeitsfaktor Wohnen;;;💧;;ui_writeback
+DHW_concurrency_office;2;userinput;WW Gleichzeitigkeitsfaktor Büro;;;💧;;ui_writeback
+DHW_concurrency_schoolsec;2;userinput;WW Gleichzeitigkeitsfaktor Bildung sekundär;;;💧;;ui_writeback
+DHW_concurrency_schoolprim;2;userinput;WW Gleichzeitigkeitsfaktor bildung primär;;;💧;;ui_writeback
+DHW_concurrency_retailfood;2;userinput;WW Gleichzeitigkeitsfaktor Handel Lebensmittel;;;💧;;ui_writeback
+DHW_concurrency_retailother;2;userinput;WW Gleichzeitigkeitsfaktor handel sonstiger;;;💧;;ui_writeback
+DHW_concurrency_other;2;userinput;WW Gleichzeitigkeitsfaktor Sonstige;;;💧;;ui_writeback
+DHW_storage_liter_pPerson;2;userinput;Warmwasser Speicher pro Person;l/Pers/Tag;;💧;;ui_writeback
+DHW_thermal_power_pPerson;2;userinput;Warmwasser Ladeleistung Thermisch;W/Pers;;💧;;ui_writeback
+DHW_storage_env_temp_default;2;userinput;Warmwasser Speicher Umgebungstemperatur;°C;;💧;;ui_writeback
