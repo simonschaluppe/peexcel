@@ -50,7 +50,7 @@ def xlsx_to_dataset_dir(
     out_dir = Path(out_dir)
 
     if sheets is None:
-        sheets = {"IN": "IN", "OUT": "OUT"}
+        sheets = {"IN": "IN", "OUT": "OUT", "SIM": "SIM2"}
 
     _prepare_out_dir(out_dir, replace_files=replace_files)
 

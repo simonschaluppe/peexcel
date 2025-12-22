@@ -27,6 +27,7 @@ def read_dataset_dir(root: str | Path) -> dict[str, pd.DataFrame]:
         {
             "IN": DataFrame,
             "OUT": DataFrame,
+            "SIM": DataFrame,
         }
     """
     root = Path(root)
@@ -43,6 +44,7 @@ def read_dataset_dir(root: str | Path) -> dict[str, pd.DataFrame]:
     return {
         "IN": _read_csv(root / "IN.csv"),
         "OUT": _read_csv(root / "OUT.csv"),
+        "SIM": _read_csv(root / "SIM.csv"),
     }
 
 def normalize_table(

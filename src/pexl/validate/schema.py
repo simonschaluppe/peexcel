@@ -13,6 +13,7 @@ from pexl.io.csv import read_dataset_dir, normalize_table
 DEFAULT_COMPARE_COLS: dict[str, list[str]] = {
     "IN": ["ka", "Type", "Einheit", "Formel", "Name"],
     "OUT": ["Kategorie", "Bereich", "var_cat", "Einheit", "Label", "Formel", "Name"],
+    "SIM": ["Column Name", "Formula"],
 }
 
 
@@ -52,7 +53,7 @@ def diff_schema_dirs(
         "audit": _diff_audit(old_dir, new_dir),
     }
 
-    for table_name in ("IN", "OUT"):
+    for table_name in ("IN", "OUT", "SIM"):
         old_df = old_tables[table_name]
         new_df = new_tables[table_name]
 

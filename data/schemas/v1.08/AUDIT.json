@@ -1,0 +1,392 @@
+{
+  "mode": "schema",
+  "source_xlsx": "..\\data\\exports\\schema.xlsx",
+  "tables": {
+    "IN": {
+      "original_rows": 999,
+      "kept_rows": 579,
+      "excluded_rows": {
+        "empty_var_name_count": 420,
+        "empty_var_name_sample": [
+          {
+            "export_row": "2",
+            "Name": "Wohnbau NGF (m²)",
+            "Type": "obsolet",
+            "Einheit": "m²NGF",
+            "ka": "",
+            "Formel": "[@Buffer]",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "3",
+            "Name": "Büro NGF (m²)",
+            "Type": "obsolet",
+            "Einheit": "m²NGF",
+            "ka": "",
+            "Formel": "[@Buffer]",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "4",
+            "Name": "Schule NGF (m²)",
+            "Type": "obsolet",
+            "Einheit": "m²NGF",
+            "ka": "",
+            "Formel": "[@Buffer]",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "5",
+            "Name": "Kiga NGF (m²)",
+            "Type": "obsolet",
+            "Einheit": "m²NGF",
+            "ka": "",
+            "Formel": "[@Buffer]",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "6",
+            "Name": "Handel NGF (m²)",
+            "Type": "obsolet",
+            "Einheit": "m²NGF",
+            "ka": "",
+            "Formel": "[@Buffer]",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "7",
+            "Name": "Summe NGF (m²)",
+            "Type": "obsolet",
+            "Einheit": "m²NGF",
+            "ka": "",
+            "Formel": "[@Buffer]",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "8",
+            "Name": "Anteil NonFood an Handel",
+            "Type": "obsolet",
+            "Einheit": "",
+            "ka": "",
+            "Formel": "[@Buffer]",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "9",
+            "Name": "Bauteilfläche Hülle Außenwand (exkl. Fenster) (m²)",
+            "Type": "obsolet",
+            "Einheit": "",
+            "ka": "",
+            "Formel": "[@Buffer]",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "10",
+            "Name": "Bauteilfläche Hülle Fenster (m²)",
+            "Type": "obsolet",
+            "Einheit": "",
+            "ka": "",
+            "Formel": "[@Buffer]",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "11",
+            "Name": "Bauteilfläche Hülle Dach (m²)",
+            "Type": "obsolet",
+            "Einheit": "",
+            "ka": "",
+            "Formel": "[@Buffer]",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "12",
+            "Name": "Bauteilfläche Hülle Decke gegen Erdreich / Keller (m²)",
+            "Type": "obsolet",
+            "Einheit": "",
+            "ka": "",
+            "Formel": "[@Buffer]",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "13",
+            "Name": "Gewählte Variante",
+            "Type": "obsolet",
+            "Einheit": "",
+            "ka": "",
+            "Formel": "[@Buffer]",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "14",
+            "Name": "U-Wert Außenwand (exkl. Fenster) (W/m²K)",
+            "Type": "obsolet",
+            "Einheit": "",
+            "ka": "",
+            "Formel": "[@Buffer]",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "15",
+            "Name": "U-Wert Fenster (W/m²K)",
+            "Type": "obsolet",
+            "Einheit": "",
+            "ka": "",
+            "Formel": "[@Buffer]",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "16",
+            "Name": "U-Wert Dach (W/m²K)",
+            "Type": "obsolet",
+            "Einheit": "",
+            "ka": "",
+            "Formel": "[@Buffer]",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "17",
+            "Name": "U-Wert Decke gegen Erdreich / Keller (W/m²K)",
+            "Type": "obsolet",
+            "Einheit": "",
+            "ka": "",
+            "Formel": "[@Buffer]",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "18",
+            "Name": "g-Wert Fenster",
+            "Type": "obsolet",
+            "Einheit": "",
+            "ka": "",
+            "Formel": "[@Buffer]",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "19",
+            "Name": "Speicherkapazität spezifisch Wirksame Wärmekapazität (Wh/m²K)",
+            "Type": "obsolet",
+            "Einheit": "",
+            "ka": "",
+            "Formel": "[@Buffer]",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "20",
+            "Name": "Außenwand (exkl. Fenster) GWP 100S (kg CO2equiv/m²a)",
+            "Type": "obsolet",
+            "Einheit": "",
+            "ka": "",
+            "Formel": "[@Buffer]",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "21",
+            "Name": "Fenster GWP 100S (kg CO2equiv/m²a)",
+            "Type": "obsolet",
+            "Einheit": "",
+            "ka": "",
+            "Formel": "[@Buffer]",
+            "Kommentar": ""
+          }
+        ]
+      }
+    },
+    "OUT": {
+      "original_rows": 508,
+      "kept_rows": 391,
+      "excluded_rows": {
+        "empty_var_name_count": 117,
+        "empty_var_name_sample": [
+          {
+            "export_row": "2",
+            "Name": "",
+            "Kategorie": "",
+            "Bereich": "",
+            "Einheit": "",
+            "Formel": "",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "3",
+            "Name": "Projektname",
+            "Kategorie": "Metadaten",
+            "Bereich": "",
+            "Einheit": "",
+            "Formel": "project_name",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "4",
+            "Name": "Adresse",
+            "Kategorie": "Metadaten",
+            "Bereich": "",
+            "Einheit": "",
+            "Formel": "location_address",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "5",
+            "Name": "Erstellungsdatum",
+            "Kategorie": "Metadaten",
+            "Bereich": "",
+            "Einheit": "",
+            "Formel": "IN!K207",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "6",
+            "Name": "Variante / Scenario",
+            "Kategorie": "Metadaten",
+            "Bereich": "",
+            "Einheit": "",
+            "Formel": "project_scenario_name",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "7",
+            "Name": "GFZ",
+            "Kategorie": "Quartier",
+            "Bereich": "",
+            "Einheit": "",
+            "Formel": "FSI",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "8",
+            "Name": "Sanierungsanteil",
+            "Kategorie": "Quartier",
+            "Bereich": "",
+            "Einheit": "",
+            "Formel": "renovation_share",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "9",
+            "Name": "Raumhöhe",
+            "Kategorie": "Quartier",
+            "Bereich": "",
+            "Einheit": "m Netto",
+            "Formel": "rh_avg",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "10",
+            "Name": "Charakteristische Länge (lc)",
+            "Kategorie": "Quartier",
+            "Bereich": "",
+            "Einheit": "m",
+            "Formel": "lc",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "11",
+            "Name": "Wetterdatensatz Name",
+            "Kategorie": "Wetter",
+            "Bereich": "",
+            "Einheit": "",
+            "Formel": "IN!K219",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "12",
+            "Name": "Wetterdatensatz Nummer",
+            "Kategorie": "Wetter",
+            "Bereich": "",
+            "Einheit": "",
+            "Formel": "weather_index",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "13",
+            "Name": "Außentemperatur Jahresmittel",
+            "Kategorie": "Wetter",
+            "Bereich": "",
+            "Einheit": "°C",
+            "Formel": "MITTELWERT(sim[Ta])",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "14",
+            "Name": "Mittelaußentemperatur Heizperiode",
+            "Kategorie": "Wetter",
+            "Bereich": "",
+            "Einheit": "°C",
+            "Formel": "MITTELWERTWENN(is_heating_period;1;sim[Ta])",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "15",
+            "Name": "Mittelaußentemperatur Kühlperiode",
+            "Kategorie": "Wetter",
+            "Bereich": "",
+            "Einheit": "°C",
+            "Formel": "MITTELWERTWENN(is_cooling_period;1;sim[Ta])",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "16",
+            "Name": "Nutzungsmischung",
+            "Kategorie": "Quartier",
+            "Bereich": "",
+            "Einheit": "",
+            "Formel": "TEXTVERKETTEN(\", \";WAHR; TEXT(IN!M227:M233/GFA_total;\"0%\")&\" \"&🏙️!C28:C34;\"\")",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "26",
+            "Name": "",
+            "Kategorie": "",
+            "Bereich": "",
+            "Einheit": "",
+            "Formel": "",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "35",
+            "Name": "Wärmebilanz",
+            "Kategorie": "Wärmebilanz",
+            "Bereich": "",
+            "Einheit": "True",
+            "Formel": "(QT+QV+QVn+QC) - (QS+QI+QH)",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "43",
+            "Name": "Wärmebilanz Heizperiode",
+            "Kategorie": "Wärmebilanz",
+            "Bereich": "",
+            "Einheit": "False",
+            "Formel": "(QT_winter+QV_winter+QVn_winter+QC_winter) - (QS_winter+QI_winter+QH_winter)",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "66",
+            "Name": "Wärmebilanz Kühlperiode",
+            "Kategorie": "Wärmebilanz",
+            "Bereich": "",
+            "Einheit": "False",
+            "Formel": "(QT_summer+QV_summer+QVn_summer+QC_summer) - (QS_summer+QI_summer+QH_summer)",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "82",
+            "Name": "Wärmebilanz",
+            "Kategorie": "Wärmebilanz",
+            "Bereich": "",
+            "Einheit": "True",
+            "Formel": "(QT+QV+QVn+QC)-(QS+QI+QH)",
+            "Kommentar": ""
+          }
+        ]
+      }
+    },
+    "SIM": {
+      "original_rows": 394,
+      "kept_rows": 394,
+      "excluded_rows": {
+        "empty_var_name_count": 0,
+        "empty_var_name_sample": []
+      }
+    }
+  }
+}
