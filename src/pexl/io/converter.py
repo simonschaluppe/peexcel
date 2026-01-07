@@ -4,9 +4,9 @@ from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Literal, Mapping
+from openpyxl import load_workbook
 
 import json
-import shutil
 
 import pandas as pd
 
@@ -28,7 +28,7 @@ def xlsx_to_dataset_dir(
     sheets: Mapping[str, str] | None = None,
     mode: Mode = "schema",
     delimiter: str = ";",
-    encoding: str = "utf-8",
+    encoding: str = "utf-8-sig",
     replace_files: bool = False,
 ) -> ConvertResult:
     """
@@ -37,10 +37,11 @@ def xlsx_to_dataset_dir(
     Modes:
       - mode="schema" (recommended contract):
           * writes IN.csv and OUT.csv filtered to rows with non-empty var_name (if present)
+          * writes SIM.csv with var_name: Column name and Formula
           * strips whitespace in all cells
           * writes AUDIT.json containing exclusions + counts
       - mode="raw":
-          * writes IN.csv and OUT.csv as-is (only fillna(""))
+          * writes all sheets as-is to .csv files (only fillna(""))
 
     Notes:
       - This function does not perform semantic schema validation. It only converts.
@@ -49,24 +50,27 @@ def xlsx_to_dataset_dir(
     xlsx_path = Path(xlsx_path)
     out_dir = Path(out_dir)
 
-    if sheets is None:
-        sheets = {"IN": "IN", "OUT": "OUT", "SIM": "SIM2"}
-
     _prepare_out_dir(out_dir, replace_files=replace_files)
 
     written: dict[str, Path] = {}
     audit: dict[str, object] | None = None
 
     if mode == "schema":
+        sheets = {"IN": "IN", "OUT": "OUT", "SIM2": "SIM"}
         audit = {
             "mode": "schema",
             "source_xlsx": str(xlsx_path),
             "tables": {},
         }
-    elif mode != "raw":
+    elif mode == "raw":
+        from openpyxl import load_workbook
+        book = load_workbook(xlsx_path, read_only=True, data_only=True)
+        sheets = {str(name):str(name) for name in list(book.sheetnames)}
+        book.close()
+    else:
         raise ValueError(f"Invalid mode={mode!r}. Use 'schema' or 'raw'.")
 
-    for table_name, sheet_name in sheets.items():
+    for sheet_name, table_name in sheets.items():
         df = pd.read_excel(xlsx_path, sheet_name=sheet_name, dtype=str).fillna("")
 
         if mode == "schema":
