@@ -1,6 +1,6 @@
 {
   "mode": "schema",
-  "source_xlsx": "..\\data\\exports\\schema.xlsx",
+  "source_xlsx": "..\\data\\exports\\schema_1.08.xlsx",
   "tables": {
     "IN": {
       "original_rows": 999,

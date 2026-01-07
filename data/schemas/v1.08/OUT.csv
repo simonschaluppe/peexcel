@@ -1,4 +1,4 @@
-var_name;Kategorie;Name;Bereich;Einheit;Label;Kommentar;Formel
+﻿var_name;Kategorie;Name;Bereich;Einheit;Label;Kommentar;Formel
 UED_plugloads;Nutzenergiebedarfe;Nutzerstrom;Quartier;kWh/m²NGFa;;;EUI_plugAuxLight-UED_lighting-UED_auxiliary
 UED_lighting;Nutzenergiebedarfe;Beleuchtung;Quartier;kWh/m²NGFa;;;SUMME(sim[Elight])/1000
 UED_auxiliary;Nutzenergiebedarfe;Allgemeinstrom;Quartier;kWh/m²NGFa;;;SUMME(sim[Eaux])/1000

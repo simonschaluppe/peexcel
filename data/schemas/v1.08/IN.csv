@@ -1,4 +1,4 @@
-var_name;ka;Type;Name;Einheit;Kommentar;Icon;Formel
+﻿var_name;ka;Type;Name;Einheit;Kommentar;Icon;Formel
 project_name;2;userinput;Projektname;;;📝;🏙️!$D$5
 project_url;2;userinput;ProjektURL;;;📝;🏙️!D6
 location_address;2;userinput;Adresse;;;📝;🏙️!$D$12
