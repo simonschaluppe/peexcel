@@ -1,5 +1,5 @@
 
-*~
+*~*
 
 # Ignore PNG images
 *.png
@@ -33,3 +33,4 @@ __pycache__/
 ~$*.xls*
 .DS_Store
 .ipynb_checkpoints/
+peexcel.egg-info/
