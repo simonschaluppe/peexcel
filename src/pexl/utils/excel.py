@@ -1,348 +1,163 @@
-import logging
-import numpy as np
+from __future__ import annotations
+
+from pathlib import Path
+from typing import Iterator
 
 import pandas as pd
-import json
-from copy import deepcopy
-from typing import Optional, List, Dict
 
-logging.basicConfig(level=logging.INFO)
-# Migrate PEExcel
+from ..schemas.current import ExcelNamedVariables, SCHEMA_META, ATTR_NAME_MAP
 
 
-def convert(o):
-    if isinstance(o, pd.Timestamp):
-        return o.isoformat()
-    elif hasattr(o, "isoformat"):
-        return o.isoformat()
-    return str(o)
+RESERVED_IN_COLUMN_HEADER_NAMES = [
+    "Icon",
+    "Name",
+    "Einheit",
+    "Kommentar",
+    "Type",
+    "var_name",
+    "ka",
+    "Formel",
+]
 
-
-def parsesheet_in(df) -> dict:
-    inputs = {}
-    in_header = [
-        "Icon",
-        "Name",
-        "Einheit",
-        "Kommentar",
-        "Type",
-        "var_name",
-        "ka",
-        "Formel",
-    ]
-    in_scenarios = [c for c in df.columns if c not in in_header]
-
-    if missing_headers := [col for col in in_header if col not in df.columns]:
-        logging.warning(f"Missing columns in OUT sheet: {missing_headers}")
-
-    for _, row in df.iterrows():
-        key = row["var_name"] if pd.notna(row.get("var_name")) else row.get("Name")
-        if pd.isna(key) or key is np.nan:
-            continue  # Skip unnamed rows
-        inputs[key] = {field: row[field] for field in in_header if field in df.columns}
-        inputs[key]["values"] = {scenario: row[scenario] for scenario in in_scenarios}
-
-    return inputs
-
-
-def parsesheet_out(df) -> dict:
-    outputs = {}
-    out_header = [
-        "ID",
-        "Kategorie",
-        "Type",
-        "Name",
-        "Icon",
-        "Bereich",
-        "var_cat",
-        "var_name",
-        "Einheit",
-        "Formel",
-        "Label",
-        "Kommentar",
-    ]
-    out_scenarios = [c for c in df.columns if c not in out_header]
-
-    if missing_headers := [col for col in out_header if col not in df.columns]:
-        logging.warning(f"Missing columns in IN sheet: {missing_headers}")
-
-    for _, row in df.iterrows():
-        key = row.get("var_name", None)
-        if not key:
-            continue  # Skip  rows without varname
-        outputs[key] = {
-            field: row[field] for field in out_header if field in df.columns
-        }
-        outputs[key]["values"] = {scenario: row[scenario] for scenario in out_scenarios}
-
-    return outputs
+RESERVED_OUT_COLUMN_HEADER_NAMES = [
+    "ID",
+    "Kategorie",
+    "Type",
+    "Name",
+    "Icon",
+    "Bereich",
+    "var_cat",
+    "var_name",
+    "Einheit",
+    "Formel",
+    "Label",
+    "Kommentar",
+]
 
 
 class Scenario:
-    def __init__(self, name: str, project: "Project"):
+    def __init__(self, name: str):
         self.name = name
-        self.project = project
+        self.v = ExcelNamedVariables()
+        self.meta = SCHEMA_META
+        # TODO: attach timestep data container here, e.g. self.sim = None
 
-    def get_input(self, var_name: str, default=None):
-        if var_name in self.project.inputs:
-            return self.project.inputs[var_name]["values"].get(self.name)
-        raise KeyError(f"Variable '{var_name}' not found in inputs.")
-
-    def set_input(self, var_name: str, value):
-        if var_name in self.project.inputs:
-            self.project.inputs[var_name]["values"][self.name] = value
-        else:
-            raise KeyError(f"Variable '{var_name}' not found in inputs.")
-
-    def get_output(self, var_name: str):
-        if var_name in self.project.outputs:
-            return self.project.outputs[var_name]["values"].get(self.name)
-        raise KeyError(f"Variable '{var_name}' not found in outputs.")
-
-    def has_inputs(self):
-        return any(self.name in v["values"] for v in self.project.inputs.values())
-
-    def has_outputs(self):
-        return any(self.name in v["values"] for v in self.project.outputs.values())
-
-    def as_dict(self) -> dict:
-        return {
-            "name": self.name,
-            "inputs": {
-                k: v["values"].get(self.name)
-                for k, v in self.project.inputs.items()
-                if self.name in v["values"]
-            },
-            "outputs": {
-                k: v["values"].get(self.name)
-                for k, v in self.project.outputs.items()
-                if self.name in v["values"]
-            },
-        }
-
-    def __repr__(self):
-        return f"<Scenario('{self.name}') of Project('{self.project.file_source}')>"
+    def __repr__(self) -> str:
+        return f"<Scenario {self.name!r}>"
 
 
-class Project:
-    """
-    Represents a PEExcel project based on an Excel file with structured input/output handling
-    and optional scenario management.
+class District:
+    def __init__(self, file_source: str | Path | None = None):
+        self.scenarios: list[Scenario] = []
+        self._scenario_dict: dict[str, Scenario] = {}
+        self.file_source = str(file_source) if file_source is not None else None
+        self.default_scenario: str | None = None
 
-    This class acts as a wrapper for Excel files used in the PEExcel framework, which typically
-    contain multiple sheets (e.g., 'IN', 'OUT', and optionally 'PV', 'Signals', 'SIM2') representing
-    model inputs, outputs, and intermediate results. The class parses and organizes the content of
-    these sheets into accessible Python dictionaries and provides utility methods for interacting with
-    scenario-based (column) data.
+    def add_scenario(self, scenario: Scenario) -> None:
+        if scenario.name in self._scenario_dict:
+            raise ValueError(f"Duplicate scenario name: {scenario.name!r}")
+        self.scenarios.append(scenario)
+        self._scenario_dict[scenario.name] = scenario
+        if self.default_scenario is None:
+            self.default_scenario = scenario.name
 
-    Parameters
-    ----------
-    xls_project_path : str
-        Path to the Excel file representing the PEExcel project.
+    def __getitem__(self, key: str | int) -> Scenario:
+        if isinstance(key, str):
+            return self._scenario_dict[key]
+        if isinstance(key, int):
+            return self.scenarios[key]
+        raise TypeError(f"Unsupported scenario key type: {type(key)}")
 
-    Attributes
-    ----------
-    file_source : str
-        Path to the Excel source file.
-    df_in : pandas.DataFrame or None
-        Parsed raw content of the 'IN' sheet as a DataFrame, if available.
-    df_out : pandas.DataFrame or None
-        Parsed raw content of the 'OUT' sheet as a DataFrame, if available.
-    inputs : dict or None
-        Parsed input variables with metadata and scenario-based values.
-    outputs : dict or None
-        Parsed output variables with metadata and scenario-based values.
-    current_scenario : str or None
-        Currently selected scenario, defaulting to the first available scenario.
+    def __iter__(self) -> Iterator[Scenario]:
+        return iter(self.scenarios)
 
-    Methods
-    -------
-    taxonomy()
-        Returns a dictionary containing all parsed inputs and outputs.
-    all_variables()
-        Returns a dictionary with fully qualified variable names (e.g. 'IN:var_name').
-    scenarios
-        Property returning a list of all available scenarios.
-    scenario(name=None)
-        Returns input values for a specific scenario.
-    get(var_name, scenario=None)
-        Returns the value of a variable for the given scenario.
-    to_json(filepath, section="all")
-        Saves project data to a JSON file. Sections: 'inputs', 'outputs', or 'all'.
-    variable_description(var_name)
-        (Placeholder) Intended to return detailed metadata for a variable.
+    def __len__(self) -> int:
+        return len(self.scenarios)
 
-    Key Features
-    ------------
-    - Parses 'IN' and 'OUT' sheets (if available) into structured dictionaries with metadata and values.
-    - Supports multi-scenario data stored across columns within the sheets.
-    - Provides access to variable values per scenario(column).
-    - Automatically identifies available scenarios from the 'IN' sheet.
-    - Offers methods to export or transform the project data into JSON or DataFrame formats (planned).
+    def get(self, name: str, default=None):
+        return self._scenario_dict.get(name, default)
 
-    Example
-    -------
-    >>> project = Project("path/to/Export.xlsx")
-    >>> project.scenarios
-    ['base', 'scenario1', 'scenario2']
-    >>> project.get("NFA_total", scenario="scenario1")
-    12450.0
-    >>> project.taxonomy()
-    {'inputs': {...}, 'outputs': {...}}
+    def names(self) -> list[str]:
+        return [s.name for s in self.scenarios]
 
-    Notes
-    -----
-    - Missing sheets ('IN' or 'OUT') are handled with warnings.
-    - Assumes all scenarios are defined as columns beyond a fixed set of metadata headers.
-    """
+    def __repr__(self) -> str:
+        src = f" source={self.file_source!r}" if self.file_source else ""
+        return f"<District scenarios={len(self.scenarios)}{src}>"
 
-    def __init__(self, xls_project_path: str):
-        self.file_source = xls_project_path
 
-        try:
-            self.df_in = pd.read_excel(xls_project_path, sheet_name="IN")
-            self.inputs = parsesheet_in(self.df_in)
-        except ValueError:
-            logging.warning(f"'IN' sheet not found in {xls_project_path}")
-            self.df_in = None
-            self.inputs = {}
+def _read_tables(file_path: str | Path) -> tuple[pd.DataFrame, pd.DataFrame]:
+    df_in = pd.read_excel(file_path, sheet_name="IN")
+    df_out = pd.read_excel(file_path, sheet_name="OUT")
+    return df_in, df_out
 
-        try:
-            self.df_out = pd.read_excel(xls_project_path, sheet_name="OUT")
-            self.outputs = parsesheet_out(self.df_out)
-        except ValueError:
-            logging.warning(f"'OUT' sheet not found in {xls_project_path}")
-            self.df_out = None
-            self.outputs = {}
 
-        in_scenarios = set()
-        for v in self.inputs.values():
-            in_scenarios.update(v["values"].keys())
+def _get_input_scenario_names(df_in: pd.DataFrame) -> list[str]:
+    return [
+        str(c)
+        for c in df_in.columns
+        if c not in RESERVED_IN_COLUMN_HEADER_NAMES
+    ]
 
-        out_scenarios = set()
-        for v in self.outputs.values():
-            out_scenarios.update(v["values"].keys())
 
-        all_scenario_names = sorted(in_scenarios.union(out_scenarios))
+def _apply_sheet_to_scenario(
+    scenario: Scenario,
+    df: pd.DataFrame,
+    scenario_column: str,
+    *,
+    unknown: str = "raise",
+    context: str = "",
+) -> None:
+    if scenario_column not in df.columns:
+        return
 
-        self.scenarios: Dict[str, Scenario] = {
-            name: Scenario(name, self) for name in all_scenario_names
-        }
+    for _, row in df.iterrows():
+        var_name = row.get("var_name")
+        if pd.isna(var_name) or not var_name:
+            continue
 
-    # TODO: scenario in - out matching - whats available?
+        var_name = str(var_name)
+        attr_name = ATTR_NAME_MAP.get(var_name)
 
-    # TODO: return should just be dataframes
-    # project should be able to get a dict repr
-    # project should be able to get a json repr
-    # project should be able to get a df repr
+        if attr_name is None:
+            if unknown == "raise":
+                raise KeyError(f"Unknown schema var_name {var_name!r} in {context}")
+            if unknown == "ignore":
+                continue
+            raise ValueError(f"Unsupported unknown policy: {unknown!r}")
 
-    # TODO: should be able to write a project
-    #       - OUT results?
+        setattr(scenario.v, attr_name, row[scenario_column])
 
-    def taxonomy(self) -> dict:
-        # return dict
-        return {"inputs": self.inputs, "outputs": self.outputs}
 
-    def all_variables(self) -> dict:
-        """
-        Returns a dictionary with keys like 'IN:var', 'SIM2:var', 'OUT:var'
-        for unique scoping of variable references.
-        """
-        all_vars = {}
-        for k in self.inputs:
-            all_vars[f"IN:{k}"] = self.inputs[k]
-        for k in self.outputs:
-            all_vars[f"OUT:{k}"] = self.outputs[k]
-        return all_vars
+def read_project(
+    file_path: str | Path,
+    *,
+    unknown: str = "raise",
+) -> District:
+    file_path = Path(file_path)
+    district = District(file_source=file_path)
 
-    def get_scenario(self, name: str) -> Scenario:
-        return self.scenarios[name]
+    df_in, df_out = _read_tables(file_path)
+    scenario_names = _get_input_scenario_names(df_in)
 
-    def to_json(self, filepath: str, section: str = "all"):
-        """
-        Dumps the parsed project data to a JSON file.
+    for sname in scenario_names:
+        scenario = Scenario(sname)
+        district.add_scenario(scenario)
 
-        Parameters:
-        -----------
-        filepath : str
-            The path where the JSON file will be saved.
-        section : str
-            Which section to export: 'inputs', 'outputs', or 'all'.
-
-        Raises:
-        -------
-        ValueError:
-            If the section argument is invalid.
-        """
-        if section == "inputs":
-            data = self.inputs
-        elif section == "outputs":
-            data = self.outputs
-        elif section == "all":
-            data = self.taxonomy()
-        else:
-            raise ValueError("Section must be 'inputs', 'outputs', or 'all'.")
-
-        with open(filepath, "w", encoding="utf-8") as f:
-            json.dump(data, f, indent=2, ensure_ascii=False, default=convert)
-
-    def __repr__(self):
-        return (
-            f"<Project('{self.file_source}') | "
-            f"{len(self.inputs)} inputs, {len(self.outputs)} outputs | "
-            f"Scenarios: {list(self.scenarios.keys())}>"
+        _apply_sheet_to_scenario(
+            scenario,
+            df_in,
+            sname,
+            unknown=unknown,
+            context=f"IN[{sname}]",
+        )
+        _apply_sheet_to_scenario(
+            scenario,
+            df_out,
+            sname,
+            unknown=unknown,
+            context=f"OUT[{sname}]",
         )
 
-    ## read a project
-    # hold the json as dataclass?
+        # TODO: integrate timestep/simulation data loading for this scenario here
 
-    # game app needs to come here, get a project
-    # and build a district out of it#
-    # projectattributes need to findable
-    # project is not responsible for ensuring compatability?
-
-    # project will also be used for other tasks
-    # formula annotation
-    # visualization of calculatio graph, network
-    # potentially interactive?
-
-    # should it automatically be like the excel?
-    # yes, that means dynamic
-
-
-if __name__ == "__main__":
-
-
-    import os
-    from pathlib import Path
-    print(os.getcwd())
-    path = Path(os.getcwd()) /  "peexcel\peexcel\Project_Export.xlsx"
-
-    print( path)
-
-    xlp = Project(path)
-    # print(xlp)
-    # names = nameslist(xw.Book("test_PlusenergieExcel_Performance.xlsx"))
-    # excel_paths = [
-    #     r"C:\Users\Simon Schneider\Nextcloud\EE\1_Forschung\2_Laufend\ZQ Austria\Quartiersdaten\PlusenergieExcel_Aichinger_211105.xlsb",
-    #     r"C:\Users\Simon Schneider\Nextcloud\EE\1_Forschung\2_Laufend\ZQ Austria\Quartiersdaten\PlusenergieExcel_AmBichl_211105.xlsb",
-    #     r"C:\Users\Simon Schneider\Nextcloud\EE\1_Forschung\2_Laufend\ZQ Austria\Quartiersdaten\PlusenergieExcel_Glan_211105.xlsb",
-    #     r"C:\Users\Simon Schneider\Nextcloud\EE\1_Forschung\2_Laufend\ZQ Austria\Quartiersdaten\PlusenergieExcel_Gneis_211105.xlsb",
-    #     r"C:\Users\Simon Schneider\Nextcloud\EE\1_Forschung\2_Laufend\ZQ Austria\Quartiersdaten\PlusenergieExcel_Graz_211105.xlsb",
-    #     r"C:\Users\Simon Schneider\Nextcloud\EE\1_Forschung\2_Laufend\ZQ Austria\Quartiersdaten\PlusenergieExcel_Pilzgasse_211105.xlsb",
-    # ]
-
-    # paths = [Path(ep) for ep in excel_paths]
-
-    # aggregation_excel_path = Path(
-    #     r"C:\Users\Simon Schneider\Nextcloud\EE\1_Forschung\2_Laufend\ZQ Austria\Quartiersdaten\Quartiersvergleich211108.xlsm"
-    # )
-    # aggregation_sheet = "PEExcel Import"
-
-    # for path in paths:
-    #     append_variations_to_aggregation_sheet(
-    #         peexcel_path=path,
-    #         agg_book_path=aggregation_excel_path,
-    #         agg_sheet_name=aggregation_sheet,
-    #         close_peexcel=True,
-    #     )
+    return district
