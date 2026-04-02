@@ -7,7 +7,7 @@ from typing import Any, Iterable
 import json
 import pandas as pd
 
-from pexl.io.csv import read_dataset_dir, normalize_table
+from pexl.io.csv_io import read_dataset_dir, normalize_table
 
 
 DEFAULT_COMPARE_COLS: dict[str, list[str]] = {

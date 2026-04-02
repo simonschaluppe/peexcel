@@ -1,5 +1,5 @@
 from typing import Dict, List, Optional
-from numpy import NaN
+from numpy import nan
 import pandas as pd
 import networkx as nx
 import matplotlib.pyplot as plt
@@ -36,7 +36,7 @@ class CalcTree:
             return (
                 var_name
                 and not var_name.lower().startswith("spalte")
-                and not var_name is NaN
+                and not var_name is nan
                 # and var_name == name
             )
 
@@ -172,7 +172,7 @@ def export_graph_as_json(G: nx.DiGraph, file_path: str):
         info = G.nodes[node]
         meta = info.get("meta")
         label = info.get("label", node)
-        if not label or label is NaN or "Space" in label:
+        if not label or label is nan or "Space" in label:
             continue
         e = meta.get("Einheit", "")
         icon = meta.get("Icon", "")
@@ -182,13 +182,13 @@ def export_graph_as_json(G: nx.DiGraph, file_path: str):
             "Sheet": info.get("sheet", "Unknown"),
             "Kategorie": meta.get("Kategorie", ""),
             "Input": meta.get("ka", "No"),
-            "Einheit": e if e is not NaN else "",
-            "icon": icon if icon is not NaN else "",
+            "Einheit": e if e is not nan else "",
+            "icon": icon if icon is not nan else "",
         }
         # element["description"] = meta.get("Beschreibung", None) or meta.get(
         #     "Kommentar", None
-        # ) must not return NaN
-        if var_name := meta.get("var_name", "") is NaN:
+        # ) must not return nan
+        if var_name := meta.get("var_name", "") is nan:
             element["var_name"] = ""
         else:
             element["var_name"] = var_name or ""
@@ -428,16 +428,16 @@ def draw_dependency_graph_force_xlayered(G: nx.DiGraph):
 
 
 if __name__ == "__main__":
-    p = excel.Project("../Project_Export.xlsx")
+    p = excel.Project("data/exports/ka_project_backup_v1.10.xlsx")
     # tax = p.taxonomy()
     # dfsim = pd.read_excel("../Taxonomy.xlsx", sheet_name="SIM2")
     # tax["SIM2"] = {k: dfsim[k].loc[0] for k in dfsim.columns}
 
-    c = CalcTree(p, sim2_path="../Taxonomy.xlsx")
+    c = CalcTree(p, sim2_path="data/schemas/dev/Taxonomy.xlsx")
     graph = build_dependency_graph(c)
     export_graph_as_json(graph, "calctree.json")
-    # draw_dependency_graph(graph)
+    #draw_dependency_graph(graph)
     # draw_dependency_graph_interactive(graph)
-    # draw_dependency_graph_force_xlayered(graph)
+    draw_dependency_graph_force_xlayered(graph)
 
 #   https://kumu.io/simonschaluppe/sandbox#peexcel

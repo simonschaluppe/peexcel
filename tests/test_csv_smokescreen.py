@@ -1,5 +1,5 @@
 from pathlib import Path
-from pexl.io.csv import read_dataset_dir
+from pexl.io.csv_io import read_dataset_dir
 
 
 def test_can_load_schema_dev():
