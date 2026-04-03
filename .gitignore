@@ -15,10 +15,14 @@
 *.webp
 *.svg
 
+ka_project_backup*
+*test*
+
 #  folders
 .idea
 .vscode
 docs/Meetings/
+data/Excel Files/
 Excel Files/PEExcel Archive/
 **/ribbon/
 **/Intern/
