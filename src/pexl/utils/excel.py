@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterator
 
@@ -37,6 +38,18 @@ RESERVED_OUT_COLUMN_HEADER_NAMES = [
 PROJECT_NAME_VAR = "project_name"
 PROJECT_SCENARIO_NAME_VAR = "project_scenario_name"
 
+@dataclass
+class Usage:
+    key: str
+    area: float #m2 NFA
+    room_height: float
+    # add more usage-scoped variables over time
+    dhw_occupancy: float | None = None
+    plugloads_scale: float | None = None
+    cool_share: float | None = None
+    vent_scale: float | None = None
+    vent_share_mechanical: float | None = None
+
 
 class Scenario:
     """
@@ -63,7 +76,53 @@ class Scenario:
     def __repr__(self) -> str:
         return f"<Scenario {self.name!r}>"
 
+    def as_dict(self) -> dict:
+        """Flat dict of all v.* values"""
+        return vars(self.v)
 
+    @staticmethod
+    def _get(d, key, default=0):
+        val = d.get(key)
+        return default if val is None else val
+
+    @property
+    def usage_keys(self) -> list[str]:
+        return [
+            "residential",
+            "office",
+            "schoolprim",
+            "schoolsec",
+            "retailfood",
+            "retailother",
+            "other",
+        ]
+    
+    @property
+    def usages(self) -> list[Usage]:
+        d = self.as_dict()
+        avg_h = self._get(d, "rh_avg", 3.0)
+
+        usages = []
+
+        for k in self.usage_keys:
+            area = self._get(d, f"NFA_{k}")
+            if area <= 0:
+                continue
+
+            usages.append(
+                Usage(
+                    key=k,
+                    area=area,
+                    room_height=self._get(d, f"rh_{k}", avg_h),
+                    dhw_occupancy=d.get(f"DHW_occupancy_{k}"),
+                    plugloads_scale=d.get(f"Plugloads_scale_{k}"),
+                    cool_share = d.get(f"cool_share_{k}"),
+                    vent_scale=d.get(f"vent_scale_{k}"),
+                    vent_share_mechanical = d.get(f"vent_share_mechanical_{k}"),
+                )
+            )
+        return usages
+    
 class District:
     """
     Container for multiple scenarios belonging to the same district.
@@ -259,45 +318,27 @@ def read_project(
         scenario = district.get_or_create_scenario(scenario_name)
 
         # Copy IN values into the scenario
-        if column_name in df_in.columns:
-            for _, row in df_in.iterrows():
-                var_name = row.get("var_name")
-                if not var_name: # skip
-                    continue
-                if pd.isna(var_name):
-                    project.warnings.append(f"{district_name} | {scenario_name} > pd.isna({var_name=}) = True")
-                    continue
-
-                var_name = str(var_name)
-                attr_name = ATTR_NAME_MAP.get(var_name)
-
-                if attr_name is None:
-                    if unknown == "raise":
-                        raise KeyError(f"Unknown schema var_name {var_name!r} in IN[{column_name}]")
-                    if unknown == "ignore":
+        for df in [df_in, df_out]:
+            if column_name in df.columns:
+                for _, row in df.iterrows():
+                    var_name = row.get("var_name")
+                    if not var_name: # skip
                         continue
-                    raise ValueError(f"Unsupported unknown policy: {unknown!r}")
-
-                setattr(scenario.v, attr_name, row[column_name])
-
-        # Copy OUT values into the scenario
-        if column_name in df_out.columns:
-            for _, row in df_out.iterrows():
-                var_name = row.get("var_name")
-                if pd.isna(var_name) or not var_name:
-                    continue
-
-                var_name = str(var_name)
-                attr_name = ATTR_NAME_MAP.get(var_name)
-
-                if attr_name is None:
-                    if unknown == "raise":
-                        raise KeyError(f"Unknown schema var_name {var_name!r} in OUT[{column_name}]")
-                    if unknown == "ignore":
+                    if pd.isna(var_name):
+                        project.warnings.append(f"{district_name} | {scenario_name} > pd.isna({var_name=}) = True")
                         continue
-                    raise ValueError(f"Unsupported unknown policy: {unknown!r}")
 
-                setattr(scenario.v, attr_name, row[column_name])
+                    var_name = str(var_name)
+                    attr_name = ATTR_NAME_MAP.get(var_name)
+
+                    if attr_name is None:
+                        if unknown == "raise":
+                            raise KeyError(f"Unknown schema var_name {var_name!r} in {column_name}")
+                        if unknown == "ignore":
+                            continue
+                        raise ValueError(f"Unsupported unknown policy: {unknown!r}")
+
+                    setattr(scenario.v, attr_name, row[column_name])
 
         # Check whether the values stored inside the scenario agree with the column name
         value_project_name = getattr(scenario.v, ATTR_NAME_MAP.get(PROJECT_NAME_VAR), None)

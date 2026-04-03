@@ -40,6 +40,7 @@ RESERVED_OUT_COLUMN_HEADER_NAMES = [
 class VariableMetaRow:
     var_name: str
     attr_name: str
+    icon: str | None = None
     real_name: str | None = None
     unit: str | None = None
     type_name: str | None = None
@@ -154,6 +155,10 @@ def merge_meta(
     return VariableMetaRow(
         var_name=var_name,
         attr_name=attr_name,
+        icon=first_nonempty(
+            in_row.get("Icon") if in_row else None,
+            out_row.get("Icon") if out_row else None,
+        ),
         real_name=first_nonempty(
             in_row.get("Name") if in_row else None,
             out_row.get("Name") if out_row else None,
@@ -201,6 +206,7 @@ def build_variable_meta_dataclass_code() -> str:
 class VariableMeta:
     var_name: str
     attr_name: str
+    icon: str | None = None
     real_name: str | None = None
     unit: str | None = None
     type_name: str | None = None
@@ -216,25 +222,27 @@ class VariableMeta:
         parts = []
 
         # main identifier
+        if self.icon:
+            parts.append(f"{self.icon}")
+
         name = self.var_name
         if self.real_name:
             name += f" ({self.real_name})"
 
         parts.append(name)
-
         # unit + type
         if self.unit:
             parts.append(f"[{self.unit}]")
         if self.type_name:
             parts.append(f"<{self.type_name}>")
 
-        # source info
-        if self.source:
-            parts.append(f"@{self.source}")
-
         # ka flag (important for your workflow)
         if self.ka is not None:
             parts.append(f"ka={self.ka}")
+
+        # source info
+        if self.source:
+            parts.append(f"@{self.source}")
 
         return "<VarMeta " + " ".join(parts) + ">"
 """
@@ -253,6 +261,7 @@ def build_meta_class_code(meta_rows: list[VariableMetaRow]) -> str:
             f"        self.{row.attr_name} = VariableMeta(\n"
             f"            var_name={row.var_name!r}, \n"
             f"            attr_name={row.attr_name!r}, \n"
+            f"            icon={row.icon!r}, \n"
             f"            real_name={as_python_literal(row.real_name)}, \n"
             f"            unit={as_python_literal(row.unit)}, \n"
             f"            type_name={as_python_literal(row.type_name)}, \n"
