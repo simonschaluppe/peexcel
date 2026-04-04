@@ -324,7 +324,7 @@ def generate_schema_module_text(
     ]
 
     parts: list[str] = []
-    parts.append('"""Auto-generated schema bindings. Do not edit manually."""')
+    parts.append('"""Auto-generated schema bindings. Do not edit manually!"""')
     parts.append("")
     parts.append("from __future__ import annotations")
     parts.append("from dataclasses import dataclass")
