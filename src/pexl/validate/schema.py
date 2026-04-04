@@ -136,6 +136,7 @@ def _diff_table(
         "rows": {
             "old_count": len(old_norm),
             "new_count": len(new_norm),
+            "new_errors": value_changes["error_count"],
             "var_name_added": added_keys,
             "var_name_removed": removed_keys,
             "duplicate_keys_old": old_dupes,
@@ -143,7 +144,9 @@ def _diff_table(
         },
         "changes": {
             "compared_columns": cols_to_compare,
+            "value_error_count": value_changes["error_count"],
             "value_change_count": value_changes["change_count"],
+            "value_errors": value_changes["errors"],
             "value_changes": value_changes["changes"],
             "truncated": value_changes["truncated"],
         },
@@ -162,6 +165,9 @@ def _diff_values_by_key(
     # Index by key for fast lookups (assumes canonical schema => unique)
     old_idx = old_df.set_index(key_col, drop=False)
     new_idx = new_df.set_index(key_col, drop=False)
+    
+    errors: list[dict[str, str]] = []
+    error_count = 0
 
     changes: list[dict[str, str]] = []
     change_count = 0
@@ -175,7 +181,18 @@ def _diff_values_by_key(
             old_val = str(old_row.get(c, ""))
             new_val = str(new_row.get(c, ""))
 
-            if old_val != new_val:
+            if new_val.find("#") != -1:
+                error_count += 1
+                errors.append(
+                        {
+                            key_col: k,
+                            "column": c,
+                            "old": old_val,
+                            "new": new_val,
+                        }
+                    )
+                
+            if old_val != new_val: # change
                 change_count += 1
                 if len(changes) < max_changes:
                     changes.append(
@@ -190,10 +207,13 @@ def _diff_values_by_key(
                     truncated = True
 
     return {
+        "error_count": error_count,
+        "errors": errors,
         "change_count": change_count,
         "changes": changes,
         "truncated": truncated,
     }
+
 
 
 def _find_duplicates(df: pd.DataFrame, key_col: str) -> list[str]:
@@ -240,7 +260,7 @@ def _diff_audit(old_dir: Path, new_dir: Path) -> dict[str, Any]:
     }
 
 
-def schema_diff_to_markdown(report: dict, *, format: Literal["table", "items"] = "table") -> str:
+def schema_diff_to_markdown(report: dict, *, value_format: Literal["table", "items", "None"] = "table") -> str:
     """
     Render a schema diff report (from diff_schema_dirs) to Markdown.
 
@@ -259,7 +279,7 @@ def schema_diff_to_markdown(report: dict, *, format: Literal["table", "items"] =
     )
 
     tables_md = "\n\n".join(
-        _render_table_section(tname, t, value_format=format)
+        _render_table_section(tname, t, value_format=value_format)
         for tname, t in (report.get("tables", {}) or {}).items()
     )
 
@@ -273,6 +293,8 @@ def _render_table_section(tname: str, t: dict, *, value_format: Literal["table",
     cols = t.get("columns", {}) or {}
     rows = t.get("rows", {}) or {}
     ch = t.get("changes", {}) or {}
+    e = ch.get("value_errors",  {})
+
 
     columns_md = "\n".join(
         [
@@ -285,10 +307,11 @@ def _render_table_section(tname: str, t: dict, *, value_format: Literal["table",
 
     row_lines = [
         "### Rows",
-        f"- Old count: {rows.get('old_count')}",
-        f"- New count: {rows.get('new_count')}",
-        f"- var_name added: {rows.get('var_name_added', [])}",
-        f"- var_name removed: {rows.get('var_name_removed', [])}",
+        f"Old count: {rows.get('old_count')}",
+        f"New count: {rows.get('new_count')}",
+        f"- **New Error count: {rows.get('new_errors')}**",
+        f"- Added/~~Removed~~ var_name:\n {"\n".join("  - "+r for r in rows.get('var_name_added', []))}",
+        f"{"\n".join("  - ~~"+r+"~~" for r in rows.get('var_name_removed', []))}\n",
     ]
     if rows.get("duplicate_keys_old"):
         row_lines.append(f"- ⚠ Duplicates (old): {rows['duplicate_keys_old']}")
@@ -296,36 +319,47 @@ def _render_table_section(tname: str, t: dict, *, value_format: Literal["table",
         row_lines.append(f"- ⚠ Duplicates (new): {rows['duplicate_keys_new']}")
     rows_md = "\n".join(row_lines)
 
+    error_md = _render_errors(e)
+
     value_md = _render_value_changes(ch, value_format=value_format)
 
-    return "\n\n".join([f"## {tname}", columns_md, rows_md, value_md])
+    return "\n\n".join([f"## {tname}", columns_md, rows_md, error_md, value_md])
 
+def _render_errors(e: dict):
+    lines = ["### Potential Errors (#)","","| var_name | column | error |", "|---|---|---|"]
+    for error in e:
+        lines.append(
+            f"| {error.get('var_name')} | {error.get('column')} | "
+            f"{_md_escape(error.get('new',''))} |"
+        )
+    if not e:
+        lines = ["### Potential Errors (#)", "- None"]
+    return "\n".join(lines)
 
 def _render_value_changes(ch: dict, *, value_format: Literal["table", "items"]) -> str:
-    compared = ch.get("compared_columns", [])
-    count = ch.get("value_change_count")
-    truncated = ch.get("truncated")
-    changes = ch.get("value_changes", []) or []
-
     header_lines = [
         "### Value changes",
-        f"- Compared columns: {compared}",
-        f"- Change count: {count}",
+        f"- Compared columns: {ch.get("compared_columns", [])}",
+        f"- Error count: {ch.get("value_error_count")}",
+        f"- Change count: {ch.get("value_change_count")}",
     ]
-    if truncated:
+    if ch.get("truncated"):
         header_lines.append("- ⚠ Output truncated")
 
     header = "\n".join(header_lines)
 
+    changes = ch.get("value_changes", []) or []
     if not changes:
         return "\n\n".join([header, "_No value changes._"])
 
     if value_format == "table":
         return "\n\n".join([header, _render_changes_table(changes)])
-    if value_format == "items":
+    elif value_format == "items":
         return "\n\n".join([header, _render_changes_items(changes)])
-
-    raise ValueError(f"Unknown value_format={value_format!r}")
+    elif value_format == "None": 
+        return "\n\n"
+    else:
+        raise ValueError(f"Unknown value_format={value_format!r}")
 
 
 def _render_changes_table(changes: list[dict]) -> str:
@@ -377,4 +411,5 @@ def _md_escape(val: str) -> str:
     s = s.replace("|", "\\|")
     s = s.replace("\n", "\\n")
     s = s.replace("\r", "")
+    s = s.replace("*", " * ")
     return s

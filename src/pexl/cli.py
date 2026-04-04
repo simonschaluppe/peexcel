@@ -22,7 +22,7 @@ def main() -> None:
 
     if args.cmd == "schema-diff":
         report = diff_schema_dirs(Path("data/schemas" / args.old), Path("data/schemas" / args.new))
-        md = schema_diff_to_markdown(report, format=args.format)
+        md = schema_diff_to_markdown(report, value_format=args.format)
 
         if args.md:
             args.md.write_text(md, encoding="utf-8")

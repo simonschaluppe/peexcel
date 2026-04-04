@@ -26,8 +26,8 @@ class VariableMeta:
 
         # main identifier
         if self.icon:
-            parts.append(f" ({self.icon})")
-            
+            parts.append(f"{self.icon}")
+
         name = self.var_name
         if self.real_name:
             name += f" ({self.real_name})"
@@ -39,13 +39,13 @@ class VariableMeta:
         if self.type_name:
             parts.append(f"<{self.type_name}>")
 
-        # source info
-        if self.source:
-            parts.append(f"@{self.source}")
-
         # ka flag (important for your workflow)
         if self.ka is not None:
             parts.append(f"ka={self.ka}")
+
+        # source info
+        if self.source:
+            parts.append(f"@{self.source}")
 
         return "<VarMeta " + " ".join(parts) + ">"
 
@@ -116,7 +116,6 @@ class ExcelNamedVariables:
         self.COMP_name_wall_ec_unheated: object | None = None
         self.COMP_name_windowframe: object | None = None
         self.COMP_name_windowglazing: object | None = None
-        self.COMP_name_windows: object | None = None
         self.DHW_1_efficiency: object | None = None
         self.DHW_1_el_aux: object | None = None
         self.DHW_1_incl_distribution_factor: object | None = None
@@ -223,7 +222,7 @@ class ExcelNamedVariables:
         self.EV_demand_kWhpkm: object | None = None
         self.EV_experimental_calculation: object | None = None
         self.EV_max_charging_power_ratio: object | None = None
-        self.EV_mileage_res: object | None = None
+        self.EV_mileage_residential: object | None = None
         self.EV_mileage_retail: object | None = None
         self.EV_mileage_work: object | None = None
         self.EV_self_discharge_per_week: object | None = None
@@ -458,6 +457,7 @@ class ExcelNamedVariables:
         self.GWP_tga_other_name: object | None = None
         self.GWP_ventilation_name: object | None = None
         self.GWP_walls_name: object | None = None
+        self.GWP_windows_name: object | None = None
         self.Grid_to_Ec_min: object | None = None
         self.Grid_to_Edhw_min: object | None = None
         self.Grid_to_Eev_min: object | None = None
@@ -555,7 +555,7 @@ class ExcelNamedVariables:
         self.Plight_min_schoolsec: object | None = None
         self.Plugloads_scale_office: object | None = None
         self.Plugloads_scale_other: object | None = None
-        self.Plugloads_scale_res: object | None = None
+        self.Plugloads_scale_residential: object | None = None
         self.Plugloads_scale_retailfood: object | None = None
         self.Plugloads_scale_retailother: object | None = None
         self.Plugloads_scale_schoolprim: object | None = None
@@ -690,12 +690,12 @@ class ExcelNamedVariables:
         self.QVn_u: object | None = None
         self.QVn_winter: object | None = None
         self.StatPAX: object | None = None
-        self.StatPAX_eduprim: object | None = None
-        self.StatPAX_edusec: object | None = None
         self.StatPAX_office: object | None = None
-        self.StatPAX_res: object | None = None
+        self.StatPAX_residential: object | None = None
         self.StatPAX_retail: object | None = None
         self.StatPAX_retailother: object | None = None
+        self.StatPAX_schoolprim: object | None = None
+        self.StatPAX_schoolsec: object | None = None
         self.Ta_annual_avg: object | None = None
         self.Ta_avg_cooling_period: object | None = None
         self.Ta_avg_heating_period: object | None = None
@@ -797,12 +797,12 @@ class ExcelNamedVariables:
         self.daylightcontr_office: object | None = None
         self.daylightcontr_schoolprim: object | None = None
         self.daylightcontr_schoolsec: object | None = None
-        self.density_NFApPers_edu: object | None = None
-        self.density_NFApPers_edu_rpim: object | None = None
         self.density_NFApPers_office: object | None = None
         self.density_NFApPers_residential: object | None = None
         self.density_NFApPers_retail: object | None = None
         self.density_NFApPers_retail_other: object | None = None
+        self.density_NFApPers_schoolprim: object | None = None
+        self.density_NFApPers_schoolsec: object | None = None
         self.dhw1_is_bio: object | None = None
         self.dhw1_is_dh: object | None = None
         self.dhw1_is_ng: object | None = None
@@ -822,13 +822,13 @@ class ExcelNamedVariables:
         self.fPE_grid_column: object | None = None
         self.fPE_grid_profile: object | None = None
         self.fc_c: object | None = None
-        self.fc_eduprim: object | None = None
-        self.fc_edusec: object | None = None
         self.fc_office: object | None = None
         self.fc_other: object | None = None
         self.fc_residential: object | None = None
         self.fc_retailfood: object | None = None
         self.fc_retailother: object | None = None
+        self.fc_schoolprim: object | None = None
+        self.fc_schoolsec: object | None = None
         self.fc_u: object | None = None
         self.flex_GSR: object | None = None
         self.flex_GSRI: object | None = None
@@ -983,21 +983,21 @@ class ExcelNamedVariables:
         self.test_NFV_shares: object | None = None
         self.test_heat_balance: object | None = None
         self.transmittance_MW: object | None = None
-        self.transmittance_Wm: object | None = None  # var_name: transmittance_Wm²
-        self.usage_concurrency_summer_eduprim: object | None = None
-        self.usage_concurrency_summer_edusec: object | None = None
+        self.transmittance_Wm2: object | None = None
         self.usage_concurrency_summer_office: object | None = None
         self.usage_concurrency_summer_other: object | None = None
-        self.usage_concurrency_summer_res: object | None = None
+        self.usage_concurrency_summer_residential: object | None = None
         self.usage_concurrency_summer_retailfood: object | None = None
         self.usage_concurrency_summer_retailother: object | None = None
-        self.usage_concurrency_winter_eduprim: object | None = None
-        self.usage_concurrency_winter_edusec: object | None = None
+        self.usage_concurrency_summer_schoolprim: object | None = None
+        self.usage_concurrency_summer_schoolsec: object | None = None
         self.usage_concurrency_winter_office: object | None = None
         self.usage_concurrency_winter_other: object | None = None
-        self.usage_concurrency_winter_res: object | None = None
+        self.usage_concurrency_winter_residential: object | None = None
         self.usage_concurrency_winter_retailfood: object | None = None
         self.usage_concurrency_winter_retailother: object | None = None
+        self.usage_concurrency_winter_schoolprim: object | None = None
+        self.usage_concurrency_winter_schoolsec: object | None = None
         self.vent_ach_max_office: object | None = None
         self.vent_ach_max_other: object | None = None
         self.vent_ach_max_residential: object | None = None
@@ -1538,10 +1538,10 @@ class Meta:
             icon=None, 
             real_name='FU Balkone', 
             unit='m²', 
-            type_name=None, 
+            type_name='userinput', 
             comment='functional unit', 
             source='IN', 
-            ka=None, 
+            ka=2, 
             category=None, 
             area=None, 
             label=None, 
@@ -1556,7 +1556,7 @@ class Meta:
             type_name='userinput', 
             comment='functional unit', 
             source='IN', 
-            ka=None, 
+            ka=2, 
             category=None, 
             area=None, 
             label=None, 
@@ -1571,7 +1571,7 @@ class Meta:
             type_name='userinput', 
             comment='functional unit', 
             source='IN', 
-            ka=None, 
+            ka=2, 
             category=None, 
             area=None, 
             label=None, 
@@ -1586,7 +1586,7 @@ class Meta:
             type_name='userinput', 
             comment='functional unit', 
             source='IN', 
-            ka=None, 
+            ka=2, 
             category=None, 
             area=None, 
             label=None, 
@@ -1601,7 +1601,7 @@ class Meta:
             type_name='userinput', 
             comment='functional unit', 
             source='IN', 
-            ka=None, 
+            ka=2, 
             category=None, 
             area=None, 
             label=None, 
@@ -1616,7 +1616,7 @@ class Meta:
             type_name='userinput', 
             comment='functional unit', 
             source='IN', 
-            ka=None, 
+            ka=2, 
             category=None, 
             area=None, 
             label=None, 
@@ -1631,7 +1631,7 @@ class Meta:
             type_name='userinput', 
             comment='functional unit', 
             source='IN', 
-            ka=None, 
+            ka=2, 
             category=None, 
             area=None, 
             label=None, 
@@ -1646,7 +1646,7 @@ class Meta:
             type_name='userinput', 
             comment='functional unit', 
             source='IN', 
-            ka=None, 
+            ka=2, 
             category=None, 
             area=None, 
             label=None, 
@@ -1661,7 +1661,7 @@ class Meta:
             type_name='userinput', 
             comment='functional unit', 
             source='IN', 
-            ka=None, 
+            ka=2, 
             category=None, 
             area=None, 
             label=None, 
@@ -1676,7 +1676,7 @@ class Meta:
             type_name='userinput', 
             comment='functional unit', 
             source='IN', 
-            ka=None, 
+            ka=2, 
             category=None, 
             area=None, 
             label=None, 
@@ -1691,7 +1691,7 @@ class Meta:
             type_name='userinput', 
             comment='functional unit', 
             source='IN', 
-            ka=None, 
+            ka=2, 
             category=None, 
             area=None, 
             label=None, 
@@ -1706,7 +1706,7 @@ class Meta:
             type_name='userinput', 
             comment='functional unit', 
             source='IN', 
-            ka=None, 
+            ka=2, 
             category=None, 
             area=None, 
             label=None, 
@@ -1721,7 +1721,7 @@ class Meta:
             type_name='userinput', 
             comment='functional unit', 
             source='IN', 
-            ka=None, 
+            ka=2, 
             category=None, 
             area=None, 
             label=None, 
@@ -1736,7 +1736,7 @@ class Meta:
             type_name='userinput', 
             comment='functional unit', 
             source='IN', 
-            ka=None, 
+            ka=2, 
             category=None, 
             area=None, 
             label=None, 
@@ -1747,11 +1747,11 @@ class Meta:
             attr_name='COMP_area_windowframe', 
             icon=None, 
             real_name='FU Fensterrahmen', 
-            unit=None, 
-            type_name=None, 
-            comment=None, 
+            unit='m²', 
+            type_name='userinput', 
+            comment='functional unit', 
             source='IN', 
-            ka=None, 
+            ka=2, 
             category=None, 
             area=None, 
             label=None, 
@@ -1762,11 +1762,11 @@ class Meta:
             attr_name='COMP_area_windowglazing', 
             icon=None, 
             real_name='FU Fensterglas', 
-            unit=None, 
-            type_name=None, 
-            comment=None, 
+            unit='m²', 
+            type_name='userinput', 
+            comment='functional unit', 
             source='IN', 
-            ka=None, 
+            ka=2, 
             category=None, 
             area=None, 
             label=None, 
@@ -1781,7 +1781,7 @@ class Meta:
             type_name='userinput', 
             comment=None, 
             source='IN', 
-            ka=None, 
+            ka=2, 
             category=None, 
             area=None, 
             label=None, 
@@ -1796,7 +1796,7 @@ class Meta:
             type_name='userinput', 
             comment=None, 
             source='IN', 
-            ka=None, 
+            ka=2, 
             category=None, 
             area=None, 
             label=None, 
@@ -1811,7 +1811,7 @@ class Meta:
             type_name='userinput', 
             comment=None, 
             source='IN', 
-            ka=None, 
+            ka=2, 
             category=None, 
             area=None, 
             label=None, 
@@ -1826,7 +1826,7 @@ class Meta:
             type_name='userinput', 
             comment=None, 
             source='IN', 
-            ka=None, 
+            ka=2, 
             category=None, 
             area=None, 
             label=None, 
@@ -1841,7 +1841,7 @@ class Meta:
             type_name='userinput', 
             comment=None, 
             source='IN', 
-            ka=None, 
+            ka=2, 
             category=None, 
             area=None, 
             label=None, 
@@ -1856,7 +1856,7 @@ class Meta:
             type_name='userinput', 
             comment=None, 
             source='IN', 
-            ka=None, 
+            ka=2, 
             category=None, 
             area=None, 
             label=None, 
@@ -1871,7 +1871,7 @@ class Meta:
             type_name='userinput', 
             comment=None, 
             source='IN', 
-            ka=None, 
+            ka=2, 
             category=None, 
             area=None, 
             label=None, 
@@ -1886,7 +1886,7 @@ class Meta:
             type_name='userinput', 
             comment=None, 
             source='IN', 
-            ka=None, 
+            ka=2, 
             category=None, 
             area=None, 
             label=None, 
@@ -1901,7 +1901,7 @@ class Meta:
             type_name='userinput', 
             comment=None, 
             source='IN', 
-            ka=None, 
+            ka=2, 
             category=None, 
             area=None, 
             label=None, 
@@ -1916,7 +1916,7 @@ class Meta:
             type_name='userinput', 
             comment=None, 
             source='IN', 
-            ka=None, 
+            ka=2, 
             category=None, 
             area=None, 
             label=None, 
@@ -1931,7 +1931,7 @@ class Meta:
             type_name='userinput', 
             comment=None, 
             source='IN', 
-            ka=None, 
+            ka=2, 
             category=None, 
             area=None, 
             label=None, 
@@ -1946,7 +1946,7 @@ class Meta:
             type_name='userinput', 
             comment=None, 
             source='IN', 
-            ka=None, 
+            ka=2, 
             category=None, 
             area=None, 
             label=None, 
@@ -1961,7 +1961,7 @@ class Meta:
             type_name='userinput', 
             comment=None, 
             source='IN', 
-            ka=None, 
+            ka=2, 
             category=None, 
             area=None, 
             label=None, 
@@ -1976,7 +1976,7 @@ class Meta:
             type_name='userinput', 
             comment=None, 
             source='IN', 
-            ka=None, 
+            ka=2, 
             category=None, 
             area=None, 
             label=None, 
@@ -1991,7 +1991,7 @@ class Meta:
             type_name='userinput', 
             comment=None, 
             source='IN', 
-            ka=None, 
+            ka=2, 
             category=None, 
             area=None, 
             label=None, 
@@ -2006,7 +2006,7 @@ class Meta:
             type_name='userinput', 
             comment=None, 
             source='IN', 
-            ka=None, 
+            ka=2, 
             category=None, 
             area=None, 
             label=None, 
@@ -2020,21 +2020,6 @@ class Meta:
             unit=None, 
             type_name='userinput', 
             comment=None, 
-            source='IN', 
-            ka=None, 
-            category=None, 
-            area=None, 
-            label=None, 
-            var_cat=None
-)
-        self.COMP_name_windows = VariableMeta(
-            var_name='COMP_name_windows', 
-            attr_name='COMP_name_windows', 
-            icon='☁', 
-            real_name='Bauweise Fenster', 
-            unit=None, 
-            type_name='userinput', 
-            comment='COMP_name_windows', 
             source='IN', 
             ka=2, 
             category=None, 
@@ -3632,9 +3617,9 @@ class Meta:
             label=None, 
             var_cat=None
 )
-        self.EV_mileage_res = VariableMeta(
-            var_name='EV_mileage_res', 
-            attr_name='EV_mileage_res', 
+        self.EV_mileage_residential = VariableMeta(
+            var_name='EV_mileage_residential', 
+            attr_name='EV_mileage_residential', 
             icon='🚗', 
             real_name='Ecar Pkm Real Wohnen (Insgesamt)', 
             unit='Pkm/a', 
@@ -7157,6 +7142,21 @@ class Meta:
             label=None, 
             var_cat=None
 )
+        self.GWP_windows_name = VariableMeta(
+            var_name='GWP_windows_name', 
+            attr_name='GWP_windows_name', 
+            icon='☁', 
+            real_name='Bauweise Fenster', 
+            unit=None, 
+            type_name='userinput', 
+            comment='COMP_name_windows', 
+            source='IN', 
+            ka=2, 
+            category=None, 
+            area=None, 
+            label=None, 
+            var_cat=None
+)
         self.Grid_to_Ec_min = VariableMeta(
             var_name='Grid_to_Ec_min', 
             attr_name='Grid_to_Ec_min', 
@@ -8612,9 +8612,9 @@ class Meta:
             label=None, 
             var_cat=None
 )
-        self.Plugloads_scale_res = VariableMeta(
-            var_name='Plugloads_scale_res', 
-            attr_name='Plugloads_scale_res', 
+        self.Plugloads_scale_residential = VariableMeta(
+            var_name='Plugloads_scale_residential', 
+            attr_name='Plugloads_scale_residential', 
             icon='👤', 
             real_name='Nutzerstrom Wohnen', 
             unit='Faktor', 
@@ -10637,36 +10637,6 @@ class Meta:
             label=None, 
             var_cat=None
 )
-        self.StatPAX_eduprim = VariableMeta(
-            var_name='StatPAX_eduprim', 
-            attr_name='StatPAX_eduprim', 
-            icon='🚗', 
-            real_name='Mobilitätsstatistische Nutzer Schule primär', 
-            unit='StatPAX', 
-            type_name='calculation', 
-            comment=None, 
-            source='IN', 
-            ka=0, 
-            category=None, 
-            area=None, 
-            label=None, 
-            var_cat=None
-)
-        self.StatPAX_edusec = VariableMeta(
-            var_name='StatPAX_edusec', 
-            attr_name='StatPAX_edusec', 
-            icon='🚗', 
-            real_name='Mobilitätsstatistische Nutzer Schule sekundär', 
-            unit='StatPAX', 
-            type_name='calculation', 
-            comment=None, 
-            source='IN', 
-            ka=0, 
-            category=None, 
-            area=None, 
-            label=None, 
-            var_cat=None
-)
         self.StatPAX_office = VariableMeta(
             var_name='StatPAX_office', 
             attr_name='StatPAX_office', 
@@ -10682,9 +10652,9 @@ class Meta:
             label=None, 
             var_cat=None
 )
-        self.StatPAX_res = VariableMeta(
-            var_name='StatPAX_res', 
-            attr_name='StatPAX_res', 
+        self.StatPAX_residential = VariableMeta(
+            var_name='StatPAX_residential', 
+            attr_name='StatPAX_residential', 
             icon='🚗', 
             real_name='Mobilitätsstatistische Nutzer Wohnen', 
             unit='StatPAX', 
@@ -10717,6 +10687,36 @@ class Meta:
             attr_name='StatPAX_retailother', 
             icon='🚗', 
             real_name='Mobilitätsstatistische Nutzer Handel Sonstige', 
+            unit='StatPAX', 
+            type_name='calculation', 
+            comment=None, 
+            source='IN', 
+            ka=0, 
+            category=None, 
+            area=None, 
+            label=None, 
+            var_cat=None
+)
+        self.StatPAX_schoolprim = VariableMeta(
+            var_name='StatPAX_schoolprim', 
+            attr_name='StatPAX_schoolprim', 
+            icon='🚗', 
+            real_name='Mobilitätsstatistische Nutzer Schule primär', 
+            unit='StatPAX', 
+            type_name='calculation', 
+            comment=None, 
+            source='IN', 
+            ka=0, 
+            category=None, 
+            area=None, 
+            label=None, 
+            var_cat=None
+)
+        self.StatPAX_schoolsec = VariableMeta(
+            var_name='StatPAX_schoolsec', 
+            attr_name='StatPAX_schoolsec', 
+            icon='🚗', 
+            real_name='Mobilitätsstatistische Nutzer Schule sekundär', 
             unit='StatPAX', 
             type_name='calculation', 
             comment=None, 
@@ -12242,36 +12242,6 @@ class Meta:
             label=None, 
             var_cat=None
 )
-        self.density_NFApPers_edu = VariableMeta(
-            var_name='density_NFApPers_edu', 
-            attr_name='density_NFApPers_edu', 
-            icon='🚗', 
-            real_name='Belegungsdichte Ausbildung Sekundär', 
-            unit='m²NF/Pers', 
-            type_name='value', 
-            comment=None, 
-            source='IN', 
-            ka=1, 
-            category=None, 
-            area=None, 
-            label=None, 
-            var_cat=None
-)
-        self.density_NFApPers_edu_rpim = VariableMeta(
-            var_name='density_NFApPers_edu_rpim', 
-            attr_name='density_NFApPers_edu_rpim', 
-            icon='🚗', 
-            real_name='Belegungsdichte Ausbildung Primär', 
-            unit='m²NF/Pers', 
-            type_name='value', 
-            comment=None, 
-            source='IN', 
-            ka=1, 
-            category=None, 
-            area=None, 
-            label=None, 
-            var_cat=None
-)
         self.density_NFApPers_office = VariableMeta(
             var_name='density_NFApPers_office', 
             attr_name='density_NFApPers_office', 
@@ -12322,6 +12292,36 @@ class Meta:
             attr_name='density_NFApPers_retail_other', 
             icon='🚗', 
             real_name='Belegungsdichte Handel Sonstige', 
+            unit='m²NF/Pers', 
+            type_name='value', 
+            comment=None, 
+            source='IN', 
+            ka=1, 
+            category=None, 
+            area=None, 
+            label=None, 
+            var_cat=None
+)
+        self.density_NFApPers_schoolprim = VariableMeta(
+            var_name='density_NFApPers_schoolprim', 
+            attr_name='density_NFApPers_schoolprim', 
+            icon='🚗', 
+            real_name='Belegungsdichte Ausbildung Primär', 
+            unit='m²NF/Pers', 
+            type_name='value', 
+            comment=None, 
+            source='IN', 
+            ka=1, 
+            category=None, 
+            area=None, 
+            label=None, 
+            var_cat=None
+)
+        self.density_NFApPers_schoolsec = VariableMeta(
+            var_name='density_NFApPers_schoolsec', 
+            attr_name='density_NFApPers_schoolsec', 
+            icon='🚗', 
+            real_name='Belegungsdichte Ausbildung Sekundär', 
             unit='m²NF/Pers', 
             type_name='value', 
             comment=None, 
@@ -12617,36 +12617,6 @@ class Meta:
             label=None, 
             var_cat=None
 )
-        self.fc_eduprim = VariableMeta(
-            var_name='fc_eduprim', 
-            attr_name='fc_eduprim', 
-            icon='🏢', 
-            real_name='Fc-Wert Kindergarten und Volksschule', 
-            unit=None, 
-            type_name='userinput', 
-            comment=None, 
-            source='IN', 
-            ka=2, 
-            category=None, 
-            area=None, 
-            label=None, 
-            var_cat=None
-)
-        self.fc_edusec = VariableMeta(
-            var_name='fc_edusec', 
-            attr_name='fc_edusec', 
-            icon='🏢', 
-            real_name='Fc-Wert Sekundäre Bildungseinrichtung oder Universität', 
-            unit=None, 
-            type_name='userinput', 
-            comment=None, 
-            source='IN', 
-            ka=2, 
-            category=None, 
-            area=None, 
-            label=None, 
-            var_cat=None
-)
         self.fc_office = VariableMeta(
             var_name='fc_office', 
             attr_name='fc_office', 
@@ -12712,6 +12682,36 @@ class Meta:
             attr_name='fc_retailother', 
             icon='🏢', 
             real_name='Fc-Wert Handel', 
+            unit=None, 
+            type_name='userinput', 
+            comment=None, 
+            source='IN', 
+            ka=2, 
+            category=None, 
+            area=None, 
+            label=None, 
+            var_cat=None
+)
+        self.fc_schoolprim = VariableMeta(
+            var_name='fc_schoolprim', 
+            attr_name='fc_schoolprim', 
+            icon='🏢', 
+            real_name='Fc-Wert Kindergarten und Volksschule', 
+            unit=None, 
+            type_name='userinput', 
+            comment=None, 
+            source='IN', 
+            ka=2, 
+            category=None, 
+            area=None, 
+            label=None, 
+            var_cat=None
+)
+        self.fc_schoolsec = VariableMeta(
+            var_name='fc_schoolsec', 
+            attr_name='fc_schoolsec', 
+            icon='🏢', 
+            real_name='Fc-Wert Sekundäre Bildungseinrichtung oder Universität', 
             unit=None, 
             type_name='userinput', 
             comment=None, 
@@ -15032,9 +15032,9 @@ class Meta:
             label=None, 
             var_cat=None
 )
-        self.transmittance_Wm = VariableMeta(
-            var_name='transmittance_Wm²', 
-            attr_name='transmittance_Wm', 
+        self.transmittance_Wm2 = VariableMeta(
+            var_name='transmittance_Wm2', 
+            attr_name='transmittance_Wm2', 
             icon='🧱', 
             real_name='Transmissionsleitwert spezifisch', 
             unit='W/m²K', 
@@ -15042,36 +15042,6 @@ class Meta:
             comment='ink. Wärmebrückenzuschlag', 
             source='IN', 
             ka=0, 
-            category=None, 
-            area=None, 
-            label=None, 
-            var_cat=None
-)
-        self.usage_concurrency_summer_eduprim = VariableMeta(
-            var_name='usage_concurrency_summer_eduprim', 
-            attr_name='usage_concurrency_summer_eduprim', 
-            icon='👤', 
-            real_name='Gleichzeitigkeitsfaktor Innere Wärmen Sommer Bildung primär', 
-            unit=None, 
-            type_name='userinput', 
-            comment=None, 
-            source='IN', 
-            ka=2, 
-            category=None, 
-            area=None, 
-            label=None, 
-            var_cat=None
-)
-        self.usage_concurrency_summer_edusec = VariableMeta(
-            var_name='usage_concurrency_summer_edusec', 
-            attr_name='usage_concurrency_summer_edusec', 
-            icon='👤', 
-            real_name='Gleichzeitigkeitsfaktor Innere Wärmen Sommer Bildung sekundär', 
-            unit=None, 
-            type_name='userinput', 
-            comment=None, 
-            source='IN', 
-            ka=2, 
             category=None, 
             area=None, 
             label=None, 
@@ -15107,9 +15077,9 @@ class Meta:
             label=None, 
             var_cat=None
 )
-        self.usage_concurrency_summer_res = VariableMeta(
-            var_name='usage_concurrency_summer_res', 
-            attr_name='usage_concurrency_summer_res', 
+        self.usage_concurrency_summer_residential = VariableMeta(
+            var_name='usage_concurrency_summer_residential', 
+            attr_name='usage_concurrency_summer_residential', 
             icon='👤', 
             real_name='Gleichzeitigkeitsfaktor Innere Wärmen Sommer Wohnen', 
             unit=None, 
@@ -15152,11 +15122,11 @@ class Meta:
             label=None, 
             var_cat=None
 )
-        self.usage_concurrency_winter_eduprim = VariableMeta(
-            var_name='usage_concurrency_winter_eduprim', 
-            attr_name='usage_concurrency_winter_eduprim', 
+        self.usage_concurrency_summer_schoolprim = VariableMeta(
+            var_name='usage_concurrency_summer_schoolprim', 
+            attr_name='usage_concurrency_summer_schoolprim', 
             icon='👤', 
-            real_name='Gleichzeitigkeitsfaktor Innere Wärmen Winter Bildung primär', 
+            real_name='Gleichzeitigkeitsfaktor Innere Wärmen Sommer Bildung primär', 
             unit=None, 
             type_name='userinput', 
             comment=None, 
@@ -15167,11 +15137,11 @@ class Meta:
             label=None, 
             var_cat=None
 )
-        self.usage_concurrency_winter_edusec = VariableMeta(
-            var_name='usage_concurrency_winter_edusec', 
-            attr_name='usage_concurrency_winter_edusec', 
+        self.usage_concurrency_summer_schoolsec = VariableMeta(
+            var_name='usage_concurrency_summer_schoolsec', 
+            attr_name='usage_concurrency_summer_schoolsec', 
             icon='👤', 
-            real_name='Gleichzeitigkeitsfaktor Innere Wärmen Winter Bildung sekundär', 
+            real_name='Gleichzeitigkeitsfaktor Innere Wärmen Sommer Bildung sekundär', 
             unit=None, 
             type_name='userinput', 
             comment=None, 
@@ -15212,9 +15182,9 @@ class Meta:
             label=None, 
             var_cat=None
 )
-        self.usage_concurrency_winter_res = VariableMeta(
-            var_name='usage_concurrency_winter_res', 
-            attr_name='usage_concurrency_winter_res', 
+        self.usage_concurrency_winter_residential = VariableMeta(
+            var_name='usage_concurrency_winter_residential', 
+            attr_name='usage_concurrency_winter_residential', 
             icon='👤', 
             real_name='Gleichzeitigkeitsfaktor Innere Wärmen Winter Wohnen', 
             unit=None, 
@@ -15247,6 +15217,36 @@ class Meta:
             attr_name='usage_concurrency_winter_retailother', 
             icon='👤', 
             real_name='Gleichzeitigkeitsfaktor Innere Wärmen Winter Handel sonstiger', 
+            unit=None, 
+            type_name='userinput', 
+            comment=None, 
+            source='IN', 
+            ka=2, 
+            category=None, 
+            area=None, 
+            label=None, 
+            var_cat=None
+)
+        self.usage_concurrency_winter_schoolprim = VariableMeta(
+            var_name='usage_concurrency_winter_schoolprim', 
+            attr_name='usage_concurrency_winter_schoolprim', 
+            icon='👤', 
+            real_name='Gleichzeitigkeitsfaktor Innere Wärmen Winter Bildung primär', 
+            unit=None, 
+            type_name='userinput', 
+            comment=None, 
+            source='IN', 
+            ka=2, 
+            category=None, 
+            area=None, 
+            label=None, 
+            var_cat=None
+)
+        self.usage_concurrency_winter_schoolsec = VariableMeta(
+            var_name='usage_concurrency_winter_schoolsec', 
+            attr_name='usage_concurrency_winter_schoolsec', 
+            icon='👤', 
+            real_name='Gleichzeitigkeitsfaktor Innere Wärmen Winter Bildung sekundär', 
             unit=None, 
             type_name='userinput', 
             comment=None, 
@@ -16315,7 +16315,6 @@ ATTR_NAME_MAP: dict[str, str] = {
     'COMP_name_wall_ec_unheated': 'COMP_name_wall_ec_unheated',
     'COMP_name_windowframe': 'COMP_name_windowframe',
     'COMP_name_windowglazing': 'COMP_name_windowglazing',
-    'COMP_name_windows': 'COMP_name_windows',
     'DHW_1_efficiency': 'DHW_1_efficiency',
     'DHW_1_el_aux': 'DHW_1_el_aux',
     'DHW_1_incl_distribution_factor': 'DHW_1_incl_distribution_factor',
@@ -16422,7 +16421,7 @@ ATTR_NAME_MAP: dict[str, str] = {
     'EV_demand_kWhpkm': 'EV_demand_kWhpkm',
     'EV_experimental_calculation': 'EV_experimental_calculation',
     'EV_max_charging_power_ratio': 'EV_max_charging_power_ratio',
-    'EV_mileage_res': 'EV_mileage_res',
+    'EV_mileage_residential': 'EV_mileage_residential',
     'EV_mileage_retail': 'EV_mileage_retail',
     'EV_mileage_work': 'EV_mileage_work',
     'EV_self_discharge_per_week': 'EV_self_discharge_per_week',
@@ -16657,6 +16656,7 @@ ATTR_NAME_MAP: dict[str, str] = {
     'GWP_tga_other_name': 'GWP_tga_other_name',
     'GWP_ventilation_name': 'GWP_ventilation_name',
     'GWP_walls_name': 'GWP_walls_name',
+    'GWP_windows_name': 'GWP_windows_name',
     'Grid_to_Ec_min': 'Grid_to_Ec_min',
     'Grid_to_Edhw_min': 'Grid_to_Edhw_min',
     'Grid_to_Eev_min': 'Grid_to_Eev_min',
@@ -16754,7 +16754,7 @@ ATTR_NAME_MAP: dict[str, str] = {
     'Plight_min_schoolsec': 'Plight_min_schoolsec',
     'Plugloads_scale_office': 'Plugloads_scale_office',
     'Plugloads_scale_other': 'Plugloads_scale_other',
-    'Plugloads_scale_res': 'Plugloads_scale_res',
+    'Plugloads_scale_residential': 'Plugloads_scale_residential',
     'Plugloads_scale_retailfood': 'Plugloads_scale_retailfood',
     'Plugloads_scale_retailother': 'Plugloads_scale_retailother',
     'Plugloads_scale_schoolprim': 'Plugloads_scale_schoolprim',
@@ -16889,12 +16889,12 @@ ATTR_NAME_MAP: dict[str, str] = {
     'QVn_u': 'QVn_u',
     'QVn_winter': 'QVn_winter',
     'StatPAX': 'StatPAX',
-    'StatPAX_eduprim': 'StatPAX_eduprim',
-    'StatPAX_edusec': 'StatPAX_edusec',
     'StatPAX_office': 'StatPAX_office',
-    'StatPAX_res': 'StatPAX_res',
+    'StatPAX_residential': 'StatPAX_residential',
     'StatPAX_retail': 'StatPAX_retail',
     'StatPAX_retailother': 'StatPAX_retailother',
+    'StatPAX_schoolprim': 'StatPAX_schoolprim',
+    'StatPAX_schoolsec': 'StatPAX_schoolsec',
     'Ta_annual_avg': 'Ta_annual_avg',
     'Ta_avg_cooling_period': 'Ta_avg_cooling_period',
     'Ta_avg_heating_period': 'Ta_avg_heating_period',
@@ -16996,12 +16996,12 @@ ATTR_NAME_MAP: dict[str, str] = {
     'daylightcontr_office': 'daylightcontr_office',
     'daylightcontr_schoolprim': 'daylightcontr_schoolprim',
     'daylightcontr_schoolsec': 'daylightcontr_schoolsec',
-    'density_NFApPers_edu': 'density_NFApPers_edu',
-    'density_NFApPers_edu_rpim': 'density_NFApPers_edu_rpim',
     'density_NFApPers_office': 'density_NFApPers_office',
     'density_NFApPers_residential': 'density_NFApPers_residential',
     'density_NFApPers_retail': 'density_NFApPers_retail',
     'density_NFApPers_retail_other': 'density_NFApPers_retail_other',
+    'density_NFApPers_schoolprim': 'density_NFApPers_schoolprim',
+    'density_NFApPers_schoolsec': 'density_NFApPers_schoolsec',
     'dhw1_is_bio': 'dhw1_is_bio',
     'dhw1_is_dh': 'dhw1_is_dh',
     'dhw1_is_ng': 'dhw1_is_ng',
@@ -17021,13 +17021,13 @@ ATTR_NAME_MAP: dict[str, str] = {
     'fPE_grid_column': 'fPE_grid_column',
     'fPE_grid_profile': 'fPE_grid_profile',
     'fc_c': 'fc_c',
-    'fc_eduprim': 'fc_eduprim',
-    'fc_edusec': 'fc_edusec',
     'fc_office': 'fc_office',
     'fc_other': 'fc_other',
     'fc_residential': 'fc_residential',
     'fc_retailfood': 'fc_retailfood',
     'fc_retailother': 'fc_retailother',
+    'fc_schoolprim': 'fc_schoolprim',
+    'fc_schoolsec': 'fc_schoolsec',
     'fc_u': 'fc_u',
     'flex_GSR': 'flex_GSR',
     'flex_GSRI': 'flex_GSRI',
@@ -17182,21 +17182,21 @@ ATTR_NAME_MAP: dict[str, str] = {
     'test_NFV_shares': 'test_NFV_shares',
     'test_heat_balance': 'test_heat_balance',
     'transmittance_MW': 'transmittance_MW',
-    'transmittance_Wm²': 'transmittance_Wm',
-    'usage_concurrency_summer_eduprim': 'usage_concurrency_summer_eduprim',
-    'usage_concurrency_summer_edusec': 'usage_concurrency_summer_edusec',
+    'transmittance_Wm2': 'transmittance_Wm2',
     'usage_concurrency_summer_office': 'usage_concurrency_summer_office',
     'usage_concurrency_summer_other': 'usage_concurrency_summer_other',
-    'usage_concurrency_summer_res': 'usage_concurrency_summer_res',
+    'usage_concurrency_summer_residential': 'usage_concurrency_summer_residential',
     'usage_concurrency_summer_retailfood': 'usage_concurrency_summer_retailfood',
     'usage_concurrency_summer_retailother': 'usage_concurrency_summer_retailother',
-    'usage_concurrency_winter_eduprim': 'usage_concurrency_winter_eduprim',
-    'usage_concurrency_winter_edusec': 'usage_concurrency_winter_edusec',
+    'usage_concurrency_summer_schoolprim': 'usage_concurrency_summer_schoolprim',
+    'usage_concurrency_summer_schoolsec': 'usage_concurrency_summer_schoolsec',
     'usage_concurrency_winter_office': 'usage_concurrency_winter_office',
     'usage_concurrency_winter_other': 'usage_concurrency_winter_other',
-    'usage_concurrency_winter_res': 'usage_concurrency_winter_res',
+    'usage_concurrency_winter_residential': 'usage_concurrency_winter_residential',
     'usage_concurrency_winter_retailfood': 'usage_concurrency_winter_retailfood',
     'usage_concurrency_winter_retailother': 'usage_concurrency_winter_retailother',
+    'usage_concurrency_winter_schoolprim': 'usage_concurrency_winter_schoolprim',
+    'usage_concurrency_winter_schoolsec': 'usage_concurrency_winter_schoolsec',
     'vent_ach_max_office': 'vent_ach_max_office',
     'vent_ach_max_other': 'vent_ach_max_other',
     'vent_ach_max_residential': 'vent_ach_max_residential',
