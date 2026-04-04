@@ -88,13 +88,13 @@ class Scenario:
     @property
     def usage_keys(self) -> list[str]:
         return [
-            "residential",
-            "office",
+            "retailother",
+            "retailfood",
             "schoolprim",
             "schoolsec",
-            "retailfood",
-            "retailother",
+            "office",
             "other",
+            "residential",
         ]
     
     @property
@@ -322,10 +322,7 @@ def read_project(
             if column_name in df.columns:
                 for _, row in df.iterrows():
                     var_name = row.get("var_name")
-                    if not var_name: # skip
-                        continue
-                    if pd.isna(var_name):
-                        project.warnings.append(f"{district_name} | {scenario_name} > pd.isna({var_name=}) = True")
+                    if not var_name or pd.isna(var_name):
                         continue
 
                     var_name = str(var_name)
