@@ -1,5 +1,7 @@
 from __future__ import annotations
-
+import logging
+logger = logging.getLogger(__name__)
+logging.basicConfig()
 from dataclasses import dataclass
 from pathlib import Path
 import keyword
@@ -9,31 +11,7 @@ from typing import Any
 import pandas as pd
 
 
-RESERVED_IN_COLUMN_HEADER_NAMES = [
-    "Icon",
-    "Name",
-    "Einheit",
-    "Kommentar",
-    "Type",
-    "var_name",
-    "ka",
-    "Formel",
-]
-
-RESERVED_OUT_COLUMN_HEADER_NAMES = [
-    "ID",
-    "Kategorie",
-    "Type",
-    "Name",
-    "Icon",
-    "Bereich",
-    "var_cat",
-    "var_name",
-    "Einheit",
-    "Formel",
-    "Label",
-    "Kommentar",
-]
+CSV_SEP = ";"
 
 
 @dataclass(frozen=True)
@@ -41,16 +19,17 @@ class VariableMetaRow:
     var_name: str
     attr_name: str
     icon: str | None = None
-    real_name: str | None = None
+    label_de: str | None = None
     unit: str | None = None
-    type_name: str | None = None
     comment: str | None = None
-    source: str | None = None  # "IN", "OUT", "BOTH"
+    source: str | None = None  # "IN" or "OUT"
     ka: int | None = None
-    category: str | None = None
-    area: str | None = None
-    label: str | None = None
-    var_cat: str | None = None
+    domain: str | None = None
+    measure: str | None = None
+    spatial_scope: str | None = None
+    temporal_scope: str | None = None
+    entity_group: str | None = None
+    entity_key: str | None = None
 
 
 def sanitize_identifier(name: str) -> str:
@@ -103,27 +82,19 @@ def as_python_literal(value: Any) -> str:
     return repr(value)
 
 
-def first_nonempty(*values: Any) -> Any:
-    for v in values:
-        v = clean_cell(v)
-        if v is not None:
-            return v
-    return None
-
-
 def optional_int(value: Any) -> int | None:
     value = clean_cell(value)
     if value is None:
         return None
     try:
-        return int(value)
+        return int(float(value))
     except (ValueError, TypeError):
         return None
 
 
 def collect_rows_by_var_name(df: pd.DataFrame) -> dict[str, dict[str, Any]]:
     if "var_name" not in df.columns:
-        raise ValueError("Sheet must contain column 'var_name'.")
+        raise ValueError("Schema table must contain column 'var_name'.")
 
     out: dict[str, dict[str, Any]] = {}
     for _, row in df.iterrows():
@@ -134,53 +105,27 @@ def collect_rows_by_var_name(df: pd.DataFrame) -> dict[str, dict[str, Any]]:
     return out
 
 
-def merge_meta(
+def create_row(
     var_name: str,
     attr_name: str,
-    in_row: dict[str, Any] | None,
-    out_row: dict[str, Any] | None,
+    row: dict[str, Any],
+    source: str,
 ) -> VariableMetaRow:
-    in_exists = in_row is not None
-    out_exists = out_row is not None
-
-    if in_exists and out_exists:
-        source = "BOTH"
-    elif in_exists:
-        source = "IN"
-    elif out_exists:
-        source = "OUT"
-    else:
-        source = None
-
     return VariableMetaRow(
         var_name=var_name,
         attr_name=attr_name,
-        icon=first_nonempty(
-            in_row.get("Icon") if in_row else None,
-            out_row.get("Icon") if out_row else None,
-        ),
-        real_name=first_nonempty(
-            in_row.get("Name") if in_row else None,
-            out_row.get("Name") if out_row else None,
-        ),
-        unit=first_nonempty(
-            in_row.get("Einheit") if in_row else None,
-            out_row.get("Einheit") if out_row else None,
-        ),
-        type_name=first_nonempty(
-            in_row.get("Type") if in_row else None,
-            out_row.get("Type") if out_row else None,
-        ),
-        comment=first_nonempty(
-            in_row.get("Kommentar") if in_row else None,
-            out_row.get("Kommentar") if out_row else None,
-        ),
+        icon=clean_cell(row.get("icon")),
+        label_de=clean_cell(row.get("label_de")),
+        unit=clean_cell(row.get("unit")),
+        comment=clean_cell(row.get("comment")),
         source=source,
-        ka=optional_int(in_row.get("ka")) if in_row else None,
-        category=first_nonempty(out_row.get("Kategorie") if out_row else None),
-        area=first_nonempty(out_row.get("Bereich") if out_row else None),
-        label=first_nonempty(out_row.get("Label") if out_row else None),
-        var_cat=first_nonempty(out_row.get("var_cat") if out_row else None),
+        ka=optional_int(row.get("ka")),
+        domain=clean_cell(row.get("domain")),
+        measure=clean_cell(row.get("measure")),
+        spatial_scope=clean_cell(row.get("spatial_scope")),
+        temporal_scope=clean_cell(row.get("temporal_scope")),
+        entity_group=clean_cell(row.get("entity_group")),
+        entity_key=clean_cell(row.get("entity_key")),
     )
 
 
@@ -207,40 +152,29 @@ class VariableMeta:
     var_name: str
     attr_name: str
     icon: str | None = None
-    real_name: str | None = None
+    label_de: str | None = None
     unit: str | None = None
-    type_name: str | None = None
     comment: str | None = None
     source: str | None = None
     ka: int | None = None
-    category: str | None = None
-    area: str | None = None
-    label: str | None = None
-    var_cat: str | None = None
+    domain: str | None = None
+    measure: str | None = None
+    spatial_scope: str | None = None
+    temporal_scope: str | None = None
+    entity_group: str | None = None
+    entity_key: str | None = None
 
     def __repr__(self) -> str:
         parts = []
 
-        # main identifier
         if self.icon:
-            parts.append(f"{self.icon}")
+            parts.append(self.icon)
 
-        name = self.var_name
-        if self.real_name:
-            name += f" ({self.real_name})"
+        parts.append(self.var_name)
 
-        parts.append(name)
-        # unit + type
         if self.unit:
             parts.append(f"[{self.unit}]")
-        if self.type_name:
-            parts.append(f"<{self.type_name}>")
 
-        # ka flag (important for your workflow)
-        if self.ka is not None:
-            parts.append(f"ka={self.ka}")
-
-        # source info
         if self.source:
             parts.append(f"@{self.source}")
 
@@ -262,16 +196,18 @@ def build_meta_class_code(meta_rows: list[VariableMetaRow]) -> str:
             f"            var_name={row.var_name!r}, \n"
             f"            attr_name={row.attr_name!r}, \n"
             f"            icon={row.icon!r}, \n"
-            f"            real_name={as_python_literal(row.real_name)}, \n"
+            f"            label_de={as_python_literal(row.label_de)}, \n"
             f"            unit={as_python_literal(row.unit)}, \n"
-            f"            type_name={as_python_literal(row.type_name)}, \n"
             f"            comment={as_python_literal(row.comment)}, \n"
             f"            source={as_python_literal(row.source)}, \n"
             f"            ka={as_python_literal(row.ka)}, \n"
-            f"            category={as_python_literal(row.category)}, \n"
-            f"            area={as_python_literal(row.area)}, \n"
-            f"            label={as_python_literal(row.label)}, \n"
-            f"            var_cat={as_python_literal(row.var_cat)}\n)"
+            f"            domain={as_python_literal(row.domain)}, \n"
+            f"            measure={as_python_literal(row.measure)}, \n"
+            f"            spatial_scope={as_python_literal(row.spatial_scope)}, \n"
+            f"            temporal_scope={as_python_literal(row.temporal_scope)}, \n"
+            f"            entity_group={as_python_literal(row.entity_group)}, \n"
+            f"            entity_key={as_python_literal(row.entity_key)}\n"
+            f"        )"
         )
     return "\n".join(lines)
 
@@ -285,7 +221,7 @@ def build_attr_map_code(name_map: dict[str, str]) -> str:
 
 
 def build_fill_values_code() -> str:
-    return """def fill_values(vars_obj: Vars, data: dict[str, object], attr_name_map: dict[str, str] = ATTR_NAME_MAP) -> None:
+    return """def fill_values(vars_obj: ExcelNamedVariables, data: dict[str, object], attr_name_map: dict[str, str] = ATTR_NAME_MAP) -> None:
     for var_name, value in data.items():
         attr_name = attr_name_map.get(var_name)
         if attr_name is not None:
@@ -294,7 +230,7 @@ def build_fill_values_code() -> str:
 
 
 def build_to_dict_code() -> str:
-    return """def vars_to_dict(vars_obj: Vars, attr_name_map: dict[str, str] = ATTR_NAME_MAP) -> dict[str, object]:
+    return """def vars_to_dict(vars_obj: ExcelNamedVariables, attr_name_map: dict[str, str] = ATTR_NAME_MAP) -> dict[str, object]:
     out: dict[str, object] = {}
     for var_name, attr_name in attr_name_map.items():
         out[var_name] = getattr(vars_obj, attr_name)
@@ -310,17 +246,27 @@ def generate_schema_module_text(
     in_rows = collect_rows_by_var_name(df_in)
     out_rows = collect_rows_by_var_name(df_out)
 
+    overlap = set(in_rows) & set(out_rows)
+    if overlap:
+        logger.warn(f"var_name overlap between IN and OUT: {sorted(overlap)}")
+
+    rows_by_source = {
+        "IN": in_rows,
+        "OUT": out_rows,
+    }
+
     all_var_names = sorted(set(in_rows.keys()) | set(out_rows.keys()))
     name_map = unique_name_map(all_var_names)
 
     meta_rows = [
-        merge_meta(
+        create_row(
             var_name=var_name,
             attr_name=name_map[var_name],
-            in_row=in_rows.get(var_name),
-            out_row=out_rows.get(var_name),
+            row=row,
+            source=source,
         )
-        for var_name in all_var_names
+        for source, subrows in rows_by_source.items()
+        for var_name, row in subrows.items()
     ]
 
     parts: list[str] = []
@@ -349,7 +295,33 @@ def generate_schema_module_text(
     return "\n".join(parts)
 
 
-def generate_schema_module(
+def read_schema_csv(csv_path: str | Path) -> pd.DataFrame:
+    csv_path = Path(csv_path)
+    return pd.read_csv(csv_path, sep=CSV_SEP, encoding="utf-8-sig")
+
+
+def generate_schema_module_from_csv_dir(
+    schema_dir: str | Path,
+    output_py_path: str | Path,
+    version: str | None = None,
+) -> Path:
+    schema_dir = Path(schema_dir)
+    output_py_path = Path(output_py_path)
+
+    df_in = read_schema_csv(schema_dir / "IN.csv")
+    df_out = read_schema_csv(schema_dir / "OUT.csv")
+
+    if version is None:
+        version = schema_dir.name
+
+    code = generate_schema_module_text(df_in=df_in, df_out=df_out, version=version)
+
+    output_py_path.parent.mkdir(parents=True, exist_ok=True)
+    output_py_path.write_text(code, encoding="utf-8")
+    return output_py_path
+
+
+def generate_schema_module_from_excel(
     excel_path: str | Path,
     output_py_path: str | Path,
     version: str | None = None,
@@ -371,9 +343,9 @@ def generate_schema_module(
 
 
 if __name__ == "__main__":
-    version = "v1.10_4"
-    generate_schema_module(
-    excel_path=f"data/exports/schema_{version}.xlsx",
-    output_py_path=f"src/pexl/schemas/generated/excel_{version.replace(".", "_")}.py",
-    version=version.replace(".", "_"),
-)
+    version = "v1_11_4"
+    generate_schema_module_from_csv_dir(
+        schema_dir=f"data/schemas/{version}",
+        output_py_path=f"src/pexl/schema/generated/excel_{version}.py",
+        version=version,
+    )
