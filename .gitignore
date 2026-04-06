@@ -23,6 +23,12 @@ ka_project_backup*
 .vscode
 docs/Meetings/
 data/Excel Files/
+data/sankey
+!data/sankey/*sankey*
+data/exports
+!data/exports/schema*
+excel/development/
+!excel/development/ka_PEQ_Nachweistool_dev.xlsb
 Excel Files/PEExcel Archive/
 **/ribbon/
 **/Intern/
@@ -35,6 +41,9 @@ env/
 __pycache__/
 *.pyc
 ~$*.xls*
+*.egg-info/
 .DS_Store
 .ipynb_checkpoints/
 peexcel.egg-info/
+
+# keep

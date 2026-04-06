@@ -32,10 +32,12 @@ class Project:
         self._district_dict: dict[str, District] = {}
         self.warnings: list[str] = []
 
-    def add_district(self, district: District) -> None:
+    def add_district(self, district: District, overwrite=False) -> None:
         if district.name in self._district_dict:
-            raise ValueError(f"Duplicate district name: {district.name!r}")
-        self.districts.append(district)
+            if not overwrite:
+                raise ValueError(f"Duplicate district name: {district.name!r}")
+        else:
+            self.districts.append(district)
         self._district_dict[district.name] = district
 
     def get_or_create_district(self, district_name: str) -> District:
@@ -63,6 +65,29 @@ class Project:
 
     def names(self) -> list[str]:
         return [d.name for d in self.districts]
+    
+
+    @classmethod
+    def from_excel(cls, path: str | Path, *, unknown: str = "raise") -> "Project":
+        from pexl.io.excel import read_project
+        return read_project(path, unknown=unknown)
+    
+    def to_excel(
+        self,
+        path: str | Path,
+        include_derived: bool = True, # ka = 0
+        include_default: bool = False,
+        include_meta: bool = True,
+    ) -> Path:
+        from pexl.io.excel import write_project_excel
+        return write_project_excel(
+            project=self,
+            path=path,
+            include_derived=include_derived,
+            include_default=include_default,
+            include_meta=include_meta,
+        )
+
 
     def __repr__(self) -> str:
         src = f" source={self.file_source!r}" if self.file_source else ""

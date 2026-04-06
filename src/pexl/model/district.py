@@ -26,12 +26,14 @@ class District:
         self._scenario_dict: dict[str, Scenario] = {}
         self.default_scenario: str | None = None
 
-    def add_scenario(self, scenario: Scenario) -> None:
+    def add_scenario(self, scenario: Scenario, overwrite=False) -> None:
         if scenario.name in self._scenario_dict:
-            raise ValueError(
+            if not overwrite:
+                raise ValueError(
                 f"Duplicate scenario name in district {self.name!r}: {scenario.name!r}"
             )
-        self.scenarios.append(scenario)
+        else:
+            self.scenarios.append(scenario)
         self._scenario_dict[scenario.name] = scenario
         if self.default_scenario is None:
             self.default_scenario = scenario.name

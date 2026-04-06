@@ -248,14 +248,15 @@ def generate_schema_module_text(
 
     overlap = set(in_rows) & set(out_rows)
     if overlap:
-        logger.warn(f"var_name overlap between IN and OUT: {sorted(overlap)}")
+        logger.warning(f"var_name overlap between IN and OUT: {sorted(overlap)}")
 
     rows_by_source = {
         "IN": in_rows,
         "OUT": out_rows,
     }
 
-    all_var_names = sorted(set(in_rows.keys()) | set(out_rows.keys()))
+    all_var_names = list(in_rows.keys())
+    all_var_names += [k for k in out_rows.keys() if k not in in_rows]
     name_map = unique_name_map(all_var_names)
 
     meta_rows = [
