@@ -1,0 +1,392 @@
+{
+  "mode": "schema",
+  "source_xlsx": "..\\data\\exports\\schema_v1.09.xlsx",
+  "tables": {
+    "IN": {
+      "original_rows": 688,
+      "kept_rows": 579,
+      "excluded_rows": {
+        "empty_var_name_count": 109,
+        "empty_var_name_sample": [
+          {
+            "export_row": "9",
+            "Name": "Kontextfaktor Dichte im Quartier",
+            "Type": "calculation",
+            "Einheit": "kWhPE/m²NGFa",
+            "ka": "0",
+            "Formel": "-MIN(cfd_fPE*(cfd_A/(FSI+cfd_dx)-cfd_EUI);cfd_cutoff)",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "14",
+            "Name": "Kontextfaktor Mobilität im Quartier",
+            "Type": "calculation",
+            "Einheit": "kWhPE/m²NGFa",
+            "ka": "0",
+            "Formel": "per_NFA*(cfm_budget_residential*NFA_residential+cfm_budget_office*NFA_office+cfm_budget_school*(NFA_schoolprim+NFA_schoolsec)+cfm_budget_retail*(NFA_retailfood+NFA_retailother+NFA_other))",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "16",
+            "Name": "Kontextfaktor Sanierung im Quartier",
+            "Type": "calculation",
+            "Einheit": "kWhPE/m²NGFa",
+            "ka": "0",
+            "Formel": "cfr_budget*SUMMENPRODUKT(Renovation_shares;NFA_shares)",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "90",
+            "Name": "",
+            "Type": "",
+            "Einheit": "",
+            "ka": "",
+            "Formel": "",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "91",
+            "Name": "",
+            "Type": "",
+            "Einheit": "",
+            "ka": "",
+            "Formel": "",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "92",
+            "Name": "",
+            "Type": "",
+            "Einheit": "",
+            "ka": "",
+            "Formel": "",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "93",
+            "Name": "",
+            "Type": "",
+            "Einheit": "",
+            "ka": "",
+            "Formel": "",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "94",
+            "Name": "",
+            "Type": "",
+            "Einheit": "",
+            "ka": "",
+            "Formel": "",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "95",
+            "Name": "",
+            "Type": "",
+            "Einheit": "",
+            "ka": "",
+            "Formel": "",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "96",
+            "Name": "",
+            "Type": "",
+            "Einheit": "",
+            "ka": "",
+            "Formel": "",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "97",
+            "Name": "",
+            "Type": "",
+            "Einheit": "",
+            "ka": "",
+            "Formel": "",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "98",
+            "Name": "",
+            "Type": "",
+            "Einheit": "",
+            "ka": "",
+            "Formel": "",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "108",
+            "Name": "Transmissionsleitwert Außenwände",
+            "Type": "calculation",
+            "Einheit": "W/m²(NFA)K",
+            "ka": "0",
+            "Formel": "hull_ext_wall_wo_window_m2*hull_transmittance_walls*per_NFA",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "109",
+            "Name": "Transmissionsleitwert Dach",
+            "Type": "calculation",
+            "Einheit": "W/m²(NFA)K",
+            "ka": "0",
+            "Formel": "hull_roof_m2*hull_transmittance_roof*per_NFA",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "110",
+            "Name": "Transmissionsleitwert Kellerdecke / Fundament",
+            "Type": "calculation",
+            "Einheit": "W/m²(NFA)K",
+            "ka": "0",
+            "Formel": "K80*K101*per_NFA",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "111",
+            "Name": "Transmissionsleitwert Fenster",
+            "Type": "calculation",
+            "Einheit": "W/m²(NFA)K",
+            "ka": "0",
+            "Formel": "SUMMENPRODUKT(K81:K85;K102:K106)*per_NFA",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "112",
+            "Name": "Transmissionsleitwert Wärmebrücken",
+            "Type": "calculation",
+            "Einheit": "W/m²(NFA)K",
+            "ka": "0",
+            "Formel": "SUMME(K108:K111)*K107",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "115",
+            "Name": "LT",
+            "Type": "calculation",
+            "Einheit": "W/K",
+            "ka": "0",
+            "Formel": "transmittance_MW*1000000",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "134",
+            "Name": "Verhältnis Sommer/Winter Nord",
+            "Type": "calculation",
+            "Einheit": "",
+            "ka": "0",
+            "Formel": "K129/K124",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "135",
+            "Name": "Verhältnis Sommer/Winter Ost",
+            "Type": "calculation",
+            "Einheit": "",
+            "ka": "0",
+            "Formel": "K130/K125",
+            "Kommentar": ""
+          }
+        ]
+      }
+    },
+    "OUT": {
+      "original_rows": 508,
+      "kept_rows": 391,
+      "excluded_rows": {
+        "empty_var_name_count": 117,
+        "empty_var_name_sample": [
+          {
+            "export_row": "2",
+            "Name": "",
+            "Kategorie": "",
+            "Bereich": "",
+            "Einheit": "",
+            "Formel": "",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "3",
+            "Name": "Projektname",
+            "Kategorie": "Metadaten",
+            "Bereich": "",
+            "Einheit": "",
+            "Formel": "project_name",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "4",
+            "Name": "Adresse",
+            "Kategorie": "Metadaten",
+            "Bereich": "",
+            "Einheit": "",
+            "Formel": "location_address",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "5",
+            "Name": "Erstellungsdatum",
+            "Kategorie": "Metadaten",
+            "Bereich": "",
+            "Einheit": "",
+            "Formel": "IN!K21",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "6",
+            "Name": "Variante / Scenario",
+            "Kategorie": "Metadaten",
+            "Bereich": "",
+            "Einheit": "",
+            "Formel": "project_scenario_name",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "7",
+            "Name": "GFZ",
+            "Kategorie": "Quartier",
+            "Bereich": "",
+            "Einheit": "",
+            "Formel": "FSI",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "8",
+            "Name": "Sanierungsanteil",
+            "Kategorie": "Quartier",
+            "Bereich": "",
+            "Einheit": "",
+            "Formel": "renovation_share",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "9",
+            "Name": "Raumhöhe",
+            "Kategorie": "Quartier",
+            "Bereich": "",
+            "Einheit": "m Netto",
+            "Formel": "rh_avg",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "10",
+            "Name": "Charakteristische Länge (lc)",
+            "Kategorie": "Quartier",
+            "Bereich": "",
+            "Einheit": "m",
+            "Formel": "lc",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "11",
+            "Name": "Wetterdatensatz Name",
+            "Kategorie": "Wetter",
+            "Bereich": "",
+            "Einheit": "",
+            "Formel": "IN!K26",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "12",
+            "Name": "Wetterdatensatz Nummer",
+            "Kategorie": "Wetter",
+            "Bereich": "",
+            "Einheit": "",
+            "Formel": "weather_index",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "13",
+            "Name": "Außentemperatur Jahresmittel",
+            "Kategorie": "Wetter",
+            "Bereich": "",
+            "Einheit": "°C",
+            "Formel": "MITTELWERT(sim[Ta])",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "14",
+            "Name": "Mittelaußentemperatur Heizperiode",
+            "Kategorie": "Wetter",
+            "Bereich": "",
+            "Einheit": "°C",
+            "Formel": "MITTELWERTWENN(is_heating_period;1;sim[Ta])",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "15",
+            "Name": "Mittelaußentemperatur Kühlperiode",
+            "Kategorie": "Wetter",
+            "Bereich": "",
+            "Einheit": "°C",
+            "Formel": "MITTELWERTWENN(is_cooling_period;1;sim[Ta])",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "16",
+            "Name": "Nutzungsmischung",
+            "Kategorie": "Quartier",
+            "Bereich": "",
+            "Einheit": "",
+            "Formel": "TEXTVERKETTEN(\", \";WAHR; TEXT(IN!K28:K34/GFA_total;\"0%\")&\" \"&🏙️!C28:C34;\"\")",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "26",
+            "Name": "",
+            "Kategorie": "",
+            "Bereich": "",
+            "Einheit": "",
+            "Formel": "",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "35",
+            "Name": "Wärmebilanz",
+            "Kategorie": "Wärmebilanz",
+            "Bereich": "",
+            "Einheit": "True",
+            "Formel": "(QT+QV+QVn+QC) - (QS+QI+QH)",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "43",
+            "Name": "Wärmebilanz Heizperiode",
+            "Kategorie": "Wärmebilanz",
+            "Bereich": "",
+            "Einheit": "False",
+            "Formel": "(QT_winter+QV_winter+QVn_winter+QC_winter) - (QS_winter+QI_winter+QH_winter)",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "66",
+            "Name": "Wärmebilanz Kühlperiode",
+            "Kategorie": "Wärmebilanz",
+            "Bereich": "",
+            "Einheit": "False",
+            "Formel": "(QT_summer+QV_summer+QVn_summer+QC_summer) - (QS_summer+QI_summer+QH_summer)",
+            "Kommentar": ""
+          },
+          {
+            "export_row": "82",
+            "Name": "Wärmebilanz",
+            "Kategorie": "Wärmebilanz",
+            "Bereich": "",
+            "Einheit": "True",
+            "Formel": "(QT+QV+QVn+QC)-(QS+QI+QH)",
+            "Kommentar": ""
+          }
+        ]
+      }
+    },
+    "SIM": {
+      "original_rows": 394,
+      "kept_rows": 394,
+      "excluded_rows": {
+        "empty_var_name_count": 0,
+        "empty_var_name_sample": []
+      }
+    }
+  }
+}
