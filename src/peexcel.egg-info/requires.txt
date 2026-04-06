@@ -1,4 +1,0 @@
-pandas
-
-[dev]
-pytest

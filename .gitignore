@@ -44,6 +44,5 @@ __pycache__/
 *.egg-info/
 .DS_Store
 .ipynb_checkpoints/
-peexcel.egg-info/
 
 # keep
