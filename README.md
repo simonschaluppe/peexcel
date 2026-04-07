@@ -56,7 +56,7 @@ Der klimaaktiv Standard unterscheidet, ob auf der Bedarfsseite nur die Betriebse
 
 [📖 Handbuch zur Nachweisführung](https://github.com/simonschaluppe/peexcel/blob/master/docs/Handbuch%20zur%20Nachweisf%C3%BChrung.pdf)
 ### Tool Download
-Das Plusenergie Excel wird laufend weiterentwickelt. Die aktuelle Version kann unter diesem Link heruntergeladen werden:
+Das Nachweistool wird laufend weiterentwickelt. Die aktuelle Version kann unter diesem Link heruntergeladen werden:
 
 [🧰 Excel Tool (v1.10 Stable Release](https://github.com/simonschaluppe/peexcel/blob/master/excel/tool/ka_PEQ_Nachweistool.xlsb) 
 
