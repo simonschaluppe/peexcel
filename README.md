@@ -64,6 +64,9 @@ Das Nachweistool wird laufend weiterentwickelt. Die aktuelle Version kann unter 
 
  (Select "Download raw file" or "View raw" on the linked page. ⚠ Benötigt office 365 und macros! Falls das File als "nicht vertrauenswürdig" eingestuft wird, lokal speichern > rechtsklick > weitere optionen > eigenschaften > Sicherheit: "zulassen")
 
+ ### Weitere Links
+ https://www.baubook.info/de/oekoprogramme/aspern-klimafit/eco2soft-modellierung: Ermittlung der Ökobilanz für Gebäude zur Verwendung im klimaaktiv Nachweistool 
+
 ![image](https://github.com/user-attachments/assets/696c5440-e451-46fd-823e-d94ec4e45ea5)
 
 
