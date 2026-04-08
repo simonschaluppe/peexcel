@@ -1,6 +1,6 @@
 ﻿icon;domain;measure;spatial_scope;temporal_scope;entity_group;entity_key;var_name;ka;label_de;unit;comment;Formel
-🔧;tool;version;;;;;scenario_version;0;Tool Version;text;;
-🔧;tool;input version;;;;;input_version_number;0;Inputdatenstruktur Version;text;;
+🔧;tool;version;;;;;scenario_version;1;Tool Version;text;;
+🔧;tool;input version;;;;;input_version_number;1;Inputdatenstruktur Version;text;;
 ;tool;input version date;;;;;input_version_date;;Inputdatenstruktur Datum;date;;
 🔧;declaration;fPE;;;;;cfd_fPE;1;Primärenergiefaktor;kWhPE/kWhEE;;
 🔧;declaration;A;;;;;cfd_A;1;Ausnutzungsfaktor Erneuerbare;kWhEE/m²GF;;
@@ -448,15 +448,15 @@
 🚗;Mobility;target_share;;;mobility;work;mobshare_office;0;Zielverkehrsanteil Büro;ratio;;"SVERWEIS(mobility_region; Regionstypen; 3;FALSCH)"
 🚗;Mobility;target_share;;;mobility;education;mobshare_school;0;Zielverkehrsanteil Ausbildung;ratio;;"SVERWEIS(mobility_region; Regionstypen; 4;FALSCH)"
 🚗;Mobility;target_share;;;mobility;retail;mobshare_retail;0;Zielverkehrsanteil Handel;ratio;;"SVERWEIS(mobility_region; Regionstypen; 5;FALSCH)"
-🚗;Mobility;mileage;annual;;;;pkm_pedestrian;0;Pkm Zu Fuß;km;;"SVERWEIS(mobility_region; Regionstypen; 6;FALSCH)"
-🚗;Mobility;mileage;annual;;;;pkm_bike;0;Pkm Fahrrad;km;;"SVERWEIS(mobility_region; Regionstypen; 7;FALSCH)"
-🚗;Mobility;mileage;annual;;;;pkm_mofa;0;Pkm Moped;km;;"SVERWEIS(mobility_region; Regionstypen; 8;FALSCH)"
-🚗;Mobility;mileage;annual;;;;pkm_car_driver;0;Pkm PKW-LenkerIn;km;;"SVERWEIS(mobility_region; Regionstypen; 9;FALSCH)"
-🚗;Mobility;mileage;annual;;;;pkm_car_passenger;0;Pkm PKW-MitfahrerIn;km;;"SVERWEIS(mobility_region; Regionstypen; 10;FALSCH)"
-🚗;Mobility;mileage;annual;;;;pkm_bus;0;Pkm Stadt/ Regionalbus;km;;"SVERWEIS(mobility_region; Regionstypen; 11;FALSCH)"
-🚗;Mobility;mileage;annual;;;;pkm_tram_metro;0;Pkm Straßenbahn/U-Bahn;km;;"SVERWEIS(mobility_region; Regionstypen; 12;FALSCH)"
-🚗;Mobility;mileage;annual;;;;pkm_train;0;Pkm Eisenbahn;km;;"SVERWEIS(mobility_region; Regionstypen; 13;FALSCH)"
-🚗;Mobility;mileage;annual;;;;pkm_distancebus;0;Pkm Reisebus;km;;"SVERWEIS(mobility_region; Regionstypen; 14;FALSCH)"
+🚗;Mobility;mileage;;annual;;;pkm_pedestrian;0;Pkm Zu Fuß;km;;"SVERWEIS(mobility_region; Regionstypen; 6;FALSCH)"
+🚗;Mobility;mileage;;annual;;;pkm_bike;0;Pkm Fahrrad;km;;"SVERWEIS(mobility_region; Regionstypen; 7;FALSCH)"
+🚗;Mobility;mileage;;annual;;;pkm_mofa;0;Pkm Moped;km;;"SVERWEIS(mobility_region; Regionstypen; 8;FALSCH)"
+🚗;Mobility;mileage;;annual;;;pkm_car_driver;0;Pkm PKW-LenkerIn;km;;"SVERWEIS(mobility_region; Regionstypen; 9;FALSCH)"
+🚗;Mobility;mileage;;annual;;;pkm_car_passenger;0;Pkm PKW-MitfahrerIn;km;;"SVERWEIS(mobility_region; Regionstypen; 10;FALSCH)"
+🚗;Mobility;mileage;;annual;;;pkm_bus;0;Pkm Stadt/ Regionalbus;km;;"SVERWEIS(mobility_region; Regionstypen; 11;FALSCH)"
+🚗;Mobility;mileage;;annual;;;pkm_tram_metro;0;Pkm Straßenbahn/U-Bahn;km;;"SVERWEIS(mobility_region; Regionstypen; 12;FALSCH)"
+🚗;Mobility;mileage;;annual;;;pkm_train;0;Pkm Eisenbahn;km;;"SVERWEIS(mobility_region; Regionstypen; 13;FALSCH)"
+🚗;Mobility;mileage;;annual;;;pkm_distancebus;0;Pkm Reisebus;km;;"SVERWEIS(mobility_region; Regionstypen; 14;FALSCH)"
 🚗;Mobility;vehicles;;;;;mobility_vehicle_count;2;Fahrzeuge;-;;🚗!D77
 🚗;Mobility;ev_share;;;;;EV_share;2;Anteil Ecars;ratio;Am Mobilitätsbedarf;🚗!D38
 🚗;Mobility;demand;;;;;EV_demand_kWhpkm;2;Ecar Energieverbrauch;kWh/km;;🚗!D59

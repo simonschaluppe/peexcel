@@ -112,10 +112,10 @@
       }
     },
     "OUT": {
-      "original_rows": 508,
-      "kept_rows": 410,
+      "original_rows": 514,
+      "kept_rows": 412,
       "excluded_rows": {
-        "empty_var_name_count": 98,
+        "empty_var_name_count": 102,
         "empty_var_name_sample": [
           {
             "export_row": "2",
@@ -123,7 +123,7 @@
           },
           {
             "export_row": "16",
-            "ka": ""
+            "ka": "3"
           },
           {
             "export_row": "26",
@@ -131,71 +131,71 @@
           },
           {
             "export_row": "35",
-            "ka": ""
-          },
-          {
-            "export_row": "43",
-            "ka": ""
-          },
-          {
-            "export_row": "66",
-            "ka": ""
+            "ka": "4"
           },
           {
             "export_row": "123",
-            "ka": ""
+            "ka": "3"
           },
           {
             "export_row": "132",
-            "ka": ""
+            "ka": "3"
           },
           {
             "export_row": "133",
-            "ka": ""
+            "ka": "3"
           },
           {
             "export_row": "138",
-            "ka": ""
+            "ka": "3"
           },
           {
             "export_row": "141",
-            "ka": ""
+            "ka": "3"
           },
           {
             "export_row": "144",
-            "ka": ""
+            "ka": "3"
           },
           {
             "export_row": "175",
-            "ka": ""
+            "ka": "3"
           },
           {
             "export_row": "183",
-            "ka": ""
+            "ka": "3"
           },
           {
             "export_row": "190",
-            "ka": ""
+            "ka": "3"
           },
           {
             "export_row": "192",
-            "ka": ""
+            "ka": "3"
           },
           {
             "export_row": "209",
-            "ka": ""
+            "ka": "3"
           },
           {
             "export_row": "210",
-            "ka": ""
+            "ka": "3"
           },
           {
             "export_row": "226",
-            "ka": ""
+            "ka": "3"
           },
           {
             "export_row": "232",
-            "ka": ""
+            "ka": "3"
+          },
+          {
+            "export_row": "234",
+            "ka": "3"
+          },
+          {
+            "export_row": "235",
+            "ka": "3"
           }
         ]
       }
