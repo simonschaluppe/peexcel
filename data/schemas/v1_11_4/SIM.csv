@@ -1,395 +1,395 @@
-﻿var_name;Formula
-h;1
-Monat_nr;1
-Monat;Januar
-date;43101
-hour_of_the_day;0
-day_of_the_year;1
-Ti0uncooled;=IF(1-NFA_cooled/NFA_total>0,Tsetheat_min,#N/A)
-Ti0cooled;=IF(NFA_cooled/NFA_total>0,Tsetheat_min,#N/A)
-Ta;=OFFSET(Wetter!M25,0,(weather_index-1)*7)
-rel_humidity;=OFFSET(Wetter!N25,0,(weather_index-1)*7)
-Irr_nord;=OFFSET(Wetter!H25,0,(weather_index-1)*7+4)
-Irr_east;=OFFSET(Wetter!I25,0,(weather_index-1)*7)
-Irr_south;=OFFSET(Wetter!J25,0,(weather_index-1)*7)
-Irr_west;=OFFSET(Wetter!K25,0,(weather_index-1)*7)
-Irr_horizontal;=OFFSET(Wetter!L25,0,(weather_index-1)*7-4)
-is_heating_period;=--INDEX(heating_months, [@[Monat_nr]])
-is_cooling_period;=--INDEX(cooling_months, [@[Monat_nr]])
-season_step;=0.5*([@[is_heating_period]]+NOT([@[is_cooling_period]]))
-Übergangszeit;=IF([@[season_step]]=0.5,1,0)
-season_wave;=COS(([@h]+$U$3)/8760*2*PI())/2+0.5
-percent_winter;=[@[season_wave]]
-dT_uncooled;=IFNA([@Ta]-[@Ti0uncooled],0)
-dT_cooled;=IFNA([@Ta]-[@Ti0cooled],0)
-Spalte2;
-Spalte4;
-mobile_shading;=fc_residential
-Qvinf_u;=[@[dT_uncooled]]*NFV_u*vent_infiltration_ACH*cp_air*per_NFA_uncooled
-Qvinf_c;=[@[dT_cooled]]*NFV_c*vent_infiltration_ACH*cp_air*per_NFA_cooled
-ACH_residential;=NFA_residential*rh_residential*vent_scale_residential*Nutzung_Wohnen[@[Bedarf Luftwechsel]]
-ACH_office;=NFA_office*rh_office*vent_scale_office*Nutzung_Büro[@[Bedarf Luftwechsel]]
-ACH_edusec;=NFA_schoolsec*rh_schoolsec*vent_scale_school_sec*Nutzung_Schule[@[Bedarf Luftwechsel]]
-ACH_eduprim;=NFA_schoolprim*rh_schoolprim*vent_scale_school_prim*Nutzung_KIGA[@[Bedarf Luftwechsel]]
-ACH_retfood;=NFA_retailfood*rh_retailfood*vent_scale_supermarket*Nutzung_Handel_Food[@[Bedarf Luftwechsel]]
-ACH_retail;=NFA_retailother*rh_retailother*vent_scale_retail*Nutzung_Handel_NonFood[@[Bedarf Luftwechsel]]
-ACH_otherusage;0
-ACH_mechvent_therm_u;=SUMPRODUCT(sim[@[ACH_residential]:[ACH_otherusage]],vent_mech_shares,cool_passive_shares_T,1-((heat_recovery_rates_summer)+[@[percent_winter]]*(heat_recovery_rates_winter-heat_recovery_rates_summer)))
-ACH_mechvent_therm_c;=SUMPRODUCT(sim[@[ACH_residential]:[ACH_otherusage]],vent_mech_shares,cool_active_shares_T,1-((heat_recovery_rates_summer)+[@[percent_winter]]*(heat_recovery_rates_winter-heat_recovery_rates_summer)))
-Spalte1;
-ACH_mechvent_u;=SUMPRODUCT(sim[@[ACH_residential]:[ACH_otherusage]],vent_mech_shares,cool_passive_shares_T)
-ACH_mechvent_c;=SUMPRODUCT(sim[@[ACH_residential]:[ACH_otherusage]],vent_mech_shares,cool_active_shares_T)
-Qvmechvent_u;=[@[dT_uncooled]]*[@[ACH_mechvent_therm_u]]*cp_air*per_NFA_uncooled
-Qvmechvent_c;=[@[dT_cooled]]*[@[ACH_mechvent_therm_c]]*cp_air*per_NFA_cooled
-Qvwindow_u;=[@[dT_uncooled]]*cp_air*SUMPRODUCT(sim[@[ACH_residential]:[ACH_otherusage]],vent_window_shares,cool_passive_shares_T)*per_NFA_uncooled
-Qvwindow_c;=[@[dT_cooled]]*cp_air*SUMPRODUCT(sim[@[ACH_residential]:[ACH_otherusage]],vent_window_shares,cool_active_shares_T)*per_NFA_cooled
-QT_u;=[@[dT_uncooled]]*transmittance_Wm2
-QT_c;=[@[dT_cooled]]*transmittance_Wm2
-QSwinter;=SUMPRODUCT(sim[@[Irr_nord]:[Irr_horizontal]],apertures_winter)
-QSsummer;=SUMPRODUCT(sim[@[Irr_nord]:[Irr_horizontal]],apertures_summer)
-QS_u_unshaded;=([@[percent_winter]]*[@QSwinter]+(1-[@[percent_winter]])*[@QSsummer])*per_NFA*(NFAfrac_u>0)
-QS_c_unshaded;=([@[percent_winter]]*[@QSwinter]+(1-[@[percent_winter]])*[@QSsummer])*per_NFA*(NFAfrac_c>0)
-QS_u;=[@[QS_u_unshaded]]*(1-(1-mob_shading_factor_u)*AND([@[is_cooling_period]],QS_max_shading_u<[@[QS_u_unshaded]]))
-QS_c;=[@[QS_c_unshaded]]*(1-(1-mob_shading_factor_c)*AND([@[is_cooling_period]],QS_max_shading_c<[@[QS_c_unshaded]]))
-Spalte9;
-QS;=([@[percent_winter]]*[@QSwinter]+(1-[@[percent_winter]])*[@QSsummer])*per_NFA
-QI_residential;=(usage_concurrency_winter_residential*[@[percent_winter]]*Nutzung_Wohnen[@[Innere Wärmen Min]]+usage_concurrency_summer_residential*(1-[@[percent_winter]])*Nutzung_Wohnen[@[Innere Wärmen Max]])
-QI_office;=(usage_concurrency_winter_office*[@[percent_winter]]*Nutzung_Büro[@[Innere Wärmen Min]]+usage_concurrency_summer_office*(1-[@[percent_winter]])*Nutzung_Büro[@[Innere Wärmen Max]])
-QI_edusec;=(usage_concurrency_winter_schoolsec*[@[percent_winter]]*Nutzung_Schule[@[Innere Wärmen Min]]+usage_concurrency_summer_schoolsec*(1-[@[percent_winter]])*Nutzung_Schule[@[Innere Wärmen Max]])
-QI_eduprim;=(usage_concurrency_winter_schoolprim*[@[percent_winter]]*Nutzung_KIGA[@[Innere Wärmen Min]]+usage_concurrency_summer_schoolprim*(1-[@[percent_winter]])*Nutzung_KIGA[@[Innere Wärmen Max]])
-QI_retfood;=(usage_concurrency_winter_retailfood*[@[percent_winter]]*Nutzung_Handel_Food[@[Innere Wärmen Winter]]+usage_concurrency_summer_retailfood*(1-[@[percent_winter]])*Nutzung_Handel_Food[@[Innere Wärmen Sommer]])
-QI_retail;=(usage_concurrency_winter_retailother*[@[percent_winter]]*Nutzung_Handel_NonFood[@[Innere Wärmen Winter]]+usage_concurrency_summer_retailother*(1-[@[percent_winter]])*Nutzung_Handel_NonFood[@[Innere Wärmen Sommer]])
-QI_otherusage;=(usage_concurrency_winter_other*[@[percent_winter]]*Nutzung_Handel_NonFood[@[Innere Wärmen Winter]]+usage_concurrency_summer_other*(1-[@[percent_winter]])*Nutzung_Handel_NonFood[@[Innere Wärmen Sommer]])
-QI_u;=SUMPRODUCT(sim[@[QI_residential]:[QI_otherusage]],cool_passive_shares_T,NFA_shares_T)*NFA_total*per_NFA_uncooled
-QI_c;=SUMPRODUCT(sim[@[QI_residential]:[QI_otherusage]],cool_active_shares_T,NFA_shares_T)*NFA_total*per_NFA_cooled
-Ti_passive_uncooled;=[@Ti0uncooled]+([@[Qvinf_u]]+[@[Qvmechvent_u]]+[@[Qvwindow_u]]+[@[QT_u]]+[@[QS_u]]+[@[QI_u]])/heat_capacity_effective_m2
-Ti_passive_cooled;=[@Ti0cooled]+([@[Qvinf_c]]+[@[Qvmechvent_c]]+[@[Qvwindow_c]]+[@[QT_c]]+[@[QS_c]]+[@[QI_c]])/heat_capacity_effective_m2
-dT_heating_uncooled_min;=MAX(0,IFNA(Tsetheat_min-[@[Ti_passive_uncooled]],0))
-dT_heating_cooled_min;=MAX(0,IFNA(Tsetheat_min-[@[Ti_passive_cooled]],0))
-dT_heating_uncooled_max;=MAX(0,IFNA(Tsetheat_flex-[@[Ti_passive_uncooled]],0))
-dT_heating_cooled_max;=MAX(0,IFNA(Tsetheat_flex-[@[Ti_passive_cooled]],0))
-Qh_to_room_uncooled_min;=MIN(QHmax_room_m2,[@[is_heating_period]]*([@[dT_heating_uncooled_min]]*heat_cap_eff_uncooled_m2))
-Qh_to_room_cooled_min;=MIN(QHmax_room_m2,[@[is_heating_period]]*([@[dT_heating_cooled_min]]*heat_cap_eff_cooled_m2))
-Qh_to_room_uncooled_max;=MIN(QHmax_room_m2,AND([@[is_heating_period]],NOT([@[is_cooling_period]]))*([@[dT_heating_uncooled_max]]*heat_cap_eff_uncooled_m2))
-Qh_to_room_cooled_max;=MIN(QHmax_room_m2,AND([@[is_heating_period]],NOT([@[is_cooling_period]]))*([@[dT_heating_cooled_max]]*heat_cap_eff_cooled_m2))
-Qh_to_room_min;=SUMPRODUCT(sim[@[Qh_to_room_uncooled_min]:[Qh_to_room_cooled_min]],$H$4:$I$4)
-Qh_to_room_flex_u;=[@[Qh_to_room_uncooled_max]]-[@[Qh_to_room_uncooled_min]]
-Qh_to_room_flex_c;=[@[Qh_to_room_cooled_max]]-[@[Qh_to_room_cooled_min]]
-Qh_to_room_flex_val;=[@[Qh_to_room_flex_u]]*NFAfrac_u+[@[Qh_to_room_flex_c]]*+NFAfrac_c
-Qh_to_room_flex;=SUMPRODUCT(sim[@[Qh_to_room_uncooled_max]:[Qh_to_room_cooled_max]],$H$4:$I$4)-[@[Qh_to_room_min]]
-waste_heat_potential;0
-Qh_min_wasteheat;=MAX(0,MIN([@[waste_heat_potential]],[@[Qh_to_room_min]]))
-Qh_min_1el;=MIN([@[Qh_to_room_min]]-[@[Qh_min_wasteheat]],QHmax_1el_m2)
-Qh_min_2th;=MIN([@[Qh_to_room_min]]-SUM(sim[@[Qh_min_wasteheat]:[Qh_min_1el]]),QHmax_2th_m2)
-Qh_min_3el;=MIN([@[Qh_to_room_min]]-SUM(sim[@[Qh_min_wasteheat]:[Qh_min_2th]]),QHmax_3el_m2)
-Qh_min_4th;=MIN([@[Qh_to_room_min]]-SUM(sim[@[Qh_min_wasteheat]:[Qh_min_3el]]),QHmax_4th_m2)
-Qh_wasteheat_flex;=MIN([@[Qh_to_room_flex]],[@[waste_heat_potential]]-[@[Qh_min_wasteheat]])
-Qh_flex_1el_potential;=FLEX_heat1_use*MIN(QHmax_1el_m2-[@[Qh_min_1el]],MAX([@[Qh_to_room_flex]]-[@[Qh_wasteheat_flex]],0))
-Qh_flex_3el_potential;=FLEX_heat3_use*MIN(QHmax_3el_m2-[@[Qh_min_3el]],[@[Qh_to_room_flex]]-[@[Qh_wasteheat_flex]])
-Qc_from_room_min;=MIN(QCmax_room_m2,[@[is_cooling_period]]*MAX(IFNA([@[Ti_passive_cooled]]-Tsetcool_max,0),0)*heat_cap_eff_cooled_m2)
-Qc_from_room_flex;=MIN(QCmax_room_m2-[@[Qc_from_room_min]],AND([@[is_cooling_period]],NOT([@[is_heating_period]]))*MAX(IFNA([@[Ti_passive_cooled]]-Tsetcool_flex,0),0)*heat_cap_eff_cooled_m2+[@[Qc_from_room_min]])
-Qc_min_0fc;=MIN([@[Qc_from_room_min]],QCmax_freecooling)
-Qc_min_1el;=MIN([@[Qc_from_room_min]]-[@[Qc_min_0fc]],QCmax_1el)
-Qc_min_2th;=MIN([@[Qc_from_room_min]]-SUM(sim[@[Qc_min_0fc]:[Qc_min_1el]]),QCmax_2th)
-Qc_min_3el;=MIN([@[Qc_from_room_min]]-SUM(sim[@[Qc_min_0fc]:[Qc_min_2th]]),QCmax_3el)
-Qc_flex_1el;=FLEX_cool1_use*MIN(QCmax_1el-[@[Qc_min_1el]],[@[Qc_from_room_flex]])
-Qc_flex_3el;=FLEX_cool3_use*MIN(QCmax_3el-[@[Qc_min_3el]],[@[Qc_from_room_flex]])
-Tdhw1_0;=DHW_Tmin*DHW_1_is_used
-Tdhw2_0;=DHW_Tmin*DHW_2_is_used
-DHW_residential_kW;=NFA_residential*Nutzung_Wohnen[@[Warmwasserbedarf_W_m2]]*DHW_demand_residential_kWhm2/DHW_default_residential_kWhm2/1000
-DHW_office_kW;=NFA_office*Nutzung_Büro[@[Warmwasserbedarf_W_m2]]*DHW_demand_office_kWhm2/DHW_default_office_kWhm2/1000
-DHW_schoolsec_kW;=NFA_schoolsec*Nutzung_Schule[@[Warmwasserbedarf_W_m2]]*DHW_demand_schoolsec_kWhm2/DHW_default_schoolsec_kWhm2/1000
-DHW_schoolprim_kW;=NFA_schoolprim*Nutzung_KIGA[@[Warmwasserbedarf_W_m2]]*DHW_demand_schoolprim_kWhm2/DHW_default_schoolprim_kWhm2/1000
-DHW_retailsupermarket_kW;=NFA_retailfood*Nutzung_Handel_Food[@[Warmwasserbedarf_W_m2]]*DHW_demand_retailfood_kWhm2/DHW_default_retailfood_kWhm2/1000
-DHW_retailother_kW;=NFA_retailother*Nutzung_Handel_NonFood[@[Warmwasserbedarf_W_m2]]*DHW_demand_retailother_kWhm2/DHW_default_retailother_kWhm2/1000
-DHW_other_kW;0
-DHW_storage_losses_1;=DHW_losses_1*DHW_storage_1_liter*cp_water/1000
-DHW_storage_losses_2;=DHW_losses_2*DHW_storage_2_liter*cp_water/1000
-DHW_heat_demand_1_kW;=DHW_1_is_used*([@[DHW_storage_losses_1]]+DHW_1_incl_distribution_factor*SUMPRODUCT(sim[@[DHW_residential_kW]:[DHW_other_kW]],DHW_system1_shares))
-DHW_heat_demand_2_kW;=DHW_2_is_used*([@[DHW_storage_losses_2]]+DHW_2_incl_distribution_factor*SUMPRODUCT(sim[@[DHW_residential_kW]:[DHW_other_kW]],1-(DHW_system1_shares)))
-Tdhw1_passive_losses;=[@[Tdhw1_0]]-IFERROR([@[DHW_heat_demand_1_kW]]*1000/DHW_storage_1_liter/cp_water,0)
-Tdhw2_passive_losses;=[@[Tdhw2_0]]-IFERROR([@[DHW_heat_demand_2_kW]]*1000/DHW_storage_2_liter/cp_water,0)
-Qdhw_1_min;=MAX(0,(DHW_Tmin-[@[Tdhw1_passive_losses]])*DHW_storage_1_liter*cp_water)*per_NFA
-Qdhw_2_min;=MAX(0,(DHW_Tmin-[@[Tdhw2_passive_losses]])*DHW_storage_2_liter*cp_water)*per_NFA
-Qdhw_min;=SUM(sim[@[Qdhw_1_min]:[Qdhw_2_min]])
-Qdhw_1_flexpotential;=flex_dhw_use*DHW_1_is_electric*MAX(0,(DHW_Tmax-[@[Tdhw1_passive_losses]])*DHW_storage_1_liter*cp_water*per_NFA-[@[Qdhw_1_min]])
-Qdhw_2_flexpotential;=flex_dhw_use*DHW_2_is_electric*MAX(0,(DHW_Tmax-[@[Tdhw2_passive_losses]])*DHW_storage_2_liter*cp_water*per_NFA-[@[Qdhw_2_min]])
-Edhw_1_min_el;=[@[Qdhw_1_min]]*(DHW_conversion_1*DHW_1_is_electric+DHW_1_el_aux)
-Edhw_2_min_el;=[@[Qdhw_2_min]]*(DHW_conversion_2*DHW_2_is_electric+DHW_2_el_aux)
-Space;
-Spalte12;
-Spalte17;
-EVd_res;=EV_count_residential*mob[@[p_res_d]]
-EVd_work;=EV_count_work*mob[@[p_work_d]]
-EVd_retail;=EV_count_retail*mob[@[p_retail_d]]
-EV_SOC0_d_res;0.5
-EV_SOC0_d_work;0.5
-EV_SOC0_d_retail;0.5
-EV_SOC0_a_res;0.5
-EV_SOC0_a_work;0.5
-EV_SOC0_a_retail;0.5
-EV_maxpower;=MIN(SUM(sim[@[EVd_res]:[EVd_retail]]),EV_charging_stations)*EV_charging_station_power*1000*per_NFA
-Eev_Cmin_res;=MIN(MIN([@[EVd_res]],EV_charging_stations)*EV_charging_station_power,[@[EVd_res]]*EV_battsize_kWh*MIN(EV_max_charging_power_ratio,MAX(EV_soc_minimum-[@[EV_SOC0_d_res]],0))*1000*per_NFA)
-Eev_Cmin_work;=MIN([@[EV_maxpower]]-[@[Eev_Cmin_res]],[@[EVd_work]]*EV_battsize_kWh*MIN(EV_max_charging_power_ratio,MAX(EV_soc_min_work-[@[EV_SOC0_d_work]],0))*1000*per_NFA)
-Eev_Cmin_retail;=MIN([@[EV_maxpower]]-[@[Eev_Cmin_res]]-[@[Eev_Cmin_work]],[@[EVd_retail]]*EV_battsize_kWh*MIN(EV_max_charging_power_ratio,MAX(EV_soc_min_retail-[@[EV_SOC0_d_retail]],0))*1000*per_NFA)
-Eev_Cmin;=SUM(sim[@[Eev_Cmin_res]:[Eev_Cmin_retail]])
-Eev_Cflex_pot_res;=MIN([@[EV_maxpower]]-[@[Eev_Cmin]],[@[EVd_res]]*EV_battsize_kWh*MAX(MIN(1-[@[EV_SOC0_d_res]],EV_max_charging_power_ratio-MAX(EV_soc_minimum-[@[EV_SOC0_d_res]],0)),0)*1000*per_NFA)
-Eev_Cflex_pot_work;=MIN([@[EV_maxpower]]-[@[Eev_Cmin]]-[@[Eev_Cflex_pot_res]],[@[EVd_work]]*EV_battsize_kWh*MAX(MIN(1-[@[EV_SOC0_d_work]],EV_max_charging_power_ratio-MAX(EV_soc_min_work-[@[EV_SOC0_d_work]],0)),0)*1000*per_NFA)
-Eev_Cflex_pot_retail;=MIN([@[EV_maxpower]]-[@[Eev_Cmin]]-[@[Eev_Cflex_pot_res]]-[@[Eev_Cflex_pot_work]],[@[EVd_retail]]*EV_battsize_kWh*MAX(MIN(1-[@[EV_SOC0_d_retail]],EV_max_charging_power_ratio-MAX(EV_soc_min_retail-[@[EV_SOC0_d_retail]],0)),0)*1000*per_NFA)
-Eev_Cflex_pot;=SUM(sim[@[Eev_Cflex_pot_res]:[Eev_Cflex_pot_retail]])
-Eev_Dflex_pot_res;=ev_bidirectional_use*[@[EVd_res]]*EV_battsize_kWh*MIN(MAX([@[EV_SOC0_d_res]]-EV_soc_min_discharge,0),EV_max_charging_power_ratio)*1000*per_NFA
-Eev_Dflex_pot_work;=FALSE*[@[EVd_work]]*EV_battsize_kWh*MIN(MAX([@[EV_SOC0_d_work]]-EV_soc_min_discharge,0),EV_max_charging_power_ratio)*1000*per_NFA
-Eev_Dflex_pot_retail;=FALSE*[@[EVd_retail]]*EV_battsize_kWh*MIN(MAX([@[EV_SOC0_d_retail]]-EV_soc_min_discharge,0),EV_max_charging_power_ratio)*1000*per_NFA
-Eev_Dflex_pot;=SUM(sim[@[Eev_Dflex_pot_res]:[Eev_Dflex_pot_retail]])
-Eev_S_res;=-EV_mileage_residential*EV_demand_kWhpkm*mob[@[Anteil JPkm]]*1000*per_NFA
-Eev_S_work;=-EV_mileage_work*EV_demand_kWhpkm*mob[@[Anteil JPkm]]*1000*per_NFA
-Eev_S_retail;=-EV_mileage_retail*EV_demand_kWhpkm*mob[@[Anteil JPkm]]*1000*per_NFA*mobility_is_included
-Eev_Cext_res;=(EV_count_residential-[@[EVd_res]])*EV_battsize_kWh*MIN(EV_max_charging_power_ratio*10%,MAX(EV_soc_min_ext-[@[EV_SOC0_a_res]],0))*1000*per_NFA
-Eev_Cext_work;=(EV_count_work-[@[EVd_work]])*EV_battsize_kWh*MIN(EV_max_charging_power_ratio*10%,MAX(EV_soc_min_ext-[@[EV_SOC0_a_work]],0))*1000*per_NFA
-Eev_Cext_retail;=(EV_count_retail-[@[EVd_retail]])*EV_battsize_kWh*MIN(EV_max_charging_power_ratio*10%,MAX(EV_soc_min_ext-[@[EV_SOC0_a_retail]],0))*1000*per_NFA
-Eev_min_intake;=[@[Eev_Cmin]]*EV_charging_losses_surcharge_factor
-Eev_flex_intake;=[@[Eev_Cflex_pot]]*EV_charging_losses_surcharge_factor
-Spalte6;
-BATT_cap_0;=Batt_SOC_init*Batt_cap_Wh_per_NFA
-Batt_auto_discharge;=[@[BATT_cap_0]]*Batt_auto_discharge_factor
-Batt_cap_after_losses;=Batt_is_used*([@[BATT_cap_0]]-[@[Batt_auto_discharge]])
-Spalte80;
-Spalte81;
-Spalte82;
-Spalte83;
-Spalte84;
-Spalte85;
-Batt_max_energy_output;
-Batt_max_energy_input;=Batt_is_used*(Batt_cap_Wh_per_NFA-[@[Batt_cap_after_losses]])
-Spalte88;
-Spalte5;
-Eh_min_wasteheat;=(QH_aux_wasteheat)*[@[Qh_min_wasteheat]]
-Eh_min_1el;=(QH_generation_eff_1el+QH_aux_el_to_th_1el)*[@[Qh_min_1el]]*(1+QH_distr_loss_1el)
-Eh_min_2th;=QH_aux_el_to_th_2th*[@[Qh_min_2th]]*(1+QH_distr_loss_2th)
-Eh_min_3el;=(QH_generation_eff_3el+QH_aux_el_to_th_3el)*[@[Qh_min_3el]]*(1+QH_distr_loss_3el)
-Eh_min_4th;=QH_aux_el_to_th_4th*[@[Qh_min_4th]]*(1+QH_distr_loss_4th)
-Eh_min;=SUM(sim[@[Eh_min_wasteheat]:[Eh_min_4th]])
-Ec_min_freecooling;=[@[Qc_min_0fc]]*QC_aux_fc
-Ec_min_1el;=$I$4*[@[Qc_min_1el]]*(1+QC_distr_losses_1el)*(QC_to_EC_1+QC_aux_1el)
-Ec_min_2th;=$I$4*[@[Qc_min_2th]]*(1+QC_distr_losses_2th)*(QC_aux_2th)
-Ec_min_3el;=$I$4*[@[Qc_min_3el]]*(1+QC_distr_losses_3el)*(QC_to_EC_3+QC_aux_3el)
-Ec_min;=SUM(sim[@[Ec_min_freecooling]:[Ec_min_3el]])
-Ev_residential;=Ev_scale_residential*Nutzung_Wohnen[@[Lüfterstrom_W_m2]]*NFA_residential*per_NFA
-Ev_office;=Ev_scale_office*Nutzung_Büro[@[Lüfterstrom_W_m2]]*NFA_office*per_NFA
-Ev_edusec;=Ev_scale_school_sec*Nutzung_Schule[@[Lüfterstrom_W_m2]]*NFA_schoolsec*per_NFA
-Ev_eduprim;=Ev_scale_school_prim*Nutzung_KIGA[@[Lüfterstrom_W_m2]]*NFA_schoolprim*per_NFA
-Ev_retfood;=Ev_scale_retail_food*Nutzung_Handel_Food[@[Lüfterstrom_W_m2]]*NFA_retailfood*per_NFA
-Ev_retail;=Ev_scale_retail_other*Nutzung_Handel_NonFood[@[Lüfterstrom_W_m2]]*NFA_retailother*per_NFA
-Ev_otherusage;0
-Ev_min;=SUM(sim[@[Ev_residential]:[Ev_otherusage]])
-Eaux;=Nutzungsprofil[@[Aufzug, Regelung etc._W_m2]]
-Elight_office;=lighting_factor_office*IF(Nutzung_Büro[@[Betriebszeit_-]]>0,1,0)*(Plight_min_office*(1-daylightcontr_office)+daylightcontr_office*IF([@[Irr_horizontal]]*100*Daylightcoefficient_office>illuminance_min_office,0,Plight_max_office))
-Elight_schoolsec;=lighting_factor_schoolsec*IF(Nutzung_Schule[@[Personen_Pers_m2]]>0,1,0)*(Plight_min_schoolsec*(1-daylightcontr_schoolsec)+daylightcontr_schoolsec*IF([@[Irr_horizontal]]*100*Daylightcoefficient_schoolsec>illuminance_min_schoolsec,0,Plight_max_schoolsec))
-Elight_schoolprim;=lighting_factor_schoolprim*IF(Nutzung_KIGA[@[Personen_Pers_m2]]>0,1,0)*(Plight_min_schoolprim*(1-daylightcontr_schoolprim)+daylightcontr_schoolprim*IF([@[Irr_horizontal]]*100*Daylightcoefficient_schoolprim>illuminance_min_schoolprim,0,Plight_max_schoolprim))
-Elight;=per_NFA*([@[Elight_office]]*NFA_office+[@[Elight_schoolsec]]*NFA_schoolsec+[@[Elight_schoolprim]]*NFA_schoolprim+Nutzung_Handel_Food[@[Beleuchtung_W_m2]]*lighting_factor_retailfood*NFA_retailfood+Nutzung_Handel_NonFood[@[Beleuchtung_W_m2]]*lighting_factor_retailother*NFA_retailother)
-Edhw_min;=[@[Edhw_1_min_el]]+[@[Edhw_2_min_el]]
-Ehvac_min;=[@[Eh_min]]+[@[Ec_min]]+[@[Ev_min]]+[@[Edhw_min]]
-E_plugAuxLight;=Nutzungsprofil[@[Nutzerstrom_W_m2]]+[@Eaux]+[@Elight]
-Eev_min;=[@[Eev_min_intake]]
-Ed_min;=[@[Ehvac_min]]+[@[E_plugAuxLight]]+[@[Eev_min]]
-Space3;
-Eh_el1_flex_potential;=(QH_generation_eff_1el+QH_aux_el_to_th_1el)*[@[Qh_flex_1el_potential]]*(1+QH_distr_loss_1el)
-Eh_el3_flex_potential;=(QH_generation_eff_3el+QH_aux_el_to_th_3el)*[@[Qh_flex_3el_potential]]*(1+QH_distr_loss_3el)
-Ec_el1_flex_potential;=$I$4*[@[Qc_flex_1el]]*(1+QC_distr_losses_1el)*(QC_to_EC_1+QC_aux_1el)
-Ec_el3_flex_potential;=$I$4*[@[Qc_flex_3el]]*(1+QC_distr_losses_3el)*(QC_to_EC_3+QC_aux_3el)
-Edhw_1_flex_potential;=DHW_1_is_electric*[@[Qdhw_1_flexpotential]]*(DHW_1_el_aux+DHW_conversion_1)
-Edhw_2_flex_potential;=DHW_2_is_electric*[@[Qdhw_2_flexpotential]]*(DHW_2_el_aux+DHW_conversion_2)
-Eev_flex_potential;=[@[Eev_flex_intake]]
-Ebatt_charge_potential;=IFERROR(Batt_is_used*MIN(Batt_max_power_specific,[@[Batt_max_energy_input]]/Batt_eff_factor_charge),0)
-Etotal_flex_potential;=SUM(sim[@[Eh_el1_flex_potential]:[Ebatt_charge_potential]])
-Space13;
-PV_yield;=PV_is_used*PV_scale*PV_efficiency*pv_profiles[@[Gewählte Variante]]*1000*per_NFA
-PV_to_user;=MIN([@[PV_yield]],[@[E_plugAuxLight]])
-PV_to_Eh_min;=MIN([@[Eh_min]],[@[PV_yield]]-[@[PV_to_user]])
-PV_to_Ec_min;=MIN([@[Ec_min]],[@[PV_yield]]-SUM(sim[@[PV_to_user]:[PV_to_Eh_min]]))
-PV_to_Edhw_min;=MIN([@[Edhw_min]],[@[PV_yield]]-SUM(sim[@[PV_to_user]:[PV_to_Ec_min]]))
-PV_to_Ev_min;=MIN([@[Ev_min]],[@[PV_yield]]-SUM(sim[@[PV_to_user]:[PV_to_Edhw_min]]))
-Valid_PV_direct_HVAC_use;=IF(SUM(sim[@[PV_to_Eh_min]:[PV_to_Ev_min]])-[@[PV_to_HVAC_min]]<0.00000001,1,0)
-PV_to_HVAC_min;=MIN([@[PV_yield]]-[@[PV_to_user]],[@[Eh_min]]+[@[Ec_min]]+[@[Edhw_min]]+[@[Ev_min]])
-PV_to_Eev_min;=MIN([@[PV_yield]]-[@[PV_to_user]]-[@[PV_to_HVAC_min]],[@[Eev_min]])
-PV_total_direct_use;=[@[PV_to_user]]+[@[PV_to_HVAC_min]]+[@[PV_to_Eev_min]]
-PV_surplus;=[@[PV_yield]]-[@[PV_total_direct_use]]
-PV_to_Eh_flex_1el;=FLEX_PV_is_used*MIN([@[PV_surplus]],[@[Eh_el1_flex_potential]])
-PV_to_Eh_flex_3el;=FLEX_PV_is_used*MIN([@[PV_surplus]],[@[Eh_el3_flex_potential]])
-PV_to_Ec_flex_1el;=FLEX_PV_is_used*MIN([@[Ec_el1_flex_potential]],[@[PV_surplus]]-SUM(sim[@[PV_to_Eh_flex_1el]:[PV_to_Eh_flex_3el]]))
-PV_to_Ec_flex_3el;=FLEX_PV_is_used*MIN([@[Ec_el3_flex_potential]],[@[PV_surplus]]-SUM(sim[@[PV_to_Eh_flex_1el]:[PV_to_Eh_flex_3el]]))
-PV_to_Edhw1_flex;=FLEX_PV_is_used*MIN([@[Edhw_1_flex_potential]],[@[PV_surplus]]-SUM(sim[@[PV_to_Eh_flex_1el]:[PV_to_Ec_flex_3el]]))
-PV_to_Edhw2_flex;=FLEX_PV_is_used*MIN([@[Edhw_2_flex_potential]],[@[PV_surplus]]-SUM(sim[@[PV_to_Eh_flex_1el]:[PV_to_Ec_flex_3el]]))
-PV_to_Eev_flex;=FLEX_PV_is_used*MIN([@[Eev_flex_potential]],[@[PV_surplus]]-SUM(sim[@[PV_to_Eh_flex_1el]:[PV_to_Edhw2_flex]]))
-PV_to_Batt;=FLEX_PV_is_used*Batt_is_used*MIN([@[Ebatt_charge_potential]],[@[PV_surplus]]-SUM(sim[@[PV_to_Eh_flex_1el]:[PV_to_Eev_flex]]))
-PV_to_Storage;=FLEX_PV_is_used
-PV_to_epatron;=FLEX_PV_is_used
-PV_total_flex_use;=SUM(sim[@[PV_to_Eh_flex_1el]:[PV_to_epatron]])
-PV_to_Egrid;=[@[PV_surplus]]-SUM(sim[@[PV_to_Eh_flex_1el]:[PV_to_epatron]])
-Batt_discharge_potential;=Batt_is_used*NOT(AND(Batt_is_not_used_during_signals,[@Signal]))*MIN(Batt_max_power_specific,[@[Batt_cap_after_losses]]*Batt_eff_factor_discharge)
-Batt_to_user;=MIN(([@[E_plugAuxLight]]-[@[PV_to_user]]),[@[Batt_discharge_potential]])*Batt_is_used_for_plugloads
-Batt_to_Eh_min;=MIN(([@[Eh_min]]-[@[PV_to_Eh_min]]),[@[Batt_discharge_potential]]-[@[Batt_to_user]])*Batt_is_used_for_HVACminimum
-Batt_to_Ec_min;=MIN(([@[Ec_min]]-[@[PV_to_Ec_min]]),[@[Batt_discharge_potential]]-SUM(sim[@[Batt_to_user]:[Batt_to_Eh_min]]))*Batt_is_used_for_HVACminimum
-Batt_to_Edhw_min;=MIN(([@[Edhw_min]]-[@[PV_to_Edhw_min]]),[@[Batt_discharge_potential]]-SUM(sim[@[Batt_to_user]:[Batt_to_Ec_min]]))*Batt_is_used_for_HVACminimum
-Batt_to_Ev_min;=MIN(([@[Ev_min]]-[@[PV_to_Ev_min]]),[@[Batt_discharge_potential]]-SUM(sim[@[Batt_to_user]:[Batt_to_Edhw_min]]))*Batt_is_used_for_HVACminimum
-Spalte192;
-Batt_to_HVAC_min;=SUM(sim[@[Batt_to_Eh_min]:[Batt_to_Ev_min]])
-Batt_to_Eev_min;=MIN(([@[Eev_min]]-[@[PV_to_Eev_min]]),[@[Batt_discharge_potential]]-[@[Batt_to_user]]-[@[Batt_to_HVAC_min]])*Batt_is_used_for_EV
-Batt_total_discharge;=IFERROR(([@[Batt_to_user]]+[@[Batt_to_HVAC_min]]+[@[Batt_to_Eev_min]])/Batt_eff_factor_discharge,0)
-Spalte19;
-Signal;=INDEX(Signals,ROW()-ROW(Signals[#Headers]),flex_Signals_selected_column)
-VRGrid_potential;=FLEX_is_used*FLEX_grid_maxpower_Wm2*[@Signal]
-VRGrid_to_user;=FLEX_is_used_for_plugloads*MIN([@[VRGrid_potential]],[@[E_plugAuxLight]]-[@[PV_to_user]]-[@[Batt_to_user]])
-VRGrid_to_Eh_min;=FLEX_is_used_for_HVAC_min*MIN([@[Eh_min]]-[@[PV_to_Eh_min]]-[@[Batt_to_Eh_min]],[@[VRGrid_potential]]-[@[VRGrid_to_user]])
-VRGrid_to_Ec_min;=FLEX_is_used_for_HVAC_min*MIN([@[Ec_min]]-[@[PV_to_Ec_min]]-[@[Batt_to_Ec_min]],[@[VRGrid_potential]]-[@[VRGrid_to_user]]-[@[VRGrid_to_Eh_min]])
-VRGrid_to_Edhw_min;=FLEX_is_used_for_HVAC_min*MIN([@[Edhw_min]]-[@[PV_to_Edhw_min]]-[@[Batt_to_Edhw_min]],[@[VRGrid_potential]]-SUM(sim[@[VRGrid_to_user]:[VRGrid_to_Ec_min]]))
-VRGrid_to_Ev_min;=FLEX_is_used_for_HVAC_min*MIN([@[Ev_min]]-[@[PV_to_Ev_min]]-[@[Batt_to_Ev_min]],[@[VRGrid_potential]]-SUM(sim[@[VRGrid_to_user]:[VRGrid_to_Edhw_min]]))
-VRGrid_to_HVAC_min;=SUM(sim[@[VRGrid_to_Eh_min]:[VRGrid_to_Ev_min]])
-VRGrid_to_Eev_min;=FLEX_is_used_for_ev_min*MIN([@[VRGrid_potential]]-SUM(sim[@[VRGrid_to_user]:[VRGrid_to_Ev_min]]),[@[Eev_min]]-[@[PV_to_Eev_min]]-[@[Batt_to_Eev_min]])
-VRGrid_total_min_use;=[@[VRGrid_to_user]]+[@[VRGrid_to_HVAC_min]]+[@[VRGrid_to_Eev_min]]
-VRGrid_to_Eh_flex_1el;=MIN([@[VRGrid_potential]]-[@[VRGrid_total_min_use]],[@[Eh_el1_flex_potential]]-[@[PV_to_Eh_flex_1el]])
-VRGrid_to_Eh_flex_3el;=MIN([@[VRGrid_potential]]-[@[VRGrid_total_min_use]],[@[Eh_el3_flex_potential]]-[@[PV_to_Eh_flex_3el]])
-VRGrid_to_Ec_flex_1el;=MIN([@[Ec_el1_flex_potential]]-[@[PV_to_Ec_flex_1el]],[@[VRGrid_potential]]-SUM(sim[@[VRGrid_total_min_use]:[VRGrid_to_Eh_flex_3el]]))
-VRGrid_to_Ec_flex_3el;=MIN([@[Ec_el3_flex_potential]]-[@[PV_to_Ec_flex_3el]],[@[VRGrid_potential]]-SUM(sim[@[VRGrid_total_min_use]:[VRGrid_to_Eh_flex_3el]]))
-VRGrid_to_Edhw1_flex;=MIN([@[Edhw_1_flex_potential]]-[@[PV_to_Edhw1_flex]],[@[VRGrid_potential]]-SUM(sim[@[VRGrid_total_min_use]:[VRGrid_to_Ec_flex_3el]]))
-VRGrid_to_Edhw2_flex;=MIN([@[Edhw_2_flex_potential]]-[@[PV_to_Edhw2_flex]],[@[VRGrid_potential]]-SUM(sim[@[VRGrid_total_min_use]:[VRGrid_to_Ec_flex_3el]]))
-VRGrid_to_HVAC_flex;=SUM(sim[@[VRGrid_to_Eh_flex_1el]:[VRGrid_to_Edhw2_flex]])
-VRGrid_to_Eev_flex;=MIN([@[Eev_flex_potential]]-[@[PV_to_Eev_flex]],[@[VRGrid_potential]]-[@[VRGrid_total_min_use]]-[@[VRGrid_to_HVAC_flex]])
-VRGrid_to_Batt;=Batt_is_gridcharged*MIN([@[Ebatt_charge_potential]]-[@[PV_to_Batt]],[@[VRGrid_potential]]-[@[VRGrid_total_min_use]]-[@[VRGrid_to_HVAC_flex]]-[@[VRGrid_to_Eev_flex]])
-VRGrid_total_flex_use;=SUM(sim[@[VRGrid_to_HVAC_flex]:[VRGrid_to_Batt]])
-VRGrid_to_building;=[@[VRGrid_total_min_use]]+[@[VRGrid_total_flex_use]]-[@[VRGrid_to_Eev_min]]-[@[VRGrid_to_Eev_flex]]
-Eev_discharge_potential;=SUM(sim[@[Eev_Dflex_pot_res]:[Eev_Dflex_pot_retail]])*EV_charging_efficiency
-Eev_to_user;=-MIN([@[Eev_discharge_potential]],[@[E_plugAuxLight]]-[@[PV_to_user]]-[@[Batt_to_user]]-[@[VRGrid_to_user]])
-Eev_to_Eh_min;=-MIN([@[Eh_min]]-[@[PV_to_Eh_min]]-[@[Batt_to_Eh_min]]-[@[VRGrid_to_Eh_min]],[@[Eev_discharge_potential]]-[@[Eev_to_user]])
-Eev_to_Ec_min;=-MIN([@[Ec_min]]-[@[PV_to_Ec_min]]-[@[Batt_to_Ec_min]]-[@[VRGrid_to_Ec_min]],[@[Eev_discharge_potential]]-[@[Eev_to_user]]-[@[Eev_to_Eh_min]])
-Eev_to_Edhw_min;=-MIN([@[Edhw_min]]-[@[PV_to_Edhw_min]]-[@[Batt_to_Edhw_min]]-[@[VRGrid_to_Edhw_min]],[@[Eev_discharge_potential]]-[@[Eev_to_user]]-[@[Eev_to_Eh_min]]-[@[Eev_to_Ec_min]])
-Eev_to_Ev_min;=-MIN([@[Ev_min]]-[@[PV_to_Ev_min]]-[@[Batt_to_Ev_min]]-[@[VRGrid_to_Ev_min]],[@[Eev_discharge_potential]]-SUM(sim[@[Eev_to_user]:[Eev_to_Edhw_min]]))
-Eev_to_HVAC;=SUM(sim[@[Eev_to_Eh_min]:[Eev_to_Ev_min]])
-#2;
-#3;
-Eev_discharge_total;=(-[@[Eev_to_HVAC]]-[@[Eev_to_user]])/EV_charging_efficiency
-#5;
-Grid_to_user;=[@[E_plugAuxLight]]-[@[PV_to_user]]-[@[Batt_to_user]]-[@[VRGrid_to_user]]+[@[Eev_to_user]]
-Grid_to_Eh_min;=[@[Eh_min]]-[@[PV_to_Eh_min]]-[@[Batt_to_Eh_min]]-[@[VRGrid_to_Eh_min]]+[@[Eev_to_Eh_min]]
-Grid_to_Ec_min;=[@[Ec_min]]-[@[PV_to_Ec_min]]-[@[Batt_to_Ec_min]]-[@[VRGrid_to_Ec_min]]+[@[Eev_to_Ec_min]]
-Grid_to_Edhw_min;=[@[Edhw_min]]-[@[PV_to_Edhw_min]]-[@[Batt_to_Edhw_min]]-[@[VRGrid_to_Edhw_min]]+[@[Eev_to_Edhw_min]]
-Grid_to_Ev_min;=[@[Ev_min]]-[@[PV_to_Ev_min]]-[@[Batt_to_Ev_min]]-[@[VRGrid_to_Ev_min]]+[@[Eev_to_Ev_min]]
-test_grid_hvac;=[@[Ehvac_min]]-[@[PV_to_HVAC_min]]-[@[Batt_to_HVAC_min]]-[@[VRGrid_to_HVAC_min]]+[@[Eev_to_HVAC]]
-Grid_to_HVAC_min;=SUM(sim[@[Grid_to_Eh_min]:[Grid_to_Ev_min]])
-Grid_to_Eev_min;=[@[Eev_min]]-[@[PV_to_Eev_min]]-[@[Batt_to_Eev_min]]-[@[VRGrid_to_Eev_min]]
-Grid_to_building_min;=[@[Grid_to_HVAC_min]]+[@[Grid_to_user]]
-Spalte15;
-Spalte16;
-E_grid;=SUM([@[Grid_to_user]],[@[Grid_to_HVAC_min]],[@[Grid_to_Eev_min]])
-Spalte7;
-Eh_flex_1el_final;=[@[PV_to_Eh_flex_1el]]+[@[VRGrid_to_Eh_flex_1el]]
-Eh_flex_3el_final;=[@[PV_to_Eh_flex_3el]]+[@[VRGrid_to_Eh_flex_3el]]
-Ec_flex_1el_final;=[@[PV_to_Ec_flex_1el]]+[@[VRGrid_to_Ec_flex_1el]]
-Ec_flex_3el_final;=[@[PV_to_Ec_flex_3el]]+[@[VRGrid_to_Ec_flex_3el]]
-Edhw1_flex_final;=[@[PV_to_Edhw1_flex]]+[@[VRGrid_to_Edhw1_flex]]
-Edhw2_flex_final;=[@[PV_to_Edhw2_flex]]+[@[VRGrid_to_Edhw2_flex]]
-Eev_flex_final;=([@[PV_to_Eev_flex]]+[@[VRGrid_to_Eev_flex]])*EV_charging_efficiency
-Eev_flex_final_res;=IFERROR([@[Eev_flex_final]]*[@[Eev_Cflex_pot_res]]/[@[Eev_Cflex_pot]],0)
-Eev_flex_final_work;=IFERROR([@[Eev_flex_final]]*[@[Eev_Cflex_pot_work]]/[@[Eev_Cflex_pot]],0)
-Eev_flex_final_ret;=IFERROR([@[Eev_flex_final]]*[@[Eev_Cflex_pot_retail]]/[@[Eev_Cflex_pot]],0)
-Batt_total_charge;=([@[PV_to_Batt]]+[@[VRGrid_to_Batt]])*Batt_eff_factor_charge
-Qh_u2;
-Qh_min_excl_distr_losses;=SUM(sim[@[Qh_min_wasteheat]:[Qh_min_4th]])
-Qh_flex_wasteheat_final;=[@[Qh_wasteheat_flex]]
-Qh_flex_1el_final;=IFERROR([@[Qh_flex_1el_potential]]*[@[Eh_flex_1el_final]]/[@[Eh_el1_flex_potential]],0)
-Qh_flex_3el_final;=IFERROR([@[Qh_flex_3el_potential]]*[@[Eh_flex_3el_final]]/[@[Eh_el3_flex_potential]],0)
-Qh_total_final;=SUM(sim[@[Qh_min_excl_distr_losses]:[Qh_flex_3el_final]])
-Qh_u;=IFERROR([@[Qh_min_excl_distr_losses]]*[@[Qh_to_room_uncooled_min]]/[@[Qh_to_room_min]],0)+IFERROR(SUM(sim[@[Qh_flex_1el_final]:[Qh_flex_3el_final]])*[@[Qh_to_room_flex_u]]/[@[Qh_to_room_flex]],0)
-Qh_c;=IFERROR([@[Qh_min_excl_distr_losses]]*[@[Qh_to_room_cooled_min]]/[@[Qh_to_room_min]],0)+IFERROR(SUM(sim[@[Qh_flex_1el_final]:[Qh_flex_3el_final]])*[@[Qh_to_room_flex_c]]/[@[Qh_to_room_flex]],0)
-Qheb_1el;=([@[Qh_min_1el]]+[@[Qh_flex_1el_final]])*(1+QH_distr_loss_1el)
-Qheb_2th;=[@[Qh_min_2th]]*(1+QH_distr_loss_2th)
-Qheb_3el;=([@[Qh_min_3el]]+[@[Qh_flex_3el_final]])*(1+QH_distr_loss_3el)
-Qheb_4th;=[@[Qh_min_4th]]*(1+QH_distr_loss_4th)
-Qheb_total;=SUM(sim[@[Qheb_1el]:[Qheb_4th]])
-QH_distr_losses;=[@[Qheb_total]]-[@[Qh_total_final]]
-Eh_aux;=[@[Qheb_1el]]*QH_aux_el_to_th_1el+[@[Qheb_2th]]*QH_aux_el_to_th_2th+[@[Qheb_3el]]*QH_aux_el_to_th_3el+[@[Qheb_4th]]*QH_aux_el_to_th_4th
-Night_schedule;TRUE
-Night_use;=IFERROR([@[Night_schedule]]*[@Ti0uncooled]>Tsetcool_max,FALSE)
-ACH_nightvent;=[@[Night_use]]*IF(-[@[dT_uncooled]]>2,ACH_night_m3,0)
-Qv_nightvent;=[@[ACH_nightvent]]*cp_air*[@[dT_uncooled]]*per_NFA_uncooled
-Spalte11;
-Qc_min_excl_losses;=-SUM(sim[@[Qc_min_0fc]:[Qc_min_3el]])
-Qc_flex_1el_final;=-IFERROR([@[Qc_flex_1el]]*[@[Ec_flex_1el_final]]/[@[Ec_el1_flex_potential]],0)
-Qc_flex_3el_final;=-IFERROR([@[Qc_flex_3el]]*[@[Ec_flex_3el_final]]/[@[Ec_el3_flex_potential]],0)
-Qc_flex_excl_losses;=[@[Qc_flex_1el_final]]+[@[Qc_flex_3el_final]]
-QC_total_final;=[@[Qc_min_excl_losses]]+[@[Qc_flex_excl_losses]]
-Qced_1el;=([@[Qc_min_1el]]-[@[Qc_flex_1el_final]])*(1+QC_distr_losses_1el)
-Qced_2th;=[@[Qc_min_2th]]*(1+QC_distr_losses_2th)
-Qced_3el;=([@[Qc_min_3el]]-[@[Qc_flex_3el_final]])*(1+QC_distr_losses_3el)
-Qced_total;=SUM(sim[@[Qced_1el]:[Qced_3el]])
-Qc_distr_losses;=[@[Qced_total]]+[@[QC_total_final]]
-Ec_aux;=[@[Ec_min_freecooling]]+[@[Qced_1el]]*QC_aux_1el+[@[Qced_2th]]*QC_aux_2th+[@[Qced_3el]]*QC_aux_3el
-Qdhw_1_flex2;=IFERROR([@[Edhw1_flex_final]]*(1-DHW_1_el_aux)/(DHW_conversion_1*DHW_1_is_electric+DHW_1_el_aux),0)
-Qdhw_2_flex;=IFERROR([@[Edhw2_flex_final]]*(1-DHW_2_el_aux)/(DHW_conversion_1*DHW_1_is_electric+DHW_1_el_aux),0)
-Qdhw_1_total;=[@[Qdhw_1_min]]+[@[Qdhw_1_flex2]]
-Qdhw_2_total;=[@[Qdhw_2_min]]+[@[Qdhw_2_flex]]
-Qdhw_total;=SUM(sim[@[Qdhw_1_total]:[Qdhw_2_total]])
-Spalte20;
-Spalte21;
-EV_SOCc_d_res;=IFERROR([@[EV_SOC0_d_res]]+([@[Eev_Cmin_res]]+[@[Eev_flex_final_res]]-[@[Eev_discharge_total]])/1000*NFA_total/[@[EVd_res]]/EV_battsize_kWh,0)
-EV_SOCc_d_work;=IFERROR([@[EV_SOC0_d_work]]+([@[Eev_Cmin_work]]+[@[Eev_flex_final_work]])/1000*NFA_total/[@[EVd_work]]/EV_battsize_kWh,0)
-EV_SOCc_d_retail;=IFERROR([@[EV_SOC0_d_retail]]+([@[Eev_Cmin_retail]]+[@[Eev_flex_final_ret]])/1000*NFA_total/[@[EVd_retail]]/EV_battsize_kWh,0)
-EV_SOCc_a_res;=IFERROR([@[EV_SOC0_a_res]]+([@[Eev_S_res]]+[@[Eev_Cext_res]])/(EV_count_residential-[@[EVd_res]])/EV_battsize_kWh/1000*NFA_total,0)
-EV_SOCc_a_work;=IFERROR([@[EV_SOC0_a_work]]+([@[Eev_S_work]]+[@[Eev_Cext_work]])/(EV_count_work-[@[EVd_work]])/EV_battsize_kWh/1000*NFA_total,0)
-EV_SOCc_a_retail;=IFERROR([@[EV_SOC0_a_retail]]+([@[Eev_S_retail]]+[@[Eev_Cext_retail]])/(EV_count_retail-[@[EVd_retail]])/EV_battsize_kWh/1000*NFA_total,0)
-Spalte238;
-Spalte239;
-Ti_final_uncooled;=[@[Ti_passive_uncooled]]+([@[Qh_u]]+[@[Qv_nightvent]])/heat_cap_eff_uncooled_m2
-Ti_final_cooled;=[@[Ti_passive_cooled]]+([@[Qh_c]]+[@[QC_total_final]])/heat_cap_eff_cooled_m2
-Tdhw_1_final;=IFERROR([@[Tdhw1_passive_losses]]+[@[Qdhw_1_total]]*NFA_total/DHW_storage_1_liter/cp_water,0)
-Tdhw_2_final;=IFERROR([@[Tdhw2_passive_losses]]+[@[Qdhw_2_total]]*NFA_total/DHW_storage_2_liter/cp_water,0)
-Spalte8;
-Batt_final_Whm2;=[@[Batt_cap_after_losses]]-[@[Batt_total_discharge]]+[@[Batt_total_charge]]
-SOC_preheat_u;=IFERROR(([@[Ti_final_uncooled]]-Tsetheat_min)/flex_heat_dT,0)
-SOC_preheat_c;=IFERROR(1-(Tsetheat_flex-[@[Ti_final_cooled]])/flex_heat_dT,0)
-SOC_precool_c;=IFERROR(1-([@[Ti_final_cooled]]-Tsetcool_flex)/flex_cool_dT,0)
-SOC_dhw1;=IFERROR(1-(DHW_Tmax-[@[Tdhw_1_final]])/(DHW_Tmax-DHW_Tmin),0)
-SOC_dhw2;=IFERROR(1-(DHW_Tmax-[@[Tdhw_2_final]])/(DHW_Tmax-DHW_Tmin),0)
-EV_SOC_d_res;=((mob[@[p_res_d]]-mob[@[p_res_leave]])*[@[EV_SOCc_d_res]]+mob[@[p_res_return]]*[@[EV_SOCc_a_res]])/(mob[@[p_res_d]]+mob[@[p_res_return]]-mob[@[p_res_leave]])
-EV_SOC_d_work;=((mob[@[p_work_d]]-mob[@[p_work_leave]])*[@[EV_SOCc_d_work]]+mob[@[p_work_return]]*[@[EV_SOCc_a_work]])/(mob[@[p_work_d]]+mob[@[p_work_return]]-mob[@[p_work_leave]])
-EV_SOC_d_retail;=((mob[@[p_retail_d]]-mob[@[p_retail_leave]])*[@[EV_SOCc_d_retail]]+mob[@[p_retail_return]]*[@[EV_SOCc_a_retail]])/(mob[@[p_retail_d]]+mob[@[p_retail_return]]-mob[@[p_retail_leave]])
-EV_SOC_d;
-EV_SOC_a_res;=((mob[@[p_res_a]]-mob[@[p_res_return]])*[@[EV_SOCc_a_res]]+mob[@[p_res_leave]]*[@[EV_SOCc_d_res]])/(mob[@[p_res_a]]-mob[@[p_res_return]]+mob[@[p_res_leave]])
-EV_SOC_a_work;=((mob[@[p_work_a]]-mob[@[p_work_return]])*[@[EV_SOCc_a_work]]+mob[@[p_work_leave]]*[@[EV_SOCc_d_work]])/(mob[@[p_work_a]]-mob[@[p_work_return]]+mob[@[p_work_leave]])
-EV_SOC_a_retail;=((mob[@[p_retail_a]]-mob[@[p_retail_return]])*[@[EV_SOCc_a_retail]]+mob[@[p_retail_leave]]*[@[EV_SOCc_d_retail]])/(mob[@[p_retail_a]]-mob[@[p_retail_return]]+mob[@[p_retail_leave]])
-EV_SOC_res;=[@[EV_SOC_d_res]]*mob[@[p_res_d]]+[@[EV_SOC_a_res]]*mob[@[p_res_a]]
-EV_SOC_work;=[@[EV_SOC_d_work]]*mob[@[p_work_d]]+[@[EV_SOC_a_work]]*mob[@[p_work_a]]
-EV_SOC_retail;=[@[EV_SOC_d_retail]]*mob[@[p_retail_d]]+[@[EV_SOC_a_retail]]*mob[@[p_retail_a]]
-SOC_Batt;=[@[Batt_final_Whm2]]/Batt_cap_Wh_per_NFA
-EUIh_2th;=[@[Qh_min_2th]]*(1+QH_distr_loss_2th)*QH_generation_eff_2th
-EUIh_4th;=[@[Qh_min_4th]]*(1+QH_distr_loss_4th)*QH_generation_eff_4th
-EUIc_2th;=[@[Qc_min_2th]]*(1+QC_distr_losses_2th)*QC_generation_eff_2th
-EUIdhw_1th;=NOT(DHW_1_is_electric)*[@[Qdhw_1_min]]*DHW_conversion_1
-EUIdhw_2th;=NOT(DHW_2_is_electric)*[@[Qdhw_2_min]]*DHW_conversion_2
-cf_PEI_grid;=INDEX(fPE[@],,fPE_grid_column)
-cf_PEI_flex_grid;=[@[cf_PEI_grid]]*fPE_flex_factor
-cf_PEI_flex_gridsub;=[@[cf_PEI_grid]]-[@[cf_PEI_flex_grid]]
-cf_PEI_PV;0
-cf_PEI_PV_gridsub;=[@[cf_PEI_grid]]-[@[cf_PEI_PV]]
-PEI_el_user;=[@[cf_PEI_grid]]*[@[E_plugAuxLight]]
-PEI_el_hvac;=[@[cf_PEI_grid]]*SUM([@[Ehvac_min]],sim[@[Eh_flex_1el_final]:[Edhw2_flex_final]])
-PEI_district_heating;=SUMPRODUCT(sim[@[EUIh_2th]:[EUIdhw_2th]],TRANSPOSE(is_district_heating),TRANSPOSE(pe_conversion_factors_thermal))
-PEI_natural_gas;=SUMPRODUCT(sim[@[EUIh_2th]:[EUIdhw_2th]],TRANSPOSE(is_natural_gas),TRANSPOSE(pe_conversion_factors_thermal))
-PEI_biomass;=SUMPRODUCT(sim[@[EUIh_2th]:[EUIdhw_2th]],TRANSPOSE(is_biomass),TRANSPOSE(pe_conversion_factors_thermal))
-PEI_other;=SUMPRODUCT(sim[@[EUIh_2th]:[EUIdhw_2th]],TRANSPOSE(is_other_thermal_pe),TRANSPOSE(pe_conversion_factors_thermal))
-PEI_mob_el;=[@[cf_PEI_grid]]*([@[Eev_min]]+[@[Eev_flex_final]])
-PEI_mob_ext;=[@[cf_PEI_grid]]*SUM(sim[@[Eev_Cext_res]:[Eev_Cext_retail]])
-PEI_el_demand;=[@[cf_PEI_grid]]*[@[E_grid]]
-Spalte18;
-PEI_flex_grid;=[@[cf_PEI_flex_grid]]*([@[VRGrid_total_min_use]]+[@[VRGrid_total_flex_use]])
-PEI_flex_grid_substitution;=[@[cf_PEI_grid]]*([@[VRGrid_total_min_use]]+[@[VRGrid_total_flex_use]])
-PEI_PV_direct;=[@[cf_PEI_grid]]*[@[PV_total_direct_use]]
-PEI_PV_sur;
-Spalte46;
-cf_GHG_grid;=INDEX(fGHG[@],,fGHG_grid_column)
-GHG_plugloads;=[@[cf_GHG_grid]]*([@[Grid_to_user]]+[@[VRGrid_to_user]])
-GHG_hvac;=[@[cf_GHG_grid]]*SUM([@[Grid_to_HVAC_min]],[@[VRGrid_to_HVAC_min]],sim[@[VRGrid_to_Eh_flex_1el]:[VRGrid_to_Edhw2_flex]])
-cost_E_grid;=[@[E_grid]]*prices[@[Bezug '[€']]]/1000
-cost_VRGrid_flex;=([@[VRGrid_total_min_use]]+[@[VRGrid_total_flex_use]])*prices[@[Bezug '[€']]]/1000
-cost_PV_to_Egrid;=[@[PV_to_Egrid]]*prices[@[Einspeisung '[€']]]/1000
-Spalte3;
+﻿var_name;Domain;Measure;Unit;Formula
+h;;;;1
+Monat_nr;📅 Datum und Zeit;📅 Datum und Zeit;int;1
+Monat;📅 Datum und Zeit;📅 Datum und Zeit;monat;Januar
+date;📅 Datum und Zeit;📅 Datum und Zeit;date;43101
+hour_of_the_day;📅 Datum und Zeit;📅 Datum und Zeit;hotd;0
+day_of_the_year;📅 Datum und Zeit;📅 Datum und Zeit;doty;1
+Ti0uncooled;;21;°C;=IF(1-NFA_cooled/NFA_total>0,Tsetheat_min,#N/A)
+Ti0cooled;;21;°C;=IF(NFA_cooled/NFA_total>0,Tsetheat_min,#N/A)
+Ta;🌦️ Wetter;Temperatur;°C;=OFFSET(Wetter!M25,0,(weather_index-1)*7)
+rel_humidity;🌦️ Wetter;Luftfeuchte;%;=OFFSET(Wetter!N25,0,(weather_index-1)*7)
+Irr_nord;🌦️ Wetter;Strahlung;W/m²Nord;=OFFSET(Wetter!H25,0,(weather_index-1)*7+4)
+Irr_east;🌦️ Wetter;Strahlung;W/m²Ost;=OFFSET(Wetter!I25,0,(weather_index-1)*7)
+Irr_south;🌦️ Wetter;Strahlung;W/m²Süd;=OFFSET(Wetter!J25,0,(weather_index-1)*7)
+Irr_west;🌦️ Wetter;Strahlung;W/m²West;=OFFSET(Wetter!K25,0,(weather_index-1)*7)
+Irr_horizontal;🌦️ Wetter;Strahlung;W/m²Hori;=OFFSET(Wetter!L25,0,(weather_index-1)*7-4)
+is_heating_period;🔀 Regelung;🔀 Regelung;bool;=--INDEX(heating_months, [@[Monat_nr]])
+is_cooling_period;🔀 Regelung;🔀 Regelung;bool;=--INDEX(cooling_months, [@[Monat_nr]])
+season_step;🔀 Regelung;🔀 Regelung;%;=0.5*([@[is_heating_period]]+NOT([@[is_cooling_period]]))
+Übergangszeit;🔀 Regelung;🔀 Regelung;bool;=IF([@[season_step]]=0.5,1,0)
+season_wave;🔀 Regelung;🔀 Regelung;%;=COS(([@h]+seasonal_phase_h)/8760*2*PI())/2+0.5
+percent_winter;🔀 Regelung;🔀 Regelung;%;"=IF(seasonal_interpolation=""step"", [@[season_step]],[@[season_wave]])"
+dT_uncooled;🔀 Regelung;🔀 Regelung;;=IFNA([@Ta]-[@Ti0uncooled],0)
+dT_cooled;🔀 Regelung;🔀 Regelung;;=IFNA([@Ta]-[@Ti0cooled],0)
+Spalte2;🔀 Regelung;🔀 Regelung;;
+Spalte4;🔀 Regelung;🔀 Regelung;;
+mobile_shading;🔀 Regelung;🔀 Regelung;%;=fc_residential
+Qvinf_u;Passive Gewinne/Verluste;💨 Infiltration;Wh/m²uncooled;=[@[dT_uncooled]]*NFV_u*vent_infiltration_ACH*cp_air*per_NFA_uncooled
+Qvinf_c;Passive Gewinne/Verluste;💨 Infiltration;Wh/m²cooled;=[@[dT_cooled]]*NFV_c*vent_infiltration_ACH*cp_air*per_NFA_cooled
+ACH_residential;Passive Gewinne/Verluste;Air Change per Hour;m³/h;=NFA_residential*rh_residential*vent_scale_residential*Nutzung_Wohnen[@[Bedarf Luftwechsel]]
+ACH_office;Passive Gewinne/Verluste;Air Change per Hour;m³/h;=NFA_office*rh_office*vent_scale_office*Nutzung_Büro[@[Bedarf Luftwechsel]]
+ACH_edusec;Passive Gewinne/Verluste;Air Change per Hour;m³/h;=NFA_schoolsec*rh_schoolsec*vent_scale_school_sec*Nutzung_Schule[@[Bedarf Luftwechsel]]
+ACH_eduprim;Passive Gewinne/Verluste;Air Change per Hour;m³/h;=NFA_schoolprim*rh_schoolprim*vent_scale_school_prim*Nutzung_KIGA[@[Bedarf Luftwechsel]]
+ACH_retfood;Passive Gewinne/Verluste;Air Change per Hour;m³/h;=NFA_retailfood*rh_retailfood*vent_scale_supermarket*Nutzung_Handel_Food[@[Bedarf Luftwechsel]]
+ACH_retail;Passive Gewinne/Verluste;Air Change per Hour;m³/h;=NFA_retailother*rh_retailother*vent_scale_retail*Nutzung_Handel_NonFood[@[Bedarf Luftwechsel]]
+ACH_otherusage;Passive Gewinne/Verluste;Air Change per Hour;m³/h;0
+ACH_mechvent_therm_u;Passive Gewinne/Verluste;Air Change per Hour;;=SUMPRODUCT(sim[@[ACH_residential]:[ACH_otherusage]],vent_mech_shares,cool_passive_shares_T,1-((heat_recovery_rates_summer)+[@[percent_winter]]*(heat_recovery_rates_winter-heat_recovery_rates_summer)))
+ACH_mechvent_therm_c;Passive Gewinne/Verluste;Air Change per Hour;m³/h;=SUMPRODUCT(sim[@[ACH_residential]:[ACH_otherusage]],vent_mech_shares,cool_active_shares_T,1-((heat_recovery_rates_summer)+[@[percent_winter]]*(heat_recovery_rates_winter-heat_recovery_rates_summer)))
+Spalte1;Passive Gewinne/Verluste;Air Change per Hour;;
+ACH_mechvent_u;Passive Gewinne/Verluste;Air Change per Hour;m³/h;=SUMPRODUCT(sim[@[ACH_residential]:[ACH_otherusage]],vent_mech_shares,cool_passive_shares_T)
+ACH_mechvent_c;Passive Gewinne/Verluste;Air Change per Hour;m³/h;=SUMPRODUCT(sim[@[ACH_residential]:[ACH_otherusage]],vent_mech_shares,cool_active_shares_T)
+Qvmechvent_u;Passive Gewinne/Verluste;💨 Lüftung;Wh/m²uncooled;=[@[dT_uncooled]]*[@[ACH_mechvent_therm_u]]*cp_air*per_NFA_uncooled
+Qvmechvent_c;Passive Gewinne/Verluste;💨 Lüftung;Wh/m²cooled;=[@[dT_cooled]]*[@[ACH_mechvent_therm_c]]*cp_air*per_NFA_cooled
+Qvwindow_u;Passive Gewinne/Verluste;💨 Lüftung;Wh/m²uncooled;=[@[dT_uncooled]]*cp_air*SUMPRODUCT(sim[@[ACH_residential]:[ACH_otherusage]],vent_window_shares,cool_passive_shares_T)*per_NFA_uncooled
+Qvwindow_c;Passive Gewinne/Verluste;💨 Lüftung;Wh/m²NFA;=[@[dT_cooled]]*cp_air*SUMPRODUCT(sim[@[ACH_residential]:[ACH_otherusage]],vent_window_shares,cool_active_shares_T)*per_NFA_cooled
+QT_u;Passive Gewinne/Verluste;🧱Transmission;Wh/m²uncooled;=[@[dT_uncooled]]*transmittance_Wm2
+QT_c;Passive Gewinne/Verluste;🧱Transmission;Wh/m²cooled;=[@[dT_cooled]]*transmittance_Wm2
+QSwinter;Passive Gewinne/Verluste;🌞 Solare Gewinne;Wh;=SUMPRODUCT(sim[@[Irr_nord]:[Irr_horizontal]],apertures_winter)
+QSsummer;Passive Gewinne/Verluste;🌞 Solare Gewinne;Wh;=SUMPRODUCT(sim[@[Irr_nord]:[Irr_horizontal]],apertures_summer)
+QS_u_unshaded;Passive Gewinne/Verluste;🌞 Solare Gewinne;Wh/m²uncooled;=([@[percent_winter]]*[@QSwinter]+(1-[@[percent_winter]])*[@QSsummer])*per_NFA*(NFAfrac_u>0)
+QS_c_unshaded;Passive Gewinne/Verluste;🌞 Solare Gewinne;Wh/m²cooled;=([@[percent_winter]]*[@QSwinter]+(1-[@[percent_winter]])*[@QSsummer])*per_NFA*(NFAfrac_c>0)
+QS_u;Passive Gewinne/Verluste;🌞 Solare Gewinne;Wh/m²uncooled;=[@[QS_u_unshaded]]*(1-(1-mob_shading_factor_u)*AND([@[is_cooling_period]],QS_max_shading_u<[@[QS_u_unshaded]]))
+QS_c;Passive Gewinne/Verluste;🌞 Solare Gewinne;Wh/m²cooled;=[@[QS_c_unshaded]]*(1-(1-mob_shading_factor_c)*AND([@[is_cooling_period]],QS_max_shading_c<[@[QS_c_unshaded]]))
+Spalte9;Passive Gewinne/Verluste;🌞 Solare Gewinne;;
+QS;Passive Gewinne/Verluste;🌞 Solare Gewinne;Wh/m²NFA;=([@[percent_winter]]*[@QSwinter]+(1-[@[percent_winter]])*[@QSsummer])*per_NFA
+QI_residential;Passive Gewinne/Verluste;👤Innere Lasten;Wh/m²;=(usage_concurrency_winter_residential*[@[percent_winter]]*Nutzung_Wohnen[@[Innere Wärmen Min]]+usage_concurrency_summer_residential*(1-[@[percent_winter]])*Nutzung_Wohnen[@[Innere Wärmen Max]])
+QI_office;Passive Gewinne/Verluste;👤Innere Lasten;Wh/m²;=(usage_concurrency_winter_office*[@[percent_winter]]*Nutzung_Büro[@[Innere Wärmen Min]]+usage_concurrency_summer_office*(1-[@[percent_winter]])*Nutzung_Büro[@[Innere Wärmen Max]])
+QI_edusec;Passive Gewinne/Verluste;👤Innere Lasten;Wh/m²;=(usage_concurrency_winter_schoolsec*[@[percent_winter]]*Nutzung_Schule[@[Innere Wärmen Min]]+usage_concurrency_summer_schoolsec*(1-[@[percent_winter]])*Nutzung_Schule[@[Innere Wärmen Max]])
+QI_eduprim;Passive Gewinne/Verluste;👤Innere Lasten;Wh/m²;=(usage_concurrency_winter_schoolprim*[@[percent_winter]]*Nutzung_KIGA[@[Innere Wärmen Min]]+usage_concurrency_summer_schoolprim*(1-[@[percent_winter]])*Nutzung_KIGA[@[Innere Wärmen Max]])
+QI_retfood;Passive Gewinne/Verluste;👤Innere Lasten;Wh/m²;=(usage_concurrency_winter_retailfood*[@[percent_winter]]*Nutzung_Handel_Food[@[Innere Wärmen Winter]]+usage_concurrency_summer_retailfood*(1-[@[percent_winter]])*Nutzung_Handel_Food[@[Innere Wärmen Sommer]])
+QI_retail;Passive Gewinne/Verluste;👤Innere Lasten;Wh/m²;=(usage_concurrency_winter_retailother*[@[percent_winter]]*Nutzung_Handel_NonFood[@[Innere Wärmen Winter]]+usage_concurrency_summer_retailother*(1-[@[percent_winter]])*Nutzung_Handel_NonFood[@[Innere Wärmen Sommer]])
+QI_otherusage;Passive Gewinne/Verluste;👤Innere Lasten;Wh/m²;=(usage_concurrency_winter_other*[@[percent_winter]]*Nutzung_Handel_NonFood[@[Innere Wärmen Winter]]+usage_concurrency_summer_other*(1-[@[percent_winter]])*Nutzung_Handel_NonFood[@[Innere Wärmen Sommer]])
+QI_u;Passive Gewinne/Verluste;👤Innere Lasten;Wh/m²uncooled;=SUMPRODUCT(sim[@[QI_residential]:[QI_otherusage]],cool_passive_shares_T,NFA_shares_T)*NFA_total*per_NFA_uncooled
+QI_c;Passive Gewinne/Verluste;👤Innere Lasten;Wh/m²cooled;=SUMPRODUCT(sim[@[QI_residential]:[QI_otherusage]],cool_active_shares_T,NFA_shares_T)*NFA_total*per_NFA_cooled
+Ti_passive_uncooled;Passive Gewinne/Verluste;🌡;°C;=[@Ti0uncooled]+([@[Qvinf_u]]+[@[Qvmechvent_u]]+[@[Qvwindow_u]]+[@[QT_u]]+[@[QS_u]]+[@[QI_u]])/heat_capacity_effective_m2
+Ti_passive_cooled;Passive Gewinne/Verluste;🌡;°C;=[@Ti0cooled]+([@[Qvinf_c]]+[@[Qvmechvent_c]]+[@[Qvwindow_c]]+[@[QT_c]]+[@[QS_c]]+[@[QI_c]])/heat_capacity_effective_m2
+dT_heating_uncooled_min;Nutzenergie Bedarfe;Temperatur-Differenz;;=MAX(0,IFNA(Tsetheat_min-[@[Ti_passive_uncooled]],0))
+dT_heating_cooled_min;;Temperatur-Differenz;;=MAX(0,IFNA(Tsetheat_min-[@[Ti_passive_cooled]],0))
+dT_heating_uncooled_max;;Temperatur-Differenz;;=MAX(0,IFNA(Tsetheat_flex-[@[Ti_passive_uncooled]],0))
+dT_heating_cooled_max;;Temperatur-Differenz;;=MAX(0,IFNA(Tsetheat_flex-[@[Ti_passive_cooled]],0))
+Qh_to_room_uncooled_min;Heizwärmebedarf;Wärmebereitstellung;Wh/m²uncooled;=MIN(QHmax_room_m2,[@[is_heating_period]]*([@[dT_heating_uncooled_min]]*heat_cap_eff_uncooled_m2))
+Qh_to_room_cooled_min;Heizwärmebedarf;Wärmebereitstellung;Wh/m²cooled;=MIN(QHmax_room_m2,[@[is_heating_period]]*([@[dT_heating_cooled_min]]*heat_cap_eff_cooled_m2))
+Qh_to_room_uncooled_max;Heizwärmebedarf;Wärmebereitstellung;Wh/m²uncooled;=MIN(QHmax_room_m2,AND([@[is_heating_period]],NOT([@[is_cooling_period]]))*([@[dT_heating_uncooled_max]]*heat_cap_eff_uncooled_m2))
+Qh_to_room_cooled_max;Heizwärmebedarf;Wärmebereitstellung;Wh/m²cooled;=MIN(QHmax_room_m2,AND([@[is_heating_period]],NOT([@[is_cooling_period]]))*([@[dT_heating_cooled_max]]*heat_cap_eff_cooled_m2))
+Qh_to_room_min;Heizwärmebedarf;HWB;Wh/m²NFA;=SUMPRODUCT(sim[@[Qh_to_room_uncooled_min]:[Qh_to_room_cooled_min]],$H$4:$I$4)
+Qh_to_room_flex_u;Heizwärmebedarf;HWB;Wh/m²uncooled;=[@[Qh_to_room_uncooled_max]]-[@[Qh_to_room_uncooled_min]]
+Qh_to_room_flex_c;Heizwärmebedarf;HWB;Wh/m²cooled;=[@[Qh_to_room_cooled_max]]-[@[Qh_to_room_cooled_min]]
+Qh_to_room_flex_val;Heizwärmebedarf;HWB;;=[@[Qh_to_room_flex_u]]*NFAfrac_u+[@[Qh_to_room_flex_c]]*+NFAfrac_c
+Qh_to_room_flex;Heizwärmebedarf;HWB;Wh/m²NFA;=SUMPRODUCT(sim[@[Qh_to_room_uncooled_max]:[Qh_to_room_cooled_max]],$H$4:$I$4)-[@[Qh_to_room_min]]
+waste_heat_potential;Heizwärmebedarf;;Wh/m²NFA;0
+Qh_min_wasteheat;Heizwärmebedarf;;Wh/m²;=MAX(0,MIN([@[waste_heat_potential]],[@[Qh_to_room_min]]))
+Qh_min_1el;Heizwärmebedarf;Minimale Deckung raumseitig;Wh/m²NFA;=MIN([@[Qh_to_room_min]]-[@[Qh_min_wasteheat]],QHmax_1el_m2)
+Qh_min_2th;Heizwärmebedarf;Minimale Deckung raumseitig;Wh/m²NFA;=MIN([@[Qh_to_room_min]]-SUM(sim[@[Qh_min_wasteheat]:[Qh_min_1el]]),QHmax_2th_m2)
+Qh_min_3el;Heizwärmebedarf;Minimale Deckung raumseitig;Wh/m²NFA;=MIN([@[Qh_to_room_min]]-SUM(sim[@[Qh_min_wasteheat]:[Qh_min_2th]]),QHmax_3el_m2)
+Qh_min_4th;Heizwärmebedarf;Minimale Deckung raumseitig;Wh/m²NFA;=MIN([@[Qh_to_room_min]]-SUM(sim[@[Qh_min_wasteheat]:[Qh_min_3el]]),QHmax_4th_m2)
+Qh_wasteheat_flex;Heizwärmebedarf;🔥+ Flexibles Potential;Wh/m²NFA;=MIN([@[Qh_to_room_flex]],[@[waste_heat_potential]]-[@[Qh_min_wasteheat]])
+Qh_flex_1el_potential;Heizwärmebedarf;🔥+ Flexibles Potential;Wh/m²NFA;=FLEX_heat1_use*MIN(QHmax_1el_m2-[@[Qh_min_1el]],MAX([@[Qh_to_room_flex]]-[@[Qh_wasteheat_flex]],0))
+Qh_flex_3el_potential;Heizwärmebedarf;🔥+ Flexibles Potential;Wh/m²NFA;=FLEX_heat3_use*MIN(QHmax_3el_m2-[@[Qh_min_3el]],[@[Qh_to_room_flex]]-[@[Qh_wasteheat_flex]])
+Qc_from_room_min;Kühlbedarf;Kühbedarf raumseitig;Wh/m²cooled;=MIN(QCmax_room_m2,[@[is_cooling_period]]*MAX(IFNA([@[Ti_passive_cooled]]-Tsetcool_max,0),0)*heat_cap_eff_cooled_m2)
+Qc_from_room_flex;Kühlbedarf;Kühbedarf raumseitig;Wh/m²cooled;=MIN(QCmax_room_m2-[@[Qc_from_room_min]],AND([@[is_cooling_period]],NOT([@[is_heating_period]]))*MAX(IFNA([@[Ti_passive_cooled]]-Tsetcool_flex,0),0)*heat_cap_eff_cooled_m2+[@[Qc_from_room_min]])
+Qc_min_0fc;Kühlbedarf;Kühbedarf raumseitig;Wh/m²cooled;=MIN([@[Qc_from_room_min]],QCmax_freecooling)
+Qc_min_1el;Kühlbedarf;Kühbedarf raumseitig;Wh/m²cooled;=MIN([@[Qc_from_room_min]]-[@[Qc_min_0fc]],QCmax_1el)
+Qc_min_2th;Kühlbedarf;Kühbedarf raumseitig;Wh/m²cooled;=MIN([@[Qc_from_room_min]]-SUM(sim[@[Qc_min_0fc]:[Qc_min_1el]]),QCmax_2th)
+Qc_min_3el;Kühlbedarf;Kühbedarf raumseitig;Wh/m²cooled;=MIN([@[Qc_from_room_min]]-SUM(sim[@[Qc_min_0fc]:[Qc_min_2th]]),QCmax_3el)
+Qc_flex_1el;Kühlbedarf;Kühbedarf raumseitig;Wh/m²cooled;=FLEX_cool1_use*MIN(QCmax_1el-[@[Qc_min_1el]],[@[Qc_from_room_flex]])
+Qc_flex_3el;Kühlbedarf;Kühbedarf raumseitig;Wh/m²cooled;=FLEX_cool3_use*MIN(QCmax_3el-[@[Qc_min_3el]],[@[Qc_from_room_flex]])
+Tdhw1_0;Warmwasser-Wärmebedarf;WW Temperatur;°C;=DHW_Tmin*DHW_1_is_used
+Tdhw2_0;Warmwasser-Wärmebedarf;WW Temperatur;°C;=DHW_Tmin*DHW_2_is_used
+DHW_residential_kW;Warmwasser-Wärmebedarf;WWWB je Nutzung;kW;=NFA_residential*Nutzung_Wohnen[@[Warmwasserbedarf_W_m2]]*DHW_demand_residential_kWhm2/DHW_default_residential_kWhm2/1000
+DHW_office_kW;Warmwasser-Wärmebedarf;WWWB je Nutzung;kW;=NFA_office*Nutzung_Büro[@[Warmwasserbedarf_W_m2]]*DHW_demand_office_kWhm2/DHW_default_office_kWhm2/1000
+DHW_schoolsec_kW;Warmwasser-Wärmebedarf;WWWB je Nutzung;kW;=NFA_schoolsec*Nutzung_Schule[@[Warmwasserbedarf_W_m2]]*DHW_demand_schoolsec_kWhm2/DHW_default_schoolsec_kWhm2/1000
+DHW_schoolprim_kW;Warmwasser-Wärmebedarf;WWWB je Nutzung;kW;=NFA_schoolprim*Nutzung_KIGA[@[Warmwasserbedarf_W_m2]]*DHW_demand_schoolprim_kWhm2/DHW_default_schoolprim_kWhm2/1000
+DHW_retailsupermarket_kW;Warmwasser-Wärmebedarf;WWWB je Nutzung;kW;=NFA_retailfood*Nutzung_Handel_Food[@[Warmwasserbedarf_W_m2]]*DHW_demand_retailfood_kWhm2/DHW_default_retailfood_kWhm2/1000
+DHW_retailother_kW;Warmwasser-Wärmebedarf;WWWB je Nutzung;kW;=NFA_retailother*Nutzung_Handel_NonFood[@[Warmwasserbedarf_W_m2]]*DHW_demand_retailother_kWhm2/DHW_default_retailother_kWhm2/1000
+DHW_other_kW;Warmwasser-Wärmebedarf;WWWB je Nutzung;kW;0
+DHW_storage_losses_1;Warmwasser-Wärmebedarf;WW Verluste;kW;=DHW_losses_1*DHW_storage_1_liter*cp_water/1000
+DHW_storage_losses_2;Warmwasser-Wärmebedarf;WW Verluste;kW;=DHW_losses_2*DHW_storage_2_liter*cp_water/1000
+DHW_heat_demand_1_kW;Warmwasser-Wärmebedarf;WW Entnahme;kW;=DHW_1_is_used*([@[DHW_storage_losses_1]]+DHW_1_incl_distribution_factor*SUMPRODUCT(sim[@[DHW_residential_kW]:[DHW_other_kW]],DHW_system1_shares))
+DHW_heat_demand_2_kW;Warmwasser-Wärmebedarf;WW Entnahme;kW;=DHW_2_is_used*([@[DHW_storage_losses_2]]+DHW_2_incl_distribution_factor*SUMPRODUCT(sim[@[DHW_residential_kW]:[DHW_other_kW]],1-(DHW_system1_shares)))
+Tdhw1_passive_losses;Warmwasser-Wärmebedarf;WW Entnahme;;=[@[Tdhw1_0]]-IFERROR([@[DHW_heat_demand_1_kW]]*1000/DHW_storage_1_liter/cp_water,0)
+Tdhw2_passive_losses;Warmwasser-Wärmebedarf;WW Entnahme;;=[@[Tdhw2_0]]-IFERROR([@[DHW_heat_demand_2_kW]]*1000/DHW_storage_2_liter/cp_water,0)
+Qdhw_1_min;Warmwasser-Wärmebedarf;WWWB Minimum;Wh/m²NFA;=MAX(0,(DHW_Tmin-[@[Tdhw1_passive_losses]])*DHW_storage_1_liter*cp_water)*per_NFA
+Qdhw_2_min;Warmwasser-Wärmebedarf;WWWB Minimum;Wh/m²NFA;=MAX(0,(DHW_Tmin-[@[Tdhw2_passive_losses]])*DHW_storage_2_liter*cp_water)*per_NFA
+Qdhw_min;Warmwasser-Wärmebedarf;WWWB Minimum;Wh/m²NFA;=SUM(sim[@[Qdhw_1_min]:[Qdhw_2_min]])
+Qdhw_1_flexpotential;Warmwasser-Wärmebedarf;WWWB Flexibel;Wh/m²NFA;=flex_dhw_use*DHW_1_is_electric*MAX(0,(DHW_Tmax-[@[Tdhw1_passive_losses]])*DHW_storage_1_liter*cp_water*per_NFA-[@[Qdhw_1_min]])
+Qdhw_2_flexpotential;Warmwasser-Wärmebedarf;WWWB Flexibel;Wh/m²NFA;=flex_dhw_use*DHW_2_is_electric*MAX(0,(DHW_Tmax-[@[Tdhw2_passive_losses]])*DHW_storage_2_liter*cp_water*per_NFA-[@[Qdhw_2_min]])
+Edhw_1_min_el;Warmwasser-Wärmebedarf;WWWB Flexibel;Wh/m²NFA;=[@[Qdhw_1_min]]*(DHW_conversion_1*DHW_1_is_electric+DHW_1_el_aux)
+Edhw_2_min_el;Warmwasser-Wärmebedarf;WWWB Flexibel;Wh/m²NFA;=[@[Qdhw_2_min]]*(DHW_conversion_2*DHW_2_is_electric+DHW_2_el_aux)
+Spalte12;;;;
+Spalte122;;;;
+Spalte123;;;;
+EVd_res;E-Mobilität;EV Anzahl Vor Ort;Cars;=EV_count_residential*mob[@[p_res_d]]
+EVd_work;E-Mobilität;EV Anzahl Vor Ort;;=EV_count_work*mob[@[p_work_d]]
+EVd_retail;E-Mobilität;EV Anzahl Vor Ort;;=EV_count_retail*mob[@[p_retail_d]]
+EV_SOC0_d_res;E-Mobilität;EV State-of-Charge;%;0.5
+EV_SOC0_d_work;E-Mobilität;EV State-of-Charge;%;0.5
+EV_SOC0_d_retail;E-Mobilität;EV State-of-Charge;%;0.5
+EV_SOC0_a_res;E-Mobilität;EV State-of-Charge;;0.5
+EV_SOC0_a_work;E-Mobilität;EV State-of-Charge;;0.5
+EV_SOC0_a_retail;E-Mobilität;EV State-of-Charge;;0.5
+EV_maxpower;E-Mobilität;;Wh/m²;=MIN(SUM(sim[@[EVd_res]:[EVd_retail]]),EV_charging_stations)*EV_charging_station_power*1000*per_NFA
+Eev_Cmin_res;E-Mobilität;Beladung Minimum;Wh/m²;=MIN(MIN([@[EVd_res]],EV_charging_stations)*EV_charging_station_power,[@[EVd_res]]*EV_battsize_kWh*MIN(EV_max_charging_power_ratio,MAX(EV_soc_minimum-[@[EV_SOC0_d_res]],0))*1000*per_NFA)
+Eev_Cmin_work;E-Mobilität;Beladung Minimum;Wh/m²;=MIN([@[EV_maxpower]]-[@[Eev_Cmin_res]],[@[EVd_work]]*EV_battsize_kWh*MIN(EV_max_charging_power_ratio,MAX(EV_soc_min_work-[@[EV_SOC0_d_work]],0))*1000*per_NFA)
+Eev_Cmin_retail;E-Mobilität;Beladung Minimum;Wh/m²;=MIN([@[EV_maxpower]]-[@[Eev_Cmin_res]]-[@[Eev_Cmin_work]],[@[EVd_retail]]*EV_battsize_kWh*MIN(EV_max_charging_power_ratio,MAX(EV_soc_min_retail-[@[EV_SOC0_d_retail]],0))*1000*per_NFA)
+Eev_Cmin;E-Mobilität;Beladung Minimum;Wh/m²;=SUM(sim[@[Eev_Cmin_res]:[Eev_Cmin_retail]])
+Eev_Cflex_pot_res;E-Mobilität;Beladung Maximum;Wh/m²;=MIN([@[EV_maxpower]]-[@[Eev_Cmin]],[@[EVd_res]]*EV_battsize_kWh*MAX(MIN(1-[@[EV_SOC0_d_res]],EV_max_charging_power_ratio-MAX(EV_soc_minimum-[@[EV_SOC0_d_res]],0)),0)*1000*per_NFA)
+Eev_Cflex_pot_work;E-Mobilität;Beladung Maximum;Wh/m²;=MIN([@[EV_maxpower]]-[@[Eev_Cmin]]-[@[Eev_Cflex_pot_res]],[@[EVd_work]]*EV_battsize_kWh*MAX(MIN(1-[@[EV_SOC0_d_work]],EV_max_charging_power_ratio-MAX(EV_soc_min_work-[@[EV_SOC0_d_work]],0)),0)*1000*per_NFA)
+Eev_Cflex_pot_retail;E-Mobilität;Beladung Maximum;Wh/m²;=MIN([@[EV_maxpower]]-[@[Eev_Cmin]]-[@[Eev_Cflex_pot_res]]-[@[Eev_Cflex_pot_work]],[@[EVd_retail]]*EV_battsize_kWh*MAX(MIN(1-[@[EV_SOC0_d_retail]],EV_max_charging_power_ratio-MAX(EV_soc_min_retail-[@[EV_SOC0_d_retail]],0)),0)*1000*per_NFA)
+Eev_Cflex_pot;E-Mobilität;Beladung Maximum;Wh/m²;=SUM(sim[@[Eev_Cflex_pot_res]:[Eev_Cflex_pot_retail]])
+Eev_Dflex_pot_res;E-Mobilität;Entladung Maximum;Wh/m²;=ev_bidirectional_use*[@[EVd_res]]*EV_battsize_kWh*MIN(MAX([@[EV_SOC0_d_res]]-EV_soc_min_discharge,0),EV_max_charging_power_ratio)*1000*per_NFA
+Eev_Dflex_pot_work;E-Mobilität;Entladung Maximum;Wh/m²;=FALSE*[@[EVd_work]]*EV_battsize_kWh*MIN(MAX([@[EV_SOC0_d_work]]-EV_soc_min_discharge,0),EV_max_charging_power_ratio)*1000*per_NFA
+Eev_Dflex_pot_retail;E-Mobilität;Entladung Maximum;Wh/m²;=FALSE*[@[EVd_retail]]*EV_battsize_kWh*MIN(MAX([@[EV_SOC0_d_retail]]-EV_soc_min_discharge,0),EV_max_charging_power_ratio)*1000*per_NFA
+Eev_Dflex_pot;E-Mobilität;Entladung Maximum;Wh/m²;=SUM(sim[@[Eev_Dflex_pot_res]:[Eev_Dflex_pot_retail]])
+Eev_S_res;E-Mobilität;Entladung Fahrten;Wh/m²;=-EV_mileage_residential*EV_demand_kWhpkm*mob[@[Anteil JPkm]]*1000*per_NFA
+Eev_S_work;E-Mobilität;Entladung Fahrten;Wh/m²;=-EV_mileage_work*EV_demand_kWhpkm*mob[@[Anteil JPkm]]*1000*per_NFA
+Eev_S_retail;E-Mobilität;Entladung Fahrten;Wh/m²;=-EV_mileage_retail*EV_demand_kWhpkm*mob[@[Anteil JPkm]]*1000*per_NFA*mobility_is_included
+Eev_Cext_res;E-Mobilität;Beladung Außerhalb;Wh/m²;=(EV_count_residential-[@[EVd_res]])*EV_battsize_kWh*MIN(EV_max_charging_power_ratio*10%,MAX(EV_soc_min_ext-[@[EV_SOC0_a_res]],0))*1000*per_NFA
+Eev_Cext_work;E-Mobilität;Beladung Außerhalb;Wh/m²;=(EV_count_work-[@[EVd_work]])*EV_battsize_kWh*MIN(EV_max_charging_power_ratio*10%,MAX(EV_soc_min_ext-[@[EV_SOC0_a_work]],0))*1000*per_NFA
+Eev_Cext_retail;E-Mobilität;Beladung Außerhalb;Wh/m²;=(EV_count_retail-[@[EVd_retail]])*EV_battsize_kWh*MIN(EV_max_charging_power_ratio*10%,MAX(EV_soc_min_ext-[@[EV_SOC0_a_retail]],0))*1000*per_NFA
+Eev_min_intake;E-Mobilität;Beladung Minimum;Wh/m²;=[@[Eev_Cmin]]*EV_charging_losses_surcharge_factor
+Eev_flex_intake;E-Mobilität;Beladung Maximum;Wh/m²;=[@[Eev_Cflex_pot]]*EV_charging_losses_surcharge_factor
+Spalte6;;;;
+BATT_cap_0;Batterie;Batterie;Wh/m²;=Batt_SOC_init*Batt_cap_Wh_per_NFA
+Batt_auto_discharge;Batterie;Batterie;Wh/m²;=[@[BATT_cap_0]]*Batt_auto_discharge_factor
+Batt_cap_after_losses;Batterie;Batterie;Wh/m²;=Batt_is_used*([@[BATT_cap_0]]-[@[Batt_auto_discharge]])
+Spalte80;Batterie;Batterie;;
+Spalte81;Batterie;Batterie;;
+Spalte82;Batterie;Batterie;;
+Spalte83;Batterie;Batterie;;
+Spalte84;Batterie;Batterie;;
+Spalte85;Batterie;Batterie;;
+Batt_max_energy_output;Batterie;Batterie;;
+Batt_max_energy_input;Batterie;Batterie;Wh/m²;=Batt_is_used*(Batt_cap_Wh_per_NFA-[@[Batt_cap_after_losses]])
+Spalte88;;;;
+Spalte5;;;;
+Eh_min_wasteheat;Strom Mindestbedarfe;Heizen Minimum;Wh_el/m²;=(QH_aux_wasteheat)*[@[Qh_min_wasteheat]]
+Eh_min_1el;Strom Mindestbedarfe;Heizen Minimum;Wh_el/m²;=(QH_generation_eff_1el+QH_aux_el_to_th_1el)*[@[Qh_min_1el]]*(1+QH_distr_loss_1el)
+Eh_min_2th;Strom Mindestbedarfe;Heizen Minimum;Wh_el/m²;=QH_aux_el_to_th_2th*[@[Qh_min_2th]]*(1+QH_distr_loss_2th)
+Eh_min_3el;Strom Mindestbedarfe;Heizen Minimum;Wh_el/m²;=(QH_generation_eff_3el+QH_aux_el_to_th_3el)*[@[Qh_min_3el]]*(1+QH_distr_loss_3el)
+Eh_min_4th;Strom Mindestbedarfe;Heizen Minimum;Wh_el/m²;=QH_aux_el_to_th_4th*[@[Qh_min_4th]]*(1+QH_distr_loss_4th)
+Eh_min;Strom Mindestbedarfe;Heizen Minimum;Wh_el/m²;=SUM(sim[@[Eh_min_wasteheat]:[Eh_min_4th]])
+Ec_min_freecooling;Strom Mindestbedarfe;Kühlen Minimum;Wh_el/m²;=[@[Qc_min_0fc]]*QC_aux_fc
+Ec_min_1el;Strom Mindestbedarfe;Kühlen Minimum;Wh_el/m²;=$I$4*[@[Qc_min_1el]]*(1+QC_distr_losses_1el)*(QC_to_EC_1+QC_aux_1el)
+Ec_min_2th;Strom Mindestbedarfe;Kühlen Minimum;Wh_el/m²;=$I$4*[@[Qc_min_2th]]*(1+QC_distr_losses_2th)*(QC_aux_2th)
+Ec_min_3el;Strom Mindestbedarfe;Kühlen Minimum;Wh_el/m²;=$I$4*[@[Qc_min_3el]]*(1+QC_distr_losses_3el)*(QC_to_EC_3+QC_aux_3el)
+Ec_min;Strom Mindestbedarfe;Kühlen Minimum;Wh_el/m²;=SUM(sim[@[Ec_min_freecooling]:[Ec_min_3el]])
+Ev_residential;Strom Mindestbedarfe;Lüftung Minimum;Wh_el/m²;=Ev_scale_residential*Nutzung_Wohnen[@[Lüfterstrom_W_m2]]*NFA_residential*per_NFA
+Ev_office;Strom Mindestbedarfe;Lüftung Minimum;Wh_el/m²;=Ev_scale_office*Nutzung_Büro[@[Lüfterstrom_W_m2]]*NFA_office*per_NFA
+Ev_edusec;Strom Mindestbedarfe;Lüftung Minimum;Wh_el/m²;=Ev_scale_school_sec*Nutzung_Schule[@[Lüfterstrom_W_m2]]*NFA_schoolsec*per_NFA
+Ev_eduprim;Strom Mindestbedarfe;Lüftung Minimum;Wh_el/m²;=Ev_scale_school_prim*Nutzung_KIGA[@[Lüfterstrom_W_m2]]*NFA_schoolprim*per_NFA
+Ev_retfood;Strom Mindestbedarfe;Lüftung Minimum;Wh_el/m²;=Ev_scale_retail_food*Nutzung_Handel_Food[@[Lüfterstrom_W_m2]]*NFA_retailfood*per_NFA
+Ev_retail;Strom Mindestbedarfe;Lüftung Minimum;Wh_el/m²;=Ev_scale_retail_other*Nutzung_Handel_NonFood[@[Lüfterstrom_W_m2]]*NFA_retailother*per_NFA
+Ev_otherusage;Strom Mindestbedarfe;Lüftung Minimum;Wh_el/m²;0
+Ev_min;Strom Mindestbedarfe;Lüftung Minimum;Wh_el/m²;=SUM(sim[@[Ev_residential]:[Ev_otherusage]])
+Eaux;Strom Mindestbedarfe;Aux;Wh_el/m²;=Nutzungsprofil[@[Aufzug, Regelung etc._W_m2]]
+Elight_office;Strom Mindestbedarfe;💡Beleuchtung;Wh_el/m²office;=lighting_factor_office*IF(Nutzung_Büro[@[Betriebszeit_-]]>0,1,0)*(Plight_min_office*(1-daylightcontr_office)+daylightcontr_office*IF([@[Irr_horizontal]]*100*Daylightcoefficient_office>illuminance_min_office,0,Plight_max_office))
+Elight_schoolsec;Strom Mindestbedarfe;💡Beleuchtung;Wh_el/m²schoolsec;=lighting_factor_schoolsec*IF(Nutzung_Schule[@[Personen_Pers_m2]]>0,1,0)*(Plight_min_schoolsec*(1-daylightcontr_schoolsec)+daylightcontr_schoolsec*IF([@[Irr_horizontal]]*100*Daylightcoefficient_schoolsec>illuminance_min_schoolsec,0,Plight_max_schoolsec))
+Elight_schoolprim;Strom Mindestbedarfe;💡Beleuchtung;Wh_el/m²schoolprim;=lighting_factor_schoolprim*IF(Nutzung_KIGA[@[Personen_Pers_m2]]>0,1,0)*(Plight_min_schoolprim*(1-daylightcontr_schoolprim)+daylightcontr_schoolprim*IF([@[Irr_horizontal]]*100*Daylightcoefficient_schoolprim>illuminance_min_schoolprim,0,Plight_max_schoolprim))
+Elight;Strom Mindestbedarfe;💡Beleuchtung;Wh_el/m²;=per_NFA*([@[Elight_office]]*NFA_office+[@[Elight_schoolsec]]*NFA_schoolsec+[@[Elight_schoolprim]]*NFA_schoolprim+Nutzung_Handel_Food[@[Beleuchtung_W_m2]]*lighting_factor_retailfood*NFA_retailfood+Nutzung_Handel_NonFood[@[Beleuchtung_W_m2]]*lighting_factor_retailother*NFA_retailother)
+Edhw_min;Strom Mindestbedarfe;WW Minimum;Wh_el/m²;=[@[Edhw_1_min_el]]+[@[Edhw_2_min_el]]
+Ehvac_min;Strom Mindestbedarfe;HKLS Minimum;Wh_el/m²;=[@[Eh_min]]+[@[Ec_min]]+[@[Ev_min]]+[@[Edhw_min]]
+E_plugAuxLight;Strom Mindestbedarfe;👤Nutzerstrom;Wh_el/m²;=Nutzungsprofil[@[Nutzerstrom_W_m2]]+[@Eaux]+[@Elight]
+Eev_min;Strom Mindestbedarfe;E-Cars;Wh_el/m²;=[@[Eev_min_intake]]
+Ed_min;Strom Mindestbedarfe;;Wh_el/m²;=[@[Ehvac_min]]+[@[E_plugAuxLight]]+[@[Eev_min]]
+Space3;;;;
+Eh_el1_flex_potential;FLEX Speicher Potential;Strom Flexibel Maximal zusätzlich;Wh/m²;=(QH_generation_eff_1el+QH_aux_el_to_th_1el)*[@[Qh_flex_1el_potential]]*(1+QH_distr_loss_1el)
+Eh_el3_flex_potential;FLEX Speicher Potential;Strom Flexibel Maximal zusätzlich;Wh/m²;=(QH_generation_eff_3el+QH_aux_el_to_th_3el)*[@[Qh_flex_3el_potential]]*(1+QH_distr_loss_3el)
+Ec_el1_flex_potential;FLEX Speicher Potential;Strom Flexibel Maximal zusätzlich;Wh/m²;=$I$4*[@[Qc_flex_1el]]*(1+QC_distr_losses_1el)*(QC_to_EC_1+QC_aux_1el)
+Ec_el3_flex_potential;FLEX Speicher Potential;Strom Flexibel Maximal zusätzlich;Wh/m²;=$I$4*[@[Qc_flex_3el]]*(1+QC_distr_losses_3el)*(QC_to_EC_3+QC_aux_3el)
+Edhw_1_flex_potential;FLEX Speicher Potential;Strom Flexibel Maximal zusätzlich;Wh/m²;=DHW_1_is_electric*[@[Qdhw_1_flexpotential]]*(DHW_1_el_aux+DHW_conversion_1)
+Edhw_2_flex_potential;FLEX Speicher Potential;Strom Flexibel Maximal zusätzlich;Wh/m²;=DHW_2_is_electric*[@[Qdhw_2_flexpotential]]*(DHW_2_el_aux+DHW_conversion_2)
+Eev_flex_potential;FLEX Speicher Potential;Strom Flexibel Maximal zusätzlich;Wh/m²;=[@[Eev_flex_intake]]
+Ebatt_charge_potential;FLEX Speicher Potential;Strom Flexibel Maximal zusätzlich;Wh/m²;=IFERROR(Batt_is_used*MIN(Batt_max_power_specific,[@[Batt_max_energy_input]]/Batt_eff_factor_charge),0)
+Etotal_flex_potential;FLEX Speicher Potential;Strom Flexibel Maximal zusätzlich;;=SUM(sim[@[Eh_el1_flex_potential]:[Ebatt_charge_potential]])
+Space13;;;;
+PV_yield;PV Nutzung;Ertrag;Wh/m²;=PV_is_used*PV_scale*PV_efficiency*pv_profiles[@[Gewählte Variante]]*1000*per_NFA
+PV_to_user;PV Nutzung;Direktnutzung;Wh/m²;=MIN([@[PV_yield]],[@[E_plugAuxLight]])
+PV_to_Eh_min;PV Nutzung;Direktnutzung;;=MIN([@[Eh_min]],[@[PV_yield]]-[@[PV_to_user]])
+PV_to_Ec_min;PV Nutzung;Direktnutzung;;=MIN([@[Ec_min]],[@[PV_yield]]-SUM(sim[@[PV_to_user]:[PV_to_Eh_min]]))
+PV_to_Edhw_min;PV Nutzung;Direktnutzung;;=MIN([@[Edhw_min]],[@[PV_yield]]-SUM(sim[@[PV_to_user]:[PV_to_Ec_min]]))
+PV_to_Ev_min;PV Nutzung;Direktnutzung;;=MIN([@[Ev_min]],[@[PV_yield]]-SUM(sim[@[PV_to_user]:[PV_to_Edhw_min]]))
+Valid_PV_direct_HVAC_use;PV Nutzung;Direktnutzung;;=IF(SUM(sim[@[PV_to_Eh_min]:[PV_to_Ev_min]])-[@[PV_to_HVAC_min]]<0.00000001,1,0)
+PV_to_HVAC_min;PV Nutzung;Direktnutzung;Wh/m²;=MIN([@[PV_yield]]-[@[PV_to_user]],[@[Eh_min]]+[@[Ec_min]]+[@[Edhw_min]]+[@[Ev_min]])
+PV_to_Eev_min;PV Nutzung;Direktnutzung;Wh/m²;=MIN([@[PV_yield]]-[@[PV_to_user]]-[@[PV_to_HVAC_min]],[@[Eev_min]])
+PV_total_direct_use;PV Nutzung;Direktnutzung;Wh/m²;=[@[PV_to_user]]+[@[PV_to_HVAC_min]]+[@[PV_to_Eev_min]]
+PV_surplus;PV Nutzung;Speicherbeladung;Wh/m²;=[@[PV_yield]]-[@[PV_total_direct_use]]
+PV_to_Eh_flex_1el;PV Nutzung;Speicherbeladung;Wh/m²;=FLEX_PV_is_used*MIN([@[PV_surplus]],[@[Eh_el1_flex_potential]])
+PV_to_Eh_flex_3el;PV Nutzung;Speicherbeladung;Wh/m²;=FLEX_PV_is_used*MIN([@[PV_surplus]],[@[Eh_el3_flex_potential]])
+PV_to_Ec_flex_1el;PV Nutzung;Speicherbeladung;Wh/m²;=FLEX_PV_is_used*MIN([@[Ec_el1_flex_potential]],[@[PV_surplus]]-SUM(sim[@[PV_to_Eh_flex_1el]:[PV_to_Eh_flex_3el]]))
+PV_to_Ec_flex_3el;PV Nutzung;Speicherbeladung;Wh/m²;=FLEX_PV_is_used*MIN([@[Ec_el3_flex_potential]],[@[PV_surplus]]-SUM(sim[@[PV_to_Eh_flex_1el]:[PV_to_Eh_flex_3el]]))
+PV_to_Edhw1_flex;PV Nutzung;Speicherbeladung;Wh/m²;=FLEX_PV_is_used*MIN([@[Edhw_1_flex_potential]],[@[PV_surplus]]-SUM(sim[@[PV_to_Eh_flex_1el]:[PV_to_Ec_flex_3el]]))
+PV_to_Edhw2_flex;PV Nutzung;Speicherbeladung;Wh/m²;=FLEX_PV_is_used*MIN([@[Edhw_2_flex_potential]],[@[PV_surplus]]-SUM(sim[@[PV_to_Eh_flex_1el]:[PV_to_Ec_flex_3el]]))
+PV_to_Eev_flex;PV Nutzung;Speicherbeladung;Wh/m²;=FLEX_PV_is_used*MIN([@[Eev_flex_potential]],[@[PV_surplus]]-SUM(sim[@[PV_to_Eh_flex_1el]:[PV_to_Edhw2_flex]]))
+PV_to_Batt;PV Nutzung;Speicherbeladung;Wh/m²;=FLEX_PV_is_used*Batt_is_used*MIN([@[Ebatt_charge_potential]],[@[PV_surplus]]-SUM(sim[@[PV_to_Eh_flex_1el]:[PV_to_Eev_flex]]))
+PV_to_Storage;PV Nutzung;Speicherbeladung;Wh/m²;=FLEX_PV_is_used
+PV_to_epatron;PV Nutzung;Speicherbeladung;Wh/m²;=FLEX_PV_is_used
+PV_total_flex_use;PV Nutzung;Speicherbeladung;;=SUM(sim[@[PV_to_Eh_flex_1el]:[PV_to_epatron]])
+PV_to_Egrid;PV Nutzung;Netzeinspeisung;Wh/m²;=[@[PV_surplus]]-SUM(sim[@[PV_to_Eh_flex_1el]:[PV_to_epatron]])
+Batt_discharge_potential;Batterie Nutzung;🔋 Batterienutzung Mindestbedarfe;Wh/m²;=Batt_is_used*NOT(AND(Batt_is_not_used_during_signals,[@Signal]))*MIN(Batt_max_power_specific,[@[Batt_cap_after_losses]]*Batt_eff_factor_discharge)
+Batt_to_user;Batterie Nutzung;🔋 Batterienutzung Mindestbedarfe;Wh/m²;=MIN(([@[E_plugAuxLight]]-[@[PV_to_user]]),[@[Batt_discharge_potential]])*Batt_is_used_for_plugloads
+Batt_to_Eh_min;Batterie Nutzung;🔋 Batterienutzung Mindestbedarfe;;=MIN(([@[Eh_min]]-[@[PV_to_Eh_min]]),[@[Batt_discharge_potential]]-[@[Batt_to_user]])*Batt_is_used_for_HVACminimum
+Batt_to_Ec_min;Batterie Nutzung;🔋 Batterienutzung Mindestbedarfe;;=MIN(([@[Ec_min]]-[@[PV_to_Ec_min]]),[@[Batt_discharge_potential]]-SUM(sim[@[Batt_to_user]:[Batt_to_Eh_min]]))*Batt_is_used_for_HVACminimum
+Batt_to_Edhw_min;Batterie Nutzung;🔋 Batterienutzung Mindestbedarfe;;=MIN(([@[Edhw_min]]-[@[PV_to_Edhw_min]]),[@[Batt_discharge_potential]]-SUM(sim[@[Batt_to_user]:[Batt_to_Ec_min]]))*Batt_is_used_for_HVACminimum
+Batt_to_Ev_min;Batterie Nutzung;🔋 Batterienutzung Mindestbedarfe;;=MIN(([@[Ev_min]]-[@[PV_to_Ev_min]]),[@[Batt_discharge_potential]]-SUM(sim[@[Batt_to_user]:[Batt_to_Edhw_min]]))*Batt_is_used_for_HVACminimum
+Spalte192;Batterie Nutzung;🔋 Batterienutzung Mindestbedarfe;;
+Batt_to_HVAC_min;Batterie Nutzung;🔋 Batterienutzung Mindestbedarfe;Wh/m²;=SUM(sim[@[Batt_to_Eh_min]:[Batt_to_Ev_min]])
+Batt_to_Eev_min;Batterie Nutzung;🔋 Batterienutzung Mindestbedarfe;Wh/m²;=MIN(([@[Eev_min]]-[@[PV_to_Eev_min]]),[@[Batt_discharge_potential]]-[@[Batt_to_user]]-[@[Batt_to_HVAC_min]])*Batt_is_used_for_EV
+Batt_total_discharge;Batterie Nutzung;🔋 Batterienutzung Mindestbedarfe;Wh/m²;=IFERROR(([@[Batt_to_user]]+[@[Batt_to_HVAC_min]]+[@[Batt_to_Eev_min]])/Batt_eff_factor_discharge,0)
+Spalte19;;;;
+Signal;;;;=INDEX(Signals,ROW()-ROW(Signals[#Headers]),flex_Signals_selected_column)
+VRGrid_potential;Flexibler Netzbezug;Potential;Wh/m²;=FLEX_is_used*FLEX_grid_maxpower_Wm2*[@Signal]
+VRGrid_to_user;Flexibler Netzbezug;Direktnutzung;Wh/m²;=FLEX_is_used_for_plugloads*MIN([@[VRGrid_potential]],[@[E_plugAuxLight]]-[@[PV_to_user]]-[@[Batt_to_user]])
+VRGrid_to_Eh_min;Flexibler Netzbezug;Direktnutzung;;=FLEX_is_used_for_HVAC_min*MIN([@[Eh_min]]-[@[PV_to_Eh_min]]-[@[Batt_to_Eh_min]],[@[VRGrid_potential]]-[@[VRGrid_to_user]])
+VRGrid_to_Ec_min;Flexibler Netzbezug;Direktnutzung;;=FLEX_is_used_for_HVAC_min*MIN([@[Ec_min]]-[@[PV_to_Ec_min]]-[@[Batt_to_Ec_min]],[@[VRGrid_potential]]-[@[VRGrid_to_user]]-[@[VRGrid_to_Eh_min]])
+VRGrid_to_Edhw_min;Flexibler Netzbezug;Direktnutzung;;=FLEX_is_used_for_HVAC_min*MIN([@[Edhw_min]]-[@[PV_to_Edhw_min]]-[@[Batt_to_Edhw_min]],[@[VRGrid_potential]]-SUM(sim[@[VRGrid_to_user]:[VRGrid_to_Ec_min]]))
+VRGrid_to_Ev_min;Flexibler Netzbezug;Direktnutzung;;=FLEX_is_used_for_HVAC_min*MIN([@[Ev_min]]-[@[PV_to_Ev_min]]-[@[Batt_to_Ev_min]],[@[VRGrid_potential]]-SUM(sim[@[VRGrid_to_user]:[VRGrid_to_Edhw_min]]))
+VRGrid_to_HVAC_min;Flexibler Netzbezug;Direktnutzung;Wh/m²;=SUM(sim[@[VRGrid_to_Eh_min]:[VRGrid_to_Ev_min]])
+VRGrid_to_Eev_min;Flexibler Netzbezug;Direktnutzung;Wh/m²;=FLEX_is_used_for_ev_min*MIN([@[VRGrid_potential]]-SUM(sim[@[VRGrid_to_user]:[VRGrid_to_Ev_min]]),[@[Eev_min]]-[@[PV_to_Eev_min]]-[@[Batt_to_Eev_min]])
+VRGrid_total_min_use;Flexibler Netzbezug;Direktnutzung;Wh/m²;=[@[VRGrid_to_user]]+[@[VRGrid_to_HVAC_min]]+[@[VRGrid_to_Eev_min]]
+VRGrid_to_Eh_flex_1el;Flexibler Netzbezug;Speicherbeladung;Wh/m²;=MIN([@[VRGrid_potential]]-[@[VRGrid_total_min_use]],[@[Eh_el1_flex_potential]]-[@[PV_to_Eh_flex_1el]])
+VRGrid_to_Eh_flex_3el;Flexibler Netzbezug;Speicherbeladung;Wh/m²;=MIN([@[VRGrid_potential]]-[@[VRGrid_total_min_use]],[@[Eh_el3_flex_potential]]-[@[PV_to_Eh_flex_3el]])
+VRGrid_to_Ec_flex_1el;Flexibler Netzbezug;Speicherbeladung;Wh/m²;=MIN([@[Ec_el1_flex_potential]]-[@[PV_to_Ec_flex_1el]],[@[VRGrid_potential]]-SUM(sim[@[VRGrid_total_min_use]:[VRGrid_to_Eh_flex_3el]]))
+VRGrid_to_Ec_flex_3el;Flexibler Netzbezug;Speicherbeladung;Wh/m²;=MIN([@[Ec_el3_flex_potential]]-[@[PV_to_Ec_flex_3el]],[@[VRGrid_potential]]-SUM(sim[@[VRGrid_total_min_use]:[VRGrid_to_Eh_flex_3el]]))
+VRGrid_to_Edhw1_flex;Flexibler Netzbezug;Speicherbeladung;Wh/m²;=MIN([@[Edhw_1_flex_potential]]-[@[PV_to_Edhw1_flex]],[@[VRGrid_potential]]-SUM(sim[@[VRGrid_total_min_use]:[VRGrid_to_Ec_flex_3el]]))
+VRGrid_to_Edhw2_flex;Flexibler Netzbezug;Speicherbeladung;Wh/m²;=MIN([@[Edhw_2_flex_potential]]-[@[PV_to_Edhw2_flex]],[@[VRGrid_potential]]-SUM(sim[@[VRGrid_total_min_use]:[VRGrid_to_Ec_flex_3el]]))
+VRGrid_to_HVAC_flex;Flexibler Netzbezug;Speicherbeladung;;=SUM(sim[@[VRGrid_to_Eh_flex_1el]:[VRGrid_to_Edhw2_flex]])
+VRGrid_to_Eev_flex;Flexibler Netzbezug;Speicherbeladung;Wh/m²;=MIN([@[Eev_flex_potential]]-[@[PV_to_Eev_flex]],[@[VRGrid_potential]]-[@[VRGrid_total_min_use]]-[@[VRGrid_to_HVAC_flex]])
+VRGrid_to_Batt;Flexibler Netzbezug;Speicherbeladung;Wh/m²;=Batt_is_gridcharged*MIN([@[Ebatt_charge_potential]]-[@[PV_to_Batt]],[@[VRGrid_potential]]-[@[VRGrid_total_min_use]]-[@[VRGrid_to_HVAC_flex]]-[@[VRGrid_to_Eev_flex]])
+VRGrid_total_flex_use;Flexibler Netzbezug;Speicherbeladung;Wh/m²;=SUM(sim[@[VRGrid_to_HVAC_flex]:[VRGrid_to_Batt]])
+VRGrid_to_building;;;Wh/m²;=[@[VRGrid_total_min_use]]+[@[VRGrid_total_flex_use]]-[@[VRGrid_to_Eev_min]]-[@[VRGrid_to_Eev_flex]]
+Eev_discharge_potential;Vehicle-to-Building;Potential;Wh/m²;=SUM(sim[@[Eev_Dflex_pot_res]:[Eev_Dflex_pot_retail]])*EV_charging_efficiency
+Eev_to_user;Vehicle-to-Building;Direktnutzung;Wh/m²;=-MIN([@[Eev_discharge_potential]],[@[E_plugAuxLight]]-[@[PV_to_user]]-[@[Batt_to_user]]-[@[VRGrid_to_user]])
+Eev_to_Eh_min;Vehicle-to-Building;Direktnutzung;Wh/m²;=-MIN([@[Eh_min]]-[@[PV_to_Eh_min]]-[@[Batt_to_Eh_min]]-[@[VRGrid_to_Eh_min]],[@[Eev_discharge_potential]]-[@[Eev_to_user]])
+Eev_to_Ec_min;Vehicle-to-Building;Direktnutzung;Wh/m²;=-MIN([@[Ec_min]]-[@[PV_to_Ec_min]]-[@[Batt_to_Ec_min]]-[@[VRGrid_to_Ec_min]],[@[Eev_discharge_potential]]-[@[Eev_to_user]]-[@[Eev_to_Eh_min]])
+Eev_to_Edhw_min;Vehicle-to-Building;Direktnutzung;Wh/m²;=-MIN([@[Edhw_min]]-[@[PV_to_Edhw_min]]-[@[Batt_to_Edhw_min]]-[@[VRGrid_to_Edhw_min]],[@[Eev_discharge_potential]]-[@[Eev_to_user]]-[@[Eev_to_Eh_min]]-[@[Eev_to_Ec_min]])
+Eev_to_Ev_min;Vehicle-to-Building;Direktnutzung;Wh/m²;=-MIN([@[Ev_min]]-[@[PV_to_Ev_min]]-[@[Batt_to_Ev_min]]-[@[VRGrid_to_Ev_min]],[@[Eev_discharge_potential]]-SUM(sim[@[Eev_to_user]:[Eev_to_Edhw_min]]))
+Eev_to_HVAC;Vehicle-to-Building;Direktnutzung;Wh/m²;=SUM(sim[@[Eev_to_Eh_min]:[Eev_to_Ev_min]])
+#2;Vehicle-to-Building;Direktnutzung;Wh/m²;
+#3;Vehicle-to-Building;Direktnutzung;Wh/m²;
+Eev_discharge_total;Vehicle-to-Building;Direktnutzung;Wh/m²;=(-[@[Eev_to_HVAC]]-[@[Eev_to_user]])/EV_charging_efficiency
+#5;;;;
+Grid_to_user;🔌Netzbezug;Nutzerstrom;Wh/m²;=[@[E_plugAuxLight]]-[@[PV_to_user]]-[@[Batt_to_user]]-[@[VRGrid_to_user]]+[@[Eev_to_user]]
+Grid_to_Eh_min;🔌Netzbezug;HKLS;;=[@[Eh_min]]-[@[PV_to_Eh_min]]-[@[Batt_to_Eh_min]]-[@[VRGrid_to_Eh_min]]+[@[Eev_to_Eh_min]]
+Grid_to_Ec_min;🔌Netzbezug;HKLS;;=[@[Ec_min]]-[@[PV_to_Ec_min]]-[@[Batt_to_Ec_min]]-[@[VRGrid_to_Ec_min]]+[@[Eev_to_Ec_min]]
+Grid_to_Edhw_min;🔌Netzbezug;HKLS;;=[@[Edhw_min]]-[@[PV_to_Edhw_min]]-[@[Batt_to_Edhw_min]]-[@[VRGrid_to_Edhw_min]]+[@[Eev_to_Edhw_min]]
+Grid_to_Ev_min;🔌Netzbezug;HKLS;;=[@[Ev_min]]-[@[PV_to_Ev_min]]-[@[Batt_to_Ev_min]]-[@[VRGrid_to_Ev_min]]+[@[Eev_to_Ev_min]]
+test_grid_hvac;🔌Netzbezug;HKLS;;=[@[Ehvac_min]]-[@[PV_to_HVAC_min]]-[@[Batt_to_HVAC_min]]-[@[VRGrid_to_HVAC_min]]+[@[Eev_to_HVAC]]
+Grid_to_HVAC_min;🔌Netzbezug;HKLS;Wh/m²;=SUM(sim[@[Grid_to_Eh_min]:[Grid_to_Ev_min]])
+Grid_to_Eev_min;🔌Netzbezug;EV;;=[@[Eev_min]]-[@[PV_to_Eev_min]]-[@[Batt_to_Eev_min]]-[@[VRGrid_to_Eev_min]]
+Grid_to_building_min;🔌Netzbezug;Gebäude;;=[@[Grid_to_HVAC_min]]+[@[Grid_to_user]]
+Spalte15;🔌Netzbezug;;;
+Spalte16;🔌Netzbezug;;;
+E_grid;🔌Netzbezug;Insgesamt;;=SUM([@[Grid_to_user]],[@[Grid_to_HVAC_min]],[@[Grid_to_Eev_min]])
+Spalte7;;;;
+Eh_flex_1el_final;Speicherladung (aus PV + Netzsignal);HKLS;Wh/m²;=[@[PV_to_Eh_flex_1el]]+[@[VRGrid_to_Eh_flex_1el]]
+Eh_flex_3el_final;Speicherladung (aus PV + Netzsignal);HKLS;Wh/m²;=[@[PV_to_Eh_flex_3el]]+[@[VRGrid_to_Eh_flex_3el]]
+Ec_flex_1el_final;Speicherladung (aus PV + Netzsignal);HKLS;Wh/m²;=[@[PV_to_Ec_flex_1el]]+[@[VRGrid_to_Ec_flex_1el]]
+Ec_flex_3el_final;Speicherladung (aus PV + Netzsignal);HKLS;Wh/m²;=[@[PV_to_Ec_flex_3el]]+[@[VRGrid_to_Ec_flex_3el]]
+Edhw1_flex_final;Speicherladung (aus PV + Netzsignal);HKLS;Wh/m²;=[@[PV_to_Edhw1_flex]]+[@[VRGrid_to_Edhw1_flex]]
+Edhw2_flex_final;Speicherladung (aus PV + Netzsignal);HKLS;Wh/m²;=[@[PV_to_Edhw2_flex]]+[@[VRGrid_to_Edhw2_flex]]
+Eev_flex_final;Speicherladung (aus PV + Netzsignal);EV;Wh/m²;=([@[PV_to_Eev_flex]]+[@[VRGrid_to_Eev_flex]])*EV_charging_efficiency
+Eev_flex_final_res;Speicherladung (aus PV + Netzsignal);EV;Wh/m²;=IFERROR([@[Eev_flex_final]]*[@[Eev_Cflex_pot_res]]/[@[Eev_Cflex_pot]],0)
+Eev_flex_final_work;Speicherladung (aus PV + Netzsignal);EV;Wh/m²;=IFERROR([@[Eev_flex_final]]*[@[Eev_Cflex_pot_work]]/[@[Eev_Cflex_pot]],0)
+Eev_flex_final_ret;Speicherladung (aus PV + Netzsignal);EV;Wh/m²;=IFERROR([@[Eev_flex_final]]*[@[Eev_Cflex_pot_retail]]/[@[Eev_Cflex_pot]],0)
+Batt_total_charge;Speicherladung (aus PV + Netzsignal);BESS;Wh/m²;=([@[PV_to_Batt]]+[@[VRGrid_to_Batt]])*Batt_eff_factor_charge
+Qh_u2;;;;
+Qh_min_excl_distr_losses;Heizenergie;HWB Raumseitig;Wh/m²;=SUM(sim[@[Qh_min_wasteheat]:[Qh_min_4th]])
+Qh_flex_wasteheat_final;Heizenergie;HWB Raumseitig;;=[@[Qh_wasteheat_flex]]
+Qh_flex_1el_final;Heizenergie;HWB Raumseitig;Wh/m²;=IFERROR([@[Qh_flex_1el_potential]]*[@[Eh_flex_1el_final]]/[@[Eh_el1_flex_potential]],0)
+Qh_flex_3el_final;Heizenergie;HWB Raumseitig;Wh/m²;=IFERROR([@[Qh_flex_3el_potential]]*[@[Eh_flex_3el_final]]/[@[Eh_el3_flex_potential]],0)
+Qh_total_final;Heizenergie;HWB Raumseitig;Wh/m²;=SUM(sim[@[Qh_min_excl_distr_losses]:[Qh_flex_3el_final]])
+Qh_u;Heizenergie;HWB Raumseitig;Wh/m²uncooled;=IFERROR([@[Qh_min_excl_distr_losses]]*[@[Qh_to_room_uncooled_min]]/[@[Qh_to_room_min]],0)+IFERROR(SUM(sim[@[Qh_flex_1el_final]:[Qh_flex_3el_final]])*[@[Qh_to_room_flex_u]]/[@[Qh_to_room_flex]],0)
+Qh_c;Heizenergie;HWB Raumseitig;Wh/m²cooled;=IFERROR([@[Qh_min_excl_distr_losses]]*[@[Qh_to_room_cooled_min]]/[@[Qh_to_room_min]],0)+IFERROR(SUM(sim[@[Qh_flex_1el_final]:[Qh_flex_3el_final]])*[@[Qh_to_room_flex_c]]/[@[Qh_to_room_flex]],0)
+Qheb_1el;Heizenergie;Heizenergiebedarf (inkl. Verteilverluste);Wh/m²;=([@[Qh_min_1el]]+[@[Qh_flex_1el_final]])*(1+QH_distr_loss_1el)
+Qheb_2th;Heizenergie;Heizenergiebedarf (inkl. Verteilverluste);Wh/m²;=[@[Qh_min_2th]]*(1+QH_distr_loss_2th)
+Qheb_3el;Heizenergie;Heizenergiebedarf (inkl. Verteilverluste);Wh/m²;=([@[Qh_min_3el]]+[@[Qh_flex_3el_final]])*(1+QH_distr_loss_3el)
+Qheb_4th;Heizenergie;Heizenergiebedarf (inkl. Verteilverluste);Wh/m²;=[@[Qh_min_4th]]*(1+QH_distr_loss_4th)
+Qheb_total;Heizenergie;Heizenergiebedarf (inkl. Verteilverluste);Wh/m²;=SUM(sim[@[Qheb_1el]:[Qheb_4th]])
+QH_distr_losses;Heizenergie;Heizenergiebedarf (inkl. Verteilverluste);Wh/m²;=[@[Qheb_total]]-[@[Qh_total_final]]
+Eh_aux;Heizenergie;Heizenergiebedarf (inkl. Verteilverluste);;=[@[Qheb_1el]]*QH_aux_el_to_th_1el+[@[Qheb_2th]]*QH_aux_el_to_th_2th+[@[Qheb_3el]]*QH_aux_el_to_th_3el+[@[Qheb_4th]]*QH_aux_el_to_th_4th
+Night_schedule;Kühlenergie;Nachtlüften;;TRUE
+Night_use;Kühlenergie;Nachtlüften;;=IFERROR([@[Night_schedule]]*[@Ti0uncooled]>Tsetcool_max,FALSE)
+ACH_nightvent;Kühlenergie;Nachtlüften;m³/h;=[@[Night_use]]*IF(-[@[dT_uncooled]]>2,ACH_night_m3,0)
+Qv_nightvent;Kühlenergie;Nachtlüften;Wh/m²uncooled;=[@[ACH_nightvent]]*cp_air*[@[dT_uncooled]]*per_NFA_uncooled
+Spalte11;Kühlenergie;;;
+Qc_min_excl_losses;Kühlenergie;Kühlbedarf raumseitig;Wh/m²cooled;=-SUM(sim[@[Qc_min_0fc]:[Qc_min_3el]])
+Qc_flex_1el_final;Kühlenergie;Kühlbedarf raumseitig;Wh/m²cooled;=-IFERROR([@[Qc_flex_1el]]*[@[Ec_flex_1el_final]]/[@[Ec_el1_flex_potential]],0)
+Qc_flex_3el_final;Kühlenergie;Kühlbedarf raumseitig;Wh/m²cooled;=-IFERROR([@[Qc_flex_3el]]*[@[Ec_flex_3el_final]]/[@[Ec_el3_flex_potential]],0)
+Qc_flex_excl_losses;Kühlenergie;Kühlbedarf raumseitig;Wh/m²cooled;=[@[Qc_flex_1el_final]]+[@[Qc_flex_3el_final]]
+QC_total_final;Kühlenergie;Kühlbedarf raumseitig;Wh/m²cooled;=[@[Qc_min_excl_losses]]+[@[Qc_flex_excl_losses]]
+Qced_1el;Kühlenergie;Kühlenergiebedarf (inkl. Verteilverluste);Wh/m²cooled;=([@[Qc_min_1el]]-[@[Qc_flex_1el_final]])*(1+QC_distr_losses_1el)
+Qced_2th;Kühlenergie;Kühlenergiebedarf (inkl. Verteilverluste);Wh/m²cooled;=[@[Qc_min_2th]]*(1+QC_distr_losses_2th)
+Qced_3el;Kühlenergie;Kühlenergiebedarf (inkl. Verteilverluste);Wh/m²cooled;=([@[Qc_min_3el]]-[@[Qc_flex_3el_final]])*(1+QC_distr_losses_3el)
+Qced_total;Kühlenergie;Kühlenergiebedarf (inkl. Verteilverluste);;=SUM(sim[@[Qced_1el]:[Qced_3el]])
+Qc_distr_losses;Kühlenergie;Kühlenergiebedarf (inkl. Verteilverluste);;=[@[Qced_total]]+[@[QC_total_final]]
+Ec_aux;Kühlenergie;Kühlenergiebedarf (inkl. Verteilverluste);;=[@[Ec_min_freecooling]]+[@[Qced_1el]]*QC_aux_1el+[@[Qced_2th]]*QC_aux_2th+[@[Qced_3el]]*QC_aux_3el
+Qdhw_1_flex2;Warmwasser;Warmwasser-Wärmebedarf;Wh/m²;=IFERROR([@[Edhw1_flex_final]]*(1-DHW_1_el_aux)/(DHW_conversion_1*DHW_1_is_electric+DHW_1_el_aux),0)
+Qdhw_2_flex;Warmwasser;Warmwasser-Wärmebedarf;Wh/m²;=IFERROR([@[Edhw2_flex_final]]*(1-DHW_2_el_aux)/(DHW_conversion_1*DHW_1_is_electric+DHW_1_el_aux),0)
+Qdhw_1_total;Warmwasser;Warmwasser-Wärmebedarf;Wh/m²;=[@[Qdhw_1_min]]+[@[Qdhw_1_flex2]]
+Qdhw_2_total;Warmwasser;Warmwasser-Wärmebedarf;Wh/m²;=[@[Qdhw_2_min]]+[@[Qdhw_2_flex]]
+Qdhw_total;Warmwasser;Warmwasser-Wärmebedarf;Wh/m²;=SUM(sim[@[Qdhw_1_total]:[Qdhw_2_total]])
+Spalte20;;;;
+Spalte21;;;;
+EV_SOCc_d_res;E-Mobilität;E-Mobilität Beladung;;=IFERROR([@[EV_SOC0_d_res]]+([@[Eev_Cmin_res]]+[@[Eev_flex_final_res]]-[@[Eev_discharge_total]])/1000*NFA_total/[@[EVd_res]]/EV_battsize_kWh,0)
+EV_SOCc_d_work;E-Mobilität;E-Mobilität Beladung;;=IFERROR([@[EV_SOC0_d_work]]+([@[Eev_Cmin_work]]+[@[Eev_flex_final_work]])/1000*NFA_total/[@[EVd_work]]/EV_battsize_kWh,0)
+EV_SOCc_d_retail;E-Mobilität;E-Mobilität Beladung;;=IFERROR([@[EV_SOC0_d_retail]]+([@[Eev_Cmin_retail]]+[@[Eev_flex_final_ret]])/1000*NFA_total/[@[EVd_retail]]/EV_battsize_kWh,0)
+EV_SOCc_a_res;E-Mobilität;E-Mobilität Beladung;;=IFERROR([@[EV_SOC0_a_res]]+([@[Eev_S_res]]+[@[Eev_Cext_res]])/(EV_count_residential-[@[EVd_res]])/EV_battsize_kWh/1000*NFA_total,0)
+EV_SOCc_a_work;E-Mobilität;E-Mobilität Beladung;;=IFERROR([@[EV_SOC0_a_work]]+([@[Eev_S_work]]+[@[Eev_Cext_work]])/(EV_count_work-[@[EVd_work]])/EV_battsize_kWh/1000*NFA_total,0)
+EV_SOCc_a_retail;E-Mobilität;E-Mobilität Beladung;;=IFERROR([@[EV_SOC0_a_retail]]+([@[Eev_S_retail]]+[@[Eev_Cext_retail]])/(EV_count_retail-[@[EVd_retail]])/EV_battsize_kWh/1000*NFA_total,0)
+Spalte238;;;;
+Spalte239;;;;
+Ti_final_uncooled;Zustände;Thermische Speicher;°C;=[@[Ti_passive_uncooled]]+([@[Qh_u]]+[@[Qv_nightvent]])/heat_cap_eff_uncooled_m2
+Ti_final_cooled;Zustände;Thermische Speicher;°C;=[@[Ti_passive_cooled]]+([@[Qh_c]]+[@[QC_total_final]])/heat_cap_eff_cooled_m2
+Tdhw_1_final;Zustände;Thermische Speicher;°C;=IFERROR([@[Tdhw1_passive_losses]]+[@[Qdhw_1_total]]*NFA_total/DHW_storage_1_liter/cp_water,0)
+Tdhw_2_final;Zustände;Thermische Speicher;°C;=IFERROR([@[Tdhw2_passive_losses]]+[@[Qdhw_2_total]]*NFA_total/DHW_storage_2_liter/cp_water,0)
+Spalte8;Zustände;;;
+Batt_final_Whm2;Zustände;BESS;Wh/m²;=[@[Batt_cap_after_losses]]-[@[Batt_total_discharge]]+[@[Batt_total_charge]]
+SOC_preheat_u;Zustände;Thermische Speicher;;=IFERROR(([@[Ti_final_uncooled]]-Tsetheat_min)/flex_heat_dT,0)
+SOC_preheat_c;Zustände;Thermische Speicher;;=IFERROR(1-(Tsetheat_flex-[@[Ti_final_cooled]])/flex_heat_dT,0)
+SOC_precool_c;Zustände;Thermische Speicher;;=IFERROR(1-([@[Ti_final_cooled]]-Tsetcool_flex)/flex_cool_dT,0)
+SOC_dhw1;Zustände;Thermische Speicher;;=IFERROR(1-(DHW_Tmax-[@[Tdhw_1_final]])/(DHW_Tmax-DHW_Tmin),0)
+SOC_dhw2;Zustände;Thermische Speicher;;=IFERROR(1-(DHW_Tmax-[@[Tdhw_2_final]])/(DHW_Tmax-DHW_Tmin),0)
+EV_SOC_d_res;Zustände;E-Mobilität;;=((mob[@[p_res_d]]-mob[@[p_res_leave]])*[@[EV_SOCc_d_res]]+mob[@[p_res_return]]*[@[EV_SOCc_a_res]])/(mob[@[p_res_d]]+mob[@[p_res_return]]-mob[@[p_res_leave]])
+EV_SOC_d_work;Zustände;E-Mobilität;;=((mob[@[p_work_d]]-mob[@[p_work_leave]])*[@[EV_SOCc_d_work]]+mob[@[p_work_return]]*[@[EV_SOCc_a_work]])/(mob[@[p_work_d]]+mob[@[p_work_return]]-mob[@[p_work_leave]])
+EV_SOC_d_retail;Zustände;E-Mobilität;;=((mob[@[p_retail_d]]-mob[@[p_retail_leave]])*[@[EV_SOCc_d_retail]]+mob[@[p_retail_return]]*[@[EV_SOCc_a_retail]])/(mob[@[p_retail_d]]+mob[@[p_retail_return]]-mob[@[p_retail_leave]])
+EV_SOC_d;Zustände;E-Mobilität;;
+EV_SOC_a_res;Zustände;E-Mobilität;;=((mob[@[p_res_a]]-mob[@[p_res_return]])*[@[EV_SOCc_a_res]]+mob[@[p_res_leave]]*[@[EV_SOCc_d_res]])/(mob[@[p_res_a]]-mob[@[p_res_return]]+mob[@[p_res_leave]])
+EV_SOC_a_work;Zustände;E-Mobilität;;=((mob[@[p_work_a]]-mob[@[p_work_return]])*[@[EV_SOCc_a_work]]+mob[@[p_work_leave]]*[@[EV_SOCc_d_work]])/(mob[@[p_work_a]]-mob[@[p_work_return]]+mob[@[p_work_leave]])
+EV_SOC_a_retail;Zustände;E-Mobilität;;=((mob[@[p_retail_a]]-mob[@[p_retail_return]])*[@[EV_SOCc_a_retail]]+mob[@[p_retail_leave]]*[@[EV_SOCc_d_retail]])/(mob[@[p_retail_a]]-mob[@[p_retail_return]]+mob[@[p_retail_leave]])
+EV_SOC_res;Zustände;E-Mobilität;is this performant?;=[@[EV_SOC_d_res]]*mob[@[p_res_d]]+[@[EV_SOC_a_res]]*mob[@[p_res_a]]
+EV_SOC_work;Zustände;E-Mobilität;;=[@[EV_SOC_d_work]]*mob[@[p_work_d]]+[@[EV_SOC_a_work]]*mob[@[p_work_a]]
+EV_SOC_retail;Zustände;E-Mobilität;;=[@[EV_SOC_d_retail]]*mob[@[p_retail_d]]+[@[EV_SOC_a_retail]]*mob[@[p_retail_a]]
+SOC_Batt;;;;=[@[Batt_final_Whm2]]/Batt_cap_Wh_per_NFA
+EUIh_2th;Thermische Energieträger;Heizen;Wh/m²;=[@[Qh_min_2th]]*(1+QH_distr_loss_2th)*QH_generation_eff_2th
+EUIh_4th;Thermische Energieträger;Heizen;Wh/m²;=[@[Qh_min_4th]]*(1+QH_distr_loss_4th)*QH_generation_eff_4th
+EUIc_2th;Thermische Energieträger;Kühlen;Wh/m²;=[@[Qc_min_2th]]*(1+QC_distr_losses_2th)*QC_generation_eff_2th
+EUIdhw_1th;Thermische Energieträger;WW;Wh/m²;=NOT(DHW_1_is_electric)*[@[Qdhw_1_min]]*DHW_conversion_1
+EUIdhw_2th;Thermische Energieträger;WW;Wh/m²;=NOT(DHW_2_is_electric)*[@[Qdhw_2_min]]*DHW_conversion_2
+cf_PEI_grid;Primärenergie;Konversionsfaktor;-;=INDEX(fPE[@],,fPE_grid_column)
+cf_PEI_flex_grid;Primärenergie;Konversionsfaktor;;=[@[cf_PEI_grid]]*fPE_flex_factor
+cf_PEI_flex_gridsub;Primärenergie;Konversionsfaktor;;=[@[cf_PEI_grid]]-[@[cf_PEI_flex_grid]]
+cf_PEI_PV;Primärenergie;Konversionsfaktor;;0
+cf_PEI_PV_gridsub;Primärenergie;Konversionsfaktor;;=[@[cf_PEI_grid]]-[@[cf_PEI_PV]]
+PEI_el_user;Primärenergie;Bedarf;;=[@[cf_PEI_grid]]*[@[E_plugAuxLight]]
+PEI_el_hvac;Primärenergie;Bedarf;;=[@[cf_PEI_grid]]*SUM([@[Ehvac_min]],sim[@[Eh_flex_1el_final]:[Edhw2_flex_final]])
+PEI_district_heating;Primärenergie;Bedarf;;=SUMPRODUCT(sim[@[EUIh_2th]:[EUIdhw_2th]],TRANSPOSE(is_district_heating),TRANSPOSE(pe_conversion_factors_thermal))
+PEI_natural_gas;Primärenergie;Bedarf;;=SUMPRODUCT(sim[@[EUIh_2th]:[EUIdhw_2th]],TRANSPOSE(is_natural_gas),TRANSPOSE(pe_conversion_factors_thermal))
+PEI_biomass;Primärenergie;Bedarf;;=SUMPRODUCT(sim[@[EUIh_2th]:[EUIdhw_2th]],TRANSPOSE(is_biomass),TRANSPOSE(pe_conversion_factors_thermal))
+PEI_other;Primärenergie;Bedarf;;=SUMPRODUCT(sim[@[EUIh_2th]:[EUIdhw_2th]],TRANSPOSE(is_other_thermal_pe),TRANSPOSE(pe_conversion_factors_thermal))
+PEI_mob_el;Primärenergie;Bedarf;;=[@[cf_PEI_grid]]*([@[Eev_min]]+[@[Eev_flex_final]])
+PEI_mob_ext;Primärenergie;Bedarf;;=[@[cf_PEI_grid]]*SUM(sim[@[Eev_Cext_res]:[Eev_Cext_retail]])
+PEI_el_demand;Primärenergie;Bedarf;WhPE/m²;=[@[cf_PEI_grid]]*[@[E_grid]]
+Spalte18;Primärenergie;;;
+PEI_flex_grid;Primärenergie;;;=[@[cf_PEI_flex_grid]]*([@[VRGrid_total_min_use]]+[@[VRGrid_total_flex_use]])
+PEI_flex_grid_substitution;Primärenergie;;;=[@[cf_PEI_grid]]*([@[VRGrid_total_min_use]]+[@[VRGrid_total_flex_use]])
+PEI_PV_direct;Primärenergie;;;=[@[cf_PEI_grid]]*[@[PV_total_direct_use]]
+Spalte10;Primärenergie;;;
+Spalte13;Primärenergie;;;
+cf_GHG_grid;☁ THG;Konversionsfaktor;kgCO2eq./WhEE;=INDEX(fGHG[@],,fGHG_grid_column)
+GHG_plugloads;☁ THG;Nutzerstrom;gCO2eq./m²NGF;=[@[cf_GHG_grid]]*([@[Grid_to_user]]+[@[VRGrid_to_user]])
+GHG_hvac;☁ THG;HKLS;gCO2eq./m²NGF;=[@[cf_GHG_grid]]*SUM([@[Grid_to_HVAC_min]],[@[VRGrid_to_HVAC_min]],sim[@[VRGrid_to_Eh_flex_1el]:[VRGrid_to_Edhw2_flex]])
+cost_E_grid;Kosten Netzbezug;;;=[@[E_grid]]*prices[@[Bezug '[€']]]/1000
+cost_VRGrid_flex;Kosten Netzbezug;;;=([@[VRGrid_total_min_use]]+[@[VRGrid_total_flex_use]])*prices[@[Bezug '[€']]]/1000
+cost_PV_to_Egrid;Kosten Netzbezug;;;=[@[PV_to_Egrid]]*prices[@[Einspeisung '[€']]]/1000
+Spalte3;Kosten Netzbezug;;;

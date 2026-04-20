@@ -204,27 +204,27 @@
 💨;Ventilation;;;;;;Vent_share_mech_uncooled;0;Quartiersanteil Mechanische Lüftung ohne aktiver Kühlung;;pro Quartiersvolumen!;"WENNFEHLER(SUMMENPRODUKT(N46:N52;cool_passive_shares;MTRANS(vent_mech_shares);N67:N73)/NFV_total;0)"
 💨;Ventilation;;;;;;Vent_share_mech_cooled;0;Quartiersanteil Mechanische Lüftung mit aktiver Kühlung;;pro Quartiersvolumen!;"WENNFEHLER(SUMMENPRODUKT(N46:N52;cool_active_shares;MTRANS(vent_mech_shares);N67:N73)/NFV_total;0)"
 💨;Ventilation;;;;;;test_NFV_shares;0;Test;;;"100%=SUMME(Vent_share_window_uncooled;Vent_share_window_cooled;Vent_share_mech_uncooled;Vent_share_mech_cooled)"
-👤;Space Use;concurrency_winter;;;usage;residential;usage_concurrency_winter_residential;2;Gleichzeitigkeitsfaktor Innere Wärmen Winter Wohnen;ratio;;👤!F21
-👤;Space Use;concurrency_winter;;;usage;office;usage_concurrency_winter_office;2;Gleichzeitigkeitsfaktor Innere Wärmen Winter Büro;ratio;;👤!F22
-👤;Space Use;concurrency_winter;;;usage;schoolsec;usage_concurrency_winter_schoolsec;2;Gleichzeitigkeitsfaktor Innere Wärmen Winter Bildung sekundär;ratio;;👤!F23
-👤;Space Use;concurrency_winter;;;usage;schoolprim;usage_concurrency_winter_schoolprim;2;Gleichzeitigkeitsfaktor Innere Wärmen Winter Bildung primär;ratio;;👤!F24
-👤;Space Use;concurrency_winter;;;usage;retailfood;usage_concurrency_winter_retailfood;2;Gleichzeitigkeitsfaktor Innere Wärmen Winter Handel Lebensmittel;ratio;;👤!F25
-👤;Space Use;concurrency_winter;;;usage;retailother;usage_concurrency_winter_retailother;2;Gleichzeitigkeitsfaktor Innere Wärmen Winter Handel sonstiger;ratio;;👤!F26
-👤;Space Use;concurrency_winter;;;usage;other;usage_concurrency_winter_other;2;Gleichzeitigkeitsfaktor Innere Wärmen Winter Sonstige Nutzung;ratio;;👤!F27
-👤;Space Use;concurrency_summer;;;usage;residential;usage_concurrency_summer_residential;2;Gleichzeitigkeitsfaktor Innere Wärmen Sommer Wohnen;ratio;;👤!I21
-👤;Space Use;concurrency_summer;;;usage;office;usage_concurrency_summer_office;2;Gleichzeitigkeitsfaktor Innere Wärmen Sommer Büro;ratio;;👤!I22
-👤;Space Use;concurrency_summer;;;usage;schoolsec;usage_concurrency_summer_schoolsec;2;Gleichzeitigkeitsfaktor Innere Wärmen Sommer Bildung sekundär;ratio;;👤!I23
-👤;Space Use;concurrency_summer;;;usage;schoolprim;usage_concurrency_summer_schoolprim;2;Gleichzeitigkeitsfaktor Innere Wärmen Sommer Bildung primär;ratio;;👤!I24
-👤;Space Use;concurrency_summer;;;usage;retailfood;usage_concurrency_summer_retailfood;2;Gleichzeitigkeitsfaktor Innere Wärmen Sommer Handel Lebensmittel;ratio;;👤!I25
-👤;Space Use;concurrency_summer;;;usage;retailother;usage_concurrency_summer_retailother;2;Gleichzeitigkeitsfaktor Innere Wärmen Sommer Handel sonstiger;ratio;;👤!I26
-👤;Space Use;concurrency_summer;;;usage;other;usage_concurrency_summer_other;2;Gleichzeitigkeitsfaktor Innere Wärmen Sommer Sonstige Nutzung;ratio;;👤!I27
-👤;Space Use;dhw_demand;;;usage;residential;DHW_demand_residential_kWhm2;1;WWWB Wohnen;kWh/m²NGFa;Input fehlt;
-👤;Space Use;dhw_demand;;;usage;office;DHW_demand_office_kWhm2;1;WWWB Büro;kWh/m²NGFa;Input fehlt;
-👤;Space Use;dhw_demand;;;usage;schoolsec;DHW_demand_schoolsec_kWhm2;1;WWWB Bildung sekundär;kWh/m²NGFa;Input fehlt;
-👤;Space Use;dhw_demand;;;usage;schoolprim;DHW_demand_schoolprim_kWhm2;1;WWWB Bildung primär;kWh/m²NGFa;Input fehlt;
-👤;Space Use;dhw_demand;;;usage;retailfood;DHW_demand_retailfood_kWhm2;1;WWWB Handel Lebensmittel;kWh/m²NGFa;Input fehlt;
-👤;Space Use;dhw_demand;;;usage;retailother;DHW_demand_retailother_kWhm2;1;WWWB Handel sonstiger;kWh/m²NGFa;Input fehlt;
-👤;Space Use;dhw_demand;;;usage;other;DHW_demand_other_kWhm2;1;WWWB Sonstige Nutzung;kWh/m²NGFa;Input fehlt;
+👤;Space Use;concurrency;;winter;usage;residential;usage_concurrency_winter_residential;2;Gleichzeitigkeitsfaktor Innere Wärmen Winter Wohnen;ratio;;👤!F21
+👤;Space Use;concurrency;;winter;usage;office;usage_concurrency_winter_office;2;Gleichzeitigkeitsfaktor Innere Wärmen Winter Büro;ratio;;👤!F22
+👤;Space Use;concurrency;;winter;usage;schoolsec;usage_concurrency_winter_schoolsec;2;Gleichzeitigkeitsfaktor Innere Wärmen Winter Bildung sekundär;ratio;;👤!F23
+👤;Space Use;concurrency;;winter;usage;schoolprim;usage_concurrency_winter_schoolprim;2;Gleichzeitigkeitsfaktor Innere Wärmen Winter Bildung primär;ratio;;👤!F24
+👤;Space Use;concurrency;;winter;usage;retailfood;usage_concurrency_winter_retailfood;2;Gleichzeitigkeitsfaktor Innere Wärmen Winter Handel Lebensmittel;ratio;;👤!F25
+👤;Space Use;concurrency;;winter;usage;retailother;usage_concurrency_winter_retailother;2;Gleichzeitigkeitsfaktor Innere Wärmen Winter Handel sonstiger;ratio;;👤!F26
+👤;Space Use;concurrency;;winter;usage;other;usage_concurrency_winter_other;2;Gleichzeitigkeitsfaktor Innere Wärmen Winter Sonstige Nutzung;ratio;;👤!F27
+👤;Space Use;concurrency;;summer;usage;residential;usage_concurrency_summer_residential;2;Gleichzeitigkeitsfaktor Innere Wärmen Sommer Wohnen;ratio;;👤!I21
+👤;Space Use;concurrency;;summer;usage;office;usage_concurrency_summer_office;2;Gleichzeitigkeitsfaktor Innere Wärmen Sommer Büro;ratio;;👤!I22
+👤;Space Use;concurrency;;summer;usage;schoolsec;usage_concurrency_summer_schoolsec;2;Gleichzeitigkeitsfaktor Innere Wärmen Sommer Bildung sekundär;ratio;;👤!I23
+👤;Space Use;concurrency;;summer;usage;schoolprim;usage_concurrency_summer_schoolprim;2;Gleichzeitigkeitsfaktor Innere Wärmen Sommer Bildung primär;ratio;;👤!I24
+👤;Space Use;concurrency;;summer;usage;retailfood;usage_concurrency_summer_retailfood;2;Gleichzeitigkeitsfaktor Innere Wärmen Sommer Handel Lebensmittel;ratio;;👤!I25
+👤;Space Use;concurrency;;summer;usage;retailother;usage_concurrency_summer_retailother;2;Gleichzeitigkeitsfaktor Innere Wärmen Sommer Handel sonstiger;ratio;;👤!I26
+👤;Space Use;concurrency;;summer;usage;other;usage_concurrency_summer_other;2;Gleichzeitigkeitsfaktor Innere Wärmen Sommer Sonstige Nutzung;ratio;;👤!I27
+👤;Space Use;dhw_demand;;;usage;residential;DHW_demand_residential_kWhm2;1;WWWB Wohnen;kWh/m²NGFa;Input fehlt;💧WW!D33
+👤;Space Use;dhw_demand;;;usage;office;DHW_demand_office_kWhm2;1;WWWB Büro;kWh/m²NGFa;Input fehlt;💧WW!D34
+👤;Space Use;dhw_demand;;;usage;schoolsec;DHW_demand_schoolsec_kWhm2;1;WWWB Bildung sekundär;kWh/m²NGFa;Input fehlt;💧WW!D35
+👤;Space Use;dhw_demand;;;usage;schoolprim;DHW_demand_schoolprim_kWhm2;1;WWWB Bildung primär;kWh/m²NGFa;Input fehlt;💧WW!D36
+👤;Space Use;dhw_demand;;;usage;retailfood;DHW_demand_retailfood_kWhm2;1;WWWB Handel Lebensmittel;kWh/m²NGFa;Input fehlt;💧WW!D37
+👤;Space Use;dhw_demand;;;usage;retailother;DHW_demand_retailother_kWhm2;1;WWWB Handel sonstiger;kWh/m²NGFa;Input fehlt;💧WW!D38
+👤;Space Use;dhw_demand;;;usage;other;DHW_demand_other_kWhm2;1;WWWB Sonstige Nutzung;kWh/m²NGFa;Input fehlt;💧WW!D39
 👤;Space Use;aux_el_demand;;;usage;residential;aux_el_demand_residential_kWhm2;2;Allgemeinstrom Wohnen;kWh/m²NGFa;Input fehlt;👤!L9
 👤;Space Use;aux_el_demand;;;usage;office;aux_el_demand_office_kWhm2;2;Allgemeinstrom Büro;kWh/m²NGFa;Input fehlt;👤!L10
 👤;Space Use;aux_el_demand;;;usage;schoolsec;aux_el_demand_schoolsec_kWhm2;2;Allgemeinstrom Bildung sekundär;kWh/m²NGFa;Input fehlt;👤!L11
@@ -232,13 +232,13 @@
 👤;Space Use;aux_el_demand;;;usage;retailfood;aux_el_demand_retailfood_kWhm2;2;Allgemeinstrom Handel lebensmittel;kWh/m²NGFa;Input fehlt;👤!L13
 👤;Space Use;aux_el_demand;;;usage;retailother;aux_el_demand_retailother_kWhm2;2;Allgemeinstrom Handel sonstiger;kWh/m²NGFa;Input fehlt;👤!L14
 👤;Space Use;aux_el_demand;;;usage;other;aux_el_demand_other_kWhm2;2;Allgemeinstrom Sonstige Nutzung;kWh/m²NGFa;Input fehlt;👤!L15
-👤;Space Use;plugload_scale;;;usage;residential;Plugloads_scale_residential;2;Nutzerstrom Wohnen;ratio;;👤!F9
-👤;Space Use;plugload_scale;;;usage;office;Plugloads_scale_office;2;Nutzerstrom Büro;ratio;;👤!F10
-👤;Space Use;plugload_scale;;;usage;schoolsec;Plugloads_scale_schoolsec;2;Nutzerstrom Bildung sekundär;ratio;;👤!F11
-👤;Space Use;plugload_scale;;;usage;schoolprim;Plugloads_scale_schoolprim;2;Nutzerstrom Bildung primär;ratio;;👤!F12
-👤;Space Use;plugload_scale;;;usage;retailfood;Plugloads_scale_retailfood;2;Nutzerstrom Handel Lebensmittel;ratio;;👤!F13
-👤;Space Use;plugload_scale;;;usage;retailother;Plugloads_scale_retailother;2;Nutzerstrom Handel sonstiger;ratio;;👤!F14
-👤;Space Use;plugload_scale;;;usage;other;Plugloads_scale_other;2;Nutzerstrom Sonstige Nutzung;ratio;;👤!F15
+👤;Space Use;plugload_scale;;;usage;residential;Plugloads_scale_residential;0;Nutzerstrom-Profilskalierung Wohnen;ratio;;N702/O702
+👤;Space Use;plugload_scale;;;usage;office;Plugloads_scale_office;0;Nutzerstrom-Profilskalierung  Büro;ratio;;N703/O703
+👤;Space Use;plugload_scale;;;usage;schoolsec;Plugloads_scale_schoolsec;0;Nutzerstrom-Profilskalierung  Bildung sekundär;ratio;;N704/O704
+👤;Space Use;plugload_scale;;;usage;schoolprim;Plugloads_scale_schoolprim;0;Nutzerstrom-Profilskalierung  Bildung primär;ratio;;N705/O705
+👤;Space Use;plugload_scale;;;usage;retailfood;Plugloads_scale_retailfood;0;Nutzerstrom-Profilskalierung  Handel Lebensmittel;ratio;;N706/O706
+👤;Space Use;plugload_scale;;;usage;retailother;Plugloads_scale_retailother;0;Nutzerstrom-Profilskalierung  Handel sonstiger;ratio;;N707/O707
+👤;Space Use;plugload_scale;;;usage;other;Plugloads_scale_other;0;Nutzerstrom-Profilskalierung  Sonstige Nutzung;ratio;;N708/O708
 🚗;Space Use;occupancy;;;usage;residential;density_NFApPers_residential;1;Belegungsdichte Wohnen;m²NF/Pers;;
 🚗;Space Use;occupancy;;;usage;office;density_NFApPers_office;1;Belegungsdichte Büro;m²NF/Pers;;
 🚗;Space Use;occupancy;;;usage;schoolsec;density_NFApPers_schoolsec;1;Belegungsdichte Ausbildung Sekundär;m²NF/Pers;;
@@ -248,9 +248,9 @@
 🚗;Space Use;concurrency_mobility;;;mobility;education;mob_simultaneity_edu;2;Gleichzeitigkeitsfaktorsfaktor Ausbildung;;1 statistische Nutzer ist x realer Nutzer zwecks Wege, die ins Quartier führen);🚗!D74
 🚗;Space Use;concurrency_mobility;;;mobility;retail;mob_simultaneity_retail;2;Gleichzeitigkeitsfaktorsfaktor Einkaufen;;wieviele Verkaufsflchen werden von mehreren Nutzern aufgesucht?;🚗!D75
 🚗;Space Use;concurrency_mobility;;;mobility;work;mob_simultaneity_office;1;Gleichzetigkeitsfaktor Arbeit;;;
-🚗;Space Use;;;;mobility;education;mob_motorization_perNFA_residential;1;Autos pro Nutzung Wohnen;1/100m²;;
-🚗;Space Use;;;;mobility;retail;mob_motorization_perNFA_work;1;Autos pro Nutzung Arbeit;1/100m²;;
-🚗;Space Use;;;;mobility;work;mob_motorization_perNFA_retail;2;Autos pro Nutzung Einkaufen;1/100m²;;🚗!D33
+🚗;Space Use;;;;mobility;education;mob_motorization_perNFA_residential;1;Autos pro Nutzung Wohnen;1/100m²;just for battery size, not mileage;
+🚗;Space Use;;;;mobility;retail;mob_motorization_perNFA_work;1;Autos pro Nutzung Arbeit;1/100m²;just for battery size, not mileage;
+🚗;Space Use;;;;mobility;work;mob_motorization_perNFA_retail;2;Autos pro Nutzung Einkaufen;1/100m²;just for battery size, not mileage;🚗!D33
 💡;Space Use;lighting_power_max;;;usage;office;Plight_max_office;2;Beleuchtung maximal Büro;W/m²;;👤!U10
 💡;Space Use;lighting_power_max;;;usage;schoolsec;Plight_max_schoolsec;2;Beleuchtung maximal Ausbildung Sekundär;W/m²;;👤!U11
 💡;Space Use;lighting_power_max;;;usage;schoolprim;Plight_max_schoolprim;2;Beleuchtung maximal Ausbildung Primär;W/m²;;👤!U12
@@ -295,10 +295,10 @@
 ♨️;Heating;generation_efficiency;;;heating;system_2;heat_cop_2th;2;Wirkungsgrad Erzeugung HZTH2;ratio;;🔥H!D33
 ♨️;Heating;generation_efficiency;;;heating;system_3;heat_cop_3el;2;Wirkungsgrad Erzeugung HZEL3;ratio;;🔥H!D40
 ♨️;Heating;generation_efficiency;;;heating;system_4;heat_cop_4th;2;Wirkungsgrad Erzeugung HZTH4;ratio;;🔥H!D47
-♨️;Heating;generation_efficiency_inverse;;;heating;system_1;QH_generation_eff_1el;0;Wirkungsgrad-Kehrwert Erzeugung HZEL1;ratio;weil schneller als divison durch Wirkugsgrad;"WENNFEHLER(1/🔥H!D26;0)"
-♨️;Heating;generation_efficiency_inverse;;;heating;system_2;QH_generation_eff_2th;0;Wirkungsgrad-Kehrwert Erzeugung HZTH2;ratio;;"WENNFEHLER(1/🔥H!D33;0)"
-♨️;Heating;generation_efficiency_inverse;;;heating;system_3;QH_generation_eff_3el;0;Wirkungsgrad-Kehrwert Erzeugung HZEL3;ratio;;"WENNFEHLER(1/🔥H!D40;0)"
-♨️;Heating;generation_efficiency_inverse;;;heating;system_4;QH_generation_eff_4th;0;Wirkungsgrad-Kehrwert Erzeugung HZTH4;ratio;;"WENNFEHLER(1/🔥H!D47;0)"
+♨️;Heating;generation_efficiency_inverse;;;heating;system_1;QH_generation_eff_1el;0;Wirkungsgrad-Kehrwert Erzeugung HZEL1;ratio;weil schneller als divison durch Wirkugsgrad;"WENNFEHLER(1/heat_cop_1el;0)"
+♨️;Heating;generation_efficiency_inverse;;;heating;system_2;QH_generation_eff_2th;0;Wirkungsgrad-Kehrwert Erzeugung HZTH2;ratio;;"WENNFEHLER(1/heat_cop_2th;0)"
+♨️;Heating;generation_efficiency_inverse;;;heating;system_3;QH_generation_eff_3el;0;Wirkungsgrad-Kehrwert Erzeugung HZEL3;ratio;;"WENNFEHLER(1/heat_cop_3el;0)"
+♨️;Heating;generation_efficiency_inverse;;;heating;system_4;QH_generation_eff_4th;0;Wirkungsgrad-Kehrwert Erzeugung HZTH4;ratio;;"WENNFEHLER(1/heat_cop_4th;0)"
 ♨️;Heating;auxiliary_power_ratio;;;;;QH_aux_wasteheat;1;Hilfsstromanteil HZAbwärme;ratio;;
 ♨️;Heating;auxiliary_power_ratio;;;heating;system_1;QH_aux_el_to_th_1el;2;Hilfsstromanteil HZEL1;ratio;am thermischen Energiebedarf;🔥H!D28
 ♨️;Heating;auxiliary_power_ratio;;;heating;system_2;QH_aux_el_to_th_2th;2;Hilfsstromanteil HZTH2;ratio;am thermischen Energiebedarf;🔥H!D35
@@ -580,7 +580,7 @@
 ☁;lca;pathway_integral;;;energy_carrier;biomass;GWP_rcpi_biomass;0;Absenkpfad-Integral Biomasse;;;GWP_rcpi_natural_gas
 ☁;lca;pathway_integral;;;energy_carrier;fossile;GWP_rcpi_mob_fossile;0;Absenkpfad-Integral MIV Fossil;;;GWP_rcpi_biomass
 ☁;lca;pathway_integral;;;energy_carrier;renewables;GWP_rcpi_renewable;0;Absenkpfad-Integral Erneuerbar;;;(year_rcp1-year_rcp0+1)*(1+rcp1_renewable)/2+(year_rcp2-year_rcp1+1)*(rcp1_renewable+rcp2_renewable)/2+(year_rcp3-year_rcp2+1)*(rcp2_renewable+rcp3_renewable)/2-rcp1_renewable-rcp2_renewable
-⚖;;;;;;;fPE_grid_profile;2;Strom Konversionsprofil PE;;;🚦Signals!D2
+⚖;;;;;;;fPE_grid_profile;1;Strom Konversionsprofil PE;;;
 ⚖;assessment;district_heating_index;;;;;district_heating_conversion_profile;1;Fernwärme Konversionsprofil;;;
 ⚖;assessment;grid_name;;;;;fGHG_grid_profile;2;Strom Konversionsprofil THG;;;🚦Signals!D3
 ⚖;primary_energy;conversion_factor_index;;;;;fPE_grid_column;0;Strom Konversionsprofil ID PE;int;;"VERGLEICH(fPE_grid_profile;fPE[#Kopfzeilen];0)"
@@ -616,3 +616,12 @@
 ☑;tool;precision;;;;;e_kWhm2a;1;Test precision kWhm2NFAa;kWh/m²NFA;;
 🚗;mobility;charging_stations;;;;;EV_charging_stations;2;Anzahl Ladestationen;-;;🚗!D48
 🚗;mobility;charging_station_power;;;;;EV_charging_station_power;2;Leistung Ladestation;kW;;🚗!D49
+🔧;tool;seasonal_interpolation;;;;;seasonal_interpolation;1;Interpolationsmethode Sommer Winter;text;;
+👤;Space Use;plugload;;;usage;residential;plugloads_residential;2;Nutzerstrom Wohnen;kWh/m²NFA;;👤!D9
+👤;Space Use;plugload;;;usage;office;plugloads_office;2;Nutzerstrom Büro;kWh/m²NFA;;👤!D10
+👤;Space Use;plugload;;;usage;schoolsec;plugloads_schoolsec;2;Nutzerstrom Bildung sekundär;kWh/m²NFA;;👤!D11
+👤;Space Use;plugload;;;usage;schoolprim;plugloads_schoolprim;2;Nutzerstrom Bildung primär;kWh/m²NFA;;👤!D12
+👤;Space Use;plugload;;;usage;retailfood;plugloads_retailfood;2;Nutzerstrom Handel Lebensmittel;kWh/m²NFA;;👤!D13
+👤;Space Use;plugload;;;usage;retailother;plugloads_retailother;2;Nutzerstrom Handel sonstiger;kWh/m²NFA;;👤!D14
+👤;Space Use;plugload;;;usage;other;plugloads_other;2;Nutzerstrom Sonstige Nutzung;kWh/m²NFA;;👤!D15
+🔧;tool;hour_phase;;;;;seasonal_phase_h;1;Interpolation Sommer Winter Wellenphase;h;;

@@ -3,8 +3,8 @@
   "source_xlsx": "..\\data\\exports\\schema_v1_11_4.xlsx",
   "tables": {
     "IN": {
-      "original_rows": 699,
-      "kept_rows": 617,
+      "original_rows": 708,
+      "kept_rows": 626,
       "excluded_rows": {
         "empty_var_name_count": 82,
         "empty_var_name_sample": [
@@ -112,90 +112,110 @@
       }
     },
     "OUT": {
-      "original_rows": 514,
-      "kept_rows": 412,
+      "original_rows": 501,
+      "kept_rows": 405,
       "excluded_rows": {
-        "empty_var_name_count": 102,
+        "empty_var_name_count": 96,
         "empty_var_name_sample": [
           {
-            "export_row": "2",
-            "ka": ""
+            "export_row": "5",
+            "ka": "3",
+            "Formel": "TEXTVERKETTEN(\", \";WAHR; TEXT(IN!N30:N36/GFA_total;\"0%\")&\" \"&🏙️!C28:C34;\"\")"
           },
           {
-            "export_row": "16",
-            "ka": "3"
+            "export_row": "23",
+            "ka": "4",
+            "Formel": "(QT+QV+QVn+QC) - (QS+QI+QH)"
           },
           {
-            "export_row": "26",
-            "ka": ""
+            "export_row": "119",
+            "ka": "3",
+            "Formel": ""
           },
           {
-            "export_row": "35",
-            "ka": "4"
+            "export_row": "120",
+            "ka": "3",
+            "Formel": ""
           },
           {
-            "export_row": "123",
-            "ka": "3"
+            "export_row": "125",
+            "ka": "3",
+            "Formel": "EUI_plugAuxLight-SUMME(sim[E_plugAuxLight])/1000"
           },
           {
-            "export_row": "132",
-            "ka": "3"
+            "export_row": "128",
+            "ka": "3",
+            "Formel": ""
           },
           {
-            "export_row": "133",
-            "ka": "3"
+            "export_row": "131",
+            "ka": "3",
+            "Formel": ""
           },
           {
-            "export_row": "138",
-            "ka": "3"
+            "export_row": "162",
+            "ka": "3",
+            "Formel": "Batt_total_discharge"
           },
           {
-            "export_row": "141",
-            "ka": "3"
+            "export_row": "170",
+            "ka": "3",
+            "Formel": "(VRGrid_to_min*1000-SUMME(sim[VRGrid_total_min_use]))"
           },
           {
-            "export_row": "144",
-            "ka": "3"
+            "export_row": "177",
+            "ka": "3",
+            "Formel": "(VRGrid_to_flex*1000-SUMME(sim[VRGrid_total_flex_use]))"
           },
           {
-            "export_row": "175",
-            "ka": "3"
+            "export_row": "179",
+            "ka": "3",
+            "Formel": "(VRGrid_to_min+VRGrid_to_flex)-(VRGrid_to_building+VRGrid_to_Eev_flex+VRGrid_to_Eev_min)"
           },
           {
-            "export_row": "183",
-            "ka": "3"
+            "export_row": "196",
+            "ka": "3",
+            "Formel": "Grid_to_min-Grid_to_Eev_min-Grid_to_building_min"
           },
           {
-            "export_row": "190",
-            "ka": "3"
+            "export_row": "197",
+            "ka": "3",
+            "Formel": "(Grid_to_min)-SUMME(sim[E_grid])/1000"
           },
           {
-            "export_row": "192",
-            "ka": "3"
+            "export_row": "213",
+            "ka": "3",
+            "Formel": ""
           },
           {
-            "export_row": "209",
-            "ka": "3"
+            "export_row": "219",
+            "ka": "3",
+            "Formel": ""
           },
           {
-            "export_row": "210",
-            "ka": "3"
+            "export_row": "221",
+            "ka": "3",
+            "Formel": "0,001*SUMME(sim[cf_PEI_grid]*sim[Grid_to_Eev_min]+sim[cf_PEI_flex_grid]*(sim[VRGrid_to_Ev_min]+sim[VRGrid_to_Eev_flex])+sim[cf_PEI_PV]*(sim[PV_to_Eev_min]+sim[PV_to_Eev_flex]))"
           },
           {
-            "export_row": "226",
-            "ka": "3"
+            "export_row": "222",
+            "ka": "3",
+            "Formel": "0,001*SUMME(sim[cf_PEI_grid]*(sim[Grid_to_Eev_min]+sim[VRGrid_to_Ev_min]+sim[VRGrid_to_Eev_flex]+sim[PV_to_Eev_min]+sim[PV_to_Eev_flex]))"
           },
           {
-            "export_row": "232",
-            "ka": "3"
+            "export_row": "223",
+            "ka": "3",
+            "Formel": "K222-K221"
           },
           {
-            "export_row": "234",
-            "ka": "3"
+            "export_row": "224",
+            "ka": "3",
+            "Formel": "UED_mob_el_target*EV_charging_losses_surcharge_factor*MITTELWERT(sim[cf_PEI_grid])"
           },
           {
-            "export_row": "235",
-            "ka": "3"
+            "export_row": "225",
+            "ka": "3",
+            "Formel": ""
           }
         ]
       }
