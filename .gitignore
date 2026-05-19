@@ -18,6 +18,8 @@
 ka_project_backup*
 *test*
 
+*credentials*
+
 #  folders
 .idea
 .vscode
