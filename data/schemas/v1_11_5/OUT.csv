@@ -29,7 +29,7 @@
   SUMMENPRODUKT(sim[is_heating_period]; sim[QI_c]) * NFAfrac_c) * 0,001"
 ;heat_balance;heating_demand;district;winter;;;QH_winter;3;Heizwärmebedarf;kWh/m²NGFa;;QH_min_winter + QH_flex_winter
 ;heat_balance;cooling_demand;district;winter;;;QC_winter;3;Kühlbedarf (KB);kWh/m²NGFa;;QC_min_winter + QC_flex_winter
-☑;heat_balance;test;district;winter;;;test_heat_balance_winter;4;Wärmebilanz Heizperiode;True;;(QT_winter+QV_winter+QVn_winter+QC_winter) - (QS_winter+QI_winter+QH_winter)
+☑;heat_balance;test;district;winter;;;test_heat_balance_winter;4;Wärmebilanz Heizperiode;False;;(QT_winter+QV_winter+QVn_winter+QC_winter) - (QS_winter+QI_winter+QH_winter)
 ;heat_balance;heat_loss;district;winter;hull;wall;QT_wall_winter;3;Transmission AW;kWh/m²NGFa;;QT_winter * transmittance_walls_Wm2NFA / transmittance_Wm2
 ;heat_balance;heat_loss;district;winter;hull;roof;QT_roof_winter;3;Transmission Dach;kWh/m²NGFa;;QT_winter * transmittance_roof_Wm2NFA / transmittance_Wm2
 ;heat_balance;heat_loss;district;winter;hull;fundament;QT_ground_winter;3;Transmission KD/EFB;kWh/m²NGFa;;QT_winter * transmittance_fundament_Wm2NFA / transmittance_Wm2

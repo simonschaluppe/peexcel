@@ -5,8 +5,8 @@ Monat;📅 Datum und Zeit;📅 Datum und Zeit;monat;Januar
 date;📅 Datum und Zeit;📅 Datum und Zeit;date;43101
 hour_of_the_day;📅 Datum und Zeit;📅 Datum und Zeit;hotd;0
 day_of_the_year;📅 Datum und Zeit;📅 Datum und Zeit;doty;1
-Ti0uncooled;;20;°C;=IF(1-NFA_cooled/NFA_total>0,Tsetheat_min,#N/A)
-Ti0cooled;;20;°C;=IF(NFA_cooled/NFA_total>0,Tsetheat_min,#N/A)
+Ti0uncooled;;21;°C;=IF(1-NFA_cooled/NFA_total>0,Tsetheat_min,#N/A)
+Ti0cooled;;21;°C;=IF(NFA_cooled/NFA_total>0,Tsetheat_min,#N/A)
 Ta;🌦️ Wetter;Temperatur;°C;=OFFSET(Wetter!M25,0,(weather_index-1)*7)
 rel_humidity;🌦️ Wetter;Luftfeuchte;%;=OFFSET(Wetter!N25,0,(weather_index-1)*7)
 Irr_nord;🌦️ Wetter;Strahlung;W/m²Nord;=OFFSET(Wetter!H25,0,(weather_index-1)*7+4)
