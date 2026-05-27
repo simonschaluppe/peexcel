@@ -344,7 +344,7 @@ def generate_schema_module_from_excel(
 
 
 if __name__ == "__main__":
-    version = "v1_11_4"
+    version = "v1_11_5"
     generate_schema_module_from_csv_dir(
         schema_dir=f"data/schemas/{version}",
         output_py_path=f"src/pexl/schema/generated/excel_{version}.py",
