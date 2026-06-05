@@ -56,6 +56,7 @@ PEExcel umfasst unter anderem:
 - Szenarien- und Variantenvergleich
 - strukturierte Eingabe-, Ergebnis- und Exporttabellen
 - deklarationsorientierte Ergebnisdarstellung
+- Python-Paket `pexl` für automatisierten Datenimport/-export, Schema-Validierung, Ergebnisanalyse und Visualisierung
 
 ## 📥 Download
 
@@ -75,6 +76,12 @@ PEExcel umfasst unter anderem:
 4. Datei in Excel öffnen.
 5. Makros aktivieren.
 6. Mit dem Handbuch oder Quick-Start-Guide die erste Beispieldeklaration durchgehen.
+   
+## 🐍 Python-Schnittstelle
+
+Neben der interaktiven Nutzung in Excel enthält das Repository auch das Python-Paket `pexl`. Es unterstützt automatisierte Workflows rund um PEExcel, etwa Import und Export von Daten, Validierung von Schemas, Analyse von Ergebnissen und Visualisierung.
+
+Ein Einstieg ist im Notebook [`notebooks/howto_excel.ipynb`](notebooks/howto_excel.ipynb) dokumentiert. Dieses zeigt beispielhaft, wie PEExcel-Projekte aus Python heraus angesprochen werden kann.
 
 ## 📚 Dokumentation
 
@@ -105,10 +112,18 @@ peexcel/
 ├── excel/
 │   ├── tool/              # aktuelle stabile Tool-Versionen
 │   └── development/       # Entwicklungsversionen
-├── docs/                  # Dokumentation, Berichte und Präsentationen
+├── src/
+│   └── pexl/              # Python-Paket für Import, Export, Validierung, Analyse und Visualisierung
+├── notebooks/             # How-to- und Analyse-Notebooks
+│   ├── howto_excel.ipynb  # Beispiel: PEExcel aus Python ansteuern
+│   ├── howto_schema.ipynb # Arbeit mit Export- und Eingabeschemata
+│   └── validate.ipynb     # Validierung von Daten und Exporten
 ├── data/
 │   ├── schemas/           # CSV- und Exportschemata
 │   └── examples/          # Beispiel- und Testdaten
+├── docs/                  # Dokumentation, Berichte und Präsentationen
+├── tests/                 # Tests für Python-Komponenten
+├── pyproject.toml         # Python-Projektkonfiguration
 └── README.md
 ```
 
