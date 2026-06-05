@@ -62,8 +62,8 @@ PEExcel umfasst unter anderem:
 
 | Version | Status | Beschreibung | Link |
 |---|---|---|---|
-| v1.10 | Stable Release | Empfohlene Version für reguläre Anwendung und Tests | [🧰 Excel Tool (v1.10 Stable Release](https://github.com/simonschaluppe/peexcel/blob/master/excel/tool/ka_PEQ_Nachweistool.xlsb)  |
-| v1.11.x | Development Version | Entwicklungsstand mit neuen Funktionen und laufenden Anpassungen | [🧰 Excel Tool (v1.11.5)](https://github.com/simonschaluppe/peexcel/blob/master/excel/development/ka_PEQ_Nachweistool_DEV.xlsb)  |
+| v1.10 | Stable Release | Empfohlene Version für reguläre Anwendung und Tests | [🧰 Excel Tool (v1.10 Stable Release](https://github.com/simonschaluppe/peexcel/raw/refs/heads/master/excel/tool/ka_PEQ_Nachweistool.xlsb)  |
+| v1.11.x | Development Version | Entwicklungsstand mit neuen Funktionen und laufenden Anpassungen | [🧰 Excel Tool (v1.11.5)](https://github.com/simonschaluppe/peexcel/raw/refs/heads/master/excel/development/ka_PEQ_Nachweistool_DEV.xlsb)  |
 
 > Hinweis: PEExcel benötigt Microsoft Excel / Office 365 mit aktivierten Makros.  
 > Nach dem Download muss die Datei gegebenenfalls in den Dateieigenschaften entsperrt werden, damit Makros ausgeführt werden können.
@@ -87,10 +87,10 @@ Ein Einstieg ist im Notebook [`notebooks/howto_excel.ipynb`](notebooks/howto_exc
 
 | Dokument | Inhalt | Link |
 |---|---|---|
-| Handbuch zur Nachweisführung | Einstieg, Toolstruktur, zentrale Abläufe und Quick-Start | [📖 Handbuch herunterladen](https://github.com/simonschaluppe/peexcel/blob/master/docs/Handbuch%20zur%20Nachweisf%C3%BChrung.pdf)
-| klimaaktiv Broschüre Plus-Energie-Quartiere | Überblick über Standard, Qualitätsstufen und Bewertungslogik | [📜Broschüre Klimaaktiv Plus-Energie-Standard](https://github.com/simonschaluppe/peexcel/blob/master/docs/Brosch%C3%BCre%20PEQ_klimaaktiv.pdf) |
-| Hintergrundbericht | Methodische Grundlagen der PEQ-Definition und Operationalisierung | [📚 Hintergrund-Bericht PEQ Definition und Operationalisierung](https://github.com/simonschaluppe/peexcel/blob/master/docs/Leitfaden%20PEQ%20Definition%20und%20Operationalisierung_StandJuni2023.pdf)|
-| Präsentation zum Nachweistool | Kurzüberblick über Aufbau und Anwendung | [💡Präsentation herunterladen](https://github.com/simonschaluppe/peexcel/blob/master/docs/klimaaktiv%20PEQ-Tool%20Dokumentation.pdf) |
+| Handbuch zur Nachweisführung | Einstieg, Toolstruktur, zentrale Abläufe und Quick-Start | [📖 Handbuch herunterladen](https://github.com/simonschaluppe/peexcel/raw/refs/heads/master/docs/Handbuch%20zur%20Nachweisf%C3%BChrung.pdf)
+| klimaaktiv Broschüre Plus-Energie-Quartiere | Überblick über Standard, Qualitätsstufen und Bewertungslogik | [📜Broschüre Klimaaktiv Plus-Energie-Standard](https://github.com/simonschaluppe/peexcel/raw/refs/heads/master/docs/Brosch%C3%BCre%20PEQ_klimaaktiv.pdf) |
+| Hintergrundbericht | Methodische Grundlagen der PEQ-Definition und Operationalisierung | [📚 Hintergrund-Bericht PEQ Definition und Operationalisierung](https://github.com/simonschaluppe/peexcel/raw/refs/heads/master/docs/Leitfaden%20PEQ%20Definition%20und%20Operationalisierung_StandJuni2023.pdf)|
+| Präsentation zum Nachweistool | Kurzüberblick über Aufbau und Anwendung | [💡Präsentation herunterladen](https://github.com/simonschaluppe/peexcel/raw/refs/heads/master/docs/klimaaktiv%20PEQ-Tool%20Dokumentation.pdf) |
 
 ## 🧮 Methodischer Überblick
 
