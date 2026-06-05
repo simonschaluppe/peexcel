@@ -1,71 +1,174 @@
 <img src="https://github.com/simonschaluppe/peexcel/assets/22156735/2856e7d9-54d9-4ea9-a894-1128f435c139" height="300">
 
-# klimaaktiv Deklaration "klimaneutrales Plus-Eenergie-Quartier"
-Der Plus-Energie-Standard ist eine rechnerische Erweiterung des klimaaktiv Standards für klimafitte Siedlungen und Quartiere - dieser definiert neben der Qualität der Energieversorgung auch Qualitäten in den Bereichen Städtebau, Gebäude, Versorgung, Mobilität, Kommunikation und Management. Bei Plus-Energie-Quartieren geht es weniger um die physische Autarkie oder Autonomie, sondern darum, welchen Beitrag das Quartier zur klimaneutralität Österreichs leistet (siehe https://www.klimaaktiv.at/publikationen/plus-energie-quartiere)
+# PEExcel – klimaaktiv Nachweistool für Plus-Energie-Quartiere
 
-Der Qualitätsstandard für Plus-Energie-Quartiere leistet einen wesentlichen Beitrag zur Erreichung der Ziele des Europäischen Strategieplans für Energietechnologien. Dieser sieht vor, dass im Programm „Positive Energy Districts and Neighbourhoods for Sustainable Urban Development“ Plus-Energie-Konzepte entwickelt und umgesetzt werden. Diese sollen als Blaupause für die nachhaltige Siedlungs- und Infrastrukturentwicklung dienen.
+PEExcel ist ein Excel-basiertes Nachweistool für die klimaaktiv Deklaration **„Plus-Energie-Quartiere“**.  
+Es unterstützt die Bewertung und Deklaration von Quartieren auf Basis stündlicher Energiebilanzen, erneuerbarer Energieerzeugung, Mobilität, grauer Emissionen und Flexibilitätsmaßnahmen.
 
-### Die drei Qualitätsstufen
-Der klimaaktiv Standard unterscheidet, ob auf der Bedarfsseite nur die Betriebsenergie berücksichtigt oder auch die Alltagsmobilität und die graue Energie für die Herstellung der Baustoffe mitbilanziert werden. Dadurch ergeben sich drei Qualitätsstufen: Je mehr Energiedienstleistungen in Summe zu einem positiven Bilanzierungsergebnis führen, desto höher ist auch das erzielte Qualitätsniveau.
+Das Tool wurde von der Forschungsgruppe **[Climate-fit Buildings and Districts](https://www.technikum-wien.at/forschungsschwerpunkt-renewable-energy-systems/)** der  an der [Fachhochschule Technikum Wien](https://www.technikum-wien.at/) im Rahmen der Entwicklung des klimaaktiv Qualitätsstandards für Plus-Energie-Quartiere erarbeitet.
 
+## 🎯 Wofür ist PEExcel gedacht?
+
+PEExcel dient der strukturierten Modellierung, Bewertung und Dokumentation von Quartiersprojekten im Sinne des klimaaktiv Standards **Plus-Energie-Quartiere**. 
+
+Das Tool unterstützt insbesondere:
+
+- die energetische und THG-Bewertung von Quartiersvarianten
+- die Vorbereitung von Planungsdeklarationen
+- die Qualitätssicherung im Planungsprozess
+- die nachvollziehbare Dokumentation zentraler Eingaben und Ergebnisse
+- den Vergleich von Szenarien und Maßnahmenpaketen
+
+## 👥 Zielgruppen
+
+PEExcel richtet sich an:
+
+- klimaaktiv PEQ Kompetenzpartner:innen
+- Energie- und Gebäudeexpert:innen
+- Planer:innen und Konsulent:innen
+- Forschungseinrichtungen und Ausbildung
+
+## Bewertungsrahmen
+
+Das Tool bildet die drei Qualitätsstufen des [klimaaktiv Standards für Plus-Energie-Quartiere](https://www.klimaaktiv.at/publikationen/plus-energie-quartiere) ab:
+
+1. **Plus-Energie-Quartier**  
+   Bewertung der Betriebsenergie von Gebäuden und quartiersbezogener Energieversorgung.
+
+2. **Plus-Energie-Quartier mit Mobilität**  
+   Ergänzung der Bilanz um den Energiebedarf des motorisierten Individualverkehrs.
+
+3. **Klimaneutrales Plus-Energie-Quartier**  
+   Erweiterung um Lebenszyklus-Treibhausgasemissionen, insbesondere graue Emissionen der Gebäude.
 <img width="1228" height="467" alt="image" src="https://github.com/user-attachments/assets/095a8e31-2daf-47f3-8174-8890566f9fb6" />
 
- ## Unterlagen
+## ⚙️ Zentrale Funktionen
+
+PEExcel umfasst unter anderem:
+
+- stündliche Energiebilanzierung auf Quartiersebene
+- Bewertung von Wärme, Kälte, Strom, Warmwasser, Lüftung und Hilfsenergie
+- Abbildung von Photovoltaik, Eigenverbrauch und Einspeisung
+- Berücksichtigung von Speichern und Flexibilitätsoptionen
+- Integration standortbezogener Mobilitätsbewertung
+- Bewertung grauer Emissionen über den Lebenszyklus
+- Berücksichtigung von THG-Absenkpfaden des nationalen Energiesystems bis 2075
+- Szenarien- und Variantenvergleich
+- strukturierte Eingabe-, Ergebnis- und Exporttabellen
+- deklarationsorientierte Ergebnisdarstellung
+- Python-Paket `pexl` für automatisierten Datenimport/-export, Schema-Validierung, Ergebnisanalyse und Visualisierung
+
+## 📥 Download
+
+| Version | Status | Beschreibung | Link |
+|---|---|---|---|
+| v1.10 | Stable Release | Empfohlene Version für reguläre Anwendung und Tests | [🧰 Excel Tool (v1.10 Stable Release](https://github.com/simonschaluppe/peexcel/raw/refs/heads/master/excel/tool/ka_PEQ_Nachweistool.xlsb)  |
+| v1.11.x | Development Version | Entwicklungsstand mit neuen Funktionen und laufenden Anpassungen | [🧰 Excel Tool (v1.11.5)](https://github.com/simonschaluppe/peexcel/raw/refs/heads/master/excel/development/ka_PEQ_Nachweistool_DEV.xlsb)  |
+
+> Hinweis: PEExcel benötigt Microsoft Excel / Office 365 mit aktivierten Makros.  
+> Nach dem Download muss die Datei gegebenenfalls in den Dateieigenschaften entsperrt werden, damit Makros ausgeführt werden können.
+
+## 🚀 Schnellstart
+
+1. Aktuelle Stable-Version herunterladen.
+2. Datei lokal speichern.
+3. Falls Windows die Datei blockiert: Rechtsklick auf die Datei → **Eigenschaften** → **Zulassen** / **Entsperren**.
+4. Datei in Excel öffnen.
+5. Makros aktivieren.
+6. Mit dem Handbuch oder Quick-Start-Guide die erste Beispieldeklaration durchgehen.
+   
+## 🐍 Python-Schnittstelle
+
+Neben der interaktiven Nutzung in Excel enthält das Repository auch das Python-Paket `pexl`. Es unterstützt automatisierte Workflows rund um PEExcel, etwa Import und Export von Daten, Validierung von Schemas, Analyse von Ergebnissen und Visualisierung.
+
+Ein Einstieg ist im Notebook [`notebooks/howto_excel.ipynb`](notebooks/howto_excel.ipynb) dokumentiert. Dieses zeigt beispielhaft, wie PEExcel-Projekte aus Python heraus angesprochen werden kann.
+
+## 📚 Dokumentation
+
+| Dokument | Inhalt | Link |
+|---|---|---|
+| Handbuch zur Nachweisführung | Einstieg, Toolstruktur, zentrale Abläufe und Quick-Start | [📖 Handbuch herunterladen](https://github.com/simonschaluppe/peexcel/raw/refs/heads/master/docs/Handbuch%20zur%20Nachweisf%C3%BChrung.pdf)
+| klimaaktiv Broschüre Plus-Energie-Quartiere | Überblick über Standard, Qualitätsstufen und Bewertungslogik | [📜Broschüre Klimaaktiv Plus-Energie-Standard](https://github.com/simonschaluppe/peexcel/raw/refs/heads/master/docs/Brosch%C3%BCre%20PEQ_klimaaktiv.pdf) |
+| Hintergrundbericht | Methodische Grundlagen der PEQ-Definition und Operationalisierung | [📚 Hintergrund-Bericht PEQ Definition und Operationalisierung](https://github.com/simonschaluppe/peexcel/raw/refs/heads/master/docs/Leitfaden%20PEQ%20Definition%20und%20Operationalisierung_StandJuni2023.pdf)|
+| Präsentation zum Nachweistool | Kurzüberblick über Aufbau und Anwendung | [💡Präsentation herunterladen](https://github.com/simonschaluppe/peexcel/raw/refs/heads/master/docs/klimaaktiv%20PEQ-Tool%20Dokumentation.pdf) |
+
+## 🧮 Methodischer Überblick
+
+PEExcel kombiniert mehrere Bewertungsbausteine zu einem deklarationsfähigen Quartiersmodell:
+
+- Energiebedarf und Energieerzeugung im Gebäudebetrieb
+- zeitlich aufgelöste Import- und Exportbilanz
+- erneuerbare Energieerzeugung am Standort
+- Mobilitätsenergie in Abhängigkeit von Standortqualität und Mobilitätskonzept
+- graue Emissionen der Gebäude über den Lebenszyklus
+- Kontextfaktoren wie Dichte, Bestand und Flexibilität
+
+Die Bilanzierung erfolgt mit stündlicher Auflösung und erlaubt damit eine differenzierte Bewertung von Eigenverbrauch, Netzinteraktion, Speichern und zeitlicher Verfügbarkeit erneuerbarer Energie.
+
+## 🗂️ Repository-Struktur
+
+```text
+peexcel/
+├── excel/
+│   ├── tool/              # aktuelle stabile Tool-Versionen
+│   └── development/       # Entwicklungsversionen
+├── src/
+│   └── pexl/              # Python-Paket für Import, Export, Validierung, Analyse und Visualisierung
+├── notebooks/             # How-to- und Analyse-Notebooks
+│   ├── howto_excel.ipynb  # Beispiel: PEExcel aus Python ansteuern
+│   ├── howto_schema.ipynb # Arbeit mit Export- und Eingabeschemata
+│   └── validate.ipynb     # Validierung von Daten und Exporten
+├── data/
+│   ├── schemas/           # CSV- und Exportschemata
+│   └── examples/          # Beispiel- und Testdaten
+├── docs/                  # Dokumentation, Berichte und Präsentationen
+├── tests/                 # Tests für Python-Komponenten
+├── pyproject.toml         # Python-Projektkonfiguration
+└── README.md
+```
+
+## 📝 Publikationen und Hintergrund
+
+Die methodischen Grundlagen des Tools wurden im Rahmen mehrerer Forschungs- und Entwicklungsarbeiten zu Positive Energy Districts, klimaneutralen Quartieren und deklarationsfähigen Bewertungsmethoden erarbeitet.
+
+Relevante Publikationen:
+Ausgewählte Publikationen:
+
+| Jahr | Publikation | Thema |
+|---|---|---|
+| 2023 | Schneider et al. – [A Quantitative Positive Energy District Definition with Contextual Targets](https://www.mdpi.com/2075-5309/13/5/1210) | PEQ-Definition und kontextbezogene Zielwerte je baulicher Dichte und Quartiersstandort |
+| 2024 | Schneider et al. – [PEExcel: A Fast One-Stop-Shop Assessment and Simulation Framework for Positive Energy Districts](https://doi.org/10.26868/29761662.2024.11) | PEExcel-Framework und Anwendung |
+| 2024 | Schneider et al. – [Can Urban Retrofitting Achieve a Positive Energy Balance?](https://doi.org/10.1109/i-COSTE63786.2024.11024809) | Fallstudien zu urbanem Bestand |
+| 2025 | Bruckner et al. – [Lessons Learned from Four Real-Life Case Studies](https://doi.org/10.3390/en18030560) | Energiebilanzierung realer PED-Fallstudien |
+| 2025 | Schneider & Baptista – [Annual Hourly E-Mobility Modelling and Assessment in Climate Neutral Positive Energy Districts](https://doi.org/10.1109/EEEIC/ICPSEurope64998.2025.11169136) | Stündliche E-Mobilitätsmodellierung im Quartier|
+| 2025 | Schneider et al. – [Declaration-Ready Climate-Neutral PEDs](https://doi.org/10.3390/designs9060123) | Deklarationsfähige klimaneutrale PEQ-Bewertung mit Fallbeispielen |
+
+Weitere Literatur, Hintergrundberichte und methodische Dokumente sind in der Dokumentation verlinkt.
+
+## 📩 Newsletter
+
+Aktuelle Informationen zu Tool-Updates, Veranstaltungen, Schulungen und Weiterentwicklungen der klimaaktiv Deklaration **„Plus-Energie-Quartiere“** erhalten Sie über den klimaaktiv PEQ Kompetenzpartner Newsletter.
+
+ [zum Newsletter anmelden](https://flow.cleverreach.com/fl/e24548f3-b4ae-4851-a0c2-bff4d05092ef/)
  
- [💡Präsentation: Der Standard im Überblick](https://github.com/simonschaluppe/peexcel/blob/master/docs/Der%20klimaaktiv%20Plus-Energie-Standard%20im%20%C3%9Cberblick.pdf)
+## 💬 Kontakt
+Simon Schneider
+FH Technikum Wien  
+Forschungsgruppe Climate-fit Buildings and Districts
+
+Technische Fragen, Fehlerberichte und Verbesserungsvorschläge bitte über die
+[GitHub Issues](../../issues) einbringen.
+
+Für fachliche Fragen zur klimaaktiv Deklaration **„Plus-Energie-Quartiere“**
+verweisen wir auf die offiziellen Kontaktstellen in der Dokumentation und auf
+die Informationsangebote des klimaaktiv Programms.
+  
+## 📄 Lizenz und Nutzung
+
+Bitte beachten Sie die im Repository angeführten Lizenz- und Nutzungshinweise.  
+Bei Verwendung des Tools in Projekten, Publikationen oder Lehrveranstaltungen wird um entsprechende Quellenangabe gebeten.
 
 
-[📜Broschüre Klimaaktiv Plus-Energie-Standard](https://github.com/simonschaluppe/peexcel/blob/master/docs/Brosch%C3%BCre%20PEQ_klimaaktiv.pdf)
-
-
-[📚 Hintergrund-Bericht PEQ Definition und Operationalisierung](https://github.com/simonschaluppe/peexcel/blob/master/docs/Leitfaden%20PEQ%20Definition%20und%20Operationalisierung_StandJuni2023.pdf)
-
-
-### Wissenschaftliche Publikationen
-📝 Schneider, Simon, Thomas Zelger, David Sengl, und José Baptista. „A Quantitative Positive Energy District Definition with Contextual Targets“. Buildings 13, Nr. 5 (2023): 5. [https://doi.org/10.3390/buildings13051210.](https://www.mdpi.com/2075-5309/13/5/1210)
-
-📝 Bruckner, Helmut, Svitlana Alyokhina, Simon Schneider, u. a. „Lessons Learned from Four Real-Life Case Studies: Energy Balance Calculations for Implementing Positive Energy Districts“. Energies 18, Nr. 3 (2025): 560. [https://doi.org/10.3390/en18030560.](https://doi.org/10.3390/en18030560)
-
-📝 Schneider, Simon, Raphael Drexel, Thomas Zelger, und José Baptista. „PEExcel: A Fast One-Stop-Shop Assessment and Simulation Framework for Positive Energy Districts“. BauSim Conference, Bd. 10 (2024): 80–88. [https://doi.org/10.26868/29761662.2024.11.](https://doi.org/10.26868/29761662.2024.11)
-
-📝Schneider, Simon, Svitlana Alyokhina, Helmut Bruckner, und José Baptista. „Can Urban Retrofitting Achieve a Positive Energy Balance? a Case Study of Four European Positive Energy Districts“. 2024 International Conference on Sustainable Technology and Engineering (i-COSTE), Dezember 2024, 01–06. [https://doi.org/10.1109/i-COSTE63786.2024.11024809.](https://doi.org/10.1109/i-COSTE63786.2024.11024809)
-
-📝 Schneider, Simon, und José Baptista. „Annual Hourly E-Mobility Modelling and Assessment in Climate Neutral Positive Energy Districts“. 2025 IEEE International Conference on Environment and Electrical Engineering and 2025 IEEE Industrial and Commercial Power Systems Europe (EEEIC / I&CPS Europe), Juli 2025, 1–7. https://doi.org/10.1109/EEEIC/ICPSEurope64998.2025.11169136.
-
-📝 Schneider, Simon, Thomas Zelger, Raphael Drexel, Manfred Schindler, Paul Krainer, und José Baptista. „Declaration-Ready Climate-Neutral PEDs: Budget-Based, Hourly LCA Including Mobility and Flexibility“. Designs 9, Nr. 6 (2025): 123. https://doi.org/10.3390/designs9060123.
-
-# Nachweistool
- Das Deklarationstool wurde von der Forschungsgruppe [Climate-fit Buildings and Districts](https://www.technikum-wien.at/forschungsschwerpunkt-renewable-energy-systems/) an der [Fachhochschule Technikum Wien](https://www.technikum-wien.at/) entwickelt. Das Ziel ist es, eine effiziente und dennoch flexible Plattform für die Simulation von PEQs mit einer stündlichen Energiebilanzauflösung zu ermöglichen. Es kombiniert drei verschiedene Modelle und Simulationen zu einem umfassenden Bewertungsrahmen für die Leistung von PEQs:  Gebäudebetrieb, Mobilitätsenergie und Graue Energie werden abgebildet. Ziele und wesentliche Aspekte des Tools sind:
-* Realitätsnahe und wissenschaftlich abgesicherte Methodik zur Bewertung und Nachweisführung von Plus-Energie-Quartieren als ein wesentlicher Baustein eines 2040 klimaneutralen Staats Österreich 2040.
-* Dynamische Modellierung der Energieströme für alle relevanten Energieströme inkl. E-Mobilität, um Aussagen über die dynamischen Effekte des Quartiers tätigen zu können. 
-* Abbildung von netzdienlichem Einsatz externer erneuerbarer Energie durch instationäre Betrachtung. Inklusion von intelligenter, energieflexibler Regelung zur Einbindung von (hochvolatilen) erneuerbaren Energiequellen (Windkraft, Sonnenkraft etc.). 
-* Einbindung des Speicherpotentials von Gebäudespeichermasse zur besseren Integration erneuerbarer Energien. 
-* Hebung von Synergien mit dem klimaaktiv Kriterienkatalog: Standard für Siedlungen und Quartiere  (Zusammenführung in PEQ Beta und Omega). 
-* Abschätzbarkeit der Eigendeckung durch lokale erneuerbare Energien (z.B. PV) als wesentlicher Indikator für Systemdienlichkeit und Wirtschaftlichkeit.  
-* Verwendbarkeit bestehender Daten in Form von PHPPs und Energieausweisen. 
-* Varianten: Bildung, Simulation und Vergleich einer großen Anzahl von Varianten. 
-* Einfache Iterierbarkeit und Anpassbarkeit im Rahmen des Planungsprozesses. 
-* Keine Abhängigkeit von proprietären, kostenpflichtigen Tools. 
-* One-Stop-Shop zur Bewertung  
-* Direkte Nachvollziehbarkeit der Berechnungen
-* Reduktion der notwendigen Input-Daten, indem soweit wie möglich mit Defaults gearbeitet wird. 
-* Erweiterbarkeit und Anpassbarkeit des Simulationsmodells bei Bedarf direkt im Excel.
-* Offener Zugang: Das Excel-Tool zur Operationalisierung ist öffentlich zugänglich.
-### Unterlagen
-[💡Präsentation: Das Nachweistool im Überblick](https://github.com/simonschaluppe/peexcel/blob/master/docs/klimaaktiv%20PEQ-Tool%20Dokumentation.pdf)
-
-[📖 Handbuch zur Nachweisführung](https://github.com/simonschaluppe/peexcel/blob/master/docs/Handbuch%20zur%20Nachweisf%C3%BChrung.pdf)
-### Tool Download
-Das Nachweistool wird laufend weiterentwickelt. Die aktuelle Version kann unter diesem Link heruntergeladen werden:
-
-[🧰 Excel Tool (v1.10 Stable Release](https://github.com/simonschaluppe/peexcel/blob/master/excel/tool/ka_PEQ_Nachweistool.xlsb) 
-
-[🧰 Excel Tool (v1.11.4 in development)](https://github.com/simonschaluppe/peexcel/blob/master/excel/development/ka_PEQ_Nachweistool_DEV.xlsb) 
-
- (Select "Download raw file" or "View raw" on the linked page. ⚠ Benötigt office 365 und macros! Falls das File als "nicht vertrauenswürdig" eingestuft wird, lokal speichern > rechtsklick > weitere optionen > eigenschaften > Sicherheit: "zulassen")
-
- ### Weitere Links
- https://www.baubook.info/de/oekoprogramme/aspern-klimafit/eco2soft-modellierung: Ermittlung der Ökobilanz für Gebäude zur Verwendung im klimaaktiv Nachweistool 
 
 ![image](https://github.com/user-attachments/assets/696c5440-e451-46fd-823e-d94ec4e45ea5)
 
