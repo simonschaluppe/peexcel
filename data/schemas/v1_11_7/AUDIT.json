@@ -1,0 +1,232 @@
+{
+  "mode": "schema",
+  "source_xlsx": "..\\data\\exports\\schema_v1_11_7.xlsx",
+  "tables": {
+    "IN": {
+      "original_rows": 744,
+      "kept_rows": 644,
+      "excluded_rows": {
+        "empty_var_name_count": 100,
+        "empty_var_name_sample": [
+          {
+            "export_row": "3",
+            "ka": "0",
+            "Formel": ""
+          },
+          {
+            "export_row": "11",
+            "ka": "0",
+            "Formel": "-MIN(cfd_fPE*(cfd_A/(FSI+cfd_dx)-cfd_EUI);cfd_cutoff)"
+          },
+          {
+            "export_row": "16",
+            "ka": "0",
+            "Formel": "per_NFA*(cfm_budget_residential*NFA_residential+cfm_budget_office*NFA_office+cfm_budget_school*(NFA_schoolprim+NFA_schoolsec)+cfm_budget_retail*(NFA_retailfood+NFA_retailother+NFA_other))"
+          },
+          {
+            "export_row": "18",
+            "ka": "0",
+            "Formel": "cfr_budget*SUMMENPRODUKT(Renovation_shares;NFA_shares)"
+          },
+          {
+            "export_row": "92",
+            "ka": "3",
+            "Formel": ""
+          },
+          {
+            "export_row": "93",
+            "ka": "",
+            "Formel": ""
+          },
+          {
+            "export_row": "94",
+            "ka": "",
+            "Formel": ""
+          },
+          {
+            "export_row": "95",
+            "ka": "",
+            "Formel": ""
+          },
+          {
+            "export_row": "96",
+            "ka": "",
+            "Formel": ""
+          },
+          {
+            "export_row": "97",
+            "ka": "",
+            "Formel": ""
+          },
+          {
+            "export_row": "98",
+            "ka": "",
+            "Formel": ""
+          },
+          {
+            "export_row": "99",
+            "ka": "",
+            "Formel": ""
+          },
+          {
+            "export_row": "100",
+            "ka": "",
+            "Formel": ""
+          },
+          {
+            "export_row": "117",
+            "ka": "0",
+            "Formel": "transmittance_MW*1000000"
+          },
+          {
+            "export_row": "136",
+            "ka": "0",
+            "Formel": "N131/N126"
+          },
+          {
+            "export_row": "137",
+            "ka": "0",
+            "Formel": "N132/N127"
+          },
+          {
+            "export_row": "138",
+            "ka": "0",
+            "Formel": "N133/N128"
+          },
+          {
+            "export_row": "139",
+            "ka": "0",
+            "Formel": "N134/N129"
+          },
+          {
+            "export_row": "140",
+            "ka": "0",
+            "Formel": "WENNFEHLER(N135/N130;1)"
+          },
+          {
+            "export_row": "142",
+            "ka": "0",
+            "Formel": "N83*N121*N126*N$141*window_glazing_ratio*window_dirt_factor"
+          }
+        ]
+      }
+    },
+    "OUT": {
+      "original_rows": 501,
+      "kept_rows": 405,
+      "excluded_rows": {
+        "empty_var_name_count": 96,
+        "empty_var_name_sample": [
+          {
+            "export_row": "5",
+            "ka": "3",
+            "Formel": "TEXTVERKETTEN(\", \";WAHR; TEXT(IN!N30:N36/GFA_total;\"0%\")&\" \"&🏙️!C28:C34;\"\")"
+          },
+          {
+            "export_row": "23",
+            "ka": "4",
+            "Formel": "(QT+QV+QVn+QC) - (QS+QI+QH)"
+          },
+          {
+            "export_row": "119",
+            "ka": "3",
+            "Formel": ""
+          },
+          {
+            "export_row": "120",
+            "ka": "3",
+            "Formel": ""
+          },
+          {
+            "export_row": "125",
+            "ka": "3",
+            "Formel": "EUI_plugAuxLight-SUMME(sim[E_plugAuxLight])/1000"
+          },
+          {
+            "export_row": "128",
+            "ka": "3",
+            "Formel": ""
+          },
+          {
+            "export_row": "131",
+            "ka": "3",
+            "Formel": ""
+          },
+          {
+            "export_row": "162",
+            "ka": "3",
+            "Formel": "Batt_total_discharge"
+          },
+          {
+            "export_row": "170",
+            "ka": "3",
+            "Formel": "(VRGrid_to_min*1000-SUMME(sim[VRGrid_total_min_use]))"
+          },
+          {
+            "export_row": "177",
+            "ka": "3",
+            "Formel": "(VRGrid_to_flex*1000-SUMME(sim[VRGrid_total_flex_use]))"
+          },
+          {
+            "export_row": "179",
+            "ka": "3",
+            "Formel": "(VRGrid_to_min+VRGrid_to_flex)-(VRGrid_to_building+VRGrid_to_Eev_flex+VRGrid_to_Eev_min)"
+          },
+          {
+            "export_row": "196",
+            "ka": "3",
+            "Formel": "Grid_to_min-Grid_to_Eev_min-Grid_to_building_min"
+          },
+          {
+            "export_row": "197",
+            "ka": "3",
+            "Formel": "(Grid_to_min)-SUMME(sim[E_grid])/1000"
+          },
+          {
+            "export_row": "213",
+            "ka": "3",
+            "Formel": ""
+          },
+          {
+            "export_row": "219",
+            "ka": "3",
+            "Formel": ""
+          },
+          {
+            "export_row": "221",
+            "ka": "3",
+            "Formel": "0,001*SUMME(sim[cf_PEI_grid]*sim[Grid_to_Eev_min]+sim[cf_PEI_flex_grid]*(sim[VRGrid_to_Ev_min]+sim[VRGrid_to_Eev_flex])+sim[cf_PEI_PV]*(sim[PV_to_Eev_min]+sim[PV_to_Eev_flex]))"
+          },
+          {
+            "export_row": "222",
+            "ka": "3",
+            "Formel": "0,001*SUMME(sim[cf_PEI_grid]*(sim[Grid_to_Eev_min]+sim[VRGrid_to_Ev_min]+sim[VRGrid_to_Eev_flex]+sim[PV_to_Eev_min]+sim[PV_to_Eev_flex]))"
+          },
+          {
+            "export_row": "223",
+            "ka": "3",
+            "Formel": "K222-K221"
+          },
+          {
+            "export_row": "224",
+            "ka": "3",
+            "Formel": "UED_mob_el_target*EV_charging_losses_surcharge_factor*MITTELWERT(sim[cf_PEI_grid])"
+          },
+          {
+            "export_row": "225",
+            "ka": "3",
+            "Formel": ""
+          }
+        ]
+      }
+    },
+    "SIM": {
+      "original_rows": 394,
+      "kept_rows": 394,
+      "excluded_rows": {
+        "empty_var_name_count": 0,
+        "empty_var_name_sample": []
+      }
+    }
+  }
+}
