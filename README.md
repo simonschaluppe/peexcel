@@ -62,8 +62,8 @@ PEExcel umfasst unter anderem:
 
 | Version | Status | Beschreibung | Link |
 |---|---|---|---|
-| v1.10 | Stable Release | Empfohlene Version für reguläre Anwendung und Tests | [🧰 Excel Tool (v1.10 Stable Release](https://github.com/simonschaluppe/peexcel/raw/refs/heads/master/excel/tool/ka_PEQ_Nachweistool.xlsb)  |
-| v1.12.x | Development Version | Entwicklungsstand mit neuen Funktionen und laufenden Anpassungen | [🧰 Excel Tool (v1.12.7)](https://github.com/simonschaluppe/peexcel/raw/refs/heads/master/excel/development/ka_PEQ_Nachweistool_DEV.xlsb)  |
+| [v1.12.7](https://github.com/simonschaluppe/peexcel/releases/tag/v1.12.7) | Stable Release | Empfohlene Version für reguläre Anwendung und Tests | [⬇️Download](https://github.com/simonschaluppe/peexcel/raw/refs/heads/master/excel/tool/ka_PEQ_Nachweistool.xlsb)  |
+| v1.13.x | Development Version | Entwicklungsstand mit neuen Funktionen und laufenden Anpassungen | [⬇️Download](https://github.com/simonschaluppe/peexcel/raw/refs/heads/master/excel/development/ka_PEQ_Nachweistool_DEV.xlsb)  |
 
 > Hinweis: PEExcel benötigt Microsoft Excel / Office 365 mit aktivierten Makros.  
 > Nach dem Download muss die Datei gegebenenfalls in den Dateieigenschaften entsperrt werden, damit Makros ausgeführt werden können.
