@@ -50,7 +50,9 @@ class Scenario:
     def view(self):
         from .view import ScenarioView
         return ScenarioView(self)
-
+    
+    def select(self, **filters):
+        return self.view.select(**filters)
 
     @property
     def inn(self):

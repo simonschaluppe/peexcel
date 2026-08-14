@@ -373,3 +373,11 @@ class ProjectView(_BaseView):
             f"scenarios={len(self._scenario_selection)} "
             f"variables={len(self._variables)}>"
         )
+    
+    def _repr_html_(self) -> str:
+        header = self.__repr__()
+
+        return header + self.to_frame().to_html(
+            max_rows=20,
+            max_cols=12,
+    )

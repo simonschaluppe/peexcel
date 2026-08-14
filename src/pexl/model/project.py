@@ -170,6 +170,12 @@ class Project:
         from .view import ProjectView
         return ProjectView(self)
 
+    def select(self, **filters):
+        return self.view.select(**filters)
+
+    def where(self, **variable_values):
+        return self.view.where(**variable_values)
+
 
     @property
     def inn(self):
