@@ -9,33 +9,16 @@ import pandas as pd
 from pexl.schema.schema_codegen import VariableMetaRow
 
 from ..model.project import Project
-from ..schema.current import ATTR_NAME_MAP
+from ..schema.current import ATTR_NAME_MAP, SCHEMA_META
 
 
 LEGACY_RESERVED_IN_COLUMN_HEADER_NAMES = [
-    "Icon",
-    "Name",
-    "Einheit",
-    "Kommentar",
-    "Type",
-    "var_name",
-    "ka",
-    "Formel",
+    "Icon", "Name", "Einheit", "Kommentar", "Type", "var_name", "ka", "Formel",
 ]
 
 LEGACY_RESERVED_OUT_COLUMN_HEADER_NAMES = [
-    "ID",
-    "Kategorie",
-    "Type",
-    "Name",
-    "Icon",
-    "Bereich",
-    "var_cat",
-    "var_name",
-    "Einheit",
-    "Formel",
-    "Label",
-    "Kommentar",
+    "ID", "Kategorie", "Type", "Name", "Icon", "Bereich", "var_cat", "var_name",
+    "Einheit", "Formel", "Label", "Kommentar",
 ]
 
 PROJECT_NAME_VAR = "project_name"
@@ -68,23 +51,75 @@ RESERVED_IN_COLUMN_HEADER_SET = set(RESERVED_IN_COLUMN_HEADER_NAMES)
 RESERVED_OUT_COLUMN_HEADER_SET = set(RESERVED_OUT_COLUMN_HEADER_NAMES)
 
 
-def _parse_scenario_column(column_name: str) -> tuple[str, str]:
+def _parse_scenario_column_convention(column_name: str) -> tuple[str, str]:
+    """
+    Parse the conventional PEExcel scenario-column naming scheme.
+
+    This is validation only. The actual Excel column header remains the
+    authoritative Scenario.column_name.
+    """
     column_name = str(column_name).strip()
     if not column_name:
         raise ValueError("Empty scenario column name.")
 
     if " | " in column_name:
-        district_name, scenario_name = column_name.split(" | ", 1)
-        district_name = district_name.strip()
+        project_name, scenario_name = column_name.split(" | ", 1)
+        project_name = project_name.strip()
         scenario_name = scenario_name.strip()
     else:
-        district_name = column_name
+        project_name = column_name
         scenario_name = column_name
 
-    if not district_name or not scenario_name:
-        raise ValueError(f"Invalid scenario column format: {column_name!r}")
+    if not project_name or not scenario_name:
+        raise ValueError(f"Invalid scenario column convention: {column_name!r}")
 
-    return district_name, scenario_name
+    return project_name, scenario_name
+
+
+def _clean_text(value) -> str | None:
+    if value is None or pd.isna(value):
+        return None
+    value = str(value).strip()
+    return value or None
+
+
+def _validate_scenario_column_convention(project: Project, scenario) -> None:
+    """
+    Compare the structural Excel column name with semantic scenario values.
+
+    Mismatches are warnings only. The Excel column header remains identity.
+    """
+    try:
+        column_project_name, column_scenario_name = _parse_scenario_column_convention(
+            scenario.column_name
+        )
+    except ValueError as exc:
+        project.warnings.append(str(exc))
+        return
+
+    project_attr = ATTR_NAME_MAP.get(PROJECT_NAME_VAR)
+    scenario_attr = ATTR_NAME_MAP.get(PROJECT_SCENARIO_NAME_VAR)
+
+    value_project_name = (
+        _clean_text(getattr(scenario.v, project_attr, None)) if project_attr else None
+    )
+    value_scenario_name = (
+        _clean_text(getattr(scenario.v, scenario_attr, None)) if scenario_attr else None
+    )
+
+    if value_project_name is not None and value_project_name != column_project_name:
+        project.warnings.append(
+            f"Column {scenario.column_name!r}: conventional project name "
+            f"{column_project_name!r} does not match "
+            f"{PROJECT_NAME_VAR}={value_project_name!r}"
+        )
+
+    if value_scenario_name is not None and value_scenario_name != column_scenario_name:
+        project.warnings.append(
+            f"Column {scenario.column_name!r}: conventional scenario name "
+            f"{column_scenario_name!r} does not match "
+            f"{PROJECT_SCENARIO_NAME_VAR}={value_scenario_name!r}"
+        )
 
 
 def _handle_unknown_var_name(
@@ -102,22 +137,34 @@ def _handle_unknown_var_name(
 
 
 def _get_first_scenario(project: Project):
-    for district in project.districts:
-        for scenario in district.scenarios:
-            return scenario
-    return None
+    return project.scenarios[0] if project.scenarios else None
 
 
 def _iter_scenario_columns(project: Project):
+    """Yield scenarios with their authoritative Excel column names."""
     seen = set()
 
-    for district in project.districts:
-        for scenario in district.scenarios:
-            col_name = f"{district.name} | {scenario.name}"
-            if col_name in seen:
-                raise ValueError(f"Duplicate scenario export column name: {col_name!r}")
-            seen.add(col_name)
-            yield district, scenario, col_name
+    for scenario in project.scenarios:
+        col_name = scenario.column_name
+        if col_name in seen:
+            raise ValueError(f"Duplicate scenario export column name: {col_name!r}")
+        seen.add(col_name)
+        yield scenario, col_name
+
+
+def _iter_schema_metas_for_source(source: str):
+    """
+    Yield schema metadata in canonical order for IN or OUT.
+
+    Workbook serialization stays independent from ScenarioView/ProjectView.
+    """
+    if source not in ("IN", "OUT"):
+        raise ValueError(f"source must be 'IN' or 'OUT', got {source!r}")
+
+    for attr_name in ATTR_NAME_MAP.values():
+        meta = getattr(SCHEMA_META, attr_name)
+        if meta.source in (source, "BOTH"):
+            yield meta
 
 
 def read_project(
@@ -126,14 +173,16 @@ def read_project(
     unknown: str = "raise",
 ) -> Project:
     """
-    Read a project workbook with sheets IN and OUT.
+    Read a PEExcel workbook with sheets IN and OUT.
 
-    Parameters:
-    - unknown: when encountering schema-unknown variables: "raise", "ignore"
+    Model mapping:
+        workbook/file              -> Project
+        scenario column            -> Scenario
+        project_name               -> Scenario.v.project_name
+        project_scenario_name      -> Scenario.v.project_scenario_name
 
-    Expected column layout:
-    - "District" -> district/scenario with same name
-    - "District | Scenario" -> named scenario inside the district
+    Scenario identity is the exact Excel column header. The conventional
+    "project_name | project_scenario_name" naming scheme is only validated.
     """
     file_path = Path(file_path)
     project = Project(file_source=file_path)
@@ -141,21 +190,23 @@ def read_project(
     df_in = pd.read_excel(file_path, sheet_name="IN")
     df_out = pd.read_excel(file_path, sheet_name="OUT")
 
-    in_columns = [str(c) for c in df_in.columns if c not in RESERVED_IN_COLUMN_HEADER_SET]
-    out_columns = [str(c) for c in df_out.columns if c not in RESERVED_OUT_COLUMN_HEADER_SET]
+    in_columns = [
+        str(c) for c in df_in.columns if c not in RESERVED_IN_COLUMN_HEADER_SET
+    ]
+    out_columns = [
+        str(c) for c in df_out.columns if c not in RESERVED_OUT_COLUMN_HEADER_SET
+    ]
     all_columns = _unique(in_columns + out_columns)
 
     for column_name in all_columns:
-        try:
-            district_name, scenario_name = _parse_scenario_column(column_name)
-        except ValueError as exc:
+        if not str(column_name).strip():
+            message = "Empty scenario column name."
             if unknown == "ignore":
-                project.warnings.append(str(exc))
+                project.warnings.append(message)
                 continue
-            raise
+            raise ValueError(message)
 
-        district = project.get_or_create_district(district_name)
-        scenario = district.get_or_create_scenario(scenario_name)
+        scenario = project.get_or_create_scenario(column_name)
 
         for df in (df_in, df_out):
             if column_name not in df.columns:
@@ -168,6 +219,7 @@ def read_project(
 
                 var_name = str(var_name)
                 attr_name = ATTR_NAME_MAP.get(var_name)
+
                 if attr_name is None:
                     _handle_unknown_var_name(
                         project=project,
@@ -179,27 +231,7 @@ def read_project(
 
                 setattr(scenario.v, attr_name, row[column_name])
 
-        project_attr = ATTR_NAME_MAP.get(PROJECT_NAME_VAR)
-        scenario_attr = ATTR_NAME_MAP.get(PROJECT_SCENARIO_NAME_VAR)
-
-        value_project_name = getattr(scenario.v, project_attr, None) if project_attr else None
-        value_scenario_name = getattr(scenario.v, scenario_attr, None) if scenario_attr else None
-
-        if value_project_name is not None and pd.notna(value_project_name):
-            value_project_name = str(value_project_name).strip()
-            if value_project_name and value_project_name != district_name:
-                project.warnings.append(
-                    f"Column {column_name!r}: district name {district_name!r} "
-                    f"does not match {PROJECT_NAME_VAR}={value_project_name!r}"
-                )
-
-        if value_scenario_name is not None and pd.notna(value_scenario_name):
-            value_scenario_name = str(value_scenario_name).strip()
-            if value_scenario_name and value_scenario_name != scenario_name:
-                project.warnings.append(
-                    f"Column {column_name!r}: scenario name {scenario_name!r} "
-                    f"does not match {PROJECT_SCENARIO_NAME_VAR}={value_scenario_name!r}"
-                )
+        _validate_scenario_column_convention(project, scenario)
 
     return project
 
@@ -211,9 +243,14 @@ def build_project_in_dataframe(
     strict: bool = False,
 ) -> pd.DataFrame:
     """
-    Build an Excel-style IN sheet:
-    - one row per schema item, in canonical order
-    - one scenario column per scenario: "district | scenario"
+    Build an Excel-style IN sheet.
+
+    - one row per IN schema item, in canonical schema order
+    - one column per Scenario
+    - scenario column names come directly from Scenario.column_name
+
+    project_name and project_scenario_name are exported from Scenario.v like
+    all other schema variables; they are not reconstructed from Python objects.
     """
     if base_columns is None:
         base_columns = DEFAULT_IN_EXPORT_BASE_COLUMNS.copy()
@@ -225,45 +262,41 @@ def build_project_in_dataframe(
     if first_scenario is None:
         return pd.DataFrame(columns=base_columns)
 
-    rows = []
-    exported_var_names = []
+    metas = list(_iter_schema_metas_for_source("IN"))
+    if not include_derived:
+        metas = [meta for meta in metas if getattr(meta, "ka", None) != 0]
 
-    first_var_names = [meta.var_name for meta, _ in first_scenario.inn.items()]
-    first_var_name_set = set(first_var_names)
-
-    for meta, _ in first_scenario.inn.items():
-        if not include_derived and getattr(meta, "ka", None) == 0:
-            continue
-
-        rows.append({col: getattr(meta, col, None) for col in base_columns})
-        exported_var_names.append(meta.var_name)
-
+    rows = [
+        {col: getattr(meta, col, None) for col in base_columns}
+        for meta in metas
+    ]
     df = pd.DataFrame(rows, columns=base_columns)
 
     if df["var_name"].isna().any():
         raise ValueError("Export contains empty var_name values.")
-    if (df["var_name"].astype(str).str.strip() == "").any():
+    if df["var_name"].astype(str).str.strip().eq("").any():
         raise ValueError("Export contains blank var_name values.")
     if df["var_name"].duplicated().any():
         dups = df.loc[df["var_name"].duplicated(), "var_name"].tolist()
         raise ValueError(f"Duplicate var_name values in schema: {dups}")
 
-    exported_var_name_set = set(exported_var_names)
+    for scenario, col_name in _iter_scenario_columns(project):
+        if strict:
+            missing_attrs = [
+                meta.attr_name
+                for meta in metas
+                if not hasattr(scenario.v, meta.attr_name)
+            ]
+            if missing_attrs:
+                raise ValueError(
+                    f"Scenario {col_name!r} is missing schema attributes: "
+                    f"{missing_attrs[:10]}"
+                )
 
-    for district, scenario, col_name in _iter_scenario_columns(project):
-        values = scenario.inn.to_var_dict()
-        values[PROJECT_NAME_VAR] = district.name
-        values[PROJECT_SCENARIO_NAME_VAR] = scenario.name
-
-        if strict and set(values) != first_var_name_set:
-            missing = sorted(first_var_name_set - set(values))
-            extra = sorted(set(values) - first_var_name_set)
-            raise ValueError(
-                f"Scenario {col_name!r} has mismatching IN items. "
-                f"Missing: {missing[:10]} Extra: {extra[:10]}"
-            )
-
-        values = {k: v for k, v in values.items() if k in exported_var_name_set}
+        values = {
+            meta.var_name: getattr(scenario.v, meta.attr_name)
+            for meta in metas
+        }
         df[col_name] = df["var_name"].map(values)
 
     return df
@@ -301,8 +334,8 @@ def write_project_excel(
                 [
                     ("export_type", "python_project_excel"),
                     ("file_source", project.file_source or ""),
-                    ("district_count", len(project.districts)),
-                    ("scenario_count", sum(len(d.scenarios) for d in project.districts)),
+                    ("project_name_count", len(project.project_names())),
+                    ("scenario_count", len(project.scenarios)),
                     ("created_by", "pexl"),
                     ("created_at_utc", datetime.now(UTC).isoformat()),
                     ("include_derived", include_derived),
