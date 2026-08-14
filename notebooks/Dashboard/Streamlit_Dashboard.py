@@ -330,7 +330,7 @@ def build_four_column_gwp_chart(df, metadata, title, y_axis_title, ee_vars, ee_o
     variants = df["Variant"].tolist()
     # 4 Spalten pro Variante vorbereiten
     x_variant = [var for var in variants for _ in range(4)]
-    x_type = ['EE', 'EE Offsets', 'OE', 'OE Offsets'] * len(variants)
+    x_type = ['Baulich', 'Baulich kompensation', 'Betrieblich', 'Betrieblich kompensation'] * len(variants)
     x_axis = [x_variant, x_type]
 
     def interleave_four(values, target_col_idx):
@@ -436,8 +436,8 @@ def get_chart_configs(file_path, metadata):
             
         elif func_name == "build_gwp_chart":
             chart_kwargs["y_axis_title"] = "Kumulierte THG-Emissionen 2025 - 2075<br>[kg<sub>CO2eq</sub>/m<sup>2</sup><sub>BGF</sub>]"
-            chart_kwargs["ee_vars"] = [var for var, meta in metadata.items() if meta.get("domain") == diagram_id and meta.get("destination") == "embodied_emissions"]
-            chart_kwargs["oe_vars"] = [var for var, meta in metadata.items() if meta.get("domain") == diagram_id and meta.get("destination") == "operational_emissions"]
+            chart_kwargs["ee_vars"] = [var for var, meta in metadata.items() if meta.get("domain") == diagram_id and meta.get("destination") == "Baulich"]
+            chart_kwargs["oe_vars"] = [var for var, meta in metadata.items() if meta.get("domain") == diagram_id and meta.get("destination") == "Betrieblich"]
             
             balance_vars = [var for var, meta in metadata.items() if meta.get("domain") == diagram_id and meta.get("destination") == "Balance Variable"]
             if balance_vars:
@@ -445,10 +445,10 @@ def get_chart_configs(file_path, metadata):
                 
         elif func_name == "build_four_column_gwp_chart":
             chart_kwargs["y_axis_title"] = "Kumulierte THG-Emissionen 2025 - 2075<br>[kg<sub>CO2eq</sub>/m<sup>2</sup><sub>BGF</sub>]"
-            chart_kwargs["ee_vars"] = [var for var, meta in metadata.items() if meta.get("domain") == diagram_id and meta.get("destination") == "embodied_emissions"]
-            chart_kwargs["oe_vars"] = [var for var, meta in metadata.items() if meta.get("domain") == diagram_id and meta.get("destination") == "operational_emissions"]
-            chart_kwargs["ee_offset_vars"] = [var for var, meta in metadata.items() if meta.get("domain") == diagram_id and meta.get("destination") == "embodied_offsets"]
-            chart_kwargs["oe_offset_vars"] = [var for var, meta in metadata.items() if meta.get("domain") == diagram_id and meta.get("destination") == "operational_offsets"]
+            chart_kwargs["ee_vars"] = [var for var, meta in metadata.items() if meta.get("domain") == diagram_id and meta.get("destination") == "Baulich"]
+            chart_kwargs["oe_vars"] = [var for var, meta in metadata.items() if meta.get("domain") == diagram_id and meta.get("destination") == "Betrieblich"]
+            chart_kwargs["ee_offset_vars"] = [var for var, meta in metadata.items() if meta.get("domain") == diagram_id and meta.get("destination") == "Baulich kompensation"]
+            chart_kwargs["oe_offset_vars"] = [var for var, meta in metadata.items() if meta.get("domain") == diagram_id and meta.get("destination") == "Betrieblich kompensation"]
             
         configs.append({
             "tab_name": tab_name,
