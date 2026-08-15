@@ -10,12 +10,19 @@ import pandas as pd
 from pexl.io.csv_io import read_dataset_dir, normalize_table
 
 
+TABLE_KEYS: dict[str, str] = {
+    "IN": "var_name",
+    "OUT": "var_name",
+    "SIM": "var_name",
+    "CHART_types": "chart_name",
+}
+
 DEFAULT_COMPARE_COLS: dict[str, list[str]] = {
     "IN": ["ka", "Type", "Einheit", "Formel", "Name"],
     "OUT": ["Kategorie", "Bereich", "var_cat", "Einheit", "Label", "Formel", "Name"],
     "SIM": ["Column Name", "Formula"],
+    "CHART_types": ["tab_name", "title", "chart_type"],
 }
-
 
 @dataclass(frozen=True)
 class SchemaDiffOptions:
@@ -24,46 +31,129 @@ class SchemaDiffOptions:
     max_value_changes: int = 200  # cap for report size
 
 
+def _diff_table_structure(
+    old_df: pd.DataFrame,
+    new_df: pd.DataFrame,
+) -> dict[str, Any]:
+
+    old_cols = set(old_df.columns)
+    new_cols = set(new_df.columns)
+
+    return {
+        "status": "common",
+        "detail": "structural",
+        "columns": {
+            "added": sorted(new_cols - old_cols),
+            "removed": sorted(old_cols - new_cols),
+            "common_count": len(old_cols & new_cols),
+        },
+        "rows": {
+            "old_count": len(old_df),
+            "new_count": len(new_df),
+        },
+    }
+
+
+def _describe_new_table(
+    df: pd.DataFrame,
+    *,
+    status: str,
+) -> dict[str, Any]:
+
+    return {
+        "status": status,
+        "detail": "structural",
+        "columns": list(df.columns),
+        "rows": {
+            "count": len(df),
+        },
+    }
+
 def diff_schema_dirs(
     old_dir: str | Path,
     new_dir: str | Path,
     *,
     options: SchemaDiffOptions | None = None,
 ) -> dict[str, Any]:
-    """
-    Diff two schema dataset directories that contain IN.csv and OUT.csv.
-    Returns a JSON-serializable report dict.
-    """
+
     options = options or SchemaDiffOptions()
     compare_cols = options.compare_cols or DEFAULT_COMPARE_COLS
 
     old_dir = Path(old_dir)
     new_dir = Path(new_dir)
 
-    old_tables = read_dataset_dir(old_dir)
-    new_tables = read_dataset_dir(new_dir)
+    old_tables = read_dataset_dir(old_dir, strict=False) #might not have new structures
+    new_tables = read_dataset_dir(new_dir, strict=False) # might not have old structures
+
+    old_names = set(old_tables)
+    new_names = set(new_tables)
+
+    added_tables = sorted(new_names - old_names)
+    removed_tables = sorted(old_names - new_names)
+    common_tables = sorted(old_names & new_names)
+
+    warnings: list[str] = []
+
+    if added_tables:
+        warnings.append(
+            f"Tables added to schema: {added_tables}"
+        )
+
+    if removed_tables:
+        warnings.append(
+            f"Tables removed from schema: {removed_tables}"
+        )
 
     report: dict[str, Any] = {
         "meta": {
             "old_dir": str(old_dir),
             "new_dir": str(new_dir),
-            "key_col": options.key_col,
         },
+        "files": {
+            "old_count": len(old_names),
+            "new_count": len(new_names),
+            "added": added_tables,
+            "removed": removed_tables,
+            "common": common_tables,
+        },
+        "warnings": warnings,
         "tables": {},
         "audit": _diff_audit(old_dir, new_dir),
     }
 
-    for table_name in ("IN", "OUT", "SIM"):
-        old_df = old_tables[table_name]
-        new_df = new_tables[table_name]
+    # Detailed diff where both versions contain the table
+    # and we know its semantic key.
+    for table_name in common_tables:
+
+        key_col = TABLE_KEYS.get(table_name)
+
+        if key_col is None:
+            report["tables"][table_name] = _diff_table_structure(
+                old_tables[table_name],
+                new_tables[table_name],
+            )
+            continue
 
         report["tables"][table_name] = _diff_table(
-            old_df,
-            new_df,
+            old_tables[table_name],
+            new_tables[table_name],
             table_name=table_name,
-            key_col=options.key_col,
+            key_col=key_col,
             compare_cols=compare_cols.get(table_name, []),
             max_value_changes=options.max_value_changes,
+        )
+
+    # Still describe newly added/removed tables.
+    for table_name in added_tables:
+        report["tables"][table_name] = _describe_new_table(
+            new_tables[table_name],
+            status="added",
+        )
+
+    for table_name in removed_tables:
+        report["tables"][table_name] = _describe_new_table(
+            old_tables[table_name],
+            status="removed",
         )
 
     return report
@@ -278,6 +368,8 @@ def schema_diff_to_markdown(report: dict, *, value_format: Literal["table", "ite
         ]
     )
 
+    files_md = _render_files_section(report)
+
     tables_md = "\n\n".join(
         _render_table_section(tname, t, value_format=value_format)
         for tname, t in (report.get("tables", {}) or {}).items()
@@ -286,10 +378,56 @@ def schema_diff_to_markdown(report: dict, *, value_format: Literal["table", "ite
     audit = report.get("audit", {}) or {}
     audit_md = _render_audit_section(audit) if audit.get("present") else ""
 
-    return "\n\n".join(s for s in (header, tables_md, audit_md) if s.strip())
+    return "\n\n".join(
+        s
+        for s in (
+            header,
+            files_md,
+            tables_md,
+            audit_md,
+        )
+        if s.strip()
+    )
 
+
+def _render_files_section(report: dict) -> str:
+    files = report.get("files", {})
+    warnings = report.get("warnings", [])
+
+    lines = [
+        "## Dataset files",
+        "",
+        f"- Old file count: {files.get('old_count')}",
+        f"- New file count: {files.get('new_count')}",
+        f"- Added: {files.get('added', [])}",
+        f"- Removed: {files.get('removed', [])}",
+    ]
+
+    if warnings:
+        lines += [
+            "",
+            "### Warnings",
+            *[f"- ⚠ {warning}" for warning in warnings],
+        ]
+
+    return "\n".join(lines)
 
 def _render_table_section(tname: str, t: dict, *, value_format: Literal["table", "items"]) -> str:
+    
+    if t.get("detail") == "structural":
+        status = t.get("status", "common")
+        rows = t.get("rows", {})
+        columns = t.get("columns", {})
+
+        return "\n".join(
+            [
+                f"## {tname}",
+                "",
+                f"- Status: **{status}**",
+                f"- Rows: {rows}",
+                f"- Columns: {columns}",
+            ]
+        )
     cols = t.get("columns", {}) or {}
     rows = t.get("rows", {}) or {}
     ch = t.get("changes", {}) or {}

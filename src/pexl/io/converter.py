@@ -12,6 +12,21 @@ import pandas as pd
 
 Mode = Literal["schema", "raw"]
 
+SCHEMA_SHEETS = {
+    "IN": "IN",
+    "OUT": "OUT",
+    "SIM2": "SIM",
+    "CHART_metadata": "CHART_metadata",
+    "CHART_types": "CHART_types",
+}
+
+SCHEMA_REQUIRED_COLUMNS = {
+    "IN": "var_name",
+    "OUT": "var_name",
+    "SIM": None,
+    "CHART_metadata": "chart_name",
+    "CHART_types": "chart_name",
+}
 
 @dataclass(frozen=True)
 class ConvertResult:
@@ -55,7 +70,7 @@ def xlsx_to_dataset_dir(
     audit: dict[str, object] | None = None
 
     if mode == "schema":
-        sheets = {"IN": "IN", "OUT": "OUT", "SIM2": "SIM"}
+        sheets = SCHEMA_SHEETS
         audit = {
             "mode": "schema",
             "source_xlsx": str(xlsx_path),
@@ -70,14 +85,29 @@ def xlsx_to_dataset_dir(
         raise ValueError(f"Invalid mode={mode!r}. Use 'schema' or 'raw'.")
 
     for sheet_name, table_name in sheets.items():
-        df = pd.read_excel(xlsx_path, sheet_name=sheet_name, dtype=str).fillna("")
+        df = (
+            pd.read_excel(
+                xlsx_path,
+                sheet_name=sheet_name,
+                dtype=str,
+            )
+            .fillna("")
+        )
 
         if mode == "schema":
-            df, table_audit = _clean_for_schema_contract(df)
-            audit["tables"][table_name] = table_audit  # type: ignore[index]
+            df, table_audit = _clean_for_schema_contract(
+                df,
+                required_column=SCHEMA_REQUIRED_COLUMNS.get(table_name),
+            )
+            audit["tables"][table_name] = table_audit
 
         csv_path = out_dir / f"{table_name}.csv"
-        df.to_csv(csv_path, index=False, sep=delimiter, encoding=encoding)
+        df.to_csv(
+            csv_path,
+            index=False,
+            sep=delimiter,
+            encoding=encoding,
+        )
         written[table_name] = csv_path
 
     audit_path: Path | None = None
@@ -106,15 +136,11 @@ def _strip_all_cells(df: pd.DataFrame) -> pd.DataFrame:
     return out
 
 
-def _clean_for_schema_contract(df: pd.DataFrame) -> tuple[pd.DataFrame, dict[str, object]]:
-    """
-    Contract cleaning:
-      - strip whitespace across all cells
-      - if var_name exists: keep only rows where var_name != ""
-      - record excluded rows in audit with minimal identifying info
-
-    We intentionally do NOT filter by ka here; ka quality checks belong in validate/schema.py.
-    """
+def _clean_for_schema_contract(
+    df: pd.DataFrame,
+    *,
+    required_column: str | None = None,
+) -> tuple[pd.DataFrame, dict[str, object]]:
     original_rows = len(df)
     df = _strip_all_cells(df)
 
@@ -124,28 +150,20 @@ def _clean_for_schema_contract(df: pd.DataFrame) -> tuple[pd.DataFrame, dict[str
         "excluded_rows": {},
     }
 
-    if "var_name" in df.columns:
-        empty_mask = df["var_name"] == ""
+    if required_column and required_column in df.columns:
+        empty_mask = df[required_column] == ""
+
         excluded = df.loc[empty_mask].copy()
-        kept = df.loc[~empty_mask].copy()
+        df = df.loc[~empty_mask].copy()
 
         audit["excluded_rows"] = {
-            "empty_var_name_count": int(empty_mask.sum()),
-            # keep a small sample so audit stays readable
-            "empty_var_name_sample": _audit_sample_rows(excluded),
-        }
-        df = kept
-    else:
-        # If there's no var_name column, we cannot apply the contract filter.
-        audit["excluded_rows"] = {
-            "empty_var_name_count": None,
-            "empty_var_name_sample": [],
-            "note": "No 'var_name' column present; no row filtering applied.",
+            f"empty_{required_column}_count": int(empty_mask.sum()),
+            f"empty_{required_column}_sample": _audit_sample_rows(excluded),
         }
 
     audit["kept_rows"] = len(df)
-    return df.reset_index(drop=True), audit
 
+    return df.reset_index(drop=True), audit
 
 def _audit_sample_rows(df: pd.DataFrame, *, max_rows: int = 20) -> list[dict[str, str]]:
     """

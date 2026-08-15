@@ -4,7 +4,13 @@ import pandas as pd
 
 
 REQUIRED_FILES = ("IN.csv", "OUT.csv")
-
+DEFAULT_TABLES = (
+    "IN",
+    "OUT",
+    "SIM",
+    "CHART_metadata",
+    "CHART_types",
+)
 
 def _read_csv(path: Path) -> pd.DataFrame:
     """
@@ -19,32 +25,46 @@ def _read_csv(path: Path) -> pd.DataFrame:
     )
 
 
-def read_dataset_dir(root: str | Path) -> dict[str, pd.DataFrame]:
-    """
-    Read a dataset directory containing IN.csv and OUT.csv.
+def read_dataset_dir(
+    root: str | Path,
+    *,
+    strict: bool = True,
+) -> dict[str, pd.DataFrame]:
 
-    Returns:
-        {
-            "IN": DataFrame,
-            "OUT": DataFrame,
-            "SIM": DataFrame,
-        }
-    """
     root = Path(root)
 
-    if not root.exists():
-        raise FileNotFoundError(f"Dataset dir does not exist: {root}")
+    if strict:
+        missing = [
+            name
+            for name in DEFAULT_TABLES
+            if not (root / f"{name}.csv").exists()
+        ]
 
-    missing = [f for f in REQUIRED_FILES if not (root / f).exists()]
-    if missing:
-        raise FileNotFoundError(
-            f"Missing required files in {root}: {missing}"
+        if missing:
+            raise FileNotFoundError(
+                f"Missing dataset tables in {root}: {missing}"
+            )
+
+        table_names = DEFAULT_TABLES
+
+    else:
+        table_names = tuple(
+            path.stem
+            for path in sorted(root.glob("*.csv"))
         )
 
+        if not table_names:
+            raise FileNotFoundError(
+                f"No CSV tables found in {root}"
+            )
+
     return {
-        "IN": _read_csv(root / "IN.csv"),
-        "OUT": _read_csv(root / "OUT.csv"),
-        "SIM": _read_csv(root / "SIM.csv"),
+        name: pd.read_csv(
+            root / f"{name}.csv",
+            sep=";",
+            encoding="utf-8-sig",
+        )
+        for name in table_names
     }
 
 def normalize_table(
