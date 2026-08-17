@@ -173,33 +173,121 @@ def read_project(
     unknown: str = "raise",
 ) -> Project:
     """
-    Read a PEExcel workbook with sheets IN and OUT.
+    Read a PEExcel project/export workbook.
 
-    Model mapping:
-        workbook/file              -> Project
-        scenario column            -> Scenario
-        project_name               -> Scenario.v.project_name
-        project_scenario_name      -> Scenario.v.project_scenario_name
+    Supported formats:
 
-    Scenario identity is the exact Excel column header. The conventional
-    "project_name | project_scenario_name" naming scheme is only validated.
+    1. Single-scenario timestep export
+       - SIM2 sheet exists
+       - IN contains exactly one scenario column: STAGE
+       - scenario name is derived from the file name
+       - IN/STAGE, OUT/Live and SIM2 belong to that scenario
+
+    2. Standard annual project export
+       - no SIM2
+       - IN and OUT contain one or more scenario columns
+       - Excel scenario column headers remain authoritative identities
+
+    3. Future multi-scenario timestep export
+       - TSD_index sheet exists
+       - not implemented yet
     """
     file_path = Path(file_path)
-    project = Project(file_source=file_path)
+    project = Project()
+    project.file_source = file_path
 
-    df_in = pd.read_excel(file_path, sheet_name="IN")
-    df_out = pd.read_excel(file_path, sheet_name="OUT")
+    xls = pd.ExcelFile(file_path)
+    sheets = set(xls.sheet_names)
+
+    if "TSD_index" in sheets:
+        raise NotImplementedError(
+            "Multi-scenario timestep exports with TSD_index are not yet supported."
+        )
+
+    if "IN" not in sheets or "OUT" not in sheets:
+        raise ValueError("PEExcel project must contain sheets 'IN' and 'OUT'.")
+
+    df_in = pd.read_excel(xls, sheet_name="IN")
+    df_out = pd.read_excel(xls, sheet_name="OUT")
 
     in_columns = [
-        str(c) for c in df_in.columns if c not in RESERVED_IN_COLUMN_HEADER_SET
+        str(c) for c in df_in.columns
+        if c not in RESERVED_IN_COLUMN_HEADER_SET
     ]
     out_columns = [
-        str(c) for c in df_out.columns if c not in RESERVED_OUT_COLUMN_HEADER_SET
+        str(c) for c in df_out.columns
+        if c not in RESERVED_OUT_COLUMN_HEADER_SET
     ]
+
+    def load_column(scenario, df, column_name):
+        if column_name not in df.columns:
+            return
+
+        for _, row in df.iterrows():
+            var_name = row.get("var_name")
+            if pd.isna(var_name) or not str(var_name).strip():
+                continue
+
+            var_name = str(var_name)
+            attr_name = ATTR_NAME_MAP.get(var_name)
+
+            if attr_name is None:
+                _handle_unknown_var_name(
+                    project=project,
+                    var_name=var_name,
+                    column_name=column_name,
+                    unknown=unknown,
+                )
+                continue
+
+            setattr(scenario.v, attr_name, row[column_name])
+
+    # ------------------------------------------------------------------
+    # Case 1: single-scenario timestep export
+    # ------------------------------------------------------------------
+    if "SIM2" in sheets:
+        if in_columns != ["STAGE"]:
+            raise ValueError(
+                "SIM2 export expected exactly one IN scenario column named 'STAGE', "
+                f"found: {in_columns}"
+            )
+
+        scenario_name = file_path.stem
+        scenario = project.get_or_create_scenario(scenario_name)
+        print(scenario_name)
+        load_column(scenario, df_in, "STAGE")
+
+        if "Live" in df_out.columns:
+            load_column(scenario, df_out, "Live")
+        elif len(out_columns) == 1:
+            project.warnings.append(
+                f"SIM2 export has no OUT column 'Live'; using {out_columns[0]!r}."
+            )
+            load_column(scenario, df_out, out_columns[0])
+        else:
+            project.warnings.append(
+                "SIM2 export has no unambiguous OUT scenario column."
+            )
+
+        df_sim = pd.read_excel(xls, sheet_name="SIM2")
+
+        if "date" in df_sim.columns:
+            df_sim["date"] = pd.to_datetime(
+                df_sim["date"],
+                format="mixed",
+            ).dt.round("h")
+            df_sim = df_sim.set_index("date")
+
+        scenario.timeseries = df_sim
+        return project
+
+    # ------------------------------------------------------------------
+    # Case 2: standard annual project export
+    # ------------------------------------------------------------------
     all_columns = _unique(in_columns + out_columns)
 
     for column_name in all_columns:
-        if not str(column_name).strip():
+        if not column_name.strip():
             message = "Empty scenario column name."
             if unknown == "ignore":
                 project.warnings.append(message)
@@ -208,32 +296,13 @@ def read_project(
 
         scenario = project.get_or_create_scenario(column_name)
 
-        for df in (df_in, df_out):
-            if column_name not in df.columns:
-                continue
-
-            for _, row in df.iterrows():
-                var_name = row.get("var_name")
-                if pd.isna(var_name) or not str(var_name).strip():
-                    continue
-
-                var_name = str(var_name)
-                attr_name = ATTR_NAME_MAP.get(var_name)
-
-                if attr_name is None:
-                    _handle_unknown_var_name(
-                        project=project,
-                        var_name=var_name,
-                        column_name=column_name,
-                        unknown=unknown,
-                    )
-                    continue
-
-                setattr(scenario.v, attr_name, row[column_name])
+        load_column(scenario, df_in, column_name)
+        load_column(scenario, df_out, column_name)
 
         _validate_scenario_column_convention(project, scenario)
 
     return project
+
 
 
 def build_project_in_dataframe(

@@ -35,8 +35,7 @@ class Scenario:
         self.v = ExcelNamedVariables()
         self.meta = SCHEMA_META
 
-        # TODO:
-        # self.sim = None
+        self.timeseries = None
 
     @property
     def project_name(self):

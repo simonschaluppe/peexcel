@@ -55,12 +55,9 @@ class _BaseView:
         """
         raise NotImplementedError
 
-    def select(self, **filters):
-        """
-        Refine the variable dimension using VariableMeta fields.
-        """
+    def select(self, *names, **filters):
         return self._with_variables(
-            self._variables.select(**filters)
+            self._variables.select(*names, **filters)
         )
 
     def items(

@@ -68,24 +68,46 @@ class VariableSelection:
             if meta.source in (source, "BOTH")
         )
 
-    def select(self, **filters) -> "VariableSelection":
+    def select(self, *names: str, **filters) -> "VariableSelection":
         """
-        Filter variables by arbitrary VariableMeta fields.
+        Select variables explicitly by name or filter by VariableMeta fields.
 
-        All filters are combined using logical AND and exact equality.
+        Explicit names may be canonical Excel var_names or Python attr_names.
+        Their requested order is preserved.
 
         Examples
         --------
         selection.select(
-            domain="primary_energy_balance",
-            measure="demand",
+            "PV_own_consumption",
+            "EUI_self_sufficiency",
         )
 
         selection.select(
-            entity_group="usage",
-            entity_key="residential",
+            domain="primary_energy_balance",
+            measure="demand",
         )
         """
+        if names and filters:
+            raise ValueError(
+                "Use either explicit variable names or metadata filters, not both."
+            )
+
+        if names:
+            selected = {meta.attr_name: meta for meta in self._vars}
+            result = []
+
+            for name in names:
+                attr_name = _resolve_attr_name(name)
+
+                if attr_name not in selected:
+                    raise KeyError(
+                        f"Variable {name!r} is not part of this selection"
+                    )
+
+                result.append(selected[attr_name])
+
+            return VariableSelection(result)
+
         valid_fields = VariableMeta.__dataclass_fields__
 
         unknown = [
