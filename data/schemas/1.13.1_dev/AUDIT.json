@@ -112,10 +112,10 @@
       }
     },
     "OUT": {
-      "original_rows": 612,
-      "kept_rows": 506,
+      "original_rows": 613,
+      "kept_rows": 510,
       "excluded_rows": {
-        "empty_var_name_count": 106,
+        "empty_var_name_count": 103,
         "empty_var_name_sample": [
           {
             "export_row": "5",
@@ -213,8 +213,8 @@
             "Formel": ""
           },
           {
-            "export_row": "225",
-            "ka": "3",
+            "export_row": "259",
+            "ka": "",
             "Formel": ""
           }
         ]

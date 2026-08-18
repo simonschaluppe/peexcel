@@ -163,6 +163,9 @@ class VariableMeta:
             parts.append(self.icon)
 
         parts.append(self.var_name)
+        
+        if self.label_de:
+            parts.append(f"'{self.label_de}'")
 
         if self.unit:
             parts.append(f"[{self.unit}]")
@@ -170,7 +173,7 @@ class VariableMeta:
         if self.source:
             parts.append(f"@{self.source}")
 
-        return "<VarMeta " + " ".join(parts) + ">"
+        return "<" + " ".join(parts) + ">"
 '''
 
 

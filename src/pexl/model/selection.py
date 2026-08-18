@@ -15,19 +15,19 @@ if TYPE_CHECKING:
     from .project import Project
     from .scenario import Scenario
 
+def _resolve_attr_name(
+    name: str | VariableMeta,
+) -> str:
+    if isinstance(name, VariableMeta):
+        return name.attr_name
 
-def _resolve_attr_name(name: str) -> str:
-    """
-    Resolve either a canonical Excel var_name or a Python attr_name
-    to the corresponding Python attribute name.
-    """
     if name in ATTR_NAME_MAP:
         return ATTR_NAME_MAP[name]
 
     if name in ATTR_NAME_MAP.values():
         return name
 
-    raise KeyError(f"Unknown schema variable: {name!r}")
+    raise KeyError(f"Unknown variable: {name!r}")
 
 
 class VariableSelection:
@@ -70,8 +70,12 @@ class VariableSelection:
             for meta in self._vars
             if meta.source in (source, "BOTH")
         )
-
-    def select(self, *names: str, **filters) -> "VariableSelection":
+    
+    def select(
+        self,
+        *names: str | VariableMeta,
+        **filters,
+    ) -> VariableSelection:
         """
         Select variables explicitly by name or filter by VariableMeta fields.
 

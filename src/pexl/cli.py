@@ -35,6 +35,11 @@ def main() -> None:
     parser = argparse.ArgumentParser(prog="pexl")
     sub = parser.add_subparsers(dest="cmd", required=True)
 
+    p_dashboard = sub.add_parser(
+        "dashboard",
+        help="Launch the PEExcel Streamlit dashboard.",
+    )
+
     p_create = sub.add_parser(
         "create-schema",
         help="Generate and validate schema bindings.",
@@ -73,7 +78,35 @@ def main() -> None:
 
     args = parser.parse_args()
 
-    if args.cmd == "create-schema":
+    if args.cmd == "dashboard":
+        import subprocess
+        import sys
+
+        app_path = (
+            Path(__file__).resolve().parents[2]
+            / "apps"
+            / "dashboard"
+            / "main.py"
+        )
+
+        if not app_path.exists():
+            raise FileNotFoundError(
+                f"Dashboard app not found: {app_path}"
+            )
+
+        subprocess.run(
+            [
+                sys.executable,
+                "-m",
+                "streamlit",
+                "run",
+                str(app_path),
+            ],
+            check=True,
+        )
+        return
+
+    elif args.cmd == "create-schema":
         from pexl.schema import create
 
         if args.dir:

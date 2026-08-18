@@ -77,7 +77,7 @@ class TimeseriesMetaRegistry:
             var_name='Ti0uncooled',
             attr_name='Ti0uncooled',
             domain=None,
-            measure='20',
+            measure='21',
             unit='°C',
             formula='=IF(1-NFA_cooled/NFA_total>0,Tsetheat_min,#N/A)',
         )
@@ -85,7 +85,7 @@ class TimeseriesMetaRegistry:
             var_name='Ti0cooled',
             attr_name='Ti0cooled',
             domain=None,
-            measure='20',
+            measure='21',
             unit='°C',
             formula='=IF(NFA_cooled/NFA_total>0,Tsetheat_min,#N/A)',
         )

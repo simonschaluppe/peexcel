@@ -29,6 +29,9 @@ class VariableMeta:
             parts.append(self.icon)
 
         parts.append(self.var_name)
+        
+        if self.label_de:
+            parts.append(f"'{self.label_de}'")
 
         if self.unit:
             parts.append(f"[{self.unit}]")
@@ -36,7 +39,7 @@ class VariableMeta:
         if self.source:
             parts.append(f"@{self.source}")
 
-        return "<VarMeta " + " ".join(parts) + ">"
+        return "<" + " ".join(parts) + ">"
 
 
 class ExcelNamedVariables:
@@ -937,6 +940,7 @@ class ExcelNamedVariables:
         self.context_factor_density: object | None = None
         self.context_factor_mobility: object | None = None
         self.context_factor_renovation: object | None = None
+        self.PEI_virtual_demand: object | None = None
         self.PEI_demand: object | None = None
         self.PEI_el_plugloads: object | None = None
         self.PEI_el_hvac: object | None = None
@@ -948,13 +952,15 @@ class ExcelNamedVariables:
         self.PEI_mob_fossile: object | None = None
         self.PEI_mob_el: object | None = None
         self.PEI_storage_losses: object | None = None
-        self.PEI_cf_density_pos: object | None = None
         self.PEI_cf_density_neg: object | None = None
+        self.PEI_virtual_supply: object | None = None
+        self.PEI_cf_density_pos: object | None = None
         self.PEI_cf_mobility: object | None = None
         self.PEI_cf_renovation: object | None = None
         self.PEI_sub_PV: object | None = None
         self.PEI_sub_flex: object | None = None
         self.PEI_balance: object | None = None
+        self.PEI_virtual_balance_test: object | None = None
         self.PEI_grid_import: object | None = None
         self.PEI_flex_import: object | None = None
         self.PEI_evExtCharge_import: object | None = None
@@ -965,6 +971,7 @@ class ExcelNamedVariables:
         self.PEI_saldo_project: object | None = None
         self.PEI_saldo_target: object | None = None
         self.PEI_importExport_balance: object | None = None
+        self.PEI_importexport_balance_test: object | None = None
         self.fPE_grid: object | None = None
         self.fPE_eff: object | None = None
         self.GWP_ee_wall: object | None = None
@@ -13118,7 +13125,7 @@ class Meta:
             attr_name='test_heat_balance_summer',
             icon='☑',
             label_de='Wärmebilanz Kühlperiode',
-            unit='True',
+            unit='False',
             comment=None,
             source='OUT',
             ka=4,
@@ -13390,7 +13397,7 @@ class Meta:
             attr_name='test_heat_balance_seasonal_mismatch',
             icon='☑',
             label_de='Wärmebilanz Diff Sommer Winter',
-            unit='False',
+            unit='True',
             comment=None,
             source='OUT',
             ka=4,
@@ -15577,6 +15584,22 @@ class Meta:
             entity_group=None,
             entity_key=None,
         )
+        self.PEI_virtual_demand = VariableMeta(
+            var_name='PEI_virtual_demand',
+            attr_name='PEI_virtual_demand',
+            icon=None,
+            label_de='PE-Bedarf (inkl. Kontextfaktoren)',
+            unit='kWhPEges./m²NGFa',
+            comment=None,
+            source='OUT',
+            ka=3,
+            domain='primary_energy_balance',
+            measure='demand',
+            spatial_scope=None,
+            temporal_scope='annual',
+            entity_group=None,
+            entity_key=None,
+        )
         self.PEI_demand = VariableMeta(
             var_name='PEI_demand',
             attr_name='PEI_demand',
@@ -15753,11 +15776,11 @@ class Meta:
             entity_group='storage',
             entity_key=None,
         )
-        self.PEI_cf_density_pos = VariableMeta(
-            var_name='PEI_cf_density_pos',
-            attr_name='PEI_cf_density_pos',
+        self.PEI_cf_density_neg = VariableMeta(
+            var_name='PEI_cf_density_neg',
+            attr_name='PEI_cf_density_neg',
             icon=None,
-            label_de='Kontext bauliche Dichte positiv',
+            label_de='Kontext bauliche Dichte negativ',
             unit='kWhPEges./m²NGFa',
             comment=None,
             source='OUT',
@@ -15769,11 +15792,27 @@ class Meta:
             entity_group='context_factor',
             entity_key='density',
         )
-        self.PEI_cf_density_neg = VariableMeta(
-            var_name='PEI_cf_density_neg',
-            attr_name='PEI_cf_density_neg',
+        self.PEI_virtual_supply = VariableMeta(
+            var_name='PEI_virtual_supply',
+            attr_name='PEI_virtual_supply',
             icon=None,
-            label_de='Kontext bauliche Dichte negativ',
+            label_de='PE-Deckung (inkl. Kontextfaktoren)',
+            unit='kWhPEges./m²NGFa',
+            comment=None,
+            source='OUT',
+            ka=3,
+            domain='primary_energy_balance',
+            measure='demand',
+            spatial_scope=None,
+            temporal_scope='annual',
+            entity_group=None,
+            entity_key=None,
+        )
+        self.PEI_cf_density_pos = VariableMeta(
+            var_name='PEI_cf_density_pos',
+            attr_name='PEI_cf_density_pos',
+            icon=None,
+            label_de='Kontext bauliche Dichte positiv',
             unit='kWhPEges./m²NGFa',
             comment=None,
             source='OUT',
@@ -15862,6 +15901,22 @@ class Meta:
             measure='balance',
             spatial_scope=None,
             temporal_scope='annual',
+            entity_group=None,
+            entity_key=None,
+        )
+        self.PEI_virtual_balance_test = VariableMeta(
+            var_name='PEI_virtual_balance_test',
+            attr_name='PEI_virtual_balance_test',
+            icon='☑',
+            label_de='PE-Bilanz Summe = Virtuelle Deckung - Virtueller Bedarf',
+            unit='True',
+            comment=None,
+            source='OUT',
+            ka=3,
+            domain='primary_energy_balance',
+            measure='test',
+            spatial_scope='district',
+            temporal_scope=None,
             entity_group=None,
             entity_key=None,
         )
@@ -16021,6 +16076,22 @@ class Meta:
             domain='pe_import_export_balance',
             measure=None,
             spatial_scope=None,
+            temporal_scope=None,
+            entity_group=None,
+            entity_key=None,
+        )
+        self.PEI_importexport_balance_test = VariableMeta(
+            var_name='PEI_importexport_balance_test',
+            attr_name='PEI_importexport_balance_test',
+            icon='☑',
+            label_de='PE-Bilanz Virtuell = Import/Export',
+            unit='True',
+            comment=None,
+            source='OUT',
+            ka=3,
+            domain='primary_energy_balance',
+            measure='test',
+            spatial_scope='district',
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
@@ -21293,6 +21364,7 @@ ATTR_NAME_MAP: dict[str, str] = {
     'context_factor_density': 'context_factor_density',
     'context_factor_mobility': 'context_factor_mobility',
     'context_factor_renovation': 'context_factor_renovation',
+    'PEI_virtual_demand': 'PEI_virtual_demand',
     'PEI_demand': 'PEI_demand',
     'PEI_el_plugloads': 'PEI_el_plugloads',
     'PEI_el_hvac': 'PEI_el_hvac',
@@ -21304,13 +21376,15 @@ ATTR_NAME_MAP: dict[str, str] = {
     'PEI_mob_fossile': 'PEI_mob_fossile',
     'PEI_mob_el': 'PEI_mob_el',
     'PEI_storage_losses': 'PEI_storage_losses',
-    'PEI_cf_density_pos': 'PEI_cf_density_pos',
     'PEI_cf_density_neg': 'PEI_cf_density_neg',
+    'PEI_virtual_supply': 'PEI_virtual_supply',
+    'PEI_cf_density_pos': 'PEI_cf_density_pos',
     'PEI_cf_mobility': 'PEI_cf_mobility',
     'PEI_cf_renovation': 'PEI_cf_renovation',
     'PEI_sub_PV': 'PEI_sub_PV',
     'PEI_sub_flex': 'PEI_sub_flex',
     'PEI_balance': 'PEI_balance',
+    'PEI_virtual_balance_test': 'PEI_virtual_balance_test',
     'PEI_grid_import': 'PEI_grid_import',
     'PEI_flex_import': 'PEI_flex_import',
     'PEI_evExtCharge_import': 'PEI_evExtCharge_import',
@@ -21321,6 +21395,7 @@ ATTR_NAME_MAP: dict[str, str] = {
     'PEI_saldo_project': 'PEI_saldo_project',
     'PEI_saldo_target': 'PEI_saldo_target',
     'PEI_importExport_balance': 'PEI_importExport_balance',
+    'PEI_importexport_balance_test': 'PEI_importexport_balance_test',
     'fPE_grid': 'fPE_grid',
     'fPE_eff': 'fPE_eff',
     'GWP_ee_wall': 'GWP_ee_wall',

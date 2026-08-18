@@ -1,8 +1,11 @@
+from __future__ import annotations
 from pathlib import Path
 from typing import Iterator
 
+from pexl.schema.current import SCHEMA_META
+from .selection import VariableSelection
+from .view import ProjectView
 from .scenario import Scenario
-
 
 class Project:
     """
@@ -63,6 +66,8 @@ class Project:
         self._scenario_dict: dict[str, Scenario] = {}
 
         self.warnings: list[str] = []
+        self.meta = SCHEMA_META
+        self.variables = VariableSelection.all()
 
         if file_source is not None:
             loaded = self.from_excel(file_source, unknown=unknown)
@@ -237,7 +242,7 @@ class Project:
 
 
     @property
-    def inn(self):
+    def inn(self) -> ProjectView:
         from .view import ProjectView
         from .selection import VariableSelection
 
@@ -248,7 +253,7 @@ class Project:
 
 
     @property
-    def out(self):
+    def out(self) -> ProjectView:
         from .view import ProjectView
         from .selection import VariableSelection
 
@@ -256,6 +261,7 @@ class Project:
             self,
             variables=VariableSelection.all().for_source("OUT"),
         )
+
 
     def to_excel(
         self,
