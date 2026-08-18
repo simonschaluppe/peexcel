@@ -21,6 +21,7 @@ class VariableMeta:
     temporal_scope: str | None = None
     entity_group: str | None = None
     entity_key: str | None = None
+    formula: str | None = None
 
     def __repr__(self) -> str:
         parts = []
@@ -1193,6 +1194,8 @@ class ExcelNamedVariables:
         self.EUIh_2th: object | None = None
         self.EUIh_4th: object | None = None
         self.Qh_min_wasteheat: object | None = None
+        self.Qh_flex_wasteheat: object | None = None
+        self.Qh_wasteheat: object | None = None
         self.Qheb_1el: object | None = None
         self.Qheb_3el: object | None = None
         self.Qheb_2th: object | None = None
@@ -1213,6 +1216,7 @@ class ExcelNamedVariables:
         self.Qced_2th: object | None = None
         self.Qloss_c_th2_generation: object | None = None
         self.Qloss_c_generation: object | None = None
+        self.Qc_distr_losses: object | None = None
         self.Qenv_dhw_1: object | None = None
         self.Qenv_dhw_2: object | None = None
         self.Qenv_dhw: object | None = None
@@ -1263,6 +1267,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='settings_tool_version',
         )
         self.input_version_number = VariableMeta(
             var_name='input_version_number',
@@ -1279,6 +1284,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='settings_input_version_number',
         )
         self.cfd_fPE = VariableMeta(
             var_name='cfd_fPE',
@@ -1295,6 +1301,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.cfd_A = VariableMeta(
             var_name='cfd_A',
@@ -1311,6 +1318,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.cfd_dx = VariableMeta(
             var_name='cfd_dx',
@@ -1327,6 +1335,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.cfd_EUI = VariableMeta(
             var_name='cfd_EUI',
@@ -1343,6 +1352,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.cfd_cutoff = VariableMeta(
             var_name='cfd_cutoff',
@@ -1359,6 +1369,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.cfm_budget_residential = VariableMeta(
             var_name='cfm_budget_residential',
@@ -1375,6 +1386,7 @@ class Meta:
             temporal_scope=None,
             entity_group='mobility',
             entity_key=None,
+            formula=None,
         )
         self.cfm_budget_office = VariableMeta(
             var_name='cfm_budget_office',
@@ -1391,6 +1403,7 @@ class Meta:
             temporal_scope=None,
             entity_group='mobility',
             entity_key=None,
+            formula=None,
         )
         self.cfm_budget_school = VariableMeta(
             var_name='cfm_budget_school',
@@ -1407,6 +1420,7 @@ class Meta:
             temporal_scope=None,
             entity_group='mobility',
             entity_key=None,
+            formula=None,
         )
         self.cfm_budget_retail = VariableMeta(
             var_name='cfm_budget_retail',
@@ -1423,6 +1437,7 @@ class Meta:
             temporal_scope=None,
             entity_group='mobility',
             entity_key=None,
+            formula=None,
         )
         self.cfr_budget = VariableMeta(
             var_name='cfr_budget',
@@ -1439,6 +1454,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.project_name = VariableMeta(
             var_name='project_name',
@@ -1455,6 +1471,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='🏙️!$D$5',
         )
         self.project_url = VariableMeta(
             var_name='project_url',
@@ -1471,6 +1488,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='🏙️!D6',
         )
         self.location_address = VariableMeta(
             var_name='location_address',
@@ -1487,6 +1505,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='🏙️!$D$12',
         )
         self.location_name = VariableMeta(
             var_name='location_name',
@@ -1503,6 +1522,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='🏙️!D14',
         )
         self.project_creation_date = VariableMeta(
             var_name='project_creation_date',
@@ -1519,6 +1539,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='🏙️!$D$7',
         )
         self.project_description = VariableMeta(
             var_name='project_description',
@@ -1535,6 +1556,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='🏙️!D8',
         )
         self.project_scenario_name = VariableMeta(
             var_name='project_scenario_name',
@@ -1551,6 +1573,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='ka_variantenname',
         )
         self.location_postcode = VariableMeta(
             var_name='location_postcode',
@@ -1567,6 +1590,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='🏙️!$D$15',
         )
         self.mobility_mode = VariableMeta(
             var_name='mobility_mode',
@@ -1583,6 +1607,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.weather_name = VariableMeta(
             var_name='weather_name',
@@ -1599,6 +1624,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='🏙️!D19',
         )
         self.weather_index = VariableMeta(
             var_name='weather_index',
@@ -1615,6 +1641,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='VERGLEICH(N28;list_weathers;0)',
         )
         self.GFA_residential = VariableMeta(
             var_name='GFA_residential',
@@ -1631,6 +1658,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='residential',
+            formula='🏙️!D28',
         )
         self.GFA_office = VariableMeta(
             var_name='GFA_office',
@@ -1647,6 +1675,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='office',
+            formula='🏙️!D29',
         )
         self.GFA_schoolsec = VariableMeta(
             var_name='GFA_schoolsec',
@@ -1663,6 +1692,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolsec',
+            formula='🏙️!D30',
         )
         self.GFA_schoolprim = VariableMeta(
             var_name='GFA_schoolprim',
@@ -1679,6 +1709,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolprim',
+            formula='🏙️!D31',
         )
         self.GFA_retailfood = VariableMeta(
             var_name='GFA_retailfood',
@@ -1695,6 +1726,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailfood',
+            formula='🏙️!D32',
         )
         self.GFA_retailother = VariableMeta(
             var_name='GFA_retailother',
@@ -1711,6 +1743,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailother',
+            formula='🏙️!D33',
         )
         self.GFA_other = VariableMeta(
             var_name='GFA_other',
@@ -1727,6 +1760,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='other',
+            formula='🏙️!D34',
         )
         self.GFA_total = VariableMeta(
             var_name='GFA_total',
@@ -1743,6 +1777,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMME(N30:N36)',
         )
         self.NFA_to_GFA_ratio_residential = VariableMeta(
             var_name='NFA_to_GFA_ratio_residential',
@@ -1759,6 +1794,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='residential',
+            formula='🏙️!P28',
         )
         self.NFA_to_GFA_ratio_office = VariableMeta(
             var_name='NFA_to_GFA_ratio_office',
@@ -1775,6 +1811,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='office',
+            formula='🏙️!P29',
         )
         self.NFA_to_GFA_ratio_schoolsec = VariableMeta(
             var_name='NFA_to_GFA_ratio_schoolsec',
@@ -1791,6 +1828,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolsec',
+            formula='🏙️!P30',
         )
         self.NFA_to_GFA_ratio_schoolprim = VariableMeta(
             var_name='NFA_to_GFA_ratio_schoolprim',
@@ -1807,6 +1845,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolprim',
+            formula='🏙️!P31',
         )
         self.NFA_to_GFA_ratio_retailfood = VariableMeta(
             var_name='NFA_to_GFA_ratio_retailfood',
@@ -1823,6 +1862,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailfood',
+            formula='🏙️!P32',
         )
         self.NFA_to_GFA_ratio_retailother = VariableMeta(
             var_name='NFA_to_GFA_ratio_retailother',
@@ -1839,6 +1879,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailother',
+            formula='🏙️!P33',
         )
         self.NFA_to_GFA_ratio_other = VariableMeta(
             var_name='NFA_to_GFA_ratio_other',
@@ -1855,6 +1896,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='other',
+            formula='🏙️!P34',
         )
         self.NFA_to_GFA_ratio = VariableMeta(
             var_name='NFA_to_GFA_ratio',
@@ -1871,6 +1913,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='NFA_total/GFA_total',
         )
         self.NFA_residential = VariableMeta(
             var_name='NFA_residential',
@@ -1887,6 +1930,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='residential',
+            formula='N30*N38',
         )
         self.NFA_office = VariableMeta(
             var_name='NFA_office',
@@ -1903,6 +1947,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='office',
+            formula='N31*N39',
         )
         self.NFA_schoolsec = VariableMeta(
             var_name='NFA_schoolsec',
@@ -1919,6 +1964,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolsec',
+            formula='N32*N40',
         )
         self.NFA_schoolprim = VariableMeta(
             var_name='NFA_schoolprim',
@@ -1935,6 +1981,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolprim',
+            formula='N33*N41',
         )
         self.NFA_retailfood = VariableMeta(
             var_name='NFA_retailfood',
@@ -1951,6 +1998,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailfood',
+            formula='N34*N42',
         )
         self.NFA_retailother = VariableMeta(
             var_name='NFA_retailother',
@@ -1967,6 +2015,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailother',
+            formula='N35*N43',
         )
         self.NFA_other = VariableMeta(
             var_name='NFA_other',
@@ -1983,6 +2032,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='other',
+            formula='N36*N44',
         )
         self.NFA_total = VariableMeta(
             var_name='NFA_total',
@@ -1999,6 +2049,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMME(N46:N52)',
         )
         self.per_NFA = VariableMeta(
             var_name='per_NFA',
@@ -2015,6 +2066,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='1/NFA_total',
         )
         self.plot_area = VariableMeta(
             var_name='plot_area',
@@ -2031,6 +2083,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='🏙️!D42',
         )
         self.FSI = VariableMeta(
             var_name='FSI',
@@ -2047,6 +2100,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='GFA_total/N55',
         )
         self.preset_recorded_renovation = VariableMeta(
             var_name='preset_recorded_renovation',
@@ -2063,6 +2117,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.renovation_ratio_residential = VariableMeta(
             var_name='renovation_ratio_residential',
@@ -2079,6 +2134,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='residential',
+            formula='🏙️!D48',
         )
         self.renovation_ratio_office = VariableMeta(
             var_name='renovation_ratio_office',
@@ -2095,6 +2151,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='office',
+            formula='🏙️!D49',
         )
         self.renovation_ratio_schoolsec = VariableMeta(
             var_name='renovation_ratio_schoolsec',
@@ -2111,6 +2168,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolsec',
+            formula='🏙️!D50',
         )
         self.renovation_ratio_schoolprim = VariableMeta(
             var_name='renovation_ratio_schoolprim',
@@ -2127,6 +2185,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolprim',
+            formula='🏙️!D51',
         )
         self.renovation_ratio_retailfood = VariableMeta(
             var_name='renovation_ratio_retailfood',
@@ -2143,6 +2202,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailfood',
+            formula='🏙️!D52',
         )
         self.renovation_ratio_retailother = VariableMeta(
             var_name='renovation_ratio_retailother',
@@ -2159,6 +2219,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailother',
+            formula='🏙️!D53',
         )
         self.renovation_ratio_other = VariableMeta(
             var_name='renovation_ratio_other',
@@ -2175,6 +2236,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='other',
+            formula='🏙️!D54',
         )
         self.renovation_share = VariableMeta(
             var_name='renovation_share',
@@ -2191,6 +2253,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMMENPRODUKT(Renovation_shares;NFA_shares)',
         )
         self.building_count = VariableMeta(
             var_name='building_count',
@@ -2207,6 +2270,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.storey_count_avg = VariableMeta(
             var_name='storey_count_avg',
@@ -2223,6 +2287,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.rh_residential = VariableMeta(
             var_name='rh_residential',
@@ -2239,6 +2304,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='residential',
+            formula='🏙️!N28',
         )
         self.rh_office = VariableMeta(
             var_name='rh_office',
@@ -2255,6 +2321,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='office',
+            formula='🏙️!N29',
         )
         self.rh_schoolsec = VariableMeta(
             var_name='rh_schoolsec',
@@ -2271,6 +2338,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolsec',
+            formula='🏙️!N30',
         )
         self.rh_schoolprim = VariableMeta(
             var_name='rh_schoolprim',
@@ -2287,6 +2355,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolprim',
+            formula='🏙️!N31',
         )
         self.rh_retailfood = VariableMeta(
             var_name='rh_retailfood',
@@ -2303,6 +2372,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailfood',
+            formula='🏙️!N32',
         )
         self.rh_retailother = VariableMeta(
             var_name='rh_retailother',
@@ -2319,6 +2389,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailother',
+            formula='🏙️!N33',
         )
         self.rh_other = VariableMeta(
             var_name='rh_other',
@@ -2335,6 +2406,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='other',
+            formula='🏙️!N34',
         )
         self.rh_avg = VariableMeta(
             var_name='rh_avg',
@@ -2351,6 +2423,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMMENPRODUKT(N68:N74;N46:N52)/NFA_total',
         )
         self.NFV_total = VariableMeta(
             var_name='NFV_total',
@@ -2367,6 +2440,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='NFA_total*rh_avg',
         )
         self.NFV_u = VariableMeta(
             var_name='NFV_u',
@@ -2383,6 +2457,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMMENPRODUKT(N46:N52;N68:N74;cool_passive_shares)',
         )
         self.NFV_c = VariableMeta(
             var_name='NFV_c',
@@ -2399,6 +2474,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMMENPRODUKT(N46:N52;N68:N74;cool_active_shares)',
         )
         self.rh_ceiling = VariableMeta(
             var_name='rh_ceiling',
@@ -2415,6 +2491,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.GFV = VariableMeta(
             var_name='GFV',
@@ -2431,6 +2508,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='NFA_total*(rh_avg+N79)',
         )
         self.hull_ext_wall_wo_window_m2 = VariableMeta(
             var_name='hull_ext_wall_wo_window_m2',
@@ -2447,6 +2525,7 @@ class Meta:
             temporal_scope=None,
             entity_group='hull',
             entity_key='wall',
+            formula='🧱!D11',
         )
         self.hull_roof_m2 = VariableMeta(
             var_name='hull_roof_m2',
@@ -2463,6 +2542,7 @@ class Meta:
             temporal_scope=None,
             entity_group='hull',
             entity_key='roof',
+            formula='🧱!D12',
         )
         self.hull_fundament_m2 = VariableMeta(
             var_name='hull_fundament_m2',
@@ -2479,6 +2559,7 @@ class Meta:
             temporal_scope=None,
             entity_group='hull',
             entity_key='fundament',
+            formula='🧱!D13',
         )
         self.hull_windows_north_m2 = VariableMeta(
             var_name='hull_windows_north_m2',
@@ -2495,6 +2576,7 @@ class Meta:
             temporal_scope=None,
             entity_group='hull',
             entity_key='window_north',
+            formula='🧱!D18',
         )
         self.hull_windows_east_m2 = VariableMeta(
             var_name='hull_windows_east_m2',
@@ -2511,6 +2593,7 @@ class Meta:
             temporal_scope=None,
             entity_group='hull',
             entity_key='window_east',
+            formula='🧱!D19',
         )
         self.hull_windows_south_m2 = VariableMeta(
             var_name='hull_windows_south_m2',
@@ -2527,6 +2610,7 @@ class Meta:
             temporal_scope=None,
             entity_group='hull',
             entity_key='window_south',
+            formula='🧱!D20',
         )
         self.hull_windows_west_m2 = VariableMeta(
             var_name='hull_windows_west_m2',
@@ -2543,6 +2627,7 @@ class Meta:
             temporal_scope=None,
             entity_group='hull',
             entity_key='window_west',
+            formula='🧱!D21',
         )
         self.hull_windows_horizontal_m2 = VariableMeta(
             var_name='hull_windows_horizontal_m2',
@@ -2559,6 +2644,7 @@ class Meta:
             temporal_scope=None,
             entity_group='hull',
             entity_key='window_horizontal',
+            formula='🧱!D22',
         )
         self.hull_window_m2 = VariableMeta(
             var_name='hull_window_m2',
@@ -2575,6 +2661,7 @@ class Meta:
             temporal_scope=None,
             entity_group='hull',
             entity_key='windows',
+            formula='SUMME(N84:N87)',
         )
         self.hull_fenestration_rate = VariableMeta(
             var_name='hull_fenestration_rate',
@@ -2591,6 +2678,7 @@ class Meta:
             temporal_scope=None,
             entity_group='hull',
             entity_key=None,
+            formula='hull_window_m2/(hull_window_m2+hull_ext_wall_wo_window_m2)',
         )
         self.hull_m2 = VariableMeta(
             var_name='hull_m2',
@@ -2607,6 +2695,7 @@ class Meta:
             temporal_scope=None,
             entity_group='hull',
             entity_key=None,
+            formula='hull_ext_wall_wo_window_m2+hull_roof_m2+hull_fundament_m2+hull_window_m2',
         )
         self.lc = VariableMeta(
             var_name='lc',
@@ -2623,6 +2712,7 @@ class Meta:
             temporal_scope=None,
             entity_group='hull',
             entity_key=None,
+            formula='GFV/(hull_ext_wall_wo_window_m2+hull_roof_m2+hull_fundament_m2+hull_window_m2)',
         )
         self.preset_recorded_geometry = VariableMeta(
             var_name='preset_recorded_geometry',
@@ -2639,6 +2729,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.preset_recorded_hulls = VariableMeta(
             var_name='preset_recorded_hulls',
@@ -2655,6 +2746,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.hull_transmittance_walls = VariableMeta(
             var_name='hull_transmittance_walls',
@@ -2671,6 +2763,7 @@ class Meta:
             temporal_scope=None,
             entity_group='hull',
             entity_key='wall',
+            formula='🧱!F11',
         )
         self.hull_transmittance_roof = VariableMeta(
             var_name='hull_transmittance_roof',
@@ -2687,6 +2780,7 @@ class Meta:
             temporal_scope=None,
             entity_group='hull',
             entity_key='roof',
+            formula='🧱!F12',
         )
         self.hull_transmittance_fundament = VariableMeta(
             var_name='hull_transmittance_fundament',
@@ -2703,6 +2797,7 @@ class Meta:
             temporal_scope=None,
             entity_group='hull',
             entity_key='fundament',
+            formula='🧱!F13',
         )
         self.hull_transmittance_windows_north = VariableMeta(
             var_name='hull_transmittance_windows_north',
@@ -2719,6 +2814,7 @@ class Meta:
             temporal_scope=None,
             entity_group='hull',
             entity_key='windows',
+            formula='🧱!F28',
         )
         self.hull_transmittance_windows_east = VariableMeta(
             var_name='hull_transmittance_windows_east',
@@ -2735,6 +2831,7 @@ class Meta:
             temporal_scope=None,
             entity_group='hull',
             entity_key='windows',
+            formula='🧱!F29',
         )
         self.hull_transmittance_windows_south = VariableMeta(
             var_name='hull_transmittance_windows_south',
@@ -2751,6 +2848,7 @@ class Meta:
             temporal_scope=None,
             entity_group='hull',
             entity_key='windows',
+            formula='🧱!F30',
         )
         self.hull_transmittance_windows_west = VariableMeta(
             var_name='hull_transmittance_windows_west',
@@ -2767,6 +2865,7 @@ class Meta:
             temporal_scope=None,
             entity_group='hull',
             entity_key='windows',
+            formula='🧱!F31',
         )
         self.hull_transmittance_windows_horizontal = VariableMeta(
             var_name='hull_transmittance_windows_horizontal',
@@ -2783,6 +2882,7 @@ class Meta:
             temporal_scope=None,
             entity_group='hull',
             entity_key='windows',
+            formula='🧱!F32',
         )
         self.hull_transmittance_heatbridge = VariableMeta(
             var_name='hull_transmittance_heatbridge',
@@ -2799,6 +2899,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='🧱!D36',
         )
         self.transmittance_walls_Wm2NFA = VariableMeta(
             var_name='transmittance_walls_Wm2NFA',
@@ -2815,6 +2916,7 @@ class Meta:
             temporal_scope=None,
             entity_group='hull',
             entity_key='wall',
+            formula='hull_ext_wall_wo_window_m2*hull_transmittance_walls*per_NFA',
         )
         self.transmittance_roof_Wm2NFA = VariableMeta(
             var_name='transmittance_roof_Wm2NFA',
@@ -2831,6 +2933,7 @@ class Meta:
             temporal_scope=None,
             entity_group='hull',
             entity_key='roof',
+            formula='hull_roof_m2*hull_transmittance_roof*per_NFA',
         )
         self.transmittance_fundament_Wm2NFA = VariableMeta(
             var_name='transmittance_fundament_Wm2NFA',
@@ -2847,6 +2950,7 @@ class Meta:
             temporal_scope=None,
             entity_group='hull',
             entity_key='fundament',
+            formula='N83*N105*per_NFA',
         )
         self.transmittance_windows_Wm2NFA = VariableMeta(
             var_name='transmittance_windows_Wm2NFA',
@@ -2863,6 +2967,7 @@ class Meta:
             temporal_scope=None,
             entity_group='hull',
             entity_key='windows',
+            formula='SUMMENPRODUKT(N84:N88;N106:N110)*per_NFA',
         )
         self.transmittance_heatbridge_Wm2NFA = VariableMeta(
             var_name='transmittance_heatbridge_Wm2NFA',
@@ -2879,6 +2984,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMME(N112:N115)*N111',
         )
         self.transmittance_MW = VariableMeta(
             var_name='transmittance_MW',
@@ -2895,6 +3001,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='transmittance_Wm2*NFA_total/1000000',
         )
         self.transmittance_Wm2 = VariableMeta(
             var_name='transmittance_Wm2',
@@ -2911,6 +3018,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMME(N112:N116)',
         )
         self.preset_recorded_building_mass = VariableMeta(
             var_name='preset_recorded_building_mass',
@@ -2927,6 +3035,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.heat_capacity_effective_m2 = VariableMeta(
             var_name='heat_capacity_effective_m2',
@@ -2943,6 +3052,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='🧱!D77',
         )
         self.heat_cap_eff_uncooled_m2 = VariableMeta(
             var_name='heat_cap_eff_uncooled_m2',
@@ -2959,6 +3069,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='heat_capacity_effective_m2',
         )
         self.heat_cap_eff_cooled_m2 = VariableMeta(
             var_name='heat_cap_eff_cooled_m2',
@@ -2975,6 +3086,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='heat_capacity_effective_m2',
         )
         self.window_total_transmittance_north = VariableMeta(
             var_name='window_total_transmittance_north',
@@ -2991,6 +3103,7 @@ class Meta:
             temporal_scope=None,
             entity_group='hull',
             entity_key='window_north',
+            formula='🧱!D28',
         )
         self.window_total_transmittance_east = VariableMeta(
             var_name='window_total_transmittance_east',
@@ -3007,6 +3120,7 @@ class Meta:
             temporal_scope=None,
             entity_group='hull',
             entity_key='window_east',
+            formula='🧱!D29',
         )
         self.window_total_transmittance_south = VariableMeta(
             var_name='window_total_transmittance_south',
@@ -3023,6 +3137,7 @@ class Meta:
             temporal_scope=None,
             entity_group='hull',
             entity_key='window_south',
+            formula='🧱!D30',
         )
         self.window_total_transmittance_west = VariableMeta(
             var_name='window_total_transmittance_west',
@@ -3039,6 +3154,7 @@ class Meta:
             temporal_scope=None,
             entity_group='hull',
             entity_key='window_west',
+            formula='🧱!D31',
         )
         self.window_total_transmittance_horizontal = VariableMeta(
             var_name='window_total_transmittance_horizontal',
@@ -3055,6 +3171,7 @@ class Meta:
             temporal_scope=None,
             entity_group='hull',
             entity_key='window_horizontal',
+            formula='🧱!D32',
         )
         self.preset_recorded_shading_geometry = VariableMeta(
             var_name='preset_recorded_shading_geometry',
@@ -3071,6 +3188,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.window_irradiation_factor_winter_north = VariableMeta(
             var_name='window_irradiation_factor_winter_north',
@@ -3087,6 +3205,7 @@ class Meta:
             temporal_scope='winter',
             entity_group='hull',
             entity_key='window_north',
+            formula='🧱!D55',
         )
         self.window_irradiation_factor_winter_east = VariableMeta(
             var_name='window_irradiation_factor_winter_east',
@@ -3103,6 +3222,7 @@ class Meta:
             temporal_scope='winter',
             entity_group='hull',
             entity_key='window_east',
+            formula='🧱!D56',
         )
         self.window_irradiation_factor_winter_south = VariableMeta(
             var_name='window_irradiation_factor_winter_south',
@@ -3119,6 +3239,7 @@ class Meta:
             temporal_scope='winter',
             entity_group='hull',
             entity_key='window_south',
+            formula='🧱!D57',
         )
         self.window_irradiation_factor_winter_west = VariableMeta(
             var_name='window_irradiation_factor_winter_west',
@@ -3135,6 +3256,7 @@ class Meta:
             temporal_scope='winter',
             entity_group='hull',
             entity_key='window_west',
+            formula='🧱!D58',
         )
         self.window_irradiation_factor_winter_horizontal = VariableMeta(
             var_name='window_irradiation_factor_winter_horizontal',
@@ -3151,6 +3273,7 @@ class Meta:
             temporal_scope='winter',
             entity_group='hull',
             entity_key='window_horizontal',
+            formula='🧱!D59',
         )
         self.window_irradiation_factor_summer_north = VariableMeta(
             var_name='window_irradiation_factor_summer_north',
@@ -3167,6 +3290,7 @@ class Meta:
             temporal_scope='summer',
             entity_group='hull',
             entity_key='window_north',
+            formula='🧱!F55',
         )
         self.window_irradiation_factor_summer_east = VariableMeta(
             var_name='window_irradiation_factor_summer_east',
@@ -3183,6 +3307,7 @@ class Meta:
             temporal_scope='summer',
             entity_group='hull',
             entity_key='window_east',
+            formula='🧱!F56',
         )
         self.window_irradiation_factor_summer_south = VariableMeta(
             var_name='window_irradiation_factor_summer_south',
@@ -3199,6 +3324,7 @@ class Meta:
             temporal_scope='summer',
             entity_group='hull',
             entity_key='window_south',
+            formula='🧱!F57',
         )
         self.window_irradiation_factor_summer_west = VariableMeta(
             var_name='window_irradiation_factor_summer_west',
@@ -3215,6 +3341,7 @@ class Meta:
             temporal_scope='summer',
             entity_group='hull',
             entity_key='window_west',
+            formula='🧱!F58',
         )
         self.window_irradiation_factor_summer_horizontal = VariableMeta(
             var_name='window_irradiation_factor_summer_horizontal',
@@ -3231,6 +3358,7 @@ class Meta:
             temporal_scope='summer',
             entity_group='hull',
             entity_key='window_horizontal',
+            formula='🧱!F59',
         )
         self.irradiation_opaque_surcharge = VariableMeta(
             var_name='irradiation_opaque_surcharge',
@@ -3247,6 +3375,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.preset_recorded_mobile_shading = VariableMeta(
             var_name='preset_recorded_mobile_shading',
@@ -3263,6 +3392,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.fc_residential = VariableMeta(
             var_name='fc_residential',
@@ -3279,6 +3409,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='residential',
+            formula='🧱!D64',
         )
         self.fc_office = VariableMeta(
             var_name='fc_office',
@@ -3295,6 +3426,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='office',
+            formula='🧱!D65',
         )
         self.fc_schoolsec = VariableMeta(
             var_name='fc_schoolsec',
@@ -3311,6 +3443,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolsec',
+            formula='🧱!D66',
         )
         self.fc_schoolprim = VariableMeta(
             var_name='fc_schoolprim',
@@ -3327,6 +3460,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolprim',
+            formula='🧱!D67',
         )
         self.fc_retailfood = VariableMeta(
             var_name='fc_retailfood',
@@ -3343,6 +3477,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailfood',
+            formula='🧱!D68',
         )
         self.fc_retailother = VariableMeta(
             var_name='fc_retailother',
@@ -3359,6 +3494,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailother',
+            formula='🧱!D69',
         )
         self.fc_other = VariableMeta(
             var_name='fc_other',
@@ -3375,6 +3511,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='other',
+            formula='🧱!D70',
         )
         self.fc_u = VariableMeta(
             var_name='fc_u',
@@ -3391,6 +3528,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMMENPRODUKT(N157:N163;N46:N52;cool_passive_shares)*per_NFA_uncooled',
         )
         self.fc_c = VariableMeta(
             var_name='fc_c',
@@ -3407,6 +3545,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMMENPRODUKT(N157:N163;N46:N52;cool_active_shares)*per_NFA_cooled',
         )
         self.illuminance_min_residential = VariableMeta(
             var_name='illuminance_min_residential',
@@ -3423,6 +3562,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='residential',
+            formula='🧱!F64',
         )
         self.illuminance_min_office = VariableMeta(
             var_name='illuminance_min_office',
@@ -3439,6 +3579,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='office',
+            formula='🧱!F65',
         )
         self.illuminance_min_schoolsec = VariableMeta(
             var_name='illuminance_min_schoolsec',
@@ -3455,6 +3596,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolsec',
+            formula='🧱!F66',
         )
         self.illuminance_min_schoolprim = VariableMeta(
             var_name='illuminance_min_schoolprim',
@@ -3471,6 +3613,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolprim',
+            formula='🧱!F67',
         )
         self.illuminance_min_retailfood = VariableMeta(
             var_name='illuminance_min_retailfood',
@@ -3487,6 +3630,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailfood',
+            formula='🧱!F68',
         )
         self.illuminance_min_retailother = VariableMeta(
             var_name='illuminance_min_retailother',
@@ -3503,6 +3647,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailother',
+            formula='🧱!F69',
         )
         self.illuminance_min_other = VariableMeta(
             var_name='illuminance_min_other',
@@ -3519,6 +3664,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='other',
+            formula='🧱!F70',
         )
         self.QS_max_shading_u = VariableMeta(
             var_name='QS_max_shading_u',
@@ -3535,6 +3681,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMMENPRODUKT(NFAs;cool_passive_shares;Lux_minimums)*0,01*per_NFA_uncooled',
         )
         self.QS_max_shading_c = VariableMeta(
             var_name='QS_max_shading_c',
@@ -3551,6 +3698,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMMENPRODUKT(NFAs;cool_active_shares;Lux_minimums)*0,01*per_NFA_cooled',
         )
         self.illuminance_efficiency_dirt = VariableMeta(
             var_name='illuminance_efficiency_dirt',
@@ -3567,6 +3715,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.illuminance_efficiency_glazing_ratio = VariableMeta(
             var_name='illuminance_efficiency_glazing_ratio',
@@ -3583,6 +3732,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='🧱!D25',
         )
         self.mob_shading_factor_u = VariableMeta(
             var_name='mob_shading_factor_u',
@@ -3599,6 +3749,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='fc_u',
         )
         self.mob_shading_factor_c = VariableMeta(
             var_name='mob_shading_factor_c',
@@ -3615,6 +3766,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='fc_c',
         )
         self.preset_recorded_air_tightness = VariableMeta(
             var_name='preset_recorded_air_tightness',
@@ -3631,6 +3783,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.vent_air_tightness = VariableMeta(
             var_name='vent_air_tightness',
@@ -3647,6 +3800,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='🧱!D41',
         )
         self.vent_tightness_ratio_blowerdoor_to_real = VariableMeta(
             var_name='vent_tightness_ratio_blowerdoor_to_real',
@@ -3663,6 +3817,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.vent_infiltration_ACH = VariableMeta(
             var_name='vent_infiltration_ACH',
@@ -3679,6 +3834,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='N181/N182',
         )
         self.preset_recorded_vent_modes = VariableMeta(
             var_name='preset_recorded_vent_modes',
@@ -3695,6 +3851,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.vent_share_mechanical_residential = VariableMeta(
             var_name='vent_share_mechanical_residential',
@@ -3711,6 +3868,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='residential',
+            formula='💨L!D7',
         )
         self.vent_share_mechanical_office = VariableMeta(
             var_name='vent_share_mechanical_office',
@@ -3727,6 +3885,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='office',
+            formula='💨L!D8',
         )
         self.vent_share_mechanical_schoolsec = VariableMeta(
             var_name='vent_share_mechanical_schoolsec',
@@ -3743,6 +3902,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolsec',
+            formula='💨L!D9',
         )
         self.vent_share_mechanical_schoolprim = VariableMeta(
             var_name='vent_share_mechanical_schoolprim',
@@ -3759,6 +3919,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolprim',
+            formula='💨L!D10',
         )
         self.vent_share_mechanical_retailfood = VariableMeta(
             var_name='vent_share_mechanical_retailfood',
@@ -3775,6 +3936,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailfood',
+            formula='💨L!D11',
         )
         self.vent_share_mechanical_retailother = VariableMeta(
             var_name='vent_share_mechanical_retailother',
@@ -3791,6 +3953,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailother',
+            formula='💨L!D12',
         )
         self.vent_share_mechanical_other = VariableMeta(
             var_name='vent_share_mechanical_other',
@@ -3807,6 +3970,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='other',
+            formula='💨L!D13',
         )
         self.NFA_windowvent = VariableMeta(
             var_name='NFA_windowvent',
@@ -3823,6 +3987,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='NFA_total-NFA_mechvent',
         )
         self.NFV_windowvent = VariableMeta(
             var_name='NFV_windowvent',
@@ -3839,6 +4004,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='NFV_total-N202',
         )
         self.NFA_mechvent = VariableMeta(
             var_name='NFA_mechvent',
@@ -3855,6 +4021,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMMENPRODUKT(N$185:N$191;N46:N52)',
         )
         self.NFV_mechvent = VariableMeta(
             var_name='NFV_mechvent',
@@ -3871,6 +4038,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMMENPRODUKT(N$185:N$191;N46:N52;N68:N74)',
         )
         self.preset_recorded_vent_night_modes = VariableMeta(
             var_name='preset_recorded_vent_night_modes',
@@ -3887,6 +4055,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.vent_night_residential = VariableMeta(
             var_name='vent_night_residential',
@@ -3903,6 +4072,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='residential',
+            formula='💨L!D34',
         )
         self.vent_night_office = VariableMeta(
             var_name='vent_night_office',
@@ -3919,6 +4089,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='office',
+            formula='💨L!D35',
         )
         self.vent_night_schoolsec = VariableMeta(
             var_name='vent_night_schoolsec',
@@ -3935,6 +4106,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolsec',
+            formula='💨L!D37',
         )
         self.vent_night_schoolprim = VariableMeta(
             var_name='vent_night_schoolprim',
@@ -3951,6 +4123,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolprim',
+            formula='💨L!D36',
         )
         self.vent_night_retailfood = VariableMeta(
             var_name='vent_night_retailfood',
@@ -3967,6 +4140,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailfood',
+            formula='💨L!D38',
         )
         self.vent_night_retailother = VariableMeta(
             var_name='vent_night_retailother',
@@ -3983,6 +4157,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailother',
+            formula='💨L!D39',
         )
         self.vent_night_other = VariableMeta(
             var_name='vent_night_other',
@@ -3999,6 +4174,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='other',
+            formula='💨L!D40',
         )
         self.ACH_night_m3 = VariableMeta(
             var_name='ACH_night_m3',
@@ -4015,6 +4191,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMMENPRODUKT(N192:N198;N68:N74;N46:N52;SVERWEIS(N204:N210;night_ventilation_types;2;FALSCH))',
         )
         self.vent_ach_max_residential = VariableMeta(
             var_name='vent_ach_max_residential',
@@ -4031,6 +4208,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='residential',
+            formula='💨L!D44',
         )
         self.vent_ach_max_office = VariableMeta(
             var_name='vent_ach_max_office',
@@ -4047,6 +4225,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='office',
+            formula='💨L!D45',
         )
         self.vent_ach_max_schoolsec = VariableMeta(
             var_name='vent_ach_max_schoolsec',
@@ -4063,6 +4242,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolsec',
+            formula='💨L!D46',
         )
         self.vent_ach_max_schoolprim = VariableMeta(
             var_name='vent_ach_max_schoolprim',
@@ -4079,6 +4259,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolprim',
+            formula='💨L!D47',
         )
         self.vent_ach_max_retailfood = VariableMeta(
             var_name='vent_ach_max_retailfood',
@@ -4095,6 +4276,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailfood',
+            formula='💨L!D48',
         )
         self.vent_ach_max_retailother = VariableMeta(
             var_name='vent_ach_max_retailother',
@@ -4111,6 +4293,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailother',
+            formula='💨L!D49',
         )
         self.vent_ach_max_other = VariableMeta(
             var_name='vent_ach_max_other',
@@ -4127,6 +4310,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='other',
+            formula='💨L!D50',
         )
         self.vent_scale_residential = VariableMeta(
             var_name='vent_scale_residential',
@@ -4143,6 +4327,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='residential',
+            formula='N212/MAX(Nutzung_Wohnen[Bedarf Luftwechsel])',
         )
         self.vent_scale_office = VariableMeta(
             var_name='vent_scale_office',
@@ -4159,6 +4344,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='office',
+            formula='N213/MAX(Nutzung_Büro[Bedarf Luftwechsel])',
         )
         self.vent_scale_school_sec = VariableMeta(
             var_name='vent_scale_school_sec',
@@ -4175,6 +4361,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolsec',
+            formula='N214/MAX(Nutzung_Schule[Bedarf Luftwechsel])',
         )
         self.vent_scale_school_prim = VariableMeta(
             var_name='vent_scale_school_prim',
@@ -4191,6 +4378,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolprim',
+            formula='N215/MAX(Nutzung_KIGA[Bedarf Luftwechsel])',
         )
         self.vent_scale_supermarket = VariableMeta(
             var_name='vent_scale_supermarket',
@@ -4207,6 +4395,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailfood',
+            formula='N216/MAX(Nutzung_Handel_Food[Bedarf Luftwechsel])',
         )
         self.vent_scale_retail = VariableMeta(
             var_name='vent_scale_retail',
@@ -4223,6 +4412,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailother',
+            formula='N217/MAX(Nutzung_Handel_NonFood[Bedarf Luftwechsel])',
         )
         self.vent_scale_other = VariableMeta(
             var_name='vent_scale_other',
@@ -4239,6 +4429,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='other',
+            formula=None,
         )
         self.preset_recorded_ventilation_system = VariableMeta(
             var_name='preset_recorded_ventilation_system',
@@ -4255,6 +4446,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.Ev_scale_residential = VariableMeta(
             var_name='Ev_scale_residential',
@@ -4271,6 +4463,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='residential',
+            formula='💨L!J19',
         )
         self.Ev_scale_office = VariableMeta(
             var_name='Ev_scale_office',
@@ -4287,6 +4480,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='office',
+            formula='💨L!J20',
         )
         self.Ev_scale_school_sec = VariableMeta(
             var_name='Ev_scale_school_sec',
@@ -4303,6 +4497,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolsec',
+            formula='💨L!J21',
         )
         self.Ev_scale_school_prim = VariableMeta(
             var_name='Ev_scale_school_prim',
@@ -4319,6 +4514,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolprim',
+            formula='💨L!J22',
         )
         self.Ev_scale_retail_food = VariableMeta(
             var_name='Ev_scale_retail_food',
@@ -4335,6 +4531,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailfood',
+            formula='💨L!J23',
         )
         self.Ev_scale_retail_other = VariableMeta(
             var_name='Ev_scale_retail_other',
@@ -4351,6 +4548,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailother',
+            formula='💨L!J24',
         )
         self.Ev_scale_other = VariableMeta(
             var_name='Ev_scale_other',
@@ -4367,6 +4565,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='other',
+            formula='💨L!J25',
         )
         self.vent_heat_recovery_winter_residential = VariableMeta(
             var_name='vent_heat_recovery_winter_residential',
@@ -4383,6 +4582,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='residential',
+            formula='💨L!D19',
         )
         self.vent_heat_recovery_winter_office = VariableMeta(
             var_name='vent_heat_recovery_winter_office',
@@ -4399,6 +4599,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='office',
+            formula='💨L!D20',
         )
         self.vent_heat_recovery_winter_schoolsec = VariableMeta(
             var_name='vent_heat_recovery_winter_schoolsec',
@@ -4415,6 +4616,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolsec',
+            formula='💨L!D21',
         )
         self.vent_heat_recovery_winter_schoolprim = VariableMeta(
             var_name='vent_heat_recovery_winter_schoolprim',
@@ -4431,6 +4633,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolprim',
+            formula='💨L!D22',
         )
         self.vent_heat_recovery_winter_retailfood = VariableMeta(
             var_name='vent_heat_recovery_winter_retailfood',
@@ -4447,6 +4650,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailfood',
+            formula='💨L!D23',
         )
         self.vent_heat_recovery_winter_retailother = VariableMeta(
             var_name='vent_heat_recovery_winter_retailother',
@@ -4463,6 +4667,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailother',
+            formula='💨L!D24',
         )
         self.vent_heat_recovery_winter_other = VariableMeta(
             var_name='vent_heat_recovery_winter_other',
@@ -4479,6 +4684,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='other',
+            formula='💨L!D25',
         )
         self.vent_heat_recovery_summer_residential = VariableMeta(
             var_name='vent_heat_recovery_summer_residential',
@@ -4495,6 +4701,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='residential',
+            formula='💨L!F19',
         )
         self.vent_heat_recovery_summer_office = VariableMeta(
             var_name='vent_heat_recovery_summer_office',
@@ -4511,6 +4718,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='office',
+            formula='💨L!F20',
         )
         self.vent_heat_recovery_summer_schoolsec = VariableMeta(
             var_name='vent_heat_recovery_summer_schoolsec',
@@ -4527,6 +4735,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolsec',
+            formula='💨L!F21',
         )
         self.vent_heat_recovery_summer_schoolprim = VariableMeta(
             var_name='vent_heat_recovery_summer_schoolprim',
@@ -4543,6 +4752,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolprim',
+            formula='💨L!F22',
         )
         self.vent_heat_recovery_summer_retailfood = VariableMeta(
             var_name='vent_heat_recovery_summer_retailfood',
@@ -4559,6 +4769,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailfood',
+            formula='💨L!F23',
         )
         self.vent_heat_recovery_summer_retailother = VariableMeta(
             var_name='vent_heat_recovery_summer_retailother',
@@ -4575,6 +4786,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailother',
+            formula='💨L!F24',
         )
         self.vent_heat_recovery_summer_other = VariableMeta(
             var_name='vent_heat_recovery_summer_other',
@@ -4591,6 +4803,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='other',
+            formula='💨L!F25',
         )
         self.Vent_share_window_uncooled = VariableMeta(
             var_name='Vent_share_window_uncooled',
@@ -4607,6 +4820,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNFEHLER(SUMMENPRODUKT(N46:N52;cool_passive_shares;MTRANS(vent_window_shares);N68:N74)/NFV_total;0)',
         )
         self.Vent_share_window_cooled = VariableMeta(
             var_name='Vent_share_window_cooled',
@@ -4623,6 +4837,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNFEHLER(SUMMENPRODUKT(N46:N52;cool_active_shares;MTRANS(vent_window_shares);N68:N74)/NFV_total;0)',
         )
         self.Vent_share_mech_uncooled = VariableMeta(
             var_name='Vent_share_mech_uncooled',
@@ -4639,6 +4854,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNFEHLER(SUMMENPRODUKT(N46:N52;cool_passive_shares;MTRANS(vent_mech_shares);N68:N74)/NFV_total;0)',
         )
         self.Vent_share_mech_cooled = VariableMeta(
             var_name='Vent_share_mech_cooled',
@@ -4655,6 +4871,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNFEHLER(SUMMENPRODUKT(N46:N52;cool_active_shares;MTRANS(vent_mech_shares);N68:N74)/NFV_total;0)',
         )
         self.test_NFV_shares = VariableMeta(
             var_name='test_NFV_shares',
@@ -4671,6 +4888,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='100%=SUMME(Vent_share_window_uncooled;Vent_share_window_cooled;Vent_share_mech_uncooled;Vent_share_mech_cooled)',
         )
         self.usage_concurrency_winter_residential = VariableMeta(
             var_name='usage_concurrency_winter_residential',
@@ -4687,6 +4905,7 @@ class Meta:
             temporal_scope='winter',
             entity_group='usage',
             entity_key='residential',
+            formula='👤!D34',
         )
         self.usage_concurrency_winter_office = VariableMeta(
             var_name='usage_concurrency_winter_office',
@@ -4703,6 +4922,7 @@ class Meta:
             temporal_scope='winter',
             entity_group='usage',
             entity_key='office',
+            formula='👤!D35',
         )
         self.usage_concurrency_winter_schoolsec = VariableMeta(
             var_name='usage_concurrency_winter_schoolsec',
@@ -4719,6 +4939,7 @@ class Meta:
             temporal_scope='winter',
             entity_group='usage',
             entity_key='schoolsec',
+            formula='👤!D36',
         )
         self.usage_concurrency_winter_schoolprim = VariableMeta(
             var_name='usage_concurrency_winter_schoolprim',
@@ -4735,6 +4956,7 @@ class Meta:
             temporal_scope='winter',
             entity_group='usage',
             entity_key='schoolprim',
+            formula='👤!D37',
         )
         self.usage_concurrency_winter_retailfood = VariableMeta(
             var_name='usage_concurrency_winter_retailfood',
@@ -4751,6 +4973,7 @@ class Meta:
             temporal_scope='winter',
             entity_group='usage',
             entity_key='retailfood',
+            formula='👤!D38',
         )
         self.usage_concurrency_winter_retailother = VariableMeta(
             var_name='usage_concurrency_winter_retailother',
@@ -4767,6 +4990,7 @@ class Meta:
             temporal_scope='winter',
             entity_group='usage',
             entity_key='retailother',
+            formula='👤!D39',
         )
         self.usage_concurrency_winter_other = VariableMeta(
             var_name='usage_concurrency_winter_other',
@@ -4783,6 +5007,7 @@ class Meta:
             temporal_scope='winter',
             entity_group='usage',
             entity_key='other',
+            formula='👤!D40',
         )
         self.usage_concurrency_summer_residential = VariableMeta(
             var_name='usage_concurrency_summer_residential',
@@ -4799,6 +5024,7 @@ class Meta:
             temporal_scope='summer',
             entity_group='usage',
             entity_key='residential',
+            formula='👤!E34',
         )
         self.usage_concurrency_summer_office = VariableMeta(
             var_name='usage_concurrency_summer_office',
@@ -4815,6 +5041,7 @@ class Meta:
             temporal_scope='summer',
             entity_group='usage',
             entity_key='office',
+            formula='👤!E35',
         )
         self.usage_concurrency_summer_schoolsec = VariableMeta(
             var_name='usage_concurrency_summer_schoolsec',
@@ -4831,6 +5058,7 @@ class Meta:
             temporal_scope='summer',
             entity_group='usage',
             entity_key='schoolsec',
+            formula='👤!E36',
         )
         self.usage_concurrency_summer_schoolprim = VariableMeta(
             var_name='usage_concurrency_summer_schoolprim',
@@ -4847,6 +5075,7 @@ class Meta:
             temporal_scope='summer',
             entity_group='usage',
             entity_key='schoolprim',
+            formula='👤!E37',
         )
         self.usage_concurrency_summer_retailfood = VariableMeta(
             var_name='usage_concurrency_summer_retailfood',
@@ -4863,6 +5092,7 @@ class Meta:
             temporal_scope='summer',
             entity_group='usage',
             entity_key='retailfood',
+            formula='👤!E38',
         )
         self.usage_concurrency_summer_retailother = VariableMeta(
             var_name='usage_concurrency_summer_retailother',
@@ -4879,6 +5109,7 @@ class Meta:
             temporal_scope='summer',
             entity_group='usage',
             entity_key='retailother',
+            formula='👤!E39',
         )
         self.usage_concurrency_summer_other = VariableMeta(
             var_name='usage_concurrency_summer_other',
@@ -4895,6 +5126,7 @@ class Meta:
             temporal_scope='summer',
             entity_group='usage',
             entity_key='other',
+            formula='👤!E40',
         )
         self.DHW_demand_residential_kWhm2 = VariableMeta(
             var_name='DHW_demand_residential_kWhm2',
@@ -4911,6 +5143,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='residential',
+            formula='💧WW!D33',
         )
         self.DHW_demand_office_kWhm2 = VariableMeta(
             var_name='DHW_demand_office_kWhm2',
@@ -4927,6 +5160,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='office',
+            formula='💧WW!D34',
         )
         self.DHW_demand_schoolsec_kWhm2 = VariableMeta(
             var_name='DHW_demand_schoolsec_kWhm2',
@@ -4943,6 +5177,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolsec',
+            formula='💧WW!D35',
         )
         self.DHW_demand_schoolprim_kWhm2 = VariableMeta(
             var_name='DHW_demand_schoolprim_kWhm2',
@@ -4959,6 +5194,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolprim',
+            formula='💧WW!D36',
         )
         self.DHW_demand_retailfood_kWhm2 = VariableMeta(
             var_name='DHW_demand_retailfood_kWhm2',
@@ -4975,6 +5211,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailfood',
+            formula='💧WW!D37',
         )
         self.DHW_demand_retailother_kWhm2 = VariableMeta(
             var_name='DHW_demand_retailother_kWhm2',
@@ -4991,6 +5228,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailother',
+            formula='💧WW!D38',
         )
         self.DHW_demand_other_kWhm2 = VariableMeta(
             var_name='DHW_demand_other_kWhm2',
@@ -5007,6 +5245,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='other',
+            formula='💧WW!D39',
         )
         self.aux_el_demand_residential_kWhm2 = VariableMeta(
             var_name='aux_el_demand_residential_kWhm2',
@@ -5023,6 +5262,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='residential',
+            formula='👤!G9',
         )
         self.aux_el_demand_office_kWhm2 = VariableMeta(
             var_name='aux_el_demand_office_kWhm2',
@@ -5039,6 +5279,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='office',
+            formula='👤!G10',
         )
         self.aux_el_demand_schoolsec_kWhm2 = VariableMeta(
             var_name='aux_el_demand_schoolsec_kWhm2',
@@ -5055,6 +5296,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolsec',
+            formula='👤!G11',
         )
         self.aux_el_demand_schoolprim_kWhm2 = VariableMeta(
             var_name='aux_el_demand_schoolprim_kWhm2',
@@ -5071,6 +5313,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolprim',
+            formula='👤!G12',
         )
         self.aux_el_demand_retailfood_kWhm2 = VariableMeta(
             var_name='aux_el_demand_retailfood_kWhm2',
@@ -5087,6 +5330,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailfood',
+            formula='👤!G13',
         )
         self.aux_el_demand_retailother_kWhm2 = VariableMeta(
             var_name='aux_el_demand_retailother_kWhm2',
@@ -5103,6 +5347,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailother',
+            formula='👤!G14',
         )
         self.aux_el_demand_other_kWhm2 = VariableMeta(
             var_name='aux_el_demand_other_kWhm2',
@@ -5119,6 +5364,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='other',
+            formula='👤!G15',
         )
         self.preset_recorded_plugloads = VariableMeta(
             var_name='preset_recorded_plugloads',
@@ -5135,6 +5381,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.Plugloads_scale_residential = VariableMeta(
             var_name='Plugloads_scale_residential',
@@ -5151,6 +5398,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='residential',
+            formula='N778/O778',
         )
         self.Plugloads_scale_office = VariableMeta(
             var_name='Plugloads_scale_office',
@@ -5167,6 +5415,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='office',
+            formula='N779/O779',
         )
         self.Plugloads_scale_schoolsec = VariableMeta(
             var_name='Plugloads_scale_schoolsec',
@@ -5183,6 +5432,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolsec',
+            formula='N780/O780',
         )
         self.Plugloads_scale_schoolprim = VariableMeta(
             var_name='Plugloads_scale_schoolprim',
@@ -5199,6 +5449,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolprim',
+            formula='N781/O781',
         )
         self.Plugloads_scale_retailfood = VariableMeta(
             var_name='Plugloads_scale_retailfood',
@@ -5215,6 +5466,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailfood',
+            formula='N782/O782',
         )
         self.Plugloads_scale_retailother = VariableMeta(
             var_name='Plugloads_scale_retailother',
@@ -5231,6 +5483,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailother',
+            formula='N783/O783',
         )
         self.Plugloads_scale_other = VariableMeta(
             var_name='Plugloads_scale_other',
@@ -5247,6 +5500,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='other',
+            formula='N784/O784',
         )
         self.density_NFApPers_residential = VariableMeta(
             var_name='density_NFApPers_residential',
@@ -5263,6 +5517,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='residential',
+            formula=None,
         )
         self.density_NFApPers_office = VariableMeta(
             var_name='density_NFApPers_office',
@@ -5279,6 +5534,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='office',
+            formula=None,
         )
         self.density_NFApPers_schoolsec = VariableMeta(
             var_name='density_NFApPers_schoolsec',
@@ -5295,6 +5551,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolsec',
+            formula=None,
         )
         self.density_NFApPers_retail = VariableMeta(
             var_name='density_NFApPers_retail',
@@ -5311,6 +5568,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailfood',
+            formula=None,
         )
         self.density_NFApPers_schoolprim = VariableMeta(
             var_name='density_NFApPers_schoolprim',
@@ -5327,6 +5585,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolprim',
+            formula=None,
         )
         self.density_NFApPers_retail_other = VariableMeta(
             var_name='density_NFApPers_retail_other',
@@ -5343,6 +5602,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailother',
+            formula=None,
         )
         self.mob_simultaneity_edu = VariableMeta(
             var_name='mob_simultaneity_edu',
@@ -5359,6 +5619,7 @@ class Meta:
             temporal_scope=None,
             entity_group='mobility',
             entity_key='education',
+            formula='🚗!D74',
         )
         self.mob_simultaneity_retail = VariableMeta(
             var_name='mob_simultaneity_retail',
@@ -5375,6 +5636,7 @@ class Meta:
             temporal_scope=None,
             entity_group='mobility',
             entity_key='retail',
+            formula='🚗!D75',
         )
         self.mob_simultaneity_office = VariableMeta(
             var_name='mob_simultaneity_office',
@@ -5391,6 +5653,7 @@ class Meta:
             temporal_scope=None,
             entity_group='mobility',
             entity_key='work',
+            formula=None,
         )
         self.mob_motorization_perNFA_residential = VariableMeta(
             var_name='mob_motorization_perNFA_residential',
@@ -5407,6 +5670,7 @@ class Meta:
             temporal_scope=None,
             entity_group='mobility',
             entity_key='education',
+            formula=None,
         )
         self.mob_motorization_perNFA_work = VariableMeta(
             var_name='mob_motorization_perNFA_work',
@@ -5423,6 +5687,7 @@ class Meta:
             temporal_scope=None,
             entity_group='mobility',
             entity_key='retail',
+            formula=None,
         )
         self.mob_motorization_perNFA_retail = VariableMeta(
             var_name='mob_motorization_perNFA_retail',
@@ -5439,6 +5704,7 @@ class Meta:
             temporal_scope=None,
             entity_group='mobility',
             entity_key='work',
+            formula='🚗!D33',
         )
         self.Plight_max_office = VariableMeta(
             var_name='Plight_max_office',
@@ -5455,6 +5721,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='office',
+            formula='👤!G23',
         )
         self.Plight_max_schoolsec = VariableMeta(
             var_name='Plight_max_schoolsec',
@@ -5471,6 +5738,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolsec',
+            formula='👤!G24',
         )
         self.Plight_max_schoolprim = VariableMeta(
             var_name='Plight_max_schoolprim',
@@ -5487,6 +5755,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolprim',
+            formula='👤!G25',
         )
         self.Plight_min_office = VariableMeta(
             var_name='Plight_min_office',
@@ -5503,6 +5772,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='office',
+            formula='👤!F23',
         )
         self.Plight_min_schoolsec = VariableMeta(
             var_name='Plight_min_schoolsec',
@@ -5519,6 +5789,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolsec',
+            formula='👤!F24',
         )
         self.Plight_min_schoolprim = VariableMeta(
             var_name='Plight_min_schoolprim',
@@ -5535,6 +5806,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolprim',
+            formula='👤!F25',
         )
         self.lighting_factor_office = VariableMeta(
             var_name='lighting_factor_office',
@@ -5551,6 +5823,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='office',
+            formula=None,
         )
         self.lighting_factor_schoolsec = VariableMeta(
             var_name='lighting_factor_schoolsec',
@@ -5567,6 +5840,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolsec',
+            formula=None,
         )
         self.lighting_factor_schoolprim = VariableMeta(
             var_name='lighting_factor_schoolprim',
@@ -5583,6 +5857,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolprim',
+            formula=None,
         )
         self.lighting_factor_retailfood = VariableMeta(
             var_name='lighting_factor_retailfood',
@@ -5599,6 +5874,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailfood',
+            formula=None,
         )
         self.lighting_factor_retailother = VariableMeta(
             var_name='lighting_factor_retailother',
@@ -5615,6 +5891,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailother',
+            formula=None,
         )
         self.lighting_factor_other = VariableMeta(
             var_name='lighting_factor_other',
@@ -5631,6 +5908,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='other',
+            formula=None,
         )
         self.Daylightcoefficient_office = VariableMeta(
             var_name='Daylightcoefficient_office',
@@ -5647,6 +5925,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='office',
+            formula='👤!E23',
         )
         self.Daylightcoefficient_schoolsec = VariableMeta(
             var_name='Daylightcoefficient_schoolsec',
@@ -5663,6 +5942,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolsec',
+            formula='👤!E24',
         )
         self.Daylightcoefficient_schoolprim = VariableMeta(
             var_name='Daylightcoefficient_schoolprim',
@@ -5679,6 +5959,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolprim',
+            formula='👤!E25',
         )
         self.daylightcontr_office = VariableMeta(
             var_name='daylightcontr_office',
@@ -5695,6 +5976,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='office',
+            formula='👤!E23',
         )
         self.daylightcontr_schoolsec = VariableMeta(
             var_name='daylightcontr_schoolsec',
@@ -5711,6 +5993,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolsec',
+            formula='👤!E24',
         )
         self.daylightcontr_schoolprim = VariableMeta(
             var_name='daylightcontr_schoolprim',
@@ -5727,6 +6010,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolprim',
+            formula='👤!E25',
         )
         self.preset_recorded_heating_period = VariableMeta(
             var_name='preset_recorded_heating_period',
@@ -5743,6 +6027,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.heating_month1 = VariableMeta(
             var_name='heating_month1',
@@ -5759,6 +6044,7 @@ class Meta:
             temporal_scope='winter',
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.heating_month2 = VariableMeta(
             var_name='heating_month2',
@@ -5775,6 +6061,7 @@ class Meta:
             temporal_scope='winter',
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.heating_month3 = VariableMeta(
             var_name='heating_month3',
@@ -5791,6 +6078,7 @@ class Meta:
             temporal_scope='winter',
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.heating_month4 = VariableMeta(
             var_name='heating_month4',
@@ -5807,6 +6095,7 @@ class Meta:
             temporal_scope='winter',
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.heating_month5 = VariableMeta(
             var_name='heating_month5',
@@ -5823,6 +6112,7 @@ class Meta:
             temporal_scope='winter',
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.heating_month6 = VariableMeta(
             var_name='heating_month6',
@@ -5839,6 +6129,7 @@ class Meta:
             temporal_scope='winter',
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.heating_month7 = VariableMeta(
             var_name='heating_month7',
@@ -5855,6 +6146,7 @@ class Meta:
             temporal_scope='winter',
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.heating_month8 = VariableMeta(
             var_name='heating_month8',
@@ -5871,6 +6163,7 @@ class Meta:
             temporal_scope='winter',
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.heating_month9 = VariableMeta(
             var_name='heating_month9',
@@ -5887,6 +6180,7 @@ class Meta:
             temporal_scope='winter',
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.heating_month10 = VariableMeta(
             var_name='heating_month10',
@@ -5903,6 +6197,7 @@ class Meta:
             temporal_scope='winter',
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.heating_month11 = VariableMeta(
             var_name='heating_month11',
@@ -5919,6 +6214,7 @@ class Meta:
             temporal_scope='winter',
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.heating_month12 = VariableMeta(
             var_name='heating_month12',
@@ -5935,6 +6231,7 @@ class Meta:
             temporal_scope='winter',
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.preset_recorded_heating_emission_system = VariableMeta(
             var_name='preset_recorded_heating_emission_system',
@@ -5951,6 +6248,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.QHmax_room_m2 = VariableMeta(
             var_name='QHmax_room_m2',
@@ -5967,6 +6265,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='🔥H!D54',
         )
         self.QHmax_room_MW = VariableMeta(
             var_name='QHmax_room_MW',
@@ -5983,6 +6282,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='N335*N53/1000000',
         )
         self.preset_recorded_heating_system = VariableMeta(
             var_name='preset_recorded_heating_system',
@@ -5999,6 +6299,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.QHmax_1el_m2 = VariableMeta(
             var_name='QHmax_1el_m2',
@@ -6015,6 +6316,7 @@ class Meta:
             temporal_scope=None,
             entity_group='heating',
             entity_key='system_1',
+            formula='🔥H!D25',
         )
         self.QHmax_2th_m2 = VariableMeta(
             var_name='QHmax_2th_m2',
@@ -6031,6 +6333,7 @@ class Meta:
             temporal_scope=None,
             entity_group='heating',
             entity_key='system_2',
+            formula='🔥H!D32',
         )
         self.QHmax_3el_m2 = VariableMeta(
             var_name='QHmax_3el_m2',
@@ -6047,6 +6350,7 @@ class Meta:
             temporal_scope=None,
             entity_group='heating',
             entity_key='system_3',
+            formula='🔥H!D39',
         )
         self.QHmax_4th_m2 = VariableMeta(
             var_name='QHmax_4th_m2',
@@ -6063,6 +6367,7 @@ class Meta:
             temporal_scope=None,
             entity_group='heating',
             entity_key='system_4',
+            formula='🔥H!D46',
         )
         self.QH_distr_loss_1el = VariableMeta(
             var_name='QH_distr_loss_1el',
@@ -6079,6 +6384,7 @@ class Meta:
             temporal_scope=None,
             entity_group='heating',
             entity_key='system_1',
+            formula='🔥H!D27',
         )
         self.QH_distr_loss_2th = VariableMeta(
             var_name='QH_distr_loss_2th',
@@ -6095,6 +6401,7 @@ class Meta:
             temporal_scope=None,
             entity_group='heating',
             entity_key='system_2',
+            formula='🔥H!D34',
         )
         self.QH_distr_loss_3el = VariableMeta(
             var_name='QH_distr_loss_3el',
@@ -6111,6 +6418,7 @@ class Meta:
             temporal_scope=None,
             entity_group='heating',
             entity_key='system_3',
+            formula='🔥H!D41',
         )
         self.QH_distr_loss_4th = VariableMeta(
             var_name='QH_distr_loss_4th',
@@ -6127,6 +6435,7 @@ class Meta:
             temporal_scope=None,
             entity_group='heating',
             entity_key='system_4',
+            formula='🔥H!D48',
         )
         self.heat_cop_1el = VariableMeta(
             var_name='heat_cop_1el',
@@ -6143,6 +6452,7 @@ class Meta:
             temporal_scope=None,
             entity_group='heating',
             entity_key='system_1',
+            formula='🔥H!D26',
         )
         self.heat_cop_2th = VariableMeta(
             var_name='heat_cop_2th',
@@ -6159,6 +6469,7 @@ class Meta:
             temporal_scope=None,
             entity_group='heating',
             entity_key='system_2',
+            formula='🔥H!D33',
         )
         self.heat_cop_3el = VariableMeta(
             var_name='heat_cop_3el',
@@ -6175,6 +6486,7 @@ class Meta:
             temporal_scope=None,
             entity_group='heating',
             entity_key='system_3',
+            formula='🔥H!D40',
         )
         self.heat_cop_4th = VariableMeta(
             var_name='heat_cop_4th',
@@ -6191,6 +6503,7 @@ class Meta:
             temporal_scope=None,
             entity_group='heating',
             entity_key='system_4',
+            formula='🔥H!D47',
         )
         self.QH_generation_eff_1el = VariableMeta(
             var_name='QH_generation_eff_1el',
@@ -6207,6 +6520,7 @@ class Meta:
             temporal_scope=None,
             entity_group='heating',
             entity_key='system_1',
+            formula='WENNFEHLER(1/heat_cop_1el;0)',
         )
         self.QH_generation_eff_2th = VariableMeta(
             var_name='QH_generation_eff_2th',
@@ -6223,6 +6537,7 @@ class Meta:
             temporal_scope=None,
             entity_group='heating',
             entity_key='system_2',
+            formula='WENNFEHLER(1/heat_cop_2th;0)',
         )
         self.QH_generation_eff_3el = VariableMeta(
             var_name='QH_generation_eff_3el',
@@ -6239,6 +6554,7 @@ class Meta:
             temporal_scope=None,
             entity_group='heating',
             entity_key='system_3',
+            formula='WENNFEHLER(1/heat_cop_3el;0)',
         )
         self.QH_generation_eff_4th = VariableMeta(
             var_name='QH_generation_eff_4th',
@@ -6255,6 +6571,7 @@ class Meta:
             temporal_scope=None,
             entity_group='heating',
             entity_key='system_4',
+            formula='WENNFEHLER(1/heat_cop_4th;0)',
         )
         self.QH_aux_wasteheat = VariableMeta(
             var_name='QH_aux_wasteheat',
@@ -6271,6 +6588,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.QH_aux_el_to_th_1el = VariableMeta(
             var_name='QH_aux_el_to_th_1el',
@@ -6287,6 +6605,7 @@ class Meta:
             temporal_scope=None,
             entity_group='heating',
             entity_key='system_1',
+            formula='🔥H!D28',
         )
         self.QH_aux_el_to_th_2th = VariableMeta(
             var_name='QH_aux_el_to_th_2th',
@@ -6303,6 +6622,7 @@ class Meta:
             temporal_scope=None,
             entity_group='heating',
             entity_key='system_2',
+            formula='🔥H!D35',
         )
         self.QH_aux_el_to_th_3el = VariableMeta(
             var_name='QH_aux_el_to_th_3el',
@@ -6319,6 +6639,7 @@ class Meta:
             temporal_scope=None,
             entity_group='heating',
             entity_key='system_3',
+            formula='🔥H!D42',
         )
         self.QH_aux_el_to_th_4th = VariableMeta(
             var_name='QH_aux_el_to_th_4th',
@@ -6335,6 +6656,7 @@ class Meta:
             temporal_scope=None,
             entity_group='heating',
             entity_key='system_4',
+            formula='🔥H!D49',
         )
         self.heat_th2_carrier_type = VariableMeta(
             var_name='heat_th2_carrier_type',
@@ -6351,6 +6673,7 @@ class Meta:
             temporal_scope=None,
             entity_group='heating',
             entity_key='system_2',
+            formula='🔥H!D31',
         )
         self.heat_th4_carrier_type = VariableMeta(
             var_name='heat_th4_carrier_type',
@@ -6367,6 +6690,7 @@ class Meta:
             temporal_scope=None,
             entity_group='heating',
             entity_key='system_4',
+            formula='🔥H!D45',
         )
         self.Tsetheat_min = VariableMeta(
             var_name='Tsetheat_min',
@@ -6383,6 +6707,7 @@ class Meta:
             temporal_scope='winter',
             entity_group=None,
             entity_key=None,
+            formula='🔥H!D56',
         )
         self.preset_recorded_cooling_period = VariableMeta(
             var_name='preset_recorded_cooling_period',
@@ -6399,6 +6724,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.cooling_month1 = VariableMeta(
             var_name='cooling_month1',
@@ -6415,6 +6741,7 @@ class Meta:
             temporal_scope='summer',
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.cooling_month2 = VariableMeta(
             var_name='cooling_month2',
@@ -6431,6 +6758,7 @@ class Meta:
             temporal_scope='summer',
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.cooling_month3 = VariableMeta(
             var_name='cooling_month3',
@@ -6447,6 +6775,7 @@ class Meta:
             temporal_scope='summer',
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.cooling_month4 = VariableMeta(
             var_name='cooling_month4',
@@ -6463,6 +6792,7 @@ class Meta:
             temporal_scope='summer',
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.cooling_month5 = VariableMeta(
             var_name='cooling_month5',
@@ -6479,6 +6809,7 @@ class Meta:
             temporal_scope='summer',
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.cooling_month6 = VariableMeta(
             var_name='cooling_month6',
@@ -6495,6 +6826,7 @@ class Meta:
             temporal_scope='summer',
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.cooling_month7 = VariableMeta(
             var_name='cooling_month7',
@@ -6511,6 +6843,7 @@ class Meta:
             temporal_scope='summer',
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.cooling_month8 = VariableMeta(
             var_name='cooling_month8',
@@ -6527,6 +6860,7 @@ class Meta:
             temporal_scope='summer',
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.cooling_month9 = VariableMeta(
             var_name='cooling_month9',
@@ -6543,6 +6877,7 @@ class Meta:
             temporal_scope='summer',
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.cooling_month10 = VariableMeta(
             var_name='cooling_month10',
@@ -6559,6 +6894,7 @@ class Meta:
             temporal_scope='summer',
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.cooling_month11 = VariableMeta(
             var_name='cooling_month11',
@@ -6575,6 +6911,7 @@ class Meta:
             temporal_scope='summer',
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.cooling_month12 = VariableMeta(
             var_name='cooling_month12',
@@ -6591,6 +6928,7 @@ class Meta:
             temporal_scope='summer',
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.preset_recorded_cooling_modes = VariableMeta(
             var_name='preset_recorded_cooling_modes',
@@ -6607,6 +6945,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.cool_share_residential = VariableMeta(
             var_name='cool_share_residential',
@@ -6623,6 +6962,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='residential',
+            formula="❄️K'!D6",
         )
         self.cool_share_office = VariableMeta(
             var_name='cool_share_office',
@@ -6639,6 +6979,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='office',
+            formula="❄️K'!D7",
         )
         self.cool_share_schoolsec = VariableMeta(
             var_name='cool_share_schoolsec',
@@ -6655,6 +6996,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolsec',
+            formula="❄️K'!D8",
         )
         self.cool_share_schoolprim = VariableMeta(
             var_name='cool_share_schoolprim',
@@ -6671,6 +7013,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolprim',
+            formula="❄️K'!D9",
         )
         self.cool_share_retailfood = VariableMeta(
             var_name='cool_share_retailfood',
@@ -6687,6 +7030,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailfood',
+            formula="❄️K'!D10",
         )
         self.cool_share_retailother = VariableMeta(
             var_name='cool_share_retailother',
@@ -6703,6 +7047,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailother',
+            formula="❄️K'!D11",
         )
         self.cool_share_other = VariableMeta(
             var_name='cool_share_other',
@@ -6719,6 +7064,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='other',
+            formula="❄️K'!D12",
         )
         self.NFA_cooled = VariableMeta(
             var_name='NFA_cooled',
@@ -6735,6 +7081,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMMENPRODUKT(N376:N382;N46:N52)',
         )
         self.NFAfrac_c = VariableMeta(
             var_name='NFAfrac_c',
@@ -6751,6 +7098,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='NFA_cooled/NFA_total',
         )
         self.NFAfrac_u = VariableMeta(
             var_name='NFAfrac_u',
@@ -6767,6 +7115,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='1-N391',
         )
         self.QCmax_room_m2 = VariableMeta(
             var_name='QCmax_room_m2',
@@ -6783,6 +7132,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula="❄️K'!D47",
         )
         self.QCmax_room_MW = VariableMeta(
             var_name='QCmax_room_MW',
@@ -6799,6 +7149,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='QCmax_room_m2*NFA_cooled/1000000',
         )
         self.preset_recorded_cooling_system = VariableMeta(
             var_name='preset_recorded_cooling_system',
@@ -6815,6 +7166,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.QCmax_freecooling = VariableMeta(
             var_name='QCmax_freecooling',
@@ -6831,6 +7183,7 @@ class Meta:
             temporal_scope=None,
             entity_group='cooling',
             entity_key=None,
+            formula="❄️K'!D18",
         )
         self.QCmax_1el = VariableMeta(
             var_name='QCmax_1el',
@@ -6847,6 +7200,7 @@ class Meta:
             temporal_scope=None,
             entity_group='cooling',
             entity_key='system_1',
+            formula="❄️K'!D22",
         )
         self.QCmax_2th = VariableMeta(
             var_name='QCmax_2th',
@@ -6863,6 +7217,7 @@ class Meta:
             temporal_scope=None,
             entity_group='cooling',
             entity_key='system_2',
+            formula="❄️K'!D30",
         )
         self.QCmax_3el = VariableMeta(
             var_name='QCmax_3el',
@@ -6879,6 +7234,7 @@ class Meta:
             temporal_scope=None,
             entity_group='cooling',
             entity_key='system_3',
+            formula="❄️K'!D37",
         )
         self.QC_distr_losses_1el = VariableMeta(
             var_name='QC_distr_losses_1el',
@@ -6895,6 +7251,7 @@ class Meta:
             temporal_scope=None,
             entity_group='cooling',
             entity_key='system_1',
+            formula="❄️K'!D24",
         )
         self.QC_distr_losses_2th = VariableMeta(
             var_name='QC_distr_losses_2th',
@@ -6911,6 +7268,7 @@ class Meta:
             temporal_scope=None,
             entity_group='cooling',
             entity_key='system_2',
+            formula="❄️K'!D32",
         )
         self.QC_distr_losses_3el = VariableMeta(
             var_name='QC_distr_losses_3el',
@@ -6927,6 +7285,7 @@ class Meta:
             temporal_scope=None,
             entity_group='cooling',
             entity_key='system_3',
+            formula="❄️K'!D39",
         )
         self.cool_cop_1el = VariableMeta(
             var_name='cool_cop_1el',
@@ -6943,6 +7302,7 @@ class Meta:
             temporal_scope=None,
             entity_group='cooling',
             entity_key='system_1',
+            formula="❄️K'!D23",
         )
         self.cool_cop_2th = VariableMeta(
             var_name='cool_cop_2th',
@@ -6959,6 +7319,7 @@ class Meta:
             temporal_scope=None,
             entity_group='cooling',
             entity_key='system_2',
+            formula="❄️K'!D31",
         )
         self.cool_cop_3el = VariableMeta(
             var_name='cool_cop_3el',
@@ -6975,6 +7336,7 @@ class Meta:
             temporal_scope=None,
             entity_group='cooling',
             entity_key='system_3',
+            formula="❄️K'!D38",
         )
         self.QC_to_EC_1 = VariableMeta(
             var_name='QC_to_EC_1',
@@ -6991,6 +7353,7 @@ class Meta:
             temporal_scope=None,
             entity_group='cooling',
             entity_key='system_1',
+            formula='WENNFEHLER(1/N403;0)',
         )
         self.QC_generation_eff_2th = VariableMeta(
             var_name='QC_generation_eff_2th',
@@ -7007,6 +7370,7 @@ class Meta:
             temporal_scope=None,
             entity_group='cooling',
             entity_key='system_2',
+            formula='WENNFEHLER(1/N404;0)',
         )
         self.QC_to_EC_3 = VariableMeta(
             var_name='QC_to_EC_3',
@@ -7023,6 +7387,7 @@ class Meta:
             temporal_scope=None,
             entity_group='cooling',
             entity_key='system_3',
+            formula='WENNFEHLER(1/N405;0)',
         )
         self.QC_aux_fc = VariableMeta(
             var_name='QC_aux_fc',
@@ -7039,6 +7404,7 @@ class Meta:
             temporal_scope=None,
             entity_group='cooling',
             entity_key=None,
+            formula="❄️K'!D19",
         )
         self.QC_aux_1el = VariableMeta(
             var_name='QC_aux_1el',
@@ -7055,6 +7421,7 @@ class Meta:
             temporal_scope=None,
             entity_group='cooling',
             entity_key='system_1',
+            formula="❄️K'!D25",
         )
         self.QC_aux_2th = VariableMeta(
             var_name='QC_aux_2th',
@@ -7071,6 +7438,7 @@ class Meta:
             temporal_scope=None,
             entity_group='cooling',
             entity_key='system_2',
+            formula="❄️K'!D33",
         )
         self.QC_aux_3el = VariableMeta(
             var_name='QC_aux_3el',
@@ -7087,6 +7455,7 @@ class Meta:
             temporal_scope=None,
             entity_group='cooling',
             entity_key='system_3',
+            formula="❄️K'!D40",
         )
         self.cool_th2_carrier_type = VariableMeta(
             var_name='cool_th2_carrier_type',
@@ -7103,6 +7472,7 @@ class Meta:
             temporal_scope=None,
             entity_group='cooling',
             entity_key='system_2',
+            formula="❄️K'!D29",
         )
         self.Tsetcool_max = VariableMeta(
             var_name='Tsetcool_max',
@@ -7119,6 +7489,7 @@ class Meta:
             temporal_scope='summer',
             entity_group=None,
             entity_key=None,
+            formula="❄️K'!D48",
         )
         self.DHW_Tmin = VariableMeta(
             var_name='DHW_Tmin',
@@ -7135,6 +7506,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='💧WW!D48',
         )
         self.DHW_Tmax_input = VariableMeta(
             var_name='DHW_Tmax_input',
@@ -7151,6 +7523,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='🔋!D49',
         )
         self.DHW_Tmax = VariableMeta(
             var_name='DHW_Tmax',
@@ -7167,6 +7540,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='MIN(N417;DHW_Tmax_constant)',
         )
         self.preset_recorded_dhw_system = VariableMeta(
             var_name='preset_recorded_dhw_system',
@@ -7183,6 +7557,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.DHW_1_share_residential = VariableMeta(
             var_name='DHW_1_share_residential',
@@ -7199,6 +7574,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='residential',
+            formula='💧WW!D22',
         )
         self.DHW_1_share_office = VariableMeta(
             var_name='DHW_1_share_office',
@@ -7215,6 +7591,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='office',
+            formula='💧WW!D23',
         )
         self.DHW_1_share_schoolsec = VariableMeta(
             var_name='DHW_1_share_schoolsec',
@@ -7231,6 +7608,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolsec',
+            formula='💧WW!D24',
         )
         self.DHW_1_share_schoolprim = VariableMeta(
             var_name='DHW_1_share_schoolprim',
@@ -7247,6 +7625,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolprim',
+            formula='💧WW!D25',
         )
         self.DHW_1_share_retailfood = VariableMeta(
             var_name='DHW_1_share_retailfood',
@@ -7263,6 +7642,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailfood',
+            formula='💧WW!D26',
         )
         self.DHW_1_share_retailother = VariableMeta(
             var_name='DHW_1_share_retailother',
@@ -7279,6 +7659,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailother',
+            formula='💧WW!D27',
         )
         self.DHW_1_share_other = VariableMeta(
             var_name='DHW_1_share_other',
@@ -7295,6 +7676,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='other',
+            formula='💧WW!D28',
         )
         self.DHW_storage_1_liter = VariableMeta(
             var_name='DHW_storage_1_liter',
@@ -7311,6 +7693,7 @@ class Meta:
             temporal_scope=None,
             entity_group='dhw',
             entity_key='system_1',
+            formula='SUMMENPRODUKT(N420:N426;N427:N433)',
         )
         self.DHW_storage_2_liter = VariableMeta(
             var_name='DHW_storage_2_liter',
@@ -7327,6 +7710,7 @@ class Meta:
             temporal_scope=None,
             entity_group='dhw',
             entity_key='system_2',
+            formula='SUMME(N427:N433)-DHW_storage_1_liter',
         )
         self.DHW_1_is_used = VariableMeta(
             var_name='DHW_1_is_used',
@@ -7343,6 +7727,7 @@ class Meta:
             temporal_scope=None,
             entity_group='dhw',
             entity_key='system_1',
+            formula='WENN(DHW_storage_1_liter;WAHR;FALSCH)',
         )
         self.DHW_2_is_used = VariableMeta(
             var_name='DHW_2_is_used',
@@ -7359,6 +7744,7 @@ class Meta:
             temporal_scope=None,
             entity_group='dhw',
             entity_key='system_2',
+            formula='WENN(DHW_storage_2_liter;WAHR;FALSCH)',
         )
         self.DHW_thermal_power_1_kW = VariableMeta(
             var_name='DHW_thermal_power_1_kW',
@@ -7375,6 +7761,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='DHW_thermal_power_Wpl*DHW_storage_1_liter/1000',
         )
         self.DHW_losses_1 = VariableMeta(
             var_name='DHW_losses_1',
@@ -7391,6 +7778,7 @@ class Meta:
             temporal_scope=None,
             entity_group='dhw',
             entity_key='system_1',
+            formula='💧WW!D10',
         )
         self.DHW_losses_2 = VariableMeta(
             var_name='DHW_losses_2',
@@ -7407,6 +7795,7 @@ class Meta:
             temporal_scope=None,
             entity_group='dhw',
             entity_key='system_2',
+            formula='💧WW!D17',
         )
         self.DHW_efficiency_distribution_1 = VariableMeta(
             var_name='DHW_efficiency_distribution_1',
@@ -7423,6 +7812,7 @@ class Meta:
             temporal_scope=None,
             entity_group='dhw',
             entity_key='system_1',
+            formula='💧WW!D9',
         )
         self.DHW_efficiency_distribution_2 = VariableMeta(
             var_name='DHW_efficiency_distribution_2',
@@ -7439,6 +7829,7 @@ class Meta:
             temporal_scope=None,
             entity_group='dhw',
             entity_key='system_2',
+            formula='💧WW!D16',
         )
         self.DHW_1_incl_distribution_factor = VariableMeta(
             var_name='DHW_1_incl_distribution_factor',
@@ -7455,6 +7846,7 @@ class Meta:
             temporal_scope=None,
             entity_group='dhw',
             entity_key='system_1',
+            formula='WENNFEHLER(1/DHW_efficiency_distribution_1;0)',
         )
         self.DHW_2_incl_distribution_factor = VariableMeta(
             var_name='DHW_2_incl_distribution_factor',
@@ -7471,6 +7863,7 @@ class Meta:
             temporal_scope=None,
             entity_group='dhw',
             entity_key='system_2',
+            formula='WENNFEHLER(1/DHW_efficiency_distribution_2;0)',
         )
         self.DHW_carriertype_1 = VariableMeta(
             var_name='DHW_carriertype_1',
@@ -7487,6 +7880,7 @@ class Meta:
             temporal_scope=None,
             entity_group='dhw',
             entity_key='system_1',
+            formula='💧WW!D7',
         )
         self.DHW_1_is_electric = VariableMeta(
             var_name='DHW_1_is_electric',
@@ -7503,6 +7897,7 @@ class Meta:
             temporal_scope=None,
             entity_group='dhw',
             entity_key='system_1',
+            formula='WENN(DHW_carriertype_1="Strom";WAHR;FALSCH)',
         )
         self.DHW_carriertype_2 = VariableMeta(
             var_name='DHW_carriertype_2',
@@ -7519,6 +7914,7 @@ class Meta:
             temporal_scope=None,
             entity_group='dhw',
             entity_key='system_2',
+            formula='💧WW!D14',
         )
         self.DHW_2_is_electric = VariableMeta(
             var_name='DHW_2_is_electric',
@@ -7535,6 +7931,7 @@ class Meta:
             temporal_scope=None,
             entity_group='dhw',
             entity_key='system_2',
+            formula='WENN(DHW_carriertype_2="Strom";WAHR;FALSCH)',
         )
         self.DHW_1_efficiency = VariableMeta(
             var_name='DHW_1_efficiency',
@@ -7551,6 +7948,7 @@ class Meta:
             temporal_scope=None,
             entity_group='dhw',
             entity_key='system_1',
+            formula='💧WW!D8',
         )
         self.DHW_2_efficiency = VariableMeta(
             var_name='DHW_2_efficiency',
@@ -7567,6 +7965,7 @@ class Meta:
             temporal_scope=None,
             entity_group='dhw',
             entity_key='system_2',
+            formula='💧WW!D15',
         )
         self.DHW_conversion_1 = VariableMeta(
             var_name='DHW_conversion_1',
@@ -7583,6 +7982,7 @@ class Meta:
             temporal_scope=None,
             entity_group='dhw',
             entity_key='system_1',
+            formula='WENNFEHLER(1/DHW_1_efficiency;0)',
         )
         self.DHW_conversion_2 = VariableMeta(
             var_name='DHW_conversion_2',
@@ -7599,6 +7999,7 @@ class Meta:
             temporal_scope=None,
             entity_group='dhw',
             entity_key='system_2',
+            formula='WENNFEHLER(1/DHW_2_efficiency;0)',
         )
         self.DHW_1_el_aux = VariableMeta(
             var_name='DHW_1_el_aux',
@@ -7615,6 +8016,7 @@ class Meta:
             temporal_scope=None,
             entity_group='dhw',
             entity_key='system_1',
+            formula='💧WW!D1',
         )
         self.DHW_2_el_aux = VariableMeta(
             var_name='DHW_2_el_aux',
@@ -7631,6 +8033,7 @@ class Meta:
             temporal_scope=None,
             entity_group='dhw',
             entity_key='system_2',
+            formula='💧WW!D18',
         )
         self.DHW_occupancy_residential = VariableMeta(
             var_name='DHW_occupancy_residential',
@@ -7647,6 +8050,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='residential',
+            formula='💧WW!D60',
         )
         self.DHW_occupancy_office = VariableMeta(
             var_name='DHW_occupancy_office',
@@ -7663,6 +8067,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='office',
+            formula='💧WW!D61',
         )
         self.DHW_occupancy_schoolsec = VariableMeta(
             var_name='DHW_occupancy_schoolsec',
@@ -7679,6 +8084,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolsec',
+            formula='💧WW!D62',
         )
         self.DHW_occupancy_schoolprim = VariableMeta(
             var_name='DHW_occupancy_schoolprim',
@@ -7695,6 +8101,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolprim',
+            formula='💧WW!D63',
         )
         self.DHW_occupancy_retailfood = VariableMeta(
             var_name='DHW_occupancy_retailfood',
@@ -7711,6 +8118,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailfood',
+            formula='💧WW!D64',
         )
         self.DHW_occupancy_retailother = VariableMeta(
             var_name='DHW_occupancy_retailother',
@@ -7727,6 +8135,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailother',
+            formula='💧WW!D65',
         )
         self.DHW_occupancy_other = VariableMeta(
             var_name='DHW_occupancy_other',
@@ -7743,6 +8152,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='other',
+            formula='💧WW!D66',
         )
         self.DHW_concurrency_residential = VariableMeta(
             var_name='DHW_concurrency_residential',
@@ -7759,6 +8169,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='residential',
+            formula='💧WW!D51',
         )
         self.DHW_concurrency_office = VariableMeta(
             var_name='DHW_concurrency_office',
@@ -7775,6 +8186,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='office',
+            formula='💧WW!D52',
         )
         self.DHW_concurrency_schoolsec = VariableMeta(
             var_name='DHW_concurrency_schoolsec',
@@ -7791,6 +8203,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolsec',
+            formula='💧WW!D53',
         )
         self.DHW_concurrency_schoolprim = VariableMeta(
             var_name='DHW_concurrency_schoolprim',
@@ -7807,6 +8220,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolprim',
+            formula='💧WW!D54',
         )
         self.DHW_concurrency_retailfood = VariableMeta(
             var_name='DHW_concurrency_retailfood',
@@ -7823,6 +8237,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailfood',
+            formula='💧WW!D55',
         )
         self.DHW_concurrency_retailother = VariableMeta(
             var_name='DHW_concurrency_retailother',
@@ -7839,6 +8254,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailother',
+            formula='💧WW!D56',
         )
         self.DHW_concurrency_other = VariableMeta(
             var_name='DHW_concurrency_other',
@@ -7855,6 +8271,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='other',
+            formula='💧WW!D57',
         )
         self.DHW_storage_liter_pPerson = VariableMeta(
             var_name='DHW_storage_liter_pPerson',
@@ -7871,6 +8288,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='💧WW!D46',
         )
         self.DHW_thermal_power_pPerson = VariableMeta(
             var_name='DHW_thermal_power_pPerson',
@@ -7887,6 +8305,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.DHW_thermal_power_Wpl = VariableMeta(
             var_name='DHW_thermal_power_Wpl',
@@ -7903,6 +8322,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='DHW_thermal_power_pPerson/DHW_storage_liter_pPerson',
         )
         self.DHW_storage_env_temp_default = VariableMeta(
             var_name='DHW_storage_env_temp_default',
@@ -7919,6 +8339,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='💧WW!D47',
         )
         self.PV_is_used = VariableMeta(
             var_name='PV_is_used',
@@ -7935,6 +8356,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.PV_profile_name = VariableMeta(
             var_name='PV_profile_name',
@@ -7951,6 +8373,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='🌞PV!D8',
         )
         self.PV_id = VariableMeta(
             var_name='PV_id',
@@ -7967,6 +8390,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='VERGLEICH(PV_profile_name;pv_profile_names;0)',
         )
         self.PV_scale = VariableMeta(
             var_name='PV_scale',
@@ -7983,6 +8407,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='🌞PV!D17',
         )
         self.PV_efficiency = VariableMeta(
             var_name='PV_efficiency',
@@ -7999,6 +8424,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='🌞PV!D12',
         )
         self.PV_m2_per_kWp = VariableMeta(
             var_name='PV_m2_per_kWp',
@@ -8015,6 +8441,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='🌞PV!D11',
         )
         self.PV_kWp = VariableMeta(
             var_name='PV_kWp',
@@ -8031,6 +8458,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='🌞PV!D14',
         )
         self.PV_module_area = VariableMeta(
             var_name='PV_module_area',
@@ -8047,6 +8475,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='PV_roof_area_m2',
         )
         self.preset_recorded_flexibility_system = VariableMeta(
             var_name='preset_recorded_flexibility_system',
@@ -8063,6 +8492,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.FLEX_PV_is_used = VariableMeta(
             var_name='FLEX_PV_is_used',
@@ -8079,6 +8509,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.FLEX_is_used = VariableMeta(
             var_name='FLEX_is_used',
@@ -8095,6 +8526,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.FLEX_signal_name = VariableMeta(
             var_name='FLEX_signal_name',
@@ -8111,6 +8543,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='🚦Signals!D5',
         )
         self.FLEX_signal_ID = VariableMeta(
             var_name='FLEX_signal_ID',
@@ -8127,6 +8560,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='VERGLEICH(FLEX_signal_name;flex_signal_names;0)',
         )
         self.FLEX_grid_maxpower_Wm2 = VariableMeta(
             var_name='FLEX_grid_maxpower_Wm2',
@@ -8143,6 +8577,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='🔋!D15',
         )
         self.FLEX_is_used_for_plugloads = VariableMeta(
             var_name='FLEX_is_used_for_plugloads',
@@ -8159,6 +8594,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.FLEX_is_used_for_HVAC_min = VariableMeta(
             var_name='FLEX_is_used_for_HVAC_min',
@@ -8175,6 +8611,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.FLEX_is_used_for_ev_min = VariableMeta(
             var_name='FLEX_is_used_for_ev_min',
@@ -8191,6 +8628,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.preset_recorded_flexibility_thermal = VariableMeta(
             var_name='preset_recorded_flexibility_thermal',
@@ -8207,6 +8645,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.flex_heat_dT = VariableMeta(
             var_name='flex_heat_dT',
@@ -8223,6 +8662,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='🔋!D25',
         )
         self.Tsetheat_flex = VariableMeta(
             var_name='Tsetheat_flex',
@@ -8239,6 +8679,7 @@ class Meta:
             temporal_scope='winter',
             entity_group=None,
             entity_key=None,
+            formula='Tsetheat_min+N492',
         )
         self.FLEX_choice_heat_system = VariableMeta(
             var_name='FLEX_choice_heat_system',
@@ -8255,6 +8696,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='🔋!D26',
         )
         self.FLEX_heat1_use = VariableMeta(
             var_name='FLEX_heat1_use',
@@ -8271,6 +8713,7 @@ class Meta:
             temporal_scope=None,
             entity_group='heating',
             entity_key='system_1',
+            formula='WENN(N494="System 1";WAHR;FALSCH)',
         )
         self.FLEX_heat3_use = VariableMeta(
             var_name='FLEX_heat3_use',
@@ -8287,6 +8730,7 @@ class Meta:
             temporal_scope=None,
             entity_group='heating',
             entity_key='system_3',
+            formula='WENN(N494="System 3";WAHR;FALSCH)',
         )
         self.flex_cool_dT = VariableMeta(
             var_name='flex_cool_dT',
@@ -8303,6 +8747,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='🔋!D28',
         )
         self.Tsetcool_flex = VariableMeta(
             var_name='Tsetcool_flex',
@@ -8319,6 +8764,7 @@ class Meta:
             temporal_scope='summer',
             entity_group=None,
             entity_key=None,
+            formula='Tsetcool_max-N497',
         )
         self.FLEX_choice_cool_system = VariableMeta(
             var_name='FLEX_choice_cool_system',
@@ -8335,6 +8781,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='🔋!D29',
         )
         self.FLEX_cool1_use = VariableMeta(
             var_name='FLEX_cool1_use',
@@ -8351,6 +8798,7 @@ class Meta:
             temporal_scope=None,
             entity_group='cooling',
             entity_key='system_1',
+            formula='WENN(N499="System 1";WAHR;FALSCH)',
         )
         self.FLEX_cool3_use = VariableMeta(
             var_name='FLEX_cool3_use',
@@ -8367,6 +8815,7 @@ class Meta:
             temporal_scope=None,
             entity_group='cooling',
             entity_key='system_3',
+            formula='WENN(N499="System 3";WAHR;FALSCH)',
         )
         self.preset_recorded_battery_system = VariableMeta(
             var_name='preset_recorded_battery_system',
@@ -8383,6 +8832,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.Batt_is_used = VariableMeta(
             var_name='Batt_is_used',
@@ -8399,6 +8849,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.Batt_cap_kWh = VariableMeta(
             var_name='Batt_cap_kWh',
@@ -8415,6 +8866,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='🔋!D40',
         )
         self.Batt_cap_Wh_per_NFA = VariableMeta(
             var_name='Batt_cap_Wh_per_NFA',
@@ -8431,6 +8883,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='Batt_cap_kWh/NFA_total*1000',
         )
         self.Batt_c_rate = VariableMeta(
             var_name='Batt_c_rate',
@@ -8447,6 +8900,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='🔋!D41',
         )
         self.Batt_max_power_specific = VariableMeta(
             var_name='Batt_max_power_specific',
@@ -8463,6 +8917,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='Batt_cap_Wh_per_NFA*Batt_c_rate',
         )
         self.Batt_eff_factor_charge = VariableMeta(
             var_name='Batt_eff_factor_charge',
@@ -8479,6 +8934,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='🔋!D42',
         )
         self.Batt_eff_factor_discharge = VariableMeta(
             var_name='Batt_eff_factor_discharge',
@@ -8495,6 +8951,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='🔋!D43',
         )
         self.Batt_self_discharge_rate = VariableMeta(
             var_name='Batt_self_discharge_rate',
@@ -8511,6 +8968,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='🔋!D44',
         )
         self.Batt_auto_discharge_factor = VariableMeta(
             var_name='Batt_auto_discharge_factor',
@@ -8527,6 +8985,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='Batt_self_discharge_rate/7/24',
         )
         self.Batt_SOC_init = VariableMeta(
             var_name='Batt_SOC_init',
@@ -8543,6 +9002,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.Batt_is_used_for_plugloads = VariableMeta(
             var_name='Batt_is_used_for_plugloads',
@@ -8559,6 +9019,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.Batt_is_used_for_HVACminimum = VariableMeta(
             var_name='Batt_is_used_for_HVACminimum',
@@ -8575,6 +9036,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.Batt_is_used_for_EV = VariableMeta(
             var_name='Batt_is_used_for_EV',
@@ -8591,6 +9053,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.Batt_is_gridcharged = VariableMeta(
             var_name='Batt_is_gridcharged',
@@ -8607,6 +9070,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.flex_dhw_use = VariableMeta(
             var_name='flex_dhw_use',
@@ -8623,6 +9087,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.flex_Signals_selected_column = VariableMeta(
             var_name='flex_Signals_selected_column',
@@ -8639,6 +9104,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='VERGLEICH(FLEX_signal_name;Signals[#Kopfzeilen];0)',
         )
         self.Batt_is_not_used_during_signals = VariableMeta(
             var_name='Batt_is_not_used_during_signals',
@@ -8655,6 +9121,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.mobility_is_included = VariableMeta(
             var_name='mobility_is_included',
@@ -8671,6 +9138,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.preset_recorded_mobility = VariableMeta(
             var_name='preset_recorded_mobility',
@@ -8687,6 +9155,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.mobility_region = VariableMeta(
             var_name='mobility_region',
@@ -8703,6 +9172,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNFEHLER(SVERWEIS(N22;gemeinden;3;FALSCH)&WENN(mobility_mode="Vereinfacht";" optimiert";""); "Keine Region ausgewählt.")',
         )
         self.mobshare_residential = VariableMeta(
             var_name='mobshare_residential',
@@ -8719,6 +9189,7 @@ class Meta:
             temporal_scope=None,
             entity_group='mobility',
             entity_key='residential',
+            formula='SVERWEIS(mobility_region; Regionstypen; 2;FALSCH)',
         )
         self.mobshare_office = VariableMeta(
             var_name='mobshare_office',
@@ -8735,6 +9206,7 @@ class Meta:
             temporal_scope=None,
             entity_group='mobility',
             entity_key='work',
+            formula='SVERWEIS(mobility_region; Regionstypen; 3;FALSCH)',
         )
         self.mobshare_school = VariableMeta(
             var_name='mobshare_school',
@@ -8751,6 +9223,7 @@ class Meta:
             temporal_scope=None,
             entity_group='mobility',
             entity_key='education',
+            formula='SVERWEIS(mobility_region; Regionstypen; 4;FALSCH)',
         )
         self.mobshare_retail = VariableMeta(
             var_name='mobshare_retail',
@@ -8767,6 +9240,7 @@ class Meta:
             temporal_scope=None,
             entity_group='mobility',
             entity_key='retail',
+            formula='SVERWEIS(mobility_region; Regionstypen; 5;FALSCH)',
         )
         self.pkm_pedestrian = VariableMeta(
             var_name='pkm_pedestrian',
@@ -8783,6 +9257,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='SVERWEIS(mobility_region; Regionstypen; 6;FALSCH)',
         )
         self.pkm_bike = VariableMeta(
             var_name='pkm_bike',
@@ -8799,6 +9274,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='SVERWEIS(mobility_region; Regionstypen; 7;FALSCH)',
         )
         self.pkm_mofa = VariableMeta(
             var_name='pkm_mofa',
@@ -8815,6 +9291,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='SVERWEIS(mobility_region; Regionstypen; 8;FALSCH)',
         )
         self.pkm_car = VariableMeta(
             var_name='pkm_car',
@@ -8831,6 +9308,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='SVERWEIS(mobility_region; Regionstypen; 9;FALSCH)',
         )
         self.pkm_car_passenger = VariableMeta(
             var_name='pkm_car_passenger',
@@ -8847,6 +9325,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='SVERWEIS(mobility_region; Regionstypen; 10;FALSCH)',
         )
         self.pkm_bus = VariableMeta(
             var_name='pkm_bus',
@@ -8863,6 +9342,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='SVERWEIS(mobility_region; Regionstypen; 11;FALSCH)',
         )
         self.pkm_tram_metro = VariableMeta(
             var_name='pkm_tram_metro',
@@ -8879,6 +9359,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='SVERWEIS(mobility_region; Regionstypen; 12;FALSCH)',
         )
         self.pkm_train = VariableMeta(
             var_name='pkm_train',
@@ -8895,6 +9376,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='SVERWEIS(mobility_region; Regionstypen; 13;FALSCH)',
         )
         self.pkm_distancebus = VariableMeta(
             var_name='pkm_distancebus',
@@ -8911,6 +9393,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='SVERWEIS(mobility_region; Regionstypen; 14;FALSCH)',
         )
         self.mobility_vehicle_count = VariableMeta(
             var_name='mobility_vehicle_count',
@@ -8927,6 +9410,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='🚗!D77',
         )
         self.EV_share = VariableMeta(
             var_name='EV_share',
@@ -8943,6 +9427,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='🚗!D38',
         )
         self.EV_demand_kWhpkm = VariableMeta(
             var_name='EV_demand_kWhpkm',
@@ -8959,6 +9444,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='🚗!D59',
         )
         self.EV_battsize_kWh = VariableMeta(
             var_name='EV_battsize_kWh',
@@ -8975,6 +9461,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='🚗!D55',
         )
         self.EV_storage_total_kWh = VariableMeta(
             var_name='EV_storage_total_kWh',
@@ -8991,6 +9478,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='N539*N536',
         )
         self.EV_self_discharge_per_week = VariableMeta(
             var_name='EV_self_discharge_per_week',
@@ -9007,6 +9495,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='🚗!D56',
         )
         self.EV_selfdischarge_per_h = VariableMeta(
             var_name='EV_selfdischarge_per_h',
@@ -9023,6 +9512,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='N541/24/7',
         )
         self.EV_soc_minimum = VariableMeta(
             var_name='EV_soc_minimum',
@@ -9039,6 +9529,7 @@ class Meta:
             temporal_scope=None,
             entity_group='mobility',
             entity_key='residential',
+            formula=None,
         )
         self.EV_charging_efficiency = VariableMeta(
             var_name='EV_charging_efficiency',
@@ -9055,6 +9546,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='🚗!D57',
         )
         self.EV_charging_losses_surcharge_factor = VariableMeta(
             var_name='EV_charging_losses_surcharge_factor',
@@ -9071,6 +9563,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNFEHLER(1/N544;0)',
         )
         self.EV_max_charging_power_ratio = VariableMeta(
             var_name='EV_max_charging_power_ratio',
@@ -9087,6 +9580,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.EV_soc_min_work = VariableMeta(
             var_name='EV_soc_min_work',
@@ -9103,6 +9597,7 @@ class Meta:
             temporal_scope=None,
             entity_group='mobility',
             entity_key='work',
+            formula=None,
         )
         self.EV_soc_min_retail = VariableMeta(
             var_name='EV_soc_min_retail',
@@ -9119,6 +9614,7 @@ class Meta:
             temporal_scope=None,
             entity_group='mobility',
             entity_key='retail',
+            formula=None,
         )
         self.moped_factor = VariableMeta(
             var_name='moped_factor',
@@ -9135,6 +9631,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.EV_share_constant_charging = VariableMeta(
             var_name='EV_share_constant_charging',
@@ -9151,6 +9648,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.mob_pkm_factor = VariableMeta(
             var_name='mob_pkm_factor',
@@ -9167,6 +9665,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='🚗!D29',
         )
         self.EV_experimental_calculation = VariableMeta(
             var_name='EV_experimental_calculation',
@@ -9183,6 +9682,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.EV_mileage_residential = VariableMeta(
             var_name='EV_mileage_residential',
@@ -9199,6 +9699,7 @@ class Meta:
             temporal_scope=None,
             entity_group='mobility',
             entity_key='residential',
+            formula='mobility_is_included*(EV_share*StatPAX_residential*pkm_car*mob_pkm_factor)',
         )
         self.EV_mileage_work = VariableMeta(
             var_name='EV_mileage_work',
@@ -9215,6 +9716,7 @@ class Meta:
             temporal_scope=None,
             entity_group='mobility',
             entity_key='work',
+            formula='mobility_is_included*(mob_pkm_factor*EV_share*pkm_car*(mob_simultaneity_office*StatPAX_office+mob_simultaneity_edu*(StatPAX_schoolprim+StatPAX_schoolsec)))',
         )
         self.EV_mileage_retail = VariableMeta(
             var_name='EV_mileage_retail',
@@ -9231,6 +9733,7 @@ class Meta:
             temporal_scope=None,
             entity_group='mobility',
             entity_key='retail',
+            formula='mobility_is_included*(mob_pkm_factor*EV_share*pkm_car*mob_simultaneity_retail*(StatPAX_retail+StatPAX_retailother))',
         )
         self.EV_soc_min_ext = VariableMeta(
             var_name='EV_soc_min_ext',
@@ -9247,6 +9750,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='🚗!D66',
         )
         self.EV_soc_min_discharge = VariableMeta(
             var_name='EV_soc_min_discharge',
@@ -9263,6 +9767,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='🚗!D71',
         )
         self.fossile_demand_kWhpkm = VariableMeta(
             var_name='fossile_demand_kWhpkm',
@@ -9279,6 +9784,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.EV_count_residential = VariableMeta(
             var_name='EV_count_residential',
@@ -9295,6 +9801,7 @@ class Meta:
             temporal_scope=None,
             entity_group='mobility',
             entity_key='residential',
+            formula='EV_share*NFA_residential/100*mob_motorization_perNFA_residential*mobility_is_included',
         )
         self.EV_count_work = VariableMeta(
             var_name='EV_count_work',
@@ -9311,6 +9818,7 @@ class Meta:
             temporal_scope=None,
             entity_group='mobility',
             entity_key='work',
+            formula='EV_share*(NFA_office*mob_simultaneity_office+mob_simultaneity_edu*(NFA_schoolprim+NFA_schoolsec))/100*mob_motorization_perNFA_work*mobility_is_included',
         )
         self.EV_count_retail = VariableMeta(
             var_name='EV_count_retail',
@@ -9327,6 +9835,7 @@ class Meta:
             temporal_scope=None,
             entity_group='mobility',
             entity_key='retail',
+            formula='EV_share*mob_simultaneity_retail*(NFA_retailfood+NFA_retailother)/100*mob_motorization_perNFA_retail*mobility_is_included',
         )
         self.ev_bidirectional_use = VariableMeta(
             var_name='ev_bidirectional_use',
@@ -9343,6 +9852,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.GWP_walls_name = VariableMeta(
             var_name='GWP_walls_name',
@@ -9359,6 +9869,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula="☁THG'!D21",
         )
         self.GWP_windows_name = VariableMeta(
             var_name='GWP_windows_name',
@@ -9375,6 +9886,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula="☁THG'!D22",
         )
         self.GWP_roof_name = VariableMeta(
             var_name='GWP_roof_name',
@@ -9391,6 +9903,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula="☁THG'!D23",
         )
         self.GWP_ground_name = VariableMeta(
             var_name='GWP_ground_name',
@@ -9407,6 +9920,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula="☁THG'!D24",
         )
         self.GWP_ceiling_name = VariableMeta(
             var_name='GWP_ceiling_name',
@@ -9423,6 +9937,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula="☁THG'!D25",
         )
         self.GWP_general_name = VariableMeta(
             var_name='GWP_general_name',
@@ -9439,6 +9954,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula="☁THG'!D26",
         )
         self.GWP_other_name = VariableMeta(
             var_name='GWP_other_name',
@@ -9455,6 +9971,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula="☁THG'!D28",
         )
         self.GWP_pv_name = VariableMeta(
             var_name='GWP_pv_name',
@@ -9471,6 +9988,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula="☁THG'!D42",
         )
         self.GWP_boreholes_name = VariableMeta(
             var_name='GWP_boreholes_name',
@@ -9487,6 +10005,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula="☁THG'!D43",
         )
         self.GWP_ventilation_name = VariableMeta(
             var_name='GWP_ventilation_name',
@@ -9503,6 +10022,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula="☁THG'!D44",
         )
         self.GWP_solarthermal_name = VariableMeta(
             var_name='GWP_solarthermal_name',
@@ -9519,6 +10039,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula="☁THG'!D45",
         )
         self.GWP_battery_name = VariableMeta(
             var_name='GWP_battery_name',
@@ -9535,6 +10056,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula="☁THG'!D47",
         )
         self.GWP_storage_name = VariableMeta(
             var_name='GWP_storage_name',
@@ -9551,6 +10073,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula="☁THG'!D48",
         )
         self.GWP_tga_general_name = VariableMeta(
             var_name='GWP_tga_general_name',
@@ -9567,6 +10090,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula="☁THG'!D49",
         )
         self.GWP_tga_other_name = VariableMeta(
             var_name='GWP_tga_other_name',
@@ -9583,6 +10107,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula="☁THG'!D51",
         )
         self.GWP_ref_area_walls = VariableMeta(
             var_name='GWP_ref_area_walls',
@@ -9599,6 +10124,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula="☁THG'!F21",
         )
         self.GWP_ref_area_windows = VariableMeta(
             var_name='GWP_ref_area_windows',
@@ -9615,6 +10141,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula="☁THG'!F22",
         )
         self.GWP_ref_area_roof = VariableMeta(
             var_name='GWP_ref_area_roof',
@@ -9631,6 +10158,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula="☁THG'!F23",
         )
         self.GWP_ref_area_fundament = VariableMeta(
             var_name='GWP_ref_area_fundament',
@@ -9647,6 +10175,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula="☁THG'!F24",
         )
         self.GWP_ref_area_ceilings = VariableMeta(
             var_name='GWP_ref_area_ceilings',
@@ -9663,6 +10192,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula="☁THG'!F25",
         )
         self.borehole_count = VariableMeta(
             var_name='borehole_count',
@@ -9679,6 +10209,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula="☁THG'!E43",
         )
         self.preset_recorded_construction_type = VariableMeta(
             var_name='preset_recorded_construction_type',
@@ -9695,6 +10226,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.construction_name = VariableMeta(
             var_name='construction_name',
@@ -9711,6 +10243,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='THG!F6',
         )
         self.construction_description = VariableMeta(
             var_name='construction_description',
@@ -9727,6 +10260,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='THG!F7',
         )
         self.construction_type = VariableMeta(
             var_name='construction_type',
@@ -9743,6 +10277,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='THG!F8',
         )
         self.construction_quality = VariableMeta(
             var_name='construction_quality',
@@ -9759,6 +10294,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='THG!F9',
         )
         self.COMP_name_wall = VariableMeta(
             var_name='COMP_name_wall',
@@ -9775,6 +10311,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!F17',
         )
         self.COMP_name_windows = VariableMeta(
             var_name='COMP_name_windows',
@@ -9791,6 +10328,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!F18',
         )
         self.COMP_name_roof_flat = VariableMeta(
             var_name='COMP_name_roof_flat',
@@ -9807,6 +10345,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!F19',
         )
         self.COMP_name_roof_pitched = VariableMeta(
             var_name='COMP_name_roof_pitched',
@@ -9823,6 +10362,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!F20',
         )
         self.COMP_name_floor = VariableMeta(
             var_name='COMP_name_floor',
@@ -9839,6 +10379,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!F21',
         )
         self.COMP_name_ceiling = VariableMeta(
             var_name='COMP_name_ceiling',
@@ -9855,6 +10396,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!F22',
         )
         self.COMP_name_terrace = VariableMeta(
             var_name='COMP_name_terrace',
@@ -9871,6 +10413,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!F23',
         )
         self.COMP_name_basement_ceiling = VariableMeta(
             var_name='COMP_name_basement_ceiling',
@@ -9887,6 +10430,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!F24',
         )
         self.COMP_name_fundament = VariableMeta(
             var_name='COMP_name_fundament',
@@ -9903,6 +10447,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!F25',
         )
         self.COMP_name_ceil_to_air = VariableMeta(
             var_name='COMP_name_ceil_to_air',
@@ -9919,6 +10464,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!F26',
         )
         self.COMP_name_wall_earth_contacted = VariableMeta(
             var_name='COMP_name_wall_earth_contacted',
@@ -9935,6 +10481,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!F27',
         )
         self.COMP_name_internal_wall_load = VariableMeta(
             var_name='COMP_name_internal_wall_load',
@@ -9951,6 +10498,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!F28',
         )
         self.COMP_name_internal_wall_nonload = VariableMeta(
             var_name='COMP_name_internal_wall_nonload',
@@ -9967,6 +10515,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!F29',
         )
         self.COMP_name_ceiling_topfloor = VariableMeta(
             var_name='COMP_name_ceiling_topfloor',
@@ -9983,6 +10532,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!F30',
         )
         self.COMP_name_wall_ec_unheated = VariableMeta(
             var_name='COMP_name_wall_ec_unheated',
@@ -9999,6 +10549,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!F31',
         )
         self.COMP_name_basement_floor_unheated = VariableMeta(
             var_name='COMP_name_basement_floor_unheated',
@@ -10015,6 +10566,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!F32',
         )
         self.COMP_name_columns = VariableMeta(
             var_name='COMP_name_columns',
@@ -10031,6 +10583,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!F33',
         )
         self.COMP_name_internal_wall_unheated = VariableMeta(
             var_name='COMP_name_internal_wall_unheated',
@@ -10047,6 +10600,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!F34',
         )
         self.COMP_name_unheated_horizontal = VariableMeta(
             var_name='COMP_name_unheated_horizontal',
@@ -10063,6 +10617,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!F35',
         )
         self.COMP_name_balconies = VariableMeta(
             var_name='COMP_name_balconies',
@@ -10079,6 +10634,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!F36',
         )
         self.COMP_name_windowframe = VariableMeta(
             var_name='COMP_name_windowframe',
@@ -10095,6 +10651,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!F37',
         )
         self.COMP_name_windowglazing = VariableMeta(
             var_name='COMP_name_windowglazing',
@@ -10111,6 +10668,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!F38',
         )
         self.COMP_name_other_1 = VariableMeta(
             var_name='COMP_name_other_1',
@@ -10127,6 +10685,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!F41',
         )
         self.COMP_name_garage_horizontal = VariableMeta(
             var_name='COMP_name_garage_horizontal',
@@ -10143,6 +10702,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!F39',
         )
         self.COMP_name_garage_columns = VariableMeta(
             var_name='COMP_name_garage_columns',
@@ -10159,6 +10719,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!F40',
         )
         self.COMP_name_other_2 = VariableMeta(
             var_name='COMP_name_other_2',
@@ -10175,6 +10736,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!F42',
         )
         self.COMP_name_other_3 = VariableMeta(
             var_name='COMP_name_other_3',
@@ -10191,6 +10753,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!F43',
         )
         self.COMP_name_PV = VariableMeta(
             var_name='COMP_name_PV',
@@ -10207,6 +10770,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!F48',
         )
         self.COMP_name_boreholes = VariableMeta(
             var_name='COMP_name_boreholes',
@@ -10223,6 +10787,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!F49',
         )
         self.COMP_name_ahu_1 = VariableMeta(
             var_name='COMP_name_ahu_1',
@@ -10239,6 +10804,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!F50',
         )
         self.COMP_name_ahu_2 = VariableMeta(
             var_name='COMP_name_ahu_2',
@@ -10255,6 +10821,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!F51',
         )
         self.COMP_name_buffer_storage = VariableMeta(
             var_name='COMP_name_buffer_storage',
@@ -10271,6 +10838,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!F52',
         )
         self.COMP_name_BESS = VariableMeta(
             var_name='COMP_name_BESS',
@@ -10287,6 +10855,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!F53',
         )
         self.COMP_name_energy_1 = VariableMeta(
             var_name='COMP_name_energy_1',
@@ -10303,6 +10872,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!F54',
         )
         self.COMP_name_energy_2 = VariableMeta(
             var_name='COMP_name_energy_2',
@@ -10319,6 +10889,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!F55',
         )
         self.COMP_name_solarthermal = VariableMeta(
             var_name='COMP_name_solarthermal',
@@ -10335,6 +10906,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!F56',
         )
         self.COMP_area_wall = VariableMeta(
             var_name='COMP_area_wall',
@@ -10351,6 +10923,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!C17',
         )
         self.COMP_area_windows = VariableMeta(
             var_name='COMP_area_windows',
@@ -10367,6 +10940,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!C18',
         )
         self.COMP_area_roof_flat = VariableMeta(
             var_name='COMP_area_roof_flat',
@@ -10383,6 +10957,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!C19',
         )
         self.COMP_area_roof_pitched = VariableMeta(
             var_name='COMP_area_roof_pitched',
@@ -10399,6 +10974,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!C20',
         )
         self.COMP_area_floor = VariableMeta(
             var_name='COMP_area_floor',
@@ -10415,6 +10991,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!C21',
         )
         self.COMP_area_ceilings = VariableMeta(
             var_name='COMP_area_ceilings',
@@ -10431,6 +11008,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!C22',
         )
         self.COMP_area_terrace = VariableMeta(
             var_name='COMP_area_terrace',
@@ -10447,6 +11025,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!C23',
         )
         self.COMP_area_basement_ceiling = VariableMeta(
             var_name='COMP_area_basement_ceiling',
@@ -10463,6 +11042,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!C24',
         )
         self.COMP_area_fundament = VariableMeta(
             var_name='COMP_area_fundament',
@@ -10479,6 +11059,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!C25',
         )
         self.COMP_area_ceil_to_air = VariableMeta(
             var_name='COMP_area_ceil_to_air',
@@ -10495,6 +11076,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!C26',
         )
         self.COMP_area_wall_earth_contacted = VariableMeta(
             var_name='COMP_area_wall_earth_contacted',
@@ -10511,6 +11093,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!C27',
         )
         self.COMP_area_internal_wall_load = VariableMeta(
             var_name='COMP_area_internal_wall_load',
@@ -10527,6 +11110,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!C28',
         )
         self.COMP_area_internal_wall_nonload = VariableMeta(
             var_name='COMP_area_internal_wall_nonload',
@@ -10543,6 +11127,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!C29',
         )
         self.COMP_area_ceiling_topfloor = VariableMeta(
             var_name='COMP_area_ceiling_topfloor',
@@ -10559,6 +11144,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!C30',
         )
         self.COMP_area_wall_ec_unheated = VariableMeta(
             var_name='COMP_area_wall_ec_unheated',
@@ -10575,6 +11161,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!C31',
         )
         self.COMP_area_basement_floor_unheated = VariableMeta(
             var_name='COMP_area_basement_floor_unheated',
@@ -10591,6 +11178,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!C32',
         )
         self.COMP_area_columns = VariableMeta(
             var_name='COMP_area_columns',
@@ -10607,6 +11195,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!C33',
         )
         self.COMP_area_internal_wall_unheated = VariableMeta(
             var_name='COMP_area_internal_wall_unheated',
@@ -10623,6 +11212,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!C34',
         )
         self.COMP_area_unheated_horizontal = VariableMeta(
             var_name='COMP_area_unheated_horizontal',
@@ -10639,6 +11229,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!C35',
         )
         self.COMP_area_balconies = VariableMeta(
             var_name='COMP_area_balconies',
@@ -10655,6 +11246,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!C36',
         )
         self.COMP_area_windowframe = VariableMeta(
             var_name='COMP_area_windowframe',
@@ -10671,6 +11263,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!C37',
         )
         self.COMP_area_windowglazing = VariableMeta(
             var_name='COMP_area_windowglazing',
@@ -10687,6 +11280,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!C38',
         )
         self.COMP_area_garage_horizontal = VariableMeta(
             var_name='COMP_area_garage_horizontal',
@@ -10703,6 +11297,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!C39',
         )
         self.COMP_area_garage_columns = VariableMeta(
             var_name='COMP_area_garage_columns',
@@ -10719,6 +11314,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!C40',
         )
         self.COMP_area_other_1 = VariableMeta(
             var_name='COMP_area_other_1',
@@ -10735,6 +11331,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!C41',
         )
         self.COMP_area_other_2 = VariableMeta(
             var_name='COMP_area_other_2',
@@ -10751,6 +11348,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!C42',
         )
         self.COMP_area_other_3 = VariableMeta(
             var_name='COMP_area_other_3',
@@ -10767,6 +11365,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!C43',
         )
         self.COMP_fu_PV = VariableMeta(
             var_name='COMP_fu_PV',
@@ -10783,6 +11382,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!C48',
         )
         self.COMP_fu_boreholes = VariableMeta(
             var_name='COMP_fu_boreholes',
@@ -10799,6 +11399,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!C49',
         )
         self.COMP_fu_ahu_1 = VariableMeta(
             var_name='COMP_fu_ahu_1',
@@ -10815,6 +11416,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!C50',
         )
         self.COMP_fu_ahu_2 = VariableMeta(
             var_name='COMP_fu_ahu_2',
@@ -10831,6 +11433,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!C51',
         )
         self.COMP_fu_buffer_storage = VariableMeta(
             var_name='COMP_fu_buffer_storage',
@@ -10847,6 +11450,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!C52',
         )
         self.COMP_fu_BESS = VariableMeta(
             var_name='COMP_fu_BESS',
@@ -10863,6 +11467,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!C53',
         )
         self.COMP_fu_energy_1 = VariableMeta(
             var_name='COMP_fu_energy_1',
@@ -10879,6 +11484,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!C54',
         )
         self.COMP_fu_energy_2 = VariableMeta(
             var_name='COMP_fu_energy_2',
@@ -10895,6 +11501,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!C55',
         )
         self.COMP_fu_solarthermal = VariableMeta(
             var_name='COMP_fu_solarthermal',
@@ -10911,6 +11518,7 @@ class Meta:
             temporal_scope=None,
             entity_group='component',
             entity_key=None,
+            formula='THG!C56',
         )
         self.GWP_refratio_walls = VariableMeta(
             var_name='GWP_refratio_walls',
@@ -10927,6 +11535,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.GWP_refratio_windows = VariableMeta(
             var_name='GWP_refratio_windows',
@@ -10943,6 +11552,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='N632/GFA_total',
         )
         self.GWP_refratio_roof = VariableMeta(
             var_name='GWP_refratio_roof',
@@ -10959,6 +11569,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='N633/GFA_total',
         )
         self.GWP_refratio_fundament = VariableMeta(
             var_name='GWP_refratio_fundament',
@@ -10975,6 +11586,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='N635/GFA_total',
         )
         self.GWP_refratio_ceilings = VariableMeta(
             var_name='GWP_refratio_ceilings',
@@ -10991,6 +11603,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='N636/GFA_total',
         )
         self.GWP_refratio_pv = VariableMeta(
             var_name='GWP_refratio_pv',
@@ -11007,6 +11620,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='PV_module_area/GFA_total',
         )
         self.GWP_refratio_boreholes = VariableMeta(
             var_name='GWP_refratio_boreholes',
@@ -11023,6 +11637,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='borehole_count/GFA_total',
         )
         self.GWP_direct_fossile = VariableMeta(
             var_name='GWP_direct_fossile',
@@ -11039,6 +11654,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula="☁THG'!D30",
         )
         self.GWP_direct_biogenic = VariableMeta(
             var_name='GWP_direct_biogenic',
@@ -11055,6 +11671,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula="☁THG'!D31",
         )
         self.GWP_direct_biogenic_share = VariableMeta(
             var_name='GWP_direct_biogenic_share',
@@ -11071,6 +11688,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.GWP_direct_life = VariableMeta(
             var_name='GWP_direct_life',
@@ -11087,6 +11705,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.GWP_miv_count_ev = VariableMeta(
             var_name='GWP_miv_count_ev',
@@ -11103,6 +11722,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='N691*EV_share',
         )
         self.GWP_miv_count_fossile = VariableMeta(
             var_name='GWP_miv_count_fossile',
@@ -11119,6 +11739,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='N691-N692',
         )
         self.GWP_mobility_construction_fossil = VariableMeta(
             var_name='GWP_mobility_construction_fossil',
@@ -11135,6 +11756,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula="☁THG'!D56",
         )
         self.GWP_mobility_construction_ev = VariableMeta(
             var_name='GWP_mobility_construction_ev',
@@ -11151,6 +11773,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.GHG_LCA_timeframe_years = VariableMeta(
             var_name='GHG_LCA_timeframe_years',
@@ -11167,6 +11790,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.GWP_mobility_moped_gpPKm = VariableMeta(
             var_name='GWP_mobility_moped_gpPKm',
@@ -11183,6 +11807,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.GWP_mobility_car_gpPKm = VariableMeta(
             var_name='GWP_mobility_car_gpPKm',
@@ -11199,6 +11824,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.year_rcp0 = VariableMeta(
             var_name='year_rcp0',
@@ -11215,6 +11841,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.year_rcp1 = VariableMeta(
             var_name='year_rcp1',
@@ -11231,6 +11858,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.year_rcp2 = VariableMeta(
             var_name='year_rcp2',
@@ -11247,6 +11875,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.year_rcp3 = VariableMeta(
             var_name='year_rcp3',
@@ -11263,6 +11892,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.grid_rcp1 = VariableMeta(
             var_name='grid_rcp1',
@@ -11279,6 +11909,7 @@ class Meta:
             temporal_scope=None,
             entity_group='energy_carrier',
             entity_key='grid',
+            formula=None,
         )
         self.grid_rcp2 = VariableMeta(
             var_name='grid_rcp2',
@@ -11295,6 +11926,7 @@ class Meta:
             temporal_scope=None,
             entity_group='energy_carrier',
             entity_key='grid',
+            formula=None,
         )
         self.grid_rcp3 = VariableMeta(
             var_name='grid_rcp3',
@@ -11311,6 +11943,7 @@ class Meta:
             temporal_scope=None,
             entity_group='energy_carrier',
             entity_key='grid',
+            formula=None,
         )
         self.rcp1_renewable = VariableMeta(
             var_name='rcp1_renewable',
@@ -11327,6 +11960,7 @@ class Meta:
             temporal_scope=None,
             entity_group='energy_carrier',
             entity_key='renewables',
+            formula=None,
         )
         self.rcp2_renewable = VariableMeta(
             var_name='rcp2_renewable',
@@ -11343,6 +11977,7 @@ class Meta:
             temporal_scope=None,
             entity_group='energy_carrier',
             entity_key='renewables',
+            formula=None,
         )
         self.rcp3_renewable = VariableMeta(
             var_name='rcp3_renewable',
@@ -11359,6 +11994,7 @@ class Meta:
             temporal_scope=None,
             entity_group='energy_carrier',
             entity_key='renewables',
+            formula=None,
         )
         self.rcp1_dh = VariableMeta(
             var_name='rcp1_dh',
@@ -11375,6 +12011,7 @@ class Meta:
             temporal_scope=None,
             entity_group='energy_carrier',
             entity_key='district_heating',
+            formula='WENNFEHLER(WENN(FINDEN("rneuerbar";SVERWEIS(heat_th2_carrier_type;cf_constant;7;FALSCH));rcp1_renewable;#NV);rcp1_fossil)',
         )
         self.rcp2_dh = VariableMeta(
             var_name='rcp2_dh',
@@ -11391,6 +12028,7 @@ class Meta:
             temporal_scope=None,
             entity_group='energy_carrier',
             entity_key='district_heating',
+            formula='WENNFEHLER(WENN(FINDEN("rneuerbar";SVERWEIS(heat_th2_carrier_type;cf_constant;7;FALSCH));rcp2_renewable;#NV);rcp2_fossil)',
         )
         self.rcp3_dh = VariableMeta(
             var_name='rcp3_dh',
@@ -11407,6 +12045,7 @@ class Meta:
             temporal_scope=None,
             entity_group='energy_carrier',
             entity_key='district_heating',
+            formula='WENNFEHLER(WENN(FINDEN("rneuerbar";SVERWEIS(heat_th2_carrier_type;cf_constant;7;FALSCH));rcp3_renewable;#NV);rcp3_fossil)',
         )
         self.rcp1_fossil = VariableMeta(
             var_name='rcp1_fossil',
@@ -11423,6 +12062,7 @@ class Meta:
             temporal_scope=None,
             entity_group='energy_carrier',
             entity_key='fossile',
+            formula=None,
         )
         self.rcp2_fossil = VariableMeta(
             var_name='rcp2_fossil',
@@ -11439,6 +12079,7 @@ class Meta:
             temporal_scope=None,
             entity_group='energy_carrier',
             entity_key='fossile',
+            formula=None,
         )
         self.rcp3_fossil = VariableMeta(
             var_name='rcp3_fossil',
@@ -11455,6 +12096,7 @@ class Meta:
             temporal_scope=None,
             entity_group='energy_carrier',
             entity_key='fossile',
+            formula=None,
         )
         self.GWP_rcpi_grid = VariableMeta(
             var_name='GWP_rcpi_grid',
@@ -11471,6 +12113,7 @@ class Meta:
             temporal_scope=None,
             entity_group='energy_carrier',
             entity_key='grid',
+            formula='(year_rcp1-year_rcp0+1)*(1+grid_rcp1)/2+(year_rcp2-year_rcp1+1)*(grid_rcp1+grid_rcp2)/2+(year_rcp3-year_rcp2+1)*(grid_rcp3+grid_rcp2)/2-grid_rcp1-grid_rcp2',
         )
         self.GWP_rcpi_grid_substition = VariableMeta(
             var_name='GWP_rcpi_grid_substition',
@@ -11487,6 +12130,7 @@ class Meta:
             temporal_scope=None,
             entity_group='energy_carrier',
             entity_key='renewables',
+            formula='(year_rcp1-year_rcp0+1)*(1+grid_rcp1)/2+(year_rcp2-year_rcp1+1)*(grid_rcp1+grid_rcp2)/2+(year_rcp3-year_rcp2+1)*(grid_rcp3+grid_rcp2)/2-grid_rcp1-grid_rcp2',
         )
         self.GWP_rcpi_district_heating = VariableMeta(
             var_name='GWP_rcpi_district_heating',
@@ -11503,6 +12147,7 @@ class Meta:
             temporal_scope=None,
             entity_group='energy_carrier',
             entity_key='district_heating',
+            formula='(year_rcp1-year_rcp0+1)*(1+rcp1_dh)/2+(year_rcp2-year_rcp1+1)*(rcp1_dh+rcp2_dh)/2+(year_rcp3-year_rcp2+1)*(rcp2_dh+rcp3_dh)/2-rcp1_dh-rcp2_dh',
         )
         self.GWP_rcpi_fossil = VariableMeta(
             var_name='GWP_rcpi_fossil',
@@ -11519,6 +12164,7 @@ class Meta:
             temporal_scope=None,
             entity_group='energy_carrier',
             entity_key='fossile',
+            formula='(year_rcp1-year_rcp0+1)*(1+rcp1_fossil)/2+(year_rcp2-year_rcp1+1)*(rcp1_fossil+rcp2_fossil)/2+(year_rcp3-year_rcp2+1)*(rcp2_fossil+rcp3_fossil)/2-rcp1_fossil-rcp2_fossil',
         )
         self.GWP_rcpi_natural_gas = VariableMeta(
             var_name='GWP_rcpi_natural_gas',
@@ -11535,6 +12181,7 @@ class Meta:
             temporal_scope=None,
             entity_group='energy_carrier',
             entity_key='natural_gas',
+            formula='GWP_rcpi_fossil',
         )
         self.GWP_rcpi_biomass = VariableMeta(
             var_name='GWP_rcpi_biomass',
@@ -11551,6 +12198,7 @@ class Meta:
             temporal_scope=None,
             entity_group='energy_carrier',
             entity_key='biomass',
+            formula='GWP_rcpi_natural_gas',
         )
         self.GWP_rcpi_mob_fossile = VariableMeta(
             var_name='GWP_rcpi_mob_fossile',
@@ -11567,6 +12215,7 @@ class Meta:
             temporal_scope=None,
             entity_group='energy_carrier',
             entity_key='fossile',
+            formula='GWP_rcpi_biomass',
         )
         self.GWP_rcpi_renewable = VariableMeta(
             var_name='GWP_rcpi_renewable',
@@ -11583,6 +12232,7 @@ class Meta:
             temporal_scope=None,
             entity_group='energy_carrier',
             entity_key='renewables',
+            formula='(year_rcp1-year_rcp0+1)*(1+rcp1_renewable)/2+(year_rcp2-year_rcp1+1)*(rcp1_renewable+rcp2_renewable)/2+(year_rcp3-year_rcp2+1)*(rcp2_renewable+rcp3_renewable)/2-rcp1_renewable-rcp2_renewable',
         )
         self.fPE_grid_profile = VariableMeta(
             var_name='fPE_grid_profile',
@@ -11599,6 +12249,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.district_heating_conversion_profile = VariableMeta(
             var_name='district_heating_conversion_profile',
@@ -11615,6 +12266,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.fGHG_grid_profile = VariableMeta(
             var_name='fGHG_grid_profile',
@@ -11631,6 +12283,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='🚦Signals!D3',
         )
         self.fPE_grid_column = VariableMeta(
             var_name='fPE_grid_column',
@@ -11647,6 +12300,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='VERGLEICH(fPE_grid_profile;fPE[#Kopfzeilen];0)',
         )
         self.fGHG_grid_column = VariableMeta(
             var_name='fGHG_grid_column',
@@ -11663,6 +12317,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='VERGLEICH(fGHG_grid_profile;fGHG[#Kopfzeilen];0)',
         )
         self.heat_th2_is_dh = VariableMeta(
             var_name='heat_th2_is_dh',
@@ -11679,6 +12334,7 @@ class Meta:
             temporal_scope=None,
             entity_group='heating',
             entity_key='system_2',
+            formula='--ISTZAHL(FINDEN("Fernwärme";heat_th2_carrier_type))',
         )
         self.heat_th4_is_dh = VariableMeta(
             var_name='heat_th4_is_dh',
@@ -11695,6 +12351,7 @@ class Meta:
             temporal_scope=None,
             entity_group='heating',
             entity_key='system_4',
+            formula='--ISTZAHL(FINDEN("Fernwärme";heat_th4_carrier_type))',
         )
         self.cool_th2_is_dh = VariableMeta(
             var_name='cool_th2_is_dh',
@@ -11711,6 +12368,7 @@ class Meta:
             temporal_scope=None,
             entity_group='cooling',
             entity_key='system_2',
+            formula='--ISTZAHL(FINDEN("Fernwärme";cool_th2_carrier_type))',
         )
         self.dhw1_is_dh = VariableMeta(
             var_name='dhw1_is_dh',
@@ -11727,6 +12385,7 @@ class Meta:
             temporal_scope=None,
             entity_group='dhw',
             entity_key='system_1',
+            formula='--ISTZAHL(FINDEN("Fernwärme";DHW_carriertype_1))',
         )
         self.dhw2_is_dh = VariableMeta(
             var_name='dhw2_is_dh',
@@ -11743,6 +12402,7 @@ class Meta:
             temporal_scope=None,
             entity_group='dhw',
             entity_key='system_2',
+            formula='--ISTZAHL(FINDEN("Fernwärme";DHW_carriertype_2))',
         )
         self.heat_th2_is_ng = VariableMeta(
             var_name='heat_th2_is_ng',
@@ -11759,6 +12419,7 @@ class Meta:
             temporal_scope=None,
             entity_group='heating',
             entity_key='system_2',
+            formula='--ISTZAHL(FINDEN("Erdgas";heat_th2_carrier_type))',
         )
         self.heat_th4_is_ng = VariableMeta(
             var_name='heat_th4_is_ng',
@@ -11775,6 +12436,7 @@ class Meta:
             temporal_scope=None,
             entity_group='heating',
             entity_key='system_4',
+            formula='--ISTZAHL(FINDEN("Erdgas";heat_th4_carrier_type))',
         )
         self.cool_th2_is_ng = VariableMeta(
             var_name='cool_th2_is_ng',
@@ -11791,6 +12453,7 @@ class Meta:
             temporal_scope=None,
             entity_group='cooling',
             entity_key='system_2',
+            formula='--ISTZAHL(FINDEN("Erdgas";cool_th2_carrier_type))',
         )
         self.dhw1_is_ng = VariableMeta(
             var_name='dhw1_is_ng',
@@ -11807,6 +12470,7 @@ class Meta:
             temporal_scope=None,
             entity_group='dhw',
             entity_key='system_1',
+            formula='--ISTZAHL(FINDEN("Erdgas";DHW_carriertype_1))',
         )
         self.dhw2_is_ng = VariableMeta(
             var_name='dhw2_is_ng',
@@ -11823,6 +12487,7 @@ class Meta:
             temporal_scope=None,
             entity_group='dhw',
             entity_key='system_2',
+            formula='--ISTZAHL(FINDEN("Erdgas";DHW_carriertype_2))',
         )
         self.heat_th2_is_bio = VariableMeta(
             var_name='heat_th2_is_bio',
@@ -11839,6 +12504,7 @@ class Meta:
             temporal_scope=None,
             entity_group='heating',
             entity_key='system_2',
+            formula='--ISTZAHL(FINDEN("Biomasse";heat_th2_carrier_type))',
         )
         self.heat_th4_is_bio = VariableMeta(
             var_name='heat_th4_is_bio',
@@ -11855,6 +12521,7 @@ class Meta:
             temporal_scope=None,
             entity_group='heating',
             entity_key='system_4',
+            formula='--ISTZAHL(FINDEN("Biomasse";heat_th4_carrier_type))',
         )
         self.cool_th2_is_bio = VariableMeta(
             var_name='cool_th2_is_bio',
@@ -11871,6 +12538,7 @@ class Meta:
             temporal_scope=None,
             entity_group='cooling',
             entity_key='system_2',
+            formula='--ISTZAHL(FINDEN("Biomasse";cool_th2_carrier_type))',
         )
         self.dhw1_is_bio = VariableMeta(
             var_name='dhw1_is_bio',
@@ -11887,6 +12555,7 @@ class Meta:
             temporal_scope=None,
             entity_group='dhw',
             entity_key='system_1',
+            formula='--ISTZAHL(FINDEN("Biomasse";DHW_carriertype_1))',
         )
         self.dhw2_is_bio = VariableMeta(
             var_name='dhw2_is_bio',
@@ -11903,6 +12572,7 @@ class Meta:
             temporal_scope=None,
             entity_group='dhw',
             entity_key='system_2',
+            formula='--ISTZAHL(FINDEN("Biomasse";DHW_carriertype_2))',
         )
         self.heat_th2_is_other = VariableMeta(
             var_name='heat_th2_is_other',
@@ -11919,6 +12589,7 @@ class Meta:
             temporal_scope=None,
             entity_group='heating',
             entity_key='system_2',
+            formula='--NICHT(ODER(N735;N740;N745))',
         )
         self.heat_th4_is_other = VariableMeta(
             var_name='heat_th4_is_other',
@@ -11935,6 +12606,7 @@ class Meta:
             temporal_scope=None,
             entity_group='heating',
             entity_key='system_4',
+            formula='--NICHT(ODER(N736;N741;N746))',
         )
         self.cool_th2_is_other = VariableMeta(
             var_name='cool_th2_is_other',
@@ -11951,6 +12623,7 @@ class Meta:
             temporal_scope=None,
             entity_group='cooling',
             entity_key='system_2',
+            formula='--NICHT(ODER(N737;N742;N747))',
         )
         self.dhw1_is_other = VariableMeta(
             var_name='dhw1_is_other',
@@ -11967,6 +12640,7 @@ class Meta:
             temporal_scope=None,
             entity_group='dhw',
             entity_key='system_1',
+            formula='--UND(NICHT(ODER(N738;N743;N748)); DHW_1_is_used)',
         )
         self.dhw2_is_other = VariableMeta(
             var_name='dhw2_is_other',
@@ -11983,6 +12657,7 @@ class Meta:
             temporal_scope=None,
             entity_group='dhw',
             entity_key='system_2',
+            formula='--UND(NICHT(ODER(N739;N744;N749));DHW_2_is_used)',
         )
         self.fPE_flex_factor = VariableMeta(
             var_name='fPE_flex_factor',
@@ -11999,6 +12674,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.pe_conversion_factor_gasoline = VariableMeta(
             var_name='pe_conversion_factor_gasoline',
@@ -12015,6 +12691,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.ghg_conversion_factor_gasoline = VariableMeta(
             var_name='ghg_conversion_factor_gasoline',
@@ -12031,6 +12708,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.StatPAX_residential = VariableMeta(
             var_name='StatPAX_residential',
@@ -12047,6 +12725,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='residential',
+            formula='NFA_residential/density_NFApPers_residential',
         )
         self.StatPAX_office = VariableMeta(
             var_name='StatPAX_office',
@@ -12063,6 +12742,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='office',
+            formula='NFA_office/density_NFApPers_office',
         )
         self.StatPAX_schoolsec = VariableMeta(
             var_name='StatPAX_schoolsec',
@@ -12079,6 +12759,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolsec',
+            formula='NFA_schoolsec/density_NFApPers_schoolsec',
         )
         self.StatPAX_schoolprim = VariableMeta(
             var_name='StatPAX_schoolprim',
@@ -12095,6 +12776,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolprim',
+            formula='NFA_schoolprim/density_NFApPers_schoolprim',
         )
         self.StatPAX_retail = VariableMeta(
             var_name='StatPAX_retail',
@@ -12111,6 +12793,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailfood',
+            formula='NFA_retailfood/density_NFApPers_retail',
         )
         self.StatPAX_retailother = VariableMeta(
             var_name='StatPAX_retailother',
@@ -12127,6 +12810,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailother',
+            formula='NFA_retailother/density_NFApPers_retail_other',
         )
         self.EV_charging_stations = VariableMeta(
             var_name='EV_charging_stations',
@@ -12143,6 +12827,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='🚗!D48',
         )
         self.EV_charging_station_power = VariableMeta(
             var_name='EV_charging_station_power',
@@ -12159,6 +12844,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='🚗!D49',
         )
         self.seasonal_interpolation = VariableMeta(
             var_name='seasonal_interpolation',
@@ -12175,6 +12861,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.plugloads_residential = VariableMeta(
             var_name='plugloads_residential',
@@ -12191,6 +12878,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='residential',
+            formula='👤!D9',
         )
         self.plugloads_office = VariableMeta(
             var_name='plugloads_office',
@@ -12207,6 +12895,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='office',
+            formula='👤!D10',
         )
         self.plugloads_schoolsec = VariableMeta(
             var_name='plugloads_schoolsec',
@@ -12223,6 +12912,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolsec',
+            formula='👤!D11',
         )
         self.plugloads_schoolprim = VariableMeta(
             var_name='plugloads_schoolprim',
@@ -12239,6 +12929,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolprim',
+            formula='👤!D12',
         )
         self.plugloads_retailfood = VariableMeta(
             var_name='plugloads_retailfood',
@@ -12255,6 +12946,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailfood',
+            formula='👤!D13',
         )
         self.plugloads_retailother = VariableMeta(
             var_name='plugloads_retailother',
@@ -12271,6 +12963,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailother',
+            formula='👤!D14',
         )
         self.plugloads_other = VariableMeta(
             var_name='plugloads_other',
@@ -12287,6 +12980,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='other',
+            formula='👤!D15',
         )
         self.seasonal_phase_h = VariableMeta(
             var_name='seasonal_phase_h',
@@ -12303,6 +12997,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.PV_roof_area_percentage = VariableMeta(
             var_name='PV_roof_area_percentage',
@@ -12319,6 +13014,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='🌞PV!D10',
         )
         self.Ta_annual_avg = VariableMeta(
             var_name='Ta_annual_avg',
@@ -12335,6 +13031,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='MITTELWERT(sim[Ta])',
         )
         self.Ta_avg_heating_period = VariableMeta(
             var_name='Ta_avg_heating_period',
@@ -12351,6 +13048,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='MITTELWERTWENN(is_heating_period;1;sim[Ta])',
         )
         self.Ta_avg_cooling_period = VariableMeta(
             var_name='Ta_avg_cooling_period',
@@ -12367,6 +13065,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='MITTELWERTWENN(is_cooling_period;1;sim[Ta])',
         )
         self.UED_plugloads = VariableMeta(
             var_name='UED_plugloads',
@@ -12383,6 +13082,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='EUI_plugAuxLight-UED_lighting-UED_auxiliary',
         )
         self.UED_lighting = VariableMeta(
             var_name='UED_lighting',
@@ -12399,6 +13099,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[Elight])/1000',
         )
         self.UED_auxiliary = VariableMeta(
             var_name='UED_auxiliary',
@@ -12415,6 +13116,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[Eaux])/1000',
         )
         self.UED_heating = VariableMeta(
             var_name='UED_heating',
@@ -12431,6 +13133,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='QH',
         )
         self.UED_cooling = VariableMeta(
             var_name='UED_cooling',
@@ -12447,6 +13150,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='QC',
         )
         self.UED_dhw = VariableMeta(
             var_name='UED_dhw',
@@ -12463,6 +13167,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[[DHW_residential_kW]:[DHW_other_kW]])*per_NFA',
         )
         self.UED_ventilation = VariableMeta(
             var_name='UED_ventilation',
@@ -12479,6 +13184,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='EUIv_el',
         )
         self.UED_mim_electric = VariableMeta(
             var_name='UED_mim_electric',
@@ -12495,6 +13201,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='UED_mob_el_total',
         )
         self.UED_mim_fossile = VariableMeta(
             var_name='UED_mim_fossile',
@@ -12511,6 +13218,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='EUI_mob_fossile',
         )
         self.QT = VariableMeta(
             var_name='QT',
@@ -12527,6 +13235,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[QT_u] * NFAfrac_u; sim[QT_c] * NFAfrac_c) * -0,001',
         )
         self.QV = VariableMeta(
             var_name='QV',
@@ -12543,6 +13252,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='QV_u * NFAfrac_u + QV_c * NFAfrac_c',
         )
         self.QVn = VariableMeta(
             var_name='QVn',
@@ -12559,6 +13269,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='NFAfrac_u * QVn_u',
         )
         self.QS = VariableMeta(
             var_name='QS',
@@ -12575,6 +13286,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='QS_u * NFAfrac_u + QS_c * NFAfrac_c',
         )
         self.QI = VariableMeta(
             var_name='QI',
@@ -12591,6 +13303,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='QI_u * NFAfrac_u + QI_c * NFAfrac_c',
         )
         self.QH = VariableMeta(
             var_name='QH',
@@ -12607,6 +13320,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='QH_u * NFAfrac_u + QH_c * NFAfrac_c',
         )
         self.QC = VariableMeta(
             var_name='QC',
@@ -12623,6 +13337,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='QC_c * NFAfrac_c',
         )
         self.QV_heatrecovery = VariableMeta(
             var_name='QV_heatrecovery',
@@ -12639,6 +13354,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='QV_heatrecovery_u * NFAfrac_u + QV_heatrecovery_c * NFAfrac_c',
         )
         self.QT_winter = VariableMeta(
             var_name='QT_winter',
@@ -12655,6 +13371,7 @@ class Meta:
             temporal_scope='winter',
             entity_group=None,
             entity_key=None,
+            formula='(SUMMENPRODUKT(sim[is_heating_period]; sim[QT_u])*NFAfrac_u +\n  SUMMENPRODUKT(sim[is_heating_period]; sim[QT_c])*NFAfrac_c  ) * -0,001',
         )
         self.QV_winter = VariableMeta(
             var_name='QV_winter',
@@ -12671,6 +13388,7 @@ class Meta:
             temporal_scope='winter',
             entity_group=None,
             entity_key=None,
+            formula='QV_inf_winter + QV_window_winter + QV_mechvent_winter',
         )
         self.QVn_winter = VariableMeta(
             var_name='QVn_winter',
@@ -12687,6 +13405,7 @@ class Meta:
             temporal_scope='winter',
             entity_group=None,
             entity_key=None,
+            formula='SUMMENPRODUKT(sim[is_heating_period]; sim[Qv_nightvent]) * NFAfrac_u * -0,001',
         )
         self.QS_winter = VariableMeta(
             var_name='QS_winter',
@@ -12703,6 +13422,7 @@ class Meta:
             temporal_scope='winter',
             entity_group=None,
             entity_key=None,
+            formula='(SUMMENPRODUKT(sim[is_heating_period]; sim[QS_u]) * NFAfrac_u +\n  SUMMENPRODUKT(sim[is_heating_period]; sim[QS_c]) * NFAfrac_c) * 0,001',
         )
         self.QI_winter = VariableMeta(
             var_name='QI_winter',
@@ -12719,6 +13439,7 @@ class Meta:
             temporal_scope='winter',
             entity_group=None,
             entity_key=None,
+            formula='(SUMMENPRODUKT(sim[is_heating_period]; sim[QI_u]) * NFAfrac_u +\n  SUMMENPRODUKT(sim[is_heating_period]; sim[QI_c]) * NFAfrac_c) * 0,001',
         )
         self.QH_winter = VariableMeta(
             var_name='QH_winter',
@@ -12735,6 +13456,7 @@ class Meta:
             temporal_scope='winter',
             entity_group=None,
             entity_key=None,
+            formula='QH_min_winter + QH_flex_winter',
         )
         self.QC_winter = VariableMeta(
             var_name='QC_winter',
@@ -12751,6 +13473,7 @@ class Meta:
             temporal_scope='winter',
             entity_group=None,
             entity_key=None,
+            formula='QC_min_winter + QC_flex_winter',
         )
         self.test_heat_balance_winter = VariableMeta(
             var_name='test_heat_balance_winter',
@@ -12767,6 +13490,7 @@ class Meta:
             temporal_scope='winter',
             entity_group=None,
             entity_key=None,
+            formula='(QT_winter+QV_winter+QVn_winter+QC_winter) - (QS_winter+QI_winter+QH_winter)',
         )
         self.QT_wall_winter = VariableMeta(
             var_name='QT_wall_winter',
@@ -12783,6 +13507,7 @@ class Meta:
             temporal_scope='winter',
             entity_group='hull',
             entity_key='wall',
+            formula='QT_winter * transmittance_walls_Wm2NFA / transmittance_Wm2',
         )
         self.QT_roof_winter = VariableMeta(
             var_name='QT_roof_winter',
@@ -12799,6 +13524,7 @@ class Meta:
             temporal_scope='winter',
             entity_group='hull',
             entity_key='roof',
+            formula='QT_winter * transmittance_roof_Wm2NFA / transmittance_Wm2',
         )
         self.QT_ground_winter = VariableMeta(
             var_name='QT_ground_winter',
@@ -12815,6 +13541,7 @@ class Meta:
             temporal_scope='winter',
             entity_group='hull',
             entity_key='fundament',
+            formula='QT_winter * transmittance_fundament_Wm2NFA / transmittance_Wm2',
         )
         self.QT_window_winter = VariableMeta(
             var_name='QT_window_winter',
@@ -12831,6 +13558,7 @@ class Meta:
             temporal_scope='winter',
             entity_group='hull',
             entity_key='windows',
+            formula='QT_winter * transmittance_windows_Wm2NFA / transmittance_Wm2',
         )
         self.QT_psi_winter = VariableMeta(
             var_name='QT_psi_winter',
@@ -12847,6 +13575,7 @@ class Meta:
             temporal_scope='winter',
             entity_group='hull',
             entity_key=None,
+            formula='QT_winter * transmittance_heatbridge_Wm2NFA / transmittance_Wm2',
         )
         self.QV_inf_winter = VariableMeta(
             var_name='QV_inf_winter',
@@ -12863,6 +13592,7 @@ class Meta:
             temporal_scope='winter',
             entity_group=None,
             entity_key=None,
+            formula='(SUMMENPRODUKT(sim[is_heating_period]; sim[Qvinf_u]) * NFAfrac_u +\n  SUMMENPRODUKT(sim[is_heating_period]; sim[Qvinf_c]) * NFAfrac_c ) * -0,001',
         )
         self.QV_window_winter = VariableMeta(
             var_name='QV_window_winter',
@@ -12879,6 +13609,7 @@ class Meta:
             temporal_scope='winter',
             entity_group=None,
             entity_key=None,
+            formula='(SUMMENPRODUKT(sim[is_heating_period]; sim[Qvwindow_u]) * NFAfrac_u +\n  SUMMENPRODUKT(sim[is_heating_period]; sim[Qvwindow_c]) * NFAfrac_c ) * -0,001',
         )
         self.QV_mechvent_winter = VariableMeta(
             var_name='QV_mechvent_winter',
@@ -12895,6 +13626,7 @@ class Meta:
             temporal_scope='winter',
             entity_group=None,
             entity_key=None,
+            formula='(SUMMENPRODUKT(sim[is_heating_period]; sim[Qvmechvent_u]) * NFAfrac_u +\n  SUMMENPRODUKT(sim[is_heating_period]; sim[Qvmechvent_c]) * NFAfrac_c) * -0,001',
         )
         self.QV_heatrecovery_winter = VariableMeta(
             var_name='QV_heatrecovery_winter',
@@ -12911,6 +13643,7 @@ class Meta:
             temporal_scope='winter',
             entity_group=None,
             entity_key=None,
+            formula='SUMMENPRODUKT(sim[is_heating_period]; sim[dT_uncooled]; sim[ACH_mechvent_u]-sim[ACH_mechvent_therm_u])*cp_air*per_NFA_uncooled * -0,001 * NFAfrac_u +\n SUMMENPRODUKT(sim[is_heating_period]; sim[dT_cooled];   sim[ACH_mechvent_c]-sim[ACH_mechvent_therm_c])*cp_air*per_NFA_cooled   * -0,001 * NFAfrac_c',
         )
         self.QH_min_winter = VariableMeta(
             var_name='QH_min_winter',
@@ -12927,6 +13660,7 @@ class Meta:
             temporal_scope='winter',
             entity_group=None,
             entity_key=None,
+            formula='(SUMMENPRODUKT(sim[is_heating_period]; sim[Qh_to_room_uncooled_min]) * NFAfrac_u +\n  SUMMENPRODUKT(sim[is_heating_period]; sim[Qh_to_room_cooled_min]) * NFAfrac_c) * 0,001',
         )
         self.QH_flex_winter = VariableMeta(
             var_name='QH_flex_winter',
@@ -12943,6 +13677,7 @@ class Meta:
             temporal_scope='winter',
             entity_group=None,
             entity_key=None,
+            formula='(SUMMENPRODUKT(sim[is_heating_period]; sim[Qh_u]) * NFAfrac_u +\n  SUMMENPRODUKT(sim[is_heating_period]; sim[Qh_c]) * NFAfrac_c) * 0,001 - QH_min_winter',
         )
         self.QC_min_winter = VariableMeta(
             var_name='QC_min_winter',
@@ -12959,6 +13694,7 @@ class Meta:
             temporal_scope='winter',
             entity_group=None,
             entity_key=None,
+            formula='(SUMMENPRODUKT(sim[is_heating_period]; sim[Qc_min_excl_losses]) * NFAfrac_c) * -0,001',
         )
         self.QC_flex_winter = VariableMeta(
             var_name='QC_flex_winter',
@@ -12975,6 +13711,7 @@ class Meta:
             temporal_scope='winter',
             entity_group=None,
             entity_key=None,
+            formula='(SUMMENPRODUKT(sim[is_heating_period]; sim[Qc_flex_excl_losses]) * NFAfrac_c) * -0,001',
         )
         self.QH_flexshare_winter = VariableMeta(
             var_name='QH_flexshare_winter',
@@ -12991,6 +13728,7 @@ class Meta:
             temporal_scope='winter',
             entity_group=None,
             entity_key=None,
+            formula='WENNFEHLER(QH_flex_winter/QH_winter;0)',
         )
         self.QC_flexshare_winter = VariableMeta(
             var_name='QC_flexshare_winter',
@@ -13007,6 +13745,7 @@ class Meta:
             temporal_scope='winter',
             entity_group=None,
             entity_key=None,
+            formula='WENNFEHLER(QC_flex_winter/QC_winter;0)',
         )
         self.QT_summer = VariableMeta(
             var_name='QT_summer',
@@ -13023,6 +13762,7 @@ class Meta:
             temporal_scope='summer',
             entity_group=None,
             entity_key=None,
+            formula='(SUMMENPRODUKT(sim[is_cooling_period]; sim[QT_u])*NFAfrac_u +\n  SUMMENPRODUKT(sim[is_cooling_period]; sim[QT_c])*NFAfrac_c  ) * -0,001',
         )
         self.QV_summer = VariableMeta(
             var_name='QV_summer',
@@ -13039,6 +13779,7 @@ class Meta:
             temporal_scope='summer',
             entity_group=None,
             entity_key=None,
+            formula='QV_inf_summer + QV_window_summer + QV_mechvent_summer',
         )
         self.QVn_summer = VariableMeta(
             var_name='QVn_summer',
@@ -13055,6 +13796,7 @@ class Meta:
             temporal_scope='summer',
             entity_group=None,
             entity_key=None,
+            formula='SUMMENPRODUKT(sim[is_cooling_period]; sim[Qv_nightvent]) * NFAfrac_u * -0,001',
         )
         self.QS_summer = VariableMeta(
             var_name='QS_summer',
@@ -13071,6 +13813,7 @@ class Meta:
             temporal_scope='summer',
             entity_group=None,
             entity_key=None,
+            formula='(SUMMENPRODUKT(sim[is_cooling_period]; sim[QS_u]) * NFAfrac_u +\n  SUMMENPRODUKT(sim[is_cooling_period]; sim[QS_c]) * NFAfrac_c) * 0,001',
         )
         self.QI_summer = VariableMeta(
             var_name='QI_summer',
@@ -13087,6 +13830,7 @@ class Meta:
             temporal_scope='summer',
             entity_group=None,
             entity_key=None,
+            formula='(SUMMENPRODUKT(sim[is_cooling_period]; sim[QI_u]) * NFAfrac_u +\n  SUMMENPRODUKT(sim[is_cooling_period]; sim[QI_c]) * NFAfrac_c) * 0,001',
         )
         self.QH_summer = VariableMeta(
             var_name='QH_summer',
@@ -13103,6 +13847,7 @@ class Meta:
             temporal_scope='summer',
             entity_group=None,
             entity_key=None,
+            formula='QH_min_summer + QH_flex_summer',
         )
         self.QC_summer = VariableMeta(
             var_name='QC_summer',
@@ -13119,6 +13864,7 @@ class Meta:
             temporal_scope='summer',
             entity_group=None,
             entity_key=None,
+            formula='QC_min_summer + QC_flex_summer',
         )
         self.test_heat_balance_summer = VariableMeta(
             var_name='test_heat_balance_summer',
@@ -13135,6 +13881,7 @@ class Meta:
             temporal_scope='summer',
             entity_group=None,
             entity_key=None,
+            formula='(QT_summer+QV_summer+QVn_summer+QC_summer) - (QS_summer+QI_summer+QH_summer)',
         )
         self.QT_wall_summer = VariableMeta(
             var_name='QT_wall_summer',
@@ -13151,6 +13898,7 @@ class Meta:
             temporal_scope='summer',
             entity_group='hull',
             entity_key='wall',
+            formula='QT_summer * transmittance_walls_Wm2NFA / transmittance_Wm2',
         )
         self.QT_roof_summer = VariableMeta(
             var_name='QT_roof_summer',
@@ -13167,6 +13915,7 @@ class Meta:
             temporal_scope='summer',
             entity_group='hull',
             entity_key='roof',
+            formula='QT_summer * transmittance_roof_Wm2NFA / transmittance_Wm2',
         )
         self.QT_ground_summer = VariableMeta(
             var_name='QT_ground_summer',
@@ -13183,6 +13932,7 @@ class Meta:
             temporal_scope='summer',
             entity_group='hull',
             entity_key='fundament',
+            formula='QT_summer * transmittance_fundament_Wm2NFA / transmittance_Wm2',
         )
         self.QT_window_summer = VariableMeta(
             var_name='QT_window_summer',
@@ -13199,6 +13949,7 @@ class Meta:
             temporal_scope='summer',
             entity_group='hull',
             entity_key='windows',
+            formula='QT_summer * transmittance_windows_Wm2NFA / transmittance_Wm2',
         )
         self.QT_psi_summer = VariableMeta(
             var_name='QT_psi_summer',
@@ -13215,6 +13966,7 @@ class Meta:
             temporal_scope='summer',
             entity_group='hull',
             entity_key=None,
+            formula='QT_summer * transmittance_heatbridge_Wm2NFA / transmittance_Wm2',
         )
         self.QV_inf_summer = VariableMeta(
             var_name='QV_inf_summer',
@@ -13231,6 +13983,7 @@ class Meta:
             temporal_scope='summer',
             entity_group=None,
             entity_key=None,
+            formula='(SUMMENPRODUKT(sim[is_cooling_period]; sim[Qvinf_u]) * NFAfrac_u +\n  SUMMENPRODUKT(sim[is_cooling_period]; sim[Qvinf_c]) * NFAfrac_c ) * -0,001',
         )
         self.QV_window_summer = VariableMeta(
             var_name='QV_window_summer',
@@ -13247,6 +14000,7 @@ class Meta:
             temporal_scope='summer',
             entity_group=None,
             entity_key=None,
+            formula='(SUMMENPRODUKT(sim[is_cooling_period]; sim[Qvwindow_u]) * NFAfrac_u +\n  SUMMENPRODUKT(sim[is_cooling_period]; sim[Qvwindow_c]) * NFAfrac_c ) * -0,001',
         )
         self.QV_mechvent_summer = VariableMeta(
             var_name='QV_mechvent_summer',
@@ -13263,6 +14017,7 @@ class Meta:
             temporal_scope='summer',
             entity_group=None,
             entity_key=None,
+            formula='(SUMMENPRODUKT(sim[is_cooling_period]; sim[Qvmechvent_u]) * NFAfrac_u +\n  SUMMENPRODUKT(sim[is_cooling_period]; sim[Qvmechvent_c]) * NFAfrac_c) * -0,001',
         )
         self.QV_heatrecovery_summer = VariableMeta(
             var_name='QV_heatrecovery_summer',
@@ -13279,6 +14034,7 @@ class Meta:
             temporal_scope='summer',
             entity_group=None,
             entity_key=None,
+            formula='SUMMENPRODUKT(sim[is_cooling_period]; sim[dT_uncooled]; sim[ACH_mechvent_u]-sim[ACH_mechvent_therm_u])*cp_air*per_NFA_uncooled * -0,001 * NFAfrac_u +\n SUMMENPRODUKT(sim[is_cooling_period]; sim[dT_cooled];   sim[ACH_mechvent_c]-sim[ACH_mechvent_therm_c])*cp_air*per_NFA_cooled   * -0,001 * NFAfrac_c',
         )
         self.QH_min_summer = VariableMeta(
             var_name='QH_min_summer',
@@ -13295,6 +14051,7 @@ class Meta:
             temporal_scope='summer',
             entity_group=None,
             entity_key=None,
+            formula='(SUMMENPRODUKT(sim[is_cooling_period]; sim[Qh_to_room_uncooled_min]) * NFAfrac_u +\n  SUMMENPRODUKT(sim[is_cooling_period]; sim[Qh_to_room_cooled_min]) * NFAfrac_c) * 0,001',
         )
         self.QH_flex_summer = VariableMeta(
             var_name='QH_flex_summer',
@@ -13311,6 +14068,7 @@ class Meta:
             temporal_scope='summer',
             entity_group=None,
             entity_key=None,
+            formula='(SUMMENPRODUKT(sim[is_cooling_period]; sim[Qh_u]) * NFAfrac_u +\n  SUMMENPRODUKT(sim[is_cooling_period]; sim[Qh_c]) * NFAfrac_c) * 0,001 - QH_min_summer',
         )
         self.QC_min_summer = VariableMeta(
             var_name='QC_min_summer',
@@ -13327,6 +14085,7 @@ class Meta:
             temporal_scope='summer',
             entity_group=None,
             entity_key=None,
+            formula='(SUMMENPRODUKT(sim[is_cooling_period]; sim[Qc_min_excl_losses]) * NFAfrac_c) * -0,001',
         )
         self.QC_flex_summer = VariableMeta(
             var_name='QC_flex_summer',
@@ -13343,6 +14102,7 @@ class Meta:
             temporal_scope='summer',
             entity_group=None,
             entity_key=None,
+            formula='(SUMMENPRODUKT(sim[is_cooling_period]; sim[Qc_flex_excl_losses]) * NFAfrac_c) * -0,001',
         )
         self.QH_flexshare_summer = VariableMeta(
             var_name='QH_flexshare_summer',
@@ -13359,6 +14119,7 @@ class Meta:
             temporal_scope='summer',
             entity_group=None,
             entity_key=None,
+            formula='WENNFEHLER(QH_flex_summer/QH_summer;0)',
         )
         self.QC_flexshare_summer = VariableMeta(
             var_name='QC_flexshare_summer',
@@ -13375,6 +14136,7 @@ class Meta:
             temporal_scope='summer',
             entity_group=None,
             entity_key=None,
+            formula='WENNFEHLER(QC_flex_summer/QC_summer;0)',
         )
         self.test_heat_balance = VariableMeta(
             var_name='test_heat_balance',
@@ -13391,6 +14153,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='(QT+QV+QVn+QC)-(QS+QI+QH)',
         )
         self.test_heat_balance_seasonal_mismatch = VariableMeta(
             var_name='test_heat_balance_seasonal_mismatch',
@@ -13407,6 +14170,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='test_heat_balance_winter+test_heat_balance_summer',
         )
         self.QT_u = VariableMeta(
             var_name='QT_u',
@@ -13423,6 +14187,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='-0,001*SUMME(sim[QT_u])',
         )
         self.QV_u = VariableMeta(
             var_name='QV_u',
@@ -13439,6 +14204,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='QV_inf_u+QV_window_u+QV_mechvent_u',
         )
         self.QVn_u = VariableMeta(
             var_name='QVn_u',
@@ -13455,6 +14221,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='-0,001*SUMME(sim[Qv_nightvent])',
         )
         self.QS_u = VariableMeta(
             var_name='QS_u',
@@ -13471,6 +14238,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='0,001*SUMME(sim[QS_u])',
         )
         self.QI_u = VariableMeta(
             var_name='QI_u',
@@ -13487,6 +14255,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='0,001*SUMME(sim[QI_u])',
         )
         self.QH_u = VariableMeta(
             var_name='QH_u',
@@ -13503,6 +14272,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='QH_min_u+QH_flex_u',
         )
         self.QT_wall_u = VariableMeta(
             var_name='QT_wall_u',
@@ -13519,6 +14289,7 @@ class Meta:
             temporal_scope='annual',
             entity_group='hull',
             entity_key='wall',
+            formula='QT_u*IN!N112/transmittance_Wm2',
         )
         self.QT_roof_u = VariableMeta(
             var_name='QT_roof_u',
@@ -13535,6 +14306,7 @@ class Meta:
             temporal_scope='annual',
             entity_group='hull',
             entity_key='roof',
+            formula='QT_u*IN!N113/transmittance_Wm2',
         )
         self.QT_ground_u = VariableMeta(
             var_name='QT_ground_u',
@@ -13551,6 +14323,7 @@ class Meta:
             temporal_scope='annual',
             entity_group='hull',
             entity_key='fundament',
+            formula='QT_u*IN!N114/transmittance_Wm2',
         )
         self.QT_window_u = VariableMeta(
             var_name='QT_window_u',
@@ -13567,6 +14340,7 @@ class Meta:
             temporal_scope='annual',
             entity_group='hull',
             entity_key='windows',
+            formula='QT_u*IN!N115/transmittance_Wm2',
         )
         self.QT_psi_u = VariableMeta(
             var_name='QT_psi_u',
@@ -13583,6 +14357,7 @@ class Meta:
             temporal_scope='annual',
             entity_group='hull',
             entity_key=None,
+            formula='QT_u*IN!N116/transmittance_Wm2',
         )
         self.QV_inf_u = VariableMeta(
             var_name='QV_inf_u',
@@ -13599,6 +14374,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='-SUMME(sim[Qvinf_u])/1000',
         )
         self.QV_window_u = VariableMeta(
             var_name='QV_window_u',
@@ -13615,6 +14391,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='-SUMME(sim[Qvwindow_u])/1000',
         )
         self.QV_mechvent_u = VariableMeta(
             var_name='QV_mechvent_u',
@@ -13631,6 +14408,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='-SUMME(sim[Qvmechvent_u])/1000',
         )
         self.QV_heatrecovery_u = VariableMeta(
             var_name='QV_heatrecovery_u',
@@ -13647,6 +14425,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='SUMMENPRODUKT(sim[dT_uncooled];sim[ACH_mechvent_u]-sim[ACH_mechvent_therm_u])*cp_air*per_NFA_uncooled * -0,001',
         )
         self.QH_min_u = VariableMeta(
             var_name='QH_min_u',
@@ -13663,6 +14442,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[Qh_to_room_uncooled_min])/1000',
         )
         self.QH_flex_u = VariableMeta(
             var_name='QH_flex_u',
@@ -13679,6 +14459,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[Qh_u])/1000-QH_min_u',
         )
         self.QH_flexanteil_u = VariableMeta(
             var_name='QH_flexanteil_u',
@@ -13695,6 +14476,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='WENNFEHLER(QH_flex_u/QH_u;0)',
         )
         self.QT_c = VariableMeta(
             var_name='QT_c',
@@ -13711,6 +14493,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='-0,001*SUMME(sim[QT_c])',
         )
         self.QV_c = VariableMeta(
             var_name='QV_c',
@@ -13727,6 +14510,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='QV_inf_c+QV_window_c+QV_mechvent_c',
         )
         self.QVn_c = VariableMeta(
             var_name='QVn_c',
@@ -13743,6 +14527,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.QS_c = VariableMeta(
             var_name='QS_c',
@@ -13759,6 +14544,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[QS_c])/1000',
         )
         self.QI_c = VariableMeta(
             var_name='QI_c',
@@ -13775,6 +14561,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='0,001*SUMME(sim[QI_c])',
         )
         self.QH_c = VariableMeta(
             var_name='QH_c',
@@ -13791,6 +14578,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='QH_min_c+QH_flex_c',
         )
         self.QC_c = VariableMeta(
             var_name='QC_c',
@@ -13807,6 +14595,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='QC_min_c+QC_flex_c',
         )
         self.QT_wall_c = VariableMeta(
             var_name='QT_wall_c',
@@ -13823,6 +14612,7 @@ class Meta:
             temporal_scope='annual',
             entity_group='hull',
             entity_key='wall',
+            formula='QT_c*IN!N112/transmittance_Wm2',
         )
         self.QT_roof_c = VariableMeta(
             var_name='QT_roof_c',
@@ -13839,6 +14629,7 @@ class Meta:
             temporal_scope='annual',
             entity_group='hull',
             entity_key='roof',
+            formula='QT_c*IN!N113/transmittance_Wm2',
         )
         self.QT_ground_c = VariableMeta(
             var_name='QT_ground_c',
@@ -13855,6 +14646,7 @@ class Meta:
             temporal_scope='annual',
             entity_group='hull',
             entity_key='fundament',
+            formula='QT_c*IN!N114/transmittance_Wm2',
         )
         self.QT_window_c = VariableMeta(
             var_name='QT_window_c',
@@ -13871,6 +14663,7 @@ class Meta:
             temporal_scope='annual',
             entity_group='hull',
             entity_key='windows',
+            formula='QT_c*IN!N115/transmittance_Wm2',
         )
         self.QT_psi_c = VariableMeta(
             var_name='QT_psi_c',
@@ -13887,6 +14680,7 @@ class Meta:
             temporal_scope='annual',
             entity_group='hull',
             entity_key=None,
+            formula='QT_c*IN!N116/transmittance_Wm2',
         )
         self.QV_inf_c = VariableMeta(
             var_name='QV_inf_c',
@@ -13903,6 +14697,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='-SUMME(sim[Qvinf_c])/1000',
         )
         self.QV_window_c = VariableMeta(
             var_name='QV_window_c',
@@ -13919,6 +14714,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='-SUMME(sim[Qvwindow_c])/1000',
         )
         self.QV_mechvent_c = VariableMeta(
             var_name='QV_mechvent_c',
@@ -13935,6 +14731,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='-SUMME(sim[Qvmechvent_c])/1000',
         )
         self.QV_heatrecovery_c = VariableMeta(
             var_name='QV_heatrecovery_c',
@@ -13951,6 +14748,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='SUMMENPRODUKT(sim[dT_cooled];sim[ACH_mechvent_c]-sim[ACH_mechvent_therm_c])*cp_air*per_NFA_cooled * -0,001',
         )
         self.QH_min_c = VariableMeta(
             var_name='QH_min_c',
@@ -13967,6 +14765,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[Qh_to_room_cooled_min])/1000',
         )
         self.QH_flex_c = VariableMeta(
             var_name='QH_flex_c',
@@ -13983,6 +14782,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[Qh_c])/1000-QH_min_c',
         )
         self.QC_min_c = VariableMeta(
             var_name='QC_min_c',
@@ -13999,6 +14799,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='-SUMME(sim[Qc_min_excl_losses])/1000',
         )
         self.QC_flex_c = VariableMeta(
             var_name='QC_flex_c',
@@ -14015,6 +14816,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='-SUMME(sim[Qc_flex_excl_losses])/1000',
         )
         self.QC_flexanteil = VariableMeta(
             var_name='QC_flexanteil',
@@ -14031,6 +14833,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='WENNFEHLER(QC_flex_c/QC_c;0)',
         )
         self.QH_flexanteil_c = VariableMeta(
             var_name='QH_flexanteil_c',
@@ -14047,6 +14850,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='WENNFEHLER(QH_flex_c/QH_c;0)',
         )
         self.Tu_avg_winter = VariableMeta(
             var_name='Tu_avg_winter',
@@ -14063,6 +14867,7 @@ class Meta:
             temporal_scope='winter',
             entity_group=None,
             entity_key=None,
+            formula='MITTELWERT(MITTELWERTWENNS(sim[Ti_final_uncooled];month;winter_months))',
         )
         self.Tc_avg_winter = VariableMeta(
             var_name='Tc_avg_winter',
@@ -14079,6 +14884,7 @@ class Meta:
             temporal_scope='winter',
             entity_group=None,
             entity_key=None,
+            formula='MITTELWERT(MITTELWERTWENNS(sim[Ti_final_cooled];month;winter_months))',
         )
         self.Tu_avg_summer = VariableMeta(
             var_name='Tu_avg_summer',
@@ -14095,6 +14901,7 @@ class Meta:
             temporal_scope='summer',
             entity_group=None,
             entity_key=None,
+            formula='MITTELWERT(MITTELWERTWENNS(sim[Ti_final_uncooled];month;summer_months))',
         )
         self.Tc_avg_summer = VariableMeta(
             var_name='Tc_avg_summer',
@@ -14111,6 +14918,7 @@ class Meta:
             temporal_scope='summer',
             entity_group=None,
             entity_key=None,
+            formula='MITTELWERT(MITTELWERTWENNS(sim[Ti_final_cooled];month;summer_months))',
         )
         self.dTu_winter = VariableMeta(
             var_name='dTu_winter',
@@ -14127,6 +14935,7 @@ class Meta:
             temporal_scope='winter',
             entity_group=None,
             entity_key=None,
+            formula='MITTELWERT(MITTELWERTWENNS(sim[Ti_final_uncooled];month;winter_months))-Tsetheat_min',
         )
         self.dTc_winter = VariableMeta(
             var_name='dTc_winter',
@@ -14143,6 +14952,7 @@ class Meta:
             temporal_scope='winter',
             entity_group=None,
             entity_key=None,
+            formula='MITTELWERT(MITTELWERTWENNS(sim[Ti_final_cooled];month;winter_months))-Tsetheat_min',
         )
         self.dTu_summer = VariableMeta(
             var_name='dTu_summer',
@@ -14159,6 +14969,7 @@ class Meta:
             temporal_scope='summer',
             entity_group=None,
             entity_key=None,
+            formula='Tsetcool_max - MITTELWERT(MITTELWERTWENNS(sim[Ti_final_uncooled];month;summer_months))',
         )
         self.dTc_summer = VariableMeta(
             var_name='dTc_summer',
@@ -14175,6 +14986,7 @@ class Meta:
             temporal_scope='summer',
             entity_group=None,
             entity_key=None,
+            formula='Tsetcool_max- MITTELWERT(MITTELWERTWENNS(sim[Ti_final_cooled];month;summer_months))',
         )
         self.EUI_plugAuxLight = VariableMeta(
             var_name='EUI_plugAuxLight',
@@ -14191,6 +15003,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='PV_to_plugloads+Batt_to_plugloads+VRGrid_to_plugloads+Grid_to_plugloads+Eev_to_plugloads',
         )
         self.EUI_plugloads = VariableMeta(
             var_name='EUI_plugloads',
@@ -14207,6 +15020,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[E_plugAuxLight])/1000-EUI_auxiliary-EUI_lighting',
         )
         self.EUI_auxiliary = VariableMeta(
             var_name='EUI_auxiliary',
@@ -14223,6 +15037,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[Eaux])/1000',
         )
         self.EUI_lighting = VariableMeta(
             var_name='EUI_lighting',
@@ -14239,6 +15054,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[Elight])/1000',
         )
         self.test_EUI_balance = VariableMeta(
             var_name='test_EUI_balance',
@@ -14255,6 +15071,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='EUI_plugAuxLight-SUMME(sim[E_plugAuxLight])/1000',
         )
         self.EUIh_el = VariableMeta(
             var_name='EUIh_el',
@@ -14271,6 +15088,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='PV_to_Eh_min+PV_to_Eh_flex+Batt_to_Eh_min+VRGrid_to_Eh_min+VRGrid_to_Eh_flex+Eev_to_Eh_min+Grid_to_Eh_min',
         )
         self.EUIh_el_aux = VariableMeta(
             var_name='EUIh_el_aux',
@@ -14287,6 +15105,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[Eh_aux])/1000',
         )
         self.EUIc_el = VariableMeta(
             var_name='EUIc_el',
@@ -14303,6 +15122,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='PV_to_Ec_min+PV_to_Ec_flex+Batt_to_Ec_min+VRGrid_to_Ec_min+VRGrid_to_Ec_flex+Eev_to_Ec_min+Grid_to_Ec_min',
         )
         self.EUIc_el_aux = VariableMeta(
             var_name='EUIc_el_aux',
@@ -14319,6 +15139,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[Ec_aux])/1000',
         )
         self.EUIdhw_el = VariableMeta(
             var_name='EUIdhw_el',
@@ -14335,6 +15156,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='PV_to_Edhw_min+PV_to_Edhw+Batt_to_Edhw_min+VRGrid_to_Edhw_min+VRGrid_to_Edhw_flex+Eev_to_Edhw_min+Grid_to_Edhw_min',
         )
         self.EUIv_el = VariableMeta(
             var_name='EUIv_el',
@@ -14351,6 +15173,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='PV_to_Ev_min+Batt_to_Ev_min+VRGrid_to_Ev_min+Eev_to_Ev_min+Grid_to_Ev_min',
         )
         self.EUIdhwdirect_el = VariableMeta(
             var_name='EUIdhwdirect_el',
@@ -14367,6 +15190,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='PV_to_Edhw_direct',
         )
         self.Batt_total_charge_input = VariableMeta(
             var_name='Batt_total_charge_input',
@@ -14383,6 +15207,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='PV_to_Batt+VRGrid_to_Batt',
         )
         self.EUIev_el = VariableMeta(
             var_name='EUIev_el',
@@ -14399,6 +15224,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='PV_to_Eev_min+PV_to_Eev_flex+Batt_to_Eev_min+VRGrid_to_Eev_min+VRGrid_to_Eev_flex+Grid_to_Eev_min',
         )
         self.EUI_el_total = VariableMeta(
             var_name='EUI_el_total',
@@ -14415,6 +15241,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='EUI_plugAuxLight+EUIh_el+EUIc_el+EUIdhw_el+EUIv_el+EUIdhwdirect_el+EUIev_el',
         )
         self.PV_total = VariableMeta(
             var_name='PV_total',
@@ -14431,6 +15258,7 @@ class Meta:
             temporal_scope='static',
             entity_group=None,
             entity_key=None,
+            formula='PV_total_direct+PV_total_flex+PV_to_Egrid',
         )
         self.PV_to_plugloads = VariableMeta(
             var_name='PV_to_plugloads',
@@ -14447,6 +15275,7 @@ class Meta:
             temporal_scope='static',
             entity_group='energy_use',
             entity_key='user_electricity',
+            formula='SUMME(sim[PV_to_user])/1000',
         )
         self.PV_to_Eh_min = VariableMeta(
             var_name='PV_to_Eh_min',
@@ -14463,6 +15292,7 @@ class Meta:
             temporal_scope='static',
             entity_group='energy_use',
             entity_key='heating_demand',
+            formula='SUMME(sim[PV_to_Eh_min])/1000',
         )
         self.PV_to_Ec_min = VariableMeta(
             var_name='PV_to_Ec_min',
@@ -14479,6 +15309,7 @@ class Meta:
             temporal_scope='static',
             entity_group='energy_use',
             entity_key='cooling_demand',
+            formula='SUMME(sim[PV_to_Ec_min])/1000',
         )
         self.PV_to_Edhw_min = VariableMeta(
             var_name='PV_to_Edhw_min',
@@ -14495,6 +15326,7 @@ class Meta:
             temporal_scope='static',
             entity_group='energy_use',
             entity_key='dhw_demand',
+            formula='SUMME(sim[PV_to_Edhw_min])/1000',
         )
         self.PV_to_Ev_min = VariableMeta(
             var_name='PV_to_Ev_min',
@@ -14511,6 +15343,7 @@ class Meta:
             temporal_scope='static',
             entity_group='energy_use',
             entity_key='vent_el_demand',
+            formula='SUMME(sim[PV_to_Ev_min])/1000',
         )
         self.PV_to_Eev_min = VariableMeta(
             var_name='PV_to_Eev_min',
@@ -14527,6 +15360,7 @@ class Meta:
             temporal_scope='static',
             entity_group='energy_use',
             entity_key='ev_local_charge',
+            formula='SUMME(sim[PV_to_Eev_min])/1000',
         )
         self.PV_total_direct = VariableMeta(
             var_name='PV_total_direct',
@@ -14543,6 +15377,7 @@ class Meta:
             temporal_scope='static',
             entity_group='energy_use',
             entity_key=None,
+            formula='PV_to_plugloads+PV_to_Eh_min+PV_to_Ec_min+PV_to_Edhw_min+PV_to_Ev_min+PV_to_Eev_min',
         )
         self.PV_to_Eh_flex = VariableMeta(
             var_name='PV_to_Eh_flex',
@@ -14559,6 +15394,7 @@ class Meta:
             temporal_scope='flexible',
             entity_group='energy_use',
             entity_key='heating_demand',
+            formula='SUMME(sim[[PV_to_Eh_flex_1el]:[PV_to_Eh_flex_3el]])/1000',
         )
         self.PV_to_Ec_flex = VariableMeta(
             var_name='PV_to_Ec_flex',
@@ -14575,6 +15411,7 @@ class Meta:
             temporal_scope='flexible',
             entity_group='energy_use',
             entity_key='cooling_demand',
+            formula='SUMME(sim[[PV_to_Ec_flex_1el]:[PV_to_Ec_flex_3el]])/1000',
         )
         self.PV_to_Edhw = VariableMeta(
             var_name='PV_to_Edhw',
@@ -14591,6 +15428,7 @@ class Meta:
             temporal_scope='flexible',
             entity_group='energy_use',
             entity_key='dhw_demand',
+            formula='SUMME(sim[[PV_to_Edhw1_flex]:[PV_to_Edhw2_flex]])/1000',
         )
         self.PV_to_Edhw_direct = VariableMeta(
             var_name='PV_to_Edhw_direct',
@@ -14607,6 +15445,7 @@ class Meta:
             temporal_scope='flexible',
             entity_group='energy_use',
             entity_key=None,
+            formula=None,
         )
         self.PV_to_Batt = VariableMeta(
             var_name='PV_to_Batt',
@@ -14623,6 +15462,7 @@ class Meta:
             temporal_scope='flexible',
             entity_group='energy_use',
             entity_key='battery_charge',
+            formula='SUMME(sim[PV_to_Batt])/1000',
         )
         self.PV_to_Eev_flex = VariableMeta(
             var_name='PV_to_Eev_flex',
@@ -14639,6 +15479,7 @@ class Meta:
             temporal_scope='flexible',
             entity_group='energy_use',
             entity_key='ev_local_charge',
+            formula='SUMME(sim[PV_to_Eev_flex])/1000',
         )
         self.PV_total_flex = VariableMeta(
             var_name='PV_total_flex',
@@ -14655,6 +15496,7 @@ class Meta:
             temporal_scope='flexible',
             entity_group='energy_use',
             entity_key=None,
+            formula='PV_to_Eh_flex+PV_to_Ec_flex+PV_to_Edhw+PV_to_Edhw_direct+PV_to_Batt+PV_to_Eev_flex',
         )
         self.PV_to_Egrid = VariableMeta(
             var_name='PV_to_Egrid',
@@ -14671,6 +15513,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[PV_to_Egrid])/1000',
         )
         self.Batt_to_plugloads = VariableMeta(
             var_name='Batt_to_plugloads',
@@ -14687,6 +15530,7 @@ class Meta:
             temporal_scope='flexible',
             entity_group='energy_use',
             entity_key='user_electricity',
+            formula='SUMME(sim[Batt_to_user])/1000',
         )
         self.Batt_to_HVAC = VariableMeta(
             var_name='Batt_to_HVAC',
@@ -14703,6 +15547,7 @@ class Meta:
             temporal_scope='flexible',
             entity_group=None,
             entity_key=None,
+            formula='SUMME(K157:K160)',
         )
         self.Batt_to_Eh_min = VariableMeta(
             var_name='Batt_to_Eh_min',
@@ -14719,6 +15564,7 @@ class Meta:
             temporal_scope='flexible',
             entity_group='energy_use',
             entity_key='heating_demand',
+            formula='SUMME(sim[Batt_to_Eh_min])/1000',
         )
         self.Batt_to_Ec_min = VariableMeta(
             var_name='Batt_to_Ec_min',
@@ -14735,6 +15581,7 @@ class Meta:
             temporal_scope='flexible',
             entity_group='energy_use',
             entity_key='cooling_demand',
+            formula='SUMME(sim[Batt_to_Ec_min])/1000',
         )
         self.Batt_to_Edhw_min = VariableMeta(
             var_name='Batt_to_Edhw_min',
@@ -14751,6 +15598,7 @@ class Meta:
             temporal_scope='flexible',
             entity_group='energy_use',
             entity_key='dhw_demand',
+            formula='SUMME(sim[Batt_to_Edhw_min])/1000',
         )
         self.Batt_to_Ev_min = VariableMeta(
             var_name='Batt_to_Ev_min',
@@ -14767,6 +15615,7 @@ class Meta:
             temporal_scope='flexible',
             entity_group='energy_use',
             entity_key='vent_el_demand',
+            formula='SUMME(sim[Batt_to_Ev_min])/1000',
         )
         self.Batt_to_Eev_min = VariableMeta(
             var_name='Batt_to_Eev_min',
@@ -14783,6 +15632,7 @@ class Meta:
             temporal_scope='flexible',
             entity_group='energy_use',
             entity_key='ev_local_charge',
+            formula='SUMME(sim[Batt_to_Eev_min])/1000',
         )
         self.Batt_charging_losses = VariableMeta(
             var_name='Batt_charging_losses',
@@ -14799,6 +15649,7 @@ class Meta:
             temporal_scope='flexible',
             entity_group=None,
             entity_key=None,
+            formula='Batt_total_charge-Batt_total_discharge',
         )
         self.VRGrid_to_plugloads = VariableMeta(
             var_name='VRGrid_to_plugloads',
@@ -14815,6 +15666,7 @@ class Meta:
             temporal_scope='flexible',
             entity_group='energy_use',
             entity_key='user_electricity',
+            formula='SUMME(sim[VRGrid_to_user])/1000',
         )
         self.VRGrid_to_Eh_min = VariableMeta(
             var_name='VRGrid_to_Eh_min',
@@ -14831,6 +15683,7 @@ class Meta:
             temporal_scope='flexible',
             entity_group='energy_use',
             entity_key='heating_demand',
+            formula='SUMME(sim[VRGrid_to_Eh_min])/1000',
         )
         self.VRGrid_to_Ec_min = VariableMeta(
             var_name='VRGrid_to_Ec_min',
@@ -14847,6 +15700,7 @@ class Meta:
             temporal_scope='flexible',
             entity_group='energy_use',
             entity_key='cooling_demand',
+            formula='SUMME(sim[VRGrid_to_Ec_min])/1000',
         )
         self.VRGrid_to_Edhw_min = VariableMeta(
             var_name='VRGrid_to_Edhw_min',
@@ -14863,6 +15717,7 @@ class Meta:
             temporal_scope='flexible',
             entity_group='energy_use',
             entity_key='dhw_demand',
+            formula='SUMME(sim[VRGrid_to_Edhw_min])/1000',
         )
         self.VRGrid_to_Ev_min = VariableMeta(
             var_name='VRGrid_to_Ev_min',
@@ -14879,6 +15734,7 @@ class Meta:
             temporal_scope='flexible',
             entity_group='energy_use',
             entity_key='vent_el_demand',
+            formula='SUMME(sim[VRGrid_to_Ev_min])/1000',
         )
         self.VRGrid_to_Eev_min = VariableMeta(
             var_name='VRGrid_to_Eev_min',
@@ -14895,6 +15751,7 @@ class Meta:
             temporal_scope='flexible',
             entity_group='energy_use',
             entity_key='ev_local_charge',
+            formula='SUMME(sim[VRGrid_to_Eev_min])/1000',
         )
         self.VRGrid_to_min = VariableMeta(
             var_name='VRGrid_to_min',
@@ -14911,6 +15768,7 @@ class Meta:
             temporal_scope='flexible',
             entity_group=None,
             entity_key=None,
+            formula='VRGrid_to_plugloads+VRGrid_to_Eh_min+VRGrid_to_Ec_min+VRGrid_to_Edhw_min+VRGrid_to_Ev_min+VRGrid_to_Eev_min',
         )
         self.VRGrid_to_Eh_flex = VariableMeta(
             var_name='VRGrid_to_Eh_flex',
@@ -14927,6 +15785,7 @@ class Meta:
             temporal_scope='flexible',
             entity_group='energy_use',
             entity_key='heating_demand',
+            formula='SUMME(sim[[VRGrid_to_Eh_flex_1el]:[VRGrid_to_Eh_flex_3el]])/1000',
         )
         self.VRGrid_to_Ec_flex = VariableMeta(
             var_name='VRGrid_to_Ec_flex',
@@ -14943,6 +15802,7 @@ class Meta:
             temporal_scope='flexible',
             entity_group='energy_use',
             entity_key='cooling_demand',
+            formula='SUMME(sim[[VRGrid_to_Ec_flex_1el]:[VRGrid_to_Ec_flex_3el]])/1000',
         )
         self.VRGrid_to_Edhw_flex = VariableMeta(
             var_name='VRGrid_to_Edhw_flex',
@@ -14959,6 +15819,7 @@ class Meta:
             temporal_scope='flexible',
             entity_group='energy_use',
             entity_key='dhw_demand',
+            formula='SUMME(sim[[VRGrid_to_Edhw1_flex]:[VRGrid_to_Edhw2_flex]])/1000',
         )
         self.VRGrid_to_Batt = VariableMeta(
             var_name='VRGrid_to_Batt',
@@ -14975,6 +15836,7 @@ class Meta:
             temporal_scope='flexible',
             entity_group='energy_use',
             entity_key='vent_el_demand',
+            formula='SUMME(sim[VRGrid_to_Batt])/1000',
         )
         self.VRGrid_to_Eev_flex = VariableMeta(
             var_name='VRGrid_to_Eev_flex',
@@ -14991,6 +15853,7 @@ class Meta:
             temporal_scope='flexible',
             entity_group='energy_use',
             entity_key='ev_local_charge',
+            formula='SUMME(sim[VRGrid_to_Eev_flex])/1000',
         )
         self.VRGrid_to_flex = VariableMeta(
             var_name='VRGrid_to_flex',
@@ -15007,6 +15870,7 @@ class Meta:
             temporal_scope='flexible',
             entity_group=None,
             entity_key=None,
+            formula='VRGrid_to_Eh_flex+VRGrid_to_Ec_flex+VRGrid_to_Edhw_flex+VRGrid_to_Batt+VRGrid_to_Eev_flex',
         )
         self.VRGrid_to_building = VariableMeta(
             var_name='VRGrid_to_building',
@@ -15023,6 +15887,7 @@ class Meta:
             temporal_scope='flexible',
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[VRGrid_to_building])/1000',
         )
         self.Eev_to_plugloads = VariableMeta(
             var_name='Eev_to_plugloads',
@@ -15039,6 +15904,7 @@ class Meta:
             temporal_scope='static',
             entity_group='energy_use',
             entity_key='user_electricity',
+            formula='-SUMME(sim[Eev_to_user])/1000',
         )
         self.Eev_to_HVAC = VariableMeta(
             var_name='Eev_to_HVAC',
@@ -15055,6 +15921,7 @@ class Meta:
             temporal_scope='static',
             entity_group=None,
             entity_key=None,
+            formula='SUMME(K183:K186)',
         )
         self.Eev_to_Eh_min = VariableMeta(
             var_name='Eev_to_Eh_min',
@@ -15071,6 +15938,7 @@ class Meta:
             temporal_scope='static',
             entity_group='energy_use',
             entity_key='heating_demand',
+            formula='-SUMME(sim[Eev_to_Eh_min])/1000',
         )
         self.Eev_to_Ec_min = VariableMeta(
             var_name='Eev_to_Ec_min',
@@ -15087,6 +15955,7 @@ class Meta:
             temporal_scope='static',
             entity_group='energy_use',
             entity_key='cooling_demand',
+            formula='-SUMME(sim[Eev_to_Ec_min])/1000',
         )
         self.Eev_to_Edhw_min = VariableMeta(
             var_name='Eev_to_Edhw_min',
@@ -15103,6 +15972,7 @@ class Meta:
             temporal_scope='static',
             entity_group='energy_use',
             entity_key='dhw_demand',
+            formula='-SUMME(sim[Eev_to_Edhw_min])/1000',
         )
         self.Eev_to_Ev_min = VariableMeta(
             var_name='Eev_to_Ev_min',
@@ -15119,6 +15989,7 @@ class Meta:
             temporal_scope='static',
             entity_group='energy_use',
             entity_key='vent_el_demand',
+            formula='-SUMME(sim[Eev_to_Ev_min])/1000',
         )
         self.Eev_discharge_loss = VariableMeta(
             var_name='Eev_discharge_loss',
@@ -15135,6 +16006,7 @@ class Meta:
             temporal_scope='static',
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[Eev_discharge_total])/1000-K188',
         )
         self.Eev_to_district = VariableMeta(
             var_name='Eev_to_district',
@@ -15151,6 +16023,7 @@ class Meta:
             temporal_scope='static',
             entity_group=None,
             entity_key=None,
+            formula='Eev_to_plugloads+Eev_to_Eh_min+Eev_to_Ec_min+Eev_to_Edhw_min+Eev_to_Ev_min',
         )
         self.Grid_to_plugloads = VariableMeta(
             var_name='Grid_to_plugloads',
@@ -15167,6 +16040,7 @@ class Meta:
             temporal_scope='static',
             entity_group='energy_use',
             entity_key='user_electricity',
+            formula='SUMME(sim[Grid_to_user])/1000',
         )
         self.Grid_to_Eh_min = VariableMeta(
             var_name='Grid_to_Eh_min',
@@ -15183,6 +16057,7 @@ class Meta:
             temporal_scope='static',
             entity_group='energy_use',
             entity_key='heating_demand',
+            formula='SUMME(sim[Grid_to_Eh_min])/1000',
         )
         self.Grid_to_Ec_min = VariableMeta(
             var_name='Grid_to_Ec_min',
@@ -15199,6 +16074,7 @@ class Meta:
             temporal_scope='static',
             entity_group='energy_use',
             entity_key='cooling_demand',
+            formula='SUMME(sim[Grid_to_Ec_min])/1000',
         )
         self.Grid_to_Edhw_min = VariableMeta(
             var_name='Grid_to_Edhw_min',
@@ -15215,6 +16091,7 @@ class Meta:
             temporal_scope='static',
             entity_group='energy_use',
             entity_key='dhw_demand',
+            formula='SUMME(sim[Grid_to_Edhw_min])/1000',
         )
         self.Grid_to_Ev_min = VariableMeta(
             var_name='Grid_to_Ev_min',
@@ -15231,6 +16108,7 @@ class Meta:
             temporal_scope='static',
             entity_group='energy_use',
             entity_key='vent_el_demand',
+            formula='SUMME(sim[Grid_to_Ev_min])/1000',
         )
         self.Grid_to_building_min = VariableMeta(
             var_name='Grid_to_building_min',
@@ -15247,6 +16125,7 @@ class Meta:
             temporal_scope='static',
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[Grid_to_building_min])/1000',
         )
         self.Grid_to_Eev_min = VariableMeta(
             var_name='Grid_to_Eev_min',
@@ -15263,6 +16142,7 @@ class Meta:
             temporal_scope='static',
             entity_group='energy_use',
             entity_key='ev_local_charge',
+            formula='SUMME(sim[Grid_to_Eev_min])/1000',
         )
         self.Grid_to_min = VariableMeta(
             var_name='Grid_to_min',
@@ -15279,6 +16159,7 @@ class Meta:
             temporal_scope='static',
             entity_group=None,
             entity_key=None,
+            formula='Grid_to_plugloads+Grid_to_Eh_min+Grid_to_Ec_min+Grid_to_Edhw_min+Grid_to_Ev_min+Grid_to_Eev_min',
         )
         self.Eev_ext_charge = VariableMeta(
             var_name='Eev_ext_charge',
@@ -15295,6 +16176,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='EV_charging_losses_surcharge_factor*SUMME(sim[Eev_Cext_res];sim[Eev_Cext_work];sim[Eev_Cext_retail])/1000',
         )
         self.EUIh_district_heating = VariableMeta(
             var_name='EUIh_district_heating',
@@ -15311,6 +16193,7 @@ class Meta:
             temporal_scope='static',
             entity_group='energy_use',
             entity_key='heating_demand',
+            formula='0,001*(heat_th2_is_dh*SUMME(sim[EUIh_2th])+heat_th4_is_dh*SUMME(sim[EUIh_4th]))',
         )
         self.EUIdhw_district_heating = VariableMeta(
             var_name='EUIdhw_district_heating',
@@ -15327,6 +16210,7 @@ class Meta:
             temporal_scope='static',
             entity_group='energy_use',
             entity_key='dhw_demand',
+            formula='0,001*(dhw1_is_dh*SUMME(sim[EUIdhw_1th])+dhw2_is_dh*SUMME(sim[EUIdhw_2th]))',
         )
         self.EUI_district_heating = VariableMeta(
             var_name='EUI_district_heating',
@@ -15343,6 +16227,7 @@ class Meta:
             temporal_scope='static',
             entity_group=None,
             entity_key=None,
+            formula='EUIh_district_heating+EUIdhw_district_heating',
         )
         self.EUIh_natural_gas = VariableMeta(
             var_name='EUIh_natural_gas',
@@ -15359,6 +16244,7 @@ class Meta:
             temporal_scope='static',
             entity_group='energy_use',
             entity_key='heating_demand',
+            formula='0,001*(heat_th2_is_ng*SUMME(sim[EUIh_2th])+heat_th4_is_ng*SUMME(sim[EUIh_4th]))',
         )
         self.EUIdhw_natural_gas = VariableMeta(
             var_name='EUIdhw_natural_gas',
@@ -15375,6 +16261,7 @@ class Meta:
             temporal_scope='static',
             entity_group='energy_use',
             entity_key='dhw_demand',
+            formula='0,001*(dhw1_is_ng*SUMME(sim[EUIdhw_1th])+dhw2_is_ng*SUMME(sim[EUIdhw_2th]))',
         )
         self.EUI_natural_gas = VariableMeta(
             var_name='EUI_natural_gas',
@@ -15391,6 +16278,7 @@ class Meta:
             temporal_scope='static',
             entity_group=None,
             entity_key=None,
+            formula='EUIh_natural_gas+EUIdhw_natural_gas',
         )
         self.EUIh_biomass = VariableMeta(
             var_name='EUIh_biomass',
@@ -15407,6 +16295,7 @@ class Meta:
             temporal_scope='static',
             entity_group='energy_use',
             entity_key='heating_demand',
+            formula='0,001*(heat_th2_is_bio*SUMME(sim[EUIh_2th])+heat_th4_is_bio*SUMME(sim[EUIh_4th]))',
         )
         self.EUIdhw_biomass = VariableMeta(
             var_name='EUIdhw_biomass',
@@ -15423,6 +16312,7 @@ class Meta:
             temporal_scope='static',
             entity_group='energy_use',
             entity_key='dhw_demand',
+            formula='0,001*(dhw1_is_bio*SUMME(sim[EUIdhw_1th])+dhw2_is_bio*SUMME(sim[EUIdhw_2th]))',
         )
         self.EUI_biomass = VariableMeta(
             var_name='EUI_biomass',
@@ -15439,6 +16329,7 @@ class Meta:
             temporal_scope='static',
             entity_group=None,
             entity_key=None,
+            formula='EUIh_biomass+EUIdhw_biomass',
         )
         self.EUIh_other = VariableMeta(
             var_name='EUIh_other',
@@ -15455,6 +16346,7 @@ class Meta:
             temporal_scope='static',
             entity_group='energy_use',
             entity_key='heating_demand',
+            formula='0,001*(heat_th2_is_other*SUMME(sim[EUIh_2th])+heat_th4_is_other*SUMME(sim[EUIh_4th]))',
         )
         self.EUIc_other = VariableMeta(
             var_name='EUIc_other',
@@ -15471,6 +16363,7 @@ class Meta:
             temporal_scope='static',
             entity_group='energy_use',
             entity_key='cooling_demand',
+            formula='0,001*cool_th2_is_other*SUMME(sim[EUIc_2th])',
         )
         self.EUIdhw_other = VariableMeta(
             var_name='EUIdhw_other',
@@ -15487,6 +16380,7 @@ class Meta:
             temporal_scope='static',
             entity_group='energy_use',
             entity_key='dhw_demand',
+            formula='0,001*(dhw1_is_other*SUMME(sim[EUIdhw_1th])+dhw2_is_other*SUMME(sim[EUIdhw_2th]))',
         )
         self.EUI_other = VariableMeta(
             var_name='EUI_other',
@@ -15503,6 +16397,7 @@ class Meta:
             temporal_scope='static',
             entity_group=None,
             entity_key=None,
+            formula='EUIh_other+EUIc_other+EUIdhw_other',
         )
         self.EUI_mob_fossil = VariableMeta(
             var_name='EUI_mob_fossil',
@@ -15519,6 +16414,7 @@ class Meta:
             temporal_scope='static',
             entity_group=None,
             entity_key=None,
+            formula='PEI_mob_fossile/pe_conversion_factor_gasoline',
         )
         self.Grid_total_flexandnotflex = VariableMeta(
             var_name='Grid_total_flexandnotflex',
@@ -15535,6 +16431,7 @@ class Meta:
             temporal_scope='Quartier',
             entity_group=None,
             entity_key=None,
+            formula='VRGrid_to_building+Grid_to_min',
         )
         self.context_factor_density = VariableMeta(
             var_name='context_factor_density',
@@ -15551,6 +16448,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='-MIN(cfd_fPE*(cfd_A/(FSI+cfd_dx)-cfd_EUI);cfd_cutoff)',
         )
         self.context_factor_mobility = VariableMeta(
             var_name='context_factor_mobility',
@@ -15567,6 +16465,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='per_NFA*(cfm_budget_residential*NFA_residential+cfm_budget_office*NFA_office+cfm_budget_school*(NFA_schoolprim+NFA_schoolsec)+cfm_budget_retail*(NFA_retailfood+NFA_retailother+NFA_other))',
         )
         self.context_factor_renovation = VariableMeta(
             var_name='context_factor_renovation',
@@ -15583,6 +16482,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='cfr_budget*SUMMENPRODUKT(Renovation_shares;NFA_shares)',
         )
         self.PEI_virtual_demand = VariableMeta(
             var_name='PEI_virtual_demand',
@@ -15599,6 +16499,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='PEI_demand+PEI_mob_total+PEI_storage_losses+PEI_cf_density_neg',
         )
         self.PEI_demand = VariableMeta(
             var_name='PEI_demand',
@@ -15615,6 +16516,7 @@ class Meta:
             temporal_scope='annual',
             entity_group='operation',
             entity_key=None,
+            formula='PEI_el_plugloads+PEI_el_hvac+PEI_district_heating+PEI_natural_gas+PEI_biomass+PEI_other',
         )
         self.PEI_el_plugloads = VariableMeta(
             var_name='PEI_el_plugloads',
@@ -15631,6 +16533,7 @@ class Meta:
             temporal_scope='annual',
             entity_group='plugloads',
             entity_key='electricity',
+            formula='SUMME(sim[PEI_el_user])/1000',
         )
         self.PEI_el_hvac = VariableMeta(
             var_name='PEI_el_hvac',
@@ -15647,6 +16550,7 @@ class Meta:
             temporal_scope='annual',
             entity_group='hvac',
             entity_key='electricity',
+            formula='SUMME(sim[PEI_el_hvac])/1000',
         )
         self.PEI_district_heating = VariableMeta(
             var_name='PEI_district_heating',
@@ -15663,6 +16567,7 @@ class Meta:
             temporal_scope='annual',
             entity_group='hvac',
             entity_key='district_heating',
+            formula='SUMME(sim[PEI_district_heating])/1000',
         )
         self.PEI_natural_gas = VariableMeta(
             var_name='PEI_natural_gas',
@@ -15679,6 +16584,7 @@ class Meta:
             temporal_scope='annual',
             entity_group='hvac',
             entity_key='natural_gas',
+            formula='SUMME(sim[PEI_natural_gas])/1000',
         )
         self.PEI_biomass = VariableMeta(
             var_name='PEI_biomass',
@@ -15695,6 +16601,7 @@ class Meta:
             temporal_scope='annual',
             entity_group='hvac',
             entity_key='biomass',
+            formula='SUMME(sim[PEI_biomass])/1000',
         )
         self.PEI_other = VariableMeta(
             var_name='PEI_other',
@@ -15711,6 +16618,7 @@ class Meta:
             temporal_scope='annual',
             entity_group='hvac',
             entity_key='other',
+            formula='SUMME(sim[PEI_other])/1000',
         )
         self.PEI_mob_total = VariableMeta(
             var_name='PEI_mob_total',
@@ -15727,6 +16635,7 @@ class Meta:
             temporal_scope='annual',
             entity_group='mobility',
             entity_key=None,
+            formula='PEI_mob_fossile+PEI_mob_el',
         )
         self.PEI_mob_fossile = VariableMeta(
             var_name='PEI_mob_fossile',
@@ -15743,6 +16652,7 @@ class Meta:
             temporal_scope='annual',
             entity_group='mobility',
             entity_key='fossile',
+            formula='EUI_mob_fossile*pe_conversion_factor_gasoline',
         )
         self.PEI_mob_el = VariableMeta(
             var_name='PEI_mob_el',
@@ -15759,6 +16669,7 @@ class Meta:
             temporal_scope='annual',
             entity_group='mobility',
             entity_key='electricity',
+            formula='UED_mob_el_target*EV_charging_losses_surcharge_factor*MITTELWERT(sim[cf_PEI_grid])',
         )
         self.PEI_storage_losses = VariableMeta(
             var_name='PEI_storage_losses',
@@ -15775,6 +16686,7 @@ class Meta:
             temporal_scope='annual',
             entity_group='storage',
             entity_key=None,
+            formula='0,001*(SUMMENPRODUKT(sim[Batt_total_charge];sim[cf_PEI_flex_gridsub])/Batt_eff_factor_charge-SUMMENPRODUKT(sim[Batt_total_discharge];sim[cf_PEI_flex_gridsub])*Batt_eff_factor_discharge)',
         )
         self.PEI_cf_density_neg = VariableMeta(
             var_name='PEI_cf_density_neg',
@@ -15791,6 +16703,7 @@ class Meta:
             temporal_scope='annual',
             entity_group='context_factor',
             entity_key='density',
+            formula='MIN(context_factor_density;0)',
         )
         self.PEI_virtual_supply = VariableMeta(
             var_name='PEI_virtual_supply',
@@ -15807,6 +16720,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='PEI_cf_density_pos+PEI_cf_mobility+PEI_cf_renovation+PEI_sub_PV+PEI_sub_flex',
         )
         self.PEI_cf_density_pos = VariableMeta(
             var_name='PEI_cf_density_pos',
@@ -15823,6 +16737,7 @@ class Meta:
             temporal_scope='annual',
             entity_group='context_factor',
             entity_key='density',
+            formula='MAX(context_factor_density;0)',
         )
         self.PEI_cf_mobility = VariableMeta(
             var_name='PEI_cf_mobility',
@@ -15839,6 +16754,7 @@ class Meta:
             temporal_scope='annual',
             entity_group='context_factor',
             entity_key='mobility',
+            formula='mobility_is_included*context_factor_mobility',
         )
         self.PEI_cf_renovation = VariableMeta(
             var_name='PEI_cf_renovation',
@@ -15855,6 +16771,7 @@ class Meta:
             temporal_scope='annual',
             entity_group='context_factor',
             entity_key='renovation',
+            formula='context_factor_renovation',
         )
         self.PEI_sub_PV = VariableMeta(
             var_name='PEI_sub_PV',
@@ -15871,6 +16788,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='SUMMENPRODUKT(sim[PV_yield];sim[cf_PEI_grid])/1000',
         )
         self.PEI_sub_flex = VariableMeta(
             var_name='PEI_sub_flex',
@@ -15887,6 +16805,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[PEI_flex_grid_substitution])/1000',
         )
         self.PEI_balance = VariableMeta(
             var_name='PEI_balance',
@@ -15903,6 +16822,7 @@ class Meta:
             temporal_scope='annual',
             entity_group=None,
             entity_key=None,
+            formula='PEI_cf_renovation+PEI_cf_mobility+PEI_cf_density+PEI_sub_flex+PEI_sub_PV-PEI_demand-PEI_mob_total-PEI_storage_losses',
         )
         self.PEI_virtual_balance_test = VariableMeta(
             var_name='PEI_virtual_balance_test',
@@ -15919,6 +16839,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='(PEI_balance)-(PEI_virtual_supply-PEI_virtual_demand)',
         )
         self.PEI_grid_import = VariableMeta(
             var_name='PEI_grid_import',
@@ -15935,6 +16856,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='0,001*SUMME(sim[cf_PEI_grid]*sim[E_grid])',
         )
         self.PEI_flex_import = VariableMeta(
             var_name='PEI_flex_import',
@@ -15951,6 +16873,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMMENPRODUKT(sim[cf_PEI_flex_grid];sim[VRGrid_total_min_use]+sim[VRGrid_total_flex_use])/1000',
         )
         self.PEI_evExtCharge_import = VariableMeta(
             var_name='PEI_evExtCharge_import',
@@ -15967,6 +16890,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='0,001*SUMMENPRODUKT(sim[cf_PEI_grid];sim[Eev_Cext_res]+sim[Eev_Cext_work]+sim[Eev_Cext_retail])*EV_charging_losses_surcharge_factor',
         )
         self.PEI_import = VariableMeta(
             var_name='PEI_import',
@@ -15983,6 +16907,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='PEI_district_heating+PEI_natural_gas+PEI_flex_import+PEI_biomass+PEI_other+PEI_mob_fossile+PEI_grid_import+PEI_evExtCharge_import',
         )
         self.PEI_pv_export = VariableMeta(
             var_name='PEI_pv_export',
@@ -15999,6 +16924,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMMENPRODUKT(sim[PV_to_Egrid];sim[cf_PEI_grid])/1000',
         )
         self.PEI_evOtherTravel_export = VariableMeta(
             var_name='PEI_evOtherTravel_export',
@@ -16015,6 +16941,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='UED_mob_el_other*EV_charging_losses_surcharge_factor*MITTELWERT(sim[cf_PEI_grid])',
         )
         self.PEI_export = VariableMeta(
             var_name='PEI_export',
@@ -16031,6 +16958,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='PEI_pv_export+PEI_evOtherTravel_export',
         )
         self.PEI_saldo_project = VariableMeta(
             var_name='PEI_saldo_project',
@@ -16047,6 +16975,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='PEI_export-PEI_import',
         )
         self.PEI_saldo_target = VariableMeta(
             var_name='PEI_saldo_target',
@@ -16063,6 +16992,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='-PEI_cf_density-PEI_cf_mobility-PEI_cf_renovation',
         )
         self.PEI_importExport_balance = VariableMeta(
             var_name='PEI_importExport_balance',
@@ -16079,13 +17009,14 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='PEI_saldo_project-PEI_saldo_target',
         )
         self.PEI_importexport_balance_test = VariableMeta(
             var_name='PEI_importexport_balance_test',
             attr_name='PEI_importexport_balance_test',
             icon='☑',
             label_de='PE-Bilanz Virtuell = Import/Export',
-            unit='True',
+            unit='False',
             comment=None,
             source='OUT',
             ka=3,
@@ -16095,6 +17026,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='(PEI_balance)-(K253-K254)',
         )
         self.fPE_grid = VariableMeta(
             var_name='fPE_grid',
@@ -16111,6 +17043,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='MITTELWERT(sim[cf_PEI_grid])',
         )
         self.fPE_eff = VariableMeta(
             var_name='fPE_eff',
@@ -16127,6 +17060,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='(K246+K247+K248)/(Grid_to_min+VRGrid_to_min+VRGrid_to_flex+Eev_ext_charge)',
         )
         self.GWP_ee_wall = VariableMeta(
             var_name='GWP_ee_wall',
@@ -16143,6 +17077,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group='component',
             entity_key=None,
+            formula='THG!AC17',
         )
         self.GWP_ee_roof_flat = VariableMeta(
             var_name='GWP_ee_roof_flat',
@@ -16159,6 +17094,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group='component',
             entity_key=None,
+            formula='THG!AC19',
         )
         self.GWP_ee_roof_pitched = VariableMeta(
             var_name='GWP_ee_roof_pitched',
@@ -16175,6 +17111,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group='component',
             entity_key=None,
+            formula='THG!AC20',
         )
         self.GWP_ee_floor = VariableMeta(
             var_name='GWP_ee_floor',
@@ -16191,6 +17128,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group='component',
             entity_key=None,
+            formula='THG!AC21',
         )
         self.GWP_ee_ceiling = VariableMeta(
             var_name='GWP_ee_ceiling',
@@ -16207,6 +17145,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group='component',
             entity_key=None,
+            formula='THG!AC22',
         )
         self.GWP_ee_terrace = VariableMeta(
             var_name='GWP_ee_terrace',
@@ -16223,6 +17162,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group='component',
             entity_key=None,
+            formula='THG!AC23',
         )
         self.GWP_ee_basement_ceiling = VariableMeta(
             var_name='GWP_ee_basement_ceiling',
@@ -16239,6 +17179,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group='component',
             entity_key=None,
+            formula='THG!AC24',
         )
         self.GWP_ee_fundament = VariableMeta(
             var_name='GWP_ee_fundament',
@@ -16255,6 +17196,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group='component',
             entity_key=None,
+            formula='THG!AC25',
         )
         self.GWP_ee_ceil_to_air = VariableMeta(
             var_name='GWP_ee_ceil_to_air',
@@ -16271,6 +17213,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group='component',
             entity_key=None,
+            formula='THG!AC26',
         )
         self.GWP_ee_wall_earth_contacted = VariableMeta(
             var_name='GWP_ee_wall_earth_contacted',
@@ -16287,6 +17230,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group='component',
             entity_key=None,
+            formula='THG!AC27',
         )
         self.GWP_ee_internal_wall_load = VariableMeta(
             var_name='GWP_ee_internal_wall_load',
@@ -16303,6 +17247,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group='component',
             entity_key=None,
+            formula='THG!AC28',
         )
         self.GWP_ee_internal_wall_nonload = VariableMeta(
             var_name='GWP_ee_internal_wall_nonload',
@@ -16319,6 +17264,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group='component',
             entity_key=None,
+            formula='THG!AC29',
         )
         self.GWP_ee_ceiling_topfloor = VariableMeta(
             var_name='GWP_ee_ceiling_topfloor',
@@ -16335,6 +17281,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group='component',
             entity_key=None,
+            formula='THG!AC30',
         )
         self.GWP_ee_wall_ec_unheated = VariableMeta(
             var_name='GWP_ee_wall_ec_unheated',
@@ -16351,6 +17298,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group='component',
             entity_key=None,
+            formula='THG!AC31',
         )
         self.GWP_ee_basement_floor_unheated = VariableMeta(
             var_name='GWP_ee_basement_floor_unheated',
@@ -16367,6 +17315,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group='component',
             entity_key=None,
+            formula='THG!AC32',
         )
         self.GWP_ee_columns = VariableMeta(
             var_name='GWP_ee_columns',
@@ -16383,6 +17332,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group='component',
             entity_key=None,
+            formula='THG!AC33',
         )
         self.GWP_ee_internal_wall_unheated = VariableMeta(
             var_name='GWP_ee_internal_wall_unheated',
@@ -16399,6 +17349,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group='component',
             entity_key=None,
+            formula='THG!AC34',
         )
         self.GWP_ee_unheated_horizontal = VariableMeta(
             var_name='GWP_ee_unheated_horizontal',
@@ -16415,6 +17366,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group='component',
             entity_key=None,
+            formula='THG!AC35',
         )
         self.GWP_ee_balconies = VariableMeta(
             var_name='GWP_ee_balconies',
@@ -16431,6 +17383,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group='component',
             entity_key=None,
+            formula='THG!AC36',
         )
         self.GWP_ee_windowframe = VariableMeta(
             var_name='GWP_ee_windowframe',
@@ -16447,6 +17400,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group='component',
             entity_key=None,
+            formula='THG!AC37',
         )
         self.GWP_ee_windowglazing = VariableMeta(
             var_name='GWP_ee_windowglazing',
@@ -16463,6 +17417,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group='component',
             entity_key=None,
+            formula='THG!AC38',
         )
         self.GWP_ee_garage_horizontal = VariableMeta(
             var_name='GWP_ee_garage_horizontal',
@@ -16479,6 +17434,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group='component',
             entity_key=None,
+            formula='THG!AC39',
         )
         self.GWP_ee_garage_columns = VariableMeta(
             var_name='GWP_ee_garage_columns',
@@ -16495,6 +17451,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group='component',
             entity_key=None,
+            formula='THG!AC40',
         )
         self.GWP_ee_other_1 = VariableMeta(
             var_name='GWP_ee_other_1',
@@ -16511,6 +17468,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group='component',
             entity_key=None,
+            formula='THG!AC41',
         )
         self.GWP_ee_other_2 = VariableMeta(
             var_name='GWP_ee_other_2',
@@ -16527,6 +17485,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group='component',
             entity_key=None,
+            formula='THG!AC42',
         )
         self.GWP_ee_other_3 = VariableMeta(
             var_name='GWP_ee_other_3',
@@ -16543,6 +17502,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group='component',
             entity_key=None,
+            formula='THG!AC43',
         )
         self.GWP_ee_PV = VariableMeta(
             var_name='GWP_ee_PV',
@@ -16559,6 +17519,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group='component',
             entity_key=None,
+            formula='THG!AC48',
         )
         self.GWP_ee_boreholes = VariableMeta(
             var_name='GWP_ee_boreholes',
@@ -16575,6 +17536,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group='component',
             entity_key=None,
+            formula='THG!AC49',
         )
         self.GWP_ee_ahu_1 = VariableMeta(
             var_name='GWP_ee_ahu_1',
@@ -16591,6 +17553,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group='component',
             entity_key=None,
+            formula='THG!AC50',
         )
         self.GWP_ee_ahu_2 = VariableMeta(
             var_name='GWP_ee_ahu_2',
@@ -16607,6 +17570,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group='component',
             entity_key=None,
+            formula='THG!AC51',
         )
         self.GWP_ee_buffer_storage = VariableMeta(
             var_name='GWP_ee_buffer_storage',
@@ -16623,6 +17587,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group='component',
             entity_key=None,
+            formula='THG!AC52',
         )
         self.GWP_ee_BESS = VariableMeta(
             var_name='GWP_ee_BESS',
@@ -16639,6 +17604,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group='component',
             entity_key=None,
+            formula='THG!AC53',
         )
         self.GWP_ee_energy_1 = VariableMeta(
             var_name='GWP_ee_energy_1',
@@ -16655,6 +17621,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group='component',
             entity_key=None,
+            formula='THG!AC54',
         )
         self.GWP_ee_energy_2 = VariableMeta(
             var_name='GWP_ee_energy_2',
@@ -16671,6 +17638,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group='component',
             entity_key=None,
+            formula='THG!AC55',
         )
         self.GWP_ee_solarthermal = VariableMeta(
             var_name='GWP_ee_solarthermal',
@@ -16687,6 +17655,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group='component',
             entity_key=None,
+            formula='THG!AC56',
         )
         self.GWP_ee_total_construction = VariableMeta(
             var_name='GWP_ee_total_construction',
@@ -16703,6 +17672,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group='component',
             entity_key=None,
+            formula='THG!AC44',
         )
         self.GWP_ee_total_TES = VariableMeta(
             var_name='GWP_ee_total_TES',
@@ -16719,6 +17689,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group='component',
             entity_key=None,
+            formula='THG!AC57',
         )
         self.GWP_ee_total = VariableMeta(
             var_name='GWP_ee_total',
@@ -16735,6 +17706,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group='component',
             entity_key=None,
+            formula='THG!AC58',
         )
         self.GWP_ee_total_construction_fossil = VariableMeta(
             var_name='GWP_ee_total_construction_fossil',
@@ -16751,6 +17723,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group='component',
             entity_key=None,
+            formula='THG!AA58',
         )
         self.GWP_ee_total_TES_fossil = VariableMeta(
             var_name='GWP_ee_total_TES_fossil',
@@ -16767,6 +17740,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group='component',
             entity_key=None,
+            formula='THG!AA57',
         )
         self.GWP_ee_total_fossil = VariableMeta(
             var_name='GWP_ee_total_fossil',
@@ -16783,6 +17757,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group='component',
             entity_key=None,
+            formula='THG!AA58',
         )
         self.GWP_ee_total_construction_biogenic = VariableMeta(
             var_name='GWP_ee_total_construction_biogenic',
@@ -16799,6 +17774,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group='component',
             entity_key=None,
+            formula='THG!AB44',
         )
         self.GWP_ee_total_TES_biogenic = VariableMeta(
             var_name='GWP_ee_total_TES_biogenic',
@@ -16815,6 +17791,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group='component',
             entity_key=None,
+            formula='THG!AB57',
         )
         self.GWP_ee_total_biogenic = VariableMeta(
             var_name='GWP_ee_total_biogenic',
@@ -16831,6 +17808,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group='component',
             entity_key=None,
+            formula='THG!AB58',
         )
         self.legacy_GWP_ee_walls_fossile = VariableMeta(
             var_name='legacy_GWP_ee_walls_fossile',
@@ -16847,6 +17825,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNNV(SVERWEIS(GWP_walls_name;GWP_Katalog;4;FALSCH)*SVERWEIS(SVERWEIS(GWP_walls_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)',
         )
         self.legacy_GWP_ee_walls_biogenic = VariableMeta(
             var_name='legacy_GWP_ee_walls_biogenic',
@@ -16863,6 +17842,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNNV(SVERWEIS(GWP_walls_name;GWP_Katalog;5;FALSCH)*MAX(SVERWEIS(GWP_walls_name;GWP_Katalog;7;FALSCH);55%)*SVERWEIS(SVERWEIS(GWP_walls_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)',
         )
         self.legacy_GWP_life_walls = VariableMeta(
             var_name='legacy_GWP_life_walls',
@@ -16879,6 +17859,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNNV(SVERWEIS(GWP_walls_name;GWP_Katalog;6;FALSCH);GHG_LCA_timeframe_years+1)',
         )
         self.legacy_GWP_ee_lc_walls_fossil = VariableMeta(
             var_name='legacy_GWP_ee_lc_walls_fossil',
@@ -16895,6 +17876,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='legacy_GWP_ee_walls_fossile*(1+ABRUNDEN(GHG_LCA_timeframe_years/legacy_GWP_life_walls; 0))',
         )
         self.legacy_GWP_ee_lc_walls_biogenic = VariableMeta(
             var_name='legacy_GWP_ee_lc_walls_biogenic',
@@ -16911,6 +17893,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='legacy_GWP_ee_walls_biogenic*(1+ABRUNDEN(GHG_LCA_timeframe_years/legacy_GWP_life_walls; 0))',
         )
         self.legacy_GWP_ee_lc_walls = VariableMeta(
             var_name='legacy_GWP_ee_lc_walls',
@@ -16927,6 +17910,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='legacy_GWP_ee_lc_walls_fossil+legacy_GWP_ee_lc_walls_biogenic',
         )
         self.legacy_GWP_ee_windows_fossile = VariableMeta(
             var_name='legacy_GWP_ee_windows_fossile',
@@ -16943,6 +17927,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNNV(SVERWEIS(GWP_windows_name;GWP_Katalog;4;FALSCH)*SVERWEIS(SVERWEIS(GWP_windows_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)',
         )
         self.legacy_GWP_ee_windows_bigenic = VariableMeta(
             var_name='legacy_GWP_ee_windows_bigenic',
@@ -16959,6 +17944,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNNV(SVERWEIS(GWP_windows_name;GWP_Katalog;5;FALSCH)*MAX(SVERWEIS(GWP_windows_name;GWP_Katalog;7;FALSCH);55%)*SVERWEIS(SVERWEIS(GWP_windows_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)',
         )
         self.legacy_GWP_life_windows = VariableMeta(
             var_name='legacy_GWP_life_windows',
@@ -16975,6 +17961,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNNV(SVERWEIS(GWP_windows_name;GWP_Katalog;6;FALSCH);GHG_LCA_timeframe_years+1)',
         )
         self.legacy_GWP_ee_lc_windows_fossile = VariableMeta(
             var_name='legacy_GWP_ee_lc_windows_fossile',
@@ -16991,6 +17978,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='(legacy_GWP_ee_windows_fossile)*(1+ABRUNDEN(GHG_LCA_timeframe_years/legacy_GWP_life_windows; 0))',
         )
         self.legacy_GWP_ee_lc_windows_biogenic = VariableMeta(
             var_name='legacy_GWP_ee_lc_windows_biogenic',
@@ -17007,6 +17995,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='(legacy_GWP_ee_windows_bigenic)*(1+ABRUNDEN(GHG_LCA_timeframe_years/legacy_GWP_life_windows; 0))',
         )
         self.legacy_GWP_ee_lc_windows = VariableMeta(
             var_name='legacy_GWP_ee_lc_windows',
@@ -17023,6 +18012,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='legacy_GWP_ee_lc_windows_fossile+legacy_GWP_ee_lc_windows_biogenic',
         )
         self.legacy_GWP_ee_roof_fossile = VariableMeta(
             var_name='legacy_GWP_ee_roof_fossile',
@@ -17039,6 +18029,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNNV(SVERWEIS(GWP_roof_name;GWP_Katalog;4;FALSCH)*SVERWEIS(SVERWEIS(GWP_roof_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)',
         )
         self.legacy_GWP_ee_roof_biogenic = VariableMeta(
             var_name='legacy_GWP_ee_roof_biogenic',
@@ -17055,6 +18046,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNNV(SVERWEIS(GWP_roof_name;GWP_Katalog;5;FALSCH)*MAX(SVERWEIS(GWP_roof_name;GWP_Katalog;7;FALSCH);55%)*SVERWEIS(SVERWEIS(GWP_roof_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)',
         )
         self.legacy_GWP_life_roof = VariableMeta(
             var_name='legacy_GWP_life_roof',
@@ -17071,6 +18063,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNNV(SVERWEIS(GWP_roof_name;GWP_Katalog;6;FALSCH);GHG_LCA_timeframe_years+1)',
         )
         self.legacy_GWP_ee_lc_roof_fossile = VariableMeta(
             var_name='legacy_GWP_ee_lc_roof_fossile',
@@ -17087,6 +18080,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='(legacy_GWP_ee_roof_fossile)*(1+ABRUNDEN(GHG_LCA_timeframe_years/legacy_GWP_life_roof; 0))',
         )
         self.legacy_GWP_ee_lc_roof_biogenic = VariableMeta(
             var_name='legacy_GWP_ee_lc_roof_biogenic',
@@ -17103,6 +18097,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='(legacy_GWP_ee_roof_biogenic)*(1+ABRUNDEN(GHG_LCA_timeframe_years/legacy_GWP_life_roof; 0))',
         )
         self.legacy_GWP_ee_lc_roof = VariableMeta(
             var_name='legacy_GWP_ee_lc_roof',
@@ -17119,6 +18114,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='legacy_GWP_ee_lc_roof_fossile+legacy_GWP_ee_lc_roof_biogenic',
         )
         self.legacy_GWP_ee_ground_fossile = VariableMeta(
             var_name='legacy_GWP_ee_ground_fossile',
@@ -17135,6 +18131,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNNV(SVERWEIS(GWP_ground_name;GWP_Katalog;4;FALSCH)*SVERWEIS(SVERWEIS(GWP_ground_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)',
         )
         self.legacy_GWP_ee_ground_biogenic = VariableMeta(
             var_name='legacy_GWP_ee_ground_biogenic',
@@ -17151,6 +18148,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNNV(SVERWEIS(GWP_ground_name;GWP_Katalog;5;FALSCH)*MAX(SVERWEIS(GWP_ground_name;GWP_Katalog;7;FALSCH);55%)*SVERWEIS(SVERWEIS(GWP_ground_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)',
         )
         self.legacy_GWP_life_ground = VariableMeta(
             var_name='legacy_GWP_life_ground',
@@ -17167,6 +18165,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNNV(SVERWEIS(GWP_ground_name;GWP_Katalog;6;FALSCH);GHG_LCA_timeframe_years+1)',
         )
         self.legacy_GWP_ee_lc_ground_fossile = VariableMeta(
             var_name='legacy_GWP_ee_lc_ground_fossile',
@@ -17183,6 +18182,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='(legacy_GWP_ee_ground_fossile)*(1+ABRUNDEN(GHG_LCA_timeframe_years/legacy_GWP_life_ground; 0))',
         )
         self.legacy_GWP_ee_lc_ground_biogenic = VariableMeta(
             var_name='legacy_GWP_ee_lc_ground_biogenic',
@@ -17199,6 +18199,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='(legacy_GWP_ee_ground_biogenic)*(1+ABRUNDEN(GHG_LCA_timeframe_years/legacy_GWP_life_ground; 0))',
         )
         self.legacy_GWP_ee_lc_ground = VariableMeta(
             var_name='legacy_GWP_ee_lc_ground',
@@ -17215,6 +18216,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='legacy_GWP_ee_lc_ground_fossile+legacy_GWP_ee_lc_ground_biogenic',
         )
         self.legacy_GWP_ee_ceilings_fossile = VariableMeta(
             var_name='legacy_GWP_ee_ceilings_fossile',
@@ -17231,6 +18233,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNNV(SVERWEIS(COMP_name_ceiling;GWP_Katalog;4;FALSCH)*SVERWEIS(SVERWEIS(COMP_name_ceiling;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)',
         )
         self.legacy_GWP_ee_ceilings_biogenic = VariableMeta(
             var_name='legacy_GWP_ee_ceilings_biogenic',
@@ -17247,6 +18250,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNNV(SVERWEIS(COMP_name_ceiling;GWP_Katalog;5;FALSCH)*MAX(SVERWEIS(COMP_name_ceiling;GWP_Katalog;7;FALSCH);55%)*SVERWEIS(SVERWEIS(COMP_name_ceiling;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)',
         )
         self.legacy_GWP_life_ceilings = VariableMeta(
             var_name='legacy_GWP_life_ceilings',
@@ -17263,6 +18267,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNNV(SVERWEIS(COMP_name_ceiling;GWP_Katalog;6;FALSCH);GHG_LCA_timeframe_years+1)',
         )
         self.legacy_GWP_ee_lc_ceilings_fossile = VariableMeta(
             var_name='legacy_GWP_ee_lc_ceilings_fossile',
@@ -17279,6 +18284,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='(legacy_GWP_ee_ceilings_fossile)*(1+ABRUNDEN(GHG_LCA_timeframe_years/legacy_GWP_life_ceilings; 0))',
         )
         self.legacy_GWP_ee_lc_ceilings_biogenic = VariableMeta(
             var_name='legacy_GWP_ee_lc_ceilings_biogenic',
@@ -17295,6 +18301,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='(legacy_GWP_ee_ceilings_biogenic)*(1+ABRUNDEN(GHG_LCA_timeframe_years/legacy_GWP_life_ceilings; 0))',
         )
         self.legacy_GWP_ee_lc_ceil = VariableMeta(
             var_name='legacy_GWP_ee_lc_ceil',
@@ -17311,6 +18318,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='legacy_GWP_ee_lc_ceilings_fossile+legacy_GWP_ee_lc_ceilings_biogenic',
         )
         self.legacy_GWP_ee_general_fossile = VariableMeta(
             var_name='legacy_GWP_ee_general_fossile',
@@ -17327,6 +18335,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNNV(SVERWEIS(GWP_general_name;GWP_Katalog;4;FALSCH)*SVERWEIS(SVERWEIS(GWP_general_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)',
         )
         self.legacy_GWP_ee_general_bigonenic = VariableMeta(
             var_name='legacy_GWP_ee_general_bigonenic',
@@ -17343,6 +18352,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNNV(SVERWEIS(GWP_general_name;GWP_Katalog;5;FALSCH)*MAX(SVERWEIS(GWP_general_name;GWP_Katalog;7;FALSCH);55%)*SVERWEIS(SVERWEIS(GWP_general_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)',
         )
         self.legacy_GWP_life_general = VariableMeta(
             var_name='legacy_GWP_life_general',
@@ -17359,6 +18369,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNNV(SVERWEIS(GWP_general_name;GWP_Katalog;6;FALSCH);GHG_LCA_timeframe_years+1)',
         )
         self.legacy_GWP_ee_lc_general_fossile = VariableMeta(
             var_name='legacy_GWP_ee_lc_general_fossile',
@@ -17375,6 +18386,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='(legacy_GWP_ee_general_fossile)*(1+ABRUNDEN(GHG_LCA_timeframe_years/legacy_GWP_life_general; 0))',
         )
         self.legacy_GWP_ee_lc_general_biogenic = VariableMeta(
             var_name='legacy_GWP_ee_lc_general_biogenic',
@@ -17391,6 +18403,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='(legacy_GWP_ee_general_bigonenic)*(1+ABRUNDEN(GHG_LCA_timeframe_years/legacy_GWP_life_general; 0))',
         )
         self.legacy_GWP_ee_lc_general = VariableMeta(
             var_name='legacy_GWP_ee_lc_general',
@@ -17407,6 +18420,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='legacy_GWP_ee_lc_general_fossile+legacy_GWP_ee_lc_general_biogenic',
         )
         self.legacy_GWP_ee_other_fossile = VariableMeta(
             var_name='legacy_GWP_ee_other_fossile',
@@ -17423,6 +18437,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNNV(SVERWEIS(GWP_other_name;GWP_Katalog;4;FALSCH)*SVERWEIS(SVERWEIS(GWP_other_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)',
         )
         self.legacy_GWP_ee_other_biogenic = VariableMeta(
             var_name='legacy_GWP_ee_other_biogenic',
@@ -17439,6 +18454,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNNV(SVERWEIS(GWP_other_name;GWP_Katalog;5;FALSCH)*MAX(SVERWEIS(GWP_other_name;GWP_Katalog;7;FALSCH);55%)*SVERWEIS(SVERWEIS(GWP_other_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)',
         )
         self.legacy_GWP_life_other = VariableMeta(
             var_name='legacy_GWP_life_other',
@@ -17455,6 +18471,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNNV(SVERWEIS(GWP_other_name;GWP_Katalog;6;FALSCH);GHG_LCA_timeframe_years+1)',
         )
         self.legacy_GWP_ee_lc_other_fossile = VariableMeta(
             var_name='legacy_GWP_ee_lc_other_fossile',
@@ -17471,6 +18488,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='(legacy_GWP_ee_other_fossile)*(1+ABRUNDEN(GHG_LCA_timeframe_years/legacy_GWP_life_other; 0))',
         )
         self.legacy_GWP_ee_lc_other_biogenic = VariableMeta(
             var_name='legacy_GWP_ee_lc_other_biogenic',
@@ -17487,6 +18505,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='(legacy_GWP_ee_other_biogenic)*(1+ABRUNDEN(GHG_LCA_timeframe_years/legacy_GWP_life_other; 0))',
         )
         self.legacy_GWP_ee_lc_other = VariableMeta(
             var_name='legacy_GWP_ee_lc_other',
@@ -17503,6 +18522,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='legacy_GWP_ee_lc_other_fossile+legacy_GWP_ee_lc_other_biogenic',
         )
         self.legacy_GWP_ee_direct_fossile = VariableMeta(
             var_name='legacy_GWP_ee_direct_fossile',
@@ -17519,6 +18539,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='GWP_direct_fossile',
         )
         self.legacy_GWP_ee_direct_biogenic = VariableMeta(
             var_name='legacy_GWP_ee_direct_biogenic',
@@ -17535,6 +18556,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='GWP_direct_biogenic*GWP_direct_biogenic_share',
         )
         self.legacy_GWP_life_direct = VariableMeta(
             var_name='legacy_GWP_life_direct',
@@ -17551,6 +18573,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='GWP_direct_life',
         )
         self.legacy_GWP_ee_lc_direct_fossile = VariableMeta(
             var_name='legacy_GWP_ee_lc_direct_fossile',
@@ -17567,6 +18590,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='(legacy_GWP_ee_direct_fossile)*(1+ABRUNDEN(GHG_LCA_timeframe_years/K364; 0))',
         )
         self.legacy_GWP_ee_lc_direct_biogenic = VariableMeta(
             var_name='legacy_GWP_ee_lc_direct_biogenic',
@@ -17583,6 +18607,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='(legacy_GWP_ee_direct_biogenic)*(1+ABRUNDEN(GHG_LCA_timeframe_years/K364; 0))',
         )
         self.legacy_GWP_ee_lc_direct = VariableMeta(
             var_name='legacy_GWP_ee_lc_direct',
@@ -17599,6 +18624,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='legacy_GWP_ee_lc_direct_fossile+legacy_GWP_ee_lc_direct_biogenic',
         )
         self.legacy_GWP_ee_con_build = VariableMeta(
             var_name='legacy_GWP_ee_con_build',
@@ -17615,6 +18641,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='legacy_GWP_ee_walls_fossile+legacy_GWP_ee_walls_biogenic+legacy_GWP_ee_windows_fossile+legacy_GWP_ee_windows_bigenic+legacy_GWP_ee_roof_fossile+legacy_GWP_ee_roof_biogenic+legacy_GWP_ee_ground_fossile+legacy_GWP_ee_ground_biogenic+legacy_GWP_ee_ceilings_fossile+legacy_GWP_ee_ceilings_biogenic+legacy_GWP_ee_general_fossile+legacy_GWP_ee_general_bigonenic+legacy_GWP_ee_other_fossile+legacy_GWP_ee_other_biogenic++legacy_GWP_ee_direct_fossile+legacy_GWP_ee_direct_biogenic',
         )
         self.legacy_GWP_ee_rep_build = VariableMeta(
             var_name='legacy_GWP_ee_rep_build',
@@ -17631,6 +18658,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='legacy_GWP_ee_lc_construction-legacy_GWP_ee_con_build',
         )
         self.legacy_GWP_ee_lc_fossil = VariableMeta(
             var_name='legacy_GWP_ee_lc_fossil',
@@ -17647,6 +18675,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='legacy_GWP_ee_lc_walls_fossil+legacy_GWP_ee_lc_windows_fossile+legacy_GWP_ee_lc_roof_fossile+legacy_GWP_ee_lc_ground_fossile+legacy_GWP_ee_lc_ceilings_fossile+legacy_GWP_ee_lc_general_fossile+legacy_GWP_ee_lc_other_fossile+legacy_GWP_ee_lc_direct_fossile',
         )
         self.legacy_GWP_ee_lc_biogenic = VariableMeta(
             var_name='legacy_GWP_ee_lc_biogenic',
@@ -17663,6 +18692,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='legacy_GWP_ee_lc_walls_biogenic+legacy_GWP_ee_lc_windows_biogenic+legacy_GWP_ee_lc_roof_biogenic+legacy_GWP_ee_lc_ground_biogenic+legacy_GWP_ee_lc_ceilings_biogenic+legacy_GWP_ee_lc_general_biogenic+legacy_GWP_ee_lc_other_biogenic+legacy_GWP_ee_lc_direct_biogenic',
         )
         self.legacy_GWP_ee_lc_construction = VariableMeta(
             var_name='legacy_GWP_ee_lc_construction',
@@ -17679,6 +18709,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='legacy_GWP_ee_lc_walls+legacy_GWP_ee_lc_windows+legacy_GWP_ee_lc_roof+legacy_GWP_ee_lc_ground+legacy_GWP_ee_lc_ceil+legacy_GWP_ee_lc_general+legacy_GWP_ee_lc_other+legacy_GWP_ee_lc_direct',
         )
         self.legacy_GWP_ee_tga_pv_fossile = VariableMeta(
             var_name='legacy_GWP_ee_tga_pv_fossile',
@@ -17695,6 +18726,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNNV(SVERWEIS(GWP_pv_name;GWP_Katalog;4;FALSCH)*SVERWEIS(SVERWEIS(GWP_pv_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)',
         )
         self.legacy_GWP_ee_tga_pv_biogenic = VariableMeta(
             var_name='legacy_GWP_ee_tga_pv_biogenic',
@@ -17711,6 +18743,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNNV(SVERWEIS(GWP_pv_name;GWP_Katalog;5;FALSCH)*SVERWEIS(SVERWEIS(GWP_pv_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)',
         )
         self.legacy_GWP_life_tga_pv = VariableMeta(
             var_name='legacy_GWP_life_tga_pv',
@@ -17727,6 +18760,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNNV(SVERWEIS(GWP_other_name;GWP_Katalog;6;FALSCH);GHG_LCA_timeframe_years+1)',
         )
         self.legacy_GWP_ee_lc_pv = VariableMeta(
             var_name='legacy_GWP_ee_lc_pv',
@@ -17743,6 +18777,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='(legacy_GWP_ee_tga_pv_fossile+legacy_GWP_ee_tga_pv_biogenic)*(1+ABRUNDEN(GHG_LCA_timeframe_years/legacy_GWP_life_tga_pv; 0))',
         )
         self.legacy_GWP_ee_tga_boreholes_fossile = VariableMeta(
             var_name='legacy_GWP_ee_tga_boreholes_fossile',
@@ -17759,6 +18794,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNNV(SVERWEIS(GWP_boreholes_name;GWP_Katalog;4;FALSCH)*SVERWEIS(SVERWEIS(GWP_boreholes_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)',
         )
         self.legacy_GWP_ee_tga_boreholes_biogenic = VariableMeta(
             var_name='legacy_GWP_ee_tga_boreholes_biogenic',
@@ -17775,6 +18811,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNNV(SVERWEIS(GWP_boreholes_name;GWP_Katalog;5;FALSCH)*SVERWEIS(SVERWEIS(GWP_boreholes_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)',
         )
         self.legacy_GWP_life_tga_boreholes = VariableMeta(
             var_name='legacy_GWP_life_tga_boreholes',
@@ -17791,6 +18828,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNNV(SVERWEIS(GWP_boreholes_name;GWP_Katalog;6;FALSCH);GHG_LCA_timeframe_years+1)',
         )
         self.legacy_GWP_ee_lc_boreholes = VariableMeta(
             var_name='legacy_GWP_ee_lc_boreholes',
@@ -17807,6 +18845,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='(legacy_GWP_ee_tga_boreholes_fossile+legacy_GWP_ee_tga_boreholes_biogenic)*(1+ABRUNDEN(GHG_LCA_timeframe_years/legacy_GWP_life_tga_boreholes; 0))',
         )
         self.legacy_GWP_ee_tga_ventilation_fossile = VariableMeta(
             var_name='legacy_GWP_ee_tga_ventilation_fossile',
@@ -17823,6 +18862,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNNV(SVERWEIS(GWP_ventilation_name;GWP_Katalog;4;FALSCH)*SVERWEIS(SVERWEIS(GWP_ventilation_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)',
         )
         self.legacy_GWP_ee_tga_ventilation_biogenic = VariableMeta(
             var_name='legacy_GWP_ee_tga_ventilation_biogenic',
@@ -17839,6 +18879,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNNV(SVERWEIS(GWP_ventilation_name;GWP_Katalog;5;FALSCH)*SVERWEIS(SVERWEIS(GWP_ventilation_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)',
         )
         self.legacy_GWP_life_tga_ventilation = VariableMeta(
             var_name='legacy_GWP_life_tga_ventilation',
@@ -17855,6 +18896,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNNV(SVERWEIS(GWP_ventilation_name;GWP_Katalog;6;FALSCH);GHG_LCA_timeframe_years+1)',
         )
         self.legacy_GWP_ee_lc_ventilation = VariableMeta(
             var_name='legacy_GWP_ee_lc_ventilation',
@@ -17871,6 +18913,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='(legacy_GWP_ee_tga_ventilation_fossile+legacy_GWP_ee_tga_ventilation_biogenic)*(1+ABRUNDEN(GHG_LCA_timeframe_years/legacy_GWP_life_tga_ventilation; 0))',
         )
         self.legacy_GWP_ee_tga_solarthermal_fossile = VariableMeta(
             var_name='legacy_GWP_ee_tga_solarthermal_fossile',
@@ -17887,6 +18930,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNNV(SVERWEIS(GWP_solarthermal_name;GWP_Katalog;4;FALSCH)*SVERWEIS(SVERWEIS(GWP_solarthermal_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)',
         )
         self.legacy_GWP_ee_tga_solarthermal_biogenic = VariableMeta(
             var_name='legacy_GWP_ee_tga_solarthermal_biogenic',
@@ -17903,6 +18947,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNNV(SVERWEIS(GWP_solarthermal_name;GWP_Katalog;5;FALSCH)*SVERWEIS(SVERWEIS(GWP_solarthermal_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)',
         )
         self.legacy_GWP_life_solarthermal = VariableMeta(
             var_name='legacy_GWP_life_solarthermal',
@@ -17919,6 +18964,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNNV(SVERWEIS(GWP_solarthermal_name;GWP_Katalog;6;FALSCH);GHG_LCA_timeframe_years+1)',
         )
         self.legacy_GWP_ee_lc_solarthermal = VariableMeta(
             var_name='legacy_GWP_ee_lc_solarthermal',
@@ -17935,6 +18981,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='(legacy_GWP_ee_tga_solarthermal_fossile+legacy_GWP_ee_tga_solarthermal_biogenic)*(1+ABRUNDEN(GHG_LCA_timeframe_years/legacy_GWP_life_solarthermal; 0))',
         )
         self.legacy_GWP_ee_tga_battery_fossile = VariableMeta(
             var_name='legacy_GWP_ee_tga_battery_fossile',
@@ -17951,6 +18998,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNNV(SVERWEIS(GWP_battery_name;GWP_Katalog;4;FALSCH)*SVERWEIS(SVERWEIS(GWP_battery_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)',
         )
         self.legacy_GWP_ee_tga_battery_biogenic = VariableMeta(
             var_name='legacy_GWP_ee_tga_battery_biogenic',
@@ -17967,6 +19015,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNNV(SVERWEIS(GWP_battery_name;GWP_Katalog;5;FALSCH)*SVERWEIS(SVERWEIS(GWP_battery_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)',
         )
         self.legacy_GWP_life_battery = VariableMeta(
             var_name='legacy_GWP_life_battery',
@@ -17983,6 +19032,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNNV(SVERWEIS(GWP_battery_name;GWP_Katalog;6;FALSCH);GHG_LCA_timeframe_years+1)',
         )
         self.legacy_GWP_ee_lc_battery = VariableMeta(
             var_name='legacy_GWP_ee_lc_battery',
@@ -17999,6 +19049,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='(legacy_GWP_ee_tga_battery_fossile+legacy_GWP_ee_tga_battery_biogenic)*(1+ABRUNDEN(GHG_LCA_timeframe_years/legacy_GWP_life_battery; 0))',
         )
         self.legacy_GWP_ee_tga_storage_fossile = VariableMeta(
             var_name='legacy_GWP_ee_tga_storage_fossile',
@@ -18015,6 +19066,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNNV(SVERWEIS(GWP_storage_name;GWP_Katalog;4;FALSCH)*SVERWEIS(SVERWEIS(GWP_storage_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)',
         )
         self.legacy_GWP_ee_tga_storage_biogenic = VariableMeta(
             var_name='legacy_GWP_ee_tga_storage_biogenic',
@@ -18031,6 +19083,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNNV(SVERWEIS(GWP_storage_name;GWP_Katalog;5;FALSCH)*SVERWEIS(SVERWEIS(GWP_storage_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)',
         )
         self.legacy_GWP_life_storage = VariableMeta(
             var_name='legacy_GWP_life_storage',
@@ -18047,6 +19100,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNNV(SVERWEIS(GWP_storage_name;GWP_Katalog;6;FALSCH);GHG_LCA_timeframe_years+1)',
         )
         self.legacy_GWP_ee_lc_storage = VariableMeta(
             var_name='legacy_GWP_ee_lc_storage',
@@ -18063,6 +19117,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='(legacy_GWP_ee_tga_storage_fossile+legacy_GWP_ee_tga_storage_biogenic)*(1+ABRUNDEN(GHG_LCA_timeframe_years/legacy_GWP_life_storage; 0))',
         )
         self.legacy_GWP_ee_tga_general_fossile = VariableMeta(
             var_name='legacy_GWP_ee_tga_general_fossile',
@@ -18079,6 +19134,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNNV(SVERWEIS(GWP_tga_general_name;GWP_Katalog;4;FALSCH)*SVERWEIS(SVERWEIS(GWP_tga_general_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)',
         )
         self.legacy_GWP_ee_tga_general_biogenic = VariableMeta(
             var_name='legacy_GWP_ee_tga_general_biogenic',
@@ -18095,6 +19151,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNNV(SVERWEIS(GWP_tga_general_name;GWP_Katalog;5;FALSCH)*SVERWEIS(SVERWEIS(GWP_tga_general_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)',
         )
         self.legacy_GWP_life_tga_general = VariableMeta(
             var_name='legacy_GWP_life_tga_general',
@@ -18111,6 +19168,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNNV(SVERWEIS(GWP_tga_general_name;GWP_Katalog;6;FALSCH);GHG_LCA_timeframe_years+1)',
         )
         self.legacy_GWP_ee_lc_tga_general = VariableMeta(
             var_name='legacy_GWP_ee_lc_tga_general',
@@ -18127,6 +19185,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='(legacy_GWP_ee_tga_general_fossile+legacy_GWP_ee_tga_general_biogenic)*(1+ABRUNDEN(GHG_LCA_timeframe_years/legacy_GWP_life_tga_general; 0))',
         )
         self.legacy_GWP_ee_tga_other_fossile = VariableMeta(
             var_name='legacy_GWP_ee_tga_other_fossile',
@@ -18143,6 +19202,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNNV(SVERWEIS(GWP_tga_other_name;GWP_Katalog;4;FALSCH)*SVERWEIS(SVERWEIS(GWP_tga_other_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)',
         )
         self.legacy_GWP_ee_tga_other_biogenic = VariableMeta(
             var_name='legacy_GWP_ee_tga_other_biogenic',
@@ -18159,6 +19219,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNNV(SVERWEIS(GWP_tga_other_name;GWP_Katalog;5;FALSCH)*SVERWEIS(SVERWEIS(GWP_tga_other_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)',
         )
         self.legacy_GWP_life_tga_other = VariableMeta(
             var_name='legacy_GWP_life_tga_other',
@@ -18175,6 +19236,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNNV(SVERWEIS(GWP_tga_other_name;GWP_Katalog;6;FALSCH);GHG_LCA_timeframe_years+1)',
         )
         self.legacy_GWP_ee_lc_tga_other = VariableMeta(
             var_name='legacy_GWP_ee_lc_tga_other',
@@ -18191,6 +19253,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='(legacy_GWP_ee_tga_other_fossile+legacy_GWP_ee_tga_other_biogenic)*(1+ABRUNDEN(GHG_LCA_timeframe_years/legacy_GWP_life_tga_other; 0))',
         )
         self.legacy_GWP_ee_con_tga = VariableMeta(
             var_name='legacy_GWP_ee_con_tga',
@@ -18207,6 +19270,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='legacy_GWP_ee_tga_pv_fossile+legacy_GWP_ee_tga_pv_biogenic+legacy_GWP_ee_tga_boreholes_fossile+legacy_GWP_ee_tga_boreholes_biogenic+legacy_GWP_ee_tga_ventilation_fossile+legacy_GWP_ee_tga_ventilation_biogenic+legacy_GWP_ee_tga_solarthermal_fossile+legacy_GWP_ee_tga_solarthermal_biogenic+legacy_GWP_ee_tga_battery_fossile+legacy_GWP_ee_tga_battery_biogenic+legacy_GWP_ee_tga_storage_fossile+legacy_GWP_ee_tga_storage_biogenic+legacy_GWP_ee_tga_general_fossile+legacy_GWP_ee_tga_general_biogenic+legacy_GWP_ee_tga_other_fossile+legacy_GWP_ee_tga_other_biogenic',
         )
         self.legacy_GWP_ee_rep_tga = VariableMeta(
             var_name='legacy_GWP_ee_rep_tga',
@@ -18223,6 +19287,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='K410-K408',
         )
         self.legacy_GWP_ee_lc_tga = VariableMeta(
             var_name='legacy_GWP_ee_lc_tga',
@@ -18239,6 +19304,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='legacy_GWP_ee_lc_pv+legacy_GWP_ee_lc_boreholes+legacy_GWP_ee_lc_ventilation+legacy_GWP_ee_lc_solarthermal+legacy_GWP_ee_lc_battery+legacy_GWP_ee_lc_storage+legacy_GWP_ee_lc_tga_general+legacy_GWP_ee_lc_tga_other',
         )
         self.GWP_ee_mob_fossile = VariableMeta(
             var_name='GWP_ee_mob_fossile',
@@ -18255,6 +19321,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group=None,
             entity_key=None,
+            formula='GWP_miv_count_fossile*GWP_mobility_construction_fossil*1000/GFA_total',
         )
         self.GWP_ee_mob_ev = VariableMeta(
             var_name='GWP_ee_mob_ev',
@@ -18271,6 +19338,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group=None,
             entity_key=None,
+            formula='GWP_miv_count_ev*GWP_mobility_construction_ev*1000/GFA_total',
         )
         self.GWP_ee_lc_mob = VariableMeta(
             var_name='GWP_ee_lc_mob',
@@ -18287,6 +19355,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group=None,
             entity_key=None,
+            formula='GWP_ee_mob_fossile+GWP_ee_mob_ev',
         )
         self.GWP_oe_battery_charge = VariableMeta(
             var_name='GWP_oe_battery_charge',
@@ -18303,6 +19372,7 @@ class Meta:
             temporal_scope='pro Jahr',
             entity_group=None,
             entity_key=None,
+            formula='SUMMENPRODUKT(sim[cf_GHG_grid];sim[VRGrid_to_Batt])/1000/NFA_to_GFA_ratio',
         )
         self.GWP_emInt_grid_avg = VariableMeta(
             var_name='GWP_emInt_grid_avg',
@@ -18319,6 +19389,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='MITTELWERT(sim[cf_GHG_grid])*1000',
         )
         self.GWP_emInt_grid = VariableMeta(
             var_name='GWP_emInt_grid',
@@ -18335,6 +19406,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='GWP_oe_grid_build*NFA_to_GFA_ratio/(Grid_to_min-Grid_to_Eev_min)*1000',
         )
         self.GWP_emInt_flex = VariableMeta(
             var_name='GWP_emInt_flex',
@@ -18351,6 +19423,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNFEHLER(GWP_oe_flex_build*NFA_to_GFA_ratio/(VRGrid_to_flex-VRGrid_to_Eev_flex+VRGrid_to_min-VRGrid_to_Eev_min)*1000;#NV)',
         )
         self.GWP_emInt_batt_charge = VariableMeta(
             var_name='GWP_emInt_batt_charge',
@@ -18367,6 +19440,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNFEHLER(GWP_oe_battery_charge/Batt_total_charge_input*1000*NFA_to_GFA_ratio;#NV)',
         )
         self.GWP_emInt_ev_charge = VariableMeta(
             var_name='GWP_emInt_ev_charge',
@@ -18383,6 +19457,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNFEHLER(GWP_oe_mob_ev/EUIev_el_total*1000*NFA_to_GFA_ratio;#NV)',
         )
         self.GWP_emInt_PV_feedin = VariableMeta(
             var_name='GWP_emInt_PV_feedin',
@@ -18399,6 +19474,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNFEHLER(GWP_oe_grid_feedin*NFA_to_GFA_ratio/PV_to_Egrid*1000;#NV)',
         )
         self.GWP_oe_grid_build = VariableMeta(
             var_name='GWP_oe_grid_build',
@@ -18415,6 +19491,7 @@ class Meta:
             temporal_scope='pro Jahr',
             entity_group=None,
             entity_key=None,
+            formula='SUMMENPRODUKT(sim[cf_GHG_grid];sim[Grid_to_building_min])/1000/NFA_to_GFA_ratio',
         )
         self.GWP_oe_flex_build = VariableMeta(
             var_name='GWP_oe_flex_build',
@@ -18431,6 +19508,7 @@ class Meta:
             temporal_scope='pro Jahr',
             entity_group=None,
             entity_key=None,
+            formula='SUMMENPRODUKT(sim[cf_GHG_grid];sim[VRGrid_to_building])/1000/NFA_to_GFA_ratio',
         )
         self.GWP_oe_district_heating = VariableMeta(
             var_name='GWP_oe_district_heating',
@@ -18447,6 +19525,7 @@ class Meta:
             temporal_scope='pro Jahr',
             entity_group=None,
             entity_key=None,
+            formula='SUMMENPRODUKT(EUI_th;is_district_heating;ghg_conversion_factors_thermal)/NFA_to_GFA_ratio',
         )
         self.GWP_oe_natural_gas = VariableMeta(
             var_name='GWP_oe_natural_gas',
@@ -18463,6 +19542,7 @@ class Meta:
             temporal_scope='pro Jahr',
             entity_group=None,
             entity_key=None,
+            formula='SUMMENPRODUKT(EUI_th;is_natural_gas;ghg_conversion_factors_thermal)/NFA_to_GFA_ratio',
         )
         self.GWP_oe_biomass = VariableMeta(
             var_name='GWP_oe_biomass',
@@ -18479,6 +19559,7 @@ class Meta:
             temporal_scope='pro Jahr',
             entity_group=None,
             entity_key=None,
+            formula='SUMMENPRODUKT(EUI_th;is_biomass;ghg_conversion_factors_thermal)/NFA_to_GFA_ratio',
         )
         self.GWP_oe_other = VariableMeta(
             var_name='GWP_oe_other',
@@ -18495,6 +19576,7 @@ class Meta:
             temporal_scope='pro Jahr',
             entity_group=None,
             entity_key=None,
+            formula='SUMMENPRODUKT(EUI_th;is_other_thermal_pe;ghg_conversion_factors_thermal)/NFA_to_GFA_ratio',
         )
         self.GWP_oe_grid_feedin = VariableMeta(
             var_name='GWP_oe_grid_feedin',
@@ -18511,6 +19593,7 @@ class Meta:
             temporal_scope='pro Jahr',
             entity_group=None,
             entity_key=None,
+            formula='-SUMMENPRODUKT(sim[cf_GHG_grid];sim[PV_to_Egrid])/1000/NFA_to_GFA_ratio',
         )
         self.GWP_oe_building = VariableMeta(
             var_name='GWP_oe_building',
@@ -18527,6 +19610,7 @@ class Meta:
             temporal_scope='pro Jahr',
             entity_group=None,
             entity_key=None,
+            formula='SUMME(K431:K437)',
         )
         self.GWP_oe_mob_ev = VariableMeta(
             var_name='GWP_oe_mob_ev',
@@ -18543,6 +19627,7 @@ class Meta:
             temporal_scope='pro Jahr',
             entity_group=None,
             entity_key=None,
+            formula='SUMMENPRODUKT(sim[cf_GHG_grid];sim[Grid_to_Eev_min]+sim[VRGrid_to_Eev_min]+sim[VRGrid_to_Eev_flex]+EV_charging_losses_surcharge_factor*(sim[Eev_Cext_res]+sim[Eev_Cext_work]+sim[Eev_Cext_retail]))/1000/NFA_to_GFA_ratio',
         )
         self.GWP_oe_mob_ev_export = VariableMeta(
             var_name='GWP_oe_mob_ev_export',
@@ -18559,6 +19644,7 @@ class Meta:
             temporal_scope='pro Jahr',
             entity_group=None,
             entity_key=None,
+            formula='-GWP_emInt_grid_avg*UED_mob_el_other*EV_charging_losses_surcharge_factor/1000/NFA_to_GFA_ratio',
         )
         self.GWP_oe_mob_fossile = VariableMeta(
             var_name='GWP_oe_mob_fossile',
@@ -18575,6 +19661,7 @@ class Meta:
             temporal_scope='pro Jahr',
             entity_group=None,
             entity_key=None,
+            formula='mobility_is_included*K519*GWP_mobility_car_gpPKm/1000/GFA_total',
         )
         self.GWP_oe_mob = VariableMeta(
             var_name='GWP_oe_mob',
@@ -18591,6 +19678,7 @@ class Meta:
             temporal_scope='pro Jahr',
             entity_group=None,
             entity_key=None,
+            formula='GWP_oe_mob_fossile+GWP_oe_mob_ev+GWP_oe_mob_ev_export',
         )
         self.GWP_oe = VariableMeta(
             var_name='GWP_oe',
@@ -18607,6 +19695,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='GWP_oe_mob+GWP_oe_building',
         )
         self.GWP_oe_lc_grid_build = VariableMeta(
             var_name='GWP_oe_lc_grid_build',
@@ -18623,6 +19712,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group=None,
             entity_key=None,
+            formula='GWP_oe_grid_build*GWP_rcpi_grid',
         )
         self.GWP_oe_lc_flex_build = VariableMeta(
             var_name='GWP_oe_lc_flex_build',
@@ -18639,6 +19729,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group=None,
             entity_key=None,
+            formula='GWP_oe_flex_build*GWP_rcpi_grid',
         )
         self.GWP_oe_lc_district_heating = VariableMeta(
             var_name='GWP_oe_lc_district_heating',
@@ -18655,6 +19746,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group=None,
             entity_key=None,
+            formula='NFA_to_GFA_ratio*SUMMENPRODUKT(EUI_th;is_district_heating;ghg_conversion_factors_thermal;GWP_rcpis_thermal)',
         )
         self.GWP_oe_lc_natural_gas = VariableMeta(
             var_name='GWP_oe_lc_natural_gas',
@@ -18671,6 +19763,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group=None,
             entity_key=None,
+            formula='NFA_to_GFA_ratio*SUMMENPRODUKT(EUI_th;is_natural_gas;ghg_conversion_factors_thermal;GWP_rcpis_thermal)',
         )
         self.GWP_oe_lc_biomass = VariableMeta(
             var_name='GWP_oe_lc_biomass',
@@ -18687,6 +19780,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group=None,
             entity_key=None,
+            formula='NFA_to_GFA_ratio*SUMMENPRODUKT(EUI_th;is_biomass;ghg_conversion_factors_thermal;GWP_rcpis_thermal)',
         )
         self.GWP_oe_lc_other = VariableMeta(
             var_name='GWP_oe_lc_other',
@@ -18703,6 +19797,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group=None,
             entity_key=None,
+            formula='NFA_to_GFA_ratio*SUMMENPRODUKT(EUI_th;is_other_thermal_pe;ghg_conversion_factors_thermal;GWP_rcpis_thermal)',
         )
         self.GWP_oe_lc_grid_feedin = VariableMeta(
             var_name='GWP_oe_lc_grid_feedin',
@@ -18719,6 +19814,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group=None,
             entity_key=None,
+            formula='GWP_oe_grid_feedin*GWP_rcpi_grid_substition',
         )
         self.GWP_oe_lc_building = VariableMeta(
             var_name='GWP_oe_lc_building',
@@ -18735,6 +19831,7 @@ class Meta:
             temporal_scope='2025-2050',
             entity_group=None,
             entity_key=None,
+            formula='SUMME(K448:K454)',
         )
         self.GWP_oe_lc_emission = VariableMeta(
             var_name='GWP_oe_lc_emission',
@@ -18751,6 +19848,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMME(K448:K453)',
         )
         self.GWP_oe_lc_emission_savings = VariableMeta(
             var_name='GWP_oe_lc_emission_savings',
@@ -18767,6 +19865,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='-GWP_oe_lc_grid_feedin',
         )
         self.GWP_oe_lc_mob_ev = VariableMeta(
             var_name='GWP_oe_lc_mob_ev',
@@ -18783,6 +19882,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group=None,
             entity_key=None,
+            formula='GWP_oe_mob_ev*GWP_rcpi_grid',
         )
         self.GWP_oe_lc_mob_export = VariableMeta(
             var_name='GWP_oe_lc_mob_export',
@@ -18799,6 +19899,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group=None,
             entity_key=None,
+            formula='GWP_oe_mob_ev_export*GWP_rcpi_grid',
         )
         self.GWP_oe_lc_mob_fossile = VariableMeta(
             var_name='GWP_oe_lc_mob_fossile',
@@ -18815,6 +19916,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group=None,
             entity_key=None,
+            formula='GWP_oe_mob_fossile*GWP_rcpi_mob_fossile',
         )
         self.GWP_oe_lc_mob = VariableMeta(
             var_name='GWP_oe_lc_mob',
@@ -18831,6 +19933,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group=None,
             entity_key=None,
+            formula='GWP_oe_lc_mob_ev+GWP_oe_lc_mob_export+GWP_oe_lc_mob_fossile',
         )
         self.legacy_GWP_lc_total = VariableMeta(
             var_name='legacy_GWP_lc_total',
@@ -18847,6 +19950,7 @@ class Meta:
             temporal_scope='2025-2050',
             entity_group=None,
             entity_key=None,
+            formula='GWP_oe_lc_mob+GWP_oe_lc_building+GWP_ee_lc_mob+legacy_GWP_ee_lc_tga+legacy_GWP_ee_lc_construction',
         )
         self.legacy_GWP_lc_OE_total = VariableMeta(
             var_name='legacy_GWP_lc_OE_total',
@@ -18863,6 +19967,7 @@ class Meta:
             temporal_scope='2025-2050',
             entity_group=None,
             entity_key=None,
+            formula='GWP_oe_lc_mob+GWP_oe_lc_building',
         )
         self.legacy_GWP_lc_EE_total = VariableMeta(
             var_name='legacy_GWP_lc_EE_total',
@@ -18879,6 +19984,7 @@ class Meta:
             temporal_scope='2025-2050',
             entity_group=None,
             entity_key=None,
+            formula='+GWP_ee_lc_mob+legacy_GWP_ee_lc_tga+legacy_GWP_ee_lc_construction',
         )
         self.test_legacy_GWP_sum = VariableMeta(
             var_name='test_legacy_GWP_sum',
@@ -18895,6 +20001,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='(K465+K464)-legacy_GWP_lc_total',
         )
         self.GWP_lc_total = VariableMeta(
             var_name='GWP_lc_total',
@@ -18911,6 +20018,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group=None,
             entity_key=None,
+            formula='GWP_oe_lc_mob+GWP_oe_lc_building+GWP_ee_lc_mob+GWP_ee_total_construction+GWP_ee_total_TES',
         )
         self.GWP_lc_OE_total = VariableMeta(
             var_name='GWP_lc_OE_total',
@@ -18927,6 +20035,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group=None,
             entity_key=None,
+            formula='GWP_oe_lc_mob+GWP_oe_lc_building',
         )
         self.GWP_lc_EE_total = VariableMeta(
             var_name='GWP_lc_EE_total',
@@ -18943,6 +20052,7 @@ class Meta:
             temporal_scope='2025-2075',
             entity_group=None,
             entity_key=None,
+            formula='+GWP_ee_lc_mob+GWP_ee_total_construction+GWP_ee_total_TES',
         )
         self.test_GWP_sum = VariableMeta(
             var_name='test_GWP_sum',
@@ -18959,6 +20069,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='(K469+K468)-GWP_lc_total',
         )
         self.cost_E_grid = VariableMeta(
             var_name='cost_E_grid',
@@ -18975,6 +20086,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[cost_E_grid])',
         )
         self.cost_VRGrid_flex = VariableMeta(
             var_name='cost_VRGrid_flex',
@@ -18991,6 +20103,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[cost_VRGrid_flex])',
         )
         self.cost_PV_to_Egrid = VariableMeta(
             var_name='cost_PV_to_Egrid',
@@ -19007,6 +20120,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[cost_PV_to_Egrid])*GFA_total',
         )
         self.cost_total = VariableMeta(
             var_name='cost_total',
@@ -19023,6 +20137,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula=None,
         )
         self.flex_signal_ratio = VariableMeta(
             var_name='flex_signal_ratio',
@@ -19039,6 +20154,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='ZÄHLENWENN(sim[Signal];1)/8760',
         )
         self.flex_signal_ratio_winter = VariableMeta(
             var_name='flex_signal_ratio_winter',
@@ -19055,6 +20171,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMMENPRODUKT( (sim[Signal]=1) * ISTZAHL(VERGLEICH(month;winter_months;0)) ) / 8760 * 2',
         )
         self.flex_signal_ratio_summer = VariableMeta(
             var_name='flex_signal_ratio_summer',
@@ -19071,6 +20188,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMMENPRODUKT( (sim[Signal]=1) * ISTZAHL(VERGLEICH(month;summer_months;0)) ) / 8760 * 2',
         )
         self.flex_GSRU = VariableMeta(
             var_name='flex_GSRU',
@@ -19087,6 +20205,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='VRGrid_to_min/EUI_el_total',
         )
         self.flex_GSRI = VariableMeta(
             var_name='flex_GSRI',
@@ -19103,6 +20222,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='VRGrid_to_flex/EUI_el_total',
         )
         self.flex_GSR = VariableMeta(
             var_name='flex_GSR',
@@ -19119,6 +20239,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='K484+K485',
         )
         self.PV_own_consumption_direct = VariableMeta(
             var_name='PV_own_consumption_direct',
@@ -19135,6 +20256,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='PV_total_direct/PV_total',
         )
         self.PV_own_consumption_flex = VariableMeta(
             var_name='PV_own_consumption_flex',
@@ -19151,6 +20273,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='PV_total_flex/PV_total',
         )
         self.PV_own_consumption = VariableMeta(
             var_name='PV_own_consumption',
@@ -19167,6 +20290,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='PV_own_consumption_direct+PV_own_consumption_flex',
         )
         self.EUI_self_sufficiency = VariableMeta(
             var_name='EUI_self_sufficiency',
@@ -19183,6 +20307,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='(PV_total_direct+PV_total_flex)/EUI_el_total',
         )
         self.PV_peak_grid_feedin = VariableMeta(
             var_name='PV_peak_grid_feedin',
@@ -19199,6 +20324,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='MAX(sim[PV_to_Egrid])*NFA_total/1000',
         )
         self.PV_peak_grid_feedin_date = VariableMeta(
             var_name='PV_peak_grid_feedin_date',
@@ -19215,6 +20341,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='XVERWEIS(MAX(sim[PV_to_Egrid]);sim[PV_to_Egrid];sim[date])',
         )
         self.Batt_total_charge = VariableMeta(
             var_name='Batt_total_charge',
@@ -19231,6 +20358,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[Batt_total_charge])/1000',
         )
         self.Batt_total_discharge = VariableMeta(
             var_name='Batt_total_discharge',
@@ -19247,6 +20375,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[Batt_total_discharge])/1000*Batt_eff_factor_discharge',
         )
         self.Batt_charge_losses = VariableMeta(
             var_name='Batt_charge_losses',
@@ -19263,6 +20392,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='Batt_total_charge_input-Batt_total_charge',
         )
         self.Batt_discharge_losses = VariableMeta(
             var_name='Batt_discharge_losses',
@@ -19279,6 +20409,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='Batt_total_charge-Batt_total_discharge-Batt_cap_Wh_per_NFA/1000*Batt_SOC_init',
         )
         self.Batt_RTE = VariableMeta(
             var_name='Batt_RTE',
@@ -19295,6 +20426,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNFEHLER(Batt_total_discharge/Batt_total_charge_input;0)',
         )
         self.Batt_FEC = VariableMeta(
             var_name='Batt_FEC',
@@ -19311,6 +20443,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNFEHLER(Batt_total_charge*1000/Batt_cap_Wh_per_NFA;0)',
         )
         self.StatPAX = VariableMeta(
             var_name='StatPAX',
@@ -19327,6 +20460,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='K507+K503+K502',
         )
         self.mob_annual_milage_district = VariableMeta(
             var_name='mob_annual_milage_district',
@@ -19343,6 +20477,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMME(K511:K514)',
         )
         self.mob_annual_mileage_PAX = VariableMeta(
             var_name='mob_annual_mileage_PAX',
@@ -19359,6 +20494,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='mob_annual_milage_district/StatPAX',
         )
         self.UED_mob_el_target = VariableMeta(
             var_name='UED_mob_el_target',
@@ -19375,6 +20511,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='mobility_is_included*K518*EV_demand_kWhpkm*per_NFA',
         )
         self.EUI_mob_fossile = VariableMeta(
             var_name='EUI_mob_fossile',
@@ -19391,6 +20528,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='mobility_is_included*K519*fossile_demand_kWhpkm*per_NFA',
         )
         self.EV_FEC = VariableMeta(
             var_name='EV_FEC',
@@ -19407,6 +20545,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='WENNFEHLER(SUMME(sim[Eev_Cmin];sim[Eev_flex_final])/K529;0)',
         )
         self.UED_mob_el_total = VariableMeta(
             var_name='UED_mob_el_total',
@@ -19423,6 +20562,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='mobility_is_included*K524*EV_share*EV_demand_kWhpkm*per_NFA',
         )
         self.UED_mob_el_other = VariableMeta(
             var_name='UED_mob_el_other',
@@ -19439,6 +20579,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='mobility_is_included*(K531-UED_mob_el_target)',
         )
         self.EUIev_el_total = VariableMeta(
             var_name='EUIev_el_total',
@@ -19455,6 +20596,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='EUIev_el+Eev_ext_charge',
         )
         self.Eh_th = VariableMeta(
             var_name='Eh_th',
@@ -19471,6 +20613,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[Qhed_total]) * 0,001',
         )
         self.E_th_total = VariableMeta(
             var_name='E_th_total',
@@ -19487,6 +20630,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='Qdhw_storage_charge+Qheb_th',
         )
         self.Ec_th = VariableMeta(
             var_name='Ec_th',
@@ -19503,6 +20647,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[Qced_total]) * 0,001',
         )
         self.Qenv_h_1el = VariableMeta(
             var_name='Qenv_h_1el',
@@ -19519,6 +20664,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[Qenv_h_1el])*0,001',
         )
         self.Qenv_h_3el = VariableMeta(
             var_name='Qenv_h_3el',
@@ -19535,6 +20681,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[Qenv_h_3el])*0,001',
         )
         self.Qenv_h = VariableMeta(
             var_name='Qenv_h',
@@ -19551,6 +20698,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='Qenv_h_1el+Qenv_h_3el',
         )
         self.Eh_1el = VariableMeta(
             var_name='Eh_1el',
@@ -19567,6 +20715,7 @@ class Meta:
             temporal_scope=None,
             entity_group='heating',
             entity_key='system_1',
+            formula='SUMME(sim[Eh_1el])*0,001',
         )
         self.Eh_3el = VariableMeta(
             var_name='Eh_3el',
@@ -19583,6 +20732,7 @@ class Meta:
             temporal_scope=None,
             entity_group='heating',
             entity_key='system_3',
+            formula='SUMME(sim[Eh_3el])*0,001',
         )
         self.EUIh_2th = VariableMeta(
             var_name='EUIh_2th',
@@ -19599,6 +20749,7 @@ class Meta:
             temporal_scope='static',
             entity_group='heating',
             entity_key='system_2',
+            formula='SUMME(sim[EUIh_2th])/1000',
         )
         self.EUIh_4th = VariableMeta(
             var_name='EUIh_4th',
@@ -19615,13 +20766,14 @@ class Meta:
             temporal_scope='static',
             entity_group='heating',
             entity_key='system_4',
+            formula='SUMME(sim[EUIh_4th])/1000',
         )
         self.Qh_min_wasteheat = VariableMeta(
             var_name='Qh_min_wasteheat',
             attr_name='Qh_min_wasteheat',
             icon='♨️',
-            label_de='Abwärme → Wärmeverteilung',
-            unit='kWh Wärme/m²NGFa',
+            label_de='Abwärme minimum → Wärmeverteilung',
+            unit='kWh Umweltwärme/m²NGFa',
             comment=None,
             source='OUT',
             ka=None,
@@ -19631,6 +20783,41 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[Qh_min_wasteheat]) * 0,001',
+        )
+        self.Qh_flex_wasteheat = VariableMeta(
+            var_name='Qh_flex_wasteheat',
+            attr_name='Qh_flex_wasteheat',
+            icon=None,
+            label_de='Abwärme flexibel → Wärmeverteilung',
+            unit='kWh Umweltwärme/m²NGFa',
+            comment=None,
+            source='OUT',
+            ka=None,
+            domain='heating',
+            measure=None,
+            spatial_scope=None,
+            temporal_scope=None,
+            entity_group=None,
+            entity_key=None,
+            formula='SUMME(sim[Qh_flex_wasteheat_final]) * 0,001',
+        )
+        self.Qh_wasteheat = VariableMeta(
+            var_name='Qh_wasteheat',
+            attr_name='Qh_wasteheat',
+            icon=None,
+            label_de='Abwärme → Wärmeverteilung',
+            unit='kWh Umweltwärme/m²NGFa',
+            comment=None,
+            source='OUT',
+            ka=None,
+            domain='heating',
+            measure=None,
+            spatial_scope=None,
+            temporal_scope=None,
+            entity_group=None,
+            entity_key=None,
+            formula='Qh_min_wasteheat+Qh_flex_wasteheat',
         )
         self.Qheb_1el = VariableMeta(
             var_name='Qheb_1el',
@@ -19647,6 +20834,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[Qhed_1el]) * 0,001',
         )
         self.Qheb_3el = VariableMeta(
             var_name='Qheb_3el',
@@ -19663,6 +20851,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[Qhed_3el]) * 0,001',
         )
         self.Qheb_2th = VariableMeta(
             var_name='Qheb_2th',
@@ -19679,6 +20868,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[Qhed_2th]) * 0,001',
         )
         self.Qheb_4th = VariableMeta(
             var_name='Qheb_4th',
@@ -19695,6 +20885,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[Qhed_4th]) * 0,001',
         )
         self.Qloss_h_th2_generation = VariableMeta(
             var_name='Qloss_h_th2_generation',
@@ -19711,6 +20902,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='EUIh_2th-Qheb_2th',
         )
         self.Qloss_h_th4_generation = VariableMeta(
             var_name='Qloss_h_th4_generation',
@@ -19727,6 +20919,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='EUIh_4th-Qheb_4th',
         )
         self.Qloss_h_generation = VariableMeta(
             var_name='Qloss_h_generation',
@@ -19743,22 +20936,24 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='Qloss_h_th2_generation+Qloss_h_th4_generation',
         )
         self.Qh_distr_losses = VariableMeta(
             var_name='Qh_distr_losses',
             attr_name='Qh_distr_losses',
-            icon='❄️',
-            label_de='Kälteverteilung → Verteilverluste',
+            icon='♨️',
+            label_de='Wärmeverteilung → Verteilverluste',
             unit='kWh Wärmeverluste/m²NGFa',
             comment=None,
             source='OUT',
             ka=None,
-            domain='cooling',
+            domain='heating',
             measure=None,
             spatial_scope=None,
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[Qh_distr_losses])*0,001',
         )
         self.Qenv_c_1el = VariableMeta(
             var_name='Qenv_c_1el',
@@ -19775,6 +20970,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[Qenv_c_1el])*0,001',
         )
         self.Qenv_c_3el = VariableMeta(
             var_name='Qenv_c_3el',
@@ -19791,6 +20987,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[Qenv_c_3el])*0,001',
         )
         self.Qenv_c = VariableMeta(
             var_name='Qenv_c',
@@ -19807,6 +21004,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='Qenv_c_1el+Qenv_c_3el',
         )
         self.Ec_1el = VariableMeta(
             var_name='Ec_1el',
@@ -19823,6 +21021,7 @@ class Meta:
             temporal_scope=None,
             entity_group='cooling',
             entity_key='system_1',
+            formula='SUMME(sim[Ec_1el])*0,001',
         )
         self.Ec_3el = VariableMeta(
             var_name='Ec_3el',
@@ -19839,6 +21038,7 @@ class Meta:
             temporal_scope=None,
             entity_group='cooling',
             entity_key='system_3',
+            formula='SUMME(sim[Ec_3el])*0,001',
         )
         self.EUIc_2th = VariableMeta(
             var_name='EUIc_2th',
@@ -19855,6 +21055,7 @@ class Meta:
             temporal_scope='static',
             entity_group='cooling',
             entity_key='system_2',
+            formula='SUMME(sim[EUIc_2th])/1000',
         )
         self.Qc_min_0fc = VariableMeta(
             var_name='Qc_min_0fc',
@@ -19871,6 +21072,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[Qc_min_0fc]) * 0,001',
         )
         self.Qced_1el = VariableMeta(
             var_name='Qced_1el',
@@ -19887,6 +21089,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[Qced_1el]) * 0,001',
         )
         self.Qced_3el = VariableMeta(
             var_name='Qced_3el',
@@ -19903,6 +21106,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[Qced_3el]) * 0,001',
         )
         self.Qced_2th = VariableMeta(
             var_name='Qced_2th',
@@ -19919,6 +21123,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[Qced_2th]) * 0,001',
         )
         self.Qloss_c_th2_generation = VariableMeta(
             var_name='Qloss_c_th2_generation',
@@ -19935,6 +21140,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='EUIc_2th-Qced_2th',
         )
         self.Qloss_c_generation = VariableMeta(
             var_name='Qloss_c_generation',
@@ -19951,6 +21157,24 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='Qloss_c_th2_generation',
+        )
+        self.Qc_distr_losses = VariableMeta(
+            var_name='Qc_distr_losses',
+            attr_name='Qc_distr_losses',
+            icon='❄️',
+            label_de='Kälteverteilung → Verteilverluste',
+            unit='kWh Wärmeverluste/m²NGFa',
+            comment=None,
+            source='OUT',
+            ka=None,
+            domain='cooling',
+            measure=None,
+            spatial_scope=None,
+            temporal_scope=None,
+            entity_group=None,
+            entity_key=None,
+            formula='SUMME(sim[Qc_distr_losses])*0,001',
         )
         self.Qenv_dhw_1 = VariableMeta(
             var_name='Qenv_dhw_1',
@@ -19967,6 +21191,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[Qenv_dhw_1])*0,001',
         )
         self.Qenv_dhw_2 = VariableMeta(
             var_name='Qenv_dhw_2',
@@ -19983,6 +21208,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[Qenv_dhw_2])*0,001',
         )
         self.Qenv_dhw = VariableMeta(
             var_name='Qenv_dhw',
@@ -19999,6 +21225,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='Qenv_dhw_1+Qenv_dhw_2',
         )
         self.EUIdhw_1el = VariableMeta(
             var_name='EUIdhw_1el',
@@ -20015,6 +21242,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='DHW_1_is_electric*Qdhw_1_total*DHW_conversion_1',
         )
         self.EUIdhw_2el = VariableMeta(
             var_name='EUIdhw_2el',
@@ -20031,6 +21259,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='DHW_2_is_electric*Qdhw_2_total*DHW_conversion_2',
         )
         self.EUIdhw_1th = VariableMeta(
             var_name='EUIdhw_1th',
@@ -20047,6 +21276,7 @@ class Meta:
             temporal_scope='static',
             entity_group='dhw',
             entity_key='system_1',
+            formula='SUMME(sim[EUIdhw_1th])/1000',
         )
         self.EUIdhw_2th = VariableMeta(
             var_name='EUIdhw_2th',
@@ -20063,6 +21293,7 @@ class Meta:
             temporal_scope='static',
             entity_group='dhw',
             entity_key='system_2',
+            formula='SUMME(sim[EUIdhw_2th])/1000',
         )
         self.EUIdhw_th_total = VariableMeta(
             var_name='EUIdhw_th_total',
@@ -20079,6 +21310,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='EUIdhw_1th+EUIdhw_2th',
         )
         self.Qdhw_1_total = VariableMeta(
             var_name='Qdhw_1_total',
@@ -20095,6 +21327,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[Qdhw_1_total])/1000',
         )
         self.Qdhw_2_total = VariableMeta(
             var_name='Qdhw_2_total',
@@ -20111,6 +21344,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[Qdhw_2_total])/1000',
         )
         self.Qdhw_storage_charge = VariableMeta(
             var_name='Qdhw_storage_charge',
@@ -20127,6 +21361,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='Qdhw_1_total+Qdhw_2_total',
         )
         self.Qdhw_1_generation_losses = VariableMeta(
             var_name='Qdhw_1_generation_losses',
@@ -20143,6 +21378,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='MAX(0;EUIdhw_1th-Qdhw_1_total)',
         )
         self.Qdhw_2_generation_losses = VariableMeta(
             var_name='Qdhw_2_generation_losses',
@@ -20159,6 +21395,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='MAX(0;EUIdhw_2th-Qdhw_2_total)',
         )
         self.Qdhw_generation_losses = VariableMeta(
             var_name='Qdhw_generation_losses',
@@ -20175,6 +21412,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='Qdhw_1_generation_losses+Qdhw_2_generation_losses',
         )
         self.Qdhw_1_storage_losses = VariableMeta(
             var_name='Qdhw_1_storage_losses',
@@ -20191,6 +21429,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[DHW_storage_losses_1])*per_NFA',
         )
         self.Qdhw_2_storage_losses = VariableMeta(
             var_name='Qdhw_2_storage_losses',
@@ -20207,6 +21446,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[DHW_storage_losses_2])*per_NFA',
         )
         self.Qdhw_storage_losses = VariableMeta(
             var_name='Qdhw_storage_losses',
@@ -20223,6 +21463,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='Qdhw_1_storage_losses+Qdhw_2_storage_losses',
         )
         self.Qdhw_1_drawoff = VariableMeta(
             var_name='Qdhw_1_drawoff',
@@ -20239,6 +21480,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='Qdhw_1_tap+Qdhw_1_distr_losses',
         )
         self.Qdhw_2_drawoff = VariableMeta(
             var_name='Qdhw_2_drawoff',
@@ -20255,6 +21497,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='Qdhw_2_tap+Qdhw_2_distr_losses',
         )
         self.Qdhw_drawoff = VariableMeta(
             var_name='Qdhw_drawoff',
@@ -20271,6 +21514,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='Qdhw_1_drawoff+Qdhw_2_drawoff',
         )
         self.Edhw_1_aux_el = VariableMeta(
             var_name='Edhw_1_aux_el',
@@ -20287,6 +21531,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='Qdhw_1_total * DHW_1_el_aux',
         )
         self.Edhw_2_aux_el = VariableMeta(
             var_name='Edhw_2_aux_el',
@@ -20303,6 +21548,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='Qdhw_2_total * DHW_2_el_aux',
         )
         self.Edhw_aux_el = VariableMeta(
             var_name='Edhw_aux_el',
@@ -20319,6 +21565,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='Edhw_1_aux_el+Edhw_2_aux_el',
         )
         self.Qdhw_1_tap = VariableMeta(
             var_name='Qdhw_1_tap',
@@ -20335,6 +21582,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[DHW_1_tap_kW])*per_NFA',
         )
         self.Qdhw_2_tap = VariableMeta(
             var_name='Qdhw_2_tap',
@@ -20351,6 +21599,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[DHW_2_tap_kW])*per_NFA',
         )
         self.Qdhw_tap = VariableMeta(
             var_name='Qdhw_tap',
@@ -20367,6 +21616,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[[DHW_residential_kW]:[DHW_other_kW]])*per_NFA',
         )
         self.Qdhw_1_distr_losses = VariableMeta(
             var_name='Qdhw_1_distr_losses',
@@ -20383,6 +21633,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='Qdhw_1_tap*(DHW_1_incl_distribution_factor-1)',
         )
         self.Qdhw_2_distr_losses = VariableMeta(
             var_name='Qdhw_2_distr_losses',
@@ -20399,6 +21650,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='Qdhw_2_tap*(DHW_2_incl_distribution_factor-1)',
         )
         self.Qdhw_distr_losses = VariableMeta(
             var_name='Qdhw_distr_losses',
@@ -20415,6 +21667,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='Qdhw_1_distr_losses+Qdhw_2_distr_losses',
         )
         self.Edhw_1_el = VariableMeta(
             var_name='Edhw_1_el',
@@ -20431,6 +21684,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[Edhw_1_min_el];sim[Edhw1_flex_final])/1000',
         )
         self.Edhw_2_el = VariableMeta(
             var_name='Edhw_2_el',
@@ -20447,6 +21701,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='SUMME(sim[Edhw_2_min_el];sim[Edhw2_flex_final])/1000',
         )
         self.Edhw_el = VariableMeta(
             var_name='Edhw_el',
@@ -20463,6 +21718,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
+            formula='Edhw_1_el+Edhw_2_el',
         )
 
 SCHEMA_META = Meta()
@@ -21617,6 +22873,8 @@ ATTR_NAME_MAP: dict[str, str] = {
     'EUIh_2th': 'EUIh_2th',
     'EUIh_4th': 'EUIh_4th',
     'Qh_min_wasteheat': 'Qh_min_wasteheat',
+    'Qh_flex_wasteheat': 'Qh_flex_wasteheat',
+    'Qh_wasteheat': 'Qh_wasteheat',
     'Qheb_1el': 'Qheb_1el',
     'Qheb_3el': 'Qheb_3el',
     'Qheb_2th': 'Qheb_2th',
@@ -21637,6 +22895,7 @@ ATTR_NAME_MAP: dict[str, str] = {
     'Qced_2th': 'Qced_2th',
     'Qloss_c_th2_generation': 'Qloss_c_th2_generation',
     'Qloss_c_generation': 'Qloss_c_generation',
+    'Qc_distr_losses': 'Qc_distr_losses',
     'Qenv_dhw_1': 'Qenv_dhw_1',
     'Qenv_dhw_2': 'Qenv_dhw_2',
     'Qenv_dhw': 'Qenv_dhw',

@@ -280,6 +280,23 @@ class Project:
             include_meta=include_meta,
         )
 
+    @classmethod
+    def example(cls) -> Project:
+        """Load the bundled development example project."""
+        path = (
+            Path(__file__).resolve().parents[3]
+            / "data"
+            / "exports"
+            / "development_examples.xlsx"
+        )
+
+        if not path.exists():
+            raise FileNotFoundError(
+                f"Example project not found: {path}"
+            )
+
+        return cls.from_excel(path)
+
     def __repr__(self) -> str:
         src = (
             f" source={self.file_source!r}"

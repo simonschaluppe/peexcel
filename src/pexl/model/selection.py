@@ -424,11 +424,16 @@ class ScenarioSelection:
             f"n={len(self._scenarios)}>"
         )
 
+def _resolve_timeseries_attr_name(
+    name: str | TimeseriesMeta,
+) -> str:
+    """
+    Resolve a SIM var_name, generated Python attr_name, or TimeseriesMeta
+    to its generated attr_name.
+    """
+    if isinstance(name, TimeseriesMeta):
+        return name.attr_name
 
-def _resolve_timeseries_attr_name(name: str) -> str:
-    '''
-    Resolve either a canonical SIM var_name or generated Python attr_name.
-    '''
     if name in TIMESERIES_ATTR_NAME_MAP:
         return TIMESERIES_ATTR_NAME_MAP[name]
 
@@ -457,21 +462,26 @@ class TimeseriesSelection:
 
     def select(
         self,
-        *names: str,
+        *names: str | TimeseriesMeta,
         **filters,
     ) -> "TimeseriesSelection":
-        '''
-        Select explicit SIM columns OR filter by TimeseriesMeta fields.
+        """
+        Select explicit SIM variables or filter by TimeseriesMeta fields.
 
         Examples
         --------
         selection.select("Ta", "Irr_horizontal")
 
         selection.select(
+            pexl.timeseries.Ta,
+            pexl.timeseries.Irr_horizontal,
+        )
+
+        selection.select(
             domain="🌦️ Wetter",
             measure="Temperatur",
         )
-        '''
+        """
         if names and filters:
             raise ValueError(
                 "Use either explicit timeseries names or metadata filters, not both."

@@ -24,6 +24,10 @@ def __getattr__(name: str):
         from pexl.schema.current import SCHEMA_META
         return SCHEMA_META
 
+    if name == "timeseries":
+        from pexl.schema.current import TIMESERIES_META
+        return TIMESERIES_META
+
     raise AttributeError(
         f"module {__name__!r} has no attribute {name!r}"
     )

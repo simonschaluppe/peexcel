@@ -36,15 +36,7 @@ class VariableMetaRow:
     spatial_scope: str | None = None
     temporal_scope: str | None = None
     entity_group: str | None = None
-    entity_key: str | None = None
-
-@dataclass(frozen=True)
-class TimeseriesMeta:
-    var_name: str
-    attr_name: str
-    domain: str | None = None
-    measure: str | None = None
-    unit: str | None = None
+    entity_key: str | None = None    
     formula: str | None = None
 
 
@@ -117,6 +109,7 @@ def create_row(
         temporal_scope=clean_cell(row.get("temporal_scope")),
         entity_group=clean_cell(row.get("entity_group")),
         entity_key=clean_cell(row.get("entity_key")),
+        formula=clean_cell(row.get("Formel"))
     )
 
 
@@ -155,6 +148,7 @@ class VariableMeta:
     temporal_scope: str | None = None
     entity_group: str | None = None
     entity_key: str | None = None
+    formula: str | None = None
 
     def __repr__(self) -> str:
         parts = []
@@ -201,6 +195,7 @@ def build_meta_class_code(meta_rows: list[VariableMetaRow]) -> str:
             f"            temporal_scope={as_python_literal(row.temporal_scope)},\n"
             f"            entity_group={as_python_literal(row.entity_group)},\n"
             f"            entity_key={as_python_literal(row.entity_key)},\n"
+            f"            formula={as_python_literal(row.formula)},\n"
             f"        )"
         )
 

@@ -2625,19 +2625,19 @@ class TimeseriesMetaRegistry:
             unit='Wh/m²',
             formula='=SUM(sim[@[Qdhw_1_total]:[Qdhw_2_total]])',
         )
-        self.Spalte20 = TimeseriesMeta(
-            var_name='Spalte20',
-            attr_name='Spalte20',
-            domain=None,
-            measure=None,
+        self.Edhw_1_aux_el = TimeseriesMeta(
+            var_name='Edhw_1_aux_el',
+            attr_name='Edhw_1_aux_el',
+            domain='Warmwasser',
+            measure='Warmwasser-Wärmebedarf',
             unit=None,
             formula=None,
         )
-        self.Spalte21 = TimeseriesMeta(
-            var_name='Spalte21',
-            attr_name='Spalte21',
-            domain=None,
-            measure=None,
+        self.Edhw_2_aux_el = TimeseriesMeta(
+            var_name='Edhw_2_aux_el',
+            attr_name='Edhw_2_aux_el',
+            domain='Warmwasser',
+            measure='Warmwasser-Wärmebedarf',
             unit=None,
             formula=None,
         )
@@ -2967,7 +2967,7 @@ class TimeseriesMetaRegistry:
             domain=None,
             measure='WW',
             unit='Wh/m²',
-            formula='=[@[Qdhw_1_total]]-[@[Edhw_1el]]',
+            formula='=DHW_1_is_electric*([@[Qdhw_1_total]]-[@[Edhw_1el]])',
         )
         self.Qenv_dhw_2 = TimeseriesMeta(
             var_name='Qenv_dhw_2',
@@ -2975,7 +2975,7 @@ class TimeseriesMetaRegistry:
             domain=None,
             measure='WW',
             unit='Wh/m²',
-            formula='=[@[Qdhw_2_total]]-[@[Edhw_2el]]',
+            formula='=DHW_2_is_electric*([@[Qdhw_2_total]]-[@[Edhw_2el]])',
         )
         self.EUIh_2th = TimeseriesMeta(
             var_name='EUIh_2th',
@@ -3562,8 +3562,8 @@ TIMESERIES_ATTR_NAME_MAP: dict[str, str] = {
     'Qdhw_1_total': 'Qdhw_1_total',
     'Qdhw_2_total': 'Qdhw_2_total',
     'Qdhw_total': 'Qdhw_total',
-    'Spalte20': 'Spalte20',
-    'Spalte21': 'Spalte21',
+    'Edhw_1_aux_el': 'Edhw_1_aux_el',
+    'Edhw_2_aux_el': 'Edhw_2_aux_el',
     'EV_SOCc_d_res': 'EV_SOCc_d_res',
     'EV_SOCc_d_work': 'EV_SOCc_d_work',
     'EV_SOCc_d_retail': 'EV_SOCc_d_retail',

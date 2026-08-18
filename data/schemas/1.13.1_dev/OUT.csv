@@ -253,7 +253,7 @@ O;electricity_end_use;total;;;;;EUI_el_total;3;Quartier;kWh/m²NGFa;;EUI_plugAux
 ;pe_import_export_balance;;;;;;PEI_saldo_project;3;PE-IE-Bilanz Projektwert;kWhPEges./m²NGFa;;PEI_export-PEI_import
 ;pe_import_export_balance;;;;;;PEI_saldo_target;3;PE-IE-Bilanz Zielwert;kWhPEges./m²NGFa;;-PEI_cf_density-PEI_cf_mobility-PEI_cf_renovation
 ;pe_import_export_balance;;;;;;PEI_importExport_balance;3;importExport Saldo Projektwert - Zielwert;kWhPEges./m²NGFa;;PEI_saldo_project-PEI_saldo_target
-☑;primary_energy_balance;test;district;;;;PEI_importexport_balance_test;3;PE-Bilanz Virtuell = Import/Export;True;;(PEI_balance)-(K253-K254)
+☑;primary_energy_balance;test;district;;;;PEI_importexport_balance_test;3;PE-Bilanz Virtuell = Import/Export;False;;(PEI_balance)-(K253-K254)
 ;;;;;;;fPE_grid;3;PE Faktor Netzstrom Statistisch;;;MITTELWERT(sim[cf_PEI_grid])
 ;;;;;;;fPE_eff;3;PE Faktor Netzstrom Effektiv;;;(K246+K247+K248)/(Grid_to_min+VRGrid_to_min+VRGrid_to_flex+Eev_ext_charge)
 ☁;GWP;embodied_emissions;district;2025-2075;component;;GWP_ee_wall;;THG LZ Außenwand;GWP 100A (kgCO2equiv/m²BGF);;THG!AC17
@@ -395,10 +395,10 @@ Direkteingabe Lebensdauer";Jahre;;GWP_direct_life
 ☁;GWP;operational_emissions;district;pro Jahr;;;GWP_oe_battery_charge;3;Betrieb Batterie Beladung;GWP pro Jahr (kgCO2equiv/m²BGFa);;"SUMMENPRODUKT(sim[cf_GHG_grid];sim[VRGrid_to_Batt])/1000/NFA_to_GFA_ratio"
 ☁;GWP;emission_intensity;district;;;;GWP_emInt_grid_avg;3;Emissions-Intensität Netzstrom allgemein;gCO2eq/kWh;;MITTELWERT(sim[cf_GHG_grid])*1000
 ☁;GWP;emission_intensity;district;;;;GWP_emInt_grid;3;Emissions-Intensität Netzstrombezug;gCO2eq/kWh;;GWP_oe_grid_build*NFA_to_GFA_ratio/(Grid_to_min-Grid_to_Eev_min)*1000
-☁;GWP;emission_intensity;district;;;;GWP_emInt_flex;3;Emissions-Intensität Flexibler Netzbezug;gCO2eq/kWh;;GWP_oe_flex_build*NFA_to_GFA_ratio/(VRGrid_to_flex-VRGrid_to_Eev_flex+VRGrid_to_min-VRGrid_to_Eev_min)*1000
-☁;GWP;emission_intensity;district;;;;GWP_emInt_batt_charge;3;Emissions-Intensität Batterie Beladung;gCO2eq/kWh;;GWP_oe_battery_charge/Batt_total_charge_input*1000*NFA_to_GFA_ratio
-;GWP;emission_intensity;district;;;;GWP_emInt_ev_charge;3;Emissions-Intensität EV ladung;gCO2eq/kWh;;GWP_oe_mob_ev/EUIev_el_total*1000*NFA_to_GFA_ratio
-☁;GWP;emission_intensity;district;;;;GWP_emInt_PV_feedin;3;Emissions-Intensität Netzeinspeisung;gCO2eq/kWh;;GWP_oe_grid_feedin*NFA_to_GFA_ratio/PV_to_Egrid*1000
+☁;GWP;emission_intensity;district;;;;GWP_emInt_flex;3;Emissions-Intensität Flexibler Netzbezug;gCO2eq/kWh;;"WENNFEHLER(GWP_oe_flex_build*NFA_to_GFA_ratio/(VRGrid_to_flex-VRGrid_to_Eev_flex+VRGrid_to_min-VRGrid_to_Eev_min)*1000;#NV)"
+☁;GWP;emission_intensity;district;;;;GWP_emInt_batt_charge;3;Emissions-Intensität Batterie Beladung;gCO2eq/kWh;;"WENNFEHLER(GWP_oe_battery_charge/Batt_total_charge_input*1000*NFA_to_GFA_ratio;#NV)"
+;GWP;emission_intensity;district;;;;GWP_emInt_ev_charge;3;Emissions-Intensität EV ladung;gCO2eq/kWh;;"WENNFEHLER(GWP_oe_mob_ev/EUIev_el_total*1000*NFA_to_GFA_ratio;#NV)"
+☁;GWP;emission_intensity;district;;;;GWP_emInt_PV_feedin;3;Emissions-Intensität Netzeinspeisung;gCO2eq/kWh;;"WENNFEHLER(GWP_oe_grid_feedin*NFA_to_GFA_ratio/PV_to_Egrid*1000;#NV)"
 ☁;GWP;operational_emissions;district;pro Jahr;;;GWP_oe_grid_build;3;Betrieb Gebäude Netzstrombezug;GWP pro Jahr (kgCO2equiv/m²BGFa);;"SUMMENPRODUKT(sim[cf_GHG_grid];sim[Grid_to_building_min])/1000/NFA_to_GFA_ratio"
 ☁;GWP;operational_emissions;district;pro Jahr;;;GWP_oe_flex_build;3;Betrieb Gebäude Flexibler Netzbezug;GWP pro Jahr (kgCO2equiv/m²BGFa);;"SUMMENPRODUKT(sim[cf_GHG_grid];sim[VRGrid_to_building])/1000/NFA_to_GFA_ratio"
 ☁;GWP;operational_emissions;district;pro Jahr;;;GWP_oe_district_heating;3;Betrieb HKLS Fernwärme;GWP pro Jahr (kgCO2equiv/m²BGFa);;"SUMMENPRODUKT(EUI_th;is_district_heating;ghg_conversion_factors_thermal)/NFA_to_GFA_ratio"
@@ -475,7 +475,9 @@ S;;PV;;;;;PV_own_consumption;3;PV Eigenverbrauch insgesamt;;;PV_own_consumption_
 ♨️;heating;;;;heating;system_3;Eh_3el;;Strom → Heizsystem 3 (elektrisch);kWh Strom/m²NGFa;;SUMME(sim[Eh_3el])*0,001
 ♨️;energy_dispatch;thermal_energy;;static;heating;system_2;EUIh_2th;;HEB Heizsystem 2 (thermisch);kWh EE/m²NGFa;;SUMME(sim[EUIh_2th])/1000
 ♨️;energy_dispatch;thermal_energy;;static;heating;system_4;EUIh_4th;;HEB Heizsystem 4 (thermisch);kWh EE/m²NGFa;;SUMME(sim[EUIh_4th])/1000
-♨️;heating;;;;;;Qh_min_wasteheat;;Abwärme → Wärmeverteilung;kWh Wärme/m²NGFa;;SUMME(sim[Qh_min_wasteheat]) * 0,001
+♨️;heating;;;;;;Qh_min_wasteheat;;Abwärme minimum → Wärmeverteilung;kWh Umweltwärme/m²NGFa;;SUMME(sim[Qh_min_wasteheat]) * 0,001
+;heating;;;;;;Qh_flex_wasteheat;;Abwärme flexibel → Wärmeverteilung;kWh Umweltwärme/m²NGFa;;SUMME(sim[Qh_flex_wasteheat_final]) * 0,001
+;heating;;;;;;Qh_wasteheat;;Abwärme → Wärmeverteilung;kWh Umweltwärme/m²NGFa;;Qh_min_wasteheat+Qh_flex_wasteheat
 ♨️;heating;;;;;;Qheb_1el;;Heizsystem 1 (elektrisch) → Wärmeverteilung;kWh Wärme/m²NGFa;;SUMME(sim[Qhed_1el]) * 0,001
 ♨️;heating;;;;;;Qheb_3el;;Heizsystem 3 (elektrisch) → Wärmeverteilung;kWh Wärme/m²NGFa;;SUMME(sim[Qhed_3el]) * 0,001
 ♨️;heating;;;;;;Qheb_2th;;Heizsystem 2 (thermisch) → Wärmeverteilung;kWh Wärme/m²NGFa;;SUMME(sim[Qhed_2th]) * 0,001
@@ -496,7 +498,7 @@ S;;PV;;;;;PV_own_consumption;3;PV Eigenverbrauch insgesamt;;;PV_own_consumption_
 ❄️;cooling;;;;;;Qced_2th;;Kühlsystem 2 (thermisch) → Kälteverteilung;kWh Kälte/m²NGFa;;SUMME(sim[Qced_2th]) * 0,001
 ❄️;cooling;;;;;;Qloss_c_th2_generation;;Kühlsystem 2 (thermisch) → Umwandlungsverluste;kWh Wärmeverluste/m²NGFa;;EUIc_2th-Qced_2th
 ❄️;cooling;;;;;;Qloss_c_generation;;Kühlen Umwandlungsverluste;kWh Wärmeverluste/m²NGFa;;Qloss_c_th2_generation
-❄️;cooling;;;;;;Qh_distr_losses;;Kälteverteilung → Verteilverluste;kWh Wärmeverluste/m²NGFa;;SUMME(sim[Qc_distr_losses])*0,001
+❄️;cooling;;;;;;Qc_distr_losses;;Kälteverteilung → Verteilverluste;kWh Wärmeverluste/m²NGFa;;SUMME(sim[Qc_distr_losses])*0,001
 💧;dhw;;;;;;Qenv_dhw_1;;Umweltwärme → WW System 1 (elektrisch);kWh Umweltwärme Entnahme/m²NGFa;;SUMME(sim[Qenv_dhw_1])*0,001
 💧;dhw;;;;;;Qenv_dhw_2;;Umweltwärme → WW System 2 (elektrisch);kWh Umweltwärme Entnahme/m²NGFa;;SUMME(sim[Qenv_dhw_2])*0,001
 💧;dhw;;;;;;Qenv_dhw;;Umweltwärme Entnahme;kWh Umweltwärme/m²NGFa;;Qenv_dhw_1+Qenv_dhw_2
@@ -514,8 +516,8 @@ S;;PV;;;;;PV_own_consumption;3;PV Eigenverbrauch insgesamt;;;PV_own_consumption_
 💧;dhw;;;;;;Qdhw_1_storage_losses;;WW-Speicher 1 → Speicherverluste;kWh Wärmeverluste/m²NGFa;;SUMME(sim[DHW_storage_losses_1])*per_NFA
 💧;dhw;;;;;;Qdhw_2_storage_losses;;WW-Speicher 2 → Speicherverluste;kWh Wärmeverluste/m²NGFa;;SUMME(sim[DHW_storage_losses_2])*per_NFA
 💧;dhw;;;;;;Qdhw_storage_losses;;Speicherverluste;kWh Wärmeverluste/m²NGFa;;Qdhw_1_storage_losses+Qdhw_2_storage_losses
-💧;dhw;;;;;;Qdhw_1_drawoff;;WW-Speicher 1 Entnahme → Verteilung;kWh WW/m²NGFa;;Qdhw_1_tap*(DHW_1_incl_distribution_factor-1)
-💧;dhw;;;;;;Qdhw_2_drawoff;;WW-Speicher 2 Entnahme → Verteilung;kWh WW/m²NGFa;;Qdhw_2_tap*(DHW_2_incl_distribution_factor-1)
+💧;dhw;;;;;;Qdhw_1_drawoff;;WW-Speicher 1 Entnahme → Verteilung;kWh WW/m²NGFa;;Qdhw_1_tap+Qdhw_1_distr_losses
+💧;dhw;;;;;;Qdhw_2_drawoff;;WW-Speicher 2 Entnahme → Verteilung;kWh WW/m²NGFa;;Qdhw_2_tap+Qdhw_2_distr_losses
 💧;dhw;;;;;;Qdhw_drawoff;;Warmwasser → Verteilung;kWh WW/m²NGFa;;Qdhw_1_drawoff+Qdhw_2_drawoff
 💧;dhw;;;;;;Edhw_1_aux_el;3;Hilfssstrom 1 → Verteilung;kWh Strom/m²NGFa;;Qdhw_1_total * DHW_1_el_aux
 💧;dhw;;;;;;Edhw_2_aux_el;3;Hilfssstrom 2 → Verteilung;kWh Strom/m²NGFa;;Qdhw_2_total * DHW_2_el_aux

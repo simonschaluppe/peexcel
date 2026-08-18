@@ -112,8 +112,8 @@
       }
     },
     "OUT": {
-      "original_rows": 613,
-      "kept_rows": 510,
+      "original_rows": 615,
+      "kept_rows": 512,
       "excluded_rows": {
         "empty_var_name_count": 103,
         "empty_var_name_sample": [

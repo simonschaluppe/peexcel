@@ -324,8 +324,8 @@ Qdhw_2_flex;Warmwasser;Warmwasser-Wärmebedarf;Wh/m²;=IFERROR([@[Edhw2_flex_fin
 Qdhw_1_total;Warmwasser;Warmwasser-Wärmebedarf;Wh/m²;=[@[Qdhw_1_min]]+[@[Qdhw_1_flex2]]
 Qdhw_2_total;Warmwasser;Warmwasser-Wärmebedarf;Wh/m²;=[@[Qdhw_2_min]]+[@[Qdhw_2_flex]]
 Qdhw_total;Warmwasser;Warmwasser-Wärmebedarf;Wh/m²;=SUM(sim[@[Qdhw_1_total]:[Qdhw_2_total]])
-Spalte20;;;;
-Spalte21;;;;
+Edhw_1_aux_el;Warmwasser;Warmwasser-Wärmebedarf;;
+Edhw_2_aux_el;Warmwasser;Warmwasser-Wärmebedarf;;
 EV_SOCc_d_res;E-Mobilität;E-Mobilität Beladung;;=IFERROR([@[EV_SOC0_d_res]]+([@[Eev_Cmin_res]]+[@[Eev_flex_final_res]]-[@[Eev_discharge_total]])/1000*NFA_total/[@[EVd_res]]/EV_battsize_kWh,0)
 EV_SOCc_d_work;E-Mobilität;E-Mobilität Beladung;;=IFERROR([@[EV_SOC0_d_work]]+([@[Eev_Cmin_work]]+[@[Eev_flex_final_work]])/1000*NFA_total/[@[EVd_work]]/EV_battsize_kWh,0)
 EV_SOCc_d_retail;E-Mobilität;E-Mobilität Beladung;;=IFERROR([@[EV_SOC0_d_retail]]+([@[Eev_Cmin_retail]]+[@[Eev_flex_final_ret]])/1000*NFA_total/[@[EVd_retail]]/EV_battsize_kWh,0)
@@ -366,8 +366,8 @@ Qenv_h_1el;;Heizen;Wh/m131;=[@[Qhed_1el]]-[@[Eh_1el]]
 Qenv_h_3el;;;Wh/m132;=[@[Qhed_3el]]-[@[Eh_3el]]
 Qenv_c_1el;;Kühlen;Wh/m²;=[@[Qced_1el]]+[@[Ec_1el]]
 Qenv_c_3el;;Kühlen;Wh/m²;=[@[Qced_3el]]+[@[Ec_3el]]
-Qenv_dhw_1;;WW;Wh/m²;=[@[Qdhw_1_total]]-[@[Edhw_1el]]
-Qenv_dhw_2;;WW;Wh/m²;=[@[Qdhw_2_total]]-[@[Edhw_2el]]
+Qenv_dhw_1;;WW;Wh/m²;=DHW_1_is_electric*([@[Qdhw_1_total]]-[@[Edhw_1el]])
+Qenv_dhw_2;;WW;Wh/m²;=DHW_2_is_electric*([@[Qdhw_2_total]]-[@[Edhw_2el]])
 EUIh_2th;;Heizen;Wh/m²;=[@[Qh_min_2th]]*(1+QH_distr_loss_2th)*QH_generation_eff_2th
 EUIh_4th;;;Wh/m²;=[@[Qh_min_4th]]*(1+QH_distr_loss_4th)*QH_generation_eff_4th
 EUIc_2th;;Kühlen;Wh/m²;=[@[Qc_min_2th]]*(1+QC_distr_losses_2th)*QC_generation_eff_2th
