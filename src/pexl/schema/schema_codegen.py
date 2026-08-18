@@ -21,7 +21,6 @@ from .utils import (
 
 logger = logging.getLogger(__name__)
 
-
 @dataclass(frozen=True)
 class VariableMetaRow:
     var_name: str
@@ -38,6 +37,15 @@ class VariableMetaRow:
     temporal_scope: str | None = None
     entity_group: str | None = None
     entity_key: str | None = None
+
+@dataclass(frozen=True)
+class TimeseriesMeta:
+    var_name: str
+    attr_name: str
+    domain: str | None = None
+    measure: str | None = None
+    unit: str | None = None
+    formula: str | None = None
 
 
 def sanitize_identifier(name: str) -> str:

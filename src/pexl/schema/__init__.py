@@ -1,8 +1,10 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+import importlib.util
 from pathlib import Path
 import re
+import sys
 
 from pexl.io.converter import xlsx_to_dataset_dir
 
@@ -15,6 +17,7 @@ class SchemaBuildResult:
     dataset_dir: Path
     generated_dir: Path
     schema_module: Path
+    timeseries_module: Path
     report_module: Path
     version: str
 
@@ -45,6 +48,42 @@ def _default_dataset_dir_for_xlsx(xlsx_path: Path) -> Path:
     """
     return xlsx_path.parent / f"{xlsx_path.stem}__schema"
 
+def _validate_generated_module(
+    path: Path,
+    module_name: str,
+) -> None:
+    code = path.read_text(encoding="utf-8")
+
+    # Syntax validation
+    compile(
+        code,
+        str(path),
+        "exec",
+    )
+
+    # Runtime/import validation
+    spec = importlib.util.spec_from_file_location(
+        module_name,
+        path,
+    )
+
+    if spec is None or spec.loader is None:
+        raise ImportError(
+            f"Cannot create import spec for {path}"
+        )
+
+    module = importlib.util.module_from_spec(spec)
+
+    previous = sys.modules.get(module_name)
+    sys.modules[module_name] = module
+
+    try:
+        spec.loader.exec_module(module)
+    finally:
+        if previous is None:
+            sys.modules.pop(module_name, None)
+        else:
+            sys.modules[module_name] = previous
 
 def create(
     path: str | Path,
@@ -60,29 +99,16 @@ def create(
     - a schema dataset directory, or
     - a schema workbook (.xlsx / .xlsm / .xlsb) directly
 
-    The function generates both:
+    The function generates:
     - variable/schema bindings
+    - timeseries/SIM bindings
     - chart/report bindings
 
     Parameters
     ----------
-    path:
-        Schema dataset directory OR source schema workbook.
-    dataset_dir:
-        Optional output directory for the exported schema dataset if `path`
-        is an Excel workbook. Ignored when `path` is already a directory.
-    generated_dir:
-        Optional directory for generated Python modules.
-        Defaults to `pexl/schema/generated`.
-    version:
-        Optional explicit version/module suffix.
-        If omitted, it is derived from the schema directory name.
-    overwrite_dataset:
+    ...
+    replace_files:
         Passed to `xlsx_to_dataset_dir(...)` when `path` is a workbook.
-
-    Returns
-    -------
-    SchemaBuildResult
     """
     source_path = Path(path)
 
@@ -120,17 +146,30 @@ def create(
         version if version is not None else schema_dir.name
     )
 
-    schema_module, report_module = generate_bindings(
+    bindings = generate_bindings(
         schema_dir=schema_dir,
         generated_dir=generated_dir,
         version=module_version,
     )
 
+    for module_name, module_path in (
+        ("_pexl_generated_schema_check", bindings.schema),
+        ("_pexl_generated_timeseries_check", bindings.timeseries),
+        ("_pexl_generated_reports_check", bindings.reports),
+    ):
+        _validate_generated_module(
+            module_path,
+            module_name,
+        )
+
     return SchemaBuildResult(
         source_path=source_path,
         dataset_dir=schema_dir,
         generated_dir=generated_dir,
-        schema_module=schema_module,
-        report_module=report_module,
+        schema_module=bindings.schema,
+        timeseries_module=bindings.timeseries,
+        report_module=bindings.reports,
         version=module_version,
     )
+
+

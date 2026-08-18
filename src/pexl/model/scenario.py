@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from .timeseries import ScenarioTimeseries
 from pexl.schema.current import (
     ExcelNamedVariables,
     SCHEMA_META,
@@ -35,7 +36,15 @@ class Scenario:
         self.v = ExcelNamedVariables()
         self.meta = SCHEMA_META
 
-        self.timeseries = None
+        self.timeseries = ScenarioTimeseries.empty()
+
+    def set_timeseries(
+        self,
+        data,
+    ) -> None:
+        from .timeseries import ScenarioTimeseries
+
+        self.timeseries = ScenarioTimeseries(data)
 
     @property
     def project_name(self):

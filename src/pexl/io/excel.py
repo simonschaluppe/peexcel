@@ -254,7 +254,6 @@ def read_project(
 
         scenario_name = file_path.stem
         scenario = project.get_or_create_scenario(scenario_name)
-        print(scenario_name)
         load_column(scenario, df_in, "STAGE")
 
         if "Live" in df_out.columns:
@@ -276,9 +275,9 @@ def read_project(
                 df_sim["date"],
                 format="mixed",
             ).dt.round("h")
-            df_sim = df_sim.set_index("date")
+            df_sim = df_sim.set_index("date",drop=False)
 
-        scenario.timeseries = df_sim
+        scenario.set_timeseries(df_sim)
         return project
 
     # ------------------------------------------------------------------

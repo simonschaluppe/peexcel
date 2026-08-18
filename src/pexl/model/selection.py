@@ -6,6 +6,9 @@ from pexl.schema.current import (
     ATTR_NAME_MAP,
     SCHEMA_META,
     VariableMeta,
+    TIMESERIES_ATTR_NAME_MAP,
+    TIMESERIES_META,
+    TimeseriesMeta,
 )
 
 if TYPE_CHECKING:
@@ -415,4 +418,179 @@ class ScenarioSelection:
         return (
             f"<ScenarioSelection "
             f"n={len(self._scenarios)}>"
+        )
+
+
+def _resolve_timeseries_attr_name(name: str) -> str:
+    '''
+    Resolve either a canonical SIM var_name or generated Python attr_name.
+    '''
+    if name in TIMESERIES_ATTR_NAME_MAP:
+        return TIMESERIES_ATTR_NAME_MAP[name]
+
+    if name in TIMESERIES_ATTR_NAME_MAP.values():
+        return name
+
+    raise KeyError(f"Unknown timeseries variable: {name!r}")
+
+
+class TimeseriesSelection:
+    '''
+    Ordered, value-free selection of SIM/timeseries variables.
+
+    Contains TimeseriesMeta objects only; no hourly runtime values.
+    '''
+
+    def __init__(self, variables: Iterable[TimeseriesMeta]):
+        self._vars = tuple(variables)
+
+    @classmethod
+    def all(cls) -> "TimeseriesSelection":
+        return cls(
+            getattr(TIMESERIES_META, attr_name)
+            for attr_name in TIMESERIES_ATTR_NAME_MAP.values()
+        )
+
+    def select(
+        self,
+        *names: str,
+        **filters,
+    ) -> "TimeseriesSelection":
+        '''
+        Select explicit SIM columns OR filter by TimeseriesMeta fields.
+
+        Examples
+        --------
+        selection.select("Ta", "Irr_horizontal")
+
+        selection.select(
+            domain="🌦️ Wetter",
+            measure="Temperatur",
+        )
+        '''
+        if names and filters:
+            raise ValueError(
+                "Use either explicit timeseries names or metadata filters, not both."
+            )
+
+        if names:
+            selected = {
+                meta.attr_name: meta
+                for meta in self._vars
+            }
+
+            result = []
+
+            for name in names:
+                attr_name = _resolve_timeseries_attr_name(name)
+
+                if attr_name not in selected:
+                    raise KeyError(
+                        f"Timeseries variable {name!r} "
+                        "is not part of this selection"
+                    )
+
+                result.append(selected[attr_name])
+
+            return TimeseriesSelection(result)
+
+        valid_fields = TimeseriesMeta.__dataclass_fields__
+
+        unknown = [
+            field
+            for field in filters
+            if field not in valid_fields
+        ]
+
+        if unknown:
+            raise KeyError(
+                f"Unknown TimeseriesMeta field(s): {unknown}"
+            )
+
+        return TimeseriesSelection(
+            meta
+            for meta in self._vars
+            if all(
+                getattr(meta, field) == value
+                for field, value in filters.items()
+            )
+        )
+
+    def unique(self, field: str) -> list[object]:
+        if field not in TimeseriesMeta.__dataclass_fields__:
+            raise KeyError(
+                f"Unknown TimeseriesMeta field: {field!r}"
+            )
+
+        result = []
+
+        for meta in self._vars:
+            value = getattr(meta, field)
+
+            if value in (None, ""):
+                continue
+
+            if value not in result:
+                result.append(value)
+
+        return result
+
+    def get(
+        self,
+        var_name: str,
+    ) -> TimeseriesMeta | None:
+        for meta in self._vars:
+            if meta.var_name == var_name:
+                return meta
+
+        return None
+
+    @property
+    def metas(self) -> tuple[TimeseriesMeta, ...]:
+        return self._vars
+
+    @property
+    def var_names(self) -> list[str]:
+        return [
+            meta.var_name
+            for meta in self._vars
+        ]
+
+    @property
+    def attr_names(self) -> list[str]:
+        return [
+            meta.attr_name
+            for meta in self._vars
+        ]
+
+    def domains(self) -> list[object]:
+        return self.unique("domain")
+
+    def measures(self) -> list[object]:
+        return self.unique("measure")
+
+    def __iter__(self) -> Iterator[TimeseriesMeta]:
+        return iter(self._vars)
+
+    def __len__(self) -> int:
+        return len(self._vars)
+
+    def __bool__(self) -> bool:
+        return bool(self._vars)
+
+    def __getitem__(self, key):
+        if isinstance(key, slice):
+            return TimeseriesSelection(
+                self._vars[key]
+            )
+
+        return self._vars[key]
+
+    def __contains__(self, item) -> bool:
+        return item in self._vars
+
+    def __repr__(self) -> str:
+        return (
+            f"<TimeseriesSelection "
+            f"n={len(self._vars)}>"
         )

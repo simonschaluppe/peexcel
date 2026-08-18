@@ -27,8 +27,6 @@ docs/Meetings/
 data/Excel Files/
 data/sankey
 !data/sankey/*sankey*
-data/exports
-!data/exports/schema*
 excel/development/
 !excel/development/ka_PEQ_Nachweistool_dev.xlsb
 Excel Files/PEExcel Archive/
