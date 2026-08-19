@@ -1,244 +1,121 @@
 from __future__ import annotations
 
-from collections.abc import Sequence
-
 import pandas as pd
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
 from pexl.i18n import Language, LocalizedText
-from pexl.schema.current import (
-    TIMESERIES_ATTR_NAME_MAP,
-    TIMESERIES_META,
-    TimeseriesMeta,
-)
+from .utils import normalize_data
 
 
-TimeseriesRef = str | TimeseriesMeta
-
-
-BALANCE_LABEL = LocalizedText(
-    de="Saldo",
-    en="Balance",
-)
-
-HOUR_LABEL = LocalizedText(
-    de="Stunde",
-    en="Hour",
-)
-
-ENERGY_LABEL = LocalizedText(
-    de="Energie",
-    en="Energy",
-)
-
+BALANCE_LABEL = LocalizedText(de="Saldo", en="Balance")
+HOUR_LABEL = LocalizedText(de="Stunde", en="Hour")
 SEASON_TITLE = LocalizedText(
     de="Stündliche Verteilung nach Jahreszeit",
     en="Hourly distribution by season",
 )
 
 SEASONS = (
-    (
-        LocalizedText(de="Winter", en="Winter"),
-        (12, 1, 2),
-    ),
-    (
-        LocalizedText(de="Frühling", en="Spring"),
-        (3, 4, 5),
-    ),
-    (
-        LocalizedText(de="Sommer", en="Summer"),
-        (6, 7, 8),
-    ),
-    (
-        LocalizedText(de="Herbst", en="Autumn"),
-        (9, 10, 11),
-    ),
+    (LocalizedText(de="Winter", en="Winter"), (12, 1, 2)),
+    (LocalizedText(de="Frühling", en="Spring"), (3, 4, 5)),
+    (LocalizedText(de="Sommer", en="Summer"), (6, 7, 8)),
+    (LocalizedText(de="Herbst", en="Autumn"), (9, 10, 11)),
 )
 
 
-def _resolve_meta(variable: TimeseriesRef) -> TimeseriesMeta:
-    """Resolve var_name, attr_name or TimeseriesMeta."""
+def _numeric_frame(data) -> pd.DataFrame:
+    """Normalize supported input types and convert values to numeric."""
+    df = normalize_data(data).copy()
 
-    if isinstance(variable, TimeseriesMeta):
-        return variable
+    for column in df.columns:
+        df[column] = pd.to_numeric(
+            df[column],
+            errors="coerce",
+        )
 
-    if variable in TIMESERIES_ATTR_NAME_MAP:
-        attr_name = TIMESERIES_ATTR_NAME_MAP[variable]
-
-    elif variable in TIMESERIES_ATTR_NAME_MAP.values():
-        attr_name = variable
-
-    else:
-        raise KeyError(f"Unknown timeseries variable: {variable!r}")
-
-    return getattr(TIMESERIES_META, attr_name)
-
-
-def _variable_label(
-    variable: TimeseriesMeta,
-    language: Language,
-) -> str:
-    """
-    German: public label_de.
-    English: canonical var_name.
-    """
-
-    if language == "de":
-        return variable.attr_name or variable.var_name
-
-    return variable.var_name
-
-
-def _resolve_variables(
-    variables: Sequence[TimeseriesRef],
-) -> tuple[TimeseriesMeta, ...]:
-
-    return tuple(
-        _resolve_meta(variable)
-        for variable in variables
-    )
-
-
-def _common_unit(
-    variables: Sequence[TimeseriesMeta],
-) -> str:
-
-    units = {
-        variable.unit
-        for variable in variables
-        if variable.unit
-    }
-
-    if len(units) == 1:
-        return units.pop()
-
-    return ""
+    return df
 
 
 def _prepare_balance(
-    df: pd.DataFrame,
-    *,
-    positive: Sequence[TimeseriesRef],
-    negative: Sequence[TimeseriesRef],
-) -> tuple[
-    pd.DataFrame,
-    pd.DataFrame,
-    pd.Series,
-    tuple[TimeseriesMeta, ...],
-    tuple[TimeseriesMeta, ...],
-]:
-    """Prepare positive, negative and balance series."""
+    positive,
+    negative,
+) -> tuple[pd.DataFrame, pd.DataFrame, pd.Series]:
+    """Prepare positive, negative and resulting balance series."""
 
-    positive_meta = _resolve_variables(positive)
-    negative_meta = _resolve_variables(negative)
+    positive = _numeric_frame(positive).abs()
+    negative = -_numeric_frame(negative).abs()
 
-    positive_names = [
-        meta.var_name
-        for meta in positive_meta
-    ]
-
-    negative_names = [
-        meta.var_name
-        for meta in negative_meta
-    ]
-
-    missing = [
-        name
-        for name in positive_names + negative_names
-        if name not in df.columns
-    ]
-
-    if missing:
-        raise KeyError(
-            f"Timeseries columns missing from DataFrame: {missing}"
-        )
-
-    positive_plot = df[positive_names].abs()
-
-    negative_plot = -df[negative_names].abs()
+    positive, negative = positive.align(
+        negative,
+        join="inner",
+        axis=0,
+    )
 
     balance = (
-        positive_plot.sum(axis=1)
-        + negative_plot.sum(axis=1)
+        positive.sum(axis=1)
+        + negative.sum(axis=1)
     )
 
-    return (
-        positive_plot,
-        negative_plot,
-        balance,
-        positive_meta,
-        negative_meta,
-    )
+    balance.name = "balance"
+
+    return positive, negative, balance
 
 
 def typical_day_balance(
-    df: pd.DataFrame,
+    positive,
+    negative,
     *,
-    positive: Sequence[TimeseriesRef],
-    negative: Sequence[TimeseriesRef],
     day: str | pd.Timestamp,
     language: Language = "de",
     title: str | None = None,
+    ylabel: str | None = None,
 ) -> go.Figure:
-    """Plot production, demand and balance for one day."""
+    """
+    Plot positive flows, negative flows and their balance for one day.
 
-    if not isinstance(df.index, pd.DatetimeIndex):
-        raise TypeError(
-            "DataFrame index must be a DatetimeIndex."
-        )
+    positive / negative can be Series, DataFrames, mappings, etc.
+    """
+
+    positive, negative, balance = _prepare_balance(
+        positive,
+        negative,
+    )
+
+    if not isinstance(balance.index, pd.DatetimeIndex):
+        raise TypeError("Data must have a DatetimeIndex.")
 
     day = pd.Timestamp(day).normalize()
 
-    data = df.loc[
-        (df.index >= day)
-        & (df.index < day + pd.Timedelta(days=1))
-    ]
+    mask = (
+        (balance.index >= day)
+        & (balance.index < day + pd.Timedelta(days=1))
+    )
 
-    if data.empty:
+    positive = positive.loc[mask]
+    negative = negative.loc[mask]
+    balance = balance.loc[mask]
+
+    if balance.empty:
         raise ValueError(
             f"No timeseries data found for {day.date()}"
         )
 
-    (
-        positive_plot,
-        negative_plot,
-        balance,
-        positive_meta,
-        negative_meta,
-    ) = _prepare_balance(
-        data,
-        positive=positive,
-        negative=negative,
-    )
+    hours = balance.index.hour
 
     fig = go.Figure()
 
-    # Use hour 0–23 instead of full timestamps.
-    hours = data.index.hour
-
-    for meta in positive_meta:
+    for column in positive.columns:
         fig.add_bar(
             x=hours,
-            y=positive_plot[meta.var_name],
-            name=_variable_label(meta, language),
-            hovertemplate=(
-                "%{x}:00<br>"
-                "%{y:.2f}"
-                "<extra>%{fullData.name}</extra>"
-            ),
+            y=positive[column],
+            name=str(column),
         )
 
-    for meta in negative_meta:
+    for column in negative.columns:
         fig.add_bar(
             x=hours,
-            y=negative_plot[meta.var_name],
-            name=_variable_label(meta, language),
-            hovertemplate=(
-                "%{x}:00<br>"
-                "%{y:.2f}"
-                "<extra>%{fullData.name}</extra>"
-            ),
+            y=negative[column],
+            name=str(column),
         )
 
     fig.add_scatter(
@@ -248,21 +125,7 @@ def typical_day_balance(
         mode="lines+markers",
         line={"width": 2},
         marker={"size": 5},
-        hovertemplate=(
-            "%{x}:00<br>"
-            "%{y:.2f}"
-            "<extra>%{fullData.name}</extra>"
-        ),
     )
-
-    unit = _common_unit(
-        positive_meta + negative_meta
-    )
-
-    y_title = ENERGY_LABEL.get(language)
-
-    if unit:
-        y_title += f" [{unit}]"
 
     fig.add_hline(
         y=0,
@@ -275,6 +138,8 @@ def typical_day_balance(
         barmode="relative",
         bargap=0.08,
         hovermode="x unified",
+        xaxis_title=HOUR_LABEL.get(language),
+        yaxis_title=ylabel,
         legend={
             "orientation": "h",
             "yanchor": "bottom",
@@ -282,8 +147,6 @@ def typical_day_balance(
             "xanchor": "left",
             "x": 0,
         },
-        xaxis_title=HOUR_LABEL.get(language),
-        yaxis_title=y_title,
     )
 
     fig.update_xaxes(
@@ -298,58 +161,50 @@ def typical_day_balance(
 
     return fig
 
-
-def seasonal_hourly_balance_boxplot(
-    df: pd.DataFrame,
+def seasonal_hourly_boxplot(
+    data,
     *,
-    positive: Sequence[TimeseriesRef],
-    negative: Sequence[TimeseriesRef],
     language: Language = "de",
     title: str | None = None,
+    ylabel: str | None = None,
+    shade_sign: bool = True,
 ) -> go.Figure:
     """
-    Plot hourly balance distributions for each season.
+    Show the hourly distribution of one time series by season.
 
-    Each box represents the distribution of the balance at one
-    hour of day across all days in the respective season.
+    Each box contains all values occurring at the respective hour
+    during that season.
     """
 
-    if not isinstance(df.index, pd.DatetimeIndex):
-        raise TypeError(
-            "DataFrame index must be a DatetimeIndex."
+    df = _numeric_frame(data)
+
+    if df.shape[1] != 1:
+        raise ValueError(
+            "seasonal_hourly_boxplot requires exactly one series."
         )
 
-    (
-        _,
-        _,
-        balance,
-        positive_meta,
-        negative_meta,
-    ) = _prepare_balance(
-        df,
-        positive=positive,
-        negative=negative,
-    )
+    series = df.iloc[:, 0].dropna()
+
+    if not isinstance(series.index, pd.DatetimeIndex):
+        raise TypeError("Data must have a DatetimeIndex.")
 
     data = pd.DataFrame(
         {
-            "balance": balance,
-            "hour": df.index.hour,
-            "month": df.index.month,
+            "value": series,
+            "hour": series.index.hour,
+            "month": series.index.month,
         },
-        index=df.index,
+        index=series.index,
     )
-
-    season_labels = [
-        label.get(language)
-        for label, _ in SEASONS
-    ]
 
     fig = make_subplots(
         rows=1,
         cols=4,
         shared_yaxes=True,
-        subplot_titles=season_labels,
+        subplot_titles=[
+            label.get(language)
+            for label, _ in SEASONS
+        ],
         horizontal_spacing=0.035,
     )
 
@@ -364,18 +219,12 @@ def seasonal_hourly_balance_boxplot(
         fig.add_trace(
             go.Box(
                 x=season_data["hour"],
-                y=season_data["balance"],
+                y=season_data["value"],
                 name=season.get(language),
                 boxpoints=False,
                 showlegend=False,
-                hovertemplate=(
-                    f"{HOUR_LABEL.get(language)} "
-                    "%{x}<br>"
-                    "Median: %{median:.2f}<br>"
-                    "Q1: %{q1:.2f}<br>"
-                    "Q3: %{q3:.2f}"
-                    "<extra></extra>"
-                ),
+                width=0.8,
+                line={"width": 0.5},
             ),
             row=1,
             col=col,
@@ -385,34 +234,60 @@ def seasonal_hourly_balance_boxplot(
             title_text=HOUR_LABEL.get(language),
             tickmode="array",
             tickvals=list(range(24)),
-            ticktext=[
-                str(hour)
-                for hour in range(24)
-            ],
+            ticktext=list(range(24)),
             row=1,
             col=col,
         )
 
-    unit = _common_unit(
-        positive_meta + negative_meta
-    )
+    # Shared limits for the background regions.
+    ymin = min(series.min(), 0)
+    ymax = max(series.max(), 0)
 
-    y_title = BALANCE_LABEL.get(language)
+    for col in range(1, 5):
 
-    if unit:
-        y_title += f" [{unit}]"
+        if shade_sign:
+            if ymax > 0:
+                fig.add_hrect(
+                    y0=0,
+                    y1=ymax,
+                    fillcolor="lightgreen",
+                    opacity=0.12,
+                    line_width=0,
+                    layer="below",
+                    row=1,
+                    col=col,
+                )
+
+            if ymin < 0:
+                fig.add_hrect(
+                    y0=ymin,
+                    y1=0,
+                    fillcolor="lightcoral",
+                    opacity=0.12,
+                    line_width=0,
+                    layer="below",
+                    row=1,
+                    col=col,
+                )
+
+        fig.add_hline(
+            y=0,
+            line_color="red",
+            line_width=1.2,
+            row=1,
+            col=col,
+        )
 
     fig.update_yaxes(
-        title_text=y_title,
+        title_text=ylabel,
         row=1,
         col=1,
-        zeroline=True,
-        zerolinewidth=1,
     )
 
     fig.update_layout(
         title=title or SEASON_TITLE.get(language),
         template="plotly_white",
+        boxgap=0.1,
         height=450,
         width=1400,
         margin={

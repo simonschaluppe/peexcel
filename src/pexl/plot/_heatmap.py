@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
+from pexl.i18n import Language, LocalizedText
 from .utils import normalize_data
 
 def _hour_day_matrix(series: pd.Series) -> pd.DataFrame:
@@ -45,8 +46,19 @@ def _set_month_axis(ax, dates):
     ax.tick_params(axis="x", which="minor", length=5)
 
 
-def _heatmap_ax(series, ax, *, title=None, ylabel="Hour of the day",
-                vmin=None, vmax=None, cmap="magma"):
+UHRZEIT = LocalizedText(de="Uhrzeit", en="Hour of the day")
+
+def _heatmap_ax(
+        series, 
+        ax, 
+        *, 
+        title=None, 
+        ylabel=UHRZEIT,
+        vmin=None, 
+        vmax=None, 
+        cmap="magma", 
+        language: Language = "de"):
+    
     matrix = _hour_day_matrix(series)
 
     image = ax.imshow(
@@ -61,7 +73,7 @@ def _heatmap_ax(series, ax, *, title=None, ylabel="Hour of the day",
     _set_month_axis(ax, matrix.index)
 
     ax.set_yticks([0, 6, 12, 18, 23])
-    ax.set_ylabel(ylabel)
+    ax.set_ylabel(ylabel.get(language))
 
     if title is not None:
         ax.set_title(title)
@@ -81,6 +93,7 @@ def heatmap(
     vmin=None,
     vmax=None,
     cmap="magma",
+    language: Language = "de"
 ):
     data = normalize_data(data)
     if sharex is None:
@@ -110,6 +123,7 @@ def heatmap(
             vmin=vmin,
             vmax=vmax,
             cmap=cmap,
+            language=language
         )
 
         cbar = fig.colorbar(image, ax=ax)
