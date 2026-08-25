@@ -2,6 +2,7 @@ from . import styles
 from ._heatmap import heatmap
 from ._duration_curve import duration_curve, seasonal_duration_curves
 from ._duration_curve_plotly import duration_curve_interactive, seasonal_duration_curves_interactive
+from .electricity_balance import electricity_balance, electricity_balance_facets
 from .sankey import render as sankey
 from .typical_day import (
     typical_day_balance,
@@ -17,6 +18,8 @@ __all__ = [
     "duration_curve",
     "duration_curve_interactive",
     "seasonal_duration_curves",
-    "seasonal_duration_curves_interactive"
+    "seasonal_duration_curves_interactive",
+    "electricity_balance",
+    "electricity_balance_facets"
 
 ]

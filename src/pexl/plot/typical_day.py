@@ -5,6 +5,7 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
 from pexl.i18n import Language, LocalizedText
+from pexl.analysis.temporal import SEASONS
 from .utils import normalize_data
 
 
@@ -13,13 +14,6 @@ HOUR_LABEL = LocalizedText(de="Stunde", en="Hour")
 SEASON_TITLE = LocalizedText(
     de="Stündliche Verteilung nach Jahreszeit",
     en="Hourly distribution by season",
-)
-
-SEASONS = (
-    (LocalizedText(de="Winter", en="Winter"), (12, 1, 2)),
-    (LocalizedText(de="Frühling", en="Spring"), (3, 4, 5)),
-    (LocalizedText(de="Sommer", en="Summer"), (6, 7, 8)),
-    (LocalizedText(de="Herbst", en="Autumn"), (9, 10, 11)),
 )
 
 
@@ -203,12 +197,12 @@ def seasonal_hourly_boxplot(
         shared_yaxes=True,
         subplot_titles=[
             label.get(language)
-            for label, _ in SEASONS
+            for _, label, _ in SEASONS
         ],
         horizontal_spacing=0.035,
     )
 
-    for col, (season, months) in enumerate(
+    for col, (season, label, months) in enumerate(
         SEASONS,
         start=1,
     ):
@@ -220,7 +214,7 @@ def seasonal_hourly_boxplot(
             go.Box(
                 x=season_data["hour"],
                 y=season_data["value"],
-                name=season.get(language),
+                name=label.get(language),
                 boxpoints=False,
                 showlegend=False,
                 width=0.8,
