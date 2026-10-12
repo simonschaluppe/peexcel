@@ -40,7 +40,7 @@ COLORS = {
     "battery": "#BCCF00",
     "grid": "#950F53",
     "grid_flexible": "#FAF2BF",
-    "v2b": "#F9CF91",
+    "v2b": "#FBC472",
 }
 
 
@@ -74,6 +74,7 @@ VAR_COLOR_GROUPS = {
     # EV
     "EUIev_el": "electricity_ev",
     "Eev_min": "electricity_ev",
+    "PV_to_Eev_flex":  "electricity_ev",
 
     # PV
     "PV_to_user": "pv_direct",

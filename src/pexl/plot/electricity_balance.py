@@ -30,10 +30,11 @@ VAR_LABELS = {
     "Edhw1_flex_final": "Warmwasser Flex 1",
     "Edhw2_flex_final": "Warmwasser Flex 2",
 
-    "Eev_min": "E-Cars",
+    "Eev_min": "E-Car Mindestladung",
+    "PV_to_Eev_flex": "E-Car Flexible Ladung",
 
     "PV_to_user": "PV Direktdeckung Nutzer",
-    "PV_total_direct_use": "PV Direktdeckung HKLS",
+    "PV_total_direct_use": "PV Direktdeckung",
     "PV_total_flex_use": "flexible Nutzung von PV-Üerschüssen",
     "PV_to_Egrid": "PV Netzeinspeisung",
     "Batt_to_user": "Batterie",

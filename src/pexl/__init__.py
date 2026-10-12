@@ -9,7 +9,7 @@ if TYPE_CHECKING:
     glossary: Meta
 
 
-__all__ = ["Project", "plot", "glossary"]
+__all__ = ["Project", "plot", "glossary", "timeseries_glossary"]
 
 
 def __getattr__(name: str):
@@ -24,7 +24,7 @@ def __getattr__(name: str):
         from pexl.schema.current import SCHEMA_META
         return SCHEMA_META
 
-    if name == "timeseries":
+    if name == "timeseries_glossary":
         from pexl.schema.current import TIMESERIES_META
         return TIMESERIES_META
 

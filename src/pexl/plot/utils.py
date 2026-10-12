@@ -3,6 +3,7 @@ from collections.abc import Mapping, Sequence
 import pandas as pd
 
 
+
 def normalize_data(data) -> pd.DataFrame:
     if isinstance(data, pd.Series):
         return data.to_frame(name=data.name or "value")
