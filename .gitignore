@@ -16,7 +16,7 @@
 *.svg
 
 ka_project_backup*
-*test*
+
 
 *credentials*
 
@@ -30,6 +30,7 @@ data/sankey
 excel/development/
 !excel/development/ka_PEQ_Nachweistool_dev.xlsb
 Excel Files/PEExcel Archive/
+notebooks/local_exports/
 **/ribbon/
 **/Intern/
 **/__pycache__/
