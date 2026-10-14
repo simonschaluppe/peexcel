@@ -161,7 +161,15 @@ def write_project_excel(
     include_meta: bool = True,
     base_columns: list[str] | None = None,
     strict: bool = False,
+    *,
+    include_out: bool = False,
 ) -> Path:
+    """Write IN, optional OUT and optional META using the current schema.
+
+    include_derived filters IN only; requested OUT always contains all OUT
+    variables. base_columns and include_default apply to both value sheets.
+    No formulas are recalculated and no timeseries are written or modified.
+    """
     path = Path(path)
 
     if base_columns is None:
@@ -176,9 +184,19 @@ def write_project_excel(
         base_columns=base_columns,
         strict=strict,
     )
+    # Build both tables before opening the destination, so mapping errors do
+    # not leave a partially written workbook.
+    df_out = (
+        build_project_table(
+            project, source="OUT", base_columns=base_columns, strict=strict,
+        )
+        if include_out else None
+    )
 
     with pd.ExcelWriter(path, engine="openpyxl") as writer:
         df_in.to_excel(writer, sheet_name="IN", index=False)
+        if df_out is not None:
+            df_out.to_excel(writer, sheet_name="OUT", index=False)
 
         if include_meta:
             df_meta = pd.DataFrame(

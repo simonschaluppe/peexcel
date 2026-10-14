@@ -5,7 +5,7 @@ import pytest
 from openpyxl import Workbook, load_workbook
 
 from pexl import Project
-from pexl.io.excel import build_project_in_dataframe
+from pexl.io.excel import build_project_in_dataframe, write_project_excel
 
 
 @pytest.fixture
@@ -163,3 +163,78 @@ def test_existing_export_is_input_only_and_preserves_values(workbook, tmp_path, 
         assert values["preset_recorded_heating_system"] == "Wärmepumpe"
     finally:
         book.close()
+
+
+@pytest.mark.parametrize("include_meta", [True, False])
+def test_annual_export_workbook_and_roundtrip(workbook, tmp_path, include_meta):
+    project = Project.from_excel(workbook(sheets=annual_sheets()), unknown="raise")
+    target = tmp_path / "annual.xlsx"
+    assert project.to_excel(target, include_out=True, include_meta=include_meta) == target
+    book = load_workbook(target, read_only=True, data_only=True)
+    try:
+        assert book.sheetnames == ["IN", "OUT"] + (["META"] if include_meta else [])
+        for sheet in ("IN", "OUT"):
+            rows = list(book[sheet].values)
+            assert rows[0][-2:] == ("Demo | B", "Demo | A")
+            assert "default" not in rows[0]
+            key = rows[0].index("var_name")
+            assert len({row[key] for row in rows[1:]}) == len(rows) - 1
+            if sheet == "OUT":
+                values = {row[key]: row[-2:] for row in rows[1:]}
+                assert values["QH"] == (42.5, 0)
+    finally:
+        book.close()
+    restored = Project.from_excel(target, unknown="raise")
+    assert restored.column_names() == project.column_names()
+    assert restored.warnings == []
+    for original, loaded in zip(project, restored):
+        for name, value in original.to_var_dict().items():
+            actual = loaded.to_var_dict()[name]
+            if pd.isna(value):
+                assert pd.isna(actual), name
+            elif isinstance(value, (int, float)):
+                assert actual == pytest.approx(value), name
+            else:
+                assert actual == value, name
+
+
+def test_export_merged_sim2_keeps_original_timeseries(workbook, tmp_path):
+    paths = [workbook(f"AT00{i}.xlsx", sheets=timestep_sheets(i * 10)) for i in (1, 2)]
+    project = Project.from_files(paths, unknown="raise")
+    before = [s.timeseries.to_frame() for s in project]
+    target = project.to_excel(tmp_path / "annual.xlsx", include_out=True)
+    restored = Project.from_excel(target, unknown="raise")
+    assert restored.column_names() == ["AT001", "AT002"]
+    assert [s.to_var_dict()["QH"] for s in restored] == [10, 20]
+    assert all(not s.timeseries.available for s in restored)
+    for scenario, frame in zip(project, before):
+        pd.testing.assert_frame_equal(scenario.timeseries.to_frame(), frame)
+
+
+def test_out_is_complete_when_derived_inputs_are_excluded(workbook, tmp_path):
+    project = Project.from_excel(workbook(sheets=annual_sheets()))
+    full = project.to_excel(tmp_path / "full.xlsx", include_out=True)
+    filtered = project.to_excel(
+        tmp_path / "filtered.xlsx", include_out=True, include_derived=False,
+    )
+    pd.testing.assert_frame_equal(
+        pd.read_excel(full, sheet_name="OUT"),
+        pd.read_excel(filtered, sheet_name="OUT"),
+    )
+
+
+def test_writer_applies_metadata_options_to_both_sheets(workbook, tmp_path):
+    project = Project.from_excel(workbook(sheets=annual_sheets()))
+    target = write_project_excel(
+        project, tmp_path / "custom.xlsx", include_out=True,
+        base_columns=["var_name", "default"], include_default=True,
+    )
+    for sheet in ("IN", "OUT"):
+        assert pd.read_excel(target, sheet_name=sheet).columns.tolist() == [
+            "var_name", "default", "Demo | B", "Demo | A",
+        ]
+
+
+def test_empty_project_annual_roundtrip(tmp_path):
+    target = Project().to_excel(tmp_path / "empty.xlsx", include_out=True)
+    assert len(Project.from_excel(target, unknown="raise")) == 0

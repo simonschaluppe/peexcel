@@ -269,7 +269,15 @@ class Project:
         include_derived: bool = True,
         include_default: bool = False,
         include_meta: bool = True,
+        *,
+        include_out: bool = False,
     ) -> Path:
+        """Export stored values to Excel without recalculating them.
+
+        By default write IN and optional META, as before. Set include_out=True
+        for an IN/OUT project readable by from_excel(). SIM2 is never exported;
+        attached timeseries remain unchanged. include_derived only filters IN.
+        """
         from pexl.io.excel import write_project_excel
 
         return write_project_excel(
@@ -278,6 +286,7 @@ class Project:
             include_derived=include_derived,
             include_default=include_default,
             include_meta=include_meta,
+            include_out=include_out,
         )
 
     @classmethod
