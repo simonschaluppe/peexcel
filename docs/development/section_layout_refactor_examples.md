@@ -4,7 +4,7 @@ Status: design walkthrough for the now-supported version 1 input. The dictionari
 
 This supplements [the refactor proposal](section_layout_refactor_proposal.md).
 The first and third cases are synthetic teaching examples. The second uses the
-source facts inspected in `howto_section_real_project.ipynb`.
+source facts inspected in [Visualize your pexl project](../../notebooks/howto_visualize_project.ipynb).
 
 ## 1. One residential building: keep the common case short
 
@@ -229,8 +229,8 @@ as an assumption.
 The grouping survives these examples. The changes worth incorporating before
 coding are: geometry/allocation defaults, one normalized plant representation,
 explicit unknown locations, and pair-addressed gaps. No new generic domain model
-is needed. Proposed heat-pump drawing and connection routing remain additional
-renderer work, not functionality implied by these example dictionaries.
+is needed. Heat-pump cutaways, explicit source drawings and schematic service links
+are now implemented; the [current API](building_sections.md) documents their scope.
 
 ## 4. Draft Zero: inspect, configure, simulate, diagnose, revise, submit
 

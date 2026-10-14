@@ -83,6 +83,8 @@ Neben der interaktiven Nutzung in Excel enthält das Repository auch das Python-
 
 Ein Einstieg ist im Notebook [`notebooks/howto_excel.ipynb`](notebooks/howto_excel.ipynb) dokumentiert. Dieses zeigt beispielhaft, wie PEExcel-Projekte aus Python heraus angesprochen werden kann.
 
+Das How-to [Visualize your pexl project](notebooks/howto_visualize_project.ipynb) zeigt schematische Gebäudeschnitte aus einem importierten Projekt und einem selbst erstellten Beispiel. Es verbindet Layoutsteuerung, drei Zeichenstile, Annotationen, Haustechnik-Presets und PV-Vergleiche. Die [API-Dokumentation](docs/development/building_sections.md) erläutert Parameter, Datenherkunft und schematische Annahmen.
+
 ## 📚 Dokumentation
 
 | Dokument | Inhalt | Link |
