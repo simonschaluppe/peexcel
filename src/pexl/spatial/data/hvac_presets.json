@@ -1,7 +1,7 @@
 {
   "source_workbook": "excel/development/ka_PEQ_Nachweistool_DEV.xlsm",
   "sha256": "a61cced85e3e31ea26b722ca37ab02411b0e577f6c5050369b11b182e8d64d40",
-  "note": "Read-only snapshot of cached values; formulas not evaluated; names preserved verbatim. Blank entries omitted, not assumed zero.",
+  "note": "Read-only snapshot of cached values; formulas not evaluated; names preserved verbatim. Blank entries omitted, not assumed zero. Packaged for reproducible visualization examples.",
   "presets": [
     {
       "category": "Heating",

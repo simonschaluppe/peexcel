@@ -286,6 +286,8 @@ def normalize_layout(layout: dict) -> dict:
                 record.setdefault(
                     "location", {"building": b["id"], "level": "lowest_floor"}
                 )
+                if isinstance(record.get("location"), dict):
+                    record["location"].setdefault("building", b["id"])
                 record.setdefault("serves", [b["id"]])
                 records.append(record)
     shared = layout.get("systems", {}).get("plant", [])
@@ -297,7 +299,11 @@ def normalize_layout(layout: dict) -> dict:
     component_ids = set()
     for i, record in enumerate(records):
         path = f"systems.plant[{i}]"
-        _fields(record, {"id", "kind", "source", "location", "serves"}, path)
+        _fields(
+            record,
+            {"id", "kind", "source", "location", "serves", "mode", "services"},
+            path,
+        )
         rid = _id(record.get("id"), path + ".id")
         if rid in component_ids:
             raise ValueError(path + ".id is duplicated")
@@ -305,10 +311,17 @@ def normalize_layout(layout: dict) -> dict:
         if record.get("kind") not in PLANT | {"heat_pump"}:
             raise ValueError(path + ".kind is unsupported")
         if "source" in record and (
-            record["kind"] != "heat_pump"
+            record["kind"] not in {"heat_pump", "dhw_heat_pump", "passive_exchanger"}
             or record["source"] not in ("unknown", "groundwater", "ground", "air")
         ):
             raise ValueError(path + ".source is unsupported")
+        if record.get("mode", "heating") not in {"heating", "cooling", "reversible"}:
+            raise ValueError(path + ".mode must be heating, cooling or reversible")
+        services = record.get("services", [])
+        if not isinstance(services, list) or any(
+            value not in {"heating", "cooling", "dhw"} for value in services
+        ):
+            raise ValueError(path + ".services must list heating, cooling or dhw")
         serves = record.get("serves", [])
         if (
             not isinstance(serves, list)

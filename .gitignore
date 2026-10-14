@@ -45,6 +45,7 @@ __pycache__/
 *.pyc
 ~$*.xls*
 *.egg-info/
+/build/
 .DS_Store
 .ipynb_checkpoints/
 

@@ -8,6 +8,9 @@ from copy import deepcopy
 from xml.etree import ElementTree as ET
 
 from .equipment_svg import draw_equipment, attach_semantic_targets
+from .themes import apply_theme, draw_background, style_tokens
+from .annotations import label_usages
+from .site_svg import draw_site_context, front_car
 from .systems import (
     draw_systems,
     annotate_symbols,
@@ -32,6 +35,7 @@ _INSULATION_COLOR = "#ddd2e5"
 
 
 def _floor_label(index: int) -> str:
+    """Format a zero-based floor index, with negative indices for basements."""
     if index < 0:
         return "Basement" if index == -1 else f"Basement {abs(index)}"
     if index == 0:
@@ -50,20 +54,33 @@ def render_svg(
     *,
     construction: str = "default",
     facade_style: str | None = None,
+    annotations: bool = False,
+    palette: str | None = None,
+    usage_labels: str = "auto",
 ) -> str:
     """Return an SVG with usage legend, floor labels and 15 m horizontal ticks.
 
     Horizontal and vertical scales are independent to keep storeys legible.
     Construction and insulation layers have fixed schematic drawing thicknesses.
     Styles are ``architectural``, ``hand_drawn`` (brush strokes and fineliner on warm paper),
-    ``blueprint`` (light blue drafting palette and grid), and ``annotations``
-    (blue plan with numbered symbol key). Geometry is unchanged.
+    ``blueprint`` (drafting palette and grid). ``annotations=True`` enables
+    matching callouts on any style; legacy ``style='annotations'`` aliases
+    Blueprint with callouts. ``palette`` selects blue (default), green or beige
+    for Blueprint only. ``usage_labels`` is 'auto' or 'none'.
     ``construction='wood'`` changes the construction color to light brown.
     ``facade_style='gründerzeit'`` adds schematic relief profiles. Omit this
     override to use per-building styles from the layout.
     """
     if style not in ("architectural", "hand_drawn", "blueprint", "annotations"):
         raise ValueError(f"Unknown section style: {style!r}")
+    if not isinstance(annotations, bool):
+        raise ValueError("annotations must be a boolean")
+    if usage_labels not in {"auto", "none"}:
+        raise ValueError("usage_labels must be auto or none")
+    if style == "annotations":
+        style, annotations = "blueprint", True
+    tokens = style_tokens(style, palette)
+    show_usage_labels = usage_labels == "auto"
     if construction not in _CONSTRUCTION_COLORS:
         raise ValueError(f"Unknown construction appearance: {construction!r}")
     if facade_style in ("gruenderzeit", "grunderzeit"):
@@ -96,7 +113,10 @@ def render_svg(
     elif style == "hand_drawn":
         ink, paper = "#49463e", "#fffdf5"
     sketch_random = Random(42)
-    wall_structure, wall_insulation = 4.0, 2.5
+    wall_structure, wall_insulation = (
+        tokens["wall_structure"],
+        tokens["wall_insulation"],
+    )
     wall_total = wall_structure + wall_insulation
     if not section["spaces"]:
         raise ValueError("The section must contain spaces")
@@ -118,6 +138,10 @@ def render_svg(
     xmin, xmax, zmin, zmax = min(xs), max(xs), min(zs), max(zs)
     system_settings = section.get("systems", {}).get("buildings", {})
     if any(
+        record.get("source") in {"ground", "groundwater"}
+        or record["kind"] in {"boreholes", "water_well"}
+        for record in section.get("equipment", [])
+    ) or any(
         set(v["plant"]) & {"water_well", "boreholes"} for v in system_settings.values()
     ):
         zmin -= 3.5
@@ -125,12 +149,18 @@ def render_svg(
     # Wide districts can scroll horizontally; their storeys remain visible.
     xscale = max(4.0, min(18.0, 900 / max(xmax - xmin, 1)))
     yscale = max(22.0, 56 / min(f["height_m"] for f in floors.values()))
-    left, top = 140.0, 250.0 if system_settings else 180.0
+    roof_equipment = any(
+        set(settings["roof"]) - {"pv"} for settings in system_settings.values()
+    ) or any(
+        record.get("resolved_location", {}).get("level") == "roof"
+        for record in section.get("equipment", [])
+    )
+    left, top = 140.0, 220.0 if roof_equipment else 180.0
     width = max(1050.0, (xmax - xmin) * xscale + left + 142)
     bottom = top + (zmax - zmin) * yscale
-    usage_labels = {s["usage"]: s["label"] for s in section["spaces"]}
+    usage_names = {s["usage"]: s["label"] for s in section["spaces"]}
     usage_legend = [
-        (usage_labels[key], colors.get(key, "#c4c9ce")) for key in sorted(usage_labels)
+        (usage_names[key], colors.get(key, "#c4c9ce")) for key in sorted(usage_names)
     ]
     if section.get("voids"):
         usage_legend.append(("Parking garage (schematic)", "#e2e5e7"))
@@ -144,12 +174,20 @@ def render_svg(
         ("Service shaft / lift or stairs", "#d4d9db"),
     ]
     hvac_legend = [("PV modules (15° butterfly)", pv_color)]
+    legend_symbols = {}
     if system_settings:
-        hvac_legend += [
-            ("Heating emission", "#c9533d"),
-            ("Cooling emission", "#277bb8"),
-            ("Ventilation", "#288e91"),
-        ]
+        for service, label, color in (
+            ("heating", "Heating emission", "#c9533d"),
+            ("cooling", "Cooling emission", "#277bb8"),
+            ("ventilation", "Ventilation", "#288e91"),
+            ("dhw", "Domestic hot water", "#b86b58"),
+        ):
+            if any(
+                usage.get(service, "none") != "none"
+                for settings in system_settings.values()
+                for usage in settings["usages"].values()
+            ):
+                hvac_legend.append((label, color))
         symbols = sorted(
             set().union(
                 *(
@@ -178,6 +216,8 @@ def render_svg(
             else " " + record["id"]
         )
         hvac_legend.append((label, "#7e969f"))
+        if record.get("resolved_location"):
+            legend_symbols[label] = record["kind"]
     legend_groups = [
         ("Usage", usage_legend),
         ("Material overlay", material_legend),
@@ -194,6 +234,8 @@ def render_svg(
             "width": f"{width:g}",
             "height": f"{height:g}",
             "data-style": style,
+            "data-palette": (palette or "blue") if style == "blueprint" else "default",
+            "data-annotations": str(annotations).lower(),
             "role": "img",
             "aria-label": "Schematic building section",
         },
@@ -235,7 +277,8 @@ def render_svg(
         if (
             style == "hand_drawn"
             and tag == "line"
-            and attrs.get("stroke") in ("#687680", ink, "#71818a")
+            and attrs.get("stroke")
+            in ("#687680", ink, "#71818a", tokens["annotation_edge"])
         ):
             node.set("opacity", "0")
             ax, ay, bx, by = (float(attrs[k]) for k in ("x1", "y1", "x2", "y2"))
@@ -338,7 +381,7 @@ def render_svg(
         "Independent horizontal and vertical scales; fixed schematic construction and insulation layers. "
         + " ".join(n["description"] for n in section["assumptions"])
     )
-    element("rect", x=0, y=0, width=width, height=height, fill=paper)
+    draw_background(root, tokens, width, height, y(0))
     if style in ("blueprint", "annotations"):
         # A pale drafting grid sits behind the geometry, never behind the labels.
         for gx in range(int(left), int(x(xmax)) + 1, 20):
@@ -369,7 +412,7 @@ def render_svg(
         y=soil_top,
         width=x(xmax) - left + 236,
         height=bottom - soil_top,
-        fill="#dce9f1" if style in ("blueprint", "annotations") else "#f1ece2",
+        fill="url(#section-soil)",
     )
     for gx in range(int(left - 110), int(x(xmax) + 100), 22):
         element(
@@ -458,241 +501,7 @@ def render_svg(
         else:
             text(name, center, 79, text_anchor="middle")
 
-    def front_car(draw, cx, ground, width):
-        g = draw("g", data_vehicle="front")
-
-        def part(tag, **attrs):
-            return ET.SubElement(
-                g, tag, {k.replace("_", "-"): str(v) for k, v in attrs.items()}
-            )
-
-        half = width / 2
-        part(
-            "path",
-            d=f"M {cx-half},{ground-3} V {ground-13} L {cx-half+3},{ground-23} H {cx+half-3} L {cx+half},{ground-13} V {ground-3} Z",
-            fill="#a7adaf",
-        )
-        part(
-            "path",
-            d=f"M {cx-half+4},{ground-14} L {cx-half+6},{ground-21} H {cx+half-6} L {cx+half-4},{ground-14} Z",
-            fill="#e1e4e4",
-        )
-        for dx in (-half + 3, half - 7):
-            part("rect", x=cx + dx, y=ground - 5, width=4, height=5, fill="#727c80")
-            part("rect", x=cx + dx, y=ground - 11, width=4, height=2, fill="#eceeee")
-        part("rect", x=cx - 4, y=ground - 7, width=8, height=2, fill="#727c80")
-
-    # Streets and courtyards occupy the schematic gaps, not the scenario floor area.
-    context_regions = []
-    if building_axes:
-        context_regions.append(
-            (
-                (
-                    "street"
-                    if section["buildings"][0]["street_side"] == "left"
-                    else "courtyard"
-                ),
-                building_axes[0][1] - 108 / xscale,
-                building_axes[0][1] - wall_total / xscale,
-            )
-        )
-        for index, (previous, following) in enumerate(
-            zip(building_axes, building_axes[1:])
-        ):
-            before, after = section["buildings"][index : index + 2]
-            gap = next(
-                (
-                    g
-                    for g in section.get("site", {}).get("gaps", [])
-                    if set(g["between"]) == {before["id"], after["id"]}
-                ),
-                {},
-            )
-            kind = gap.get(
-                "kind", "street" if before["street_side"] == "right" else "courtyard"
-            )
-            context_regions.append(
-                (
-                    kind,
-                    previous[2] + wall_total / xscale,
-                    following[1] - wall_total / xscale,
-                )
-            )
-        last_index = len(building_axes) - 1
-        context_regions.append(
-            (
-                (
-                    "street"
-                    if section["buildings"][-1]["street_side"] == "right"
-                    else "courtyard"
-                ),
-                building_axes[-1][2] + wall_total / xscale,
-                building_axes[-1][2] + 108 / xscale,
-            )
-        )
-    for index, (kind, a, b) in enumerate(context_regions):
-        a, b = x(a), x(b)
-        if b - a < 20:
-            continue
-        center = (a + b) / 2
-        ground = y(0)
-        group = element("g", data_kind="site-context", data_exposure=kind)
-        ET.SubElement(group, "title").text = (
-            f"Schematic {kind}; no site survey or area allocation implied"
-        )
-
-        def site(tag, **attrs):
-            return ET.SubElement(
-                group, tag, {k.replace("_", "-"): str(v) for k, v in attrs.items()}
-            )
-
-        site("rect", x=a, y=ground, width=b - a, height=5, fill="#d3d5d1")
-        if kind == "street":
-            # Connected pavement, raised curbs, road base and accessible utility duct.
-            curb_width = min(13, (b - a) * 0.15)
-            site(
-                "rect",
-                data_site_layer="road-base",
-                x=a,
-                y=ground + 5,
-                width=b - a,
-                height=11,
-                fill="#d8d7d2",
-            )
-            site(
-                "rect",
-                data_site_layer="road-surface",
-                x=a + curb_width,
-                y=ground,
-                width=b - a - 2 * curb_width,
-                height=4,
-                fill="#a5aaa9",
-            )
-            for edge in (a, b - curb_width):
-                site(
-                    "rect",
-                    data_site_layer="curb",
-                    x=edge,
-                    y=ground - 4,
-                    width=curb_width,
-                    height=13,
-                    fill="#c6cac8",
-                    stroke="#909895",
-                    stroke_width=0.6,
-                )
-                site(
-                    "line",
-                    x1=edge + 2,
-                    x2=edge + curb_width - 2,
-                    y1=ground - 2,
-                    y2=ground - 2,
-                    stroke="#eef0ec",
-                    stroke_width=1,
-                )
-            site(
-                "rect",
-                x=a + curb_width,
-                y=ground + 4,
-                width=b - a - 2 * curb_width,
-                height=2,
-                fill="#bcc3bd",
-            )
-            front_car(site, center, ground, min(26, (b - a) * 0.45))
-            # Utility inspection chamber and horizontal conduits are in section.
-            ux = a + curb_width / 2
-            site(
-                "rect",
-                data_infrastructure="chamber",
-                x=ux - 5,
-                y=ground + 7,
-                width=10,
-                height=24,
-                fill="#e9e9e4",
-                stroke="#959e9c",
-                stroke_width=0.7,
-            )
-            site("rect", x=ux - 6, y=ground - 4, width=12, height=2, fill="#87928f")
-            site(
-                "line",
-                x1=ux,
-                x2=ux,
-                y1=ground - 2,
-                y2=ground + 9,
-                stroke="#959e9c",
-                stroke_width=1,
-            )
-            for dy in (21, 27):
-                site(
-                    "line",
-                    data_infrastructure="duct",
-                    x1=a,
-                    x2=b,
-                    y1=ground + dy,
-                    y2=ground + dy,
-                    stroke="#a7afac",
-                    stroke_width=2,
-                )
-            text("Street", center, ground + 66, size=10, text_anchor="middle")
-            # Cycle-lane marking in the pavement section.
-            for dx in (-4, 4):
-                site(
-                    "circle",
-                    cx=center + dx,
-                    cy=ground + 5,
-                    r=1.5,
-                    fill="none",
-                    stroke="#f4f5f2",
-                    stroke_width=0.7,
-                )
-        else:
-            tree_x = a + (b - a) * 0.42
-            # Mature tree: three times the original height and canopy, solid silhouette.
-            tree = site("g", data_landscape="courtyard-tree", data_scale=3)
-            ET.SubElement(
-                tree,
-                "path",
-                {
-                    "d": f"M {tree_x-3},{ground} L {tree_x-2},{ground-65} L {tree_x-16},{ground-80} L {tree_x-12},{ground-84} L {tree_x},{ground-71} L {tree_x+14},{ground-91} L {tree_x+18},{ground-88} L {tree_x+3},{ground-64} L {tree_x+3},{ground} Z",
-                    "fill": "#a0aaa0",
-                },
-            )
-            for dx, dy, radius in ((-17, -94, 23), (16, -101, 26), (0, -119, 22)):
-                ET.SubElement(
-                    tree,
-                    "circle",
-                    {
-                        "cx": str(tree_x + dx),
-                        "cy": str(ground + dy),
-                        "r": str(radius),
-                        "fill": "#a0aaa0",
-                    },
-                )
-            for dx in (0, 7, 14):
-                site("circle", cx=a + 7 + dx, cy=ground - 4, r=5, fill="#a0aaa0")
-            if b - a > 70:
-                play_x = a + (b - a) * 0.82
-                site(
-                    "path",
-                    d=f"M {play_x-12},{ground} L {play_x-7},{ground-25} H {play_x+7} L {play_x+12},{ground} H {play_x+9} L {play_x+5},{ground-22} H {play_x-5} L {play_x-9},{ground} Z",
-                    fill="#aaa99f",
-                )
-                site(
-                    "rect",
-                    x=play_x - 1,
-                    y=ground - 23,
-                    width=2,
-                    height=17,
-                    fill="#aaa99f",
-                )
-                site(
-                    "rect",
-                    x=play_x - 5,
-                    y=ground - 7,
-                    width=10,
-                    height=3,
-                    fill="#aaa99f",
-                )
-            text("Courtyard", center, ground + 23, size=10, text_anchor="middle")
+    draw_site_context(section, building_axes, element, text, x, y, xscale, wall_total)
     for space in section["spaces"]:
         floor = floors[space["floor_id"]]
         rect = element(
@@ -1113,7 +922,7 @@ def render_svg(
                     },
                 )
     draw_systems(section, element, text, x, y, yscale, bottom)
-    draw_equipment(section, element, text, x, y, yscale)
+    draw_equipment(section, element, text, x, y, yscale, bottom)
     tone_system_symbols(root)
     # Shaft stays legible above local equipment and pipes; it is an area-neutral overlay.
     for shaft in [e for e in root if e.get("data-kind") == "service-shaft"]:
@@ -1239,7 +1048,7 @@ def render_svg(
         text(heading, lx, legend_top, size=15, font_weight=700)
         for row, (label, color) in enumerate(items, 1):
             ly = legend_top + row * 29
-            key = label.lower().replace(" ", "_")
+            key = legend_symbols.get(label, label.lower().replace(" ", "_"))
             if key in {"garden", "pergola", "terrace", "solar_thermal", "hvac_room"}:
                 key = "roof:" + key
             sample = next((e for e in root.iter() if e.get("data-system") == key), None)
@@ -1278,7 +1087,12 @@ def render_svg(
                         if attr.startswith("data-") or attr == "id":
                             del node.attrib[attr]
                 preview.append(clone)
-            elif label in {"Heating emission", "Cooling emission", "Ventilation"}:
+            elif label in {
+                "Heating emission",
+                "Cooling emission",
+                "Ventilation",
+                "Domestic hot water",
+            }:
                 element(
                     "line",
                     x1=lx,
@@ -1319,9 +1133,12 @@ def render_svg(
         left,
         foot_y + 23,
     )
-    if style == "annotations":
-        annotate_symbols(root, element, text, width, height)
+    if show_usage_labels:
+        label_usages(section, text, x, y, yscale, hand_drawn=style == "hand_drawn")
+    if annotations:
+        annotate_symbols(root, element, text, width, height, tokens=tokens)
     attach_semantic_targets(root, section)
+    apply_theme(root, tokens)
     return ET.tostring(root, encoding="unicode")
 
 

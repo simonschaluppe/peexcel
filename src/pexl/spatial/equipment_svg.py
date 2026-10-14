@@ -2,6 +2,7 @@
 
 from xml.etree import ElementTree as ET
 from ._svg_types import CoordinateMap, ElementFactory, TextWriter
+from .component_symbols import draw_plant_symbol, draw_source, line, shape
 
 
 def draw_equipment(
@@ -11,6 +12,7 @@ def draw_equipment(
     x: CoordinateMap,
     y: CoordinateMap,
     yscale: float,
+    soil_bottom: float | None = None,
 ) -> None:
     """Draw explicitly located plant once and connect served building references."""
     buildings = {b["id"]: b for b in section["buildings"]}
@@ -33,10 +35,12 @@ def draw_equipment(
         key = (b["id"], level)
         index = occupied.get(key, 0)
         occupied[key] = index + 1
-        # Compact cabinets stay within a building; additional records stack in rows.
-        width = max(8, min(32, (x(b["x_m"] + b["width_m"]) - x(b["x_m"])) / 4))
-        px = x(b["x_m"]) + 5 + (index % 2) * (width + 4)
-        py = y(z) - 5 - 24 * (index // 2)
+        # Reserve space for pipe connections and the central service shaft.
+        span = x(b["x_m"] + b["width_m"]) - x(b["x_m"])
+        width = max(8, min(38, span / 5))
+        columns = max(1, int((span * 0.45 - 16) / (width + 24)))
+        px = x(b["x_m"]) + 14 + (index % columns) * (width + 24)
+        py = y(z) - 4 - 48 * (index // columns)
         g = element(
             "g",
             data_kind="equipment",
@@ -50,39 +54,67 @@ def draw_equipment(
             + ", ".join(record.get("serves", []))
             + " (schematic)"
         )
-        ET.SubElement(
-            g,
-            "rect",
-            {
-                "x": str(px),
-                "y": str(py - 20),
-                "width": str(width),
-                "height": "20",
-                "fill": "#c9d4d7",
-                "stroke": "#586f78",
-                "stroke-width": "1",
-            },
-        )
-        label = {
-            "heat_pump": "HP",
-            "district_heating": "DH",
-            "gas_boiler": "G",
-            "oil_boiler": "O",
-            "biomass_boiler": "B",
-        }.get(record["kind"], "SYS")
-        t = ET.SubElement(
-            g,
-            "text",
-            {
-                "x": str(px + width / 2),
-                "y": str(py - 7),
-                "text-anchor": "middle",
-                "font-family": "sans-serif",
-                "font-size": "9",
-                "fill": "#435963",
-            },
-        )
-        t.text = label
+        kind = record["kind"]
+        center = px + width / 2
+        if kind == "heating_room":
+            shape(
+                g,
+                "rect",
+                x=px - 5,
+                y=py - 49,
+                width=max(width, span * 0.4),
+                height=49,
+                fill="none",
+                stroke="#80939a",
+                stroke_dasharray="4 2",
+            )
+            g.set("data-anchor-x", str(center))
+            g.set("data-anchor-y", str(py - 49))
+        elif kind in {"water_well", "boreholes"}:
+            draw_source(
+                g,
+                "groundwater" if kind == "water_well" else "boreholes",
+                center,
+                y(0),
+                soil_bottom or y(0) + 60,
+            )
+            g.set("data-anchor-x", str(center))
+            g.set("data-anchor-y", str(y(0) + 28))
+        else:
+            draw_plant_symbol(
+                g, kind, center, py, width, mode=record.get("mode", "heating")
+            )
+        source = record.get("source", "unknown")
+        if source != "unknown":
+            source_x = x(b["x_m"]) - 52
+            source_group = element(
+                "g",
+                data_kind="system",
+                data_system="source:" + source,
+                data_building=b["id"],
+                data_semantic_id=record["semantic_id"],
+                data_anchor_x=source_x,
+                data_anchor_y=y(0) + 20,
+            )
+            draw_source(source_group, source, source_x, y(0), soil_bottom or y(0) + 70)
+            shape(
+                source_group,
+                "path",
+                d=f"M {source_x},{y(0)+8} H {px-8} V {py-10} H {px}",
+                fill="none",
+                stroke="#668b9b",
+                stroke_width=1.3,
+            )
+        if "dhw" in record.get("services", []):
+            shape(
+                g,
+                "path",
+                data_service="dhw",
+                d=f"M {px+width},{py-10} H {px+width+10} V {y(0)-25}",
+                fill="none",
+                stroke="#b86b58",
+                stroke_width=1.5,
+            )
         for target in record.get("serves", []):
             if target == b["id"]:
                 continue

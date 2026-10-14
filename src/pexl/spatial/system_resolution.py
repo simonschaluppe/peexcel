@@ -7,8 +7,27 @@ from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from pexl.model.scenario import Scenario
-EMITTERS = {"none", "tabs", "underfloor", "radiator", "split", "fan_coil"}
-VENTILATION = {"none", "natural", "mechanical", "heat_recovery"}
+EMITTERS = {
+    "none",
+    "tabs",
+    "underfloor",
+    "radiator",
+    "lt_radiator",
+    "ceiling_panel",
+    "split",
+    "fan_coil",
+}
+VENTILATION = {
+    "none",
+    "natural",
+    "mechanical",
+    "heat_recovery",
+    "exhaust",
+    "exhaust_recovery",
+    "balanced",
+    "balanced_recovery",
+}
+DHW = {"none", "central", "gas_local", "electric_local", "heat_pump_local"}
 PLANT = {
     "heating_room",
     "water_well",
@@ -19,6 +38,18 @@ PLANT = {
     "biomass_boiler",
 }
 ROOF = {"pv", "solar_thermal", "pergola", "terrace", "garden", "hvac_room"}
+PLANT |= {
+    "heat_pump",
+    "district_cooling",
+    "chiller",
+    "passive_exchanger",
+    "air_handler",
+    "outdoor_unit",
+    "hot_water_tank",
+    "dhw_heat_pump",
+    "gas_water_heater",
+    "electric_water_heater",
+}
 
 
 def _merge(base: dict, override: dict) -> dict:
@@ -58,11 +89,14 @@ def _validate(settings: dict, usages: set[str]) -> None:
             "heating",
             "cooling",
             "ventilation",
+            "dhw",
         }:
             raise ValueError(f"Invalid system fields for {usage}")
         for key, value in values.items():
             if not isinstance(value, str) or value not in (
-                VENTILATION if key == "ventilation" else EMITTERS
+                VENTILATION
+                if key == "ventilation"
+                else DHW if key == "dhw" else EMITTERS
             ):
                 raise ValueError(f"Unsupported {key} system: {value!r}")
 

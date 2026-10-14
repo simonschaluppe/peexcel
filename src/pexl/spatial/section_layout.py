@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     from pexl.model.scenario import Scenario
 
 
-def _number(value, name: str) -> float | None:
+def _number(value: object, name: str) -> float | None:
     """Read a nonnegative scalar; None and NaN represent unknown inputs."""
     if value is None:
         return None
@@ -1106,6 +1106,9 @@ def suggest_section_layout(
     layout. Each usage becomes one continuous block, with office below residential;
     this is a starting proposal, not an exact copy of the heuristic geometry.
     If the heuristic leaves buildings empty, use equal spreading instead.
+
+    Set ``versioned=True`` for the grouped, version-1 layout specification;
+    the default retains the original compact dictionary API.
     """
     section = section_layout_from_scenario(scenario, seed=seed)
     if any(not b["floor_ids"] for b in section["buildings"]):
@@ -1141,7 +1144,8 @@ def suggest_section_layout(
                 },
             }
         )
-    return {"gap_m": 20.0, "facade_style": "default", "buildings": buildings}
+    result = {"gap_m": 20.0, "facade_style": "default", "buildings": buildings}
+    return normalize_layout(result) if versioned else result
 
 
 def section_layout_from_scenario(

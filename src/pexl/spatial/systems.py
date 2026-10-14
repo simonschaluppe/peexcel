@@ -10,6 +10,9 @@ from xml.etree import ElementTree as ET
 
 from .system_resolution import EMITTERS, VENTILATION, PLANT, ROOF
 from ._svg_types import CoordinateMap, ElementFactory, TextWriter
+from .component_symbols import draw_plant_symbol
+from .usage_symbols import draw_hot_water, draw_ventilation
+from .annotations import annotate_symbols
 
 
 def draw_systems(
@@ -114,6 +117,32 @@ def draw_systems(
                     stroke=color,
                     stroke_width=1.6,
                 )
+            elif emitter == "ceiling_panel":
+                panel_left, panel_width = px + sw * 0.22, sw * 0.55
+                level = top + 25
+                for support in (panel_left + 5, panel_left + panel_width - 5):
+                    line(g, support, top, support, level, neutral, 0.8)
+                shape(
+                    g,
+                    "rect",
+                    x=panel_left,
+                    y=level,
+                    width=panel_width,
+                    height=4,
+                    fill="#d8e3e8",
+                    stroke=color,
+                )
+                line(
+                    g,
+                    panel_left + 3,
+                    level + 2,
+                    panel_left + panel_width - 3,
+                    level + 2,
+                    color,
+                )
+                g.set("data-location", "suspended-panel")
+                g.set("data-anchor-x", str(panel_left + panel_width / 2))
+                g.set("data-anchor-y", str(level + 2))
             else:
                 w = min(29, width * 0.65)
                 left = px + sw - w - 9
@@ -142,7 +171,7 @@ def draw_systems(
                     fill_opacity=0.95,
                     stroke=color,
                 )
-                if emitter == "radiator":
+                if emitter in {"radiator", "lt_radiator"}:
                     for n in range(1, 6):
                         line(
                             g,
@@ -154,6 +183,8 @@ def draw_systems(
                             1,
                         )
                     line(g, left + 3, level - 12, left + 6, level - 16, color, 1)
+                    if emitter == "lt_radiator":
+                        text("LT", left - 16, level, size=8)
                 else:
                     line(g, left + 3, level - 3, left + w - 3, level - 3, color, 1)
                     shape(
@@ -181,46 +212,14 @@ def draw_systems(
                 f"{space['label']}: {ventilation} ventilation",
             )
             g.set("data-space", space["id"])
-            cy = top + 10
-            if ventilation == "natural":
-                cx, cy = px + sw - 12, top + 35
-                line(g, cx, cy, cx - 18, cy, air)
-                shape(
-                    g,
-                    "polyline",
-                    points=f"{cx-13},{cy-4} {cx-18},{cy} {cx-13},{cy+4}",
-                    fill="none",
-                    stroke=air,
-                )
-                g.set("data-location", "window")
-            else:
-                cx = px + sw / 2
-                g.set("data-location", "below-ceiling")
-                line(g, px + 8, cy, px + sw - 12, cy, air, 3)
-                for fraction in (0.35, 0.75):
-                    outlet = px + sw * fraction
-                    line(g, outlet, cy, outlet, cy + 12, air, 1.5)
-                    shape(
-                        g,
-                        "polygon",
-                        points=f"{outlet},{cy+15} {outlet-3},{cy+10} {outlet+3},{cy+10}",
-                        fill=air,
-                    )
-                if ventilation == "heat_recovery":
-                    line(g, px + 8, cy + 5, px + sw - 12, cy + 5, "#7b9699", 1)
-                    shape(
-                        g,
-                        "rect",
-                        x=px + 10,
-                        y=cy - 5,
-                        width=15,
-                        height=13,
-                        fill="white",
-                        stroke=air,
-                    )
-                    line(g, px + 11, cy + 6, px + 24, cy - 3, air, 1)
-            g.set("data-anchor-x", str(cx))
-            g.set("data-anchor-y", str(cy))
+            draw_ventilation(g, ventilation, px, top, sw)
+        dhw = system.get("dhw", "none")
+        if dhw != "none":
+            g = group(
+                "dhw:" + dhw, bid, f"{space['label']}: domestic hot water / {dhw}"
+            )
+            g.set("data-space", space["id"])
+            draw_hot_water(g, dhw, px, bottom, sw)
 
     for building in section["buildings"]:
         bid = building["id"]
@@ -289,40 +288,7 @@ def draw_systems(
             w = min(34, room_width / max(1, len(plant)) - 4)
             if w < 8:
                 continue
-            shape(
-                g,
-                "rect",
-                x=cx - w / 2,
-                y=cy - 10,
-                width=w,
-                height=22,
-                rx=2,
-                fill="white",
-                stroke=neutral,
-                stroke_width=1.5,
-            )
-            if symbol == "district_heating":
-                line(g, cx - w / 2 - 8, cy - 4, cx + w / 2 + 6, cy - 4, heat, 2)
-                line(g, cx - w / 2 - 8, cy + 4, cx + w / 2 + 6, cy + 4, cold, 2)
-            else:
-                shape(
-                    g,
-                    "path",
-                    d=f"M {cx},{cy-7} Q {cx-11},{cy+8} {cx},{cy+9} Q {cx+9},{cy+4} {cx},{cy-7}",
-                    fill=heat,
-                )
-                label = {"gas_boiler": "G", "oil_boiler": "O", "biomass_boiler": "B"}[
-                    symbol
-                ]
-                shape(
-                    g,
-                    "text",
-                    x=cx + 9,
-                    y=cy - 1,
-                    font_size=9,
-                    font_family="sans-serif",
-                    fill=neutral,
-                ).text = label
+            draw_plant_symbol(g, symbol, cx, base_y - 4, w)
         ground_sources = [
             p for p in systems["plant"] if p in ("water_well", "boreholes")
         ]
@@ -600,102 +566,6 @@ def draw_systems(
                             1.4,
                         )
                 line(scene, 6, -7, 57, -7, "#b97c55", 1.5)
-
-
-def annotate_symbols(
-    root: ET.Element,
-    element: ElementFactory,
-    text: TextWriter,
-    width: float,
-    height: float,
-) -> None:
-    """Number one representative of each drawn symbol and provide a readable key."""
-    groups = {}
-    for node in list(root.iter()):
-        if node.get("data-kind") == "system" and node.get("data-anchor-x"):
-            key = node.get("data-system")
-            anchor = (
-                float(node.get("data-anchor-x")),
-                float(node.get("data-anchor-y")),
-            )
-        elif node.get("data-kind") == "pv":
-            key = "roof:pv"
-            anchor = (
-                float(node.get("x")) + float(node.get("width")) / 2,
-                float(node.get("y")),
-            )
-        else:
-            continue
-        groups.setdefault(key, []).append(anchor)
-    panel_height = max(180, len(groups) * 46 + 105)
-    new_width, new_height = width + 405, max(height, panel_height + 95)
-    root.set("width", f"{new_width:g}")
-    root.set("height", f"{new_height:g}")
-    root.set("viewBox", f"0 0 {new_width:g} {new_height:g}")
-    for node in root:
-        if node.tag == "rect" and node.get("x") == "0" and node.get("y") == "0":
-            node.set("width", str(new_width))
-            node.set("height", str(new_height))
-            break
-    panel_x = width + 10
-    element(
-        "rect",
-        x=panel_x,
-        y=70,
-        width=375,
-        height=panel_height,
-        rx=8,
-        fill="#ffffff",
-        stroke="#b9d1df",
-    )
-    text("SYMBOL REVIEW", panel_x + 18, 100, size=16, font_weight=700)
-    text("Numbers identify representative occurrences.", panel_x + 18, 124, size=11)
-    text(
-        "Labels describe symbols, not verified connections.", panel_x + 18, 142, size=11
-    )
-    for number, (key, anchors) in enumerate(groups.items(), 1):
-        ax, ay = anchors[0]
-        bx, by = ax + 13, ay - 15
-        element("line", x1=ax, y1=ay, x2=bx, y2=by, stroke="#324f65", stroke_width=1)
-        element(
-            "circle",
-            data_annotation=key,
-            cx=bx,
-            cy=by,
-            r=9,
-            fill="white",
-            stroke="#324f65",
-            stroke_width=1.2,
-        )
-        text(str(number), bx, by + 3.5, size=10, text_anchor="middle", font_weight=700)
-        row_y = 176 + (number - 1) * 46
-        element(
-            "circle",
-            cx=panel_x + 27,
-            cy=row_y - 4,
-            r=10,
-            fill="#e6f1f7",
-            stroke="#324f65",
-        )
-        text(
-            str(number),
-            panel_x + 27,
-            row_y,
-            size=10,
-            text_anchor="middle",
-            font_weight=700,
-        )
-        label = (
-            key.replace("_", " ")
-            .replace(":", " / ")
-            .capitalize()
-            .replace("tabs", "TABS")
-            .replace("pv", "PV")
-        )
-        text(label, panel_x + 47, row_y, size=13, font_weight=600)
-        text(f"{len(anchors)} drawn occurrence(s)", panel_x + 47, row_y + 17, size=11)
-    if not groups:
-        text("No HVAC or PV symbols drawn.", panel_x + 18, 180)
 
 
 def draw_construction_details(
