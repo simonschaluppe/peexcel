@@ -1,5 +1,5 @@
 import pandas as pd
-from pexl.io.csv import normalize_table
+from pexl.io.csv_io import normalize_table
 
 
 def test_normalize_strips_and_sorts():
