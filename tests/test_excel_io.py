@@ -5,6 +5,7 @@ import pytest
 from openpyxl import Workbook, load_workbook
 
 from pexl import Project
+from pexl.io.excel import build_project_in_dataframe
 
 
 @pytest.fixture
@@ -121,6 +122,26 @@ def test_unknown_variables_can_be_rejected_or_ignored(workbook):
     project = Project.from_excel(path, unknown="ignore")
     assert project[0].to_var_dict()["QH"] == 42.5
     assert "not_a_schema_variable" not in project[0].to_var_dict()
+
+
+def test_in_table_preserves_requested_layout_without_mutating_project(workbook):
+    project = Project.from_excel(workbook(sheets=annual_sheets()))
+    before = [scenario.to_var_dict() for scenario in project]
+    columns = ["var_name", "unit"]
+    frame = build_project_in_dataframe(project, base_columns=columns)
+    assert frame.columns.tolist() == ["var_name", "unit", "Demo | B", "Demo | A"]
+    assert columns == ["var_name", "unit"]
+    assert not frame["var_name"].duplicated().any()
+    assert frame.set_index("var_name").loc["project_name", "Demo | B"] == "Demo"
+    assert [scenario.to_var_dict() for scenario in project] == before
+
+
+def test_empty_in_table_and_invalid_metadata_columns():
+    frame = build_project_in_dataframe(Project(), base_columns=["var_name"])
+    assert frame.empty
+    assert frame.columns.tolist() == ["var_name"]
+    with pytest.raises(ValueError, match="must include 'var_name'"):
+        build_project_in_dataframe(Project(), base_columns=["unit"])
 
 
 @pytest.mark.parametrize("include_meta", [True, False])

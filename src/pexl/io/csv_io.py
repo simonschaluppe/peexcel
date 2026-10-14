@@ -1,4 +1,4 @@
-# pexl/io/csv.py
+"""Read schema CSV datasets and normalize tables for schema comparisons."""
 from pathlib import Path
 import pandas as pd
 
@@ -11,19 +11,6 @@ DEFAULT_TABLES = (
     "CHART_metadata",
     "CHART_types",
 )
-
-def _read_csv(path: Path) -> pd.DataFrame:
-    """
-    Read a CSV with strict, predictable settings.
-    Everything is read as string; empty cells stay empty strings.
-    """
-    return pd.read_csv(
-        path,
-        dtype=str,
-        keep_default_na=False,
-        delimiter=";"
-    )
-
 
 def read_dataset_dir(
     root: str | Path,
