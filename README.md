@@ -87,6 +87,8 @@ Das How-to [Visualize your pexl project](notebooks/howto_visualize_project.ipynb
 
 ## 📚 Dokumentation
 
+Die [allgemeinen Projektleitlinien](AGENTS.md) legen die Anforderungen an geringen Review- und Wartungsaufwand, die Begründung neuer Datenstrukturen und Schnittstellen sowie ausführbare How-to-Notebooks fest.
+
 | Dokument | Inhalt | Link |
 |---|---|---|
 | Handbuch zur Nachweisführung | Einstieg, Toolstruktur, zentrale Abläufe und Quick-Start | [📖 Handbuch herunterladen](https://github.com/simonschaluppe/peexcel/raw/refs/heads/master/docs/Handbuch%20zur%20Nachweisf%C3%BChrung.pdf)
