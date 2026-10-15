@@ -1,0 +1,32 @@
+---
+title: "📊 Ergebnisse lesen und vergleichen"
+---
+
+**Welche Energie fließt physisch? Wie wird sie bewertet? Welche Systemgrenze gilt?** Erst danach lässt sich ein Variantenvergleich sinnvoll interpretieren.
+
+## Physische und bewertete Bilanz
+
+| Sicht | Was du prüfst |
+|---|---|
+| Stündliche Energieflüsse | Bedarf, Erzeugung, Speicher, Bezug und Einspeisung je Zeitschritt |
+| Jahreswerte | Summen und Kennwerte mit passender Bezugsfläche und Einheit |
+| Primärenergie | Mit den vorgesehenen Konversionsfaktoren bewertete Flüsse |
+| Kontextfaktoren | Methodische Beiträge etwa zu Dichte, Bestand oder Flexibilität; keine physische Erzeugung |
+| THG über den Lebenszyklus | Graue und betriebliche Beiträge mit eigener Zeit- und Systemgrenze |
+
+In der [Grafikgalerie](examples.qmd) erscheinen Bedarf und Deckung als positive Beträge in getrennten Säulen. Lies Achsen und Vorzeichenkonvention mit. Eine Höhe ohne Einheit und Bezugsbasis lässt keinen belastbaren Vergleich zu.
+
+## Vergleich vorbereiten
+
+Verwende dieselbe Tool- und Schemaversion oder dokumentiere Unterschiede. Prüfe identische Flächenbezüge, Wetter, Zeitraum und Bewertungsmethode. Benenne Varianten nach ihrer Maßnahme und halte Annahmen sowie Rechenstand fest. Fehlende Ergebnisse sind keine Nullwerte.
+
+## Von OUT zur Analyse
+
+**OUT** und das Tool-Dashboard sind der erste Einstieg. Mit [Python](python.qmd) kannst du gespeicherte Ergebnisse reproduzierbar auswerten und interaktiv oder druckbar exportieren. Der [Dashboard-Prototyp](dashboard.qmd) ergänzt diesen Weg lokal.
+
+::: {.callout-note}
+## Für die Deklaration
+Ein berechnetes Ergebnis ist noch kein geprüfter Nachweis. Verwende die Deklarationswerte, prüfe AUDIT und dokumentiere die vorgeschriebene Bewertungsgrenze. [Zur Checkliste](declaration.qmd).
+:::
+
+**Weiter:** [Mobilität](mobility.qmd) · [Lebenszyklus](climate.qmd) · [Schulung, Folien 17–23 und 32–33](downloads/schulung.pdf).

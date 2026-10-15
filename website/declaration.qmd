@@ -1,0 +1,29 @@
+---
+title: "✓ Modellierung und Deklaration"
+---
+
+**Deklarationswerte sind verbindliche Vorgaben für die Deklaration, keine technischen Grenzen des Modells.** PEExcel kann abweichende Annahmen rechnen. Kennzeichne, ob eine Variante explorativ modelliert oder für einen klimaaktiv-Nachweis vorbereitet wurde.
+
+## Was darf variieren, was gilt für den Nachweis?
+
+| Thema | Freie Modellierung | klimaaktiv-Deklaration |
+|---|---|---|
+| PV-LCA | Im Tool modellierbar | In der ka-Bewertungsmethode nicht berücksichtigt |
+| Stündliche Konversionsfaktoren | Eigene Annahmen modellierbar | Vorgeschriebene Deklarationswerte verwenden |
+| Nutzerstrom | Abweichende Annahmen modellierbar | Vorgeschriebene Deklarationswerte verwenden |
+| Innere Wärmegewinne | Abweichende Annahmen modellierbar | Vorgeschriebene Deklarationswerte verwenden |
+
+Diese Beispiele erläutern das allgemeine Prinzip. Konkrete Werte und Eingabefelder entnimmst du dem **verwendeten Toolstand** und seinen Unterlagen; diese Seite führt keine zweite Wertetabelle.
+
+## Nachweis vorbereiten
+
+1. **Version und Ziel:** Toolstand, Qualitätsstufe und Projektgrenze dokumentieren.
+2. **Eingaben belegen:** Flächen, Energieausweis, Wetter, PV, Mobilität und Bauteildaten mit Quellen versehen.
+3. **Deklarationswerte:** Abweichende Modellannahmen erkennen und für den Nachweis Vorgaben verwenden.
+4. **Berechnen und kontrollieren:** Ergebnisse und AUDIT prüfen; Fehler und Hinweise bearbeiten.
+5. **Bewertungsgrenze:** Physische Flüsse, virtuelle Kontextbeiträge und bewertete Emissionen unterscheiden.
+6. **Unterlagen sichern:** Variante, Export, Rechenstand und Nachweisdokumentation zusammen ablegen.
+
+AUDIT unterstützt die Qualitätssicherung. Die Website führt keine eigene Zulässigkeitsprüfung durch. Für fachliche Nachweisfragen nutze die offiziellen Kontaktstellen in den [Unterlagen](download.qmd).
+
+[Handbuch](downloads/handbuch.pdf) · [Schulung, Folien 34–35](downloads/schulung.pdf) · [Kontakt](about.qmd)

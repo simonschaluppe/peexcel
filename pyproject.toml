@@ -12,6 +12,16 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+publication = [
+  "matplotlib",
+  "plotly>=6.1.1,<7",
+  "kaleido>=1,<2",
+  "openpyxl",
+  "nbformat",
+  "nbclient",
+  "nbconvert>=7,<8",
+  "ipykernel",
+]
 dev = [
   "pytest",
 ]

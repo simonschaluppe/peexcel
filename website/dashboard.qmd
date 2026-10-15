@@ -1,0 +1,19 @@
+---
+title: "Dashboard / Szenarioexplorer"
+---
+
+Der Szenarioexplorer läuft lokal mit Streamlit. Er öffnet PEExcel-Projektexporte,
+filtert Varianten und zeigt die vorhandenen Berichte an.
+
+Im Repository-Verzeichnis:
+
+```bash
+python -m pip install -e ".[publication]" streamlit pyxlsb
+python -m streamlit run apps/dashboard/main.py
+```
+
+Im Dashboard den Projektexport auswählen. Die benötigte Excel-Leseengine hängt
+vom Dateiformat ab. Der Dateidialog benötigt eine lokale Desktop-Sitzung.
+
+Die [Beispielgrafiken](examples.qmd) dieser Website sind statische HTML-Dateien
+mit interaktiven Plotly-Abbildungen. Dafür ist kein laufendes Dashboard nötig.

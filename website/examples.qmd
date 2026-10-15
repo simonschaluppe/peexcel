@@ -1,0 +1,49 @@
+---
+title: "Ergebnisse und Methoden – synthetische Beispiele"
+---
+
+Alle Werte sind synthetisch. Die Grafiken demonstrieren Darstellung und Export, keine reale Deklaration. Jede Grafik enthält Quellen-, Versions- und Bilanzangaben.
+
+## Primärenergiebilanz
+
+Bedarf und Deckung erscheinen als positive Beträge in getrennten Säulen. Kontextfaktoren sind virtuelle Beiträge.
+
+<iframe class="pexl-chart" src="assets/primary_energy_balance.html" title="Primärenergiebilanz" loading="lazy"></iframe>
+
+[Interaktives HTML](assets/primary_energy_balance.html) · [SVG](assets/primary_energy_balance.svg) · [PNG für Druck/PDF](assets/primary_energy_balance.png)
+
+## THG und Budgetvarianten
+
+Kumulierte Emissionen mit bestehenden L1/L2/L3-Bändern. 50 Jahre (2025–2075) sind weder nationales Zieljahr noch Dekarbonisierungspfad. Diese beiden Angaben sind hier nicht definiert.
+
+<iframe class="pexl-chart" src="assets/gwp_ee_detail.html" title="THG und Budgetvarianten" loading="lazy"></iframe>
+
+[Interaktives HTML](assets/gwp_ee_detail.html) · [SVG](assets/gwp_ee_detail.svg) · [PNG für Druck/PDF](assets/gwp_ee_detail.png)
+
+## Stromflüsse
+
+Netzbezug positiv, Einspeisung negativ; synthetische Stundenwerte.
+
+<iframe class="pexl-chart" src="assets/electricity.html" title="Stromflüsse" loading="lazy"></iframe>
+
+[Interaktives HTML](assets/electricity.html) · [SVG](assets/electricity.svg) · [PNG für Druck/PDF](assets/electricity.png)
+
+## Dichtekontextfaktor
+
+GFZ als Eingang; historischer ZQ-Synergy-Parametersatz aus der bestehenden Implementierung. Zielwert und negative virtuelle Gut-/Lastschrift: kein realer Energiefluss.
+
+<iframe class="pexl-chart" src="assets/density.html" title="Dichtekontextfaktor" loading="lazy"></iframe>
+
+[Interaktives HTML](assets/density.html) · [SVG](assets/density.svg) · [PNG für Druck/PDF](assets/density.png)
+
+## Mobilitätsbudget
+
+70 % Wohnen und 30 % Büro. Budgeteingaben sind synthetisch, keine nationalen Referenzwerte. Nutzungen und Flächenanteile lassen sich im How-to-Notebook ändern. Budget, Bedarf und Bilanzbeitrag bleiben getrennt.
+
+<iframe class="pexl-chart" src="assets/mobility.html" title="Mobilitätsbudget" loading="lazy"></iframe>
+
+[Interaktives HTML](assets/mobility.html) · [SVG](assets/mobility.svg) · [PNG für Druck/PDF](assets/mobility.png)
+
+## Herkunft und methodische Grenzen
+
+Die [Methodendokumentation](https://github.com/simonschaluppe/peexcel/blob/master/docs/development/publication.md) beschreibt vorhandene Formeln, wissenschaftliche Quellen und fehlende Referenzangaben. Der [Python-Einstieg](python.qmd) führt zum ausführbaren Notebook.

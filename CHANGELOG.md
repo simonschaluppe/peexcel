@@ -1,5 +1,17 @@
 # Changelog
 
+## Anwenderwebsite und Lehrmodule (15.10.2026)
+
+- Deutsche Quarto-Fachseiten, Lernwege, Downloads und Notebook-Einbettungen;
+  ergänzende englische Startseite, README auf Repository-Einstieg gekürzt.
+- Freie Modellierung und verbindliche Deklarationswerte fachlich getrennt,
+  einschließlich PV-LCA, Nutzerstrom, innerer Gewinne und Konversionsfaktoren.
+- Neutraler Section-Stil `teaching`, qualitative Wärmeflüsse einzeln schaltbar,
+  Zonenwechsel und SVG-Zustandsexport; Kellerfall mit schemabasiertem Bauteilkatalog.
+- Ausführbares Website-How-to und erweiterte Lehrschnitt-Anleitung.
+- Konkrete Projektbeispiele und Stundenexporte unverändert zurückgestellt.
+
+
 All notable changes to PEExcel / klimaaktiv Nachweistool should be documented in this file.
 
 This changelog was reconstructed from the public GitHub commit history and milestone history. Entries before a formal Git tag/release workflow are therefore grouped by visible version commits, milestone descriptions, issue references, and commit-message clusters. Future entries should be maintained manually at release time.
@@ -9,6 +21,10 @@ The format follows a lightweight `Added / Changed / Fixed / Compatibility / Note
 ## [Unreleased]
 
 ### Added
+
+- Reusable Plotly publication export (offline HTML, SVG/PNG and PDF) with visible source, scenario, model/schema version, calculation status and balance conventions.
+- Synthetic executable publication notebook, shared example script and local Quarto tool website; no deployment configuration.
+- Density, mobility and GHG method prototypes documenting existing parameters and unresolved reference data.
 
 ### Changed
 

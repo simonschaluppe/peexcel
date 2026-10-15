@@ -1,0 +1,36 @@
+---
+title: "🧱 Bauteile richtig zuordnen"
+page-layout: full
+sidebar: false
+toc: false
+---
+
+Bauteilzuordnung verbindet Geometrie, Mengen und Lebenszyklusbilanz. **Eine geometrische Fläche ist noch keine vollständige LCA-Zuordnung.** Konstruktion, Randbedingung und Nutzung müssen nachvollziehbar sein.
+
+## Vom Schnitt zur Kategorie
+
+Der zweite Lehrschnitt hat zwei beheizte Obergeschosse und einen ausdrücklich **unbeheizten Keller**. Schalte zwischen Kategorien um. Die Liste benennt auch Kategorien, die in dieser Geometrie nicht vorkommen; diese werden nicht auf andere Bauteile umgedeutet.
+
+<iframe class="peq-lesson" data-fit src="assets/components/index.html" title="Bauteilkatalog und Lehrschnitt mit unbeheiztem Keller"></iframe>
+
+[Bauteilkatalog separat öffnen](assets/components/index.html)
+
+## Originaldarstellung aus der Schulung
+
+[![Bauteiltypen: Zuordnung im Gebäudeschnitt](media/components.png){.full-figure}](media/components.png)
+
+Die Originalgrafik ergänzt die reduzierten Lehrschnitte um weitere Situationen. Vergrößern durch Anklicken. Quelle: `docs/ComponentTypes.png`; siehe auch [Schulung, Folien 13–14](downloads/schulung.pdf).
+
+## So gehst du bei einem Projekt vor
+
+1. Ordne Flächen und Bauteile anhand der tatsächlichen Konstruktion zu.
+2. Unterscheide Außenluft, Erdreich, beheizte und unbeheizte Nachbarräume.
+3. Prüfe Mengen und Einheiten vor dem Import von LCA-Kennwerten.
+4. Dokumentiere nicht dargestellte Elemente, etwa Balkone, Stützen oder Fensterrahmen, separat.
+5. Kontrolliere die übernommenen Bauteilwerte und die Bewertungsgrenze.
+
+**Aufgabe:** Warum wird die Kellerdecke anders zugeordnet als eine Geschoßdecke zwischen beheizten Räumen?
+
+<details><summary>Lösungshinweis</summary>Die Kellerdecke trennt im zweiten Lehrmodell beheizt von unbeheizt und gehört zur Wärmebilanzgrenze. Die innere Geschoßdecke ist ebenfalls ein bilanziertes Konstruktionsbauteil, bildet dort aber keine äußere thermische Grenze. Thermische und Lebenszyklusbilanz betrachten unterschiedliche Eigenschaften desselben Bauteils.</details>
+
+**Weiter:** [LCA-Daten übernehmen](interfaces.qmd#bauteile-und-lca) · [Graue Emissionen bewerten](climate.qmd).

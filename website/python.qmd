@@ -1,0 +1,60 @@
+---
+title: "Python-Schnittstelle und Notebooks"
+---
+
+`pexl` ergänzt die Excel-Anwendung um Import und Export, Schema-Validierung,
+Ergebnisanalyse und Visualisierung. Installiere im Repository
+`python -m pip install -e ".[publication]"`. Für Excel-Formate ist die passende
+Leseengine erforderlich; `.xlsb` benötigt beispielsweise `pyxlsb`.
+
+## Ausführbare Tutorials
+
+Die Einbettungen zeigen den Notebook-Inhalt ohne gespeicherte Ausgaben.
+Lade das Original herunter und öffne es im geklonten Repository; dort sind auch
+die verwendeten Implementierungsfunktionen und Quelldaten verfügbar.
+
+<details><summary>Excel-Projekt importieren und analysieren</summary>
+<iframe class="notebook" src="tutorials/howto_excel.html" title="How-to: Excel und Python" loading="lazy"></iframe>
+<p><a href="downloads/howto_excel.ipynb">Notebook herunterladen</a></p>
+</details>
+
+<details><summary>Grafiken veröffentlichen und exportieren</summary>
+<iframe class="notebook" src="tutorials/howto_publication.html" title="How-to: Publikationsgrafiken" loading="lazy"></iframe>
+<p><a href="downloads/howto_publication.ipynb">Notebook herunterladen</a></p>
+</details>
+
+<details><summary>Interaktive Lehrschnitte erzeugen</summary>
+<iframe class="notebook" src="tutorials/howto_section_teaching_preview.html" title="How-to: Lehrschnitte" loading="lazy"></iframe>
+<p><a href="downloads/howto_section_teaching_preview.ipynb">Notebook herunterladen</a></p>
+</details>
+
+<details><summary>Website und Lehrmaterialien lokal bauen</summary>
+<iframe class="notebook" src="tutorials/howto_website.html" title="How-to: Website bauen" loading="lazy"></iframe>
+<p><a href="downloads/howto_website.ipynb">Notebook herunterladen</a></p>
+</details>
+
+[Strombilanz-Tutorial lesen](tutorials/howto_analyze_electricity_balance.html) ·
+[Gebäudeschnitte-Tutorial lesen](tutorials/howto_visualize_project.html)
+
+## Vom Export zur Grafik
+
+Das [ausführbare Publikations-How-to](https://github.com/simonschaluppe/peexcel/blob/master/notebooks/howto_publication.ipynb)
+zeigt den vollständigen Weg vom Projekt über den Bericht bis HTML, SVG und PNG.
+
+```python
+from pexl import Project, reporting
+from pexl.plot import plotly
+from pexl.plot.export import export_figure
+
+project = Project.from_excel("projektexport.xlsx")
+figure = plotly.render(reporting.materialize(project.view, "primary_energy_balance"))
+figure.show()
+# Herkunft des konkreten Projekts ausdrücklich angeben – siehe How-to.
+```
+
+Weitere Einstiege:
+
+- [Excel-Import](https://github.com/simonschaluppe/peexcel/blob/master/notebooks/howto_excel.ipynb)
+- [Strombilanz](https://github.com/simonschaluppe/peexcel/blob/master/notebooks/howto_analyze_electricity_balance.ipynb)
+- [Schematische Gebäudeschnitte](https://github.com/simonschaluppe/peexcel/blob/master/notebooks/howto_visualize_project.ipynb)
+- [Export, Website-Build und methodische Grenzen](https://github.com/simonschaluppe/peexcel/blob/master/docs/development/publication.md)

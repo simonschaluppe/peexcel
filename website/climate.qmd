@@ -1,0 +1,34 @@
+---
+title: "☁️ Lebenszyklus und Klimaziele"
+---
+
+Die klimaneutrale PEQ-Bewertung erweitert den Blick über die Betriebsenergie hinaus. Graue Emissionen der Gebäude und betriebliche Treibhausgasemissionen werden über den festgelegten Betrachtungszeitraum eingeordnet.
+
+## Drei Zeitbegriffe auseinanderhalten
+
+| Begriff | Bedeutung |
+|---|---|
+| Betrachtungszeitraum | Zeitraum der Bilanz; die Schulung zeigt 50 Jahre von 2025 bis 2075 |
+| Zieljahr | Politisches oder methodisches Klimaziel, etwa 2040 oder 2050; nicht mit dem Bilanzende gleichzusetzen |
+| Dekarbonisierungspfad | Entwicklung der Emissionsfaktoren im Energiesystem; beeinflusst zukünftige Betriebsenergie |
+
+Eine kumulierte Darstellung integriert Beiträge über die Zeit. Sie ist weder eine einzelne Jahresbilanz noch automatisch ein Beleg für das Erreichen eines nationalen Klimaziels. Die hinterlegten Absenkpfade und Budgetregeln gehören zur verwendeten Methode.
+
+## Bauteile, Betrieb und Budget
+
+Ordne Konstruktionen nachvollziehbar zu und prüfe Mengen. Interpretiere graue und betriebliche Beiträge gemeinsam mit Bewertungsgrenze, Zeitraum und Budget. Die [synthetischen Diagramme](examples.qmd) erläutern die Darstellung; daraus folgt keine Aussage über ein reales Projekt.
+
+::: {.callout-important}
+## PV-LCA: modellierbar, in ka nicht bewertet
+Lebenszyklusemissionen der PV können im Tool modelliert werden. In der **klimaaktiv-Bewertungsmethode werden sie nicht berücksichtigt**. Ein Eingabefeld oder Ergebnis bedeutet nicht automatisch, dass der Beitrag in die Deklaration eingeht. Diese Aussage nicht pauschal auf andere Anlagen oder Bewertungsverfahren übertragen.
+:::
+
+## Nachvollziehbar dokumentieren
+
+Halte Toolversion, Datenquellen, Zeitraum, Konversionsfaktoren, Dekarbonisierungspfad und Systemgrenze fest. Frei modellierte Varianten dürfen abweichen; zur Deklaration gelten die entsprechenden Vorgaben.
+
+**Aufgabe:** Kann dieselbe Strommenge in verschiedenen Jahren unterschiedliche bewertete Emissionen haben?
+
+<details><summary>Lösungshinweis</summary>Ja, wenn sich die angesetzten Emissionsfaktoren über den Dekarbonisierungspfad ändern. Energiemenge und Bewertung sind getrennte Größen.</details>
+
+[Schulung, Folien 22–23](downloads/schulung.pdf) · [Methodischer Hintergrund](downloads/hintergrund.pdf) · [Deklaration](declaration.qmd)

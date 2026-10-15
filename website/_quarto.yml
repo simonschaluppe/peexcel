@@ -1,0 +1,52 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - "*.qmd"
+    - "en/*.qmd"
+  pre-render:
+    - python ../scripts/website_assets.py
+  resources:
+    - assets/**
+    - media/**
+    - downloads/**
+    - tutorials/**
+website:
+  title: PEExcel
+  description: Quartiere modellieren und den klimaaktiv Plus-Energie-Standard anwenden.
+  search: true
+  navbar:
+    left:
+      - {href: index.qmd, text: Entdecken}
+      - {href: start.qmd, text: Loslegen}
+      - {href: model.qmd, text: Modellieren}
+      - {href: results.qmd, text: Bewerten}
+      - {href: learn.qmd, text: Lernen}
+    right:
+      - {href: download.qmd, text: Download, icon: download}
+      - {href: en/index.qmd, text: English}
+  sidebar:
+    style: docked
+    collapse-level: 1
+    contents:
+      - section: Loslegen
+        contents: [start.qmd, download.qmd]
+      - section: Quartiere modellieren
+        contents: [model.qmd, envelope.qmd, components.qmd, systems.qmd, interfaces.qmd]
+      - section: Ergebnisse verstehen
+        contents: [results.qmd, mobility.qmd, climate.qmd, declaration.qmd, examples.qmd, dashboard.qmd]
+      - section: Lernen und Nachschlagen
+        contents: [learn.qmd, python.qmd, glossary.qmd, research.qmd, about.qmd]
+  page-footer:
+    left: "PEExcel · FH Technikum Wien · klimaaktiv Plus-Energie-Quartiere"
+    right:
+      - {href: about.qmd, text: Kontakt & Nutzung}
+      - {href: 'https://github.com/simonschaluppe/peexcel', text: GitHub}
+format:
+  html:
+    lang: de
+    theme: cosmo
+    toc: true
+    code-fold: true
+    css: styles.css
+    include-after-body: _resize.html

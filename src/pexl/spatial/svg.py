@@ -63,14 +63,28 @@ def render_svg(
     Horizontal and vertical scales are independent to keep storeys legible.
     Construction and insulation layers have fixed schematic drawing thicknesses.
     Styles are ``architectural``, ``hand_drawn`` (brush strokes and fineliner on warm paper),
-    ``blueprint`` (drafting palette and grid). ``annotations=True`` enables
-    matching callouts on any style; legacy ``style='annotations'`` aliases
+    ``blueprint`` (drafting palette and grid), and ``teaching`` (neutral structural
+    geometry without context, equipment or usage labels). Teaching intentionally
+    omits annotations and rejects ``annotations=True``; its lesson overlays are
+    supplied separately for explicit fixtures. ``annotations=True`` enables
+    matching callouts on the other styles; legacy ``style='annotations'`` aliases
     Blueprint with callouts. ``palette`` selects blue (default), green or beige
     for Blueprint only. ``usage_labels`` is 'auto' or 'none'.
     ``construction='wood'`` changes the construction color to light brown.
     ``facade_style='gründerzeit'`` adds schematic relief profiles. Omit this
     override to use per-building styles from the layout.
     """
+    if style == "teaching":
+        if annotations:
+            raise ValueError("teaching omits annotations; use lesson overlays instead")
+        if palette is not None:
+            raise ValueError("palette is available only for blueprint")
+        from .teaching import simplify_section
+        return simplify_section(render_svg(
+            section, style="architectural", construction=construction,
+            facade_style=facade_style, annotations=annotations,
+            usage_labels=usage_labels,
+        ), section)
     if style not in ("architectural", "hand_drawn", "blueprint", "annotations"):
         raise ValueError(f"Unknown section style: {style!r}")
     if not isinstance(annotations, bool):

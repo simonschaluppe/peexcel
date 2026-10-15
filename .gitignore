@@ -50,3 +50,11 @@ __pycache__/
 .ipynb_checkpoints/
 
 # keep
+
+# Reproducible publication outputs
+website/assets/
+website/_site/
+website/.quarto/
+website/media/
+website/downloads/
+website/tutorials/

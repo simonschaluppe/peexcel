@@ -1,0 +1,27 @@
+---
+title: "🚗 Mobilität: Laden und Verantwortung"
+---
+
+**Lernziel:** Physische Ladeflüsse von der verursacherbezogenen Bewertung unterscheiden. Beide sind relevant, beantworten aber verschiedene Fragen.
+
+## Wo wird tatsächlich geladen?
+
+Für das Energiesystem zählt, wann Fahrzeuge vor Ort laden, wie hoch der Ladebedarf ist und wie Ladung mit PV, Netz und gegebenenfalls Speichern zusammenwirkt. Diese Sicht berücksichtigt die im Modell angesetzten Lade- und Verkehrsflüsse.
+
+## Welche Mobilität wird zugerechnet?
+
+Die Bewertungsmethode betrachtet die Verantwortung für verursachte Mobilität. Zielverkehr und ein zugeteilter nationaler Budgetbezug gehören zu dieser Perspektive. Ladeenergie am Standort ist deshalb nicht automatisch mit der gesamten zugerechneten Mobilitätsenergie identisch.
+
+[![Mobilitätsmodell und Bilanzzusammenhänge](media/mobility.png){.full-figure}](media/mobility.png)
+
+Quelle: `docs/mobilität.png`; [Schulung, Folien 17–20](downloads/schulung.pdf). Die Schulung verweist auf *Österreich unterwegs 2014* als Datengrundlage. Maßgeblich bleiben die zum Toolstand gehörenden Annahmen und Deklarationswerte.
+
+## Vergleich mit klarer Fragestellung
+
+Vergleiche ein verändertes Mobilitätskonzept bei unverändertem Gebäudemodell. Halte Standortannahmen, Fahrleistung, Verkehrsmittel und Ladekonzept fest. Lies Mobilitätsbewertung und physische Strombilanz getrennt.
+
+**Aufgabe:** Ein Fahrzeug lädt außerhalb des Quartiers. Verschwindet seine verursachte Mobilität aus der Bewertung?
+
+<details><summary>Lösungshinweis</summary>Der Ladeort allein entscheidet nicht über die verursacherbezogene Zuordnung. Physische Ladebilanz und Bewertungsbilanz haben unterschiedliche Systemgrenzen. Prüfe die im Tool dokumentierte Zuordnung.</details>
+
+[Bewertungsübersicht](results.qmd) · [Publikationen zur E-Mobilität](research.qmd)

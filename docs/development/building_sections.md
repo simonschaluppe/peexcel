@@ -154,6 +154,7 @@ comparison contract. JSON round trips preserve normalized settings.
 | `style="architectural"` | Pastel usages, site silhouettes, construction and lilac insulation. |
 | `style="hand_drawn"` | Marker strokes, irregular fine frames/axes, warm paper, rectangular yellow building notes. Solid ceiling bands are hidden. |
 | `style="blueprint"` | Light drafting grid and limited colour family. |
+| `style="teaching"` | Neutral spaces, facade, roof, slabs and windows; same geometry/IDs, without environment, equipment, usage labels or decorative interior elements. `annotations=True` is rejected. Explicit lesson overlays live outside the renderer. |
 | `palette="blue"`, `"green"`, `"beige"` | Blueprint palette; `None` means blue. Explicit palettes on other styles raise an error. |
 | `annotations=True` | Numbered callouts refer to actual components in the same section, using the selected font, colours and line treatment. |
 | `usage_labels="auto"` | Schema labels inside spaces where they fit. Narrow fragments retain the legend/title. `"none"` hides internal labels. |

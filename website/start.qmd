@@ -1,0 +1,38 @@
+---
+title: "🚀 Dein erstes Quartier"
+---
+
+**Lernziel:** Eingaben, Simulation und Bewertung als nachvollziehbaren Arbeitsablauf kennenlernen. Du brauchst Excel / Office 365 mit Makros und eine lokale Arbeitskopie. Python ist dafür nicht erforderlich.
+
+## 1 · Arbeitskopie vorbereiten
+
+Lade das Tool auf der [Downloadseite](download.qmd) herunter und speichere es lokal. Falls Windows die vertrauenswürdig bezogene Datei blockiert: **Dateieigenschaften → Zulassen / Entsperren**. Öffne sie in Excel und aktiviere die Makros. Bewahre eine unveränderte Ausgangsdatei auf.
+
+## 2 · Projekt und Eingaben kennenlernen
+
+Beginne mit dem im Tool vorhandenen Ausgangsmodell. Auf **IN** findest du die Eingaben; **OUT** enthält die Ergebnisse. Das Ribbon führt durch die Toolfunktionen. Prüfe Standort, Flächen, Nutzungen und Versorgung. Notiere Toolversion und Herkunft deiner Eingaben.
+
+Die [Modellübersicht](model.qmd) hilft bei der Systemgrenze, die [Schnittstellenübersicht](interfaces.qmd) beim Vorbereiten externer Daten. Presets erleichtern den Einstieg; prüfe ihre Annahmen für dein Projekt.
+
+## 3 · Eine nachvollziehbare Änderung machen
+
+Speichere die Ausgangsvariante. Ändere anschließend **eine** dokumentierte Annahme, etwa die geplante PV-Ausstattung. Speichere die neue Variante mit einem eindeutigen Namen. Halte fest, ob du frei modellierst oder eine Deklaration vorbereitest.
+
+## 4 · Simulieren und vergleichen
+
+Starte die Berechnung über die vorgesehenen Toolfunktionen. Vergleiche in **OUT** und im Dashboard Bedarf, Erzeugung, Bezug und Einspeisung. Gleiche Jahressummen bedeuten noch keine zeitliche Deckung. Stundenwerte sind in der jeweiligen Exportstruktur, etwa **SIM2**, gesondert zu behandeln.
+
+## 5 · Prüfen und dokumentieren
+
+Nutze **AUDIT**, prüfe fehlende oder unplausible Eingaben und ordne Abweichungen ein. AUDIT unterstützt die Kontrolle; die fachliche Nachweisprüfung bleibt erforderlich. Speichere Variante und Export zusammen mit Version, Datenquellen und Annahmen.
+
+::: {.callout-tip}
+## Aufgabe für den Einstieg
+Warum kann zusätzliche PV sowohl Eigenverbrauch als auch Einspeisung verändern?
+
+<details><summary>Lösungshinweis</summary>Erzeugung und Verbrauch treffen stündlich zusammen. Zusätzliche Erzeugung kann einen Bedarf zur selben Stunde decken; ein Überschuss wird je nach System gespeichert oder eingespeist. Eine Jahresbilanz allein erklärt diese Verteilung nicht.</details>
+:::
+
+**Weiter:** [Energieflüsse verstehen](systems.qmd) → [Ergebnisse interpretieren](results.qmd) → [Deklaration vorbereiten](declaration.qmd).
+
+[Handbuch mit vollständiger Bedienung](downloads/handbuch.pdf) · [Schulung, Folien 7–8 und 24–35](downloads/schulung.pdf)

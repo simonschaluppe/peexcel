@@ -1,0 +1,23 @@
+---
+title: "Begriffe nachschlagen"
+---
+
+| Begriff | Bedeutung im Lernangebot |
+|---|---|
+| PEQ | Plus-Energie-Quartier; Bewertung mit definierter Systemgrenze und Qualitätsstufe |
+| Variante / Szenario | Dokumentierter Satz von Annahmen und zugehörigen Ergebnissen |
+| Thermische Hülle | Grenze zwischen thermisch betrachteten Räumen und ihren Randbedingungen |
+| Thermische Zone | Im thermischen Modell zusammengefasster Bereich; hier gekühlt oder ungekühlt |
+| Nutzerstrom | Strombedarf der Nutzung; zur Deklaration gelten ausgewiesene Vorgaben |
+| Eigenverbrauch | Vor Ort erzeugte und im betrachteten System selbst genutzte Energie |
+| Flexibilität | Zeitliche Verschiebung von Energieflüssen innerhalb technischer Grenzen |
+| Konversionsfaktor | Umrechnung physischer Energie in eine Bewertungsgröße |
+| Kontextfaktor | Methodischer Beitrag etwa zu Standort oder Dichte; keine physische Erzeugung |
+| LCA / graue Emissionen | Lebenszyklusbetrachtung bzw. Emissionsbeiträge der bilanzierten Konstruktionen |
+| Dekarbonisierungspfad | Zeitliche Veränderung der angesetzten Emissionsfaktoren |
+| Deklarationswert | Für die Deklaration verbindlicher Wert; abweichende Modellierung ist möglich |
+| IN / OUT | Eingabe- und Ergebnistabellen des Tools |
+| SIM2 | Stundenexportstruktur; getrennt von Jahresergebnissen behandeln |
+| AUDIT | Toolunterstützte Kontrolle von Eingaben und deklarationsrelevanten Abweichungen |
+
+[Modellübersicht](model.qmd) · [Nachweisvorbereitung](declaration.qmd)

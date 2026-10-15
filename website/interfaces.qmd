@@ -1,0 +1,35 @@
+---
+title: "🔌 Daten und Schnittstellen"
+---
+
+**Lernziel:** Eingaben nachvollziehbar übernehmen. Das Tool bietet Schnittstellen für Energieausweis, Wetter, stündliche PV-Erzeugung und Bauteildaten. Exakte Importfelder und Einheiten richten sich nach der verwendeten Toolversion.
+
+## Energieausweis
+
+Übernimm die zum Quartier passenden Gebäude- und Hüllkennwerte. Prüfe Bezugsflächen, Nutzungen, Bauteilflächen und Einheiten gegen den Energieausweis. Ein Aggregat aus mehreren Gebäuden braucht eine dokumentierte Zusammenführung; Summen und spezifische Kennwerte sind nicht austauschbar.
+
+**Mini-Workflow:** Quelle und Stand notieren → Bezugsflächen abgleichen → vorgesehene Kennwerte übernehmen → Hüll- und Bedarfswerte auf Plausibilität prüfen → Variante speichern.
+
+## Wetter
+
+Wähle einen zum Standort und Untersuchungsziel passenden Datensatz. Die Schulung nennt Helios-PC als Datenzugang; im Repository liegen weitere Wetterdateien. Bei Zukunftswettervergleichen bleibt die Bewertungsvorgabe separat dokumentiert.
+
+**Mini-Workflow:** Standort und Wetterjahr festhalten → Stundenreihenfolge und Vollständigkeit prüfen → im vorgesehenen Wetterbereich übernehmen → Rechenlauf prüfen. Verwende dasselbe Wetter, wenn du allein eine Anlagenmaßnahme untersuchst.
+
+## PV-Erzeugung
+
+Stündliche PV-Eingaben ermöglichen die Zuordnung zu Verbrauch, Speicher und Netz. Ein spezifisches Profil und die absolute Erzeugung einer installierten Anlage sind unterschiedliche Größen.
+
+**Mini-Workflow:** Quelle, Ausrichtung und installierte Leistung dokumentieren → Einheit und Skalierung prüfen → Stundenbezug mit Wetter und Lasten abgleichen → importieren → Jahressumme und Tagesgang kontrollieren. Die Schulung beschreibt 8760 Stunden; abweichende Kalender nicht stillschweigend kürzen.
+
+## Bauteile und LCA
+
+Die Schulung nennt **baubook / Eco2Soft** als Zugang für Bauteildaten. Ordne Konstruktionen zuerst den [Bauteiltypen](components.qmd) zu. Prüfe, ob ein Wert spezifisch oder bereits mit der Menge multipliziert ist; halte Datensatz, Bezugsgröße und Bilanzumfang fest.
+
+**Mini-Workflow:** Konstruktion und Quelle auswählen → Kategorie, Menge und Einheit abgleichen → Werte in vorgesehene Felder übernehmen → Summen kontrollieren → [THG-Systemgrenze](climate.qmd) prüfen.
+
+## Excel ↔ Python
+
+`Project.from_excel` lädt gespeicherte Exporte. Schema und Exportversion müssen zueinander passen. Jahresergebnisse und Stundenexporte sind unterschiedliche Datenquellen. Das [Python-Tutorial](python.qmd) verwendet bestehende Import- und Reportingfunktionen.
+
+[Schulung, Folie 31](downloads/schulung.pdf) · [Handbuch mit Bedienung und Feldzuordnung](downloads/handbuch.pdf)

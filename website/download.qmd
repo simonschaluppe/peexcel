@@ -1,0 +1,29 @@
+---
+title: "📥 Tool und Unterlagen"
+---
+
+## Excel-Werkzeug
+
+Diese Einordnung entspricht dem im Repository dokumentierten Stand. Prüfe die Versionshinweise und den [Changelog](https://github.com/simonschaluppe/peexcel/blob/master/CHANGELOG.md).
+
+| Stand | Einsatz | Download |
+|---|---|---|
+| [v1.12.7 · Stable](https://github.com/simonschaluppe/peexcel/releases/tag/v1.12.7) | Reguläre Anwendung und Tests | [Excel-Datei](https://github.com/simonschaluppe/peexcel/raw/refs/heads/master/excel/tool/ka_PEQ_Nachweistool.xlsb) |
+| v1.13.x · Development | Neue Funktionen und laufende Anpassungen | [Entwicklungsdatei](https://github.com/simonschaluppe/peexcel/raw/refs/heads/master/excel/development/ka_PEQ_Nachweistool_dev.xlsb) |
+
+**Voraussetzung:** Microsoft Excel / Office 365 mit aktivierten Makros. Die Arbeitsmappe lokal speichern und bei Bedarf in den Windows-Dateieigenschaften entsperren. Die verlinkten Arbeitsdateien folgen dem Repository-Stand; für den bezeichneten Release auch dessen Versionsseite prüfen.
+
+[🚀 Schritt für Schritt starten](start.qmd)
+
+## Nachschlagen und vertiefen
+
+| Unterlage | Verwendung |
+|---|---|
+| [Handbuch zur Nachweisführung](downloads/handbuch.pdf) | Bedienung, Quick-Start und Nachweisablauf |
+| [Schulung 14.10.2026](downloads/schulung.pdf) · [PowerPoint](downloads/schulung.pptx) | Modell, Bilanzierung und Toolfunktionen; Grundlage der Web-Lernmodule |
+| [klimaaktiv Broschüre](downloads/broschuere.pdf) | Standard und Qualitätsstufen |
+| [Plus-Energie-Standard im Überblick](downloads/standard.pdf) | Einordnung des Standards |
+| [Definition und Operationalisierung · Juni 2023](downloads/hintergrund.pdf) | Methodischer Hintergrundbericht |
+| [Frühere Tool-Dokumentation](downloads/tool-dokumentation.pdf) | Ergänzende Dokumentation; Versionsbezug beachten |
+
+Die [Lernwege](learn.qmd) erschließen diese Inhalte thematisch. Für verbindliche Werte und Nachweise immer die zum Toolstand gehörenden Vorgaben verwenden.

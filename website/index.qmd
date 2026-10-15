@@ -1,0 +1,40 @@
+---
+title: "Quartiere mit Zukunft gestalten"
+toc: false
+title-block-style: none
+sidebar: false
+page-layout: full
+---
+
+<div class="hero"><div><div class="eyebrow">PEExcel · Plus-Energie-Quartiere</div><h1>Vom Quartiersentwurf zur nachvollziehbaren Bewertung.</h1><p class="lead">Erkunde Gebäude, erneuerbare Energie und Mobilität. Vergleiche Varianten und bereite die klimaaktiv-Deklaration vor.</p><div class="actions"><a href="start.html">🚀 Erstes Quartier modellieren</a><a class="secondary" href="envelope.html">Lehrschnitt ausprobieren</a></div></div><img src="https://github.com/simonschaluppe/peexcel/assets/22156735/2856e7d9-54d9-4ea9-a894-1128f435c139" alt="PEExcel – Plus-Energie-Quartiere"></div>
+
+Für **professionelle Kompetenzpartner:innen**, Planende, Konsulent:innen, Forschende und Studierende: PEExcel verbindet Excel mit stündlicher Simulation, nachvollziehbaren Bewertungsmethoden und einer Python-Schnittstelle. Entwickelt von der Forschungsgruppe [Climate-fit Buildings and Districts](https://www.technikum-wien.at/forschungsschwerpunkt-renewable-energy-systems/) an der FH Technikum Wien.
+
+## Ein Quartier, mehrere Perspektiven
+
+<div class="feature-grid">
+<div class="feature"><span class="icon" aria-hidden="true">🏙️</span><h3>Modellieren</h3><p>Gebäude, Nutzungen und Bauteile zusammenführen. <a href="model.html">Das Modell verstehen →</a></p></div>
+<div class="feature"><span class="icon" aria-hidden="true">🌞</span><h3>Energie verknüpfen</h3><p>Wärme, Kälte, PV, Speicher und Netzinteraktion stündlich betrachten. <a href="systems.html">Versorgung erkunden →</a></p></div>
+<div class="feature"><span class="icon" aria-hidden="true">☁️</span><h3>Wirkung bewerten</h3><p>Energiebilanz, Mobilität und Lebenszyklus gemeinsam beurteilen. <a href="results.html">Ergebnisse lesen →</a></p></div>
+</div>
+
+## Drei Stufen des Plus-Energie-Standards
+
+1. **Plus-Energie-Quartier:** Betriebsenergie der Gebäude und quartiersbezogene Versorgung.
+2. **Plus-Energie-Quartier mit Mobilität:** zusätzlich Energiebedarf des motorisierten Individualverkehrs.
+3. **Klimaneutrales Plus-Energie-Quartier:** zusätzlich Lebenszyklus-Treibhausgasemissionen, insbesondere graue Emissionen der Gebäude.
+
+![Die drei Bewertungsstufen im Überblick](illustrations/peq-stufen.png){.full-figure}
+
+[Standard und Hintergrund](research.qmd) · [Was zählt für die Deklaration?](declaration.qmd)
+
+## Lernen durch Ausprobieren
+
+Im [interaktiven Gebäudeschnitt](envelope.qmd) kannst du Bauteile auswählen, die thermische Hülle einblenden und Wärmeflüsse vergleichen. Die [Grafikgalerie](examples.qmd) zeigt interaktive Darstellungen mit ausdrücklich synthetischen Daten. Echte neue Projektvarianten und Stundenverläufe folgen separat.
+
+[📚 Lernweg wählen](learn.qmd) · [📥 Excel herunterladen](download.qmd) · [🐍 Mit Python arbeiten](python.qmd)
+
+::: {.callout-note}
+## Modellieren und deklarieren
+Eigene Annahmen sind modellierbar. Für eine klimaaktiv-Deklaration sind die **Deklarationswerte und Bewertungsregeln** der jeweiligen Version verbindlich. PV-LCA ist modellierbar, wird aber in der ka-Bewertungsmethode nicht berücksichtigt.
+:::

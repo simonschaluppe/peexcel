@@ -1,0 +1,36 @@
+---
+title: "💬 Kontakt, Projekt und Nutzung"
+---
+
+PEExcel wurde von der Forschungsgruppe **[Climate-fit Buildings and Districts](https://www.technikum-wien.at/forschungsschwerpunkt-renewable-energy-systems/)** an der [FH Technikum Wien](https://www.technikum-wien.at/) im Rahmen der Entwicklung des klimaaktiv Qualitätsstandards für Plus-Energie-Quartiere erarbeitet.
+
+## Kontakt und Austausch
+
+**Simon Schneider · FH Technikum Wien**  
+Forschungsgruppe Climate-fit Buildings and Districts
+
+Technische Fragen, Fehlerberichte und Verbesserungsvorschläge bitte über [GitHub Issues](https://github.com/simonschaluppe/peexcel/issues) einbringen. Für fachliche Fragen zur klimaaktiv-Deklaration nutze die offiziellen Kontaktstellen in der Dokumentation und die Informationsangebote des klimaaktiv Programms.
+
+## 📩 Newsletter
+
+Informationen zu Tool-Updates, Veranstaltungen, Schulungen und Weiterentwicklungen der Deklaration bietet der **klimaaktiv PEQ Kompetenzpartner Newsletter**.
+
+[Zum Newsletter anmelden](https://flow.cleverreach.com/fl/e24548f3-b4ae-4851-a0c2-bff4d05092ef/)
+
+## Repository und Mitarbeit
+
+| Bereich | Inhalt |
+|---|---|
+| `excel/tool`, `excel/development` | Stable- und Entwicklungsdateien |
+| `src/pexl` | Import, Export, Validierung, Analyse und Visualisierung |
+| `notebooks` | Ausführbare How-tos, Analyse und Validierung |
+| `data/schemas`, `data/examples` | Schemata und Beispiel-/Testdaten |
+| `docs` | Berichte, Präsentationen und Entwicklungsdokumentation |
+| `website` | Diese Quarto-Anwenderdokumentation |
+| `tests`, `pyproject.toml` | Prüfungen und Python-Projektkonfiguration |
+
+[Repository](https://github.com/simonschaluppe/peexcel) · [Changelog](https://github.com/simonschaluppe/peexcel/blob/master/CHANGELOG.md) · [Projektleitlinien](https://github.com/simonschaluppe/peexcel/blob/master/AGENTS.md)
+
+## 📄 Lizenz und Nutzung
+
+Bitte beachte die im Repository angeführten Lizenz- und Nutzungshinweise. Bei Verwendung des Tools in Projekten, Publikationen oder Lehrveranstaltungen wird um entsprechende Quellenangabe gebeten.

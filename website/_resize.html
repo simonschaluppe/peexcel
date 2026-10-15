@@ -1,0 +1,16 @@
+<script>
+document.querySelectorAll('iframe[data-fit]').forEach(frame=>{
+  function bind(){
+    try{
+      const body=frame.contentDocument?.body;
+      if(!body)return;
+      const fit=()=>{frame.style.height=(Math.ceil(body.getBoundingClientRect().height)+16)+'px';};
+      fit();
+      if(frame.teachingObserver)frame.teachingObserver.disconnect();
+      frame.teachingObserver=new ResizeObserver(fit);
+      frame.teachingObserver.observe(body);
+    }catch(e){/* Standalone cross-origin hosting keeps the scrollable fallback. */}
+  }
+  frame.addEventListener('load',bind);bind();
+});
+</script>

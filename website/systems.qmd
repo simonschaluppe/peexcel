@@ -1,0 +1,28 @@
+---
+title: "🌞 Energieversorgung und Flexibilität"
+---
+
+**Lernziel:** Quellen, Speicher und Verbraucher unterscheiden. Die Übersicht hebt Zusammenhänge hervor; sie berechnet keine Energieflüsse.
+
+<div class="flow-controls" aria-label="Energiepfad auswählen"><button data-path="direct" aria-pressed="true">🌞 Direkt nutzen</button><button data-path="storage" aria-pressed="false">🔋 Zeitlich verschieben</button><button data-path="grid" aria-pressed="false">↔ Netz austauschen</button></div>
+<div class="flow-model"><div id="source"><h3>Quellen</h3><p>PV · Netzbezug · weitere Versorgung</p></div><div id="storage"><h3>Speicher</h3><p>Elektrische und thermische Speicherung gemäß Anlagenkonfiguration</p></div><div id="demand"><h3>Verbraucher</h3><p>🔥 Wärme · ❄️ Kälte · 💧 Warmwasser · 💨 Lüftung · Nutzerstrom · 🚗 Laden</p></div></div>
+<p class="flow-note" id="flow-note" aria-live="polite">Quelle → Verbraucher: Zeitgleiche Erzeugung kann Bedarf unmittelbar decken.</p>
+<script>
+(()=>{const paths={direct:{ids:['source','demand'],text:'Quelle → Verbraucher: Zeitgleiche Erzeugung kann Bedarf unmittelbar decken. Umwandlungsanlagen und Hilfsenergie gehören zur gewählten Versorgung.'},storage:{ids:['source','storage','demand'],text:'Quelle → Speicher → Verbraucher: Laden und Entladen verschieben Energie zwischen Stunden. Kapazität, Leistung, Verluste und Regelung begrenzen die Verschiebung.'},grid:{ids:['source','demand'],text:'Netz ↔ Quartier: Restbedarf führt zu Bezug; Überschüsse können eingespeist werden. Eine positive Jahresbilanz bedeutet keine stündliche Autarkie.'}};function select(key){document.querySelectorAll('[data-path]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.path===key));document.querySelectorAll('.flow-model>div').forEach(n=>n.classList.toggle('active',paths[key].ids.includes(n.id)));document.getElementById('flow-note').textContent=paths[key].text;}document.querySelectorAll('[data-path]').forEach(b=>b.addEventListener('click',()=>select(b.dataset.path)));select('direct');})();
+</script>
+
+## Deckungsreihenfolge verstehen
+
+Quellen, Anlagen und Speicher werden entsprechend der im Tool eingestellten Regelung genutzt. Prüfe im konkreten Modell, welche Quelle einen Bedarf zuerst deckt und wie Restbedarf oder Überschüsse behandelt werden. Eine schematische Darstellung ersetzt diese Einstellungen nicht. Die [Schulung, Folien 9–10 und 15–16](downloads/schulung.pdf) zeigt System und Deckungslogik.
+
+## Wann hilft Flexibilität?
+
+Flexibilität verschiebt Verbrauch oder Einspeisung zeitlich. Ihr Nutzen hängt davon ab, **wann** Energie gebraucht wird und welche stündlichen Konversionsfaktoren gelten. Eigenverbrauch, Netzbezug und bewertete Bilanz sind getrennte Ergebnisgrößen. Faktoren können frei modelliert werden; für die Deklaration sind die **Deklarationswerte** verbindlich.
+
+Neue echte Stundenexporte werden später ergänzt. Die [vorhandenen synthetischen Grafiken](examples.qmd) erklären Darstellungsformen; sie belegen keine Flexibilitätswirkung eines realen Quartiers.
+
+**Aufgabe:** Eine Batterie erhöht den Eigenverbrauch. Muss jede Bewertungsgröße besser werden?
+
+<details><summary>Lösungshinweis</summary>Nein. Speicherverluste, Betriebsweise und zeitabhängige Bewertung sind mitzuberücksichtigen. Prüfe physische und bewertete Bilanz jeweils separat.</details>
+
+**Weiter:** [Bewertungsgrößen](results.qmd) · [PV- und Wetterdaten](interfaces.qmd).

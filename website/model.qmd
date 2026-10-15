@@ -1,0 +1,34 @@
+---
+title: "🏙️ Das Quartier modellieren"
+---
+
+PEExcel verbindet ein physisches Modell mit einer Bewertungsmethode. Zuerst legst du fest, **was zum Quartier gehört**, dann wie Energie bereitgestellt und genutzt wird, und schließlich unter welchen Regeln die Ergebnisse bewertet werden.
+
+## Eingaben → Simulation → Analyse
+
+| Schritt | Leitfrage | Einstieg |
+|---|---|---|
+| Gebäude und Nutzungen | Welche Flächen, Hüllqualitäten und Nutzungsprofile gehören zum Projekt? | [Thermische Hülle](envelope.qmd) |
+| Bauteile | Welche Konstruktionen und Mengen gehören zur Lebenszyklusbetrachtung? | [Bauteilzuordnung](components.qmd) |
+| Versorgung | Wie werden Wärme, Kälte und Strom bereitgestellt? | [Energieflüsse](systems.qmd) |
+| Standort und Mobilität | Welche Fahrten werden verursacht, welche Ladung findet vor Ort statt? | [Mobilität](mobility.qmd) |
+| Bewertung | Welche Faktoren, Systemgrenzen und Budgets gelten? | [Deklaration](declaration.qmd) |
+
+## Was die Simulation zusammenführt
+
+Das Tool betrachtet Raumwärme und -kälte, Warmwasser, Lüftung, Hilfsenergie und Nutzerstrom. PV, Eigenverbrauch, Einspeisung, Speicher und Flexibilitätsmaßnahmen verändern die stündlichen Flüsse. Eine Maßnahme kann mehrere Ergebnisgrößen gleichzeitig beeinflussen.
+
+Die thermische Modellierung unterscheidet eine **gekühlte und eine ungekühlte, thermisch entkoppelte Zone**. Ein schematischer Gebäudeschnitt zeigt eine räumliche Zuordnung. Er ist keine zusätzliche thermische Simulation und keine geometrische Nachweisplanung.
+
+## Varianten sinnvoll aufbauen
+
+Wähle zuerst eine dokumentierte Referenz. Verändere danach einzelne Maßnahmen oder ein klar beschriebenes Maßnahmenpaket. Vergleiche dieselbe Systemgrenze, Bezugsfläche, Zeitbasis und Bewertungsmethode. Speichere Herkunft, Toolversion und Rechenstand mit den Ergebnissen.
+
+::: {.callout-note}
+## Annahme oder Vorgabe?
+Eigene Nutzerstrom- und Wärmegewinnannahmen lassen sich modellieren. Für die Deklaration musst du die ausgewiesenen Deklarationswerte verwenden. Ein frei gerechnetes Szenario wird dadurch nicht automatisch zum deklarationsfähigen Nachweis.
+:::
+
+**Lernaufgabe:** Erstelle vor der ersten Eingabe eine Liste aus Projektannahmen, Datenquellen und Deklarationsvorgaben. Welche Eingaben stammen aus Planung, welche aus der Methode?
+
+[Schulung, Folien 7–16 und 30](downloads/schulung.pdf) · [Daten vorbereiten](interfaces.qmd)
