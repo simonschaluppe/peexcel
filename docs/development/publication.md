@@ -139,7 +139,7 @@ der Herleitung gegen die aktuelle Arbeitsmappe ist nicht Bestandteil des Prototy
 HTML bindet Plotly.js lokal in die Datei ein und benötigt beim Betrachten keinen
 Python-Server und kein CDN. Die Website bindet diese Dateien per iframe ein.
 
-Die Registry-Einträge `gwp_ee` und `district_gwp_ee` haben im aktiven Schema keine Serien. Das Beispiel verwendet deshalb `gwp_ee_detail`; die leeren Registry-Einträge bleiben unverändert.
+Die Website verwendet inzwischen den vervollständigten Report `gwp_ee` für bauliche und betriebliche THG-Beiträge. `gwp_ee_detail` bleibt die Detailansicht grauer Emissionen; `district_gwp_ee` bleibt unverändert leer. Der aktuelle Workflow mit realen Exporten ist in `howto_publication.ipynb` dokumentiert.
 
 ## Durchgeführte Abnahme
 

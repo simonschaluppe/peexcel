@@ -1,5 +1,5 @@
 ---
-title: "📝 Methodik und Forschung"
+title: "Methodik und Forschung"
 ---
 
 PEExcel kombiniert Gebäudebetrieb, stündlichen Import und Export, erneuerbare Erzeugung, standortbezogene Mobilität, graue Emissionen und Kontextfaktoren zu Dichte, Bestand und Flexibilität. Die Bausteine unterstützen Variantenvergleich, Qualitätssicherung und nachvollziehbare Planungsdeklarationen.

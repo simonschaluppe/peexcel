@@ -1,0 +1,17 @@
+examples:
+  - id: san-6g
+    file: data/exports/Bsp_San_6G.xlsx
+    scenario: Bsp_San_6G
+    label: Bsp San 6G
+  - id: san-6g-pv
+    file: data/exports/Bsp_San_6G_pv.xlsx
+    scenario: Bsp_San_6G_pv
+    label: Bsp San 6G · PV
+  - id: san-6g-flex
+    file: data/exports/Bsp_San_6G_flex.xlsx
+    scenario: Bsp_San_6G_flex
+    label: Bsp San 6G · Flex
+dynamic_example:
+  file: data/exports/Aspern PVCheck _ F7.xlsx
+  scenario: Aspern PVCheck _ F7
+  label: Aspern F7

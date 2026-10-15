@@ -1,5 +1,5 @@
 ---
-title: "✓ Modellierung und Deklaration"
+title: "Modellierung und Deklaration"
 ---
 
 **Deklarationswerte sind verbindliche Vorgaben für die Deklaration, keine technischen Grenzen des Modells.** PEExcel kann abweichende Annahmen rechnen. Kennzeichne, ob eine Variante explorativ modelliert oder für einen klimaaktiv-Nachweis vorbereitet wurde.
@@ -13,7 +13,7 @@ title: "✓ Modellierung und Deklaration"
 | Nutzerstrom | Abweichende Annahmen modellierbar | Vorgeschriebene Deklarationswerte verwenden |
 | Innere Wärmegewinne | Abweichende Annahmen modellierbar | Vorgeschriebene Deklarationswerte verwenden |
 
-Diese Beispiele erläutern das allgemeine Prinzip. Konkrete Werte und Eingabefelder entnimmst du dem **verwendeten Toolstand** und seinen Unterlagen; diese Seite führt keine zweite Wertetabelle.
+Diese Beispiele erläutern das allgemeine Prinzip. Konkrete Werte und Eingabefelder sind im **verwendeten Toolstand** und seinen Unterlagen dokumentiert; diese Seite führt keine zweite Wertetabelle.
 
 ## Nachweis vorbereiten
 

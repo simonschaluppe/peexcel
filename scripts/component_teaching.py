@@ -27,7 +27,7 @@ def categories():
 
 
 def cellar_svg():
-    s = Scenario("Lehrmodell: zwei beheizte Geschosse, unbeheizter Keller")
+    s = Scenario("Referenzmodell: zwei beheizte Geschosse, unbeheizter Keller")
     s.v.NFA_residential, s.v.NFA_other, s.v.NFA_total = 600, 300, 900
     s.v.building_count, s.v.storey_count_avg, s.v.PV_is_used = 1, 2, False
     layout = {"layout_version": 1, "buildings": [{"id": "A",
@@ -88,16 +88,16 @@ def build_catalog(output):
 TEMPLATE = '''<!doctype html><html lang="de"><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1"><title>Bauteile und Keller</title>
 <style>*{box-sizing:border-box}body{margin:0;padding:24px;color:#243746;font:17px/1.6 system-ui;background:#f4f7f5}main{max-width:980px;margin:auto}h1{font-size:28px;line-height:1.25}select{font:inherit;max-width:100%;padding:12px;width:100%;background:white;border:1px solid #58776d;border-radius:6px}.canvas{overflow:auto;background:white;border-radius:12px;margin:20px 0}svg{display:block;width:100%;min-width:420px;max-height:440px}#detail{border-left:4px solid #176c5c;padding:14px;background:white;min-height:110px}[data-category]{cursor:pointer}[data-category]:focus-visible,select:focus-visible{outline:3px solid #cb901a}input{width:18px;height:18px}small{display:block}summary{cursor:pointer;font-weight:600}li{margin:7px 0}@media(max-width:500px){body{padding:16px}}@media print{select{display:none}}</style>
-<main><h1>Bauteile über und unter der Erde</h1><p>Lehrannahme: zwei beheizte Geschosse, gleicher Grundriss, vollständig erdberührter unbeheizter Keller. Keine Projektdaten. Die gestrichelte Hülle endet an der Kellerdecke.</p>
+<main><h1>Bauteile über und unter der Erde</h1><p>Modellannahme: zwei beheizte Geschosse, gleicher Grundriss, vollständig erdberührter unbeheizter Keller. Keine Projektdaten. Die gestrichelte Hülle endet an der Kellerdecke.</p>
 <label for="category">Bauteilkategorie auswählen</label><select id="category"><!--OPTIONS--></select>
 <div class="canvas" tabindex="0" role="region" aria-label="Schnitt, horizontal verschiebbar"><!--SVG--></div>
 <label><input id="boundary-visible" type="checkbox" checked> Thermische Hülle anzeigen</label>
 <p id="detail" aria-live="polite"></p>
 <details><summary>Alle Kategorien und ihre Zuordnung</summary><ul id="catalog"></ul></details>
 <p>Die 20 Kategorien stammen aus dem Schema 1.13.1_dev. Rahmen und Glas sind weitere Schemafelder; im Schnitt werden Fenster nur als Ganzes dargestellt. Die Originalgrafik auf der Bauteilseite zeigt weitere Situationen.</p>
-<small>Farbliche Hervorhebung = Auswahl, gestrichelte Linie = thermische Bilanzgrenze. Unbeheizt ist eine ausdrückliche Lehrannahme und wird nicht aus der Nutzung „other“ abgeleitet. Konstruktionsstärken sind schematisch.</small></main>
+<small>Farbliche Hervorhebung = Auswahl, gestrichelte Linie = thermische Bilanzgrenze. Unbeheizt ist eine ausdrückliche Modellannahme und wird nicht aus der Nutzung „other“ abgeleitet. Konstruktionsstärken sind schematisch.</small></main>
 <script>const names=/*NAMES*/{};const select=document.querySelector('#category');
 const descriptions={COMP_name_wall:'Außenwand der beheizten Geschosse gegen Außenluft.',COMP_name_windows:'Fenster als Ganzes, ohne getrennte Rahmen-/Glasgeometrie.',COMP_name_roof_flat:'Flachdach über beheiztem Geschoss.',COMP_name_ceiling:'Innere Geschoßdecke zwischen beheizten Räumen; keine äußere thermische Grenze.',COMP_name_basement_ceiling:'Kellerdecke zwischen beheiztem Erdgeschoss und unbeheiztem Keller: Teil der thermischen Grenze.',COMP_name_wall_ec_unheated:'Erdberührte Kellerwand; hier außerhalb der beheizten Hülle.',COMP_name_basement_floor_unheated:'Erdberührter Fußboden des unbeheizten Kellers; nicht die untere Grenze der beheizten Zone.'};
-function draw(){const key=select.value;document.querySelectorAll('[data-category]').forEach(n=>{const on=n.dataset.category===key;n.setAttribute('fill',on?'#167c72':n.dataset.category==='COMP_name_windows'?'#d5edf1':'#697983');n.setAttribute('stroke',on?'#082f34':'none');n.setAttribute('stroke-width',on?'3':'0');n.setAttribute('aria-pressed',on);});document.querySelector('#detail').textContent=names[key]+': '+(descriptions[key]||'Nicht im Schnitt dargestellt. Für diese Kategorie enthält die Lehrgeometrie kein eindeutig zugeordnetes Element. Keine Ersatzzuordnung.');}
+function draw(){const key=select.value;document.querySelectorAll('[data-category]').forEach(n=>{const on=n.dataset.category===key;n.setAttribute('fill',on?'#167c72':n.dataset.category==='COMP_name_windows'?'#d5edf1':'#697983');n.setAttribute('stroke',on?'#082f34':'none');n.setAttribute('stroke-width',on?'3':'0');n.setAttribute('aria-pressed',on);});document.querySelector('#detail').textContent=names[key]+': '+(descriptions[key]||'Nicht im Schnitt dargestellt. Für diese Kategorie enthält die Referenzgeometrie kein eindeutig zugeordnetes Element. Keine Ersatzzuordnung.');}
 select.addEventListener('change',draw);document.querySelectorAll('[data-category]').forEach(n=>{function pick(){select.value=n.dataset.category;draw();}n.addEventListener('click',pick);n.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();pick();}});});document.querySelector('#boundary-visible').addEventListener('change',e=>document.querySelector('#boundary').setAttribute('display',e.target.checked?'inline':'none'));
 for(const [key,label] of Object.entries(names)){const li=document.createElement('li');li.textContent=label+' – '+(descriptions[key]||'Nicht im Schnitt dargestellt; Zuordnung am tatsächlichen Bauteil prüfen.');document.querySelector('#catalog').appendChild(li);}draw();</script></html>'''

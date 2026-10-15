@@ -1,42 +1,39 @@
 ---
-title: "📚 Deinen Lernweg wählen"
+title: "Dokumentation und Arbeitsabläufe"
 ---
 
-Du kannst direkt mit Excel anfangen oder zuerst die Zusammenhänge erkunden. Beide Wege führen zu denselben fachlichen Kapiteln und Nachweisunterlagen.
+Technische Dokumentation zur Modellierung, Ergebnisanalyse und Vorbereitung der klimaaktiv-Deklaration. Die Arbeitsabläufe richten sich an Energie-, Gebäude- und HKLS-Fachplaner:innen sowie an Anwender:innen in Forschung und Hochschullehre.
 
-## Für Studierende: verstehen und ausprobieren
+## Modellaufbau und Datengrundlagen
 
-1. [Quartiersmodell verstehen](model.qmd): Systemgrenze und Eingaben ordnen.
-2. [Thermische Hülle erkunden](envelope.qmd): Bauteile, Hülle und Wärmeflüsse vergleichen.
-3. [Energieversorgung durchspielen](systems.qmd): direkte Nutzung, Speicherung und Netzinteraktion.
-4. [Erstes Quartier bearbeiten](start.qmd): eine dokumentierte Änderung simulieren.
-5. [Ergebnisse erklären](results.qmd): physische und bewertete Größen auseinanderhalten.
+1. [Projektstruktur und Systemgrenze](model.qmd) festlegen.
+2. [Eingangsdaten und Schnittstellen](interfaces.qmd) prüfen.
+3. [Thermische Bilanzgrenze](envelope.qmd) und [Bauteilzuordnung](components.qmd) dokumentieren.
+4. [Energieversorgung und Betriebsführung](systems.qmd) parametrisieren.
+5. [Berechnung und Variantenverwaltung](start.qmd) durchführen.
 
-Die Kapitel enthalten Aufgaben und aufklappbare Lösungshinweise. Als Abschluss dokumentierst du Referenz und veränderte Variante mit Quellen, Annahmen und Interpretation.
+## Ergebnisanalyse und Nachweisvorbereitung
 
-## Für Kompetenzpartner:innen: zum belastbaren Nachweis
+- [Wärme-, Endenergie-, Primärenergie- und THG-Bilanz](examples.qmd) im Variantenvergleich.
+- [Aspern F7: elektrische Flussprofile](systems.qmd#aspern-f7) mit saisonalen Tagesprofilen und chronologischen Stundenwerten.
+- [Mobilitätsbilanz](mobility.qmd) und [Lebenszyklusbetrachtung](climate.qmd).
+- [Deklarationswerte, AUDIT und Nachweisunterlagen](declaration.qmd).
 
-1. [Version und Unterlagen wählen](download.qmd).
-2. [Daten und Schnittstellen prüfen](interfaces.qmd).
-3. [Bauteilzuordnung](components.qmd), [Mobilitätsgrenze](mobility.qmd) und [LCA-Systemgrenze](climate.qmd) nachvollziehen.
-4. [Deklarationswerte, AUDIT und Nachweisunterlagen prüfen](declaration.qmd).
-5. Varianten vergleichen und den Rechenstand dokumentieren.
+## Reproduzierbare Auswertungen
 
-## Reproduzierbar mit Python
+Die [Python-Dokumentation](python.qmd) enthält ausführbare Notebooks für Import, Auswertung, Visualisierung und Publikation. Website und Notebooks verwenden dieselben Implementierungsfunktionen.
 
-Die [Python-Seite](python.qmd) bettet ausführbare How-tos als lesbare Tutorials ein. Du kannst die Notebooks herunterladen und lokal mit denselben Implementierungsfunktionen ausführen.
+## Referenzunterlagen
 
-## Schulung als Nachschlagewerk
-
-| Thema | Folien | Webkapitel |
+| Thema | Folien der Schulungsunterlage | Technisches Kapitel |
 |---|---|---|
-| Einordnung und Einstieg | 1–8 | [Start](start.qmd), [Modell](model.qmd) |
-| Energie- und Wärmeflüsse | 9–12, 15–16 | [Versorgung](systems.qmd), [Hülle](envelope.qmd) |
-| Bauteile | 13–14 | [Zuordnung](components.qmd) |
+| Einordnung und Modellstruktur | 1–8 | [Projektmodell](model.qmd) |
+| Energie- und Wärmeflüsse | 9–12, 15–16 | [Versorgung](systems.qmd), [Thermische Hülle](envelope.qmd) |
+| Bauteile | 13–14 | [Bauteilzuordnung](components.qmd) |
 | Mobilität | 17–20 | [Mobilität](mobility.qmd) |
-| Flexibilität | 21 | [Versorgung](systems.qmd); echte Stundenbeispiele folgen |
+| Flexibilität | 21 | [Versorgung](systems.qmd) |
 | THG und Klimaziele | 22–23 | [Lebenszyklus](climate.qmd) |
-| Toolbedienung und Schnittstellen | 24–35 | [Schnellstart](start.qmd), [Schnittstellen](interfaces.qmd), [Deklaration](declaration.qmd) |
+| Bedienung und Schnittstellen | 24–35 | [Arbeitsablauf](start.qmd), [Schnittstellen](interfaces.qmd), [Deklaration](declaration.qmd) |
 | Kontakt | 36 | [Kontakt](about.qmd) |
 
-[Gesamte Schulung](downloads/schulung.pdf) · [Glossar](glossary.qmd)
+[Schulungsunterlage als PDF](downloads/schulung.pdf) · [Begriffe](glossary.qmd)

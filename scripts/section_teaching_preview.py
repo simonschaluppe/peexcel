@@ -16,7 +16,7 @@ ET.register_namespace("", NS)
 
 
 def teaching_svg():
-    scenario = Scenario("Lehrschnitt – vollständig beheizt, ohne Keller")
+    scenario = Scenario("Schematischer Schnitt – vollständig beheizt, ohne Keller")
     scenario.v.NFA_residential = scenario.v.NFA_total = 600
     scenario.v.building_count = 1
     scenario.v.storey_count_avg = 2
@@ -27,7 +27,7 @@ def teaching_svg():
         "viewBox": "0 100 640 340", "role": "img",
         "aria-labelledby": "section-title section-desc",
     })
-    ET.SubElement(svg, f"{{{NS}}}title", id="section-title").text = "Schematischer Lehrschnitt"
+    ET.SubElement(svg, f"{{{NS}}}title", id="section-title").text = "Schematischer Schematischer Schnitt"
     ET.SubElement(svg, f"{{{NS}}}desc", id="section-desc").text = (
         "Zwei beheizte Geschosse ohne Keller. Geometrie aus dem bestehenden Section-Renderer. "
         "Wärmeflussrichtungen sind qualitative Beispiele, keine Simulation."
@@ -59,7 +59,7 @@ def teaching_svg():
         ("solar", "Solare Gewinne", "Qₛ", "#ad7300", (42, 220, 155, 220), (48, 205), "both"),
         ("transmission", "Transmission", "Qₜ", "#a62a65", (490, 210, 600, 210), (527, 195), "both"),
         ("ventilation", "Lüftung", "Qᵥ", "#197c88", (490, 286, 600, 286), (527, 271), "both"),
-        ("internal", "Innere Gewinne", "Qᵢ", "#7e458b", (320, 304, 320, 260), (335, 289), "both"),
+        ("internal", "Interne Wärmegewinne", "Qᵢ", "#7e458b", (320, 304, 320, 260), (335, 289), "both"),
         ("heating", "Heizung", "Qₕ", "#c03c26", (230, 392, 230, 305), (245, 386), "both"),
         ("cooling", "Kühlung", "Q꜀", "#1769b0", (420, 305, 420, 392), (435, 386), "cooled"),
         ("night", "Nachtlüftung", "Qₙᵥ", "#485a95", (155, 290, 42, 290), (48, 275), "uncooled"),
@@ -114,9 +114,9 @@ svg{width:100%;height:auto;display:block}.canvas{overflow-x:auto}.hint{font-size
 @media(max-width:760px){main{padding:20px 12px}h1{font-size:27px}.layout{grid-template-columns:1fr}.card{padding:16px}.canvas svg{min-width:590px}.canvas{border-bottom:1px solid #dce4e8}.result{min-height:0}table{font-size:15px}thead{display:none}tbody,tr,td{display:block}tr{padding:8px 0;border-bottom:1px solid #dce4e8}td{padding:5px 0;border:0}td:first-child{font-weight:700}td:nth-child(2)::before{content:"Modellierung: ";font-weight:600}td:nth-child(3)::before{content:"Deklaration: ";font-weight:600}.hint{font-size:15px}}
 @media print{body{background:white}.toolbar,aside,.rules{display:none}.layout{display:block}.card{border:0}.canvas svg{min-width:0}.hint{font-size:12px}}
 </style>
-<main><div class="eyebrow">PEExcel · BAUPHYSIK VERSTEHEN</div>
-<h1>Was gehört zur thermischen Hülle?</h1>
-<p class="intro">Erkunde Bauteile, Wärmebilanzgrenze und Wärmeflüsse am selben Schnitt. Das Lehrmodell zeigt zwei vollständig beheizte Geschosse ohne Keller. Es ist kein GNICE-Projektergebnis.</p>
+<main><div class="eyebrow">PEExcel · THERMISCHE MODELLGRENZEN</div>
+<h1>Thermische Bilanzgrenze und Wärmeflüsse</h1>
+<p class="intro">Bauteilzuordnung, Wärmebilanzgrenze und qualitative Wärmeflüsse am schematischen Gebäudeschnitt. Das Referenzmodell zeigt zwei vollständig beheizte Geschosse ohne Keller. Die Geometrie ist schematisch und nicht aus einem Projekt abgeleitet.</p>
 <div class="toolbar" aria-label="Darstellung">
 <button data-mode="components" aria-pressed="true">1 · Bauteile</button>
 <button data-mode="hull" aria-pressed="false">2 · Thermische Hülle</button>
@@ -126,7 +126,7 @@ svg{width:100%;height:auto;display:block}.canvas{overflow-x:auto}.hint{font-size
 <div class="legend" id="legend"></div>
 <p class="hint">Schematische Geometrie aus dem bestehenden Section-Renderer. Auf schmalen Displays ist der Schnitt horizontal verschiebbar; Beschriftungen bleiben lesbar.</p>
 <div class="notice" id="context">Bauteilfarben sind eine fachliche Ebene über dem neutralen Lehrstil.</div></section>
-<aside class="card"><h2>Selbst erkunden</h2>
+<aside class="card"><h2>Darstellungsoptionen</h2>
 <div id="component-controls" class="component-list">
 <button data-pick="wall">Außenwand</button><button data-pick="window">Fenster</button>
 <button data-pick="roof">Dach</button><button data-pick="ground">Bodenplatte, beheizt</button>
@@ -136,20 +136,20 @@ svg{width:100%;height:auto;display:block}.canvas{overflow-x:auto}.hint{font-size
 <label><input id="flow-visible" type="checkbox" checked> Wärmeflüsse zeigen</label>
 <div id="individual-flows"></div><p class="hint">Beide Modellzonen sind thermisch entkoppelt. Der Wechsel zeigt jede Zone einzeln; zwischen ihnen wird kein Wärmeaustausch gezeichnet.</p></div>
 <label><input id="show-hull" type="checkbox"> Thermische Hülle markieren</label>
-<p class="result" id="detail" aria-live="polite">Wähle einen Bauteiltyp. Eine innere Geschoßdecke gehört hier zur Konstruktion, aber nicht zur äußeren Wärmebilanzgrenze.</p>
+<p class="result" id="detail" aria-live="polite">Bauteiltyp für die Detailzuordnung auswählen. Eine innere Geschoßdecke gehört hier zur Konstruktion, aber nicht zur äußeren Wärmebilanzgrenze.</p>
 </aside></div>
 <section class="card rules"><h2>Modellieren und deklarieren</h2>
 <p>Das Tool erlaubt freie Modellierung. Für eine klimaaktiv-Deklaration sind die jeweils ausgewiesenen Deklarationswerte und Bewertungsregeln einzuhalten.</p>
 <table><thead><tr><th>Beispiel</th><th>Freie Modellierung</th><th>klimaaktiv-Deklaration</th></tr></thead><tbody>
 <tr><td>PV-LCA</td><td>Kann im Modell berücksichtigt werden.</td><td>Wird in der Bewertungsmethode nicht berücksichtigt.</td></tr>
-<tr><td>Konversionsfaktoren, Nutzerstrom, innere Wärmegewinne</td><td>Eigene Annahmen sind modellierbar.</td><td>Die vorgegebenen Deklarationswerte der jeweiligen Version sind zu verwenden.</td></tr></tbody></table>
+<tr><td>Konversionsfaktoren, Nutzerstrom, interne Wärmegewinne</td><td>Eigene Annahmen sind modellierbar.</td><td>Die vorgegebenen Deklarationswerte der jeweiligen Version sind zu verwenden.</td></tr></tbody></table>
 <p class="hint">Fachliche Einordnung nach Vorgabe des Toolautors. Diese Vorschau prüft keine Deklarationskonformität und enthält keine berechneten Wärmeflusswerte.</p></section></main>
 <script>
 const colors={wall:'#ce699d',window:'#39849b',roof:'#548d4c',ground:'#825f3d',floor:'#52665b'};
 const labels={wall:'Außenwand',window:'Fenster',roof:'Dach',ground:'Bodenplatte',floor:'Innere Decke'};
-const details={wall:'Außenwand: trennt den beheizten Innenraum von der Außenluft.',window:'Fenster: Teil der thermischen Hülle; solare Gewinne und Transmission getrennt betrachten.',roof:'Dach: obere Begrenzung des beheizten Lehrgebäudes.',ground:'Bodenplatte: untere Wärmebilanzgrenze dieses Lehrmodells ohne Keller.',floor:'Innere Geschoßdecke: zwischen beheizten Geschossen; hier kein Teil der äußeren thermischen Hülle.'};
+const details={wall:'Außenwand: trennt den beheizten Innenraum von der Außenluft.',window:'Fenster: Teil der thermischen Hülle; solare Gewinne und Transmission getrennt betrachten.',roof:'Dach: obere Begrenzung des beheizten Referenzgebäudes.',ground:'Bodenplatte: untere Wärmebilanzgrenze dieses Referenzmodells ohne Keller.',floor:'Innere Geschoßdecke: zwischen beheizten Geschossen; hier kein Teil der äußeren thermischen Hülle.'};
 let mode='components';let selected=null;
-const flowNames={solar:'Solare Gewinne',internal:'Innere Gewinne',transmission:'Transmission',ventilation:'Lüftung',heating:'Heizung',cooling:'Kühlung',night:'Nachtlüftung'};
+const flowNames={solar:'Solare Gewinne',internal:'Interne Wärmegewinne',transmission:'Transmission',ventilation:'Lüftung',heating:'Heizung',cooling:'Kühlung',night:'Nachtlüftung'};
 for(const [key,label] of Object.entries(flowNames)){const row=document.createElement('label');row.dataset.flowControl=key;const box=document.createElement('input');box.type='checkbox';box.checked=true;box.dataset.toggleFlow=key;row.append(box,document.createTextNode(' '+label));document.querySelector('#individual-flows').appendChild(row);}
 
 function draw(){
@@ -163,8 +163,8 @@ document.querySelectorAll('[data-flow]').forEach(g=>g.setAttribute('display',mod
 document.querySelector('#component-controls').hidden=mode==='flows';document.querySelector('#flow-controls').hidden=mode!=='flows';
 document.querySelector('#mode-title').textContent={components:'Bauteile zuordnen',hull:'Die Wärmebilanzgrenze erkennen',flows:'Wärmeflüsse · '+(zone==='cooled'?'mit aktiver Kühlung':'ohne aktive Kühlung')}[mode];
 document.querySelector('#context').textContent=mode==='flows'?'Qualitative Richtungen: Wärmegewinne nach innen, Wärmeabfuhr nach außen. Die gezeigte Transmission ist ein Verlustfall; reale Vorzeichen sind zeitabhängig. Pfeildicken kodieren keine Leistung.':mode==='hull'?'Die gestrichelte Linie umschließt beide beheizten Geschosse. Die innere Geschoßdecke liegt innerhalb der Bilanzgrenze.':'Bauteilfarben sind eine fachliche Ebene über dem neutralen Lehrstil.';
-document.querySelector('#legend').innerHTML=mode==='hull'?'<span>Gestrichelt: thermische Hülle</span><span>Innere Decke: innerhalb der Bilanzgrenze</span>':mode==='flows'?['Qₛ Solare Gewinne','Qₜ Transmission','Qᵥ Lüftung','Qᵢ Innere Gewinne','Qₕ Heizung',zone==='cooled'?'Q꜀ Kühlung':'Qₙᵥ Nachtlüftung'].map(x=>'<span>'+x+'</span>').join(''):Object.keys(labels).map(k=>'<span style="border-left:5px solid '+colors[k]+';padding-left:6px">'+labels[k]+'</span>').join('');
-document.querySelector('#detail').textContent=mode==='flows'?'Heizung ist in beiden Zonen möglich. Aktive Kühlung wird nur in der gekühlten Zone, Nachtlüftung hier nur in der ungekühlten Zone gezeigt.':selected?details[selected]:'Wähle einen Bauteiltyp. Die innere Decke liegt innerhalb der Wärmebilanzgrenze.';
+document.querySelector('#legend').innerHTML=mode==='hull'?'<span>Gestrichelt: thermische Hülle</span><span>Innere Decke: innerhalb der Bilanzgrenze</span>':mode==='flows'?['Qₛ Solare Gewinne','Qₜ Transmission','Qᵥ Lüftung','Qᵢ Interne Wärmegewinne','Qₕ Heizung',zone==='cooled'?'Q꜀ Kühlung':'Qₙᵥ Nachtlüftung'].map(x=>'<span>'+x+'</span>').join(''):Object.keys(labels).map(k=>'<span style="border-left:5px solid '+colors[k]+';padding-left:6px">'+labels[k]+'</span>').join('');
+document.querySelector('#detail').textContent=mode==='flows'?'Heizung ist in beiden Zonen möglich. Aktive Kühlung wird nur in der gekühlten Zone, Nachtlüftung hier nur in der ungekühlten Zone gezeigt.':selected?details[selected]:'Bauteiltyp für die Detailzuordnung auswählen. Die innere Decke liegt innerhalb der Wärmebilanzgrenze.';
 }
 document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.mode;selected=null;document.querySelector('#show-hull').checked=mode==='hull';draw();}));
 document.querySelectorAll('[data-pick]').forEach(b=>b.addEventListener('click',()=>{selected=b.dataset.pick;draw();}));
@@ -180,7 +180,7 @@ const clone=document.querySelector('.canvas svg').cloneNode(true),ns='http://www
 clone.setAttribute('xmlns',ns);clone.setAttribute('viewBox','0 70 640 510');clone.setAttribute('width','1280');clone.setAttribute('height','1020');
 const bg=document.createElementNS(ns,'rect');for(const [k,v] of Object.entries({x:0,y:70,width:640,height:510,fill:'white'}))bg.setAttribute(k,v);clone.insertBefore(bg,clone.firstChild);
 clone.querySelectorAll('.selected').forEach(n=>{n.setAttribute('stroke','#142d3d');n.setAttribute('stroke-width','4');});
-const lines=[document.querySelector('#mode-title').textContent,...Array.from(document.querySelectorAll('#legend span')).map(n=>n.textContent),'Lehrmodell: 2 beheizte Geschosse, kein Keller. Keine Simulation.', 'Qualitative Wärmeflüsse; Pfeildicken sind keine Leistungen.'];
+const lines=[document.querySelector('#mode-title').textContent,...Array.from(document.querySelectorAll('#legend span')).map(n=>n.textContent),'Referenzmodell: 2 beheizte Geschosse, kein Keller. Keine Simulation.', 'Qualitative Wärmeflüsse; Pfeildicken sind keine Leistungen.'];
 let y=432;lines.forEach((line,i)=>{const t=document.createElementNS(ns,'text');t.setAttribute('x','20');t.setAttribute('y',i===0?'95':String(y));t.setAttribute('font-size',i===0?'18':'12');t.setAttribute('font-family','sans-serif');t.setAttribute('fill','#243746');t.textContent=line;clone.appendChild(t);if(i>0)y+=16;});
 const blob=new Blob([new XMLSerializer().serializeToString(clone)],{type:'image/svg+xml'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='peexcel-lehrschnitt.svg';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
 });draw();

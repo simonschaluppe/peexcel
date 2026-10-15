@@ -10,7 +10,7 @@ Leseengine erforderlich; `.xlsb` benötigt beispielsweise `pyxlsb`.
 ## Ausführbare Tutorials
 
 Die Einbettungen zeigen den Notebook-Inhalt ohne gespeicherte Ausgaben.
-Lade das Original herunter und öffne es im geklonten Repository; dort sind auch
+Die heruntergeladenen Notebooks werden im geklonten Repository ausgeführt; dort sind auch
 die verwendeten Implementierungsfunktionen und Quelldaten verfügbar.
 
 <details><summary>Excel-Projekt importieren und analysieren</summary>
@@ -23,12 +23,12 @@ die verwendeten Implementierungsfunktionen und Quelldaten verfügbar.
 <p><a href="downloads/howto_publication.ipynb">Notebook herunterladen</a></p>
 </details>
 
-<details><summary>Interaktive Lehrschnitte erzeugen</summary>
-<iframe class="notebook" src="tutorials/howto_section_teaching_preview.html" title="How-to: Lehrschnitte" loading="lazy"></iframe>
+<details><summary>Interaktive schematische Schnitte erzeugen</summary>
+<iframe class="notebook" src="tutorials/howto_section_teaching_preview.html" title="How-to: Schematischer Schnitte" loading="lazy"></iframe>
 <p><a href="downloads/howto_section_teaching_preview.ipynb">Notebook herunterladen</a></p>
 </details>
 
-<details><summary>Website und Lehrmaterialien lokal bauen</summary>
+<details><summary>Website und Dokumentation lokal bauen</summary>
 <iframe class="notebook" src="tutorials/howto_website.html" title="How-to: Website bauen" loading="lazy"></iframe>
 <p><a href="downloads/howto_website.ipynb">Notebook herunterladen</a></p>
 </details>

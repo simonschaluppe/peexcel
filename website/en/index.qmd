@@ -1,12 +1,12 @@
 ---
-title: "Explore positive energy districts"
+title: "Positive energy district assessment"
 lang: en
 toc: false
 title-block-style: none
 sidebar: false
 ---
 
-<div class="hero"><div><div class="eyebrow">PEExcel · Positive Energy Districts</div><h1>Turn district designs into transparent assessments.</h1><p class="lead">Explore buildings, renewable energy and mobility together. Compare scenarios and prepare a klimaaktiv declaration.</p><div class="actions"><a href="../start.html">Get started · German</a><a class="secondary" href="../envelope.html">Explore the section diagram</a></div></div><img src="https://github.com/simonschaluppe/peexcel/assets/22156735/2856e7d9-54d9-4ea9-a894-1128f435c139" alt="PEExcel"></div>
+<div class="hero"><div><div class="eyebrow">PEExcel · Positive Energy Districts</div><h1>Turn district designs into transparent assessments.</h1><p class="lead">Hourly simulation and comparative assessment of buildings, energy supply and mobility for the klimaaktiv declaration.</p><div class="actions"><a href="../start.html">Get started · German</a><a class="secondary" href="../envelope.html">Building section</a></div></div><img src="https://github.com/simonschaluppe/peexcel/assets/22156735/2856e7d9-54d9-4ea9-a894-1128f435c139" alt="PEExcel"></div>
 
 PEExcel is an Excel-based modelling and assessment tool developed by the **Climate-fit Buildings and Districts** research group at [FH Technikum Wien](https://www.technikum-wien.at/). It supports professional competency partners, designers, consultants, researchers and students.
 
@@ -23,12 +23,12 @@ The klimaaktiv framework distinguishes a Positive Energy District, a Positive En
 
 ![Three levels of the standard; diagram in German](../illustrations/peq-stufen.png)
 
-**The tool interface, documentation and tutorials are in German.** This English page provides an overview; these links lead to German learning material:
+**The tool interface, documentation and tutorials are in German.** This English page provides an overview; these links lead to German technical documentation:
 
-[Download](../download.qmd) · [Learning paths](../learn.qmd) · [Research](../research.qmd) · [Contact](../about.qmd)
+[Download](../download.qmd) · [Technical documentation](../learn.qmd) · [Research](../research.qmd) · [Contact](../about.qmd)
 
 ## Modelling and declaration
 
 The model permits alternative assumptions. A klimaaktiv declaration must use the specified declaration values and assessment rules. PV life-cycle emissions can be modelled but are excluded from the klimaaktiv assessment method. The distinction between modelling freedom and mandatory declaration inputs also applies to hourly conversion factors, plug loads and internal heat gains.
 
-The [section lesson](../envelope.qmd) illustrates geometry and qualitative heat flows. The [chart gallery](../examples.qmd) uses labelled synthetic data; it is not a real project declaration.
+The [building section](../envelope.qmd) illustrates model boundaries and qualitative heat flows. The [three refurbishment variants](../examples.qmd) provide annual heat, final-energy, primary-energy and GHG comparisons. [Aspern F7](../systems.qmd#aspern-f7) provides a separate hourly electrical-flow example; export completeness is explicitly stated.

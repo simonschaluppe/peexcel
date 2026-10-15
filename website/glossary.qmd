@@ -2,7 +2,7 @@
 title: "Begriffe nachschlagen"
 ---
 
-| Begriff | Bedeutung im Lernangebot |
+| Begriff | Bedeutung im Modell |
 |---|---|
 | PEQ | Plus-Energie-Quartier; Bewertung mit definierter Systemgrenze und Qualitätsstufe |
 | Variante / Szenario | Dokumentierter Satz von Annahmen und zugehörigen Ergebnissen |

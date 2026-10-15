@@ -67,10 +67,5 @@ def build(output=None):
 
 if __name__ == "__main__":
     build()
-    # Existing synthetic examples are unchanged. Bootstrap only absent outputs
-    # so a clean checkout can render the pre-existing gallery as before.
-    expected = ("primary_energy_balance", "gwp_ee_detail", "electricity", "density", "mobility")
-    if not all((ROOT / "website/assets" / f"{name}.{fmt}").exists()
-               for name in expected for fmt in ("html", "svg", "png")):
-        from publication_example import build as build_existing_examples
-        build_existing_examples(ROOT / "website/assets")
+    from website_examples import build as build_examples
+    build_examples()

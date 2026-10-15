@@ -1,5 +1,5 @@
 ---
-title: "🧱 Bauteile richtig zuordnen"
+title: "Bauteile richtig zuordnen"
 page-layout: full
 sidebar: false
 toc: false
@@ -9,9 +9,9 @@ Bauteilzuordnung verbindet Geometrie, Mengen und Lebenszyklusbilanz. **Eine geom
 
 ## Vom Schnitt zur Kategorie
 
-Der zweite Lehrschnitt hat zwei beheizte Obergeschosse und einen ausdrücklich **unbeheizten Keller**. Schalte zwischen Kategorien um. Die Liste benennt auch Kategorien, die in dieser Geometrie nicht vorkommen; diese werden nicht auf andere Bauteile umgedeutet.
+Der zweite schematische Schnitt hat zwei beheizte Obergeschosse und einen ausdrücklich **unbeheizten Keller**. Die Auswahl ermöglicht den Wechsel zwischen Kategorien. Die Liste benennt auch Kategorien, die in dieser Geometrie nicht vorkommen; diese werden nicht auf andere Bauteile umgedeutet.
 
-<iframe class="peq-lesson" data-fit src="assets/components/index.html" title="Bauteilkatalog und Lehrschnitt mit unbeheiztem Keller"></iframe>
+<iframe class="peq-lesson" data-fit src="assets/components/index.html" title="Bauteilkatalog und Schematischer Schnitt mit unbeheiztem Keller"></iframe>
 
 [Bauteilkatalog separat öffnen](assets/components/index.html)
 
@@ -19,18 +19,16 @@ Der zweite Lehrschnitt hat zwei beheizte Obergeschosse und einen ausdrücklich *
 
 [![Bauteiltypen: Zuordnung im Gebäudeschnitt](media/components.png){.full-figure}](media/components.png)
 
-Die Originalgrafik ergänzt die reduzierten Lehrschnitte um weitere Situationen. Vergrößern durch Anklicken. Quelle: `docs/ComponentTypes.png`; siehe auch [Schulung, Folien 13–14](downloads/schulung.pdf).
+Die Originalgrafik ergänzt die reduzierten Schematischer Schnitte um weitere Situationen. Vergrößern durch Anklicken. Quelle: `docs/ComponentTypes.png`; siehe auch [Schulung, Folien 13–14](downloads/schulung.pdf).
 
-## So gehst du bei einem Projekt vor
+## Vorgehen bei der Projektbearbeitung
 
-1. Ordne Flächen und Bauteile anhand der tatsächlichen Konstruktion zu.
-2. Unterscheide Außenluft, Erdreich, beheizte und unbeheizte Nachbarräume.
-3. Prüfe Mengen und Einheiten vor dem Import von LCA-Kennwerten.
-4. Dokumentiere nicht dargestellte Elemente, etwa Balkone, Stützen oder Fensterrahmen, separat.
-5. Kontrolliere die übernommenen Bauteilwerte und die Bewertungsgrenze.
+1. Flächen und Bauteile anhand der tatsächlichen Konstruktion zuordnen.
+2. Außenluft, Erdreich, beheizte und unbeheizte Nachbarräume unterscheiden.
+3. Mengen und Einheiten vor dem Import von LCA-Kennwerten prüfen.
+4. Nicht dargestellte Elemente, etwa Balkone, Stützen oder Fensterrahmen, separat dokumentieren.
+5. Übernommene Bauteilwerte und Bewertungsgrenze kontrollieren.
 
-**Aufgabe:** Warum wird die Kellerdecke anders zugeordnet als eine Geschoßdecke zwischen beheizten Räumen?
+<details><summary>Fachliche Einordnung</summary>Die Kellerdecke trennt im zweiten Referenzmodell beheizt von unbeheizt und gehört zur Wärmebilanzgrenze. Die innere Geschoßdecke ist ebenfalls ein bilanziertes Konstruktionsbauteil, bildet dort aber keine äußere thermische Grenze. Thermische und Lebenszyklusbilanz betrachten unterschiedliche Eigenschaften desselben Bauteils.</details>
 
-<details><summary>Lösungshinweis</summary>Die Kellerdecke trennt im zweiten Lehrmodell beheizt von unbeheizt und gehört zur Wärmebilanzgrenze. Die innere Geschoßdecke ist ebenfalls ein bilanziertes Konstruktionsbauteil, bildet dort aber keine äußere thermische Grenze. Thermische und Lebenszyklusbilanz betrachten unterschiedliche Eigenschaften desselben Bauteils.</details>
-
-**Weiter:** [LCA-Daten übernehmen](interfaces.qmd#bauteile-und-lca) · [Graue Emissionen bewerten](climate.qmd).
+**Vertiefung:** [LCA-Daten übernehmen](interfaces.qmd#bauteile-und-lca) · [Graue Emissionen bewerten](climate.qmd).

@@ -1,8 +1,8 @@
 ---
-title: "🚗 Mobilität: Laden und Verantwortung"
+title: "Mobilität: Laden und Verantwortung"
 ---
 
-**Lernziel:** Physische Ladeflüsse von der verursacherbezogenen Bewertung unterscheiden. Beide sind relevant, beantworten aber verschiedene Fragen.
+**Gegenstand:** Physische Ladeflüsse von der verursacherbezogenen Bewertung unterscheiden. Beide sind relevant, beantworten aber verschiedene Fragen.
 
 ## Wo wird tatsächlich geladen?
 
@@ -18,10 +18,8 @@ Quelle: `docs/mobilität.png`; [Schulung, Folien 17–20](downloads/schulung.pdf
 
 ## Vergleich mit klarer Fragestellung
 
-Vergleiche ein verändertes Mobilitätskonzept bei unverändertem Gebäudemodell. Halte Standortannahmen, Fahrleistung, Verkehrsmittel und Ladekonzept fest. Lies Mobilitätsbewertung und physische Strombilanz getrennt.
+Ein Mobilitätskonzept kann bei unverändertem Gebäudemodell untersucht werden. Standortannahmen, Fahrleistung, Verkehrsmittel und Ladekonzept sind festzuhalten. Mobilitätsbewertung und physische Strombilanz werden getrennt ausgewertet.
 
-**Aufgabe:** Ein Fahrzeug lädt außerhalb des Quartiers. Verschwindet seine verursachte Mobilität aus der Bewertung?
-
-<details><summary>Lösungshinweis</summary>Der Ladeort allein entscheidet nicht über die verursacherbezogene Zuordnung. Physische Ladebilanz und Bewertungsbilanz haben unterschiedliche Systemgrenzen. Prüfe die im Tool dokumentierte Zuordnung.</details>
+<details><summary>Fachliche Einordnung</summary>Der Ladeort allein entscheidet nicht über die verursacherbezogene Zuordnung. Physische Ladebilanz und Bewertungsbilanz haben unterschiedliche Systemgrenzen. Maßgeblich ist die im Tool dokumentierte Zuordnung.</details>
 
 [Bewertungsübersicht](results.qmd) · [Publikationen zur E-Mobilität](research.qmd)

@@ -1,5 +1,5 @@
 ---
-title: "💬 Kontakt, Projekt und Nutzung"
+title: "Kontakt, Projekt und Nutzung"
 ---
 
 PEExcel wurde von der Forschungsgruppe **[Climate-fit Buildings and Districts](https://www.technikum-wien.at/forschungsschwerpunkt-renewable-energy-systems/)** an der [FH Technikum Wien](https://www.technikum-wien.at/) im Rahmen der Entwicklung des klimaaktiv Qualitätsstandards für Plus-Energie-Quartiere erarbeitet.
@@ -9,7 +9,7 @@ PEExcel wurde von der Forschungsgruppe **[Climate-fit Buildings and Districts](h
 **Simon Schneider · FH Technikum Wien**  
 Forschungsgruppe Climate-fit Buildings and Districts
 
-Technische Fragen, Fehlerberichte und Verbesserungsvorschläge bitte über [GitHub Issues](https://github.com/simonschaluppe/peexcel/issues) einbringen. Für fachliche Fragen zur klimaaktiv-Deklaration nutze die offiziellen Kontaktstellen in der Dokumentation und die Informationsangebote des klimaaktiv Programms.
+Technische Fragen, Fehlerberichte und Verbesserungsvorschläge bitte über [GitHub Issues](https://github.com/simonschaluppe/peexcel/issues) einbringen. Für fachliche Fragen zur klimaaktiv-Deklaration stehen die offiziellen Kontaktstellen in der Dokumentation und die Informationsangebote des klimaaktiv Programms zur Verfügung.
 
 ## 📩 Newsletter
 
@@ -33,4 +33,4 @@ Informationen zu Tool-Updates, Veranstaltungen, Schulungen und Weiterentwicklung
 
 ## 📄 Lizenz und Nutzung
 
-Bitte beachte die im Repository angeführten Lizenz- und Nutzungshinweise. Bei Verwendung des Tools in Projekten, Publikationen oder Lehrveranstaltungen wird um entsprechende Quellenangabe gebeten.
+Es gelten die im Repository angeführten Lizenz- und Nutzungshinweise. Bei Verwendung des Tools in Projekten, Publikationen oder Lehrveranstaltungen wird um entsprechende Quellenangabe gebeten.

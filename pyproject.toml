@@ -20,6 +20,7 @@ publication = [
   "nbformat",
   "nbclient",
   "nbconvert>=7,<8",
+  "PyYAML>=6,<7",
   "ipykernel",
 ]
 dev = [

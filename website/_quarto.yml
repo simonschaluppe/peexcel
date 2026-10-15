@@ -17,11 +17,11 @@ website:
   search: true
   navbar:
     left:
-      - {href: index.qmd, text: Entdecken}
-      - {href: start.qmd, text: Loslegen}
+      - {href: index.qmd, text: Übersicht}
+      - {href: start.qmd, text: Anwendung}
       - {href: model.qmd, text: Modellieren}
       - {href: results.qmd, text: Bewerten}
-      - {href: learn.qmd, text: Lernen}
+      - {href: learn.qmd, text: Dokumentation}
     right:
       - {href: download.qmd, text: Download, icon: download}
       - {href: en/index.qmd, text: English}
@@ -29,13 +29,13 @@ website:
     style: docked
     collapse-level: 1
     contents:
-      - section: Loslegen
+      - section: Anwendung
         contents: [start.qmd, download.qmd]
       - section: Quartiere modellieren
         contents: [model.qmd, envelope.qmd, components.qmd, systems.qmd, interfaces.qmd]
       - section: Ergebnisse verstehen
         contents: [results.qmd, mobility.qmd, climate.qmd, declaration.qmd, examples.qmd, dashboard.qmd]
-      - section: Lernen und Nachschlagen
+      - section: Dokumentation und Referenzen
         contents: [learn.qmd, python.qmd, glossary.qmd, research.qmd, about.qmd]
   page-footer:
     left: "PEExcel · FH Technikum Wien · klimaaktiv Plus-Energie-Quartiere"

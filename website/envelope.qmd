@@ -1,15 +1,15 @@
 ---
-title: "🔥 Thermische Hülle und Wärmeflüsse"
+title: "Thermische Hülle und Wärmeflüsse"
 page-layout: full
 sidebar: false
 toc: false
 ---
 
-**Lernziel:** Konstruktion, thermische Bilanzgrenze und Wärmeflüsse auseinanderhalten. Wähle unten zuerst ein Bauteil, dann die Hülle und zuletzt eine Modellzone mit ihren Wärmeflüssen.
+**Gegenstand:** Konstruktion, thermische Bilanzgrenze und Wärmeflüsse auseinanderhalten. Bauteilzuordnung, Bilanzgrenze und qualitative Wärmeflüsse sind separat schaltbar.
 
-<iframe class="peq-lesson" data-fit src="assets/teaching/index.html" title="Interaktive Lehrgrafik: Bauteile, Hülle und Wärmeflüsse"></iframe>
+<iframe class="peq-lesson" data-fit src="assets/teaching/index.html" title="Interaktive Schnittdarstellung: Bauteile, Hülle und Wärmeflüsse"></iframe>
 
-[Lehrgrafik separat öffnen](assets/teaching/index.html) · [Ausführbares Notebook](downloads/howto_section_teaching_preview.ipynb)
+[Schnittdarstellung separat öffnen](assets/teaching/index.html) · [Ausführbares Notebook](downloads/howto_section_teaching_preview.ipynb)
 
 ## Stil und Fachebenen
 
@@ -17,19 +17,19 @@ Der Stil **teaching** reduziert Umgebung und Dekoration und erhält die Geometri
 
 ## Zwei thermisch entkoppelte Modellzonen
 
-Der Umschalter zeigt gekühlt und ungekühlt einzeln; die beiden Geschosse stellen **nicht** diese beiden Modellzonen dar. Heizung ist in beiden Zonen möglich, aktive Kühlung nur in der gekühlten Zone und Nachtlüftung im dargestellten Lehrmodell nur in der ungekühlten Zone.
+Der Umschalter zeigt gekühlt und ungekühlt einzeln; die beiden Geschosse stellen **nicht** diese beiden Modellzonen dar. Heizung ist in beiden Zonen möglich, aktive Kühlung nur in der gekühlten Zone und Nachtlüftung im dargestellten Referenzmodell nur in der ungekühlten Zone.
 
-Solare Gewinne kommen durch Fenster, innere Gewinne entstehen im Raum. Transmission und Lüftung werden als beispielhafte Wärmeabfuhr gezeigt; ihre tatsächliche Richtung hängt vom Zustand ab. Die Pfeile sind **qualitativ**, ihre Dicke kodiert keine Leistung.
+Solare Gewinne kommen durch Fenster, interne Wärmegewinne entstehen im Raum. Transmission und Lüftung werden als beispielhafte Wärmeabfuhr gezeigt; ihre tatsächliche Richtung hängt vom Zustand ab. Die Pfeile sind **qualitativ**, ihre Dicke kodiert keine Leistung.
 
-## Aufgabe: Ist jede Decke Teil der Hülle?
+## Abgrenzung innerer Decken
 
-Aktiviere die thermische Hülle und wähle die innere Geschoßdecke.
+Die thermische Hülle und die Bauteilauswahl verdeutlichen unterschiedliche Bilanzgrenzen.
 
-<details><summary>Lösung und Transfer</summary>Die innere Decke liegt zwischen zwei beheizten Geschossen und damit innerhalb der Bilanzgrenze. Über einem unbeheizten Keller kann eine Decke dagegen zur thermischen Hülle gehören. Entscheidend ist die thermische Randbedingung, nicht allein der geometrische Typ „slab“. Die <a href="components.html">zweite Lehrgeometrie</a> zeigt diesen Unterschied.</details>
+<details><summary>Thermische Randbedingungen</summary>Die innere Decke liegt zwischen zwei beheizten Geschossen und damit innerhalb der Bilanzgrenze. Über einem unbeheizten Keller kann eine Decke dagegen zur thermischen Hülle gehören. Entscheidend ist die thermische Randbedingung, nicht allein der geometrische Typ „slab“. Die <a href="components.html">zweite Referenzgeometrie</a> zeigt diesen Unterschied.</details>
 
 ::: {.callout-note}
 ## Für die Deklaration
-Innere Gewinne und Nutzerstrom können frei modelliert werden. Für die Deklaration gelten die ausgewiesenen Deklarationswerte der verwendeten Toolversion.
+Interne Wärmegewinne und Nutzerstrom können frei modelliert werden. Für die Deklaration gelten die ausgewiesenen Deklarationswerte der verwendeten Toolversion.
 :::
 
-Quelle: [Schulung, Folien 11–14](downloads/schulung.pdf). Die Geometrie ist ein ausdrücklich angenommenes Lehrgebäude, kein Projektergebnis.
+Quelle: [Schulung, Folien 11–14](downloads/schulung.pdf). Die Geometrie ist ein ausdrücklich angenommenes Referenzgebäude, kein Projektergebnis.

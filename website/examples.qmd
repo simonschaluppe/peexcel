@@ -1,49 +1,60 @@
 ---
-title: "Ergebnisse und Methoden – synthetische Beispiele"
+title: "Variantenvergleich · Bsp San 6G"
+page-layout: full
+sidebar: false
+toc: true
 ---
 
-Alle Werte sind synthetisch. Die Grafiken demonstrieren Darstellung und Export, keine reale Deklaration. Jede Grafik enthält Quellen-, Versions- und Bilanzangaben.
+Die drei Exporte zeigen denselben Flächenbezug: **1.175,8 m² NGF** und **1.469,75 m² BGF**, Toolstand **1.13.1_dev**. Die Referenz enthält bereits PV. Die Varianten unterscheiden sich in den exportierten Flexibilitätseinstellungen, nicht in einer pauschalen Gegenüberstellung „ohne/mit PV“.
+
+| Export | Vorauswahl im Tool | PV-Flexibilität aktiv | Signalgesteuerte Flexibilität aktiv |
+|---|---|---|---|
+| `Bsp_San_6G` | Keine Flexibilität | Nein | Nein |
+| `Bsp_San_6G_pv` | Nur PV | Ja | Nein |
+| `Bsp_San_6G_flex` | PV + Signal | Nein | Ja |
+
+Die Vorauswahlbezeichnung und die tatsächlich exportierten Aktivierungsschalter sind getrennt angegeben. Maßgeblich für die Einordnung sind die gespeicherten Eingaben und Ergebnisse. [Abweichende IN-Werte als CSV](assets/results/input_differences.csv).
+
+## Wärmebilanz
+
+Transmissions- und Lüftungswärmeverluste, Nachtlüftung und Kühlbedarf stehen den solaren und internen Wärmegewinnen sowie dem Heizwärmebedarf gegenüber. Alle Beiträge sind Jahresenergien bezogen auf die NGF. Die Wärmebilanz schließt in allen drei Exporten innerhalb der numerischen Genauigkeit.
+
+<iframe class="pexl-chart" src="assets/results/heat_balance.html" title="Wärmebilanz der drei Varianten" loading="lazy"></iframe>
+
+[HTML](assets/results/heat_balance.html) · [SVG](assets/results/heat_balance.svg) · [PNG](assets/results/heat_balance.png) · [Ergebniswerte CSV](assets/results/heat_balance.csv)
+
+## Endenergiebilanz
+
+Die drei Varianten werden vollständig elektrisch versorgt; die exportierten Beiträge für Fernwärme, Erdgas, Biomasse und sonstige Energieträger sind null. Dargestellt ist die **elektrische Endenergie der lokalen Nutzung** einschließlich HKLS, Nutzerstrom, Speicherbeladung und EV-Ladung im Quartier.
+
+PV-Direktnutzung, flexible PV-Nutzung, konventioneller und signalgesteuerter Netzbezug sowie vorhandene Entladeflüsse bilden die Deckungsseite. Einspeisung und externe EV-Ladung gehören nicht zu dieser lokalen Nutzungsbilanz. Die korrigierte Zuordnung vermeidet deren Anrechnung als lokale Bedarfsdeckung; die Bilanz schließt für alle drei Varianten.
+
+<iframe class="pexl-chart" src="assets/results/final_energy_balance.html" title="Elektrische Endenergiebilanz der lokalen Nutzung" loading="lazy"></iframe>
+
+[HTML](assets/results/final_energy_balance.html) · [SVG](assets/results/final_energy_balance.svg) · [PNG](assets/results/final_energy_balance.png) · [Ergebniswerte CSV](assets/results/final_energy_balance.csv)
 
 ## Primärenergiebilanz
 
-Bedarf und Deckung erscheinen als positive Beträge in getrennten Säulen. Kontextfaktoren sind virtuelle Beiträge.
+Die Primärenergiebewertung berücksichtigt Bedarf, Substitutionsäquivalente und Kontextfaktoren. Die Differenz zwischen Deckungs- und Bedarfsseite ist ein **Bewertungsergebnis**, kein Fehler einer physisch geschlossenen Energiebilanz. Flexibilitätsbeiträge und Kontextfaktoren sind keine zusätzliche physische Energieerzeugung.
 
-<iframe class="pexl-chart" src="assets/primary_energy_balance.html" title="Primärenergiebilanz" loading="lazy"></iframe>
+<iframe class="pexl-chart" src="assets/results/primary_energy_balance.html" title="Primärenergiebilanz der drei Varianten" loading="lazy"></iframe>
 
-[Interaktives HTML](assets/primary_energy_balance.html) · [SVG](assets/primary_energy_balance.svg) · [PNG für Druck/PDF](assets/primary_energy_balance.png)
+[HTML](assets/results/primary_energy_balance.html) · [SVG](assets/results/primary_energy_balance.svg) · [PNG](assets/results/primary_energy_balance.png) · [Ergebniswerte CSV](assets/results/primary_energy_balance.csv)
 
-## THG und Budgetvarianten
+## THG-Bilanz
 
-Kumulierte Emissionen mit bestehenden L1/L2/L3-Bändern. 50 Jahre (2025–2075) sind weder nationales Zieljahr noch Dekarbonisierungspfad. Diese beiden Angaben sind hier nicht definiert.
+Die Darstellung umfasst die exportierten Lebenszyklusbeiträge **2025–2075**: Konstruktion, technische Anlagen und Fahrzeuge (EE) sowie Gebäudebetrieb und Mobilität (OE). Negative Beiträge, insbesondere Netzeinspeisung und die Mobilitätsabgrenzung, bleiben mit ihrem Vorzeichen erhalten. Die Raute bezeichnet die exportierte Gesamtbilanz; sie entspricht der Summe der dargestellten Komponenten.
 
-<iframe class="pexl-chart" src="assets/gwp_ee_detail.html" title="THG und Budgetvarianten" loading="lazy"></iframe>
+Bezugsgröße ist hier die **BGF**, nicht die NGF. GWP100 bezeichnet die Klimawirkungsbewertung und ist vom 50-jährigen Betrachtungszeitraum zu unterscheiden. Die vorhandenen L1–L3-Referenzbänder ersetzen keine Nachweisprüfung. PV-LCA ist modellierbar, wird in der ka-Methode nicht berücksichtigt und beträgt in diesen Exporten null.
 
-[Interaktives HTML](assets/gwp_ee_detail.html) · [SVG](assets/gwp_ee_detail.svg) · [PNG für Druck/PDF](assets/gwp_ee_detail.png)
+<iframe class="pexl-chart" src="assets/results/gwp_ee.html" title="Lebenszyklus-THG-Bilanz der drei Varianten" loading="lazy"></iframe>
 
-## Stromflüsse
+[HTML](assets/results/gwp_ee.html) · [SVG](assets/results/gwp_ee.svg) · [PNG](assets/results/gwp_ee.png) · [Ergebniswerte CSV](assets/results/gwp_ee.csv)
 
-Netzbezug positiv, Einspeisung negativ; synthetische Stundenwerte.
+## Ergebnisprüfung und Datenherkunft
 
-<iframe class="pexl-chart" src="assets/electricity.html" title="Stromflüsse" loading="lazy"></iframe>
+[Ergebnistabellen und Eingabevergleich](assets/results/tables.html) · [Numerische Bilanzprüfung CSV](assets/results/balance_checks.csv) · [Ausführbarer Python-Workflow](python.qmd)
 
-[Interaktives HTML](assets/electricity.html) · [SVG](assets/electricity.svg) · [PNG für Druck/PDF](assets/electricity.png)
+Die Auswertung verwendet gespeicherte Exportergebnisse; es erfolgt keine erneute Excel-Simulation. Quelldatei, Szenario, Version und Quellenprüfsumme sind in den Grafiken angegeben. Ein bestätigter Deklarationsstatus wird daraus nicht abgeleitet.
 
-## Dichtekontextfaktor
-
-GFZ als Eingang; historischer ZQ-Synergy-Parametersatz aus der bestehenden Implementierung. Zielwert und negative virtuelle Gut-/Lastschrift: kein realer Energiefluss.
-
-<iframe class="pexl-chart" src="assets/density.html" title="Dichtekontextfaktor" loading="lazy"></iframe>
-
-[Interaktives HTML](assets/density.html) · [SVG](assets/density.svg) · [PNG für Druck/PDF](assets/density.png)
-
-## Mobilitätsbudget
-
-70 % Wohnen und 30 % Büro. Budgeteingaben sind synthetisch, keine nationalen Referenzwerte. Nutzungen und Flächenanteile lassen sich im How-to-Notebook ändern. Budget, Bedarf und Bilanzbeitrag bleiben getrennt.
-
-<iframe class="pexl-chart" src="assets/mobility.html" title="Mobilitätsbudget" loading="lazy"></iframe>
-
-[Interaktives HTML](assets/mobility.html) · [SVG](assets/mobility.svg) · [PNG für Druck/PDF](assets/mobility.png)
-
-## Herkunft und methodische Grenzen
-
-Die [Methodendokumentation](https://github.com/simonschaluppe/peexcel/blob/master/docs/development/publication.md) beschreibt vorhandene Formeln, wissenschaftliche Quellen und fehlende Referenzangaben. Der [Python-Einstieg](python.qmd) führt zum ausführbaren Notebook.
+Die [zeitaufgelösten elektrischen Flussprofile](systems.qmd#aspern-f7) werden separat am Projekt **Aspern F7** dargestellt. Die Vollständigkeit der Stundenexporte der drei Sanierungsvarianten wird für eine spätere Erweiterung geprüft.

@@ -1,8 +1,8 @@
 ---
-title: "🏙️ Das Quartier modellieren"
+title: "Das Quartier modellieren"
 ---
 
-PEExcel verbindet ein physisches Modell mit einer Bewertungsmethode. Zuerst legst du fest, **was zum Quartier gehört**, dann wie Energie bereitgestellt und genutzt wird, und schließlich unter welchen Regeln die Ergebnisse bewertet werden.
+PEExcel verbindet ein physisches Modell mit einer Bewertungsmethode. Systemgrenze, Energieversorgung und Nutzung werden getrennt von den Regeln der Ergebnisbewertung festgelegt.
 
 ## Eingaben → Simulation → Analyse
 
@@ -22,13 +22,11 @@ Die thermische Modellierung unterscheidet eine **gekühlte und eine ungekühlte,
 
 ## Varianten sinnvoll aufbauen
 
-Wähle zuerst eine dokumentierte Referenz. Verändere danach einzelne Maßnahmen oder ein klar beschriebenes Maßnahmenpaket. Vergleiche dieselbe Systemgrenze, Bezugsfläche, Zeitbasis und Bewertungsmethode. Speichere Herkunft, Toolversion und Rechenstand mit den Ergebnissen.
+Ausgehend von einer dokumentierten Referenz werden einzelne Parameter oder Maßnahmenpakete variiert. Für den Vergleich müssen Systemgrenze, Bezugsfläche, Zeitbasis und Bewertungsmethode übereinstimmen. Herkunft, Toolversion und Rechenstand gehören zur Ergebnisdokumentation.
 
 ::: {.callout-note}
 ## Annahme oder Vorgabe?
-Eigene Nutzerstrom- und Wärmegewinnannahmen lassen sich modellieren. Für die Deklaration musst du die ausgewiesenen Deklarationswerte verwenden. Ein frei gerechnetes Szenario wird dadurch nicht automatisch zum deklarationsfähigen Nachweis.
+Eigene Nutzerstrom- und Wärmegewinnannahmen lassen sich modellieren. Für die Deklaration sind die ausgewiesenen Deklarationswerte verbindlich. Ein frei gerechnetes Szenario wird dadurch nicht automatisch zum deklarationsfähigen Nachweis.
 :::
-
-**Lernaufgabe:** Erstelle vor der ersten Eingabe eine Liste aus Projektannahmen, Datenquellen und Deklarationsvorgaben. Welche Eingaben stammen aus Planung, welche aus der Methode?
 
 [Schulung, Folien 7–16 und 30](downloads/schulung.pdf) · [Daten vorbereiten](interfaces.qmd)
