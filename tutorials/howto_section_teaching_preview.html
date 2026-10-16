@@ -1,0 +1,96 @@
+<!doctype html><html lang="de"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>howto_section_teaching_preview</title><style>body{font:16px/1.6 system-ui;color:#243746;max-width:900px;margin:auto;padding:24px}}pre{overflow:auto;background:#f1f5f4;padding:16px}img{max-width:100%}.anchor-link{display:none}</style><p>Lesefassung ohne gespeicherte Ausgaben. Für die Ausführung das Notebook herunterladen und im Repository öffnen.</p><div class="cell border-box-sizing text_cell rendered" id="cell-id=d99e488f"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Lehrschnitt:-Stil-und-fachliche-Overlays-pr%C3%BCfen">Lehrschnitt: Stil und fachliche Overlays prüfen<a class="anchor-link" href="#Lehrschnitt:-Stil-und-fachliche-Overlays-pr%C3%BCfen">¶</a></h1><p>Dieses ausführbare Lehrmodul verwendet die Geometrie des vorhandenen
+Section-Renderers. Er zeigt ein ausdrücklich angenommenes, vollständig beheiztes
+Gebäude mit zwei Geschossen ohne Keller; keine GNICE-Ergebnisse.</p>
+<p><strong>Stil:</strong> ruhige, neutrale Darstellung. <strong>Overlays:</strong> Bauteile, thermische Hülle,
+qualitative Wärmeflüsse. Die Zuordnung gilt nur für dieses Lehrmodell.
+Die zwei Geschosse sind keine zwei thermischen Modellzonen.</p>
+<p>Installation: <code>python -m pip install -e ".[publication]"</code>.
+Die vollständige Planung steht in <code>docs/development/website_implementation_plan.md</code>.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=a53aee2f">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="n">root</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">root</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">"notebooks"</span><span class="p">:</span>
+    <span class="n">root</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">parent</span>
+<span class="k">assert</span> <span class="p">(</span><span class="n">root</span> <span class="o">/</span> <span class="s2">"scripts/section_teaching_preview.py"</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">root</span> <span class="o">/</span> <span class="s2">"scripts"</span><span class="p">))</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">section_teaching_preview</span><span class="w"> </span><span class="kn">import</span> <span class="n">build_preview</span>
+<span class="n">path</span> <span class="o">=</span> <span class="n">build_preview</span><span class="p">(</span><span class="n">root</span> <span class="o">/</span> <span class="s2">"notebooks/local_exports/section_teaching"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=90f9cbc1">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTML</span><span class="p">,</span> <span class="n">display</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">html</span><span class="w"> </span><span class="kn">import</span> <span class="n">escape</span>
+<span class="c1"># Isolated iframe preserves the same HTML/JavaScript as the standalone preview.</span>
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s1">'&lt;iframe title="Lehrschnitt-Vorschau" style="width:100%;height:1000px;border:0" srcdoc="'</span> <span class="o">+</span> <span class="n">escape</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">),</span> <span class="n">quote</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'"&gt;&lt;/iframe&gt;'</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=686463d0"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Pr%C3%BCfablauf">Prüfablauf<a class="anchor-link" href="#Pr%C3%BCfablauf">¶</a></h2><ol>
+<li>In „Bauteile“ die innere Geschoßdecke auswählen: Sie liegt innerhalb der Hülle.</li>
+<li>„Thermische Hülle“ aktivieren: Die Kontur umschließt beide beheizten Geschosse.</li>
+<li>„Wärmeflüsse“ aktivieren: ungekühlt zeigt Nachtlüftung, aber keine aktive Kühlung.</li>
+<li>Auf „Mit aktiver Kühlung“ wechseln: Kühlung sichtbar, Nachtlüftung ausgeblendet.</li>
+<li>Wärmeflüsse ausblenden und Hülle separat zuschalten.</li>
+<li>Mit Tab und Eingabetaste bedienen; Desktop und schmale Browseransicht prüfen.</li>
+</ol>
+<p>Die Pfeilrichtungen sind qualitative Beispiele. Die Pfeildicke kodiert keine
+Leistung. Reale zeitabhängige Vorzeichen und Zahlen folgen erst mit den passenden
+Zeitreihen. Die SVG-Datei ist die neutrale statische Grundlage; der interaktiv gewählte Zustand lässt sich über „Ansicht als SVG speichern“ exportieren.</p>
+<h2 id="Modellieren-und-deklarieren">Modellieren und deklarieren<a class="anchor-link" href="#Modellieren-und-deklarieren">¶</a></h2><p>PV-LCA ist im Tool modellierbar, wird aber in der klimaaktiv-Bewertungsmethode
+nicht berücksichtigt. Ausgewiesene Deklarationswerte (z. B. Konversionsfaktoren,
+Nutzerstrom, innere Gewinne) sind für die Deklaration verbindlich, beschränken
+jedoch nicht die freie Modellierung. Diese Vorschau prüft keine Konformität.</p>
+<h2 id="Wiederverwenden">Wiederverwenden<a class="anchor-link" href="#Wiederverwenden">¶</a></h2><p>Standalone-HTML mit <code>python scripts/section_teaching_preview.py</code> erzeugen.
+Notebook und Vorschau teilen dieselbe Implementierung. Generierte Dateien liegen
+im ignorierten Verzeichnis <code>notebooks/local_exports/section_teaching/</code>.
+Der allgemeine Stil <code>teaching</code> ist über die bestehende Renderer-API verfügbar.
+Die fachlichen Overlays gehören zu diesen ausdrücklich definierten Lehrmodellen.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=16416316"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Lehrstil-und-zweiter-Schnitt">Lehrstil und zweiter Schnitt<a class="anchor-link" href="#Lehrstil-und-zweiter-Schnitt">¶</a></h2><p><code>render_svg(section, style="teaching")</code> erhält die vorhandene Geometrie und reduziert Umgebung, Nutzungsbeschriftungen, Anlagen und Annotationen. Die Fachebenen sind Teil dieser ausdrücklich definierten Lehrmodule, keine automatische Klassifikation beliebiger Projekte. Der Kellerfall verwendet dieselbe Renderer-API. Der interaktive Bauteilkatalog nutzt die vorhandenen Schemanamen. SVG-Export und Druck im ersten Modul halten den gewählten Zustand fest.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=0fdfdf21">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">component_teaching</span><span class="w"> </span><span class="kn">import</span> <span class="n">build_catalog</span><span class="p">,</span> <span class="n">categories</span>
+<span class="n">catalog</span> <span class="o">=</span> <span class="n">build_catalog</span><span class="p">(</span><span class="n">root</span> <span class="o">/</span> <span class="s2">"notebooks/local_exports/section_components"</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">categories</span><span class="p">())</span> <span class="o">==</span> <span class="mi">20</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">catalog</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</html>

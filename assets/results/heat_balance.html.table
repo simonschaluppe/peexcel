@@ -1,0 +1,46 @@
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Variant</th>
+      <th>Transmissionswärmeverl.</th>
+      <th>Lüftungswärmeverluste</th>
+      <th>Nachtlüftung</th>
+      <th>Kühlbedarf (KB)</th>
+      <th>Solare Gewinne</th>
+      <th>Interne Wärmegewinne</th>
+      <th>Heizwärmebedarf</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Bsp_San_6G</td>
+      <td>23.568</td>
+      <td>56.050</td>
+      <td>0</td>
+      <td>6.883</td>
+      <td>8.839</td>
+      <td>42.839</td>
+      <td>34.822</td>
+    </tr>
+    <tr>
+      <td>Bsp_San_6G_pv</td>
+      <td>23.934</td>
+      <td>56.921</td>
+      <td>0</td>
+      <td>6.897</td>
+      <td>8.839</td>
+      <td>42.839</td>
+      <td>36.074</td>
+    </tr>
+    <tr>
+      <td>Bsp_San_6G_flex</td>
+      <td>23.938</td>
+      <td>56.932</td>
+      <td>0</td>
+      <td>6.895</td>
+      <td>8.839</td>
+      <td>42.839</td>
+      <td>36.087</td>
+    </tr>
+  </tbody>
+</table>

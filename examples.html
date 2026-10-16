@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Variantenvergleich · Bsp San 6G – PEExcel</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-5761cafa55920ddedffa83b74af88b0b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken",
+    "search-label": "Suchen"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">PEExcel</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Suchen"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Navigation umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Übersicht</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./start.html"> 
+<span class="menu-text">Tool-Anwendung</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./model.html"> 
+<span class="menu-text">Modellieren</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./results.html"> 
+<span class="menu-text">Analysieren und Bewerten</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./learn.html"> 
+<span class="menu-text">Dokumentation</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./download.html"> <i class="bi bi-download" role="img">
+</i> 
+<span class="menu-text">Download</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./en/index.html"> 
+<span class="menu-text">English</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Auf dieser Seite</h2>
+   
+  <ul>
+  <li><a href="#wärmebilanz" id="toc-wärmebilanz" class="nav-link active" data-scroll-target="#wärmebilanz">Wärmebilanz</a></li>
+  <li><a href="#endenergiebilanz" id="toc-endenergiebilanz" class="nav-link" data-scroll-target="#endenergiebilanz">Endenergiebilanz</a></li>
+  <li><a href="#primärenergiebilanz" id="toc-primärenergiebilanz" class="nav-link" data-scroll-target="#primärenergiebilanz">Primärenergiebilanz</a></li>
+  <li><a href="#thg-bilanz" id="toc-thg-bilanz" class="nav-link" data-scroll-target="#thg-bilanz">THG-Bilanz</a></li>
+  <li><a href="#ergebnisprüfung-und-datenherkunft" id="toc-ergebnisprüfung-und-datenherkunft" class="nav-link" data-scroll-target="#ergebnisprüfung-und-datenherkunft">Ergebnisprüfung und Datenherkunft</a></li>
+  <li><a href="#aspern-f7" id="toc-aspern-f7" class="nav-link" data-scroll-target="#aspern-f7">Aspern F7: zeitaufgelöste elektrische Flüsse</a>
+  <ul class="collapse">
+  <li><a href="#saisonale-mittlere-tagesprofile" id="toc-saisonale-mittlere-tagesprofile" class="nav-link" data-scroll-target="#saisonale-mittlere-tagesprofile">Saisonale mittlere Tagesprofile</a></li>
+  <li><a href="#chronologische-stundenwerte" id="toc-chronologische-stundenwerte" class="nav-link" data-scroll-target="#chronologische-stundenwerte">Chronologische Stundenwerte</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content column-page-left" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./results.html">Analysieren und Bewerten</a></li><li class="breadcrumb-item"><a href="./examples.html">Variantenvergleich · Bsp San 6G</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Variantenvergleich · Bsp San 6G</h1>
+</div>
+
+
+
+<div class="quarto-title-meta column-page-left">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Die drei Exporte zeigen denselben Flächenbezug: <strong>1.175,8 m² NGF</strong> und <strong>1.469,75 m² BGF</strong>, Toolstand <strong>1.13.1_dev</strong>. Die Referenz enthält bereits PV. Die Varianten unterscheiden sich in den exportierten Flexibilitätseinstellungen, nicht in einer pauschalen Gegenüberstellung „ohne/mit PV“.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Export</th>
+<th>Vorauswahl im Tool</th>
+<th>PV-Flexibilität aktiv</th>
+<th>Signalgesteuerte Flexibilität aktiv</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Bsp_San_6G</code></td>
+<td>Keine Flexibilität</td>
+<td>Nein</td>
+<td>Nein</td>
+</tr>
+<tr class="even">
+<td><code>Bsp_San_6G_pv</code></td>
+<td>Nur PV</td>
+<td>Ja</td>
+<td>Nein</td>
+</tr>
+<tr class="odd">
+<td><code>Bsp_San_6G_flex</code></td>
+<td>PV + Signal</td>
+<td>Nein</td>
+<td>Ja</td>
+</tr>
+</tbody>
+</table>
+<p>Die Vorauswahlbezeichnung und die tatsächlich exportierten Aktivierungsschalter sind getrennt angegeben. Maßgeblich für die Einordnung sind die gespeicherten Eingaben und Ergebnisse. <a href="assets/results/input_differences.csv">Abweichende IN-Werte als CSV</a>.</p>
+<section id="wärmebilanz" class="level2">
+<h2 class="anchored" data-anchor-id="wärmebilanz">Wärmebilanz</h2>
+<p>Transmissions- und Lüftungswärmeverluste, Nachtlüftung und Kühlbedarf stehen den solaren und internen Wärmegewinnen sowie dem Heizwärmebedarf gegenüber. Alle Beiträge sind Jahresenergien bezogen auf die NGF. Die Wärmebilanz schließt in allen drei Exporten innerhalb der numerischen Genauigkeit.</p>
+<iframe class="pexl-chart" src="assets/results/heat_balance.html" title="Wärmebilanz der drei Varianten" loading="lazy">
+</iframe>
+<p><a href="assets/results/heat_balance.html">HTML</a> · <a href="assets/results/heat_balance.svg">SVG</a> · <a href="assets/results/heat_balance.png">PNG</a> · <a href="assets/results/heat_balance.csv">Ergebniswerte CSV</a></p>
+</section>
+<section id="endenergiebilanz" class="level2">
+<h2 class="anchored" data-anchor-id="endenergiebilanz">Endenergiebilanz</h2>
+<p>Die drei Varianten werden vollständig elektrisch versorgt; die exportierten Beiträge für Fernwärme, Erdgas, Biomasse und sonstige Energieträger sind null. Dargestellt ist die <strong>elektrische Endenergie der lokalen Nutzung</strong> einschließlich HKLS, Nutzerstrom, Speicherbeladung und EV-Ladung im Quartier.</p>
+<p>PV-Direktnutzung, flexible PV-Nutzung, konventioneller und signalgesteuerter Netzbezug sowie vorhandene Entladeflüsse bilden die Deckungsseite. Einspeisung und externe EV-Ladung gehören nicht zu dieser lokalen Nutzungsbilanz. Die korrigierte Zuordnung vermeidet deren Anrechnung als lokale Bedarfsdeckung; die Bilanz schließt für alle drei Varianten.</p>
+<iframe class="pexl-chart" src="assets/results/final_energy_balance.html" title="Elektrische Endenergiebilanz der lokalen Nutzung" loading="lazy">
+</iframe>
+<p><a href="assets/results/final_energy_balance.html">HTML</a> · <a href="assets/results/final_energy_balance.svg">SVG</a> · <a href="assets/results/final_energy_balance.png">PNG</a> · <a href="assets/results/final_energy_balance.csv">Ergebniswerte CSV</a></p>
+</section>
+<section id="primärenergiebilanz" class="level2">
+<h2 class="anchored" data-anchor-id="primärenergiebilanz">Primärenergiebilanz</h2>
+<p>Die Primärenergiebewertung berücksichtigt Bedarf, Substitutionsäquivalente und Kontextfaktoren. Die Differenz zwischen Deckungs- und Bedarfsseite ist ein <strong>Bewertungsergebnis</strong>, kein Fehler einer physisch geschlossenen Energiebilanz. Flexibilitätsbeiträge und Kontextfaktoren sind keine zusätzliche physische Energieerzeugung.</p>
+<iframe class="pexl-chart" src="assets/results/primary_energy_balance.html" title="Primärenergiebilanz der drei Varianten" loading="lazy">
+</iframe>
+<p><a href="assets/results/primary_energy_balance.html">HTML</a> · <a href="assets/results/primary_energy_balance.svg">SVG</a> · <a href="assets/results/primary_energy_balance.png">PNG</a> · <a href="assets/results/primary_energy_balance.csv">Ergebniswerte CSV</a></p>
+</section>
+<section id="thg-bilanz" class="level2">
+<h2 class="anchored" data-anchor-id="thg-bilanz">THG-Bilanz</h2>
+<p>Die Darstellung umfasst die exportierten Lebenszyklusbeiträge <strong>2025–2075</strong>: Konstruktion, technische Anlagen und Fahrzeuge (EE) sowie Gebäudebetrieb und Mobilität (OE). Negative Beiträge, insbesondere Netzeinspeisung und die Mobilitätsabgrenzung, bleiben mit ihrem Vorzeichen erhalten. Die Raute bezeichnet die exportierte Gesamtbilanz; sie entspricht der Summe der dargestellten Komponenten.</p>
+<p>Bezugsgröße ist hier die <strong>BGF</strong>, nicht die NGF. GWP100 bezeichnet die Klimawirkungsbewertung und ist vom 50-jährigen Betrachtungszeitraum zu unterscheiden. Die vorhandenen L1–L3-Referenzbänder ersetzen keine Nachweisprüfung. PV-LCA ist modellierbar, wird in der ka-Methode nicht berücksichtigt und beträgt in diesen Exporten null.</p>
+<iframe class="pexl-chart" src="assets/results/gwp_ee.html" title="Lebenszyklus-THG-Bilanz der drei Varianten" loading="lazy">
+</iframe>
+<p><a href="assets/results/gwp_ee.html">HTML</a> · <a href="assets/results/gwp_ee.svg">SVG</a> · <a href="assets/results/gwp_ee.png">PNG</a> · <a href="assets/results/gwp_ee.csv">Ergebniswerte CSV</a></p>
+</section>
+<section id="ergebnisprüfung-und-datenherkunft" class="level2">
+<h2 class="anchored" data-anchor-id="ergebnisprüfung-und-datenherkunft">Ergebnisprüfung und Datenherkunft</h2>
+<p><a href="assets/results/tables.html">Ergebnistabellen und Eingabevergleich</a> · <a href="assets/results/balance_checks.csv">Numerische Bilanzprüfung CSV</a> · <a href="./python.html">Ausführbarer Python-Workflow</a></p>
+<p>Die Auswertung verwendet gespeicherte Exportergebnisse; es erfolgt keine erneute Excel-Simulation. Quelldatei, Szenario, Version und Quellenprüfsumme sind in den Grafiken angegeben. Ein bestätigter Deklarationsstatus wird daraus nicht abgeleitet.</p>
+<p>Die <a href="#aspern-f7">zeitaufgelösten elektrischen Flussprofile</a> werden separat am Projekt <strong>Aspern F7</strong> dargestellt. Die Vollständigkeit der Stundenexporte der drei Sanierungsvarianten wird für eine spätere Erweiterung geprüft.</p>
+</section>
+<section id="aspern-f7" class="level2">
+<h2 class="anchored" data-anchor-id="aspern-f7">Aspern F7: zeitaufgelöste elektrische Flüsse</h2>
+<p>Der Export <code>Aspern PVCheck _ F7.xlsx</code> enthält 8.760 Stundenwerte auf der Zeitachse 2018. Dargestellt sind konventioneller Netzbezug, PV-Direktnutzung, flexible PV-Nutzung (soweit ungleich null) und PV-Netzeinspeisung. Der Netzbezug umfasst die im Schema unter <code>E_grid</code> zusammengefassten konventionellen Bezugsanteile.</p>
+<p><strong>Bilanzgrenze:</strong> Dies sind ausgewählte elektrische Flussprofile, keine geschlossene Verbrauchsbilanz. Die Verbrauchs-, Speicher- und vollständigen signalgesteuerten Netzkanäle sind in diesem Export nicht enthalten. Nicht exportierte Größen werden nicht mit null gleichgesetzt.</p>
+<section id="saisonale-mittlere-tagesprofile" class="level3">
+<h3 class="anchored" data-anchor-id="saisonale-mittlere-tagesprofile">Saisonale mittlere Tagesprofile</h3>
+<p>Die vier Jahreszeiten werden aus den exportierten Kalenderangaben gebildet. Je Tagesstunde wird der Mittelwert aller Stunden der jeweiligen Jahreszeit dargestellt. Die Werte sind mittlere Leistungen in W/m² NGF, berechnet aus den stündlichen Energiemengen in Wh/m² NGF bei geprüftem Zeitschritt von einer Stunde. Saisonmittel sind keine tatsächlichen Tagesverläufe.</p>
+<iframe class="pexl-chart" src="assets/results/f7_seasons.html" title="Aspern F7: saisonale elektrische Flussprofile" loading="lazy">
+</iframe>
+<p><a href="assets/results/f7_seasons.html">Großansicht HTML</a> · <a href="assets/results/f7_seasons.svg">SVG</a> · <a href="assets/results/f7_seasons.png">PNG</a></p>
+</section>
+<section id="chronologische-stundenwerte" class="level3">
+<h3 class="anchored" data-anchor-id="chronologische-stundenwerte">Chronologische Stundenwerte</h3>
+<p>Jänner- und Juliwoche sind direkt anwählbare Zeitfenster. Zoom, Zeitbereichsauswahl und Legende ermöglichen die Analyse einzelner Beiträge. Die Wochen sind Orientierungsfenster, keine statistisch repräsentativen Auswahlzeiträume. Positive Werte bezeichnen lokale PV-Nutzung und konventionellen Netzbezug, negative Werte PV-Einspeisung.</p>
+<iframe class="pexl-chart" src="assets/results/f7_hourly.html" title="Aspern F7: chronologische elektrische Stundenwerte" loading="lazy">
+</iframe>
+<p><a href="assets/results/f7_hourly.html">Stundenverlauf separat öffnen</a> · <a href="assets/results/channels-Aspern PVCheck _ F7.csv">Kanalbestand als CSV</a> · <a href="tutorials/howto_analyze_electricity_balance.html">Ausführbarer Auswertungsworkflow</a></p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script>
+
+document.querySelectorAll('iframe[data-fit]').forEach(frame=>{
+
+  function bind(){
+
+    try{
+
+      const body=frame.contentDocument?.body;
+
+      if(!body)return;
+
+      const fit=()=>{frame.style.height=(Math.ceil(body.getBoundingClientRect().height)+16)+'px';};
+
+      fit();
+
+      if(frame.teachingObserver)frame.teachingObserver.disconnect();
+
+      frame.teachingObserver=new ResizeObserver(fit);
+
+      frame.teachingObserver.observe(body);
+
+    }catch(e){/* Standalone cross-origin hosting keeps the scrollable fallback. */}
+
+  }
+
+  frame.addEventListener('load',bind);bind();
+
+});
+
+</script>
+
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Kopiert");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Kopiert");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>PEExcel · FH Technikum Wien · klimaaktiv Plus-Energie-Quartiere</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="./about.html">
+<p>Kontakt &amp; Nutzung</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://github.com/simonschaluppe/peexcel">
+<p>GitHub</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

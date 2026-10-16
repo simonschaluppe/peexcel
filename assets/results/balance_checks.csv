@@ -1,0 +1,13 @@
+﻿Diagramm,Variante,Differenz,Bedeutung
+heat_balance,Bsp_San_6G,1.7053025658242404e-13,"Deckung minus Bedarf (PE: Bewertungsbilanz, kein Schließkriterium)"
+heat_balance,Bsp_San_6G_pv,2.984279490192421e-13,"Deckung minus Bedarf (PE: Bewertungsbilanz, kein Schließkriterium)"
+heat_balance,Bsp_San_6G_flex,3.410605131648481e-13,"Deckung minus Bedarf (PE: Bewertungsbilanz, kein Schließkriterium)"
+final_energy_balance,Bsp_San_6G,0.0,"Deckung minus Bedarf (PE: Bewertungsbilanz, kein Schließkriterium)"
+final_energy_balance,Bsp_San_6G_pv,-7.105427357601002e-15,"Deckung minus Bedarf (PE: Bewertungsbilanz, kein Schließkriterium)"
+final_energy_balance,Bsp_San_6G_flex,-7.105427357601002e-15,"Deckung minus Bedarf (PE: Bewertungsbilanz, kein Schließkriterium)"
+primary_energy_balance,Bsp_San_6G,37.011850346078006,"Deckung minus Bedarf (PE: Bewertungsbilanz, kein Schließkriterium)"
+primary_energy_balance,Bsp_San_6G_pv,36.466194625104436,"Deckung minus Bedarf (PE: Bewertungsbilanz, kein Schließkriterium)"
+primary_energy_balance,Bsp_San_6G_flex,63.71441168363765,"Deckung minus Bedarf (PE: Bewertungsbilanz, kein Schließkriterium)"
+gwp_ee,Bsp_San_6G,0.0,Komponentensumme minus Exportgesamtwert
+gwp_ee,Bsp_San_6G_pv,0.0,Komponentensumme minus Exportgesamtwert
+gwp_ee,Bsp_San_6G_flex,0.0,Komponentensumme minus Exportgesamtwert

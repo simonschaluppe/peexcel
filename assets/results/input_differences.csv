@@ -1,0 +1,4 @@
+﻿Variable,Bezeichnung,Bsp_San_6G,Bsp_San_6G_pv,Bsp_San_6G_flex
+preset_recorded_flexibility_system,Vorauswahl Flexibilität im Quartier,Keine Flexibilität,Nur PV,PV + Signal
+FLEX_PV_is_used,Flex PV Nutzung,0,1,0
+FLEX_is_used,Flex Signal Nutzung,0,0,1

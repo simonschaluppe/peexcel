@@ -1,0 +1,122 @@
+<!doctype html><html lang="de"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>howto_website</title><style>body{font:16px/1.6 system-ui;color:#243746;max-width:900px;margin:auto;padding:24px}}pre{overflow:auto;background:#f1f5f4;padding:16px}img{max-width:100%}.anchor-link{display:none}</style><p>Lesefassung ohne gespeicherte Ausgaben. Für die Ausführung das Notebook herunterladen und im Repository öffnen.</p><div class="cell border-box-sizing text_cell rendered" id="cell-id=ea14d78c"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Anwenderwebsite-lokal-bauen">Anwenderwebsite lokal bauen<a class="anchor-link" href="#Anwenderwebsite-lokal-bauen">¶</a></h1><p>Dieses How-to baut dieselben Lehrgrafiken, Downloads und Notebook-Lesefassungen wie Quarto. Die realen Beispiele werden aus <code>website/_examples.yml</code> ausgewählt. Voraussetzung: <code>python -m pip install -e ".[publication]"</code> im Repository, Quarto für die HTML-Seiten. Für die vorhandenen synthetischen Grafikexporte zusätzlich Chrome/Kaleido.</p>
+<p>Die Website läuft statisch, beispielsweise auf GitHub Pages. Sie nutzt das bestehende Repository und Python-Paket beim Build; der Browser führt keine Python- oder Excel-Simulation aus. Eine Veröffentlichung ist ein separater Schritt.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=117101a9">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="n">ROOT</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">ROOT</span> <span class="o">/</span> <span class="s2">"pyproject.toml"</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+    <span class="n">ROOT</span> <span class="o">=</span> <span class="n">ROOT</span><span class="o">.</span><span class="n">parent</span>
+<span class="k">assert</span> <span class="p">(</span><span class="n">ROOT</span> <span class="o">/</span> <span class="s2">"scripts/website_assets.py"</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">ROOT</span> <span class="o">/</span> <span class="s2">"scripts"</span><span class="p">))</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">website_assets</span><span class="w"> </span><span class="kn">import</span> <span class="n">build</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">build</span><span class="p">(</span><span class="n">ROOT</span> <span class="o">/</span> <span class="s2">"notebooks/local_exports/website_tutorial"</span><span class="p">)</span>
+<span class="k">assert</span> <span class="p">(</span><span class="n">output</span> <span class="o">/</span> <span class="s2">"assets/teaching/index.html"</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
+<span class="k">assert</span> <span class="p">(</span><span class="n">output</span> <span class="o">/</span> <span class="s2">"assets/components/index.html"</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Lehrmodule, öffentliche Unterlagen und Notebook-Lesefassungen erstellt."</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=887464ac"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Lehrgrafiken-ausprobieren">Lehrgrafiken ausprobieren<a class="anchor-link" href="#Lehrgrafiken-ausprobieren">¶</a></h2><p>Im ersten Modul: Bauteil auswählen, Hülle aktivieren, gekühlte/ungekühlte Zone vergleichen, einzelne Wärmeflüsse ausblenden, aktuellen Zustand als SVG speichern. Der zweite Schnitt zeigt eine ausdrücklich angenommene unbeheizte Kellerzone. Die Kategorienamen stammen aus dem bestehenden Schema; nicht vorhandene Elemente erhalten keine Ersatzzuordnung.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=c561d777">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTML</span><span class="p">,</span> <span class="n">display</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">component_teaching</span><span class="w"> </span><span class="kn">import</span> <span class="n">categories</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">categories</span><span class="p">())</span> <span class="o">==</span> <span class="mi">20</span>
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s1">'&lt;iframe title="Bauteilkatalog" style="width:100%;height:850px" srcdoc="'</span> <span class="o">+</span> <span class="nb">__import__</span><span class="p">(</span><span class="s1">'html'</span><span class="p">)</span><span class="o">.</span><span class="n">escape</span><span class="p">((</span><span class="n">output</span> <span class="o">/</span> <span class="s2">"assets/components/index.html"</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">),</span> <span class="n">quote</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'"&gt;&lt;/iframe&gt;'</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=c5cf8442"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Quarto-rendern-und-pr%C3%BCfen">Quarto rendern und prüfen<a class="anchor-link" href="#Quarto-rendern-und-pr%C3%BCfen">¶</a></h2><p>Im Repository: <code>quarto render website</code>. Das deutsche Projekt baut die Hauptseiten; sein Post-Render-Schritt startet das englische Unterprojekt <code>website/en</code>. Beide Sprachfassungen landen gemeinsam in <code>website/_site</code>, die englischen Seiten unter <code>_site/en/</code>.</p>
+<p>Die beiden <code>_quarto.yml</code>-Dateien definieren getrennte Kopf- und Seitenleisten. Die Quelldateien liegen im selben Sprachverzeichnis wie ihre Navigation. Beide Versionen lokal über die Website-Vorschau kontrollieren; nach Inhaltsänderungen den Build erneut ausführen.</p>
+<p>Die Notebook-Lesefassungen und Downloads enthalten keine gespeicherten Zellenausgaben. Die Originale bleiben unverändert. Quellen: <code>docs/</code>, <code>notebooks/</code>, <code>data/schemas/1.13.1_dev/IN.csv</code>. Generierte Veröffentlichungsdateien liegen in <code>website/_site</code>.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=6e7c69b6"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Konfigurierte-Ergebnisse-erzeugen">Konfigurierte Ergebnisse erzeugen<a class="anchor-link" href="#Konfigurierte-Ergebnisse-erzeugen">¶</a></h2><p>Website und Publikations-Notebook verwenden denselben Adapter. Hier werden die interaktiven HTML-Ergebnisse ohne erneute statische Bildausgabe erzeugt.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=236d702b">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">website_examples</span><span class="w"> </span><span class="kn">import</span> <span class="n">build</span> <span class="k">as</span> <span class="n">build_examples</span>
+<span class="n">reports</span><span class="p">,</span> <span class="n">checks</span> <span class="o">=</span> <span class="n">build_examples</span><span class="p">(</span><span class="n">output</span> <span class="o">/</span> <span class="s2">"assets/results"</span><span class="p">,</span> <span class="n">formats</span><span class="o">=</span><span class="p">(</span><span class="s2">"html"</span><span class="p">,))</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">reports</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span>
+<span class="n">checks</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=5b05d806"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Excel-Dokumentation-und-bereitgestellte-Abbildungen">Excel-Dokumentation und bereitgestellte Abbildungen<a class="anchor-link" href="#Excel-Dokumentation-und-bereitgestellte-Abbildungen">¶</a></h2><p>Die deutsche Navigation trennt Tool-Anwendung, Modellieren und Analysieren und Bewerten. Die englische Quarto-Unterseite definiert dieselbe Struktur mit eigener englischer Kopf- und Seitenleiste. <code>results.qmd</code> beschreibt Erg; <code>excel-dashboard.qmd</code> beschreibt das Excel-Dashboard; <code>dashboard.qmd</code> bleibt der Python-Szenarioexplorer. Migration, PV, Varianten und Scen besitzen eigene Seiten.</p>
+<p>Originalbilder liegen unter <code>docs/website/</code>. Die explizite Liste <code>MANUAL_FIGURES</code> in <code>website_assets.py</code> ist die Veröffentlichungsauswahl. <code>build</code> kopiert sie unverändert nach <code>media/manual/</code>; keine veralteten Handbuch-Screenshots werden erzeugt. Bei Austausch Quellen-/Versionshinweis in der QMD-Bildunterschrift mitpflegen.</p>
+<p>Bedienorte mit <code>.excel-menu</code> markieren, Pfade in <code>.excel-path</code>, Schritte in <code>.excel-operation</code>, Felder mit <code>.excel-field</code>. Fachliche Erläuterungen bleiben normaler Fließtext; Nachweisbindungen stehen in <code>.declaration-note</code>. Jede Abbildung benötigt Alt-Text und eine Quellenangabe. Die Marken sind keine Excel-Schaltflächen.</p>
+<p>Beispiel: <code>**Excel-Ort:** Blatt [🔥 Heizung]{.excel-menu .darkred}</code>. Die vollständige Formatierungslegende steht in <code>excel-navigation.qmd</code>.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=9c750e6c">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">website_assets</span><span class="w"> </span><span class="kn">import</span> <span class="n">MANUAL_FIGURES</span>
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">MANUAL_FIGURES</span><span class="p">:</span>
+    <span class="n">source</span> <span class="o">=</span> <span class="n">ROOT</span> <span class="o">/</span> <span class="s2">"docs/website"</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">.png"</span>
+    <span class="n">published</span> <span class="o">=</span> <span class="n">output</span> <span class="o">/</span> <span class="s2">"media/manual"</span> <span class="o">/</span> <span class="n">source</span><span class="o">.</span><span class="n">name</span>
+    <span class="k">assert</span> <span class="n">published</span><span class="o">.</span><span class="n">read_bytes</span><span class="p">()</span> <span class="o">==</span> <span class="n">source</span><span class="o">.</span><span class="n">read_bytes</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">MANUAL_FIGURES</span><span class="p">)</span><span class="si">}</span><span class="s2"> Originalabbildungen unverändert veröffentlicht."</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=eee8f393"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Visuelle-Abnahme">Visuelle Abnahme<a class="anchor-link" href="#Visuelle-Abnahme">¶</a></h3><p>Nach <code>quarto render website</code> die Seiten Presets, Blattnavigator und Excel-Dashboard auf Desktop und bei 390 px Breite prüfen. Blattmarken und Pfade müssen umbrechen; Bilder sind auf weißem Hintergrund und per Lightbox vergrößerbar. Fehlende Ansichten sind als „In Vorbereitung“ gekennzeichnet. Linkziele und Anker einschließlich F7 unter <code>examples.qmd#aspern-f7</code> prüfen.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=ffb29de2"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="English-pages">English pages<a class="anchor-link" href="#English-pages">¶</a></h2><p>English mirrors live in <code>website/en/</code> as a separate Quarto website project with <code>lang: en</code>. It defines its own English navbar and sidebar, while the German project keeps its German navigation. Keep German worksheet and ribbon labels where they identify controls in the workbook. English links point to pages within <code>en/</code>; images, downloads and generated visualisations use paths relative to the parent website. Running <code>quarto render website</code> renders the German site and then the English subproject into the shared <code>_site/en/</code> output. The English render is launched with <code>website/en</code> as its working directory so Quarto reads the English project configuration.</p>
+</div>
+</div>
+</div>
+</html>

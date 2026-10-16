@@ -1,0 +1,1358 @@
+<!doctype html><html lang="de"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>howto_excel</title><style>body{font:16px/1.6 system-ui;color:#243746;max-width:900px;margin:auto;padding:24px}}pre{overflow:auto;background:#f1f5f4;padding:16px}img{max-width:100%}.anchor-link{display:none}</style><p>Lesefassung ohne gespeicherte Ausgaben. Für die Ausführung das Notebook herunterladen und im Repository öffnen.</p><div class="cell border-box-sizing text_cell rendered" id="cell-id=0089c772"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="PEExcel-with-Python-%E2%80%94-Practical-How-To">PEExcel with Python — Practical How-To<a class="anchor-link" href="#PEExcel-with-Python-%E2%80%94-Practical-How-To">¶</a></h1><p>This notebook shows how to work with a <strong>PEExcel project file</strong> from Python using the <code>pexl</code> package.</p>
+<p>It is intended for colleagues and Master's students who want to:</p>
+<ul>
+<li>read a PEExcel project file,</li>
+<li>inspect scenarios and variables,</li>
+<li>select inputs and results,</li>
+<li>compare variants,</li>
+<li>create pandas tables,</li>
+<li>modify inputs,</li>
+<li>export a project again,</li>
+<li>prepare data for plots and diagrams.</li>
+</ul>
+<p>The examples use a PEExcel export workbook with <code>IN</code> and <code>OUT</code> sheets. Adjust the file path to your own project.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=491aeda3"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="0.-Setup">0. Setup<a class="anchor-link" href="#0.-Setup">¶</a></h2><p>During development of <code>pexl</code>, <code>%autoreload</code> is useful because changes in the package are picked up without restarting the notebook.</p>
+<p>For normal use, the two <code>%autoreload</code> lines can be omitted.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=ae936b68">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> autoreload
+<span class="o">%</span><span class="k">autoreload</span> 2
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">pexl</span><span class="w"> </span><span class="kn">import</span> <span class="n">Project</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=f3521af7"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="1.-Open-a-PEExcel-project-file">1. Open a PEExcel project file<a class="anchor-link" href="#1.-Open-a-PEExcel-project-file">¶</a></h2><p>A PEExcel workbook is loaded as one <code>Project</code>.</p>
+<p>Each scenario or variant column in the workbook becomes one <code>Scenario</code> in Python.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=c19d7952">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">PROJECT_PATH</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"../data/exports/ka_project_backup_v1_12.xlsx"</span><span class="p">)</span>
+
+<span class="n">project</span> <span class="o">=</span> <span class="n">Project</span><span class="o">.</span><span class="n">from_excel</span><span class="p">(</span><span class="n">PROJECT_PATH</span><span class="p">)</span>
+<span class="n">project</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=2ebe338b"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A few useful project-level checks:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=7fab8d78">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Number of scenarios:"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">project</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Warnings:"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">project</span><span class="o">.</span><span class="n">warnings</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Project/group names:"</span><span class="p">,</span> <span class="n">project</span><span class="o">.</span><span class="n">project_names</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=3c7cf99e">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Show import warnings, if there are any</span>
+<span class="n">project</span><span class="o">.</span><span class="n">warnings</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=a8c80801"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.-Work-with-scenarios">2. Work with scenarios<a class="anchor-link" href="#2.-Work-with-scenarios">¶</a></h2><p>A Project usually contains a number of scenarios (Excel columns "Varianten"). They can be accessed as a list of Scenarios:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=4bc60f37">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">project</span><span class="o">.</span><span class="n">scenarios</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=bbcf4b33"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Scenarios can also be directly accessed by position in that list:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=0fe17306">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">s0</span> <span class="o">=</span> <span class="n">project</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># is equivalent to:</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">scenarios</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">s0</span><span class="p">,</span> <span class="n">s1</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=ca20aaf0"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A scenario has three useful names:</p>
+<ul>
+<li><code>column_name</code>: exact Excel scenario-column header; this is always unique and the safest identifier</li>
+<li><code>project_name</code>: project or district grouping stored in PEExcel by the user (can be missing or wrong)</li>
+<li><code>name</code>: short user provided scenario / variant name</li>
+</ul>
+<p>The short scenario name is convenient for display, but it is not necessarily unique.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=e9bee34a">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Excel column name:"</span><span class="p">,</span> <span class="n">s0</span><span class="o">.</span><span class="n">column_name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Project/group:"</span><span class="p">,</span> <span class="n">s0</span><span class="o">.</span><span class="n">project_name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Scenario name:"</span><span class="p">,</span> <span class="n">s0</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=7ec0225a"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can also access a scenario directly by its exact Excel column name:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=24127898">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">column_name</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">column_names</span><span class="p">()[</span><span class="mi">4</span><span class="p">]</span>
+
+<span class="n">scenario</span> <span class="o">=</span> <span class="n">project</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span>
+<span class="n">scenario</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=08dbdd8a"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>List available scenarios:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=feeab0ba">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">scenario</span> <span class="ow">in</span> <span class="n">project</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">scenario</span><span class="o">.</span><span class="n">column_name</span><span class="si">:</span><span class="s2">45s</span><span class="si">}</span><span class="s2">  "</span>
+        <span class="sa">f</span><span class="s2">"project=</span><span class="si">{</span><span class="n">scenario</span><span class="o">.</span><span class="n">project_name</span><span class="si">!r}</span><span class="s2">  "</span>
+        <span class="sa">f</span><span class="s2">"name=</span><span class="si">{</span><span class="n">scenario</span><span class="o">.</span><span class="n">name</span><span class="si">!r}</span><span class="s2">"</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=fc6e2f49"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="3.-Read-individual-PEExcel-variables">3. Read individual PEExcel variables<a class="anchor-link" href="#3.-Read-individual-PEExcel-variables">¶</a></h2><p>If you already know the PEExcel variable name (column <code>var_name</code>), access it directly through <code>scenario.v</code>.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=b109e3d5">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Project description:"</span><span class="p">,</span> <span class="n">s0</span><span class="o">.</span><span class="n">v</span><span class="o">.</span><span class="n">project_description</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Total GFA:"</span><span class="p">,</span> <span class="n">s0</span><span class="o">.</span><span class="n">v</span><span class="o">.</span><span class="n">GFA_total</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Office GFA:"</span><span class="p">,</span> <span class="n">s0</span><span class="o">.</span><span class="n">v</span><span class="o">.</span><span class="n">GFA_office</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=5f8e0af6"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Metadata for the same variable is available through <code>scenario.meta</code>.</p>
+<p>This is useful when you need labels, units, domains or other information for tables and plots.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=70fd5ab6">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">meta</span> <span class="o">=</span> <span class="n">s0</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">GFA_total</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Variable:"</span><span class="p">,</span> <span class="n">meta</span><span class="o">.</span><span class="n">var_name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Label:"</span><span class="p">,</span> <span class="n">meta</span><span class="o">.</span><span class="n">label_de</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Unit:"</span><span class="p">,</span> <span class="n">meta</span><span class="o">.</span><span class="n">unit</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Source:"</span><span class="p">,</span> <span class="n">meta</span><span class="o">.</span><span class="n">source</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Domain:"</span><span class="p">,</span> <span class="n">meta</span><span class="o">.</span><span class="n">domain</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Measure:"</span><span class="p">,</span> <span class="n">meta</span><span class="o">.</span><span class="n">measure</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=f101f4df"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="4.-Select-variables-from-a-project">4. Select variables from a project<a class="anchor-link" href="#4.-Select-variables-from-a-project">¶</a></h2><p>The most common workflow is to select groups of variables by their metadata.</p>
+<p>Use:</p>
+<ul>
+<li><code>project.select(...)</code> for all variables,</li>
+<li><code>project.inn.select(...)</code> for input variables,</li>
+<li><code>project.out.select(...)</code> for output variables.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=64cfe9d1">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">pe</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">select</span><span class="p">(</span>
+    <span class="n">domain</span><span class="o">=</span><span class="s2">"primary_energy_balance"</span>
+<span class="p">)</span>
+
+<span class="n">pe</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=7f41e4fe"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can combine several metadata filters:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=2d3df199">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">pe_demand</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">select</span><span class="p">(</span>
+    <span class="n">domain</span><span class="o">=</span><span class="s2">"primary_energy_balance"</span><span class="p">,</span>
+    <span class="n">measure</span><span class="o">=</span><span class="s2">"demand"</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">pe_demand</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=f53f581a"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Useful information about the result:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=887f7abb">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Shape:"</span><span class="p">,</span> <span class="n">pe_demand</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Scenarios:"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">pe_demand</span><span class="o">.</span><span class="n">scenarios</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Variables:"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">pe_demand</span><span class="o">.</span><span class="n">variables</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Selected variable names:"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">pe_demand</span><span class="o">.</span><span class="n">variables</span><span class="o">.</span><span class="n">var_names</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=f87c7131"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The selected scenarios and variables behave like read-only collections:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=f4ea5dee">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"First scenario:"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pe_demand</span><span class="o">.</span><span class="n">scenarios</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">First variable:"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pe_demand</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">First three variables:"</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">meta</span> <span class="ow">in</span> <span class="n">pe_demand</span><span class="o">.</span><span class="n">variables</span><span class="p">[:</span><span class="mi">3</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">meta</span><span class="o">.</span><span class="n">var_name</span><span class="p">,</span> <span class="n">meta</span><span class="o">.</span><span class="n">unit</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=8a93b7bb">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">pe_demand</span><span class="o">.</span><span class="n">scenarios</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">view</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=774db32f"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="5.-Filter-scenarios">5. Filter scenarios<a class="anchor-link" href="#5.-Filter-scenarios">¶</a></h2><p>Use <code>.where(...)</code> to restrict the scenarios in a project.</p>
+<p>For example, select only scenarios belonging to one project or district:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=2f036e05">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">forsthaus</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">where</span><span class="p">(</span>
+    <span class="n">project_name</span><span class="o">=</span><span class="s2">"Forsthausgasse"</span>
+<span class="p">)</span>
+
+<span class="n">forsthaus</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=4ef8010e">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">scenario</span> <span class="ow">in</span> <span class="n">forsthaus</span><span class="o">.</span><span class="n">scenarios</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">scenario</span><span class="o">.</span><span class="n">column_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=9fce3f43"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can filter scenarios and variables together:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=c924529a">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">comparison</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">project</span><span class="o">.</span><span class="n">out</span>
+    <span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">project_name</span><span class="o">=</span><span class="s2">"Forsthausgasse"</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="s2">"primary_energy_balance"</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">comparison</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=032039fa"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The order is interchangeable. These two expressions describe the same data:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=4e557cee">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">project</span><span class="o">.</span><span class="n">out</span>
+    <span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="s2">"primary_energy_balance"</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">project_name</span><span class="o">=</span><span class="s2">"Forsthausgasse"</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">project</span><span class="o">.</span><span class="n">out</span>
+    <span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">project_name</span><span class="o">=</span><span class="s2">"Forsthausgasse"</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="s2">"primary_energy_balance"</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">to_records</span><span class="p">()</span> <span class="o">==</span> <span class="n">b</span><span class="o">.</span><span class="n">to_records</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=73ce2cda"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="6.-Find-available-categories-and-values">6. Find available categories and values<a class="anchor-link" href="#6.-Find-available-categories-and-values">¶</a></h2><p>Before writing filters, it is often useful to inspect what is available.</p>
+<p>For output variables:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=60032fc2">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"OUT domains:"</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">"</span><span class="se">\n</span><span class="s2">* "</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">project</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">domains</span><span class="p">(),</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"</span><span class="se">\n</span><span class="s2">* "</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">OUT measures:"</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">"</span><span class="se">\n</span><span class="s2">* "</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">project</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">measures</span><span class="p">(),</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"</span><span class="se">\n</span><span class="s2">* "</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=f7191445"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For input variables:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=c6f6ead2">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"IN domains:"</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">"</span><span class="se">\n</span><span class="s2">* "</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">project</span><span class="o">.</span><span class="n">inn</span><span class="o">.</span><span class="n">domains</span><span class="p">(),</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"</span><span class="se">\n</span><span class="s2">* "</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=2a50f96c">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">IN measures groups:"</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">"</span><span class="se">\n</span><span class="s2">* "</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">project</span><span class="o">.</span><span class="n">inn</span><span class="o">.</span><span class="n">measures</span><span class="p">(),</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"</span><span class="se">\n</span><span class="s2">* "</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=12fd2cbb">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">IN Entity groups:"</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">"</span><span class="se">\n</span><span class="s2">* "</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">project</span><span class="o">.</span><span class="n">inn</span><span class="o">.</span><span class="n">entity_groups</span><span class="p">(),</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"</span><span class="se">\n</span><span class="s2">* "</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=c5601379"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To inspect the different values of one variable across scenarios, use <code>unique(...)</code> on the scenario selection.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=c1d84a41">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">project</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">scenarios</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="s2">"project_name"</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=904999b0"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This also works after filtering:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=09a8c3d1">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">subset</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">project_name</span><span class="o">=</span><span class="s2">"Campo Breitenlee"</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span>
+    <span class="n">subset</span><span class="o">.</span><span class="n">scenarios</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span>
+        <span class="s2">"preset_recorded_heating_system"</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=fdb066aa"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="7.-Work-with-one-scenario">7. Work with one scenario<a class="anchor-link" href="#7.-Work-with-one-scenario">¶</a></h2><p>For a single scenario use:</p>
+<ul>
+<li><code>scenario.select(...)</code>,</li>
+<li><code>scenario.inn.select(...)</code>,</li>
+<li><code>scenario.out.select(...)</code>.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=3780e52c">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">scenario</span> <span class="o">=</span> <span class="n">project</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">scenario</span><span class="o">.</span><span class="n">out</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=cd11d069">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">heat</span> <span class="o">=</span> <span class="n">scenario</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">select</span><span class="p">(</span>
+    <span class="n">domain</span><span class="o">=</span><span class="s2">"heat_balance"</span>
+<span class="p">)</span>
+
+<span class="n">heat</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=ef251ebb"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The selected values can be returned as a dictionary:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=8fd2c4da">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">heat</span><span class="o">.</span><span class="n">to_var_dict</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=4902cb5c"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Known selected variables can also be accessed directly from the view:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=4e5bced6">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">qh_var_meta</span> <span class="o">=</span> <span class="n">scenario</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">QH</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">qh_var_meta</span><span class="o">.</span><span class="n">icon</span><span class="p">,</span> <span class="s2">"QH:"</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">heat</span><span class="o">.</span><span class="n">QH</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">qh_var_meta</span><span class="o">.</span><span class="n">unit</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=a4cae02a"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The same metadata exploration helpers are available:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=1c5e869c">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Scenario OUT domains:"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">scenario</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">domains</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Scenario IN entity groups:"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">scenario</span><span class="o">.</span><span class="n">inn</span><span class="o">.</span><span class="n">entity_groups</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=6dc9f83b"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="8.-Convert-a-project-selection-to-a-pandas-DataFrame">8. Convert a project selection to a pandas DataFrame<a class="anchor-link" href="#8.-Convert-a-project-selection-to-a-pandas-DataFrame">¶</a></h2><p>For most further analysis, a pandas DataFrame is the easiest format.</p>
+<p>If <code>to_frame()</code> is available in your installed <code>pexl</code> version:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=809bf185">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">comparison</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=92b74f46"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Alternatively, use the record representation:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=22edbc21">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">records</span> <span class="o">=</span> <span class="n">comparison</span><span class="o">.</span><span class="n">to_records</span><span class="p">()</span>
+
+<span class="n">df_records</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">records</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">"column_name"</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">df_records</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=ee3b1040"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Use-short-scenario-names-for-presentation">Use short scenario names for presentation<a class="anchor-link" href="#Use-short-scenario-names-for-presentation">¶</a></h3><p>The exact <code>column_name</code> should remain the technical identifier.</p>
+<p>For tables or diagrams, you can replace the displayed index with the shorter scenario name:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=0ef9a8e2">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">name_map</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">scenario</span><span class="o">.</span><span class="n">column_name</span><span class="p">:</span> <span class="n">scenario</span><span class="o">.</span><span class="n">name</span>
+    <span class="k">for</span> <span class="n">scenario</span> <span class="ow">in</span> <span class="n">comparison</span><span class="o">.</span><span class="n">scenarios</span>
+<span class="p">}</span>
+
+<span class="n">df_display</span> <span class="o">=</span> <span class="n">df_records</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">name_map</span><span class="p">)</span>
+<span class="n">df_display</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=66948cd1"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Be careful: short scenario names can occur more than once. Use <code>column_name</code> whenever a unique identifier is required.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=ad69ab27"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="9.-Compare-scenarios">9. Compare scenarios<a class="anchor-link" href="#9.-Compare-scenarios">¶</a></h2><p>A common task is to compare selected output variables across several variants.</p>
+<p>First restrict the scenarios and variables:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=4c1a8f96">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">comparison</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">project</span><span class="o">.</span><span class="n">out</span>
+    <span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">project_name</span><span class="o">=</span><span class="s2">"Forsthausgasse"</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">select</span><span class="p">(</span>
+        <span class="n">domain</span><span class="o">=</span><span class="s2">"primary_energy_balance"</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">comparison</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=656dae3b">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">comparison</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=12297fce"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For a simple difference relative to the first scenario:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=7ba8ae7f">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">reference</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">difference</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">reference</span><span class="p">)</span>
+<span class="n">difference</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=9cd7ae04"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For relative differences in percent:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=fa4c9b2d">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">relative_difference</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">reference</span><span class="p">)</span>
+      <span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">reference</span><span class="p">)</span>
+      <span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">relative_difference</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=eaf1023d"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="10.-Make-a-simple-diagram">10. Make a simple diagram<a class="anchor-link" href="#10.-Make-a-simple-diagram">¶</a></h2><p>Once a view is converted to a DataFrame, standard pandas / matplotlib workflows can be used.</p>
+<p>Example: compare selected primary-energy results by scenario.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=0b415595">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_plot</span> <span class="o">=</span> <span class="n">comparison</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
+
+<span class="c1"># Replace the technical column names with short names for display</span>
+<span class="n">df_plot</span> <span class="o">=</span> <span class="n">df_plot</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span>
+    <span class="n">index</span><span class="o">=</span><span class="p">{</span>
+        <span class="n">s</span><span class="o">.</span><span class="n">column_name</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">name</span>
+        <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">comparison</span><span class="o">.</span><span class="n">scenarios</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">df_plot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">kind</span><span class="o">=</span><span class="s2">"bar"</span><span class="p">,</span>
+    <span class="n">stacked</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+<span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Scenario"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Value"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"PEExcel variable"</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=ed524b4c"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For publication-quality or standard PEExcel diagrams, use the variable metadata (<code>label_de</code>, <code>unit</code>, <code>domain</code>, <code>measure</code>, ...) to define labels and groups rather than maintaining separate hard-coded variable lists.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=172fafcd"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="11.-Select-inputs-for-one-topic">11. Select inputs for one topic<a class="anchor-link" href="#11.-Select-inputs-for-one-topic">¶</a></h2><p>Metadata filters are also useful for collecting related input parameters.</p>
+<p>Example: residential-use inputs:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=1201b56e">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">residential_inputs</span> <span class="o">=</span> <span class="n">scenario</span><span class="o">.</span><span class="n">inn</span><span class="o">.</span><span class="n">select</span><span class="p">(</span>
+    <span class="n">entity_group</span><span class="o">=</span><span class="s2">"usage"</span><span class="p">,</span>
+    <span class="n">entity_key</span><span class="o">=</span><span class="s2">"residential"</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">residential_inputs</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=9c4727f7">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">residential_inputs</span><span class="o">.</span><span class="n">to_var_dict</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=791adf5e"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Example: heating-related inputs:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=1ba7943d">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">heating_inputs</span> <span class="o">=</span> <span class="n">scenario</span><span class="o">.</span><span class="n">inn</span><span class="o">.</span><span class="n">select</span><span class="p">(</span>
+    <span class="n">entity_group</span><span class="o">=</span><span class="s2">"heating"</span>
+<span class="p">)</span>
+
+<span class="n">heating_inputs</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=faadb64d"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="12.-Change-input-values">12. Change input values<a class="anchor-link" href="#12.-Change-input-values">¶</a></h2><p>Scenario values can be changed through <code>scenario.v</code>.</p>
+<p>The following example is commented out so that running the notebook does not modify the project accidentally.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=c2545daf">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">scenario_edit</span> <span class="o">=</span> <span class="n">project</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Before:"</span><span class="p">,</span> <span class="n">scenario_edit</span><span class="o">.</span><span class="n">v</span><span class="o">.</span><span class="n">GFA_office</span><span class="p">)</span>
+
+<span class="c1"># scenario_edit.v.GFA_office = 250.0</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"After:"</span><span class="p">,</span> <span class="n">scenario_edit</span><span class="o">.</span><span class="n">v</span><span class="o">.</span><span class="n">GFA_office</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=fcf3a27a"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>After changing values, remember that PEExcel formulas are not recalculated by Python automatically unless your workflow explicitly runs Excel or another calculation step. Treat Python-side edits as changes to the project data.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=17718407"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="13.-Create-a-new-project-or-scenario">13. Create a new project or scenario<a class="anchor-link" href="#13.-Create-a-new-project-or-scenario">¶</a></h2><p>A project can also be created directly in Python.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=ccb714d8">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pexl.model.scenario</span><span class="w"> </span><span class="kn">import</span> <span class="n">Scenario</span>
+
+<span class="n">new_project</span> <span class="o">=</span> <span class="n">Project</span><span class="p">()</span>
+
+<span class="n">new_scenario</span> <span class="o">=</span> <span class="n">Scenario</span><span class="p">(</span>
+    <span class="s2">"Example Project | Variant A"</span>
+<span class="p">)</span>
+
+<span class="n">new_scenario</span><span class="o">.</span><span class="n">v</span><span class="o">.</span><span class="n">project_name</span> <span class="o">=</span> <span class="s2">"Example Project"</span>
+<span class="n">new_scenario</span><span class="o">.</span><span class="n">v</span><span class="o">.</span><span class="n">project_scenario_name</span> <span class="o">=</span> <span class="s2">"Variant A"</span>
+<span class="n">new_scenario</span><span class="o">.</span><span class="n">v</span><span class="o">.</span><span class="n">GFA_office</span> <span class="o">=</span> <span class="mf">250.0</span>
+
+<span class="n">new_project</span><span class="o">.</span><span class="n">add_scenario</span><span class="p">(</span><span class="n">new_scenario</span><span class="p">)</span>
+
+<span class="n">new_project</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=b05e02a4">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">new_project</span><span class="p">[</span><span class="s2">"Example Project | Variant A"</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=787f2e59"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>When creating a new scenario, use a unique <code>column_name</code>. The conventional PEExcel form is:</p>
+<div class="highlight"><pre><span></span>project_name | project_scenario_name
+</pre></div>
+<p>The exact column name remains the identifier used for import and export.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=d1769102"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="14.-Export-inputs-or-a-complete-IN/OUT-project">14. Export inputs or a complete IN/OUT project<a class="anchor-link" href="#14.-Export-inputs-or-a-complete-IN/OUT-project">¶</a></h2><p><code>Project.to_excel(path)</code> retains the input-only default: IN and optional META.
+Use <code>Project.to_excel(path, include_out=True)</code> for an IN/OUT workbook that can be loaded with <code>Project.from_excel()</code>.
+Neither mode recalculates formulas or writes SIM2; hourly data attached to the original Project stays unchanged.
+<code>include_derived=False</code> filters IN only, while OUT retains all stored result variables.</p>
+<p>Use exports and schema bindings from a compatible model version: the workbook does not automatically switch the Python schema.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=8fa51430">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">OUTPUT_PATH</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"../data/exports/new_project.xlsx"</span><span class="p">)</span>
+
+<span class="c1"># Uncomment to write and reload a complete IN/OUT export:</span>
+<span class="c1"># new_project.to_excel(OUTPUT_PATH, include_out=True)</span>
+<span class="c1"># restored_project = Project.from_excel(OUTPUT_PATH, unknown="raise")</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=6937b401"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For a normal workflow this gives:</p>
+<div class="highlight"><pre><span></span>PEExcel project file
+    ↓
+Project.from_excel(...)
+    ↓
+select / compare / modify in Python
+    ↓
+Project.to_excel(...)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=d2b9ec62"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Practical-workflow-examples">Practical workflow examples<a class="anchor-link" href="#Practical-workflow-examples">¶</a></h1><p>The following short examples combine the most common operations.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=f0737e73"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="A.-Compare-one-result-domain-for-one-project">A. Compare one result domain for one project<a class="anchor-link" href="#A.-Compare-one-result-domain-for-one-project">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=cd36372e">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">view</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">project</span><span class="o">.</span><span class="n">out</span>
+    <span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">project_name</span><span class="o">=</span><span class="s2">"Forsthausgasse"</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="s2">"primary_energy_balance"</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">view</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=b7c6c98d"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="B.-Inspect-all-available-variants-of-one-project">B. Inspect all available variants of one project<a class="anchor-link" href="#B.-Inspect-all-available-variants-of-one-project">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=3cb785c2">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">variants</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">where</span><span class="p">(</span>
+    <span class="n">project_name</span><span class="o">=</span><span class="s2">"Forsthausgasse"</span>
+<span class="p">)</span>
+
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">variants</span><span class="o">.</span><span class="n">scenarios</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">column_name</span><span class="p">,</span> <span class="s2">"-&gt;"</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=1b51797e"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="C.-Inspect-available-preset-choices">C. Inspect available preset choices<a class="anchor-link" href="#C.-Inspect-available-preset-choices">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=f6738ec1">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">project</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">scenarios</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span>
+    <span class="s2">"preset_recorded_heating_system"</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=f7992437"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="D.-Get-selected-values-from-one-scenario">D. Get selected values from one scenario<a class="anchor-link" href="#D.-Get-selected-values-from-one-scenario">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=2b257f95">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">scenario</span> <span class="o">=</span> <span class="n">project</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">scenario</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">select</span><span class="p">(</span>
+    <span class="n">domain</span><span class="o">=</span><span class="s2">"primary_energy_balance"</span>
+<span class="p">)</span><span class="o">.</span><span class="n">to_var_dict</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=0ba77fc4"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="E.-Build-a-presentation-table">E. Build a presentation table<a class="anchor-link" href="#E.-Build-a-presentation-table">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=00cc55d5">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">view</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">project</span><span class="o">.</span><span class="n">out</span>
+    <span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">project_name</span><span class="o">=</span><span class="s2">"Forsthausgasse"</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="s2">"primary_energy_balance"</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">view</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span>
+    <span class="n">index</span><span class="o">=</span><span class="p">{</span>
+        <span class="n">s</span><span class="o">.</span><span class="n">column_name</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">name</span>
+        <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">view</span><span class="o">.</span><span class="n">scenarios</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=2d96a76d"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Planned-standard-diagram-API">Planned standard-diagram API<a class="anchor-link" href="#Planned-standard-diagram-API">¶</a></h1><p>The current workflow for diagrams is:</p>
+<div class="highlight"><pre><span></span><span class="n">view</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="o">...</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">view</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
+<span class="c1"># plot with pandas / matplotlib / Plotly</span>
+</pre></div>
+<p>For recurring PEExcel standard diagrams, a future convenience API should reduce this to a few user-facing commands while keeping the same project/scenario selection workflow.</p>
+<p>A possible target usage could be:</p>
+<div class="highlight"><pre><span></span><span class="c1"># FUTURE API — not implemented</span>
+
+<span class="n">view</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">where</span><span class="p">(</span>
+    <span class="n">project_name</span><span class="o">=</span><span class="s2">"Forsthausgasse"</span>
+<span class="p">)</span>
+
+<span class="n">view</span><span class="o">.</span><span class="n">diagram</span><span class="p">(</span><span class="s2">"primary_energy_balance"</span><span class="p">)</span>
+</pre></div>
+<p>or:</p>
+<div class="highlight"><pre><span></span><span class="c1"># FUTURE API — not implemented</span>
+
+<span class="n">view</span><span class="o">.</span><span class="n">diagram</span><span class="p">(</span>
+    <span class="s2">"heat_balance"</span><span class="p">,</span>
+    <span class="n">scenarios</span><span class="o">=</span><span class="p">[</span><span class="s2">"Variant A"</span><span class="p">,</span> <span class="s2">"Variant B"</span><span class="p">],</span>
+<span class="p">)</span>
+</pre></div>
+<p>The intended user experience is that standard PEExcel diagrams already know:</p>
+<ul>
+<li>which PEExcel variables belong to the diagram,</li>
+<li>labels and units,</li>
+<li>stack/group assignment,</li>
+<li>display order,</li>
+<li>colors/patterns,</li>
+<li>any simple positive/negative split required for presentation.</li>
+</ul>
+<p>Users should still be able to use <code>to_frame()</code> whenever they need a custom plot.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=a63ff4af"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Quick-reference">Quick reference<a class="anchor-link" href="#Quick-reference">¶</a></h1><p>| Task | Example |
+|---|---|
+| Open project | <code>project = Project.from_excel(path)</code> |
+| First scenario | <code>project[0]</code> |
+| Scenario by exact column | <code>project["Project | Variant"]</code> |
+| Read one value | <code>scenario.v.GFA_total</code> |
+| Read metadata | <code>scenario.meta.GFA_total</code> |
+| Select variables | <code>project.select(domain="...")</code> |
+| Select inputs | <code>project.inn.select(...)</code> |
+| Select outputs | <code>project.out.select(...)</code> |
+| Filter scenarios | <code>project.where(project_name="...")</code> |
+| Combine both | <code>project.out.where(...).select(...)</code> |
+| List domains | <code>project.out.domains()</code> |
+| Unique scenario values | <code>project.view.scenarios.unique("project_name")</code> |
+| DataFrame | <code>view.to_frame()</code> |
+| Records | <code>view.to_records()</code> |
+| One-scenario dictionary | <code>scenario.out.select(...).to_var_dict()</code> |
+| Modify value | <code>scenario.v.GFA_office = 250.0</code> |
+| Export | <code>project.to_excel(path)</code> |</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=85353221"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Suggested-next-exercises">Suggested next exercises<a class="anchor-link" href="#Suggested-next-exercises">¶</a></h2><ol>
+<li>Load a PEExcel project file of your own.</li>
+<li>List all project/group names.</li>
+<li>Select one project with <code>.where(...)</code>.</li>
+<li>Find the available <code>OUT</code> domains.</li>
+<li>Create a DataFrame for one domain.</li>
+<li>Rename the scenario index for presentation.</li>
+<li>Plot two or three selected variables.</li>
+<li>Change one input value in a copied project and export it to a new file.</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=d882a780">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pexl</span>
+
+<span class="n">pexl</span><span class="o">.</span><span class="n">glossary</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=cc85ec99"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="16.-Excel-IO-tables-versus-analysis-DataFrames">16. Excel IO tables versus analysis DataFrames<a class="anchor-link" href="#16.-Excel-IO-tables-versus-analysis-DataFrames">¶</a></h2><p>This example is self-contained and can be run independently of the previous cells.</p>
+<ul>
+<li><code>Project.from_excel()</code> reads IN/OUT into <code>Project</code> and <code>Scenario</code>; SIM2, when present, is attached to its scenario.</li>
+<li><code>project.inn.to_frame()</code> is an analysis table: scenarios are rows, variables are columns.</li>
+<li><code>build_project_in_dataframe(project)</code> is an Excel serialization table: variables are rows, metadata and scenario identities are columns.</li>
+<li><code>Project.to_excel()</code> handles the actual file write. DataFrames are temporary views, not a second project model.</li>
+<li>Schema CSV datasets use <code>io.csv_io</code>; they describe variables and are not scenario exports.</li>
+</ul>
+<p>Internally, <code>io._project_tables</code> owns table mapping and <code>io.excel</code> owns workbook handling. The private helper module lets IN/OUT share mapping logic and lets tests inspect tables without opening Excel. It introduces no persistent format or public API; maintenance stays within the existing IO tests. Call the public Project methods for normal workflows.</p>
+<p>The example below verifies both the unchanged input-only default and the IN/OUT export through the public Project API. Temporary files are removed afterward.</p>
+<p>The optional <code>include_out</code> argument reuses the existing writer and table mapping instead of introducing a separate annual-export API or format. Its maintenance cost is limited to the OUT write path and regression tests for both modes.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=382288bb">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tempfile</span><span class="w"> </span><span class="kn">import</span> <span class="n">TemporaryDirectory</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pexl</span><span class="w"> </span><span class="kn">import</span> <span class="n">Project</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pexl.model.scenario</span><span class="w"> </span><span class="kn">import</span> <span class="n">Scenario</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pexl.io.excel</span><span class="w"> </span><span class="kn">import</span> <span class="n">build_project_in_dataframe</span>
+
+<span class="n">io_project</span> <span class="o">=</span> <span class="n">Project</span><span class="p">()</span>
+<span class="n">io_scenario</span> <span class="o">=</span> <span class="n">Scenario</span><span class="p">(</span><span class="s2">"IO example | Baseline"</span><span class="p">)</span>
+<span class="n">io_scenario</span><span class="o">.</span><span class="n">v</span><span class="o">.</span><span class="n">project_name</span> <span class="o">=</span> <span class="s2">"IO example"</span>
+<span class="n">io_scenario</span><span class="o">.</span><span class="n">v</span><span class="o">.</span><span class="n">project_scenario_name</span> <span class="o">=</span> <span class="s2">"Baseline"</span>
+<span class="n">io_scenario</span><span class="o">.</span><span class="n">v</span><span class="o">.</span><span class="n">preset_recorded_heating_system</span> <span class="o">=</span> <span class="s2">"Wärmepumpe"</span>
+<span class="n">io_scenario</span><span class="o">.</span><span class="n">v</span><span class="o">.</span><span class="n">QH</span> <span class="o">=</span> <span class="mf">42.5</span>
+<span class="n">io_project</span><span class="o">.</span><span class="n">add_scenario</span><span class="p">(</span><span class="n">io_scenario</span><span class="p">)</span>
+
+<span class="n">analysis_frame</span> <span class="o">=</span> <span class="n">io_project</span><span class="o">.</span><span class="n">inn</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
+<span class="n">excel_frame</span> <span class="o">=</span> <span class="n">build_project_in_dataframe</span><span class="p">(</span><span class="n">io_project</span><span class="p">,</span> <span class="n">base_columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"var_name"</span><span class="p">])</span>
+<span class="k">assert</span> <span class="n">analysis_frame</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="o">==</span> <span class="p">[</span><span class="n">io_scenario</span><span class="o">.</span><span class="n">column_name</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">excel_frame</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="o">==</span> <span class="p">[</span><span class="s2">"var_name"</span><span class="p">,</span> <span class="n">io_scenario</span><span class="o">.</span><span class="n">column_name</span><span class="p">]</span>
+
+<span class="k">with</span> <span class="n">TemporaryDirectory</span><span class="p">()</span> <span class="k">as</span> <span class="n">directory</span><span class="p">:</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">io_project</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span> <span class="o">/</span> <span class="s2">"inputs.xlsx"</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">pd</span><span class="o">.</span><span class="n">ExcelFile</span><span class="p">(</span><span class="n">output</span><span class="p">)</span> <span class="k">as</span> <span class="n">book</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">book</span><span class="o">.</span><span class="n">sheet_names</span> <span class="o">==</span> <span class="p">[</span><span class="s2">"IN"</span><span class="p">,</span> <span class="s2">"META"</span><span class="p">]</span>
+        <span class="n">written</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">book</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s2">"IN"</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">"var_name"</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">written</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">"preset_recorded_heating_system"</span><span class="p">,</span> <span class="n">io_scenario</span><span class="o">.</span><span class="n">column_name</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"Wärmepumpe"</span>
+
+    <span class="n">annual_path</span> <span class="o">=</span> <span class="n">io_project</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span> <span class="o">/</span> <span class="s2">"annual.xlsx"</span><span class="p">,</span> <span class="n">include_out</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">restored</span> <span class="o">=</span> <span class="n">Project</span><span class="o">.</span><span class="n">from_excel</span><span class="p">(</span><span class="n">annual_path</span><span class="p">,</span> <span class="n">unknown</span><span class="o">=</span><span class="s2">"raise"</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">restored</span><span class="o">.</span><span class="n">column_names</span><span class="p">()</span> <span class="o">==</span> <span class="n">io_project</span><span class="o">.</span><span class="n">column_names</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">restored</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">v</span><span class="o">.</span><span class="n">QH</span> <span class="o">==</span> <span class="mf">42.5</span>
+    <span class="k">assert</span> <span class="n">restored</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">v</span><span class="o">.</span><span class="n">preset_recorded_heating_system</span> <span class="o">==</span> <span class="s2">"Wärmepumpe"</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">restored</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">timeseries</span><span class="o">.</span><span class="n">available</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Analysis shape (scenarios x variables):"</span><span class="p">,</span> <span class="n">analysis_frame</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Excel shape (variables x metadata/scenarios):"</span><span class="p">,</span> <span class="n">excel_frame</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Input-only and IN/OUT exports verified; temporary files removed."</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=da46956c"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Excel-Arbeitsabl%C3%A4ufe:-Varianten,-Migration-und-Batch">Excel-Arbeitsabläufe: Varianten, Migration und Batch<a class="anchor-link" href="#Excel-Arbeitsabl%C3%A4ufe:-Varianten,-Migration-und-Batch">¶</a></h2><p>Die ausführbare Importanalyse oben verwendet die gespeicherten Excel-Ergebnisse. Die Berechnung selbst erfolgt in der Arbeitsmappe.</p>
+<ul>
+<li>Varianten anlegen, benennen und speichern; zum Bearbeiten laden und neu berechnen: <code>website/variants.qmd</code>.</li>
+<li>Migration: im alten Tool das Projekt exportieren, in einer separaten neuen Tooldatei importieren, Varianten/zusätzliche Profile prüfen und neu berechnen. Alte Datei und Export aufbewahren: <code>website/migration.qmd</code>.</li>
+<li>Viele Varianten im Blatt <strong>Scen</strong> per Batch berechnen und Rechenstatus prüfen; die konkrete Start-/Statusbedienung wird nach einer aktuellen Feldansicht ergänzt: <code>website/batch.qmd</code>.</li>
+<li>Danach den neuen Projektexport mit denselben <code>Project.from_excel</code>- und Analysefunktionen dieses Notebooks prüfen. Ein erfolgreicher Python-Import bestätigt keine vollständige Migration aller Excel-Zusatzdaten und keinen erfolgreichen Batch-Rechenlauf.</li>
+</ul>
+<p>Für Migration und Scen sind noch aktuelle Dialogabbildungen erforderlich; diese Notebook-Ergänzung behauptet keine automatisierte Excel-Steuerung.</p>
+</div>
+</div>
+</div>
+</html>

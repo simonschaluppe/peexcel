@@ -1,0 +1,28 @@
+﻿Gruppe,Kanal,Exportiert,Stunden ungleich null,Summe Exportwerte
+Elektrische Verbraucher,E_plugAuxLight,True,8760.0,22280.60311534308
+Elektrische Verbraucher,Ev_min,True,0.0,0.0
+Elektrische Verbraucher,Eh_min,True,1741.0,3503.2709510876766
+Elektrische Verbraucher,Ec_min,True,898.0,1314.4490463179682
+Elektrische Verbraucher,Edhw_min,True,7929.0,3794.381732454621
+Elektrische Verbraucher,Eev_min,True,2507.0,2352.6621274344357
+Flexible HKLS-Aufwendungen,Eh_flex_1el_final,True,998.0,4143.9513900153615
+Flexible HKLS-Aufwendungen,Eh_flex_3el_final,True,0.0,0.0
+Flexible HKLS-Aufwendungen,Ec_flex_1el_final,True,62.0,90.96751773749969
+Flexible HKLS-Aufwendungen,Ec_flex_3el_final,True,0.0,0.0
+Flexible HKLS-Aufwendungen,Edhw1_flex_final,True,1845.0,638.0639727338794
+Flexible HKLS-Aufwendungen,Edhw2_flex_final,True,0.0,0.0
+Signalgesteuerter Netzbezug,VRGrid_total_min_use,False,,
+Signalgesteuerter Netzbezug,VRGrid_total_flex_use,False,,
+Signalgesteuerter Netzbezug,VRGrid_to_Eev_flex,True,1539.0,6563.429206192039
+Speicher und Rückspeisung,Batt_to_user,False,,
+Speicher und Rückspeisung,Batt_to_HVAC_min,False,,
+Speicher und Rückspeisung,Batt_to_Eev_min,False,,
+Speicher und Rückspeisung,PV_to_Batt,False,,
+Speicher und Rückspeisung,VRGrid_to_Batt,False,,
+Speicher und Rückspeisung,Eev_to_user,False,,
+Speicher und Rückspeisung,Eev_to_HVAC,False,,
+PV und konventioneller Netzbezug,PV_yield,True,4547.0,44007.375427866034
+PV und konventioneller Netzbezug,E_grid,True,4483.0,15681.885897128599
+PV und konventioneller Netzbezug,PV_total_direct_use,True,4547.0,14631.069184976675
+PV und konventioneller Netzbezug,PV_total_flex_use,True,0.0,0.0
+PV und konventioneller Netzbezug,PV_to_Egrid,True,3023.0,29376.306242889357
