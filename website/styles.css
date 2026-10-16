@@ -13,4 +13,53 @@ button:focus-visible,a:focus-visible,select:focus-visible{outline:3px solid #cb9
 @media(max-width:800px){.hero{grid-template-columns:1fr}.hero img{max-height:130px}.feature-grid,.flow-model{grid-template-columns:1fr}.hero .lead{font-size:18px}.peq-lesson{height:2100px}}
 @media print{.actions,.flow-controls{display:none}iframe{display:none}.hero,.feature{break-inside:avoid}a{color:inherit}}
 
+.excel-menu {
+  display: inline-block;
+  padding: 2px 8px;
+  min-width: 190px;
+  font-family: Aptos, Calibri, sans-serif;
+  font-size: 0.95em;
+  line-height: 1.3;
+  border-radius: 0;
+  color: white;
+  white-space: nowrap;
+  border-radius: 6px;
+}
+
+.excel-menu.red {
+  background: #d52b0b;
+  color: white;
+}
+
+.excel-menu.orange {
+  background: #ffa500;
+  color: black;
+}
+
+.excel-menu.teal {
+  background: #37a6b6;
+  color: black;
+}
+
+.excel-menu.darkred {
+  background: #ae290e;
+  color: white;
+}
 body:has(.hero) #title-block-header{display:none}
+
+/* Excel places are documentation labels, not simulated controls. */
+.excel-menu{min-width:0;max-width:100%;white-space:normal;vertical-align:baseline}
+.excel-path{background:#f0f3f5;padding:.7rem 1rem;margin:.8rem 0;overflow-wrap:anywhere;border-left:3px solid #607d8b}
+.excel-operation{background:#f4f8f6;border-left:4px solid #297658;padding:1rem 1.25rem;margin:1.25rem 0}
+.excel-operation h3{margin-top:0;font-size:1.15rem}
+.excel-field{background:#e1efdf;color:#205329;border:1px solid #80a67d;padding:.08em .35em}
+.excel-action{border:1px solid #74858c;padding:.08em .35em;background:#fff;color:#243746}
+.excel-value{background:#fbe0d7;color:#7b2b15;padding:.08em .35em;font-weight:600}
+.excel-section{border-bottom:1px solid #899ca3;font-weight:600}
+.declaration-note{border-left:4px solid #9b6e10;background:#fff8e8;padding:1rem;margin:1rem 0}
+.manual-figure{background:white;border:1px solid #dce5e0;padding:8px;width:100%;height:auto}
+.figure-caption{font-size:.85rem;line-height:1.5;color:#536570}
+.pending{border:1px dashed #8c9ba2;background:#f5f7f8;padding:1rem;margin:1rem 0}
+.table-responsive{max-width:100%;overflow-x:auto}
+@media(max-width:600px){.excel-operation{padding:.8rem}.excel-path{padding:.6rem}h1{overflow-wrap:anywhere}}
+@media print{.excel-menu{color:#000!important;background:#fff!important;border:1px solid #555}.excel-operation,.declaration-note{background:white;border:1px solid #777}}

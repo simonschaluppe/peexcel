@@ -3,6 +3,7 @@ from pathlib import Path
 import shutil
 import sys
 import json
+import filecmp
 
 import nbformat
 from nbconvert import HTMLExporter
@@ -23,6 +24,12 @@ DOCUMENTS = {
 }
 NOTEBOOKS = ("howto_excel", "howto_publication", "howto_section_teaching_preview",
              "howto_website", "howto_analyze_electricity_balance", "howto_visualize_project")
+MANUAL_FIGURES = (
+    "excel-overview", "quick-start", "energy-model", "thermal-model", "dispatch",
+    "mobility-boundary", "decarbonisation", "operational-emissions",
+    "dynamic-assessment", "lifecycle", "tool-workflow", "excel-dashboard",
+    "variant-comparison", "presets",
+)
 
 
 def build(output=None):
@@ -36,9 +43,17 @@ def build(output=None):
     for folder in ("downloads", "media", "tutorials"):
         (output / folder).mkdir(parents=True, exist_ok=True)
     for source, target in DOCUMENTS.items():
-        shutil.copyfile(ROOT / "docs" / source, output / "downloads" / target)
+        src, dst = ROOT / "docs" / source, output / "downloads" / target
+        # Keep identical downloads intact, including PDFs open in a local viewer.
+        if not dst.exists() or not filecmp.cmp(src, dst, shallow=False):
+            shutil.copyfile(src, dst)
     for source, target in (("ComponentTypes.png", "components.png"), ("mobilität.png", "mobility.png")):
         shutil.copyfile(ROOT / "docs" / source, output / "media" / target)
+    manual = output / "media/manual"
+    manual.mkdir(parents=True, exist_ok=True)
+    for name in MANUAL_FIGURES:
+        source = ROOT / "docs/website" / f"{name}.png"
+        shutil.copyfile(source, manual / source.name)
     build_preview(output / "assets/teaching")
     build_catalog(output / "assets/components")
     exporter = HTMLExporter(template_name="basic")

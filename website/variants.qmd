@@ -1,0 +1,32 @@
+---
+title: "Varianten verwalten"
+---
+
+Ein Projekt kann mehrere Varianten beziehungsweise Szenarien enthalten. Varianten speichern Eingabekonfigurationen, die einzeln geladen, bearbeitet und erneut berechnet werden. Die Schulung beschreibt den Ablauf **Anlegen / Definieren → Speichern / Laden → Simulieren → Vergleichen**.
+
+::: {.excel-path}
+**Menüband:** klimaaktiv PEQ → Projekt-Varianten → [Aktuelle Eingabe speichern]{.excel-action} / [Varianten]{.excel-action}
+:::
+
+## Variante anlegen und speichern
+
+::: {.excel-operation}
+1. Projektname und Variantenbezeichnung festlegen. Ausgangsstand und Maßnahmenvariante eindeutig unterscheiden.
+2. Die Eingaben auf den Fachblättern festlegen und berechnen.
+3. [Aktuelle Eingabe speichern]{.excel-action} aufrufen und dem vorgesehenen Projekt zuordnen.
+4. Vor dem Bestätigen prüfen, ob eine neue Variante angelegt oder eine bestehende überschrieben wird.
+:::
+
+## Gespeicherte Variante laden
+
+Im Variantenmanager das Projekt und die gewünschte Variante auswählen und laden. Projekt-/Variantenname sowie die geladenen Eingaben kontrollieren; bei Änderungen oder nicht aktuellem Rechenstand neu berechnen. Noch nicht gespeicherte Änderungen vor einem Variantenwechsel sichern.
+
+::: {.pending}
+**Bedienabbildung in Vorbereitung:** aktueller Variantenmanager mit Projektwahl, Speichern und Laden.
+:::
+
+## Weiterbearbeitung
+
+[Presets](presets.qmd) erleichtern die Parametrisierung. [Migration](migration.qmd) überträgt Projekte auf neue Toolversionen. Die Auswertung erfolgt im [Variantenvergleich](comparison.qmd); viele Varianten werden über die [Batch-Simulation](batch.qmd) bearbeitet.
+
+Quelle: [Schulung, Folien 28 und 33](downloads/schulung.pdf#page=33).

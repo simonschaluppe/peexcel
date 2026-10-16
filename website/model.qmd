@@ -30,3 +30,27 @@ Eigene Nutzerstrom- und Wärmegewinnannahmen lassen sich modellieren. Für die D
 :::
 
 [Schulung, Folien 7–16 und 30](downloads/schulung.pdf) · [Daten vorbereiten](interfaces.qmd)
+
+## Quartier eingeben {#quartier-eingeben}
+
+**Excel-Ort:** Blatt [🏙 Quartier]{.excel-menu .darkred}.
+
+::: {.excel-operation}
+### Im Excel-Tool
+| Abschnitt | Eingaben und Kontrolle |
+|---|---|
+| Projektbeschreibung | Projektname, Variante, Beschreibung und Bearbeitungsstand |
+| Standort / Wetter | Gemeinde und zugehöriger Wetterdatensatz |
+| Quartier | Bruttogrundflächen nach Nutzung |
+| Raumhöhen und Nettogrundflächen | Nettoraumhöhen und Verhältnis NGF/BGF |
+| Quartiersfläche und bauliche Dichte | Bebaubare Grundstücksfläche und resultierende GFZ |
+| Sanierung oder Neubau | Sanierungsanteil je Nutzung |
+
+Flächen und Anteile mit den Projektunterlagen abgleichen. Berechnete NGF, Volumina und GFZ kontrollieren; anschließend die [thermische Hülle](envelope.qmd) und [Anlagen](hvac.qmd) parametrisieren.
+:::
+
+## Energiemodell Betrieb {#simulationsmodell}
+
+![Energiemodell Betrieb: Quellen, Umwandlung, Speicher und Nutzungen innerhalb der Quartiersgrenze sowie Bezug und Einspeisung. Vom Projektverantwortlichen bereitgestellte Schulungsgrafik.](media/manual/energy-model.png){.manual-figure}
+
+Die Schulung unterscheidet Quellen, Speicher, Senken, Nutzungen und Umwandlung. Die Bilanzierung verbindet die physischen Energieflüsse mit Primärenergie- und THG-Bewertung. [PV](pv.qmd), [Speicher und Flexibilität](systems.qmd), [Mobilität](mobility.qmd) und [Ökobilanz](climate.qmd) besitzen eigene Eingabeseiten. Abschließend [Varianten verwalten](variants.qmd).

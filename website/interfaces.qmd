@@ -10,23 +10,17 @@ Gebäude- und Hüllkennwerte werden aus den Projektunterlagen übernommen. Bezug
 
 **Arbeitsablauf:** Quelle und Stand notieren → Bezugsflächen abgleichen → vorgesehene Kennwerte übernehmen → Hüll- und Bedarfswerte auf Plausibilität prüfen → Variante speichern.
 
-## Wetter
+## Wetter {#wetter}
 
 Der Wetterdatensatz muss zu Standort und Untersuchungsziel passen. Die Schulung nennt Helios-PC als Datenzugang; im Repository liegen weitere Wetterdateien. Bei Zukunftswettervergleichen bleibt die Bewertungsvorgabe separat dokumentiert.
 
+**Excel-Orte:** Blatt [🌦 Wetter]{.excel-menu .darkred} für die Hinterlegung; Blatt [🏙 Quartier]{.excel-menu .darkred} für die Auswahl des Datensatzes.
+
 **Arbeitsablauf:** Standort und Wetterjahr festhalten → Stundenreihenfolge und Vollständigkeit prüfen → im vorgesehenen Wetterbereich übernehmen → Rechenlauf prüfen. Bei isolierter Untersuchung einer Anlagenmaßnahme bleibt der Wetterdatensatz unverändert.
 
-## PV-Erzeugung
+## Weitere Eingabewege
 
-Stündliche PV-Eingaben ermöglichen die Zuordnung zu Verbrauch, Speicher und Netz. Ein spezifisches Profil und die absolute Erzeugung einer installierten Anlage sind unterschiedliche Größen.
-
-**Arbeitsablauf:** Quelle, Ausrichtung und installierte Leistung dokumentieren → Einheit und Skalierung prüfen → Stundenbezug mit Wetter und Lasten abgleichen → importieren → Jahressumme und Tagesgang kontrollieren. Die Schulung beschreibt 8760 Stunden; abweichende Kalender nicht stillschweigend kürzen.
-
-## Bauteile und LCA
-
-Die Schulung nennt **baubook / Eco2Soft** als Zugang für Bauteildaten. Konstruktionen werden den [Bauteiltypen](components.qmd) zugeordnet. Spezifische und bereits mengenbezogene Werte sind zu unterscheiden; Datensatz, Bezugsgröße und Bilanzumfang müssen dokumentiert sein.
-
-**Arbeitsablauf:** Konstruktion und Quelle auswählen → Kategorie, Menge und Einheit abgleichen → Werte in vorgesehene Felder übernehmen → Summen kontrollieren → [THG-Systemgrenze](climate.qmd) prüfen.
+Die [PV-Eingabe](pv.qmd) beschreibt Dachflächen-Skalierung und detaillierte Stundenprofile. Die [Ökobilanz](climate.qmd#eco2soft) beschreibt die Verknüpfung mit Eco2soft einschließlich CSV-Import.
 
 ## Excel ↔ Python
 

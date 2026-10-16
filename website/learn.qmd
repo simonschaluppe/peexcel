@@ -15,7 +15,7 @@ Technische Dokumentation zur Modellierung, Ergebnisanalyse und Vorbereitung der 
 ## Ergebnisanalyse und Nachweisvorbereitung
 
 - [Wärme-, Endenergie-, Primärenergie- und THG-Bilanz](examples.qmd) im Variantenvergleich.
-- [Aspern F7: elektrische Flussprofile](systems.qmd#aspern-f7) mit saisonalen Tagesprofilen und chronologischen Stundenwerten.
+- [Aspern F7: elektrische Flussprofile](examples.qmd#aspern-f7) mit saisonalen Tagesprofilen und chronologischen Stundenwerten.
 - [Mobilitätsbilanz](mobility.qmd) und [Lebenszyklusbetrachtung](climate.qmd).
 - [Deklarationswerte, AUDIT und Nachweisunterlagen](declaration.qmd).
 
@@ -37,3 +37,9 @@ Die [Python-Dokumentation](python.qmd) enthält ausführbare Notebooks für Impo
 | Kontakt | 36 | [Kontakt](about.qmd) |
 
 [Schulungsunterlage als PDF](downloads/schulung.pdf) · [Begriffe](glossary.qmd)
+
+## Excel-Bedienung nach Aufgaben
+
+[Blattnavigator und Formatierung](excel-navigation.qmd) · [Presets](presets.qmd) · [Migration](migration.qmd) · [Varianten verwalten](variants.qmd) · [Ergebnisblatt](results.qmd) · [Excel-Dashboard](excel-dashboard.qmd) · [Variantenvergleich](comparison.qmd) · [Batch-Simulation](batch.qmd)
+
+Die Bedienabbildungen stammen aus den vom Projektverantwortlichen bereitgestellten Bildern. Fachliche Begriffe folgen der Schulung vom 14.10.2026. Fehlende aktuelle Detailansichten sind auf den betroffenen Seiten gekennzeichnet.

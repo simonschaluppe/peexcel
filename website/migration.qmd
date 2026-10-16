@@ -1,0 +1,33 @@
+---
+title: "Migration auf eine neue Toolversion"
+---
+
+Ein bestehendes Projekt wird über eine **Projekt-Exportdatei** aus dem alten Tool in eine neue Arbeitsmappe übertragen. Alte und neue Toolversion bleiben getrennte Dateien.
+
+::: {.excel-operation}
+### Projekt exportieren und importieren
+1. Im alten Tool aktuelle Eingaben als Variante speichern; Projekt- und Variantennamen kontrollieren.
+2. Das Projekt mit den benötigten Varianten über die Projekt-Exportfunktion exportieren. Ausgangsdatei und Export aufbewahren.
+3. Die neue Toolversion als eigene Arbeitsdatei öffnen und vorbereiten.
+4. Über den folgenden Menübandbefehl die Projektdatei importieren.
+5. Übertragene Varianten laden, Importhinweise und neue beziehungsweise geänderte Parameter prüfen.
+6. Im neuen Tool neu berechnen und den neuen Rechenstand einschließlich Versionsnummer speichern.
+:::
+
+::: {.excel-path}
+**Menüband im neuen Tool:** klimaaktiv PEQ → Projekt-Varianten → [Projekt-Datei importieren]{.excel-action}
+:::
+
+Der Importbefehl ist im Repository-Ribbon dokumentiert. Die genaue Exportauswahl hängt vom alten Toolstand ab. Eigene Wetter-/PV-Profile und weitere projektspezifische Daten nach dem Import auf Verfügbarkeit und Zuordnung prüfen. Eine vollständige Übernahme aller Zusatzdaten ist nicht pauschal zugesichert.
+
+::: {.pending}
+**Bedienabbildungen in Vorbereitung:** Projekt-Exportdialog im alten Tool sowie Importdialog und Abschlussmeldung im neuen Tool. Bis dahin dient die oben beschriebene Abfolge als Orientierung; es werden keine unbestätigten Export-Schaltflächen angegeben.
+:::
+
+## Ergebnisse nach dem Versionswechsel
+
+Änderungen an Berechnung, Defaults oder Methodik können Ergebnisse verändern. Eine Abweichung ist deshalb zunächst anhand von Eingaben, Version und Rechenstand einzuordnen. Alte Ergebnisse nicht als aktuellen Rechenstand übernehmen und keine Berechnungsblätter zwischen Toolversionen kopieren.
+
+[Varianten verwalten](variants.qmd) · [Qualitätssicherung für den Nachweis](declaration.qmd#qualitaetssicherung)
+
+Grundlage: Projekt-Export der [Schulung, Folie 25](downloads/schulung.pdf#page=25); Migrationsablauf gemäß Projektvorgabe.

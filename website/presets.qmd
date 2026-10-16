@@ -1,0 +1,46 @@
+---
+title: "Schnelleinstieg mit Presets"
+---
+
+Für die meisten Eingabekategorien existieren speziell formatierte Auswahlfelder. Damit lassen sich schnell typische Konfigurationen festlegen. Die Schnellauswahl übernimmt ein **Parameterpaket**; anschließend können die Detaileingaben projektspezifisch geprüft und geändert werden.
+
+**Excel-Ort:** Blatt [▶ Quick Start]{.excel-menu .darkred} → [Schnellauswahl]{.excel-section}; alternativ das jeweilige Fachblatt oder dessen Menü im Ribbon **klimaaktiv PEQ**.
+
+![Excel-Bedienung: Preset-Auswahl und Zuordnung zu Eingabevariablen. Die Presets_xx-Tabellen enthalten spaltenweise Presets und zeilenweise die angesteuerten Inputvariablen. Bereitgestellte Schulungsfolie 34.](media/manual/presets.png){.manual-figure}
+
+::: {.excel-operation}
+### Preset anwenden und Ergebnis kontrollieren
+1. Ausgangsstand als [Variante speichern](variants.qmd). **Presets können vorhandene Eingaben überschreiben; nicht auf Excel-Undo verlassen.**
+2. In der Schnellauswahl das gewünschte Preset wählen.
+3. Im Fachblatt die übernommenen Parameter kontrollieren: Leistungen, Systemanteile, Sollwerte, Verluste und Aktivierungsschalter.
+4. Neu berechnen und die betroffenen Bilanzen im [Ergebnisblatt](results.qmd) prüfen.
+5. Als neue Variante speichern und im [Variantenvergleich](comparison.qmd) gegenüberstellen.
+:::
+
+## Beispiel: Heizsystem ändern
+
+::: {.excel-path}
+**Menüband:** klimaaktiv PEQ → Heizung → Auswahl Heizsystem
+:::
+
+Das Preset [„Fernwärme“]{.excel-value} wählen. Im Blatt [🔥 Heizung]{.excel-menu .darkred} insbesondere Energieträger, [Maximale Heizleistung]{.excel-field} und Erzeugungseffizienz kontrollieren. Nach der Berechnung im Ergebnisblatt die Verteilung der Endenergieträger und die Primärenergiebilanz vergleichen. Das Preset ersetzt keine Anlagendimensionierung.
+
+## Schnellauswahl nach Eingabegruppe
+
+| Gruppe | Weiterführende Eingabe |
+|---|---|
+| Geometrie, Neubau/Sanierung | [Quartier](model.qmd#quartier-eingeben) |
+| Hüllqualität, Luftdichtheit, Verschattung, Bauweise | [Bauphysik](envelope.qmd#excel-bauphysik) |
+| Heizung, Abgabe, Kühlung, Warmwasser, Lüftung | [HKLS](hvac.qmd) |
+| PV | [Dachflächen-Skalierung oder Stundenprofil](pv.qmd) |
+| Flexibilität und Speicher | [Freigaben und Speicherparameter](systems.qmd) |
+| Mobilität | [Standort, MIV und E-Fahrzeuge](mobility.qmd) |
+| Ökobilanz | [Bauliche Maßnahmen und TGA](climate.qmd) |
+
+Der Preset-Name allein beschreibt nicht sämtliche aktiven Einstellungen. Maßgeblich sind die tatsächlich übernommenen Eingabewerte.
+
+::: {.declaration-note}
+**Für die Deklaration:** Beispielwerte und Schätzungen durch Projektangaben ersetzen. Als Deklarationswerte gekennzeichnete Parameter sind für den Nachweis verbindlich, bleiben für freie Modellvarianten aber veränderbar.
+:::
+
+Quelle: [Schulung, Folien 8, 29 und 34](downloads/schulung.pdf#page=34).

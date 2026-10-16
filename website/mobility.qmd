@@ -23,3 +23,20 @@ Ein Mobilitätskonzept kann bei unverändertem Gebäudemodell untersucht werden.
 <details><summary>Fachliche Einordnung</summary>Der Ladeort allein entscheidet nicht über die verursacherbezogene Zuordnung. Physische Ladebilanz und Bewertungsbilanz haben unterschiedliche Systemgrenzen. Maßgeblich ist die im Tool dokumentierte Zuordnung.</details>
 
 [Bewertungsübersicht](results.qmd) · [Publikationen zur E-Mobilität](research.qmd)
+
+## Mobilität im Excel-Tool {#excel-mobilitaet}
+
+**Excel-Ort:** Blatt [🚗 Mobilität]{.excel-menu .orange}.
+
+Die Schulung trennt **reale Potenzialnutzung** von **Verursacher-Verantwortung**: Für die Speicher- und Lastflusssimulation werden die im Quartier verkehrenden E-Fahrzeuge und ihre Ladung betrachtet. Die Bewertungsbilanz ordnet dem Quartier den verursachten Zielverkehr zu, elektrisch und fossil.
+
+![Mobilitätsbilanz: Zielverkehr und anderer Verkehr nach Nutzungen; bereitgestellte Schulungsgrafik.](media/manual/mobility-boundary.png){.manual-figure}
+
+::: {.excel-operation}
+### Im Excel-Tool
+MIV-Modellierung und Berechnungsverfahren wählen. Standort und Mobilitätsmaßnahmen, Skalierung des statistischen MIV, E-Mobilitätsanteil und Ladepunkte prüfen. Für die reale Ladung Kapazitäten, Wirkungsgrade, interne/externe Mindestladestände und gegebenenfalls bidirektionales Laden einstellen. Nach der Berechnung Mobilitätsbeiträge im [Ergebnisblatt](results.qmd) und EV-Ladezustände im [Dashboard](excel-dashboard.qmd) kontrollieren.
+:::
+
+Standort, Stellplätze, alternative Mobilitätsangebote und Ladeinfrastruktur sind unterschiedliche Maßnahmen. Physische Ladung im Quartier und zugerechneter Mobilitätsbedarf dürfen nicht gleichgesetzt werden.
+
+Quelle: [Schulung, Folien 17–20](downloads/schulung.pdf#page=19).

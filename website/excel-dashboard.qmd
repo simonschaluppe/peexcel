@@ -1,0 +1,55 @@
+---
+title: "Excel-Dashboard"
+---
+
+**Excel-Ort:** Blatt [📈 Dashboard]{.excel-menu .red}.
+
+Das Dashboard zeigt **stündliche Energieflüsse** und Speicherzustände. Ein gemeinsamer Zeitraum ermöglicht es, Bedarf, Deckung und Speicherreaktion zusammen zu untersuchen. Der [Python-Szenarioexplorer](dashboard.qmd) ist eine separate Anwendung.
+
+::: {.excel-path}
+**Menüband:** klimaaktiv PEQ → Ergebnisse → [Dashboard]{.excel-action}
+:::
+
+## Zeitraum und Stundenverlauf auswählen
+
+::: {.excel-operation}
+### Im Excel-Tool
+1. In [Datum auswählen]{.excel-action} den Zeitraum markieren; zusammenhängende Bereiche über die Zeitleiste auswählen.
+2. Für eine stündliche Auswertung ein überschaubares Fenster, etwa eine Woche, wählen. Die Kalenderauswahl **TAGE** im Screenshot legt das Datumsfenster fest; sie ist nicht selbst der Nachweis einer stündlichen Aggregation.
+3. Die Zeitachse der Diagramme kontrollieren: Stundenverläufe müssen Zeitstempel innerhalb der Tage zeigen.
+4. Nach einer Neuberechnung [Aktualisieren]{.excel-action} verwenden, damit die Pivot-Darstellungen den neuen Rechenstand übernehmen.
+:::
+
+![Excel-Bedienung: Zeitraumauswahl und Aktualisieren oberhalb der dynamischen Diagramme. Die Abbildung zeigt Stundenzeitstempel im ausgewählten Januar-/Februarfenster sowie Strombedarf, Deckung und Speicherzustände.](media/manual/excel-dashboard.png){.manual-figure}
+
+## Strom-Bedarf und Nutzung
+
+Das obere Diagramm zeigt Nutzerstrom, unflexible HKLS-Bedarfe, EV-Ladung und zusätzliche flexible Nutzung. Speicherladung ist als eigener Beitrag zu lesen. Spitzen im Leistungsprofil lassen sich mit Freigabezeiten und Speicherzuständen vergleichen.
+
+## Strom-Deckung
+
+Das zweite Diagramm unterscheidet konventionellen und flexiblen Netzbezug, PV-Nutzung, Batterieentnahme, E-Car-Entladung und PV-Netzeinspeisung. Gleichzeitig auftretende Beiträge anhand der jeweiligen Legende zuordnen; Vorzeichen und Bilanzgrenze beachten.
+
+## Raumtemperatur und thermische Gebäudemasse
+
+Die Raumtemperaturen der gekühlten und ungekühlten Bereiche zeigen die thermische Reaktion. Flexible Vor-Konditionierung wird gegen Solltemperaturen und zulässige Temperaturbänder geprüft. Die Temperatur ist ein Zustandsindikator, keine gespeicherte Energiemenge in kWh.
+
+## Warmwasserspeicher
+
+Die Zustände von WW-System 1 und 2 zeigen Beladung und Nutzung im ausgewählten Zeitraum. Prozentwerte entsprechend der Diagrammskalierung lesen; nicht als Temperatur oder absolute Speicherkapazität interpretieren.
+
+## E-Fahrzeuge und Batterie
+
+**EV SoC** zeigt die Ladezustände nach Nutzung; **Batterie SOC** den stationären elektrischen Speicher. Mindestladestand, flexible Beladung und Entladung im Zusammenhang mit den Stromflüssen beurteilen.
+
+## Thermische Tagesmittel und weitere Ansichten
+
+Die Wärmegewinne und -verluste der beiden thermisch entkoppelten Zonen werden zusätzlich als Tagesmittel ausgewertet. Tagesmittel und Stundenleistung sind unterschiedliche Aggregationen.
+
+![Modell und Dashboard: thermisch entkoppelte Zonen, Wärmebilanz und Tagesmittel der Wärmeflüsse. Bereitgestellte Schulungsabbildung; die untere Darstellung zeigt ausdrücklich Tagesmittelwerte.](media/manual/thermal-model.png){.manual-figure}
+
+[Speicherparameter](systems.qmd) · [Ergebnisblatt](results.qmd) · [Aspern-F7-Profile auf der Website](examples.qmd#aspern-f7)
+
+Die Website-Profile verwenden exportierte Kanäle. Fehlende Kanäle im Export bedeuten nicht, dass diese Größen im Excel-Dashboard fehlen.
+
+Quelle: [Schulung, Folien 11 und 32](downloads/schulung.pdf#page=32).

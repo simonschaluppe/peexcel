@@ -19,7 +19,7 @@ Der zweite schematische Schnitt hat zwei beheizte Obergeschosse und einen ausdr�
 
 [![Bauteiltypen: Zuordnung im Gebäudeschnitt](media/components.png){.full-figure}](media/components.png)
 
-Die Originalgrafik ergänzt die reduzierten Schematischer Schnitte um weitere Situationen. Vergrößern durch Anklicken. Quelle: `docs/ComponentTypes.png`; siehe auch [Schulung, Folien 13–14](downloads/schulung.pdf).
+Die Originalgrafik ergänzt die reduzierten schematischen Schnitte um weitere Situationen. Vergrößern durch Anklicken. Quelle: `docs/ComponentTypes.png`; siehe auch [Schulung, Folien 13–14](downloads/schulung.pdf).
 
 ## Vorgehen bei der Projektbearbeitung
 
@@ -31,4 +31,16 @@ Die Originalgrafik ergänzt die reduzierten Schematischer Schnitte um weitere Si
 
 <details><summary>Fachliche Einordnung</summary>Die Kellerdecke trennt im zweiten Referenzmodell beheizt von unbeheizt und gehört zur Wärmebilanzgrenze. Die innere Geschoßdecke ist ebenfalls ein bilanziertes Konstruktionsbauteil, bildet dort aber keine äußere thermische Grenze. Thermische und Lebenszyklusbilanz betrachten unterschiedliche Eigenschaften desselben Bauteils.</details>
 
-**Vertiefung:** [LCA-Daten übernehmen](interfaces.qmd#bauteile-und-lca) · [Graue Emissionen bewerten](climate.qmd).
+**Vertiefung:** [LCA-Daten übernehmen](climate.qmd#eco2soft) · [Graue Emissionen bewerten](climate.qmd).
+
+## Zuordnung im Excel-Tool {#excel-zuordnung}
+
+**Thermische Eingabe:** Blatt [🧱 Bauphysik]{.excel-menu .darkred} → opake und transluzente Bauteile.
+
+**Ökobilanz:** Blatt [☁ Treibhauspotential (THG)]{.excel-menu .teal} → [Baulich]{.excel-section}.
+
+::: {.excel-operation}
+Kategorie, Konstruktion und Menge für Außenwand, Fenster, Dach, Kellerdecke/Fundament und Zwischengeschoßdecken zuordnen. Zusätzliche bauliche Maßnahmen, Sammelmaßnahmen und eine LCA-Gesamteingabe auf überschneidungsfreie Erfassung prüfen. Ein in der thermischen Hülle nicht benötigtes Bauteil kann weiterhin eine relevante Herstellungsbilanz besitzen.
+:::
+
+[Ökobilanz und Eco2soft-Import](climate.qmd#eco2soft)

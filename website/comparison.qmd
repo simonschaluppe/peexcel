@@ -1,0 +1,31 @@
+---
+title: "Variantenvergleich"
+---
+
+**Excel-Ort:** Blatt [🔎 Variantenvergleich]{.excel-menu .red} (var).
+
+Der Variantenvergleich stellt die Ergebnisse mehrerer gespeicherter Konfigurationen gegenüber. Einzelmaßnahmen und Maßnahmenpakete werden auf derselben Bilanzgrundlage untersucht.
+
+::: {.excel-path}
+**Menüband:** klimaaktiv PEQ → Ergebnisse → [Vergleich]{.excel-action}
+:::
+
+::: {.excel-operation}
+### Vergleich aufbauen
+1. Die benötigten Varianten einzeln oder per [Batch](batch.qmd) berechnen und speichern.
+2. Im Blatt Variantenvergleich die Vergleichsgruppe auswählen.
+3. Diagrammbereiche auf die tatsächlich auszuwertenden Varianten beschränken.
+4. Gleiche Bezugsflächen, Systemgrenzen, Wettergrundlagen und Bewertungsannahmen sicherstellen; bewusste Unterschiede dokumentieren.
+:::
+
+![Excel-Auswertung: Primärenergievergleich einzelner Maßnahmen und Kombinationen. Bereitgestellte Schulungsabbildung; diese Varianten sind nicht die drei Bsp-Sanierungsvarianten der Website.](media/manual/variant-comparison.png){.manual-figure}
+
+## Bilanzen gemeinsam interpretieren
+
+Hüllqualität verändert Wärmebedarf; PV verändert Erzeugung und zeitliche Deckung; flexible HKLS und Speicher verschieben den Bezug. Mobilitätsmaßnahmen wirken auf eine zusätzliche Bilanzgrenze. Die kombinierte Wirkung ist aus dem berechneten Maßnahmenpaket abzulesen und nicht aus der bloßen Summe isolierter Verbesserungen.
+
+Die Primärenergiedarstellung enthält neben Bedarf und Deckung auch Kontextbeiträge. Diese sind Bewertungsgrößen und keine zusätzliche physische Erzeugung.
+
+[Reale Sanierungsbeispiele: vier Bilanzen](examples.qmd) · [Varianten verwalten](variants.qmd)
+
+Quelle: [Schulung, Folie 33](downloads/schulung.pdf#page=33).

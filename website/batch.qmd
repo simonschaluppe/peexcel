@@ -1,0 +1,23 @@
+---
+title: "Automatische Batch-Simulation"
+---
+
+**Excel-Ort:** Blatt [Scen]{.excel-menu .red}.
+
+Die automatische Batch-Simulation dient der Berechnung einer großen Anzahl von Varianten. Sie ergänzt die einzelne Berechnung einer aktiven Variante und bereitet die gemeinsame Ergebnisanalyse vor.
+
+## Arbeitsablauf
+
+1. Varianten [anlegen und speichern](variants.qmd), mit eindeutigen Namen und dokumentierter Fragestellung.
+2. Die für den Batch vorgesehenen Varianten im Blatt Scen zusammenstellen.
+3. Den Batch über die in der jeweiligen Toolversion vorgesehene Funktion ausführen.
+4. Rechenstatus und etwaige Fehler prüfen; Ergebnisse den Varianten zuordnen.
+5. Berechnete Varianten im [Variantenvergleich](comparison.qmd) auswerten.
+
+::: {.pending}
+**Bedienreferenz in Vorbereitung:** benötigt werden eine Übersicht des Blatts Scen, die Varianten-/Batch-Auswahl, der Startbefehl und die Status-/Fehleranzeige. Konkrete Spaltennamen, automatische Speicherung, Abbruch und Wiederaufnahme werden erst anhand dieser Ansicht dokumentiert.
+:::
+
+Fehlgeschlagene oder noch nicht berechnete Varianten nicht als vollständige Vergleichsgruppe interpretieren. Eingabestand, Toolversion und Rechenstatus gemeinsam dokumentieren.
+
+Quelle: [Schulung, Folie 33: Simulieren (Batch)](downloads/schulung.pdf#page=33); Blattzuordnung Scen gemäß Projektvorgabe.

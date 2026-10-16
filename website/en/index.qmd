@@ -31,4 +31,4 @@ The klimaaktiv framework distinguishes a Positive Energy District, a Positive En
 
 The model permits alternative assumptions. A klimaaktiv declaration must use the specified declaration values and assessment rules. PV life-cycle emissions can be modelled but are excluded from the klimaaktiv assessment method. The distinction between modelling freedom and mandatory declaration inputs also applies to hourly conversion factors, plug loads and internal heat gains.
 
-The [building section](../envelope.qmd) illustrates model boundaries and qualitative heat flows. The [three refurbishment variants](../examples.qmd) provide annual heat, final-energy, primary-energy and GHG comparisons. [Aspern F7](../systems.qmd#aspern-f7) provides a separate hourly electrical-flow example; export completeness is explicitly stated.
+The [building section](../envelope.qmd) illustrates model boundaries and qualitative heat flows. The [three refurbishment variants](../examples.qmd) provide annual heat, final-energy, primary-energy and GHG comparisons. [Aspern F7](../examples.qmd#aspern-f7) provides a separate hourly electrical-flow example; export completeness is explicitly stated.

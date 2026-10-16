@@ -1,31 +1,30 @@
 ---
-title: "Projektbearbeitung und Variantenverwaltung"
+title: "Tool-Anwendung"
 ---
 
-Der Arbeitsablauf umfasst Datenaufbereitung, Parametrisierung, Berechnung, Ergebnisprüfung und Dokumentation. Voraussetzung ist Microsoft Excel / Office 365 mit aktivierten Makros. Python ist für die Bedienung der Arbeitsmappe nicht erforderlich.
+PEExcel bildet Gebäude-Betrieb, motorisierten Individualverkehr und Ökobilanz in einem stündlichen Quartiersmodell ab. Der Arbeitsablauf folgt der **Nachweis-Schleife: Modellierung → Simulation → Analyse**. Python ist für die Excel-Anwendung nicht erforderlich.
 
 ## Arbeitsdatei vorbereiten
 
-Die [Excel-Arbeitsmappe](download.qmd) lokal speichern. Bei einer Windows-Dateisperre die vertrauenswürdig bezogene Datei über **Eigenschaften → Zulassen / Entsperren** freigeben. Anschließend in Excel öffnen und Makros aktivieren. Eine unveränderte Ausgangsdatei dient als Referenz.
+Die [Arbeitsmappe](download.qmd) lokal speichern und mit Microsoft Excel / Office 365 öffnen. Für die Variantenfunktionen sind Makros erforderlich. Bei einer Windows-Dateisperre die vertrauenswürdig bezogene Datei über **Eigenschaften → Zulassen / Entsperren** freigeben. Eine unveränderte Ausgangsdatei aufbewahren.
 
-## Eingabedaten und Modellgrenze
+::: {.excel-operation}
+### Im Excel-Tool
+**Excel-Ort:** Blatt [▶ Quick Start]{.excel-menu .darkred}
 
-**IN** enthält die Eingaben, **OUT** die Ergebnisse. Vor der Berechnung sind Standort, Flächen, Nutzungen, Hüllqualitäten und Versorgung abzugleichen. Datenquellen und Toolversion sind zusammen mit den Projektannahmen zu dokumentieren. Presets ersetzen keine projektspezifische Prüfung.
+1. Projekt und Geometrie über die Schnellauswahlen festlegen oder eine [gespeicherte Variante laden](variants.qmd).
+2. [Presets](presets.qmd) wählen und projektspezifische Detaileingaben kontrollieren.
+3. Über **Formeln → Berechnung → Neu berechnen** (<kbd>F9</kbd>) berechnen. Bei manuellem Berechnungsmodus sind Ergebnisse nach Änderungen erst nach dem Rechenlauf aktuell.
+4. [Ergebnisblatt](results.qmd) und [Excel-Dashboard](excel-dashboard.qmd) auswerten.
+5. Den bearbeiteten Stand als eindeutig benannte [Variante speichern](variants.qmd).
+:::
 
-[Modellstruktur](model.qmd) · [Daten und Schnittstellen](interfaces.qmd)
+![Excel-Bedienung: Quick Start mit thematischen Eingabeblättern und Schnellauswahl. Bereitgestellte Ansicht v1_12 vom 24.06.2026; Beispielwerte sind keine Projektvorgaben.](media/manual/quick-start.png){.manual-figure}
 
-## Varianten definieren
+## Projektbearbeitung
 
-Ausgehend von einer dokumentierten Referenz werden einzelne Parameter oder eindeutig beschriebene Maßnahmenpakete verändert. Varianten erhalten eindeutige Namen. Freie Modellierungsannahmen und verbindliche Deklarationswerte sind getrennt zu kennzeichnen.
+[Orientierung im Excel-Tool](excel-navigation.qmd) erklärt Blätter, Formatierungen und Bedienpfade. [Modellieren](model.qmd) führt durch die Eingabegruppen. Für bestehende Projekte beschreibt [Migration](migration.qmd) den Export aus der alten und Import in die neue Toolversion.
 
-## Berechnung und Ergebnisvergleich
+Die [Qualitätssicherung für die Nachweisführung](declaration.qmd#qualitaetssicherung) umfasst AUDIT, Deklarationswerte und die Dokumentation der Datenquellen.
 
-Die Berechnung erfolgt über die vorgesehenen Toolfunktionen. In OUT und im Dashboard werden Bedarf, Erzeugung, Bezug, Einspeisung und Bewertung verglichen. Stundenwerte aus SIM2 ergänzen die Jahresergebnisse. Eine Jahresbilanz ersetzt keine Analyse der zeitlichen Deckung.
-
-Der [Vergleich der drei Sanierungsvarianten](examples.qmd) zeigt die unterschiedlichen Bilanzebenen. Die [Aspern-F7-Profile](systems.qmd#aspern-f7) ergänzen die zeitliche Perspektive.
-
-## Qualitätssicherung
-
-AUDIT unterstützt die Kontrolle fehlender, unplausibler oder deklarationsrelevanter Eingaben. Hinweise sind fachlich zu bewerten. Variante, Export, Datenquellen, Version und Rechenstand werden gemeinsam abgelegt. Die fachliche Nachweisprüfung bleibt erforderlich.
-
-[Handbuch mit vollständiger Bedienung](downloads/handbuch.pdf) · [Nachweisvorbereitung](declaration.qmd)
+Quelle: [Schulung, Folien 3, 7–8, 24–30](downloads/schulung.pdf#page=7).

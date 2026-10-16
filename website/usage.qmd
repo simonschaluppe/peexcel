@@ -1,0 +1,29 @@
+---
+title: "Nutzungsparameter"
+---
+
+**Excel-Ort:** Blatt [👤 Nutzungsparameter]{.excel-menu .darkred}.
+
+Nutzungsdaten verknüpfen Flächen mit Nutzerstrom, Beleuchtung und internen Wärmegewinnen. Die nutzungsspezifischen Annahmen beeinflussen sowohl den elektrischen Bedarf als auch das thermische Modell.
+
+::: {.excel-operation}
+### Im Excel-Tool
+| Eingabebereich | Bearbeitung und Kontrolle |
+|---|---|
+| Nutzerstrom | Jahresverbrauch beziehungsweise Skalierung je Nutzung prüfen; zeitliches Profil und Jahresmenge unterscheiden |
+| Interne Lasten und innere Wärmen | Annahmen für Heiz- und Kühlfall prüfen; Wirkung auf Heizwärme- und Kühlbedarf kontrollieren |
+| Allgemeinstrom | Ansatz für gemeinschaftliche Verbraucher prüfen |
+| Beleuchtung und Tageslichtsteuerung | Nutzung, Skalierung und Regelungsannahmen prüfen; Doppelzählung mit Nutzerstrom vermeiden |
+
+Neu berechnen und Nutzerstrom sowie interne Gewinne im [Ergebnisblatt](results.qmd) vergleichen. Die zugrunde liegenden Flächen werden im Blatt [Quartier](model.qmd#quartier-eingeben) eingestellt.
+:::
+
+::: {.declaration-note}
+**Für die Deklaration:** Nutzerstrom und interne Wärmegewinne dürfen für Modellstudien verändert werden. Für die Nachweisführung gelten die ausgewiesenen Deklarationswerte. [AUDIT](declaration.qmd#qualitaetssicherung) unterstützt das Erkennen von Abweichungen.
+:::
+
+::: {.pending}
+**Bedienabbildung in Vorbereitung:** aktueller Ausschnitt der Nutzungsparameter einschließlich Kennzeichnung der Deklarationswerte.
+:::
+
+Fachlicher Zusammenhang: [Schulung, Folien 11, 30 und 35](downloads/schulung.pdf#page=35). Feldreferenz: Handbuch S. 72–73.

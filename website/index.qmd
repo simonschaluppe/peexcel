@@ -30,7 +30,7 @@ Für **professionelle Kompetenzpartner:innen**, Planende, Konsulent:innen, Forsc
 
 ## Projektvergleich und zeitaufgelöste Auswertung
 
-Die [drei Sanierungsvarianten](examples.qmd) zeigen Wärme-, Endenergie-, Primärenergie- und THG-Bilanzen auf gemeinsamer Datengrundlage. **Aspern F7** ergänzt den Vergleich durch [saisonale Tagesprofile und chronologische Stundenverläufe](systems.qmd#aspern-f7).
+Die [drei Sanierungsvarianten](examples.qmd) zeigen Wärme-, Endenergie-, Primärenergie- und THG-Bilanzen auf gemeinsamer Datengrundlage. **Aspern F7** ergänzt den Vergleich durch [saisonale Tagesprofile und chronologische Stundenverläufe](examples.qmd#aspern-f7).
 
 Der [schematische Gebäudeschnitt](envelope.qmd) stellt Bauteilzuordnung, thermische Bilanzgrenzen und qualitative Wärmeflüsse getrennt dar.
 

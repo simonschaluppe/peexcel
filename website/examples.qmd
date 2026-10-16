@@ -57,4 +57,26 @@ Bezugsgröße ist hier die **BGF**, nicht die NGF. GWP100 bezeichnet die Klimawi
 
 Die Auswertung verwendet gespeicherte Exportergebnisse; es erfolgt keine erneute Excel-Simulation. Quelldatei, Szenario, Version und Quellenprüfsumme sind in den Grafiken angegeben. Ein bestätigter Deklarationsstatus wird daraus nicht abgeleitet.
 
-Die [zeitaufgelösten elektrischen Flussprofile](systems.qmd#aspern-f7) werden separat am Projekt **Aspern F7** dargestellt. Die Vollständigkeit der Stundenexporte der drei Sanierungsvarianten wird für eine spätere Erweiterung geprüft.
+Die [zeitaufgelösten elektrischen Flussprofile](#aspern-f7) werden separat am Projekt **Aspern F7** dargestellt. Die Vollständigkeit der Stundenexporte der drei Sanierungsvarianten wird für eine spätere Erweiterung geprüft.
+
+## Aspern F7: zeitaufgelöste elektrische Flüsse {#aspern-f7}
+
+Der Export `Aspern PVCheck _ F7.xlsx` enthält 8.760 Stundenwerte auf der Zeitachse 2018. Dargestellt sind konventioneller Netzbezug, PV-Direktnutzung, flexible PV-Nutzung (soweit ungleich null) und PV-Netzeinspeisung. Der Netzbezug umfasst die im Schema unter `E_grid` zusammengefassten konventionellen Bezugsanteile.
+
+**Bilanzgrenze:** Dies sind ausgewählte elektrische Flussprofile, keine geschlossene Verbrauchsbilanz. Die Verbrauchs-, Speicher- und vollständigen signalgesteuerten Netzkanäle sind in diesem Export nicht enthalten. Nicht exportierte Größen werden nicht mit null gleichgesetzt.
+
+### Saisonale mittlere Tagesprofile
+
+Die vier Jahreszeiten werden aus den exportierten Kalenderangaben gebildet. Je Tagesstunde wird der Mittelwert aller Stunden der jeweiligen Jahreszeit dargestellt. Die Werte sind mittlere Leistungen in W/m² NGF, berechnet aus den stündlichen Energiemengen in Wh/m² NGF bei geprüftem Zeitschritt von einer Stunde. Saisonmittel sind keine tatsächlichen Tagesverläufe.
+
+<iframe class="pexl-chart" src="assets/results/f7_seasons.html" title="Aspern F7: saisonale elektrische Flussprofile" loading="lazy"></iframe>
+
+[Großansicht HTML](assets/results/f7_seasons.html) · [SVG](assets/results/f7_seasons.svg) · [PNG](assets/results/f7_seasons.png)
+
+### Chronologische Stundenwerte
+
+Jänner- und Juliwoche sind direkt anwählbare Zeitfenster. Zoom, Zeitbereichsauswahl und Legende ermöglichen die Analyse einzelner Beiträge. Die Wochen sind Orientierungsfenster, keine statistisch repräsentativen Auswahlzeiträume. Positive Werte bezeichnen lokale PV-Nutzung und konventionellen Netzbezug, negative Werte PV-Einspeisung.
+
+<iframe class="pexl-chart" src="assets/results/f7_hourly.html" title="Aspern F7: chronologische elektrische Stundenwerte" loading="lazy"></iframe>
+
+[Stundenverlauf separat öffnen](assets/results/f7_hourly.html) · [Kanalbestand als CSV](assets/results/channels-Aspern%20PVCheck%20_%20F7.csv) · [Ausführbarer Auswertungsworkflow](tutorials/howto_analyze_electricity_balance.html)

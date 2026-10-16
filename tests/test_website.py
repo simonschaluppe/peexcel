@@ -9,7 +9,7 @@ import pytest
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 from component_teaching import categories, cellar_svg
-from website_assets import build, NOTEBOOKS
+from website_assets import build, NOTEBOOKS, MANUAL_FIGURES
 from pexl.model.scenario import Scenario
 from pexl.spatial import render_svg, section_layout_from_scenario
 
@@ -59,3 +59,5 @@ def test_build_publishes_only_clean_notebook_copies(tmp_path):
         assert all(not c.outputs and c.execution_count is None for c in copy.cells if c.cell_type == "code")
     assert not (tmp_path / "assets/primary_energy_balance.html").exists()
     assert (tmp_path / "assets/components/index.html").exists()
+    for name in MANUAL_FIGURES:
+        assert (tmp_path / "media/manual" / f"{name}.png").read_bytes() == (ROOT / "docs/website" / f"{name}.png").read_bytes()

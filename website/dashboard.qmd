@@ -1,6 +1,8 @@
 ---
-title: "Dashboard / Szenarioexplorer"
+title: "Python-Szenarioexplorer"
 ---
+
+Das [Excel-Dashboard](excel-dashboard.qmd) ist direkt in der Arbeitsmappe verfügbar.
 
 Der Szenarioexplorer läuft lokal mit Streamlit. Er öffnet PEExcel-Projektexporte,
 filtert Varianten und zeigt die vorhandenen Berichte an.

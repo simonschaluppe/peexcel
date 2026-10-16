@@ -58,3 +58,6 @@ website/.quarto/
 website/media/
 website/downloads/
 website/tutorials/
+
+# User-provided source figures for the Quarto manual
+!docs/website/*.png

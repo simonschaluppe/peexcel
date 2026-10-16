@@ -1,32 +1,43 @@
 ---
-title: "Ergebnisse lesen und vergleichen"
+title: "Ergebnisblatt"
 ---
 
-**Welche Energie fließt physisch? Wie wird sie bewertet? Welche Systemgrenze gilt?** Erst danach lässt sich ein Variantenvergleich sinnvoll interpretieren.
+**Excel-Ort:** Blatt [📊 Ergebnisse (Erg)]{.excel-menu .red}.
 
-## Physische und bewertete Bilanz
+Hier stehen die Tabellen und Diagramme der aktuell berechneten Variante. Die Schulung unterscheidet dieses Ergebnisblatt vom internen Ergebnisspeicher **OUT** und vom [Excel-Dashboard](excel-dashboard.qmd) für zeitaufgelöste Analysen.
 
-| Sicht | Prüfkriterien |
-|---|---|
-| Stündliche Energieflüsse | Bedarf, Erzeugung, Speicher, Bezug und Einspeisung je Zeitschritt |
-| Jahreswerte | Summen und Kennwerte mit passender Bezugsfläche und Einheit |
-| Primärenergie | Mit den vorgesehenen Konversionsfaktoren bewertete Flüsse |
-| Kontextfaktoren | Methodische Beiträge etwa zu Dichte, Bestand oder Flexibilität; keine physische Erzeugung |
-| THG über den Lebenszyklus | Graue und betriebliche Beiträge mit eigener Zeit- und Systemgrenze |
-
-In der [Grafikgalerie](examples.qmd) erscheinen Bedarf und Deckung als positive Beträge in getrennten Säulen. Lies Achsen und Vorzeichenkonvention mit. Eine Höhe ohne Einheit und Bezugsbasis lässt keinen belastbaren Vergleich zu.
-
-## Vergleich vorbereiten
-
-Tool- und Schemaversion, Flächenbezug, Wetter, Zeitraum und Bewertungsmethode müssen vergleichbar sein; Unterschiede sind zu dokumentieren. Variantenbezeichnungen, Annahmen und Rechenstand sichern die Nachvollziehbarkeit. Fehlende Ergebnisse sind keine Nullwerte.
-
-## Von OUT zur Analyse
-
-**OUT** und das Tool-Dashboard sind der erste Einstieg. [Python](python.qmd) ermöglicht die reproduzierbare Auswertung und den interaktiven oder druckbaren Export gespeicherter Ergebnisse. Der [Dashboard-Prototyp](dashboard.qmd) ergänzt diesen Weg lokal.
-
-::: {.callout-note}
-## Für die Deklaration
-Ein berechnetes Ergebnis ist noch kein geprüfter Nachweis. Deklarationswerte, AUDIT und die vorgeschriebene Bewertungsgrenze sind zu prüfen und zu dokumentieren. [Zur Checkliste](declaration.qmd).
+::: {.excel-path}
+**Menüband:** klimaaktiv PEQ → Ergebnisse → [Ergebnisse]{.excel-action}
 :::
 
-**Vertiefung:** [Mobilität](mobility.qmd) · [Lebenszyklus](climate.qmd) · [Schulung, Folien 17–23 und 32–33](downloads/schulung.pdf).
+## Projektkennwerte
+
+Projekt-/Variantenbezeichnung, Flächen, Nutzungsmischung, bauliche Dichte sowie gekühlte und mechanisch belüftete Anteile prüfen. Die Bezugsgrößen NGF und BGF sind bei jeder Bilanz zu beachten.
+
+## Wärmebilanz {#waermebilanz}
+
+Die Diagramme stellen Transmissions- und Lüftungsverluste, Nachtlüftung, solare und interne Gewinne sowie Heizwärme- und Kühlbedarf gegenüber. Gesamtquartier, gekühlter und ungekühlter Bereich sowie Heiz-/Kühlperiode sind getrennt zu lesen. Heiz- und Kühlleistung sind Leistungsgrößen; sie sind nicht mit Jahresenergie gleichzusetzen.
+
+## Endenergiebilanz {#endenergiebilanz}
+
+Die Bedarf-Deckungs-Matrix ordnet Nutzerstrom, HKLS, Warmwasser, Speicherbeladung und Mobilität den Deckungsquellen zu. Reihen- und Spaltensummen machen den Energieeinsatz nachvollziehbar. Bezug, lokale Nutzung, Speicherflüsse und Einspeisung entsprechend ihrer Bilanzgrenze lesen, nicht unterschiedslos addieren.
+
+## Flexibilität und Batterie
+
+Freigabezeiten, flexible Nutzung, Batterieladung/-entladung, Verluste und Zyklen kennzeichnen die Nutzung vorhandener Potenziale. Die Jahreskennwerte ergänzen die zeitaufgelöste Analyse im Dashboard.
+
+## Primärenergiebilanz
+
+Bedarf und Deckung werden mit Konversionsfaktoren bewertet. Lokale Erneuerbare und flexibler Bezug erscheinen als Substitutionsäquivalente; Kontextfaktoren berücksichtigen bauliche Dichte, Sanierung und Mobilität. Die Import-/Exportdarstellung betrachtet den Austausch über die Quartiersgrenze. Beide Darstellungen müssen mit ihrer jeweiligen Vorzeichen- und Systemgrenze gelesen werden.
+
+## THG-Bilanz
+
+Bauliche und betriebliche Beiträge einschließlich Mobilität werden kumuliert dargestellt. Emissionen, Gutschriften, Budget und Saldo sind getrennte Größen. Bewertungszeitraum und BGF-Bezug prüfen; [Ökobilanz-Eingaben](climate.qmd) und [Nachweisführung](declaration.qmd) sind separat dokumentiert.
+
+::: {.pending}
+**Detailabbildungen in Vorbereitung:** aktuelle Ausschnitte des Ergebnisblatts für Wärmebilanz, Endenergie-Matrix, Primärenergie und THG. Die bereitgestellte Toolübersicht zeigt die Ausgabearten, ersetzt aber keine lesbare Detailaufnahme. Hier werden keine Python-Plots als Excel-Diagramme ausgegeben.
+:::
+
+[Variantenvergleich](comparison.qmd) · [Excel-Dashboard](excel-dashboard.qmd) · [Reale Website-Beispiele](examples.qmd)
+
+Quelle: [Schulung, Folien 21–25](downloads/schulung.pdf#page=25); Bediengliederung gemäß Handbuch S. 74–82.

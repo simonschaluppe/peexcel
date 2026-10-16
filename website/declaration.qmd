@@ -1,8 +1,8 @@
 ---
-title: "Modellierung und Deklaration"
+title: "Nachweisführung"
 ---
 
-**Deklarationswerte sind verbindliche Vorgaben für die Deklaration, keine technischen Grenzen des Modells.** PEExcel kann abweichende Annahmen rechnen. Kennzeichne, ob eine Variante explorativ modelliert oder für einen klimaaktiv-Nachweis vorbereitet wurde.
+**Deklarationswerte sind verbindliche Vorgaben für die Deklaration, keine technischen Grenzen des Modells.** PEExcel kann abweichende Annahmen rechnen. Zu dokumentieren ist, ob eine Variante explorativ modelliert oder für einen klimaaktiv-Nachweis vorbereitet wurde.
 
 ## Was darf variieren, was gilt für den Nachweis?
 
@@ -24,6 +24,33 @@ Diese Beispiele erläutern das allgemeine Prinzip. Konkrete Werte und Eingabefel
 5. **Bewertungsgrenze:** Physische Flüsse, virtuelle Kontextbeiträge und bewertete Emissionen unterscheiden.
 6. **Unterlagen sichern:** Variante, Export, Rechenstand und Nachweisdokumentation zusammen ablegen.
 
-AUDIT unterstützt die Qualitätssicherung. Die Website führt keine eigene Zulässigkeitsprüfung durch. Für fachliche Nachweisfragen nutze die offiziellen Kontaktstellen in den [Unterlagen](download.qmd).
+AUDIT unterstützt die Qualitätssicherung. Die Website führt keine eigene Zulässigkeitsprüfung durch. Für fachliche Nachweisfragen stehen die offiziellen Kontaktstellen in den [Unterlagen](download.qmd).
 
 [Handbuch](downloads/handbuch.pdf) · [Schulung, Folien 34–35](downloads/schulung.pdf) · [Kontakt](about.qmd)
+
+## Nachweisblätter {#excel-nachweise}
+
+**Excel-Orte:** [🏆 PEQ]{.excel-menu .darkred}, [🏆 PEQ+M]{.excel-menu .orange} und [🏆 KN PEQ]{.excel-menu .teal}.
+
+::: {.excel-path}
+**Menüband:** klimaaktiv PEQ → Nachweise → PEQ im Betrieb / PEQ mit Mobilität / Klimaneutrales PEQ
+:::
+
+Die Blätter fassen Projektwert, Zielwert beziehungsweise Budget und Differenz für die jeweilige Systemgrenze zusammen. PEQ betrachtet den Betrieb; PEQ+M ergänzt den motorisierten Individualverkehr; KN PEQ zusätzlich die Lebenszyklus-THG-Bewertung. Die Ausgabe dient der Nachweisdokumentation, ersetzt aber nicht deren fachliche Prüfung.
+
+## Qualitätssicherung {#qualitaetssicherung}
+
+**Excel-Ort:** Blatt [AUDIT]{.excel-menu .red}.
+
+Die Schulung bezeichnet AUDIT als **automatisierte Plausibilitätskontrolle**. Es zeigt für die aktuell eingegebene Variante Abweichungen von vordefinierten Deklarationswerten. Eine Abweichung muss kein Modellfehler sein; sie ist für die Nachweisführung zu prüfen und im Auditbericht zu begründen. Eine Begründung allein ersetzt keine fachliche Anerkennung einer Abweichung.
+
+::: {.excel-operation}
+### Nachweisstand prüfen
+Projekt-/Variantenname, Toolversion und Rechenstand sichern. Datenquellen und Bilanzgrenzen kontrollieren; AUDIT-Hinweise einzeln bearbeiten. Für den Nachweis die verbindlichen Vorgaben verwenden beziehungsweise Abweichungen fachlich klären. Ergebnisblätter und Export zusammen mit der Nachweisdokumentation ablegen.
+:::
+
+::: {.pending}
+**Aktuelle Ansicht in Vorbereitung:** AUDIT mit einer beispielhaften Abweichung sowie die drei Nachweisblätter.
+:::
+
+Quelle: [Schulung, Folien 4 und 35](downloads/schulung.pdf#page=35).
