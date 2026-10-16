@@ -46,6 +46,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-5761cafa55920ddedffa83b74af88b0b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -123,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Download</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./en/index.html"> 
+    <a class="nav-link" href="./en/index.qmd"> 
 <span class="menu-text">English</span></a>
   </li>  
 </ul>
@@ -218,31 +221,59 @@ ul.task-list li input[type="checkbox"] {
 <section id="wärmebilanz" class="level2">
 <h2 class="anchored" data-anchor-id="wärmebilanz">Wärmebilanz</h2>
 <p>Transmissions- und Lüftungswärmeverluste, Nachtlüftung und Kühlbedarf stehen den solaren und internen Wärmegewinnen sowie dem Heizwärmebedarf gegenüber. Alle Beiträge sind Jahresenergien bezogen auf die NGF. Die Wärmebilanz schließt in allen drei Exporten innerhalb der numerischen Genauigkeit.</p>
-<iframe class="pexl-chart" src="assets/results/heat_balance.html" title="Wärmebilanz der drei Varianten" loading="lazy">
-</iframe>
+<!-- Interactive embed paused for page performance.
+<iframe class="pexl-chart" src="assets/results/heat_balance.html" title="Wärmebilanz der drei Varianten" loading="lazy"></iframe>
+-->
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="assets/results/heat_balance.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Wärmebilanz der drei Varianten"><img src="assets/results/heat_balance.svg" class="full-figure img-fluid figure-img" loading="lazy" alt="Wärmebilanz der drei Varianten"></a></p>
+<figcaption>Wärmebilanz der drei Varianten</figcaption>
+</figure>
+</div>
 <p><a href="assets/results/heat_balance.html">HTML</a> · <a href="assets/results/heat_balance.svg">SVG</a> · <a href="assets/results/heat_balance.png">PNG</a> · <a href="assets/results/heat_balance.csv">Ergebniswerte CSV</a></p>
 </section>
 <section id="endenergiebilanz" class="level2">
 <h2 class="anchored" data-anchor-id="endenergiebilanz">Endenergiebilanz</h2>
 <p>Die drei Varianten werden vollständig elektrisch versorgt; die exportierten Beiträge für Fernwärme, Erdgas, Biomasse und sonstige Energieträger sind null. Dargestellt ist die <strong>elektrische Endenergie der lokalen Nutzung</strong> einschließlich HKLS, Nutzerstrom, Speicherbeladung und EV-Ladung im Quartier.</p>
 <p>PV-Direktnutzung, flexible PV-Nutzung, konventioneller und signalgesteuerter Netzbezug sowie vorhandene Entladeflüsse bilden die Deckungsseite. Einspeisung und externe EV-Ladung gehören nicht zu dieser lokalen Nutzungsbilanz. Die korrigierte Zuordnung vermeidet deren Anrechnung als lokale Bedarfsdeckung; die Bilanz schließt für alle drei Varianten.</p>
-<iframe class="pexl-chart" src="assets/results/final_energy_balance.html" title="Elektrische Endenergiebilanz der lokalen Nutzung" loading="lazy">
-</iframe>
+<!-- Interactive embed paused for page performance.
+<iframe class="pexl-chart" src="assets/results/final_energy_balance.html" title="Elektrische Endenergiebilanz der lokalen Nutzung" loading="lazy"></iframe>
+-->
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="assets/results/final_energy_balance.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Elektrische Endenergiebilanz der lokalen Nutzung"><img src="assets/results/final_energy_balance.svg" class="full-figure img-fluid figure-img" loading="lazy" alt="Elektrische Endenergiebilanz der lokalen Nutzung"></a></p>
+<figcaption>Elektrische Endenergiebilanz der lokalen Nutzung</figcaption>
+</figure>
+</div>
 <p><a href="assets/results/final_energy_balance.html">HTML</a> · <a href="assets/results/final_energy_balance.svg">SVG</a> · <a href="assets/results/final_energy_balance.png">PNG</a> · <a href="assets/results/final_energy_balance.csv">Ergebniswerte CSV</a></p>
 </section>
 <section id="primärenergiebilanz" class="level2">
 <h2 class="anchored" data-anchor-id="primärenergiebilanz">Primärenergiebilanz</h2>
 <p>Die Primärenergiebewertung berücksichtigt Bedarf, Substitutionsäquivalente und Kontextfaktoren. Die Differenz zwischen Deckungs- und Bedarfsseite ist ein <strong>Bewertungsergebnis</strong>, kein Fehler einer physisch geschlossenen Energiebilanz. Flexibilitätsbeiträge und Kontextfaktoren sind keine zusätzliche physische Energieerzeugung.</p>
-<iframe class="pexl-chart" src="assets/results/primary_energy_balance.html" title="Primärenergiebilanz der drei Varianten" loading="lazy">
-</iframe>
+<!-- Interactive embed paused for page performance.
+<iframe class="pexl-chart" src="assets/results/primary_energy_balance.html" title="Primärenergiebilanz der drei Varianten" loading="lazy"></iframe>
+-->
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="assets/results/primary_energy_balance.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Primärenergiebilanz der drei Varianten"><img src="assets/results/primary_energy_balance.svg" class="full-figure img-fluid figure-img" loading="lazy" alt="Primärenergiebilanz der drei Varianten"></a></p>
+<figcaption>Primärenergiebilanz der drei Varianten</figcaption>
+</figure>
+</div>
 <p><a href="assets/results/primary_energy_balance.html">HTML</a> · <a href="assets/results/primary_energy_balance.svg">SVG</a> · <a href="assets/results/primary_energy_balance.png">PNG</a> · <a href="assets/results/primary_energy_balance.csv">Ergebniswerte CSV</a></p>
 </section>
 <section id="thg-bilanz" class="level2">
 <h2 class="anchored" data-anchor-id="thg-bilanz">THG-Bilanz</h2>
 <p>Die Darstellung umfasst die exportierten Lebenszyklusbeiträge <strong>2025–2075</strong>: Konstruktion, technische Anlagen und Fahrzeuge (EE) sowie Gebäudebetrieb und Mobilität (OE). Negative Beiträge, insbesondere Netzeinspeisung und die Mobilitätsabgrenzung, bleiben mit ihrem Vorzeichen erhalten. Die Raute bezeichnet die exportierte Gesamtbilanz; sie entspricht der Summe der dargestellten Komponenten.</p>
 <p>Bezugsgröße ist hier die <strong>BGF</strong>, nicht die NGF. GWP100 bezeichnet die Klimawirkungsbewertung und ist vom 50-jährigen Betrachtungszeitraum zu unterscheiden. Die vorhandenen L1–L3-Referenzbänder ersetzen keine Nachweisprüfung. PV-LCA ist modellierbar, wird in der ka-Methode nicht berücksichtigt und beträgt in diesen Exporten null.</p>
-<iframe class="pexl-chart" src="assets/results/gwp_ee.html" title="Lebenszyklus-THG-Bilanz der drei Varianten" loading="lazy">
-</iframe>
+<!-- Interactive embed paused for page performance.
+<iframe class="pexl-chart" src="assets/results/gwp_ee.html" title="Lebenszyklus-THG-Bilanz der drei Varianten" loading="lazy"></iframe>
+-->
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="assets/results/gwp_ee.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Lebenszyklus-THG-Bilanz der drei Varianten"><img src="assets/results/gwp_ee.svg" class="full-figure img-fluid figure-img" loading="lazy" alt="Lebenszyklus-THG-Bilanz der drei Varianten"></a></p>
+<figcaption>Lebenszyklus-THG-Bilanz der drei Varianten</figcaption>
+</figure>
+</div>
 <p><a href="assets/results/gwp_ee.html">HTML</a> · <a href="assets/results/gwp_ee.svg">SVG</a> · <a href="assets/results/gwp_ee.png">PNG</a> · <a href="assets/results/gwp_ee.csv">Ergebniswerte CSV</a></p>
 </section>
 <section id="ergebnisprüfung-und-datenherkunft" class="level2">
@@ -258,15 +289,24 @@ ul.task-list li input[type="checkbox"] {
 <section id="saisonale-mittlere-tagesprofile" class="level3">
 <h3 class="anchored" data-anchor-id="saisonale-mittlere-tagesprofile">Saisonale mittlere Tagesprofile</h3>
 <p>Die vier Jahreszeiten werden aus den exportierten Kalenderangaben gebildet. Je Tagesstunde wird der Mittelwert aller Stunden der jeweiligen Jahreszeit dargestellt. Die Werte sind mittlere Leistungen in W/m² NGF, berechnet aus den stündlichen Energiemengen in Wh/m² NGF bei geprüftem Zeitschritt von einer Stunde. Saisonmittel sind keine tatsächlichen Tagesverläufe.</p>
-<iframe class="pexl-chart" src="assets/results/f7_seasons.html" title="Aspern F7: saisonale elektrische Flussprofile" loading="lazy">
-</iframe>
+<!-- Interactive embed paused for page performance.
+<iframe class="pexl-chart" src="assets/results/f7_seasons.html" title="Aspern F7: saisonale elektrische Flussprofile" loading="lazy"></iframe>
+-->
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="assets/results/f7_seasons.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Aspern F7: saisonale elektrische Flussprofile"><img src="assets/results/f7_seasons.svg" class="full-figure img-fluid figure-img" loading="lazy" alt="Aspern F7: saisonale elektrische Flussprofile"></a></p>
+<figcaption>Aspern F7: saisonale elektrische Flussprofile</figcaption>
+</figure>
+</div>
 <p><a href="assets/results/f7_seasons.html">Großansicht HTML</a> · <a href="assets/results/f7_seasons.svg">SVG</a> · <a href="assets/results/f7_seasons.png">PNG</a></p>
 </section>
 <section id="chronologische-stundenwerte" class="level3">
 <h3 class="anchored" data-anchor-id="chronologische-stundenwerte">Chronologische Stundenwerte</h3>
 <p>Jänner- und Juliwoche sind direkt anwählbare Zeitfenster. Zoom, Zeitbereichsauswahl und Legende ermöglichen die Analyse einzelner Beiträge. Die Wochen sind Orientierungsfenster, keine statistisch repräsentativen Auswahlzeiträume. Positive Werte bezeichnen lokale PV-Nutzung und konventionellen Netzbezug, negative Werte PV-Einspeisung.</p>
-<iframe class="pexl-chart" src="assets/results/f7_hourly.html" title="Aspern F7: chronologische elektrische Stundenwerte" loading="lazy">
-</iframe>
+<!-- Interactive embed paused for page performance.
+<iframe class="pexl-chart" src="assets/results/f7_hourly.html" title="Aspern F7: chronologische elektrische Stundenwerte" loading="lazy"></iframe>
+-->
+<p>Die interaktive Ansicht ist über den separaten Link unten verfügbar.</p>
 <p><a href="assets/results/f7_hourly.html">Stundenverlauf separat öffnen</a> · <a href="assets/results/channels-Aspern PVCheck _ F7.csv">Kanalbestand als CSV</a> · <a href="tutorials/howto_analyze_electricity_balance.html">Ausführbarer Auswertungsworkflow</a></p>
 
 
@@ -731,6 +771,38 @@ document.querySelectorAll('iframe[data-fit]').forEach(frame=>{
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

@@ -46,6 +46,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-5761cafa55920ddedffa83b74af88b0b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -447,31 +450,59 @@ ul.task-list li input[type="checkbox"] {
 <section id="heat-balance" class="level2">
 <h2 class="anchored" data-anchor-id="heat-balance">Heat balance</h2>
 <p>Transmission and ventilation losses, night ventilation and cooling demand are compared with solar and internal gains and heating demand. All contributions are annual energy per net floor area. The heat balance closes within numerical tolerance in all three exports.</p>
-<iframe class="pexl-chart" src="../assets/results/heat_balance.html" title="Heat balance for three variants" loading="lazy">
-</iframe>
+<!-- Interactive embed paused for page performance.
+<iframe class="pexl-chart" src="../assets/results/heat_balance.html" title="Heat balance for three variants" loading="lazy"></iframe>
+-->
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../assets/results/heat_balance.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Heat balance for three variants"><img src="../assets/results/heat_balance.svg" class="full-figure img-fluid figure-img" loading="lazy" alt="Heat balance for three variants"></a></p>
+<figcaption>Heat balance for three variants</figcaption>
+</figure>
+</div>
 <p><a href="../assets/results/heat_balance.html">HTML</a> · <a href="../assets/results/heat_balance.svg">SVG</a> · <a href="../assets/results/heat_balance.png">PNG</a> · <a href="../assets/results/heat_balance.csv">Values CSV</a></p>
 </section>
 <section id="final-energy-balance" class="level2">
 <h2 class="anchored" data-anchor-id="final-energy-balance">Final-energy balance</h2>
 <p>All three variants are supplied entirely by electricity; exported contributions from district heating, natural gas, biomass and other carriers are zero. The chart shows <strong>final electricity for local use</strong>, including building services, plug loads, storage charging and EV charging in the district.</p>
 <p>Direct PV use, flexible PV use, conventional and signal-controlled grid imports, and available discharge flows make up the coverage side. Feed-in and external EV charging are outside this local-use balance. This allocation avoids treating them as local demand coverage; the balance closes for all three variants.</p>
-<iframe class="pexl-chart" src="../assets/results/final_energy_balance.html" title="Electrical final-energy balance for local use" loading="lazy">
-</iframe>
+<!-- Interactive embed paused for page performance.
+<iframe class="pexl-chart" src="../assets/results/final_energy_balance.html" title="Electrical final-energy balance for local use" loading="lazy"></iframe>
+-->
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../assets/results/final_energy_balance.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Electrical final-energy balance for local use"><img src="../assets/results/final_energy_balance.svg" class="full-figure img-fluid figure-img" loading="lazy" alt="Electrical final-energy balance for local use"></a></p>
+<figcaption>Electrical final-energy balance for local use</figcaption>
+</figure>
+</div>
 <p><a href="../assets/results/final_energy_balance.html">HTML</a> · <a href="../assets/results/final_energy_balance.svg">SVG</a> · <a href="../assets/results/final_energy_balance.png">PNG</a> · <a href="../assets/results/final_energy_balance.csv">Values CSV</a></p>
 </section>
 <section id="primary-energy-balance" class="level2">
 <h2 class="anchored" data-anchor-id="primary-energy-balance">Primary-energy balance</h2>
 <p>The primary-energy assessment accounts for demand, substitution equivalents and context factors. The difference between coverage and demand is an <strong>assessment result</strong>, not a failure of a physical energy balance to close. Flexibility contributions and context factors are not additional physical energy generation.</p>
-<iframe class="pexl-chart" src="../assets/results/primary_energy_balance.html" title="Primary-energy balance for three variants" loading="lazy">
-</iframe>
+<!-- Interactive embed paused for page performance.
+<iframe class="pexl-chart" src="../assets/results/primary_energy_balance.html" title="Primary-energy balance for three variants" loading="lazy"></iframe>
+-->
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../assets/results/primary_energy_balance.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Primary-energy balance for three variants"><img src="../assets/results/primary_energy_balance.svg" class="full-figure img-fluid figure-img" loading="lazy" alt="Primary-energy balance for three variants"></a></p>
+<figcaption>Primary-energy balance for three variants</figcaption>
+</figure>
+</div>
 <p><a href="../assets/results/primary_energy_balance.html">HTML</a> · <a href="../assets/results/primary_energy_balance.svg">SVG</a> · <a href="../assets/results/primary_energy_balance.png">PNG</a> · <a href="../assets/results/primary_energy_balance.csv">Values CSV</a></p>
 </section>
 <section id="ghg-balance" class="level2">
 <h2 class="anchored" data-anchor-id="ghg-balance">GHG balance</h2>
 <p>The chart includes exported life-cycle contributions for <strong>2025–2075</strong>: construction, building services and vehicle manufacturing (EE), plus building operation and mobility (OE). Negative contributions, including grid feed-in and mobility boundary effects, retain their sign. The diamond marks the exported total, equal to the sum of the plotted components.</p>
 <p>The reference is <strong>gross floor area</strong>, not net floor area. GWP100 describes the climate-impact assessment and is distinct from the 50-year assessment period. L1–L3 reference bands do not replace a compliance check. PV LCA can be modelled but is excluded from the klimaaktiv method; it is zero in these exports.</p>
-<iframe class="pexl-chart" src="../assets/results/gwp_ee.html" title="Life-cycle GHG balance for three variants" loading="lazy">
-</iframe>
+<!-- Interactive embed paused for page performance.
+<iframe class="pexl-chart" src="../assets/results/gwp_ee.html" title="Life-cycle GHG balance for three variants" loading="lazy"></iframe>
+-->
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../assets/results/gwp_ee.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Life-cycle GHG balance for three variants"><img src="../assets/results/gwp_ee.svg" class="full-figure img-fluid figure-img" loading="lazy" alt="Life-cycle GHG balance for three variants"></a></p>
+<figcaption>Life-cycle GHG balance for three variants</figcaption>
+</figure>
+</div>
 <p><a href="../assets/results/gwp_ee.html">HTML</a> · <a href="../assets/results/gwp_ee.svg">SVG</a> · <a href="../assets/results/gwp_ee.png">PNG</a> · <a href="../assets/results/gwp_ee.csv">Values CSV</a></p>
 </section>
 <section id="result-checks-and-provenance" class="level2">
@@ -487,15 +518,24 @@ ul.task-list li input[type="checkbox"] {
 <section id="seasonal-average-daily-profiles" class="level3">
 <h3 class="anchored" data-anchor-id="seasonal-average-daily-profiles">Seasonal average daily profiles</h3>
 <p>The four seasons are derived from the exported calendar fields. Each hour shows the average of all hours in that season. Values are mean power in W/m² net floor area, calculated from hourly energy in Wh/m² net floor area using the verified one-hour time step. Seasonal averages are not actual daily profiles.</p>
-<iframe class="pexl-chart" src="../assets/results/f7_seasons.html" title="Aspern F7: seasonal electrical flow profiles" loading="lazy">
-</iframe>
+<!-- Interactive embed paused for page performance.
+<iframe class="pexl-chart" src="../assets/results/f7_seasons.html" title="Aspern F7: seasonal electrical flow profiles" loading="lazy"></iframe>
+-->
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../assets/results/f7_seasons.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Aspern F7: seasonal electrical flow profiles"><img src="../assets/results/f7_seasons.svg" class="full-figure img-fluid figure-img" loading="lazy" alt="Aspern F7: seasonal electrical flow profiles"></a></p>
+<figcaption>Aspern F7: seasonal electrical flow profiles</figcaption>
+</figure>
+</div>
 <p><a href="../assets/results/f7_seasons.html">Large HTML view</a> · <a href="../assets/results/f7_seasons.svg">SVG</a> · <a href="../assets/results/f7_seasons.png">PNG</a></p>
 </section>
 <section id="chronological-hourly-values" class="level3">
 <h3 class="anchored" data-anchor-id="chronological-hourly-values">Chronological hourly values</h3>
 <p>January and July weeks can be selected directly. Zoom, range selection and the legend support analysis of individual contributions. These weeks are reference windows, not statistically representative samples. Positive values indicate local PV use and conventional grid import; negative values indicate PV feed-in.</p>
-<iframe class="pexl-chart" src="../assets/results/f7_hourly.html" title="Aspern F7: chronological hourly electricity flows" loading="lazy">
-</iframe>
+<!-- Interactive embed paused for page performance.
+<iframe class="pexl-chart" src="../assets/results/f7_hourly.html" title="Aspern F7: chronological hourly electricity flows" loading="lazy"></iframe>
+-->
+<p>Interactive view available through the separate link below.</p>
 <p><a href="../assets/results/f7_hourly.html">Open hourly chart</a> · <a href="../assets/results/channels-Aspern PVCheck _ F7.csv">Available channels CSV</a> · <a href="../tutorials/howto_analyze_electricity_balance.html">Executable analysis workflow</a></p>
 
 
@@ -960,6 +1000,38 @@ document.querySelectorAll('iframe[data-fit]').forEach(frame=>{
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
