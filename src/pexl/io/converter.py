@@ -1,0 +1,200 @@
+# src/pexl/io/converter.py
+from __future__ import annotations
+
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Literal, Mapping
+
+import json
+
+import pandas as pd
+
+
+Mode = Literal["schema", "raw"]
+
+SCHEMA_SHEETS = {
+    "IN": "IN",
+    "OUT": "OUT",
+    "SIM2": "SIM",
+    "CHART_metadata": "CHART_metadata",
+    "CHART_types": "CHART_types",
+}
+
+SCHEMA_REQUIRED_COLUMNS = {
+    "IN": "var_name",
+    "OUT": "var_name",
+    "SIM": None,
+    "CHART_metadata": "chart_name",
+    "CHART_types": "chart_name",
+}
+
+@dataclass(frozen=True)
+class ConvertResult:
+    out_dir: Path
+    written: dict[str, Path]
+    audit_path: Path | None
+
+
+def xlsx_to_dataset_dir(
+    xlsx_path: str | Path,
+    out_dir: str | Path,
+    *,
+    sheets: Mapping[str, str] | None = None,
+    mode: Mode = "schema",
+    delimiter: str = ";",
+    encoding: str = "utf-8-sig",
+    replace_files: bool = False,
+) -> ConvertResult:
+    """
+    Convert an exported workbook into a dataset directory.
+
+    Modes:
+      - mode="schema" (recommended contract):
+          * writes IN.csv and OUT.csv filtered to rows with non-empty var_name (if present)
+          * writes SIM.csv with var_name: Column name and Formula
+          * strips whitespace in all cells
+          * writes AUDIT.json containing exclusions + counts
+      - mode="raw":
+          * writes all sheets as-is to .csv files (only fillna(""))
+
+    Notes:
+      - This function does not perform semantic schema validation. It only converts.
+      - Your CSV reader can auto-detect delimiters; writing ';' keeps Excel-friendly output.
+    """
+    xlsx_path = Path(xlsx_path)
+    out_dir = Path(out_dir)
+
+    _prepare_out_dir(out_dir, replace_files=replace_files)
+
+    written: dict[str, Path] = {}
+    audit: dict[str, object] | None = None
+
+    if mode == "schema":
+        sheets = SCHEMA_SHEETS
+        audit = {
+            "mode": "schema",
+            "source_xlsx": str(xlsx_path),
+            "tables": {},
+        }
+    elif mode == "raw":
+        from openpyxl import load_workbook
+        book = load_workbook(xlsx_path, read_only=True, data_only=True)
+        sheets = {str(name):str(name) for name in list(book.sheetnames)}
+        book.close()
+    else:
+        raise ValueError(f"Invalid mode={mode!r}. Use 'schema' or 'raw'.")
+
+    for sheet_name, table_name in sheets.items():
+        df = (
+            pd.read_excel(
+                xlsx_path,
+                sheet_name=sheet_name,
+                dtype=str,
+            )
+            .fillna("")
+        )
+
+        if mode == "schema":
+            df, table_audit = _clean_for_schema_contract(
+                df,
+                required_column=SCHEMA_REQUIRED_COLUMNS.get(table_name),
+            )
+            audit["tables"][table_name] = table_audit
+
+        csv_path = out_dir / f"{table_name}.csv"
+        df.to_csv(
+            csv_path,
+            index=False,
+            sep=delimiter,
+            encoding=encoding,
+        )
+        written[table_name] = csv_path
+
+    audit_path: Path | None = None
+    if audit is not None:
+        audit_path = out_dir / "AUDIT.json"
+        audit_path.write_text(json.dumps(audit, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    return ConvertResult(out_dir=out_dir, written=written, audit_path=audit_path)
+
+
+def _prepare_out_dir(out_dir: Path, *, replace_files: bool = False) -> None:
+    if out_dir.exists():
+        if not replace_files:
+            raise FileExistsError(
+                f"Output directory exists: {out_dir}\n"
+                "Choose a new directory or use replace_files=True."
+            )
+    else:
+        out_dir.mkdir(parents=True)
+
+
+def _strip_all_cells(df: pd.DataFrame) -> pd.DataFrame:
+    out = df.copy()
+    for c in out.columns:
+        out[c] = out[c].astype(str).str.strip()
+    return out
+
+
+def _clean_for_schema_contract(
+    df: pd.DataFrame,
+    *,
+    required_column: str | None = None,
+) -> tuple[pd.DataFrame, dict[str, object]]:
+    original_rows = len(df)
+    df = _strip_all_cells(df)
+
+    audit: dict[str, object] = {
+        "original_rows": original_rows,
+        "kept_rows": None,
+        "excluded_rows": {},
+    }
+
+    if required_column and required_column in df.columns:
+        empty_mask = df[required_column] == ""
+
+        excluded = df.loc[empty_mask].copy()
+        df = df.loc[~empty_mask].copy()
+
+        audit["excluded_rows"] = {
+            f"empty_{required_column}_count": int(empty_mask.sum()),
+            f"empty_{required_column}_sample": _audit_sample_rows(excluded),
+        }
+
+    audit["kept_rows"] = len(df)
+
+    return df.reset_index(drop=True), audit
+
+def _audit_sample_rows(df: pd.DataFrame, *, max_rows: int = 20) -> list[dict[str, str]]:
+    """
+    Provide a compact sample of excluded rows for debugging in Excel.
+    Includes common identifying columns if present + row number within the export.
+    """
+    if df.empty:
+        return []
+
+    # Candidate columns to help you locate the row back in Excel
+    preferred_cols = [
+        "Name",
+        "Kategorie",
+        "Bereich",
+        "var_cat",
+        "Type",
+        "Einheit",
+        "ka",
+        "Formel",
+        "Kommentar",
+        "ID",
+    ]
+    cols = [c for c in preferred_cols if c in df.columns]
+    sample = df.head(max_rows)
+
+    # Include 1-based row number from the exported sheet (header is row 1)
+    # Data starts at row 2 in your export workbook, so +2.
+    out: list[dict[str, str]] = []
+    for idx, row in sample.iterrows():
+        item: dict[str, str] = {"export_row": str(int(idx) + 2)}
+        for c in cols:
+            item[c] = str(row.get(c, ""))
+        out.append(item)
+    return out

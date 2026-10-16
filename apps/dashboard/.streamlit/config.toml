@@ -1,0 +1,4 @@
+[client]
+# "viewer" hides the deploy button and developer options, but keeps the menu.
+# "minimal" hides the entire toolbar completely.
+toolbarMode = "viewer"
