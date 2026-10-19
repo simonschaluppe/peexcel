@@ -1,0 +1,23 @@
+---
+title: "Migrating to a new tool version"
+lang: en
+---
+Transfer an existing project by exporting its project data from the old workbook and importing that export in the new workbook. Keep the original workbook and export as an archive.
+
+::: {.excel-operation}
+### Migration workflow
+1. In the old tool, calculate and save the project state; record its tool version and variant names.
+2. Use **klimaaktiv PEQ → Projekt-Varianten → Projekt-Datei exportieren** to create a project export.
+3. Open a copy of the new workbook and use **klimaaktiv PEQ → Projekt-Varianten → Projekt-Datei importieren**.
+4. Select the project export and review the imported variants and inputs.
+5. Recalculate in the new tool version and compare key areas, systems and balances with the archived results.
+6. Save the migrated project as a new file and retain the export for traceability.
+:::
+
+::: {.pending}
+**Dialog screenshots and compatibility details are still required.** The ribbon labels above follow the training material. Confirm the current export/import dialog, supported source versions and treatment of changed input variables before documenting field-level details.
+:::
+
+An import is not a substitute for version-specific verification. Recheck changed inputs, default values and calculation results before continuing the analysis or preparing a declaration.
+
+Source: [Training, slides 28 and 33](../downloads/schulung.pdf).

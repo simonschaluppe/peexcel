@@ -1,0 +1,41 @@
+---
+title: "Heating, cooling, hot water and ventilation"
+lang: en
+---
+**Excel locations:** [🔥 Heizung]{.excel-menu .darkred}, [❄ Kühlung]{.excel-menu .darkred}, [💧 Warmwasser]{.excel-menu .darkred} and [☁ Lüftung]{.excel-menu .darkred} worksheets.
+
+::: {.excel-operation}
+### Configure building services
+| System | Main inputs and checks |
+|---|---|
+| Heating systems 1 and 3 | Electrical heat generators; maximum output, generation efficiency, distribution losses and auxiliary energy |
+| Heating systems 2 and 4 | Thermal heat generators; maximum output, generation efficiency, distribution losses and auxiliary energy |
+| Heat emission | Distribution and room-side system, supply temperatures and auxiliary electricity |
+| Cooling | Cooled uses, cooling system, performance and auxiliary energy |
+| Domestic hot water | System shares, energy carrier, efficiency, losses and storage |
+| Ventilation | Mechanical share, heat recovery, fan electricity and window ventilation |
+
+Presets set initial parameter combinations. Check every active system, share, capacity and loss against the design. After recalculation, inspect the [heat balance](results.qmd#heat-balance) and the relevant energy carriers.
+:::
+
+## Heating
+
+Systems 1 and 3 represent electrically driven generators; systems 2 and 4 cover thermal generators. The number identifies the system model, not its priority. Check whether a system is active and how its annual share is defined before interpreting results. Do not infer a priority order from the worksheet labels.
+
+## Cooling
+
+Identify which uses are cooled. Cooling is available only for the cooled model zone. Review the system, capacity and electricity demand together with the [thermal envelope](envelope.qmd).
+
+## Domestic hot water {#domestic-hot-water}
+
+Configure the system shares, generation, distribution and storage separately. Check that shares are consistent and do not double-count demand. Flexible storage operation is covered under [storage and flexibility](systems.qmd#hot-water-storage).
+
+## Ventilation
+
+Separate mechanical ventilation from window ventilation. Review the heat-recovery assumptions for heating and cooling periods, fan electricity and any night-ventilation assumptions. The schematic [thermal model](envelope.qmd) shows that night ventilation in the supplied reference case applies to the uncooled zone.
+
+::: {.declaration-note}
+**For a declaration:** use the prescribed system configuration and declaration values. Alternative systems can be modelled for scenario analysis; this alone does not establish declaration compliance.
+:::
+
+Source: [Training, slides 8–14](../downloads/schulung.pdf).

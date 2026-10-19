@@ -1,0 +1,19 @@
+---
+title: "Glossary"
+lang: en
+---
+| Term | Meaning |
+|---|---|
+| BGF | Gross floor area (Bruttogrundfläche) |
+| NGF | Net floor area (Nettogrundfläche) |
+| PEQ | Positive Energy District (Plus-Energie-Quartier) |
+| GHG / THG | Greenhouse gases / Treibhausgase |
+| LCA / Ökobilanz | Life-cycle assessment of construction and operation |
+| PV | Photovoltaics |
+| SoC | State of charge of a battery or electric vehicle |
+| SIM2 | Hourly simulation export; keep distinct from annual results |
+| IN | Stored model inputs for variants |
+| OUT | Calculated result store |
+| Declaration value | Value required for the applicable declaration method; other modelling assumptions may be explored outside that declaration |
+| Flexible grid use | Time-dependent grid import associated with the flexibility method; not additional physical generation |
+| Assessment period | Period over which emissions are accumulated; distinct from a policy target year |

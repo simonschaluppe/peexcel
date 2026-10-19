@@ -1,0 +1,46 @@
+---
+title: "Quick start with presets"
+lang: en
+---
+Most input categories provide formatted selection fields for defining typical configurations. A quick selection applies a **parameter package**; review and adjust the detailed inputs for the project afterwards.
+
+**Excel location:** [▶ Quick Start]{.excel-menu .darkred} worksheet → [Schnellauswahl]{.excel-section}; alternatively use the relevant subject worksheet or its menu in the **klimaaktiv PEQ** ribbon.
+
+![Excel operation: preset selection and mapping to input variables. Presets_xx tables list presets in columns and the affected input variables in rows. Supplied training slide 34.](../media/manual/presets.png){.manual-figure}
+
+::: {.excel-operation}
+### Apply a preset and review the results
+1. Save the current state as a [variant](variants.qmd). **Presets may overwrite existing inputs; do not rely on Excel Undo.**
+2. Select the required preset in Quick Selection.
+3. Check the applied parameters in the subject worksheet: capacities, system shares, setpoints, losses and activation switches.
+4. Recalculate and review the affected balances on the [Results](results.qmd) worksheet.
+5. Save a new variant and compare it in the [variant comparison](comparison.qmd).
+:::
+
+## Example: change the heating system
+
+::: {.excel-path}
+**Ribbon:** klimaaktiv PEQ → Heizung → Auswahl Heizsystem
+:::
+
+Choose the [„Fernwärme“]{.excel-value} preset. On the [🔥 Heizung]{.excel-menu .darkred} worksheet, review the energy source, [maximum heating capacity]{.excel-field} and generation efficiency. After recalculation, compare the final-energy carrier breakdown and primary-energy balance. A preset does not replace system sizing.
+
+## Quick selections by input group
+
+| Group | Further input |
+|---|---|
+| Geometry, new build / refurbishment | [District](model.qmd#entering-the-district) |
+| Envelope quality, airtightness, shading, construction | [Building physics](envelope.qmd#building-physics-inputs) |
+| Heating, distribution, cooling, hot water, ventilation | [HVAC](hvac.qmd) |
+| PV | [Roof-area scaling or hourly profile](pv.qmd) |
+| Flexibility and storage | [Enabling flexibility and storage parameters](systems.qmd) |
+| Mobility | [Location, private transport and EVs](mobility.qmd) |
+| Life-cycle assessment | [Building measures and building services](climate.qmd) |
+
+The preset name alone does not describe all active settings. The applied input values are authoritative.
+
+::: {.declaration-note}
+**For a declaration:** replace sample values and estimates with project data. Parameters designated as declaration values are mandatory for the assessment; they can still be changed when exploring other model variants.
+:::
+
+Source: [Training, slides 8, 29 and 34](../downloads/schulung.pdf#page=34).

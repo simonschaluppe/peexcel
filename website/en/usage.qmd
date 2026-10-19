@@ -1,0 +1,20 @@
+---
+title: "Use profiles and internal gains"
+lang: en
+---
+Use profiles affect energy demand, internal gains and hourly operation. The model allows scenario assumptions to be changed; the declaration uses its designated values.
+
+**Excel location:** [👤 Nutzungsparameter]{.excel-menu .darkred} worksheet and the use-specific inputs in [District]{.excel-menu .darkred}.
+
+::: {.excel-operation}
+### In the Excel tool
+Review the assigned use types and areas first. Then check plug-load demand, occupancy and schedules, lighting and internal heat gains. Keep energy use and the associated heat gains consistent with the project scope.
+:::
+
+Plug loads are electricity demand; the associated portion of the electricity becomes internal heat gains according to the model assumptions. Do not add the same heat contribution again as a separate gain. Internal gains affect heating and cooling demand and may be varied for scenario analysis.
+
+::: {.declaration-note}
+**For a declaration:** use the required declaration values and document project-specific evidence. Alternative schedules and gains remain useful for operational or sensitivity analysis.
+:::
+
+Source: [Training, slides 8 and 11](../downloads/schulung.pdf).

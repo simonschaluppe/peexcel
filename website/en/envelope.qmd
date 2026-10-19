@@ -1,0 +1,57 @@
+---
+title: "Thermal envelope and heat flows"
+lang: en
+---
+## Inputs on the Building Physics worksheet {#building-physics-inputs}
+
+**Scope:** Keep construction, thermal boundary and heat flows distinct. Component assignment, the balance boundary and qualitative heat-flow overlays can be considered separately.
+
+**Excel location:** [🧱 Bauphysik]{.excel-menu .darkred} worksheet.
+
+::: {.excel-operation}
+### In the Excel tool
+| Input group | Assignment |
+|---|---|
+| Opaque thermal envelope | External walls excluding windows, roof or top-floor ceiling, basement ceiling / ground-contact floor; areas and U-values |
+| Transparent elements | Window areas including frames by orientation, U- and g-values |
+| Thermal bridges / airtightness | Allowance and n50 assumption based on project information |
+| Shading / movable solar protection | Reduction factors and control assumptions; distinguish defaults from adopted values |
+| Thermally active mass | Construction type and effective heat capacity |
+
+Apply [quick selections](presets.qmd) first, then check project-specific areas and properties. After recalculation, review the heat balance on the [Results](results.qmd#heat-balance) worksheet.
+:::
+
+The section view locates the balance boundary in the building. [Life-cycle assessment](climate.qmd) also includes constructions within that boundary, so thermal envelope area and LCA quantity are not interchangeable.
+
+![Thermal energy model with two thermally decoupled zones, heat flows and example balances. Training diagram supplied by the project owner.](../media/manual/thermal-model.png){.manual-figure}
+
+<!-- Interactive embed paused for page performance.
+<iframe class="peq-lesson" data-fit src="../assets/teaching/index.html" title="Interactive building section: components, envelope and heat flows"></iframe>
+-->
+
+Interactive view available through the separate link below.
+
+[Open the section view separately](../assets/teaching/index.html) · [Executable notebook](../downloads/howto_section_teaching_preview.ipynb)
+
+## Visual style and technical layers
+
+The **teaching** style reduces surroundings and decoration while retaining the section renderer's geometry. Component colours, thermal boundary, selection and heat flows are independent overlays. Existing styles remain available for other uses.
+
+## Two thermally decoupled zones
+
+The selector shows the cooled and uncooled zones individually; the two storeys do **not** represent these zones. Heating is possible in both, active cooling only in the cooled zone, and night ventilation in the illustrated reference model only in the uncooled zone.
+
+Solar gains enter through windows; internal gains arise within the space. Transmission and ventilation are shown as example heat removal, but their direction depends on operating conditions. Arrows are **qualitative**; their width does not encode heat flow magnitude.
+
+## Boundary of internal ceilings
+
+The thermal envelope and component assignment illustrate different boundaries.
+
+<details><summary>Thermal boundary conditions</summary>An internal floor slab between two heated storeys is within the thermal boundary. A slab above an unheated basement may form part of the thermal envelope. The thermal boundary condition matters, not only the geometric type “slab”. The <a href="components.qmd">second reference geometry</a> illustrates this distinction.</details>
+
+::: {.callout-note}
+## For a declaration
+Internal heat gains and plug loads can be varied in the model. Use the designated declaration values of the relevant tool version for the declaration.
+:::
+
+Source: [Training, slides 11–14](../downloads/schulung.pdf). The geometry is an explicitly assumed reference building, not a project result.

@@ -1,0 +1,104 @@
+---
+title: "Example results · Bsp San 6G"
+lang: en
+toc: true
+---
+The three exports use the same reference areas: **1,175.8 m² net floor area** and **1,469.75 m² gross floor area**, tool version **1.13.1_dev**. The reference already includes PV. The variants differ in exported flexibility settings; they are not a simple “without/with PV” comparison.
+
+| Export | Tool selection | PV flexibility active | Signal-controlled flexibility active |
+|---|---|---|---|
+| `Bsp_San_6G` | No flexibility | No | No |
+| `Bsp_San_6G_pv` | PV only | Yes | No |
+| `Bsp_San_6G_flex` | PV + signal | No | Yes |
+
+The preset label and the exported activation switches are listed separately. Stored inputs and results determine the interpretation. [Input differences as CSV](../assets/results/input_differences.csv).
+
+## Heat balance {#heat-balance}
+
+Transmission and ventilation losses, night ventilation and cooling demand are compared with solar and internal gains and heating demand. All contributions are annual energy per net floor area. The heat balance closes within numerical tolerance in all three exports.
+
+<!-- Interactive embed paused for page performance.
+<iframe class="pexl-chart" src="../assets/results/heat_balance.html" title="Heat balance for three variants" loading="lazy"></iframe>
+-->
+
+![Heat balance for three variants](../assets/results/heat_balance.svg){.full-figure loading="lazy"}
+
+[HTML](../assets/results/heat_balance.html) · [SVG](../assets/results/heat_balance.svg) · [PNG](../assets/results/heat_balance.png) · [Values CSV](../assets/results/heat_balance.csv)
+
+## Final-energy balance {#final-energy-balance}
+
+All three variants are supplied entirely by electricity; exported contributions from district heating, natural gas, biomass and other carriers are zero. The chart shows **final electricity for local use**, including building services, plug loads, storage charging and EV charging in the district.
+
+Direct PV use, flexible PV use, conventional and signal-controlled grid imports, and available discharge flows make up the coverage side. Feed-in and external EV charging are outside this local-use balance. This allocation avoids treating them as local demand coverage; the balance closes for all three variants.
+
+<!-- Interactive embed paused for page performance.
+<iframe class="pexl-chart" src="../assets/results/final_energy_balance.html" title="Electrical final-energy balance for local use" loading="lazy"></iframe>
+-->
+
+![Electrical final-energy balance for local use](../assets/results/final_energy_balance.svg){.full-figure loading="lazy"}
+
+[HTML](../assets/results/final_energy_balance.html) · [SVG](../assets/results/final_energy_balance.svg) · [PNG](../assets/results/final_energy_balance.png) · [Values CSV](../assets/results/final_energy_balance.csv)
+
+## Primary-energy balance {#primary-energy-balance}
+
+The primary-energy assessment accounts for demand, substitution equivalents and context factors. The difference between coverage and demand is an **assessment result**, not a failure of a physical energy balance to close. Flexibility contributions and context factors are not additional physical energy generation.
+
+<!-- Interactive embed paused for page performance.
+<iframe class="pexl-chart" src="../assets/results/primary_energy_balance.html" title="Primary-energy balance for three variants" loading="lazy"></iframe>
+-->
+
+![Primary-energy balance for three variants](../assets/results/primary_energy_balance.svg){.full-figure loading="lazy"}
+
+[HTML](../assets/results/primary_energy_balance.html) · [SVG](../assets/results/primary_energy_balance.svg) · [PNG](../assets/results/primary_energy_balance.png) · [Values CSV](../assets/results/primary_energy_balance.csv)
+
+## GHG balance {#ghg-balance}
+
+The chart includes exported life-cycle contributions for **2025–2075**: construction, building services and vehicle manufacturing (EE), plus building operation and mobility (OE). Negative contributions, including grid feed-in and mobility boundary effects, retain their sign. The diamond marks the exported total, equal to the sum of the plotted components.
+
+The reference is **gross floor area**, not net floor area. GWP100 describes the climate-impact assessment and is distinct from the 50-year assessment period. L1–L3 reference bands do not replace a compliance check. PV LCA can be modelled but is excluded from the klimaaktiv method; it is zero in these exports.
+
+<!-- Interactive embed paused for page performance.
+<iframe class="pexl-chart" src="../assets/results/gwp_ee.html" title="Life-cycle GHG balance for three variants" loading="lazy"></iframe>
+-->
+
+![Life-cycle GHG balance for three variants](../assets/results/gwp_ee.svg){.full-figure loading="lazy"}
+
+[HTML](../assets/results/gwp_ee.html) · [SVG](../assets/results/gwp_ee.svg) · [PNG](../assets/results/gwp_ee.png) · [Values CSV](../assets/results/gwp_ee.csv)
+
+## Result checks and provenance
+
+[Result tables and input comparison](../assets/results/tables.html) · [Numerical balance checks CSV](../assets/results/balance_checks.csv) · [Executable Python workflow](python.qmd)
+
+The charts use stored export results; no new Excel simulation is run. Source file, scenario, version and source checksum are shown in the charts. They do not establish a confirmed declaration status.
+
+Hourly electrical flow profiles are shown separately for **Aspern F7**. Completeness of the hourly exports for the three refurbishment variants is still being assessed.
+
+## Aspern F7: time-resolved electricity flows {#aspern-f7}
+
+The `Aspern PVCheck _ F7.xlsx` export contains 8,760 hourly values for calendar year 2018. The charts show conventional grid import, direct PV use, flexible PV use (where non-zero) and PV feed-in. Grid import includes the conventional components grouped under `E_grid` in the schema.
+
+**Boundary:** these are selected electrical flow profiles, not a closed consumption balance. Consumption, storage and complete signal-controlled grid channels are not included in this export. Missing exported quantities are not treated as zero.
+
+### Seasonal average daily profiles
+
+The four seasons are derived from the exported calendar fields. Each hour shows the average of all hours in that season. Values are mean power in W/m² net floor area, calculated from hourly energy in Wh/m² net floor area using the verified one-hour time step. Seasonal averages are not actual daily profiles.
+
+<!-- Interactive embed paused for page performance.
+<iframe class="pexl-chart" src="../assets/results/f7_seasons.html" title="Aspern F7: seasonal electrical flow profiles" loading="lazy"></iframe>
+-->
+
+![Aspern F7: seasonal electrical flow profiles](../assets/results/f7_seasons.svg){.full-figure loading="lazy"}
+
+[Large HTML view](../assets/results/f7_seasons.html) · [SVG](../assets/results/f7_seasons.svg) · [PNG](../assets/results/f7_seasons.png)
+
+### Chronological hourly values
+
+January and July weeks can be selected directly. Zoom, range selection and the legend support analysis of individual contributions. These weeks are reference windows, not statistically representative samples. Positive values indicate local PV use and conventional grid import; negative values indicate PV feed-in.
+
+<!-- Interactive embed paused for page performance.
+<iframe class="pexl-chart" src="../assets/results/f7_hourly.html" title="Aspern F7: chronological hourly electricity flows" loading="lazy"></iframe>
+-->
+
+Interactive view available through the separate link below.
+
+[Open hourly chart](../assets/results/f7_hourly.html) · [Available channels CSV](../assets/results/channels-Aspern%20PVCheck%20_%20F7.csv) · [Executable analysis workflow](../tutorials/howto_analyze_electricity_balance.html)

@@ -1,0 +1,40 @@
+---
+title: "Declaration and quality assurance"
+lang: en
+---
+A declaration is based on the specified assessment method, declaration values and supporting project information. The model may permit additional assumptions; those do not automatically form part of the klimaaktiv declaration.
+
+## Assessment levels
+
+The standard distinguishes the Positive Energy District assessment, the mobility extension and the climate-neutral assessment including life-cycle GHG emissions. Check the applicable method and tool version before preparing evidence.
+
+::: {.declaration-note}
+**Declaration values:** these are mandatory for the declaration, while the model can be varied for other analyses. This distinction also applies to hourly conversion factors, plug loads and internal gains. PV life-cycle emissions can be modelled but are not included in the current klimaaktiv assessment method.
+:::
+
+## Quality assurance {#quality-assurance}
+
+The **AUDIT** worksheet identifies deviations from declaration assumptions for the current variant. Review every finding, trace it to its input and record the rationale and supporting evidence.
+
+::: {.excel-operation}
+### Review checklist
+1. Confirm project, variant and tool version.
+2. Check the declared reference areas and input data sources.
+3. Review the AUDIT deviations and distinguish intentional scenario choices from data errors.
+4. Verify recalculation status and the relevant [Results](results.qmd).
+5. Document unresolved deviations and the basis for any accepted interpretation.
+:::
+
+An AUDIT deviation is a review item; its presence does not automatically establish that the model is erroneous or that an exception is acceptable. A current AUDIT worksheet view is still required for field-level instructions.
+
+## Evidence and traceability
+
+Retain the source workbook, project exports, tool version, variant definitions, data sources, calculation state and relevant result tables. For [migration](migration.qmd), archive the original project export. For batch runs, record scenario selection and completion status.
+
+::: {.pending}
+Current declaration output, AUDIT and evidence views are needed to document the exact report fields and acceptance workflow.
+:::
+
+[Results](results.qmd) · [LCA and Eco2soft](climate.qmd) · [Variant management](variants.qmd)
+
+Source: [Training, slides 22, 25 and 35](../downloads/schulung.pdf).

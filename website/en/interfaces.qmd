@@ -1,0 +1,21 @@
+---
+title: "Weather and data interfaces"
+lang: en
+---
+The Excel tool combines district inputs with weather data and optional external profiles. Confirm that each dataset matches the project location, model year and time basis.
+
+## Weather
+
+**Excel location:** [🌦 Weather]{.excel-menu .darkred} worksheet and the weather selection in [District](model.qmd#entering-the-district).
+
+Select the dataset that corresponds to the project location. Review the weather year and hourly sequence before interpreting PV generation, heating and cooling demand. The sheet may be hidden in some workbook views.
+
+## External profiles
+
+The [PV-Import](pv.qmd#hourly-profile) worksheet accepts a detailed generation profile. External electricity or flexibility data may use different units and timestamps; align time steps and units before import. Record the source and any processing applied.
+
+## Python workflows
+
+The Python package `pexl` supports structured import, validation and analysis of project exports. It complements the Excel workflow and does not itself confirm that a workbook has been correctly configured.
+
+[Python workflows and tutorials](python.qmd) · [Tool and data overview](learn.qmd)

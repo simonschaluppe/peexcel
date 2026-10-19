@@ -1,0 +1,43 @@
+---
+title: "Results worksheet"
+lang: en
+---
+**Excel location:** [📊 Ergebnisse (Erg)]{.excel-menu .red} worksheet.
+
+This worksheet contains tables and charts for the currently calculated variant. The training distinguishes it from the internal result store **OUT** and the [Excel Dashboard](excel-dashboard.qmd) for time-resolved analysis.
+
+::: {.excel-path}
+**Ribbon:** klimaaktiv PEQ → Ergebnisse → [Results]{.excel-action}
+:::
+
+## Project indicators
+
+Check project and variant names, areas, use mix, building density, and cooled and mechanically ventilated shares. Confirm whether each balance is referenced to net or gross floor area.
+
+## Heat balance {#heat-balance}
+
+The charts compare transmission and ventilation losses, night ventilation, solar and internal gains, heating demand and cooling demand. Read the whole district, cooled and uncooled zones, and heating/cooling periods separately. Heating and cooling capacity are power values, not annual energy.
+
+## Final-energy balance {#final-energy-balance}
+
+The demand-coverage matrix assigns plug loads, building services, hot water, storage charging and mobility to coverage sources. Read imports, local use, storage flows and export within their respective balance boundaries; do not add them indiscriminately.
+
+## Flexibility and battery
+
+Availability periods, flexible use, battery charging/discharging, losses and cycles describe the use of available flexibility. Annual values complement the hourly analysis in the Dashboard.
+
+## Primary-energy balance
+
+Demand and coverage are assessed using conversion factors. Local renewables and flexible imports appear as substitution equivalents; context factors represent building density, refurbishment and mobility. The import/export view concerns exchange across the district boundary. Interpret both presentations using their own sign conventions and boundaries.
+
+## GHG balance
+
+Embodied and operational contributions, including mobility, are presented cumulatively. Emissions, credits, budget and balance are distinct quantities. Check the assessment period and gross-floor-area basis; [LCA inputs](climate.qmd) and [declaration](declaration.qmd) are documented separately.
+
+::: {.pending}
+**Current chart close-ups are still required:** heat balance, final-energy matrix, primary energy and GHG. The supplied tool overview shows the output types but not readable detail. Python charts are not presented as Excel charts here.
+:::
+
+[Variant comparison](comparison.qmd) · [Excel Dashboard](excel-dashboard.qmd) · [Example results](examples.qmd)
+
+Source: [Training, slides 21–25](../downloads/schulung.pdf#page=25); worksheet structure based on handbook pp. 74–82.

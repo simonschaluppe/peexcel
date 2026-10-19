@@ -1,13 +1,38 @@
 ---
 title: "Thermische Hülle und Wärmeflüsse"
-page-layout: full
-sidebar: false
-toc: false
 ---
+
+
+
+## Eingaben im Blatt Bauphysik {#excel-bauphysik}
 
 **Gegenstand:** Konstruktion, thermische Bilanzgrenze und Wärmeflüsse auseinanderhalten. Bauteilzuordnung, Bilanzgrenze und qualitative Wärmeflüsse sind separat schaltbar.
 
+**Excel-Ort:** Blatt [🧱 Bauphysik]{.excel-menu .darkred}.
+
+::: {.excel-operation}
+### Im Excel-Tool
+| Eingabegruppe | Zuordnung |
+|---|---|
+| Opake thermische Hülle | Außenwand ohne Fenster, Dach beziehungsweise oberste thermische Decke, Kellerdecke/erdberührter Fußboden; Flächen und U-Werte |
+| Transluzente Bauteile | Fensterflächen einschließlich Rahmen nach Orientierung, U- und g-Werte |
+| Wärmebrücken / Luftdichtheit | Zuschlag und n50-Annahme anhand der Projektgrundlagen |
+| Verschattung / mobiler Sonnenschutz | Minderungsfaktoren und Steuerungsannahmen; Vorschlagswerte von tatsächlich übernommenen Werten unterscheiden |
+| Thermisch wirksame Speichermasse | Bauweise und wirksame Wärmekapazität |
+
+[Schnellauswahlen](presets.qmd) zunächst übernehmen, anschließend projektspezifische Flächen und Kennwerte prüfen. Nach der Berechnung die Wärmebilanz im [Ergebnisblatt](results.qmd#waermebilanz) kontrollieren.
+:::
+
+Die Schnittdarstellung ordnet die Bilanzgrenze räumlich zu. Die [Ökobilanz](climate.qmd) umfasst darüber hinaus Konstruktionen innerhalb dieser Grenze; thermische Hüllfläche und LCA-Menge sind daher nicht gleichzusetzen.
+
+![Thermisches Energiemodell mit zwei thermisch entkoppelten Zonen, Wärmeflüssen und beispielhaften Bilanzen. Bereitgestellte Schulungsgrafik.](media/manual/thermal-model.png){.manual-figure}
+
+
+<!-- Interactive embed paused for page performance.
 <iframe class="peq-lesson" data-fit src="assets/teaching/index.html" title="Interaktive Schnittdarstellung: Bauteile, Hülle und Wärmeflüsse"></iframe>
+-->
+
+Die interaktive Ansicht ist über den separaten Link unten verfügbar.
 
 [Schnittdarstellung separat öffnen](assets/teaching/index.html) · [Ausführbares Notebook](downloads/howto_section_teaching_preview.ipynb)
 
@@ -33,24 +58,3 @@ Interne Wärmegewinne und Nutzerstrom können frei modelliert werden. Für die D
 :::
 
 Quelle: [Schulung, Folien 11–14](downloads/schulung.pdf). Die Geometrie ist ein ausdrücklich angenommenes Referenzgebäude, kein Projektergebnis.
-
-## Eingaben im Blatt Bauphysik {#excel-bauphysik}
-
-**Excel-Ort:** Blatt [🧱 Bauphysik]{.excel-menu .darkred}.
-
-::: {.excel-operation}
-### Im Excel-Tool
-| Eingabegruppe | Zuordnung |
-|---|---|
-| Opake thermische Hülle | Außenwand ohne Fenster, Dach beziehungsweise oberste thermische Decke, Kellerdecke/erdberührter Fußboden; Flächen und U-Werte |
-| Transluzente Bauteile | Fensterflächen einschließlich Rahmen nach Orientierung, U- und g-Werte |
-| Wärmebrücken / Luftdichtheit | Zuschlag und n50-Annahme anhand der Projektgrundlagen |
-| Verschattung / mobiler Sonnenschutz | Minderungsfaktoren und Steuerungsannahmen; Vorschlagswerte von tatsächlich übernommenen Werten unterscheiden |
-| Thermisch wirksame Speichermasse | Bauweise und wirksame Wärmekapazität |
-
-[Schnellauswahlen](presets.qmd) zunächst übernehmen, anschließend projektspezifische Flächen und Kennwerte prüfen. Nach der Berechnung die Wärmebilanz im [Ergebnisblatt](results.qmd#waermebilanz) kontrollieren.
-:::
-
-Die Schnittdarstellung ordnet die Bilanzgrenze räumlich zu. Die [Ökobilanz](climate.qmd) umfasst darüber hinaus Konstruktionen innerhalb dieser Grenze; thermische Hüllfläche und LCA-Menge sind daher nicht gleichzusetzen.
-
-![Thermisches Energiemodell mit zwei thermisch entkoppelten Zonen, Wärmeflüssen und beispielhaften Bilanzen. Bereitgestellte Schulungsgrafik.](media/manual/thermal-model.png){.manual-figure}

@@ -1,0 +1,29 @@
+---
+title: "Python workflows"
+lang: en
+---
+The `pexl` Python package supports structured access to PEExcel project data, validation and analysis. It complements the Excel application; it does not replace project-specific input checks or declaration quality assurance.
+
+## Available notebooks
+
+- [Read and inspect an Excel export](../downloads/howto_excel.ipynb)
+- [Analyse hourly electricity balances](../downloads/howto_analyze_electricity_balance.ipynb)
+- [Visualise district projects](../downloads/howto_visualize_project.ipynb)
+- [Build the component catalogue and section renderer](../downloads/howto_section_teaching_preview.ipynb)
+- [Build the Quarto site](../downloads/howto_website.ipynb)
+
+The site embeds read-only notebook views. Download a notebook to execute it in the repository environment; published notebook views do not run code.
+
+## Example: render a result
+
+```python
+from pexl import Project, reporting
+from pexl.plot import plotly
+from pexl.plot.export import export_figure
+
+project = Project.from_excel("data/exports/example.xlsx")
+figure = plotly.render(reporting.materialize(project.view, "primary_energy_balance"))
+export_figure(figure, "primary_energy_balance", formats=("html", "svg", "png"))
+```
+
+Use the same `pexl` reporting and plotting functions as the publication workflow. Record source file, scenario, tool version and export provenance with results.

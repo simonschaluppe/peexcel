@@ -1,0 +1,17 @@
+---
+title: "Research and references"
+lang: en
+---
+PEExcel is developed by the Climate-fit Buildings and Districts research group at FH Technikum Wien. The tool supports hourly modelling and the assessment of positive-energy districts, building services, mobility and life-cycle greenhouse gas emissions.
+
+## Method and source material
+
+The [training presentation](../downloads/schulung.pdf) describes the workbook workflow and the PEQ assessment. The [handbook](../downloads/handbuch.pdf) and [background guide](../downloads/hintergrund.pdf) provide further German-language context.
+
+The [example results](examples.qmd) are generated from the supplied project exports. Each chart identifies its data source; the example calculations are not a declaration review.
+
+## Software and reproducibility
+
+The repository contains the Excel interface, the `pexl` Python package and executable analysis notebooks. Source, version and processing assumptions should be retained when reproducing a result.
+
+[Project repository](https://github.com/simonschaluppe/peexcel) · [Python workflows](python.qmd) · [About and contact](about.qmd)

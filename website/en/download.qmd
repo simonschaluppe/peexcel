@@ -1,0 +1,19 @@
+---
+title: "Downloads"
+lang: en
+---
+The Excel tool and reference documents are available below. The workbook interface and the detailed guides are currently in German.
+
+## Excel tool
+
+Download the current workbook from the [PEExcel GitHub repository](https://github.com/simonschaluppe/peexcel). Check the release or project notes for the applicable tool version before starting a project.
+
+## Reference documents
+
+- [PEQ assessment handbook (German)](../downloads/handbuch.pdf)
+- [PEQ tool training presentation (German)](../downloads/schulung.pdf)
+- [PEQ background guide (German)](../downloads/hintergrund.pdf)
+- [PEQ standard overview (German)](../downloads/standard.pdf)
+- [PEQ brochure (German)](../downloads/broschuere.pdf)
+
+The workbook is macro-enabled and requires desktop Microsoft Excel / Office 365 for variant-management features.

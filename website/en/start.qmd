@@ -1,0 +1,30 @@
+---
+title: "Using the tool"
+lang: en
+---
+PEExcel represents building operation, private motorised transport and life-cycle assessment in an hourly district model. The workflow follows the **assessment loop: modelling → simulation → analysis**. Python is not required to use the Excel tool.
+
+## Prepare the workbook
+
+Save the [workbook](download.qmd) locally and open it in Microsoft Excel / Office 365. Macros are required for variant management. Keep an unchanged copy of the original file.
+
+::: {.excel-operation}
+### In the Excel tool
+**Excel location:** [▶ Quick Start]{.excel-menu .darkred} worksheet
+
+1. Set the project and geometry with the quick selections or [load a saved variant](variants.qmd).
+2. Choose [presets](presets.qmd), then review the project-specific detail inputs.
+3. Recalculate via **Formulas → Calculation → Calculate Now** (<kbd>F9</kbd>). In manual calculation mode, results are only updated after recalculation.
+4. Review the [Results](results.qmd) worksheet and the [Excel Dashboard](excel-dashboard.qmd).
+5. Save the work as a clearly named [variant](variants.qmd).
+:::
+
+![Excel interface: Quick Start and thematic input worksheets. The supplied screenshot shows version v1_12 dated 24 June 2026; its sample values are not project requirements.](../media/manual/quick-start.png){.manual-figure}
+
+## Project workflow
+
+[Excel navigation](excel-navigation.qmd) explains worksheets, formatting and navigation paths. [Modelling](model.qmd) covers the input groups. [Migration](migration.qmd) describes exporting a project from an older tool version and importing it into a newer version.
+
+[Quality assurance for the declaration](declaration.qmd#quality-assurance) covers AUDIT, declaration values and documenting data sources.
+
+Source: [Training, slides 3, 7–8 and 24–30](../downloads/schulung.pdf#page=7).

@@ -1,0 +1,25 @@
+---
+title: "Mobility"
+lang: en
+---
+The mobility model distinguishes journeys attributable to district uses from trips outside the defined assessment context. Define the mobility region and scenario before comparing results.
+
+![Mobility context: uses, target traffic and other traffic. Training diagram supplied by the project owner.](../media/manual/mobility-boundary.png){.manual-figure}
+
+**Excel locations:** [🚗 Mobilität]{.excel-menu .orange} and [☁ Treibhauspotential (THG)]{.excel-menu .teal} worksheets.
+
+::: {.excel-operation}
+### In the Excel tool
+1. Select the mobility region and applicable travel context.
+2. Review the assumptions for private motorised transport by use and vehicle type.
+3. Configure EV charging and, where applicable, bidirectional operation on the [Flexibility and Storage](systems.qmd) worksheet.
+4. Check vehicle manufacturing and operational contributions in the [GHG inputs](climate.qmd) and the [Results](results.qmd).
+:::
+
+The assessment boundary determines which journeys and emissions are attributed to the district. Actual travel behaviour, modelled scenario traffic and declaration assumptions should be documented separately.
+
+::: {.declaration-note}
+**For a declaration:** apply the mobility context and declaration values specified by the method. Alternative travel patterns may be modelled as scenarios.
+:::
+
+Source: [Training, slides 17–20](../downloads/schulung.pdf).

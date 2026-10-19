@@ -41,8 +41,21 @@ Quarto CLI separat installieren. Kaleido 1 benötigt Chrome/Chromium; bei fehlen
 Browser nach dessen Installation erneut exportieren. Es gibt keinen stillen
 Fallback auf leere oder unvollständige statische Grafiken. Nur HTML benötigt
 keinen Exportbrowser: `python scripts/publication_example.py --formats html`.
-Der Quarto-Pre-render-Schritt erstellt alle Beispielgrafiken neu. Die erzeugte
-Website liegt in `website/_site/`; es wird kein Deployment eingerichtet.
+Die Quarto-Pre-render-Schritte erstellen die konfigurierten realen Ergebnisse,
+Lehrmodule, Downloads und synthetischen Beispielgrafiken neu. Der Post-render-Schritt
+baut das englische Unterprojekt. Die gesamte Website liegt in `website/_site/`.
+Der vollständige Ablauf einschließlich Prüfung und separat freizugebender
+Veröffentlichung ist in `notebooks/howto_website.ipynb` ausführbar dokumentiert.
+`master` enthält Quellen und erforderliche Eingabedateien; `gh-pages` enthält die
+generierte Website. Ein Build allein veröffentlicht nichts.
+
+Ein frischer Build übernimmt keine Altdateien aus `gh-pages`: Die versehentlich
+veröffentlichte Quelle `en/index.qmd` und vier unreferenzierte
+`assets/results/*.html.table`-Fragmente werden nicht erzeugt. Die Ergebnistabellen
+bleiben unter `assets/results/tables.html` und als CSV verfügbar. `.nojekyll`
+gehört zum Veröffentlichungsschritt von Quarto. Die bisherigen synthetischen
+Grafiken unter `assets/` werden weiterhin mit `publication_example.py` erzeugt,
+damit ihre veröffentlichten URLs erhalten bleiben.
 
 Das ausführbare `notebooks/howto_publication.ipynb` umfasst Projekt, Jupyter-Anzeige,
 alle Exportformate, Methodenbeispiele und den lokalen Quarto-Build. Für PDF-Dokumente

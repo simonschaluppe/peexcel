@@ -1,0 +1,24 @@
+---
+title: "Automated batch simulation"
+lang: en
+---
+The **Scen** worksheet supports automated simulations across multiple variants. Prepare and verify the input variants before running a batch.
+
+**Excel location:** [Scen]{.excel-menu .darkred} worksheet.
+
+::: {.excel-operation}
+### Batch workflow
+1. Create and save the input variants in [Variant Management](variants.qmd).
+2. Select the required scenarios in Scen.
+3. Run the batch calculation and wait for the simulation to complete.
+4. Check completion status, scenario names and result coverage.
+5. Compare the outputs in [Results](results.qmd) or the [variant comparison](comparison.qmd).
+:::
+
+::: {.pending}
+**Current Scen view required:** column names, selection controls and execution status have not been verified against the current workbook. The training material confirms batch simulation but does not establish the present click sequence.
+:::
+
+Document the tool version, scenario selection and any failed or incomplete runs. Batch outputs are only comparable when system boundaries and input assumptions are consistent.
+
+Source: [Training, slide 33](../downloads/schulung.pdf).

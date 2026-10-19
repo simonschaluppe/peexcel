@@ -3,9 +3,12 @@ project:
   output-dir: _site
   render:
     - "*.qmd"
-    - "en/*.qmd"
+    - "!en/**"
   pre-render:
     - python ../scripts/website_assets.py
+    - python ../scripts/publication_example.py --output assets
+  post-render:
+    - python ../scripts/render_english_site.py
   resources:
     - assets/**
     - media/**
@@ -24,7 +27,7 @@ website:
       - {href: learn.qmd, text: Dokumentation}
     right:
       - {href: download.qmd, text: Download, icon: download}
-      - {href: en/index.qmd, text: English}
+      - {href: en/index.html, text: English}
   sidebar:
     style: docked
     collapse-level: 1

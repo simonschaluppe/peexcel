@@ -1,0 +1,20 @@
+---
+title: "Documentation and learning resources"
+lang: en
+---
+This site combines tool navigation, modelling guidance, assessment results and executable workflows. Detailed Excel instructions remain in German because the tool interface is German.
+
+Start with [tool use](start.qmd) and [presets](presets.qmd). The modelling section covers the [building model](model.qmd), [building envelope](envelope.qmd), [building services](hvac.qmd), [PV](pv.qmd), [storage](systems.qmd), [mobility](mobility.qmd) and [life-cycle assessment](climate.qmd).
+
+For results, see the [Results worksheet](results.qmd), [Excel Dashboard](excel-dashboard.qmd), [variant comparison](comparison.qmd) and [example exports](examples.qmd). The [declaration and quality assurance](declaration.qmd) page describes the assessment context.
+
+## Executable workflows
+
+The notebooks below use the same `pexl` functions as the package and publication scripts. Download them and run them from the repository environment.
+
+- [Excel export workflow](../downloads/howto_excel.ipynb)
+- [Electricity balance analysis](../downloads/howto_analyze_electricity_balance.ipynb)
+- [Visualising projects](../downloads/howto_visualize_project.ipynb)
+- [Section renderer teaching preview](../downloads/howto_section_teaching_preview.ipynb)
+
+The site is maintained in the PEExcel repository. See [research and references](research.qmd) or [about the project](about.qmd).

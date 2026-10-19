@@ -1,0 +1,69 @@
+---
+title: "Life-cycle assessment"
+lang: en
+---
+**Excel location:** [☁ Treibhauspotential (THG)]{.excel-menu .teal} worksheet, also called “Global Warming Potential” in the handbook.
+
+The climate-neutral PEQ assessment extends beyond operational energy. Embodied emissions from buildings and operational GHG emissions are assessed over the specified period.
+
+## Distinguish three time concepts
+
+| Term | Meaning |
+|---|---|
+| Assessment period | Balance period: 50 years from 2025 to 2075 |
+| Target year | A policy or method target, such as 2040 or 2050; it is not the end of the assessment period |
+| Decarbonisation pathway | Change in energy-system emission factors over time; it affects future operational energy |
+
+A cumulative chart integrates contributions over time. It is neither a single-year balance nor automatically evidence that a national climate target has been met. Emission pathways and budget rules are part of the selected method.
+
+## GHG pathways and life cycle
+
+![Method: GHG decarbonisation pathways to 2050 for different energy carriers. Supplied training diagram.](../media/manual/decarbonisation.png){.manual-figure}
+
+The training material uses an assessment period of 2025–2075 and sectoral decarbonisation pathways to 2050. Fully decarbonised systems after 2050 are an assessment assumption. The 320 kg CO₂eq/m² gross-floor-area budget cited in the training is cumulative, not an annual emission rate.
+
+![Method: cumulative emissions from construction, operation and maintenance, and biogenic storage. Supplied training diagram.](../media/manual/lifecycle.png){.manual-figure}
+
+The timing of emissions, maintenance and biogenic storage affects the life-cycle balance. The credits shown are method assumptions, not generally transferable material factors.
+
+![Operational GHG boundary: imports, local PV use and feed-in. Supplied diagram with English labels.](../media/manual/operational-emissions.png){.manual-figure}
+
+Source: [Training, slides 22–23 and 31](../downloads/schulung.pdf#page=31).
+
+## Components, operation and budget
+
+Assign constructions and quantities with traceable sources. Interpret embodied and operational contributions together with the assessment boundary, period and budget. The [variant examples](examples.qmd#ghg-balance) show exported life-cycle results, including negative contributions.
+
+::: {.callout-important}
+## PV LCA: modelled, excluded from the klimaaktiv assessment
+PV life-cycle emissions can be modelled in the tool. **The klimaaktiv assessment method does not include them.** An input field or result does not automatically mean that the contribution enters the declaration. Do not generalise this statement to other technologies or assessment methods.
+:::
+
+## Documenting the assessment
+
+Record tool version, data sources, assessment period, conversion factors, decarbonisation pathway and system boundary. Model variants can use different assumptions; the declaration must follow its specified requirements.
+
+<details><summary>Technical interpretation</summary>With time-varying emission factors, the same energy quantity produces different assessed emissions in different years. Energy quantity and its assessment are separate quantities.</details>
+
+[Training, slides 22–23](../downloads/schulung.pdf) · [Method background](../downloads/hintergrund.pdf) · [Declaration](declaration.qmd)
+
+## Entering life-cycle data {#lca-inputs}
+
+::: {.excel-operation}
+### In the Excel tool
+1. Under [Baulich]{.excel-section}, select constructions or a preset and check quantities.
+2. Add grouped measures or a total LCA entry without duplicating existing measures.
+3. Assign fossil and biogenic contributions and the service life until replacement.
+4. Under [Technische Gebäudeausstattung]{.excel-section}, record relevant systems and reference quantities; align vehicle manufacturing with the mobility configuration.
+5. Recalculate and review embodied and operational contributions together on [Results](results.qmd).
+:::
+
+## Connection to Eco2soft {#eco2soft}
+
+The training names **baubook / Eco2soft**, the matching system boundary **“Aspern Klimafit”**, and **direct CSV import**. The building LCA created there provides input for the GHG worksheet.
+
+Create the relevant Eco2soft assessment and export a CSV. Before transfer, align system boundary, reference area, units, fossil/biogenic contributions and replacement assumptions. After import, check which components or grouped totals were transferred and identify duplicate entries.
+
+::: {.pending}
+**Current import dialog still required:** the training confirms that CSV import is possible; field-level instructions will follow when a current screenshot is available.
+:::

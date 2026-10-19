@@ -4,17 +4,21 @@ title: "Mobilität: Laden und Verantwortung"
 
 **Gegenstand:** Physische Ladeflüsse von der verursacherbezogenen Bewertung unterscheiden. Beide sind relevant, beantworten aber verschiedene Fragen.
 
-## Wo wird tatsächlich geladen?
 
-Für das Energiesystem zählt, wann Fahrzeuge vor Ort laden, wie hoch der Ladebedarf ist und wie Ladung mit PV, Netz und gegebenenfalls Speichern zusammenwirkt. Diese Sicht berücksichtigt die im Modell angesetzten Lade- und Verkehrsflüsse.
 
 ## Welche Mobilität wird zugerechnet?
 
 Die Bewertungsmethode betrachtet die Verantwortung für verursachte Mobilität. Zielverkehr und ein zugeteilter nationaler Budgetbezug gehören zu dieser Perspektive. Ladeenergie am Standort ist deshalb nicht automatisch mit der gesamten zugerechneten Mobilitätsenergie identisch.
 
+![Mobilitätsbilanz: Zielverkehr und anderer Verkehr nach Nutzungen; bereitgestellte Schulungsgrafik.](media/manual/mobility-boundary.png){.manual-figure}
+
 [![Mobilitätsmodell und Bilanzzusammenhänge](media/mobility.png){.full-figure}](media/mobility.png)
 
 Quelle: `docs/mobilität.png`; [Schulung, Folien 17–20](downloads/schulung.pdf). Die Schulung verweist auf *Österreich unterwegs 2014* als Datengrundlage. Maßgeblich bleiben die zum Toolstand gehörenden Annahmen und Deklarationswerte.
+
+## Wo wird tatsächlich geladen?
+
+Für das Energiesystem zählt, wann Fahrzeuge vor Ort laden, wie hoch der Ladebedarf ist und wie Ladung mit PV, Netz und gegebenenfalls Speichern zusammenwirkt. Diese Sicht berücksichtigt die im Modell angesetzten Lade- und Verkehrsflüsse.
 
 ## Vergleich mit klarer Fragestellung
 
@@ -30,7 +34,6 @@ Ein Mobilitätskonzept kann bei unverändertem Gebäudemodell untersucht werden.
 
 Die Schulung trennt **reale Potenzialnutzung** von **Verursacher-Verantwortung**: Für die Speicher- und Lastflusssimulation werden die im Quartier verkehrenden E-Fahrzeuge und ihre Ladung betrachtet. Die Bewertungsbilanz ordnet dem Quartier den verursachten Zielverkehr zu, elektrisch und fossil.
 
-![Mobilitätsbilanz: Zielverkehr und anderer Verkehr nach Nutzungen; bereitgestellte Schulungsgrafik.](media/manual/mobility-boundary.png){.manual-figure}
 
 ::: {.excel-operation}
 ### Im Excel-Tool

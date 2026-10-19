@@ -1,21 +1,9 @@
 ---
 title: "Bauteile richtig zuordnen"
-page-layout: full
-sidebar: false
-toc: false
 ---
 
 Bauteilzuordnung verbindet Geometrie, Mengen und Lebenszyklusbilanz. **Eine geometrische Fläche ist noch keine vollständige LCA-Zuordnung.** Konstruktion, Randbedingung und Nutzung müssen nachvollziehbar sein.
 
-## Vom Schnitt zur Kategorie
-
-Der zweite schematische Schnitt hat zwei beheizte Obergeschosse und einen ausdrücklich **unbeheizten Keller**. Die Auswahl ermöglicht den Wechsel zwischen Kategorien. Die Liste benennt auch Kategorien, die in dieser Geometrie nicht vorkommen; diese werden nicht auf andere Bauteile umgedeutet.
-
-<iframe class="peq-lesson" data-fit src="assets/components/index.html" title="Bauteilkatalog und Schematischer Schnitt mit unbeheiztem Keller"></iframe>
-
-[Bauteilkatalog separat öffnen](assets/components/index.html)
-
-## Originaldarstellung aus der Schulung
 
 [![Bauteiltypen: Zuordnung im Gebäudeschnitt](media/components.png){.full-figure}](media/components.png)
 
@@ -44,3 +32,16 @@ Kategorie, Konstruktion und Menge für Außenwand, Fenster, Dach, Kellerdecke/Fu
 :::
 
 [Ökobilanz und Eco2soft-Import](climate.qmd#eco2soft)
+
+
+## Vom Schnitt zur Kategorie
+
+Der zweite schematische Schnitt hat zwei beheizte Obergeschosse und einen ausdrücklich **unbeheizten Keller**. Die Auswahl ermöglicht den Wechsel zwischen Kategorien. Die Liste benennt auch Kategorien, die in dieser Geometrie nicht vorkommen; diese werden nicht auf andere Bauteile umgedeutet.
+
+<!-- Interactive embed paused for page performance.
+<iframe class="peq-lesson" data-fit src="assets/components/index.html" title="Bauteilkatalog und Schematischer Schnitt mit unbeheiztem Keller"></iframe>
+-->
+
+Die interaktive Ansicht ist über den separaten Link unten verfügbar.
+
+[Bauteilkatalog separat öffnen](assets/components/index.html)

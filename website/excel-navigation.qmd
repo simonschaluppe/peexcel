@@ -14,8 +14,8 @@ Das Tool verwendet thematisch gruppierte Eingabeblätter. Eingaben werden als Va
 | [🏙 Quartier]{.excel-menu .darkred} | [Projekt, Flächen und Standort](model.qmd#quartier-eingeben) |
 | [🌦 Wetter]{.excel-menu .darkred} | [Wetterdaten](interfaces.qmd#wetter) |
 | [🧱 Bauphysik]{.excel-menu .darkred} | [Hülle, Verschattung, Speichermasse](envelope.qmd#excel-bauphysik) |
-| [🔥 H / ❄ K / 💧 WW / 💨 L]{.excel-menu .darkred} | [Heizung, Kühlung, Warmwasser, Lüftung](hvac.qmd) |
-| [🌞 PV / 💾 PV-Import]{.excel-menu .darkred} | [PV-Eingabe](pv.qmd) |
+| [🔥 H ]{.excel-menu .darkred} [❄ K]{.excel-menu .darkred} [💧 WW]{.excel-menu .darkred} [💨 L]{.excel-menu .darkred} | [Heizung, Kühlung, Warmwasser, Lüftung](hvac.qmd) |
+| [🌞 PV]{.excel-menu .darkred} [💾 PV-Import]{.excel-menu .darkred} | [PV-Eingabe](pv.qmd) |
 | [🔋 Flexibilität und Speicher]{.excel-menu .darkred} | [Speicher und Flexibilität](systems.qmd) |
 | [🚗 Mobilität]{.excel-menu .orange} | [Mobilität und E-Fahrzeuge](mobility.qmd) |
 | [☁ THG / Treibhauspotential]{.excel-menu .teal} | [Ökobilanz und Eco2soft](climate.qmd) |
@@ -24,7 +24,7 @@ Das Tool verwendet thematisch gruppierte Eingabeblätter. Eingaben werden als Va
 | [📈 Dashboard]{.excel-menu .red} | [Dynamische Diagramme](excel-dashboard.qmd) |
 | [🔎 var / Variantenvergleich]{.excel-menu .red} | [Variantenvergleich](comparison.qmd) |
 | [Scen]{.excel-menu .red} | [Automatische Batch-Simulation](batch.qmd) |
-| [PEQ / PEQ+M / KN PEQ]{.excel-menu .teal} | [Nachweisführung](declaration.qmd) |
+| [PEQ]{.excel-menu .darkred} [PEQ+M]{.excel-menu .orange} [KN PEQ]{.excel-menu .teal} | [Nachweisführung](declaration.qmd) |
 | [AUDIT]{.excel-menu .red} | [Qualitätssicherung](declaration.qmd#qualitaetssicherung) |
 
 Blattnamen und Kurzformen können sich zwischen Versionen unterscheiden. **IN**, **OUT** und **SIM2** bezeichnen interne Datenbereiche; sie sind nicht mit dem sichtbaren Ergebnisblatt Erg gleichzusetzen.

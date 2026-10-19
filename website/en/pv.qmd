@@ -1,0 +1,32 @@
+---
+title: "PV input"
+lang: en
+---
+**Excel locations:** [☀ PV]{.excel-menu .darkred} and [PV-Import]{.excel-menu .darkred} worksheets.
+
+PV generation can be represented in two ways: an area-based roof scaling or a detailed hourly generation profile. Use one consistent basis and check that scaling and profile inputs are not applied twice.
+
+## Roof-area scaling
+
+Set the PV area or scaling in the PV worksheet. Review usable roof area, orientation, shading and the assumed specific yield. The annual generation and timing are derived from the tool's profile assumptions. The detailed field labels and current worksheet view are awaiting a current screenshot.
+
+## Detailed hourly profile {#hourly-profile}
+
+::: {.excel-operation}
+### In the Excel tool
+1. Prepare a complete hourly PV generation series in the expected unit and time step.
+2. Import or paste it in the [PV-Import]{.excel-menu .darkred} worksheet.
+3. Select the imported profile on the [☀ PV]{.excel-menu .darkred} worksheet.
+4. Check timestamps, units, annual energy, losses and weather-year consistency.
+5. Recalculate and review self-consumption, grid import and feed-in in the [Excel Dashboard](excel-dashboard.qmd).
+:::
+
+The exact column layout and profile-selection controls depend on the workbook version; a current screenshot is required before documenting cell-level instructions.
+
+PV use affects [storage and flexibility](systems.qmd). The tool permits modelling PV life-cycle impacts; the current klimaaktiv assessment method does not include them in the declaration. See [life-cycle assessment](climate.qmd).
+
+::: {.declaration-note}
+**For a declaration:** apply the prescribed PV declaration inputs. Other PV profiles may be analysed as model variants.
+:::
+
+Source: [Training, slides 9, 15 and 21](../downloads/schulung.pdf).

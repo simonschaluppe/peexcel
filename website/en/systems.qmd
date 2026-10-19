@@ -1,0 +1,48 @@
+---
+title: "Storage and flexibility"
+lang: en
+---
+**Excel location:** [🔋 Flexibilität und Speicher]{.excel-menu .darkred} worksheet.
+
+Energy flexibility connects the timing of renewable energy with district operation. Local PV surplus and external flexibility signals can enable additional conditioning and storage charging. **Minimum demand coverage and flexible overcoverage** are separate quantities.
+
+![Electricity flows: dispatch order, minimum demand and flexible storage charging. Training diagram supplied by the project owner; active paths depend on the model configuration.](../media/manual/dispatch.png){.manual-figure}
+
+## Enabling flexibility and selecting signals {#flexibility-input}
+
+::: {.excel-operation}
+### In the Excel tool
+Check PV surplus use and [Use Signal]{.excel-field} independently. Select which applications may respond to the signal and define their power limits. [Presets](presets.qmd) provide an initial selection; the active switches and parameters determine the actual configuration.
+:::
+
+Configure PV generation on the dedicated [PV input](pv.qmd) page. Track conventional grid import, flexible grid import and self-consumption separately.
+
+## Thermal building mass
+
+Additional electric heating or cooling can use building mass as storage. The selected system and allowable setpoint deviation determine pre-conditioning. Set construction type and effective thermal mass on the [Building Physics](envelope.qmd#building-physics-inputs) worksheet.
+
+## Hot-water storage {#hot-water-storage}
+
+Flexible heating temporarily raises the temperature of existing storage. Check activation and the upper temperature limit. Storage volume, base supply and losses belong to the [hot-water configuration](hvac.qmd#domestic-hot-water).
+
+## Electrical battery
+
+Set activation, capacity, charge/discharge power, efficiencies and self-discharge together. Capacity in kWh and power in kW are distinct quantities. Charging source and discharge use determine the effect on imports and exports.
+
+## Electric vehicles
+
+Flexible charging and bidirectional use depend on parking times, charge power, capacity and minimum state of charge. Enter these on the [Mobility](mobility.qmd) worksheet.
+
+## Dynamic assessment
+
+![Method: imports, exports and time-dependent assessment of energy carriers. Training diagram supplied by the project owner.](../media/manual/dynamic-assessment.png){.manual-figure}
+
+Hourly conversion factors assess when energy is used. Physical savings, shifting energy in time and improving an assessed balance should therefore be reported separately.
+
+::: {.declaration-note}
+**For a declaration:** use the prescribed flexibility settings, capacities and conversion factors. Alternative assumptions are possible in model variants but do not automatically establish declaration compliance.
+:::
+
+**Review results:** assess [annual indicators](results.qmd) together with [hourly flows and storage states](excel-dashboard.qmd).
+
+Source: [Training, slides 9, 15 and 21](../downloads/schulung.pdf#page=15).

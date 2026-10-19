@@ -19,7 +19,11 @@ Die Vorauswahlbezeichnung und die tatsächlich exportierten Aktivierungsschalter
 
 Transmissions- und Lüftungswärmeverluste, Nachtlüftung und Kühlbedarf stehen den solaren und internen Wärmegewinnen sowie dem Heizwärmebedarf gegenüber. Alle Beiträge sind Jahresenergien bezogen auf die NGF. Die Wärmebilanz schließt in allen drei Exporten innerhalb der numerischen Genauigkeit.
 
+<!-- Interactive embed paused for page performance.
 <iframe class="pexl-chart" src="assets/results/heat_balance.html" title="Wärmebilanz der drei Varianten" loading="lazy"></iframe>
+-->
+
+![Wärmebilanz der drei Varianten](assets/results/heat_balance.svg){.full-figure loading="lazy"}
 
 [HTML](assets/results/heat_balance.html) · [SVG](assets/results/heat_balance.svg) · [PNG](assets/results/heat_balance.png) · [Ergebniswerte CSV](assets/results/heat_balance.csv)
 
@@ -29,7 +33,11 @@ Die drei Varianten werden vollständig elektrisch versorgt; die exportierten Bei
 
 PV-Direktnutzung, flexible PV-Nutzung, konventioneller und signalgesteuerter Netzbezug sowie vorhandene Entladeflüsse bilden die Deckungsseite. Einspeisung und externe EV-Ladung gehören nicht zu dieser lokalen Nutzungsbilanz. Die korrigierte Zuordnung vermeidet deren Anrechnung als lokale Bedarfsdeckung; die Bilanz schließt für alle drei Varianten.
 
+<!-- Interactive embed paused for page performance.
 <iframe class="pexl-chart" src="assets/results/final_energy_balance.html" title="Elektrische Endenergiebilanz der lokalen Nutzung" loading="lazy"></iframe>
+-->
+
+![Elektrische Endenergiebilanz der lokalen Nutzung](assets/results/final_energy_balance.svg){.full-figure loading="lazy"}
 
 [HTML](assets/results/final_energy_balance.html) · [SVG](assets/results/final_energy_balance.svg) · [PNG](assets/results/final_energy_balance.png) · [Ergebniswerte CSV](assets/results/final_energy_balance.csv)
 
@@ -37,7 +45,11 @@ PV-Direktnutzung, flexible PV-Nutzung, konventioneller und signalgesteuerter Net
 
 Die Primärenergiebewertung berücksichtigt Bedarf, Substitutionsäquivalente und Kontextfaktoren. Die Differenz zwischen Deckungs- und Bedarfsseite ist ein **Bewertungsergebnis**, kein Fehler einer physisch geschlossenen Energiebilanz. Flexibilitätsbeiträge und Kontextfaktoren sind keine zusätzliche physische Energieerzeugung.
 
+<!-- Interactive embed paused for page performance.
 <iframe class="pexl-chart" src="assets/results/primary_energy_balance.html" title="Primärenergiebilanz der drei Varianten" loading="lazy"></iframe>
+-->
+
+![Primärenergiebilanz der drei Varianten](assets/results/primary_energy_balance.svg){.full-figure loading="lazy"}
 
 [HTML](assets/results/primary_energy_balance.html) · [SVG](assets/results/primary_energy_balance.svg) · [PNG](assets/results/primary_energy_balance.png) · [Ergebniswerte CSV](assets/results/primary_energy_balance.csv)
 
@@ -47,7 +59,11 @@ Die Darstellung umfasst die exportierten Lebenszyklusbeiträge **2025–2075**: 
 
 Bezugsgröße ist hier die **BGF**, nicht die NGF. GWP100 bezeichnet die Klimawirkungsbewertung und ist vom 50-jährigen Betrachtungszeitraum zu unterscheiden. Die vorhandenen L1–L3-Referenzbänder ersetzen keine Nachweisprüfung. PV-LCA ist modellierbar, wird in der ka-Methode nicht berücksichtigt und beträgt in diesen Exporten null.
 
+<!-- Interactive embed paused for page performance.
 <iframe class="pexl-chart" src="assets/results/gwp_ee.html" title="Lebenszyklus-THG-Bilanz der drei Varianten" loading="lazy"></iframe>
+-->
+
+![Lebenszyklus-THG-Bilanz der drei Varianten](assets/results/gwp_ee.svg){.full-figure loading="lazy"}
 
 [HTML](assets/results/gwp_ee.html) · [SVG](assets/results/gwp_ee.svg) · [PNG](assets/results/gwp_ee.png) · [Ergebniswerte CSV](assets/results/gwp_ee.csv)
 
@@ -69,7 +85,11 @@ Der Export `Aspern PVCheck _ F7.xlsx` enthält 8.760 Stundenwerte auf der Zeitac
 
 Die vier Jahreszeiten werden aus den exportierten Kalenderangaben gebildet. Je Tagesstunde wird der Mittelwert aller Stunden der jeweiligen Jahreszeit dargestellt. Die Werte sind mittlere Leistungen in W/m² NGF, berechnet aus den stündlichen Energiemengen in Wh/m² NGF bei geprüftem Zeitschritt von einer Stunde. Saisonmittel sind keine tatsächlichen Tagesverläufe.
 
+<!-- Interactive embed paused for page performance.
 <iframe class="pexl-chart" src="assets/results/f7_seasons.html" title="Aspern F7: saisonale elektrische Flussprofile" loading="lazy"></iframe>
+-->
+
+![Aspern F7: saisonale elektrische Flussprofile](assets/results/f7_seasons.svg){.full-figure loading="lazy"}
 
 [Großansicht HTML](assets/results/f7_seasons.html) · [SVG](assets/results/f7_seasons.svg) · [PNG](assets/results/f7_seasons.png)
 
@@ -77,6 +97,10 @@ Die vier Jahreszeiten werden aus den exportierten Kalenderangaben gebildet. Je T
 
 Jänner- und Juliwoche sind direkt anwählbare Zeitfenster. Zoom, Zeitbereichsauswahl und Legende ermöglichen die Analyse einzelner Beiträge. Die Wochen sind Orientierungsfenster, keine statistisch repräsentativen Auswahlzeiträume. Positive Werte bezeichnen lokale PV-Nutzung und konventionellen Netzbezug, negative Werte PV-Einspeisung.
 
+<!-- Interactive embed paused for page performance.
 <iframe class="pexl-chart" src="assets/results/f7_hourly.html" title="Aspern F7: chronologische elektrische Stundenwerte" loading="lazy"></iframe>
+-->
+
+Die interaktive Ansicht ist über den separaten Link unten verfügbar.
 
 [Stundenverlauf separat öffnen](assets/results/f7_hourly.html) · [Kanalbestand als CSV](assets/results/channels-Aspern%20PVCheck%20_%20F7.csv) · [Ausführbarer Auswertungsworkflow](tutorials/howto_analyze_electricity_balance.html)

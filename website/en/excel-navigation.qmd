@@ -1,0 +1,30 @@
+---
+title: "Finding your way around the Excel tool"
+lang: en
+---
+The workbook contains input worksheets, calculation data and result views. The worksheet tabs at the bottom and the **klimaaktiv PEQ** ribbon provide the main navigation paths.
+
+![Excel operation: overview of input worksheets, simulation, result views and project export. Supplied training slide 25.](../media/manual/tool-workflow.png){.manual-figure}
+
+![Excel interface: input groups, quick selections and worksheet tabs. Supplied workbook screenshot, version v1_12 dated 24 June 2026.](../media/manual/excel-overview.png){.manual-figure}
+
+## Formatting and interaction
+
+| Website marker | Meaning in the workbook |
+|---|---|
+| [Worksheet name]{.excel-menu .darkred} | Worksheet tab or subject area |
+| [Section]{.excel-section} | Group of related inputs |
+| [Green field]{.excel-field} | Editable input field in the supplied training view |
+| [Button / command]{.excel-action} | Action or ribbon control |
+| [Preset]{.excel-value} | Example choice or selection |
+| Amber note | Declaration requirement or assessment boundary |
+
+These are documentation labels; they do not simulate Excel controls. Input formatting may differ by workbook version.
+
+## Inputs and results
+
+Input worksheets define the model. `IN` stores variant inputs, `SIM2` contains hourly simulation data, and `OUT` stores calculated results. These internal names are distinct from the user-facing [Results worksheet](results.qmd) and [Excel Dashboard](excel-dashboard.qmd).
+
+Start with [Quick Start](start.qmd) or [presets](presets.qmd). Use [variant management](variants.qmd) to save model states, then review [results](results.qmd), the [dashboard](excel-dashboard.qmd) or the [comparison](comparison.qmd).
+
+Source: [Training, slides 25 and 34](../downloads/schulung.pdf).

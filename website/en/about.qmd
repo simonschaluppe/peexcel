@@ -1,0 +1,15 @@
+---
+title: "About PEExcel"
+lang: en
+---
+PEExcel is an Excel-based tool for modelling and assessing positive-energy districts under the klimaaktiv framework. It is developed by the Climate-fit Buildings and Districts research group at FH Technikum Wien.
+
+The tool is intended for professional energy and HVAC practitioners, competency partners, planners, researchers and students applying the PEQ standard to district models.
+
+## Scope
+
+PEExcel combines hourly operational modelling, scenario comparison and assessment of building, energy and mobility contributions. Model flexibility and declaration requirements are distinct: use the designated values and method when preparing a declaration.
+
+The Excel workbook and detailed tutorials are in German. This English section provides translated technical guidance; ribbon names and worksheet labels are retained in German where they refer to the workbook interface.
+
+[Repository and issue tracking](https://github.com/simonschaluppe/peexcel) · [Research](research.qmd)

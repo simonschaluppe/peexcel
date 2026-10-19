@@ -1,0 +1,22 @@
+---
+title: "Variant comparison"
+lang: en
+---
+Use the comparison to assess the effects of defined model changes. The comparison must use a consistent reference area, system boundary, time period and assessment method.
+
+**Excel location:** [▦ Variant Comparison]{.excel-menu .red} worksheet.
+
+![Primary-energy comparison with demand, coverage and context factors across scenarios. Supplied training diagram.](../media/manual/variant-comparison.png){.manual-figure}
+
+## Reading the comparison
+
+Read demand and coverage for each scenario together. Distinguish physical energy from substitutions and context factors used in the assessment. Negative or positive assessment differences do not, by themselves, represent a physical energy balance.
+
+::: {.excel-operation}
+### In the Excel tool
+Select the variants to compare and check that they have been calculated with the same tool version and reference basis. Review the assessment indicators and any context contributions before interpreting the difference.
+:::
+
+The training figure is a method illustration. It is not one of the exported `Bsp_San_6G` results. The [three current example exports](examples.qmd) are evaluated separately, with their source variants identified.
+
+Source: [Training, slide 30](../downloads/schulung.pdf).

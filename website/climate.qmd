@@ -10,11 +10,25 @@ Die klimaneutrale PEQ-Bewertung erweitert den Blick über die Betriebsenergie hi
 
 | Begriff | Bedeutung |
 |---|---|
-| Betrachtungszeitraum | Zeitraum der Bilanz; die Schulung zeigt 50 Jahre von 2025 bis 2075 |
+| Betrachtungszeitraum | Zeitraum der Bilanz: 50 Jahre von 2025 bis 2075 |
 | Zieljahr | Politisches oder methodisches Klimaziel, etwa 2040 oder 2050; nicht mit dem Bilanzende gleichzusetzen |
 | Dekarbonisierungspfad | Entwicklung der Emissionsfaktoren im Energiesystem; beeinflusst zukünftige Betriebsenergie |
 
 Eine kumulierte Darstellung integriert Beiträge über die Zeit. Sie ist weder eine einzelne Jahresbilanz noch automatisch ein Beleg für das Erreichen eines nationalen Klimaziels. Die hinterlegten Absenkpfade und Budgetregeln gehören zur verwendeten Methode.
+
+## THG-Absenkpfade und Lebenszyklus
+
+![Methodik: THG-Absenkpfade bis 2050 für unterschiedliche Energieträger, bereitgestellte Schulungsabbildung.](media/manual/decarbonisation.png){.manual-figure}
+
+Die Schulung verwendet einen Betrachtungszeitraum 2025–2075 und sektorale Dekarbonisierungspfade bis 2050. Nach 2050 dekarbonisierte Systeme sind eine Bewertungsannahme. Das in der Schulung genannte Budget von 320 kg CO₂eq/m² BGF ist ein kumulierter Referenzwert, keine jährliche Emissionsrate.
+
+![Methodik: kumulative Emissionen aus Errichtung, Betrieb und Instandsetzung sowie biogene Speicherung. Bereitgestellte Darstellung aus der Schulung.](media/manual/lifecycle.png){.manual-figure}
+
+Die zeitliche Zuordnung von Emissionen, Instandsetzung und biogener Speicherung beeinflusst die Lebenszyklusbilanz. Die in der Darstellung genannten Anrechnungen sind methodische Annahmen und keine frei übertragbaren Materialkennwerte.
+
+![Bilanzgrenze betrieblicher Emissionen: Bezug, lokale PV-Nutzung und Einspeisung. Bereitgestellte Grafik; englische Originalbeschriftung.](media/manual/operational-emissions.png){.manual-figure}
+
+Quelle: [Schulung, Folien 22–23 und 31](downloads/schulung.pdf#page=31).
 
 ## Bauteile, Betrieb und Budget
 
@@ -55,17 +69,3 @@ Die passende Bilanz in Eco2soft erstellen und als CSV exportieren. Für die Übe
 ::: {.pending}
 **Importdialog in Vorbereitung:** aktueller Eco2soft-CSV-Import mit Zuordnung der Felder. Die Schulung belegt die Importmöglichkeit; die konkrete Klickfolge wird nach Ergänzung der Ansicht dokumentiert.
 :::
-
-## THG-Absenkpfade und Lebenszyklus
-
-![Methodik: THG-Absenkpfade bis 2050 für unterschiedliche Energieträger, bereitgestellte Schulungsabbildung.](media/manual/decarbonisation.png){.manual-figure}
-
-Die Schulung verwendet einen Betrachtungszeitraum 2025–2075 und sektorale Dekarbonisierungspfade bis 2050. Nach 2050 dekarbonisierte Systeme sind eine Bewertungsannahme. Das in der Schulung genannte Budget von 320 kg CO₂eq/m² BGF ist ein kumulierter Referenzwert, keine jährliche Emissionsrate.
-
-![Methodik: kumulative Emissionen aus Errichtung, Betrieb und Instandsetzung sowie biogene Speicherung. Bereitgestellte Darstellung aus der Schulung.](media/manual/lifecycle.png){.manual-figure}
-
-Die zeitliche Zuordnung von Emissionen, Instandsetzung und biogener Speicherung beeinflusst die Lebenszyklusbilanz. Die in der Darstellung genannten Anrechnungen sind methodische Annahmen und keine frei übertragbaren Materialkennwerte.
-
-![Bilanzgrenze betrieblicher Emissionen: Bezug, lokale PV-Nutzung und Einspeisung. Bereitgestellte Grafik; englische Originalbeschriftung.](media/manual/operational-emissions.png){.manual-figure}
-
-Quelle: [Schulung, Folien 22–23 und 31](downloads/schulung.pdf#page=31).

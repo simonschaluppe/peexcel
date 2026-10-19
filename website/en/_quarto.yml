@@ -1,0 +1,47 @@
+project:
+  type: website
+  output-dir: ../_site/en
+  render:
+    - "*.qmd"
+
+website:
+  title: PEExcel
+  description: Model and assess positive energy districts using the klimaaktiv standard.
+  search: true
+  navbar:
+    left:
+      - {href: index.qmd, text: Overview}
+      - {href: start.qmd, text: Tool use}
+      - {href: model.qmd, text: Modelling}
+      - {href: results.qmd, text: Analyse and assess}
+      - {href: learn.qmd, text: Documentation}
+    right:
+      - {href: download.qmd, text: Downloads, icon: download}
+      - {href: ../index.html, text: Deutsch}
+  sidebar:
+    style: docked
+    collapse-level: 1
+    contents:
+      - section: Tool use
+        contents: [start.qmd, presets.qmd, excel-navigation.qmd, migration.qmd, download.qmd]
+      - section: Modelling
+        contents: [model.qmd, envelope.qmd, components.qmd, hvac.qmd, pv.qmd, systems.qmd, usage.qmd, interfaces.qmd, mobility.qmd, climate.qmd, variants.qmd]
+      - section: Analyse and assess
+        contents: [results.qmd, excel-dashboard.qmd, comparison.qmd, batch.qmd, examples.qmd, declaration.qmd]
+      - section: Documentation and references
+        contents: [learn.qmd, python.qmd, dashboard.qmd, glossary.qmd, research.qmd, about.qmd]
+  page-footer:
+    left: "PEExcel · FH Technikum Wien · klimaaktiv Positive Energy Districts"
+    right:
+      - {href: about.qmd, text: About}
+      - {href: https://github.com/simonschaluppe/peexcel, text: GitHub}
+
+format:
+  html:
+    lang: en
+    theme: cosmo
+    toc: true
+    lightbox: true
+    code-fold: true
+    css: ../styles.css
+    include-after-body: ../_resize.html

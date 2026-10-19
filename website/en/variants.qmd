@@ -1,0 +1,24 @@
+---
+title: "Managing variants"
+lang: en
+---
+Variants store model inputs for a project. Save a reference before applying presets or changing a set of assumptions.
+
+**Excel location:** [📁 Save Current Inputs / Variants]{.excel-menu .darkred}; project export and import are available under **klimaaktiv PEQ → Project Variants**.
+
+::: {.excel-operation}
+### Variant workflow
+1. Set up and calculate a documented reference case.
+2. Save the current inputs as a named variant.
+3. Change a defined set of inputs and recalculate.
+4. Save the changed state under a distinct name.
+5. Compare the variants using the [comparison](comparison.qmd) or [Results](results.qmd).
+:::
+
+The training material distinguishes the input store (`IN`), the hourly simulation (`SIM2`) and result store (`OUT`). A project export stores project data for transfer between tool versions; see [Migration](migration.qmd).
+
+::: {.pending}
+**Current variant manager screenshots required:** the exact create, load and overwrite controls have not been confirmed against the current workbook. Confirm the displayed variant names before replacing saved inputs.
+:::
+
+Source: [Training, slides 25 and 28–34](../downloads/schulung.pdf).

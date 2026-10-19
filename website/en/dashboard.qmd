@@ -1,0 +1,9 @@
+---
+title: "Python scenario explorer"
+lang: en
+---
+The Python scenario explorer is a separate interface for inspecting project exports and comparing scenarios. It is not the Excel [Dashboard worksheet](excel-dashboard.qmd).
+
+The Excel Dashboard presents hourly profiles from the workbook. The Python application uses data available to its configured workflow; its outputs should not be presented as Excel results without checking the data source and calculation state.
+
+For installation and executable examples, see [Python workflows](python.qmd). For the Excel time-series view, see [Excel Dashboard](excel-dashboard.qmd).

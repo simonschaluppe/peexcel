@@ -1,0 +1,56 @@
+---
+title: "Modelling the district"
+lang: en
+---
+PEExcel combines a physical model with an assessment method. The system boundary, energy supply and use are defined separately from the rules used to assess results.
+
+## Inputs → simulation → analysis
+
+| Step | Key question | Start here |
+|---|---|---|
+| Buildings and uses | Which areas, envelope properties and use profiles belong to the project? | [Building envelope](envelope.qmd) |
+| Components | Which constructions and quantities enter the life-cycle assessment? | [Component assignment](components.qmd) |
+| Supply | How are heat, cooling and electricity provided? | [Energy flows](systems.qmd) |
+| Location and mobility | Which journeys are attributed to the project, and where does charging take place? | [Mobility](mobility.qmd) |
+| Assessment | Which factors, boundaries and budgets apply? | [Declaration](declaration.qmd) |
+
+## What the simulation combines
+
+The tool models space heating and cooling, domestic hot water, ventilation, auxiliary energy and plug loads. PV, self-consumption, export, storage and flexibility measures change the hourly flows. A single measure can affect several result indicators.
+
+Thermal modelling distinguishes a **cooled and an uncooled, thermally decoupled zone**. The schematic section shows a spatial assignment; it is not an additional thermal simulation or a geometrical compliance plan.
+
+## Structuring variants
+
+Start from a documented reference and vary individual parameters or packages of measures. Comparisons require consistent system boundaries, reference areas, time basis and assessment method. Record data provenance, tool version and calculation state with the results.
+
+::: {.callout-note}
+## Assumptions and declaration requirements
+Plug-load and internal-gain assumptions can be varied in the model. The designated declaration values are mandatory for a klimaaktiv declaration. A freely modelled scenario does not automatically qualify as a declaration.
+:::
+
+[Training, slides 7–16 and 30](../downloads/schulung.pdf) · [Preparing data](interfaces.qmd)
+
+## Entering the district {#entering-the-district}
+
+**Excel location:** [🏙 Quartier]{.excel-menu .darkred} worksheet.
+
+::: {.excel-operation}
+### In the Excel tool
+| Section | Inputs and checks |
+|---|---|
+| Project description | Project, variant, description and status |
+| Location / weather | Municipality and corresponding weather dataset |
+| District | Gross floor area by use |
+| Room heights and net floor area | Clear heights and net-to-gross floor area ratio |
+| District area and density | Buildable plot area and resulting floor-area ratio |
+| Refurbishment or new build | Refurbishment share by use |
+
+Check areas and shares against project documents. Review calculated net areas, volumes and density, then configure the [building envelope](envelope.qmd) and [building services](hvac.qmd).
+:::
+
+## Operational energy model {#operational-energy-model}
+
+![Operational energy model: sources, conversion, storage and uses within the district boundary, including imports and exports. Training diagram supplied by the project owner.](../media/manual/energy-model.png){.manual-figure}
+
+The training material distinguishes sources, storage, sinks, uses and conversion. The balance links physical energy flows with primary-energy and GHG assessment. [PV](pv.qmd), [storage and flexibility](systems.qmd), [mobility](mobility.qmd) and [life-cycle assessment](climate.qmd) have dedicated input pages. [Manage variants](variants.qmd) at the end of the modelling workflow.

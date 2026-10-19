@@ -1,0 +1,55 @@
+---
+title: "Excel Dashboard"
+lang: en
+---
+**Excel location:** [📈 Dashboard]{.excel-menu .red} worksheet.
+
+The Dashboard presents **hourly energy flows** and storage states. A common time window allows demand, coverage and storage response to be examined together. The [Python scenario explorer](dashboard.qmd) is a separate application.
+
+::: {.excel-path}
+**Ribbon:** klimaaktiv PEQ → Ergebnisse → [Dashboard]{.excel-action}
+:::
+
+## Selecting a time window
+
+::: {.excel-operation}
+### In the Excel tool
+1. Select a period with [Datum auswählen]{.excel-action}; use the timeline for a continuous range.
+2. Choose a manageable interval, such as one week, for detailed review.
+3. Check that the chart axes show hourly timestamps over the selected days.
+4. After recalculation, use [Aktualisieren]{.excel-action} to update the pivot charts.
+:::
+
+![Excel operation: date selection and Refresh above the dynamic charts. The supplied view shows hourly timestamps in a January/February period, electricity demand and coverage, and storage states.](../media/manual/excel-dashboard.png){.manual-figure}
+
+## Electricity demand and use
+
+The upper chart includes plug loads, inflexible building-services loads, EV charging and additional flexible use. Read storage charging as a separate contribution. Compare peaks with flexibility schedules and storage states.
+
+## Electricity coverage
+
+The second chart separates conventional and flexible grid imports, PV use, battery discharge, EV discharge and PV feed-in. Use the legend to identify overlapping contributions; respect sign conventions and the balance boundary.
+
+## Room temperature and thermal building mass
+
+Temperatures in cooled and uncooled zones indicate the thermal response. Check pre-conditioning against setpoints and permissible temperature ranges. Temperature is a state indicator, not stored energy in kWh.
+
+## Hot-water storage
+
+The states of hot-water systems 1 and 2 show charging and use in the selected period. Read percentages against the chart scale; they are not temperatures or absolute storage capacities.
+
+## Electric vehicles and battery
+
+**EV SoC** shows vehicle state of charge by use; **Battery SOC** shows the stationary electrical store. Assess minimum state of charge, flexible charging and discharge together with the electricity flows.
+
+## Thermal daily averages
+
+Heat gains and losses for the two thermally decoupled zones are also presented as daily averages. Daily averages and hourly power are different aggregations.
+
+![Model and Dashboard: thermally decoupled zones, heat balance and daily averages of heat flows. Supplied training diagram; the lower charts explicitly show daily averages.](../media/manual/thermal-model.png){.manual-figure}
+
+[Storage inputs](systems.qmd) · [Results worksheet](results.qmd) · [Aspern F7 profiles](examples.qmd#aspern-f7)
+
+Website profiles use exported channels. A channel missing from an export does not imply it is absent from the Excel Dashboard.
+
+Source: [Training, slides 11 and 32](../downloads/schulung.pdf#page=32).
