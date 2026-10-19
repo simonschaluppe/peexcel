@@ -20,6 +20,8 @@ website:
   description: Quartiere modellieren und den klimaaktiv Plus-Energie-Standard anwenden.
   search: true
   navbar:
+    logo: media/logo.png
+    logo-alt: "PEExcel Logo"
     left:
       - {href: index.qmd, text: Übersicht}
       - {href: start.qmd, text: Tool-Anwendung}
@@ -38,7 +40,7 @@ website:
       - section: Modellieren
         contents: [model.qmd, envelope.qmd, components.qmd, hvac.qmd, pv.qmd, systems.qmd, usage.qmd, interfaces.qmd, mobility.qmd, climate.qmd, variants.qmd]
       - section: Analysieren und Bewerten
-        contents: [results.qmd, excel-dashboard.qmd, comparison.qmd, batch.qmd, examples.qmd, declaration.qmd]
+        contents: [results.qmd, excel-dashboard.qmd, comparison.qmd, batch.qmd, examples.qmd, assessment-explained.qmd, declaration.qmd]
       - section: Dokumentation und Referenzen
         contents: [learn.qmd, python.qmd, assessment.ipynb, dashboard.qmd, glossary.qmd, research.qmd, about.qmd]
   page-footer:

@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quartiere bewerten – Energie und Klimawirkung</title>
+<style>
+a.anchor-link{display:none}:root{font-family:system-ui,sans-serif;color:#203b43;background:#f6f7f3;line-height:1.65}*{box-sizing:border-box}body{margin:0}main{max-width:1440px;margin:auto;padding:30px clamp(16px,4vw,64px) 70px}header{max-width:850px;padding:32px 0}h1{font-size:clamp(30px,4vw,52px);line-height:1.15;letter-spacing:-1.5px}h2{font-size:28px;line-height:1.3}h3{font-size:19px}p{max-width:80ch}a{color:#246d60}section{margin:28px 0}.eyebrow{color:#59796e;font-weight:700;letter-spacing:2px;font-size:12px}.card{background:white;border:1px solid #dbe3dc;border-radius:18px;padding:clamp(16px,3vw,32px)}.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.intro-grid p{margin-bottom:0}.picker{display:grid;grid-template-columns:minmax(240px,380px) 1fr;gap:25px}input[type=search]{width:100%;font:inherit;padding:10px;border:1px solid #9eafa7;border-radius:7px}fieldset{border:0;padding:0;margin:12px 0}legend{font-weight:650}.choices{max-height:290px;overflow:auto;margin-top:10px}.choice{display:flex;align-items:flex-start;gap:10px;padding:9px 6px;border-bottom:1px solid #edf0eb;cursor:pointer;font-size:14px}.choice:has(input:checked){background:#edf5ee}.choice input{margin-top:6px;accent-color:#246d60}button{font:inherit;cursor:pointer;border:1px solid #a4b8ac;border-radius:7px;padding:8px 12px;background:white;color:#203b43}button:hover{background:#e5eee6}button:focus-visible,input:focus-visible{outline:3px solid #c79537;outline-offset:2px}.actions{display:flex;gap:8px;flex-wrap:wrap}.selected{margin:0;padding-left:24px;font-size:14px}.selected li{margin-bottom:8px}.note{background:#f3f5ec;border-left:4px solid #a4ae67;padding:14px 18px}.chart-wrap{width:100%;min-width:0}.chart{width:100%;min-width:0}.callout{border-left:4px solid #377d72;background:#f0f7f5;border-radius:8px;padding:18px 22px;margin:20px 0}.callout h3{margin-top:0}.card{min-width:0}.selected{list-style:none;padding-left:0}.caption{font-size:14px;color:#50676b}.empty{padding:36px;background:#f3f5ec;text-align:center;border-radius:12px}.muted{color:#607777;font-size:13px}footer{font-size:13px;color:#607777;border-top:1px solid #dbe3dc;padding-top:20px} [hidden]{display:none!important}@media(max-width:750px){.intro-grid,.picker{grid-template-columns:1fr}.card{border-radius:12px}main{padding-top:8px}header{padding:12px 0}h2{font-size:24px}}
+
+main{max-width:1920px;display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:28px;padding:24px 32px 60px}
+.page-content{min-width:0}.quick-panel{position:sticky;top:24px;align-self:start;max-height:calc(100vh - 48px);overflow:auto;margin:0;padding:20px}.quick-panel h2{font-size:23px}.quick-panel p{font-size:14px}.quick-panel .picker{display:block}.quick-panel .choices{max-height:40vh}.quick-panel details{font-size:13px}.quick-panel .selected{margin-top:10px}.quick-panel .muted{display:none}
+.legend-boxes{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:8px 0 18px}.legend-box{border:1px solid #dbe3dc;border-radius:10px;padding:12px;background:#f9fbf8}.legend-box h3{font-size:15px;margin:0 0 8px}.legend-items{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 10px}.legend-toggle{display:flex;gap:8px;align-items:flex-start;text-align:left;font-size:12px;line-height:1.4;padding:5px;border:0;background:transparent;min-width:0}.legend-toggle[aria-pressed=false]{opacity:.45;text-decoration:line-through}.legend-swatch{width:13px;height:13px;flex:0 0 13px;border:1px solid #bac5bf;margin-top:2px}#thg-legend{grid-template-columns:repeat(3,minmax(0,1fr))}.legend-reference .legend-items{grid-template-columns:1fr}.legend-reference .legend-toggle{font-size:11px}.legend-reference .legend-swatch{width:11px;height:11px;flex-basis:11px}
+@media(max-width:1250px){.legend-items{grid-template-columns:1fr}}
+@media(max-width:1000px){main{display:flex;flex-direction:column;padding:16px;gap:16px}.quick-panel{order:-1;position:static;max-height:none}.quick-panel .choices{max-height:220px}.quick-panel .picker{display:grid;grid-template-columns:1fr 1fr}.quick-panel .muted{display:block}}
+@media(max-width:600px){#thg-legend{grid-template-columns:1fr 1fr}.legend-reference{grid-column:1/-1}.legend-boxes{gap:8px}.legend-box{padding:8px}.legend-toggle{font-size:11px}.quick-panel .picker{display:block}}
+</style><script>{{PLOTLY}}</script></head><body><main><div class="page-content">
+<header><div class="eyebrow">PLUS-ENERGIE-QUARTIERE</div>{{intro}}</header>
+<div class="intro-grid"><article class="card">{{energy_summary}}</article><article class="card">{{carbon_summary}}</article></div>
+
+<div id="empty" class="empty" hidden>Wählen Sie mindestens ein Szenario aus, um beide Grafiken zu sehen.</div>
+<section class="card"><div>{{energy}}</div><aside class="callout">{{energy_reading}}</aside><div class="chart-wrap"><div id="pe" class="chart" role="img" aria-label="Primärenergie: Bedarf und Deckung der ausgewählten Szenarien"></div></div><div id="pe-legend" class="legend-boxes" aria-label="Legende"></div><p class="caption">Grün: Deckung größer als Bedarf. Rot: Deckung kleiner als Bedarf. Die Klammer verbindet die beiden Säulenhöhen.</p><aside class="callout">{{energy_note}}</aside><div>{{context}}</div></section>
+<section class="card"><div>{{carbon}}</div><aside class="callout">{{carbon_reading}}</aside><div class="chart-wrap"><div id="thg" class="chart" role="img" aria-label="Lebenszyklus-Treibhausgase und Referenzbudget der ausgewählten Szenarien"></div></div><div id="thg-legend" class="legend-boxes" aria-label="Legende"></div><p class="caption">Die Raute zeigt die Gesamtbilanz. Der Abstand zur roten Linie bezieht sich auf diesen Gesamtwert, nicht auf eine einzelne Säule.</p>{{bands}}</section>
+<section class="card">{{together}}</section><footer>{{source}}<p>Mit der Maus auf einen Beitrag zeigen, um seinen Wert zu lesen. Die Legende blendet Beiträge ein oder aus. Differenzmarkierungen und Budgetabstände beziehen sich immer auf die vollständige Bilanz. Die Gesamtbreite der Grafiken bleibt gleich; bei mehr Szenarien werden die Säulen schmaler.</p></footer>
+</div><aside class="card quick-panel" aria-labelledby="quick-title"><h2 id="quick-title">Quartiere vergleichen – Quick Check</h2><p>Wählen Sie vorhandene Szenarien aus. Beide Grafiken zeigen dieselbe Auswahl. Eine Auswahl ist für den Einstieg vorausgewählt.</p>
+<div class="picker"><div><label for="search">Szenarien suchen</label><input id="search" type="search" placeholder="Name oder Baualter eingeben"><fieldset><legend>Mehrfachauswahl</legend><div class="choices" id="choices"></div></fieldset><p id="no-results" hidden>Keine passenden Szenarien gefunden.</p><div class="actions"><button id="reset">Beispiele zurücksetzen</button><button id="clear">Auswahl leeren</button></div></div>
+<div><p id="status" role="status" aria-live="polite"></p><details><summary>Ausgewählte Szenarien</summary><ol class="selected" id="selected"></ol></details><p class="muted">Die ausgewählten Szenarien erscheinen mit ihren vollständigen Namen in beiden Grafiken.</p></div></div></aside></main><script type="application/json" id="assessment-data">{{DATA}}</script><script>
+const dataset=JSON.parse(document.getElementById('assessment-data').textContent);
+const scenarios=dataset.scenarios;
+const selection=new Set(dataset.defaults);
+const choices=document.getElementById('choices');
+const hiddenSeries={pe:new Set(),thg:new Set()};
+scenarios.forEach(s=>{const label=document.createElement('label');label.className='choice';const box=document.createElement('input');box.type='checkbox';box.value=s.id;box.checked=selection.has(s.id);const text=document.createElement('span');text.textContent=s.name;label.append(box,text);choices.append(label);box.addEventListener('change',()=>{box.checked?selection.add(s.id):selection.delete(s.id);schedule();});});
+function wrapName(name,limit){
+ const lines=[];let line='';
+ for(const word of name.split(' ')){if(line && line.length+word.length+1>limit){lines.push(line);line=word;}else line+=(line?' ':'')+word;}
+ if(line)lines.push(line);return lines.join('<br>');
+}
+function compose(key,selected,width){
+ const layout=structuredClone(selected[0].plots[key].layout), data=[];
+ layout.shapes=[];layout.annotations=[];
+ selected.forEach((s,index)=>{const fig=s.plots[key];
+  fig.data.forEach(t=>{const trace=structuredClone(t);if(trace.x && Array.isArray(trace.x[0]))trace.x[0]=trace.x[0].map(name=>wrapName(name,Math.max(12,Math.floor((width-85)/selected.length/6))));if(index>0)trace.showlegend=false;data.push(trace);});
+  (fig.layout.shapes||[]).forEach(shape=>{const c=structuredClone(shape);if(c.xref==='x'){c.x0+=2*index;c.x1+=2*index;}else if(index>0)return;layout.shapes.push(c);});
+  (fig.layout.annotations||[]).forEach(a=>{const c=structuredClone(a);if(c.xref==='x')c.x+=2*index;else if(index>0)return;layout.annotations.push(c);});
+ });
+ if(key==='pe')layout.yaxis.range=[0,Math.max(...selected.map(s=>s.plots.pe.layout.yaxis.range[1]))];
+ layout.width=width;layout.height=760;layout.paper_bgcolor='white';layout.plot_bgcolor='white';
+ layout.margin={t:70,b:20,l:65,r:20};
+ layout.showlegend=false;
+ layout.xaxis={...layout.xaxis,tickangle:selected.length>3?-65:0,automargin:true,tickfont:{size:width<600?9:11}};
+ layout.legend={orientation:'h',x:0,y:-0.65,xanchor:'left',yanchor:'top',font:{size:10},entrywidth:width<600?1:0.5,entrywidthmode:'fraction'};
+ layout.annotations.forEach(a=>{
+   a.font={...a.font,size:width<600||selected.length>4?9:12};
+   if(a.xref==='x' && (width<700||selected.length>4)){
+     a.hovertext=a.text;
+     const number=a.text.match(/<b>(.*?)<\/b>/);
+     if(number)a.text=number[0];
+     if(key==='thg')a.text=a.text.replace(' kg CO₂e/m² BGF','');
+   }
+   if(a.xref==='paper'&&width<600)a.text=a.text.replace(' kg CO₂e/m² BGF','<br>kg CO₂e/m² BGF');
+ });
+ // Matching components across scenarios share a legend entry and visibility.
+ data.forEach(t=>{t.legendgroup=t.name;delete t.legendgrouptitle;if(hiddenSeries[key].has(t.name))t.visible='legendonly';});
+ layout.legend.groupclick='togglegroup';
+ return {data,layout};
+}
+function renderLegend(key,selected){
+ const root=document.getElementById(key+'-legend');root.replaceChildren();root.hidden=!selected.length;if(!selected.length)return;
+ const groups=key==='pe'?[['Bedarfe','Bedarf'],['Deckung','Deckung']]:[['Betriebsemissionen','Betrieblich'],['Graue Emissionen','Baulich']];
+ const traces=selected[0].plots[key].data;
+ const buttonFor=t=>{const button=document.createElement('button');button.className='legend-toggle';button.type='button';button.setAttribute('aria-pressed',String(!hiddenSeries[key].has(t.name)));
+ const swatch=document.createElement('span');swatch.className='legend-swatch';swatch.style.backgroundColor=t.marker?.color||'#607777';
+ if(t.marker?.pattern?.shape)swatch.style.backgroundImage='repeating-linear-gradient(135deg,transparent 0 3px,rgba(0,0,0,.25) 3px 4px)';
+ if(t.type==='scatter')swatch.style.transform='rotate(45deg)';
+ const label=document.createElement('span');label.textContent=t.name;button.append(swatch,label);
+ button.addEventListener('click',()=>{const hidden=hiddenSeries[key];hidden.has(t.name)?hidden.delete(t.name):hidden.add(t.name);schedule();});return button;};
+ for(const [title,role] of groups){const box=document.createElement('section');box.className='legend-box';box.style.margin='0';const heading=document.createElement('h3');heading.textContent=title;const items=document.createElement('div');items.className='legend-items';traces.filter(t=>t.legendgroup===role).forEach(t=>items.append(buttonFor(t)));box.append(heading,items);root.append(box);}
+ if(key==='thg'){const reference=document.createElement('section');reference.className='legend-box legend-reference';reference.style.margin='0';const heading=document.createElement('h3');heading.textContent='Gesamtbilanz';const items=document.createElement('div');items.className='legend-items';reference.append(heading,items);
+ traces.filter(t=>t.legendgroup==='Orientierung').forEach(t=>{const item=document.createElement('span');item.className='legend-toggle';const swatch=document.createElement('span');swatch.className='legend-swatch';swatch.style.backgroundColor=t.marker.color;item.append(swatch,document.createTextNode(t.name==='L3'?'L3 – klimaneutral: maximales Budget':t.name));items.append(item);});
+ traces.filter(t=>t.legendgroup==='Balance Variable').forEach(t=>items.append(buttonFor(t)));root.append(reference);}
+}
+let pending=Promise.resolve();
+function schedule(){pending=pending.then(update).catch(()=>{document.getElementById('status').textContent='Die Darstellung konnte nicht geladen werden. Bitte die Seite neu öffnen.';});}
+async function update(){
+ const selected=scenarios.filter(s=>selection.has(s.id));
+ document.getElementById('status').textContent=`${selected.length} von ${scenarios.length} Szenarien ausgewählt`;
+ const list=document.getElementById('selected');list.replaceChildren();selected.forEach(s=>{const li=document.createElement('li');li.value=s.id+1;li.textContent=s.name;list.append(li);});
+ document.getElementById('empty').hidden=selected.length>0;
+ for(const key of ['pe','thg']){const el=document.getElementById(key);el.hidden=!selected.length;renderLegend(key,selected);if(!selected.length){Plotly.purge(el);continue;}const fig=compose(key,selected,Math.max(260,Math.floor(el.parentElement.clientWidth)));await Plotly.react(el,fig.data,fig.layout,{displaylogo:false,responsive:false,locale:'de',toImageButtonOptions:{filename:key==='pe'?'primaerenergie':'treibhausgase',format:'svg'}});}
+}
+document.getElementById('search').addEventListener('input',e=>{const term=e.target.value.toLocaleLowerCase('de');let count=0;Array.from(choices.children).forEach((label,i)=>{label.hidden=!scenarios[i].name.toLocaleLowerCase('de').includes(term);if(!label.hidden)count++;});document.getElementById('no-results').hidden=count>0;});
+function setSelection(ids){selection.clear();ids.forEach(i=>selection.add(i));choices.querySelectorAll('input').forEach(c=>c.checked=selection.has(Number(c.value)));schedule();}
+document.getElementById('reset').addEventListener('click',()=>{document.getElementById('search').value='';Array.from(choices.children).forEach(c=>c.hidden=false);document.getElementById('no-results').hidden=true;setSelection(dataset.defaults);});
+document.getElementById('clear').addEventListener('click',()=>setSelection([]));
+let resizeTimer;window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(schedule,150);});
+schedule();
+</script></body></html>

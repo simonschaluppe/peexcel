@@ -59,6 +59,10 @@ def test_build_publishes_only_clean_notebook_copies(tmp_path):
         assert all(not c.outputs and c.execution_count is None for c in copy.cells if c.cell_type == "code")
     assert not (tmp_path / "assets/primary_energy_balance.html").exists()
     assert (tmp_path / "assets/components/index.html").exists()
+    assert (tmp_path / "assets/assessment-explained/index.html").is_file()
+    assert (tmp_path / "media/logo.png").read_bytes() == (ROOT / "docs/website/logo.png").read_bytes()
+    explained = nbformat.read(tmp_path / "downloads/howto_assessment_explained.ipynb", as_version=4)
+    assert all(not c.outputs and c.execution_count is None for c in explained.cells if c.cell_type == "code")
     for name in MANUAL_FIGURES:
         assert (tmp_path / "media/manual" / f"{name}.png").read_bytes() == (ROOT / "docs/website" / f"{name}.png").read_bytes()
 
@@ -77,3 +81,15 @@ def test_assessment_page_keeps_outputs_without_modifying_source(tmp_path):
     assert [c.source for c in download.cells] == [c.source for c in original.cells]
     assert all(not c.outputs and c.execution_count is None
                for c in download.cells if c.cell_type == "code")
+
+
+def test_explorer_uses_explicit_project_export(tmp_path):
+    import shutil
+    from assessment_explained import build as build_explorer
+    source = tmp_path / "Eigenes Projekt.xlsx"
+    shutil.copyfile(ROOT / "data/exports/Klimsta_Abschlussprojekt_Varianten_V3.xlsx", source)
+    page = build_explorer(tmp_path / "explorer.html", source=source)
+    html = page.read_text(encoding="utf-8")
+    assert "Eigenes Projekt.xlsx" in html
+    assert "Zweigeschoßiges EFH (Baujahr ab 2020)" in html
+    assert '"defaults": [5, 15, 25]' in html

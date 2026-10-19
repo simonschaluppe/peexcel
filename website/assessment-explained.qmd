@@ -1,0 +1,17 @@
+---
+title: "Projekt-Varianten-Explorer"
+toc: false
+page-layout: full
+---
+
+Das Bewertungssystem anhand der Primärenergie- und Treibhausgasbilanz verstehen
+und vorhandene Projektszenarien gemeinsam vergleichen.
+
+[Explorer in voller Breite öffnen](assets/assessment-explained/index.html){.btn .btn-primary target="_blank"}
+[Notebook herunterladen](downloads/howto_assessment_explained.ipynb){.btn .btn-outline-primary}
+[Technisches Bewertungs-Tutorial](assessment.ipynb){.btn .btn-outline-primary}
+
+<iframe src="assets/assessment-explained/index.html"
+        title="Bewertungssystem und Projekt-Varianten-Explorer"
+        style="width:100%;height:1400px;border:0;"
+        loading="lazy"></iframe>

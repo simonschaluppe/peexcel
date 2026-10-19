@@ -9,6 +9,15 @@ Leseengine erforderlich; `.xlsb` benötigt beispielsweise `pyxlsb`.
 
 ## Ausführbare Tutorials
 
+### Bewertung verstehen und Projektvarianten vergleichen
+
+Der [Projekt-Varianten-Explorer](assessment-explained.qmd) erklärt die
+Primärenergie- und THG-Bewertung ohne technischen Begleittext. Eine gemeinsame
+Mehrfachauswahl filtert die vorhandenen Szenarien in beiden Grafiken.
+
+[Explorer öffnen](assessment-explained.qmd){.btn .btn-primary}
+[Notebook herunterladen](downloads/howto_assessment_explained.ipynb){.btn .btn-outline-primary}
+
 ### Bewertung von Plus-Energie-Quartieren
 
 Das [Bewertungs-Tutorial](assessment.ipynb) zeigt den vollständigen deutschen

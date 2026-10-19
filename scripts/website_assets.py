@@ -84,6 +84,7 @@ def build(output=None):
             shutil.copyfile(src, dst)
     for source, target in (("ComponentTypes.png", "components.png"), ("mobilität.png", "mobility.png")):
         shutil.copyfile(ROOT / "docs" / source, output / "media" / target)
+    shutil.copyfile(ROOT / "docs/website/logo.png", output / "media/logo.png")
     manual = output / "media/manual"
     manual.mkdir(parents=True, exist_ok=True)
     for name in MANUAL_FIGURES:
@@ -113,6 +114,13 @@ def build(output=None):
                 'herunterladen und im Repository öffnen.</p>' + body + '</html>')
         (output / "tutorials" / f"{name}.html").write_text(html, encoding="utf-8")
     prepare_assessment(output)
+    from assessment_explained import build as build_explorer
+    build_explorer(output / "assets/assessment-explained/index.html")
+    explained = nbformat.read(ROOT / "notebooks/howto_assessment_explained.ipynb", as_version=4)
+    for cell in explained.cells:
+        if cell.cell_type == "code":
+            cell.outputs, cell.execution_count = [], None
+    nbformat.write(explained, output / "downloads/howto_assessment_explained.ipynb")
     return output
 
 
