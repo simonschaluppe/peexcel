@@ -9,6 +9,17 @@ Leseengine erforderlich; `.xlsb` benötigt beispielsweise `pyxlsb`.
 
 ## Ausführbare Tutorials
 
+### Bewertung von Plus-Energie-Quartieren
+
+Das [Bewertungs-Tutorial](assessment.ipynb) zeigt den vollständigen deutschen
+Notebook-Entwurf mit Erklärungstexten, aufklappbarem Python-Code und direkt
+sichtbaren interaktiven Primärenergie- und THG-Diagrammen.
+
+[Tutorial öffnen](assessment.ipynb){.btn .btn-primary}
+[Notebook herunterladen](downloads/howto_assess.ipynb){.btn .btn-outline-primary}
+
+### Weitere Notebooks
+
 Die Einbettungen zeigen den Notebook-Inhalt ohne gespeicherte Ausgaben.
 Die heruntergeladenen Notebooks werden im geklonten Repository ausgeführt; dort sind auch
 die verwendeten Implementierungsfunktionen und Quelldaten verfügbar.

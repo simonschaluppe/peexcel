@@ -58,6 +58,7 @@ website/.quarto/
 website/media/
 website/downloads/
 website/tutorials/
+website/assessment.ipynb
 
 # User-provided source figures for the Quarto manual
 !docs/website/*.png

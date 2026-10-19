@@ -32,12 +32,47 @@ MANUAL_FIGURES = (
 )
 
 
+def prepare_assessment(output):
+    """Prepare a native Quarto page from the saved assessment notebook.
+
+    The notebook remains the only editable content source. The ignored page
+    copy retains its outputs; the downloadable copy follows the existing
+    output-free download convention. No notebook code is executed here.
+    """
+    output = Path(output)
+    notebook = nbformat.read(ROOT / "notebooks/howto_assess.ipynb", as_version=4)
+    download = nbformat.from_dict(json.loads(nbformat.writes(notebook)))
+    for cell in download.cells:
+        if cell.cell_type == "code":
+            cell.outputs, cell.execution_count = [], None
+    (output / "downloads").mkdir(parents=True, exist_ok=True)
+    nbformat.write(download, output / "downloads/howto_assess.ipynb")
+
+    # Quarto supplies the page title; keep all remaining notebook prose intact.
+    if notebook.cells and notebook.cells[0].cell_type == "markdown":
+        lines = notebook.cells[0].source.splitlines()
+        if lines and lines[0].startswith("# "):
+            notebook.cells[0].source = "\n".join(lines[1:]).lstrip()
+    notebook.cells.insert(0, nbformat.v4.new_raw_cell(
+        '---\ntitle: "Bewertung von Plus-Energie-Quartieren"\n'
+        'lang: de\nexecute:\n  enabled: false\n'
+        'format:\n  html:\n    code-fold: true\n    code-summary: "Python-Code anzeigen"\n'
+        '---\n'
+    ))
+    notebook.cells.insert(1, nbformat.v4.new_markdown_cell(
+        '[Notebook herunterladen](downloads/howto_assess.ipynb){.btn .btn-primary}\n\n'
+        '[Zur Notebook-Übersicht](python.qmd)'
+    ))
+    nbformat.write(notebook, output / "assessment.ipynb")
+    return output / "assessment.ipynb"
+
+
 def build(output=None):
     """Copy an explicit public allowlist and render notebooks without execution.
 
-    Stored notebook outputs are removed from both HTML and download copies to
-    avoid accidentally publishing local project results. Original notebooks stay
-    untouched. Interactive lessons are generated with the shared implementation.
+    Standard reading views and all notebook downloads omit saved outputs.
+    The explicitly selected assessment page retains its example outputs for
+    native Quarto rendering. Original notebooks stay untouched.
     """
     output = Path(output) if output is not None else ROOT / "website"
     for folder in ("downloads", "media", "tutorials"):
@@ -77,6 +112,7 @@ def build(output=None):
                 '<p>Lesefassung ohne gespeicherte Ausgaben. Für die Ausführung das Notebook '
                 'herunterladen und im Repository öffnen.</p>' + body + '</html>')
         (output / "tutorials" / f"{name}.html").write_text(html, encoding="utf-8")
+    prepare_assessment(output)
     return output
 
 

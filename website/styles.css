@@ -61,5 +61,8 @@ body:has(.hero) #title-block-header{display:none}
 .figure-caption{font-size:.85rem;line-height:1.5;color:#536570}
 .pending{border:1px dashed #8c9ba2;background:#f5f7f8;padding:1rem;margin:1rem 0}
 .table-responsive{max-width:100%;overflow-x:auto}
+/* Saved notebook charts retain room for their legends on narrow screens. */
+.cell-output-display:has(.plotly-graph-div){max-width:100%;overflow-x:auto}
+.cell-output-display .plotly-graph-div{min-width:900px}
 @media(max-width:600px){.excel-operation{padding:.8rem}.excel-path{padding:.6rem}h1{overflow-wrap:anywhere}}
 @media print{.excel-menu{color:#000!important;background:#fff!important;border:1px solid #555}.excel-operation,.declaration-note{background:white;border:1px solid #777}}

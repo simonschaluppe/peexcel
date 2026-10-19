@@ -9,7 +9,7 @@ import pytest
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 from component_teaching import categories, cellar_svg
-from website_assets import build, NOTEBOOKS, MANUAL_FIGURES
+from website_assets import build, prepare_assessment, NOTEBOOKS, MANUAL_FIGURES
 from pexl.model.scenario import Scenario
 from pexl.spatial import render_svg, section_layout_from_scenario
 
@@ -61,3 +61,19 @@ def test_build_publishes_only_clean_notebook_copies(tmp_path):
     assert (tmp_path / "assets/components/index.html").exists()
     for name in MANUAL_FIGURES:
         assert (tmp_path / "media/manual" / f"{name}.png").read_bytes() == (ROOT / "docs/website" / f"{name}.png").read_bytes()
+
+
+def test_assessment_page_keeps_outputs_without_modifying_source(tmp_path):
+    source = ROOT / "notebooks/howto_assess.ipynb"
+    before = source.read_bytes()
+    original = nbformat.read(source, as_version=4)
+    page = nbformat.read(prepare_assessment(tmp_path), as_version=4)
+    assert source.read_bytes() == before
+    assert page.cells[0].cell_type == "raw"
+    assert "enabled: false" in page.cells[0].source
+    assert page.cells[3:] == original.cells[1:]
+    assert any(c.get("outputs") for c in page.cells if c.cell_type == "code")
+    download = nbformat.read(tmp_path / "downloads/howto_assess.ipynb", as_version=4)
+    assert [c.source for c in download.cells] == [c.source for c in original.cells]
+    assert all(not c.outputs and c.execution_count is None
+               for c in download.cells if c.cell_type == "code")

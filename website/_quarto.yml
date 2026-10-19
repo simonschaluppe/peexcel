@@ -3,6 +3,7 @@ project:
   output-dir: _site
   render:
     - "*.qmd"
+    - "assessment.ipynb"
     - "!en/**"
   pre-render:
     - python ../scripts/website_assets.py
@@ -39,7 +40,7 @@ website:
       - section: Analysieren und Bewerten
         contents: [results.qmd, excel-dashboard.qmd, comparison.qmd, batch.qmd, examples.qmd, declaration.qmd]
       - section: Dokumentation und Referenzen
-        contents: [learn.qmd, python.qmd, dashboard.qmd, glossary.qmd, research.qmd, about.qmd]
+        contents: [learn.qmd, python.qmd, assessment.ipynb, dashboard.qmd, glossary.qmd, research.qmd, about.qmd]
   page-footer:
     left: "PEExcel · FH Technikum Wien · klimaaktiv Plus-Energie-Quartiere"
     right:
