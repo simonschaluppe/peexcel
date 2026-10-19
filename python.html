@@ -120,6 +120,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./media/logo.png" alt="PEExcel Logo" class="navbar-logo light-content">
+    <img src="./media/logo.png" alt="PEExcel Logo" class="navbar-logo dark-content">
+    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">PEExcel</span>
     </a>
@@ -158,7 +162,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Download</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./en/index.qmd"> 
+    <a class="nav-link" href="./en/index.html"> 
 <span class="menu-text">English</span></a>
   </li>  
 </ul>
@@ -343,6 +347,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./assessment-explained.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Projekt-Varianten-Explorer</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./declaration.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Nachweisführung</span></a>
   </div>
@@ -368,6 +378,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="./python.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Python-Schnittstelle und Notebooks</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assessment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bewertung von Plus-Energie-Quartieren</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -406,7 +422,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#ausführbare-tutorials" id="toc-ausführbare-tutorials" class="nav-link active" data-scroll-target="#ausführbare-tutorials">Ausführbare Tutorials</a></li>
+  <li><a href="#ausführbare-tutorials" id="toc-ausführbare-tutorials" class="nav-link active" data-scroll-target="#ausführbare-tutorials">Ausführbare Tutorials</a>
+  <ul class="collapse">
+  <li><a href="#bewertung-verstehen-und-projektvarianten-vergleichen" id="toc-bewertung-verstehen-und-projektvarianten-vergleichen" class="nav-link" data-scroll-target="#bewertung-verstehen-und-projektvarianten-vergleichen">Bewertung verstehen und Projektvarianten vergleichen</a></li>
+  <li><a href="#bewertung-von-plus-energie-quartieren" id="toc-bewertung-von-plus-energie-quartieren" class="nav-link" data-scroll-target="#bewertung-von-plus-energie-quartieren">Bewertung von Plus-Energie-Quartieren</a></li>
+  <li><a href="#weitere-notebooks" id="toc-weitere-notebooks" class="nav-link" data-scroll-target="#weitere-notebooks">Weitere Notebooks</a></li>
+  </ul></li>
   <li><a href="#vom-export-zur-grafik" id="toc-vom-export-zur-grafik" class="nav-link" data-scroll-target="#vom-export-zur-grafik">Vom Export zur Grafik</a></li>
   </ul>
 </nav>
@@ -436,6 +457,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><code>pexl</code> ergänzt die Excel-Anwendung um Import und Export, Schema-Validierung, Ergebnisanalyse und Visualisierung. Installiere im Repository <code>python -m pip install -e ".[publication]"</code>. Für Excel-Formate ist die passende Leseengine erforderlich; <code>.xlsb</code> benötigt beispielsweise <code>pyxlsb</code>.</p>
 <section id="ausführbare-tutorials" class="level2">
 <h2 class="anchored" data-anchor-id="ausführbare-tutorials">Ausführbare Tutorials</h2>
+<section id="bewertung-verstehen-und-projektvarianten-vergleichen" class="level3">
+<h3 class="anchored" data-anchor-id="bewertung-verstehen-und-projektvarianten-vergleichen">Bewertung verstehen und Projektvarianten vergleichen</h3>
+<p>Der <a href="./assessment-explained.html">Projekt-Varianten-Explorer</a> erklärt die Primärenergie- und THG-Bewertung ohne technischen Begleittext. Eine gemeinsame Mehrfachauswahl filtert die vorhandenen Szenarien in beiden Grafiken.</p>
+<p><a href="./assessment-explained.html" class="btn btn-primary">Explorer öffnen</a> <a href="downloads/howto_assessment_explained.ipynb" class="btn btn-outline-primary">Notebook herunterladen</a></p>
+</section>
+<section id="bewertung-von-plus-energie-quartieren" class="level3">
+<h3 class="anchored" data-anchor-id="bewertung-von-plus-energie-quartieren">Bewertung von Plus-Energie-Quartieren</h3>
+<p>Das <a href="./assessment.html">Bewertungs-Tutorial</a> zeigt den vollständigen deutschen Notebook-Entwurf mit Erklärungstexten, aufklappbarem Python-Code und direkt sichtbaren interaktiven Primärenergie- und THG-Diagrammen.</p>
+<p><a href="./assessment.html" class="btn btn-primary">Tutorial öffnen</a> <a href="downloads/howto_assess.ipynb" class="btn btn-outline-primary">Notebook herunterladen</a></p>
+</section>
+<section id="weitere-notebooks" class="level3">
+<h3 class="anchored" data-anchor-id="weitere-notebooks">Weitere Notebooks</h3>
 <p>Die Einbettungen zeigen den Notebook-Inhalt ohne gespeicherte Ausgaben. Die heruntergeladenen Notebooks werden im geklonten Repository ausgeführt; dort sind auch die verwendeten Implementierungsfunktionen und Quelldaten verfügbar.</p>
 <details>
 <summary>
@@ -478,6 +511,7 @@ Website und Dokumentation lokal bauen
 </p>
 </details>
 <p><a href="tutorials/howto_analyze_electricity_balance.html">Strombilanz-Tutorial lesen</a> · <a href="tutorials/howto_visualize_project.html">Gebäudeschnitte-Tutorial lesen</a></p>
+</section>
 </section>
 <section id="vom-export-zur-grafik" class="level2">
 <h2 class="anchored" data-anchor-id="vom-export-zur-grafik">Vom Export zur Grafik</h2>
