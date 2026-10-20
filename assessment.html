@@ -108,6 +108,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Suchen"
   }
 }</script>
+<script type="application/json" class="js-hypothesis-config">
+{
+  "theme": "clean",
+  "openSidebar": false
+}
+</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
 <script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
 
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
@@ -4025,12 +4037,8 @@ return Plotly;
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
-<span class="menu-text">Übersicht</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link active" href="./start.html" aria-current="page"> 
-<span class="menu-text">Tool-Anwendung</span></a>
+    <a class="nav-link active" href="./excel-overview.html" aria-current="page"> 
+<span class="menu-text">Starten</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./model.html"> 
@@ -4038,11 +4046,19 @@ return Plotly;
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./results.html"> 
-<span class="menu-text">Analysieren und Bewerten</span></a>
+<span class="menu-text">Analysieren</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./learn.html"> 
+    <a class="nav-link" href="./projekte-nachweisen.html"> 
+<span class="menu-text">Deklarieren</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./research.html"> 
 <span class="menu-text">Dokumentation</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./assessment-explained.html"> 
+<span class="menu-text">Quick-Check</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -4066,7 +4082,7 @@ return Plotly;
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./learn.html">Dokumentation und Referenzen</a></li><li class="breadcrumb-item"><a href="./assessment.html">Bewertung von Plus-Energie-Quartieren</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./python.html">Python &amp; Automatisierung</a></li><li class="breadcrumb-item"><a href="./assessment.html">Bewertung von Plus-Energie-Quartieren</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -4081,7 +4097,7 @@ return Plotly;
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
- <span class="menu-text">Tool-Anwendung</span></a>
+ <span class="menu-text">Starten</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -4089,14 +4105,14 @@ return Plotly;
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./start.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Tool-Anwendung</span></a>
+  <a href="./excel-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Erste Schritte</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./presets.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Schnelleinstieg mit Presets</span></a>
+  <a href="./download.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Download und Voraussetzungen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -4107,14 +4123,8 @@ return Plotly;
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./migration.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Migration auf eine neue Toolversion</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./download.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Tool und Unterlagen</span></a>
+  <a href="./presets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schnellauswahl mit Presets</span></a>
   </div>
 </li>
       </ul>
@@ -4138,12 +4148,6 @@ return Plotly;
   <div class="sidebar-item-container"> 
   <a href="./envelope.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Thermische Hülle und Wärmeflüsse</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./components.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Bauteile richtig zuordnen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -4179,7 +4183,7 @@ return Plotly;
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./mobility.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mobilität: Laden und Verantwortung</span></a>
+ <span class="menu-text">Mobilität</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -4190,8 +4194,20 @@ return Plotly;
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./components.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bauteile richtig zuordnen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./variants.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Varianten verwalten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./migration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Migration auf eine neue Toolversion</span></a>
   </div>
 </li>
       </ul>
@@ -4199,7 +4215,7 @@ return Plotly;
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
- <span class="menu-text">Analysieren und Bewerten</span></a>
+ <span class="menu-text">Analysieren</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -4208,13 +4224,25 @@ return Plotly;
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./results.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Ergebnisblatt</span></a>
+ <span class="menu-text">Ergebnisse und Kennzahlen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./excel-dashboard.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Excel-Dashboard</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./flexibility.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Flexibilität</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mobility-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mobilitätsverhalten</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -4232,13 +4260,36 @@ return Plotly;
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./examples.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Variantenvergleich · Bsp San 6G</span></a>
+ <span class="menu-text">Beispiele</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./assessment-explained.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Projekt-Varianten-Explorer</span></a>
+ <span class="menu-text">Quick-Check</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Deklarieren</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./projekte-nachweisen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Nachweisführung von Projekten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./checklist.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Checkliste zur Nachweisvorbereitung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -4251,29 +4302,17 @@ return Plotly;
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Dokumentation und Referenzen</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Python &amp; Automatisierung</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./learn.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Dokumentation und Arbeitsabläufe</span></a>
-  </div>
-</li>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./python.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Python-Schnittstelle und Notebooks</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./assessment.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Bewertung von Plus-Energie-Quartieren</span></a>
+ <span class="menu-text">Python &amp; Automatisierung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -4282,6 +4321,23 @@ return Plotly;
  <span class="menu-text">Python-Szenarioexplorer</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assessment.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Bewertung von Plus-Energie-Quartieren</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">Dokumentation und Referenzen</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./glossary.html" class="sidebar-item-text sidebar-link">
@@ -4327,16 +4383,16 @@ return Plotly;
   <ul class="collapse">
   <li><a href="#graue-emissionen-im-detail" id="toc-graue-emissionen-im-detail" class="nav-link" data-scroll-target="#graue-emissionen-im-detail">Graue Emissionen im Detail</a></li>
   </ul></li>
-  <li><a href="#varianten-interpretieren-textentwurf" id="toc-varianten-interpretieren-textentwurf" class="nav-link" data-scroll-target="#varianten-interpretieren-textentwurf">7. Varianten interpretieren – Textentwurf</a></li>
+  <li><a href="#varianten-interpretieren" id="toc-varianten-interpretieren" class="nav-link" data-scroll-target="#varianten-interpretieren">7. Varianten interpretieren</a></li>
   <li><a href="#grafiken-exportieren-und-weiterverwenden" id="toc-grafiken-exportieren-und-weiterverwenden" class="nav-link" data-scroll-target="#grafiken-exportieren-und-weiterverwenden">8. Grafiken exportieren und weiterverwenden</a></li>
-  <li><a href="#redaktionelle-weiterbearbeitung" id="toc-redaktionelle-weiterbearbeitung" class="nav-link" data-scroll-target="#redaktionelle-weiterbearbeitung">9. Redaktionelle Weiterbearbeitung</a></li>
+  <li><a href="#ergebnisse-weitergeben" id="toc-ergebnisse-weitergeben" class="nav-link" data-scroll-target="#ergebnisse-weitergeben">9. Ergebnisse weitergeben</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./learn.html">Dokumentation und Referenzen</a></li><li class="breadcrumb-item"><a href="./assessment.html">Bewertung von Plus-Energie-Quartieren</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./python.html">Python &amp; Automatisierung</a></li><li class="breadcrumb-item"><a href="./assessment.html">Bewertung von Plus-Energie-Quartieren</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Bewertung von Plus-Energie-Quartieren</h1>
 </div>
@@ -4358,7 +4414,7 @@ return Plotly;
 <p><a href="downloads/howto_assess.ipynb" class="btn btn-primary">Notebook herunterladen</a></p>
 <p><a href="./python.html">Zur Notebook-Übersicht</a></p>
 <p>Dieses Tutorial zeigt, wie ein vorhandener PEExcel-Projektexport mit Python geladen, nach Varianten ausgewählt und mit den bestehenden <code>pexl</code>-Diagrammen dargestellt wird. Im Mittelpunkt stehen die <strong>Primärenergiebilanz</strong> und die <strong>Lebenszyklus-Treibhausgasbilanz</strong> eines Quartiers.</p>
-<p><strong>Redaktioneller Entwurf:</strong> Die Erklärungstexte sind für die anschließende fachliche und sprachliche Überarbeitung vorausgefüllt. Das Notebook übernimmt die gespeicherten Ergebnisse und die vorhandenen Reportdefinitionen. Es führt keine neue Simulation oder fachliche Prüfung durch und verändert keine Bewertungsformeln.</p>
+<p>Das Notebook liest gespeicherte Ergebnisse und verwendet die vorhandenen Reports. Die Simulation und Variantenberechnung erfolgen zuvor im Excel-Tool.</p>
 <p>Der Ablauf folgt dem Beispiel <code>howto_analyze_gridload.ipynb</code>: Projekt laden, Varianten auswählen, Kennzahlen anzeigen und vorhandene Diagramme aufrufen.</p>
 <section id="bewertungsrahmen" class="level2">
 <h2 class="anchored" data-anchor-id="bewertungsrahmen">1. Bewertungsrahmen</h2>
@@ -4811,7 +4867,7 @@ if (outputEl) {{
 <h2 class="anchored" data-anchor-id="lebenszyklus-treibhausgasbilanz">6. Lebenszyklus-Treibhausgasbilanz</h2>
 <p>Die Lebenszyklusbetrachtung erweitert den Blick über die jährliche Energie hinaus. Sie umfasst die im Export enthaltenen Beiträge aus Herstellung und Errichtung, technischen Anlagen, Betrieb und Mobilität. Instandhaltung und Ersatz können in den Lebenszyklusbeiträgen enthalten sein und sind dann nicht zwingend als eigene Diagrammreihe sichtbar.</p>
 <p>Die vorhandene Darstellung unterscheidet <strong>EE</strong> für graue beziehungsweise herstellungsbezogene Emissionen und <strong>OE</strong> für betriebliche Emissionen. Negative Beiträge, beispielsweise Gutschriften aus Einspeisung oder bilanzierte Mobilitätsbeiträge, bleiben mit ihrem Vorzeichen sichtbar. Der Gesamtwert beschreibt die kumulierten Emissionen über den angesetzten Bewertungszeitraum, nicht die Emissionen eines einzelnen Betriebsjahres.</p>
-<p>Für den späteren Bewertungstext ist der vorgegebene Referenzwert von <strong>320 kg CO₂e/m² BGF</strong> vorgesehen. Bezugsfläche, Zeitraum und Systemgrenze gehören zur Erläuterung dieses Vergleichs. Die bestehenden L1-/L2-/L3-Bänder werden mit dem vorhandenen Renderer angezeigt.</p>
+<p>Die Darstellung verwendet den Referenzwert von <strong>320 kg CO₂e/m² BGF</strong>. Bezugsfläche, Zeitraum und Systemgrenze gehören zur Erläuterung dieses Vergleichs. Die bestehenden L1-/L2-/L3-Bänder werden mit dem vorhandenen Renderer angezeigt.</p>
 <p><code>budget=320</code> zeichnet die rote Referenzlinie. Mit <code>annotate=True</code> wird zusätzlich angezeigt, um wie viel der vorhandene THG-Gesamtwert das Budget über- oder unterschreitet. Maßgeblich ist die bestehende Reportserie <code>Balance Variable</code>, nicht die Höhe einer einzelnen EE- oder OE-Säule. Negative Beiträge bleiben in der Gesamtsumme enthalten. Die Markierungen gelten für den vollständigen Report, auch wenn einzelne Reihen über die Legende ausgeblendet werden.</p>
 <p>Nur Referenzlinie: <code>pexl_plotly.render(berichte["gwp_ee"], budget=320)</code>. Bisherige Darstellung: <code>pexl_plotly.render(berichte["gwp_ee"])</code>. Dieselben Optionen stehen auch bei <code>pexl_plotly.chart(...)</code> zur Verfügung.</p>
 <div id="6a818aa7" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-19T18:38:41.595079Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-19T18:38:41.594697Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-19T18:38:41.666404Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-19T18:38:41.665711Z&quot;}}" data-execution_count="7">
@@ -4933,18 +4989,19 @@ if (outputEl) {{
 </div>
 </section>
 </section>
-<section id="varianten-interpretieren-textentwurf" class="level2">
-<h2 class="anchored" data-anchor-id="varianten-interpretieren-textentwurf">7. Varianten interpretieren – Textentwurf</h2>
-<p>Die Primärenergiebilanz und die THG-Bilanz ergänzen einander. Eine günstige Energiebilanz bedeutet nicht automatisch geringe Lebenszyklusemissionen: Herstellung, Ersatz und Mobilität tragen zur THG-Bewertung bei, während Energieaufbringung und Kontextfaktoren die Primärenergiebewertung prägen.</p>
-<p>Beim Variantenvergleich ist zwischen Planungsmaßnahmen und Kontextannahmen zu unterscheiden. Änderungen an Hülle, Anlagen oder PV betreffen die technische Planung. Dichte, Standort und zugeordnete Mobilität beeinflussen den Bewertungsrahmen. Die Diagramme machen die jeweiligen Beiträge sichtbar; eine Erklärung ihrer Ursachen wird im nächsten redaktionellen Schritt ergänzt.</p>
-<p><strong>Vorbereitete Formulierungen zur weiteren Bearbeitung:</strong></p>
-<ul>
-<li>„In der Primärenergiedarstellung wird die Variante <strong>[Name]</strong> vor allem durch <strong>[Beiträge aus der Grafik]</strong> geprägt. Gegenüber <strong>[Vergleichsvariante]</strong> verändern sich insbesondere <strong>[Komponenten]</strong>.“</li>
-<li>„In der Lebenszyklus-THG-Bilanz stehen <strong>[Herstellung/Betrieb/Mobilität]</strong> im Vordergrund. Der gespeicherte Gesamtwert beträgt <strong>[Wert aus der Tabelle]</strong> kg CO₂e/m² BGF.“</li>
-<li>„Der Vergleich mit dem Referenzbudget wird für <strong>[Zeitraum und Systemgrenze]</strong> erläutert. Die wesentlichen Beiträge zum Abstand sind <strong>[Beiträge]</strong>.“</li>
-<li>„Die Unterschiede zwischen den Varianten beruhen auf <strong>[Planungsannahmen]</strong> und <strong>[Kontextannahmen]</strong>. Daraus ergibt sich für die weitere Planung <strong>[Schlussfolgerung]</strong>.“</li>
-</ul>
-<p>Diese Absätze sind bewusst als bearbeitbare Textbausteine angelegt; sie nehmen keine abschließende fachliche Bewertung der Beispielvarianten vorweg.</p>
+<section id="varianten-interpretieren" class="level2">
+<h2 class="anchored" data-anchor-id="varianten-interpretieren">7. Varianten interpretieren</h2>
+<p>Primärenergie- und THG-Bilanz beantworten unterschiedliche Fragen. Eine günstige Primärenergiebilanz bedeutet nicht automatisch geringe Lebenszyklusemissionen. Herstellung, Ersatz und Mobilität können die THG-Bilanz wesentlich prägen.</p>
+<p>Für einen belastbaren Vergleich:</p>
+<ol type="1">
+<li>Gleiche Flächenbezüge, Zeiträume und Bewertungsgrenzen prüfen.</li>
+<li>Veränderte Eingaben benennen; Baualters- oder Preset-Namen allein reichen nicht.</li>
+<li>Unterschiede in Bedarf und Deckung den betroffenen Komponenten zuordnen.</li>
+<li>Den gespeicherten THG-Gesamtwert mit dem Budget vergleichen; negative Beiträge mitlesen.</li>
+<li>Bei Flexibilitätsmaßnahmen zusätzlich die stündlichen Flüsse und Speicherzustände untersuchen.</li>
+</ol>
+<p>Für einen isolierten Speichervergleich in Excel eine Referenz sowie Varianten mit unterschiedlicher Kapazität oder C-Rate berechnen und exportieren. Für einen Mobilitätsvergleich beispielsweise EV-Anteil oder Ladeleistung variieren. Danach <code>QUELLE</code> und <code>AUSWAHL</code> auf diese gespeicherten Varianten setzen und die folgenden Berichte erneut ausführen. Das Notebook berechnet keine neuen Excel-Varianten.</p>
+<p>Die gezeigten Baualtersvarianten dienen dem Einstieg in die Auswertung. Sie sind kein kontrollierter Einzelmaßnahmenvergleich.</p>
 </section>
 <section id="grafiken-exportieren-und-weiterverwenden" class="level2">
 <h2 class="anchored" data-anchor-id="grafiken-exportieren-und-weiterverwenden">8. Grafiken exportieren und weiterverwenden</h2>
@@ -5034,10 +5091,9 @@ if (outputEl) {{
 </div>
 </div>
 </section>
-<section id="redaktionelle-weiterbearbeitung" class="level2">
-<h2 class="anchored" data-anchor-id="redaktionelle-weiterbearbeitung">9. Redaktionelle Weiterbearbeitung</h2>
-<p>Als nächster Bearbeitungsschritt können Variantenwahl, Erklärungstexte, Bildunterschriften und Interpretation angepasst werden. Die Diagramme bleiben an die bestehenden <code>pexl</code>-Reports gebunden.</p>
-<p>Für PEExcel-Pages kann dieses Notebook später als Tutorial mit sichtbaren Codezellen und interaktiven Figuren eingebunden werden. Die SVG-Ausgaben sind für den PEQ-Hintergrundbericht vorgesehen; HTML beziehungsweise JSON können als vorberechnete Darstellungen im Siedlungs-Check-PoC dienen. Die Integration und Veröffentlichung erfolgen in einem separaten Schritt.</p>
+<section id="ergebnisse-weitergeben" class="level2">
+<h2 class="anchored" data-anchor-id="ergebnisse-weitergeben">9. Ergebnisse weitergeben</h2>
+<p>Die HTML-Grafiken lassen sich im Browser öffnen; SVG und PNG eignen sich für Berichte. Datenherkunft, Variante, Bezugsfläche und Bewertungszeitraum gehören zur Weitergabe. Die Website übernimmt dieses Notebook als technisches Tutorial im Bereich „Python &amp; Automatisierung“. Der Ablauf ist in <code>howto_website.ipynb</code> beschrieben; eine Veröffentlichung erfolgt getrennt vom lokalen Build.</p>
 
 
 </section>

@@ -73,6 +73,18 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Suchen"
   }
 }</script>
+<script type="application/json" class="js-hypothesis-config">
+{
+  "theme": "clean",
+  "openSidebar": false
+}
+</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -100,12 +112,8 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
-<span class="menu-text">Übersicht</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link active" href="./start.html" aria-current="page"> 
-<span class="menu-text">Tool-Anwendung</span></a>
+    <a class="nav-link active" href="./excel-overview.html" aria-current="page"> 
+<span class="menu-text">Starten</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./model.html"> 
@@ -113,11 +121,19 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./results.html"> 
-<span class="menu-text">Analysieren und Bewerten</span></a>
+<span class="menu-text">Analysieren</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./learn.html"> 
+    <a class="nav-link" href="./projekte-nachweisen.html"> 
+<span class="menu-text">Deklarieren</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./research.html"> 
 <span class="menu-text">Dokumentation</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./assessment-explained.html"> 
+<span class="menu-text">Quick-Check</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -156,7 +172,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
- <span class="menu-text">Tool-Anwendung</span></a>
+ <span class="menu-text">Starten</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -164,14 +180,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./start.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Tool-Anwendung</span></a>
+  <a href="./excel-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Erste Schritte</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./presets.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Schnelleinstieg mit Presets</span></a>
+  <a href="./download.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Download und Voraussetzungen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -182,14 +198,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./migration.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Migration auf eine neue Toolversion</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./download.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Tool und Unterlagen</span></a>
+  <a href="./presets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schnellauswahl mit Presets</span></a>
   </div>
 </li>
       </ul>
@@ -213,12 +223,6 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="./envelope.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Thermische Hülle und Wärmeflüsse</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./components.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Bauteile richtig zuordnen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -254,7 +258,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./mobility.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mobilität: Laden und Verantwortung</span></a>
+ <span class="menu-text">Mobilität</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -265,8 +269,20 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./components.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bauteile richtig zuordnen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./variants.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Varianten verwalten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./migration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Migration auf eine neue Toolversion</span></a>
   </div>
 </li>
       </ul>
@@ -274,7 +290,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
- <span class="menu-text">Analysieren und Bewerten</span></a>
+ <span class="menu-text">Analysieren</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -283,13 +299,25 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./results.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Ergebnisblatt</span></a>
+ <span class="menu-text">Ergebnisse und Kennzahlen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./excel-dashboard.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Excel-Dashboard</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./flexibility.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Flexibilität</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mobility-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mobilitätsverhalten</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -307,13 +335,36 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./examples.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Variantenvergleich · Bsp San 6G</span></a>
+ <span class="menu-text">Beispiele</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./assessment-explained.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Projekt-Varianten-Explorer</span></a>
+ <span class="menu-text">Quick-Check</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Deklarieren</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./projekte-nachweisen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Nachweisführung von Projekten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./checklist.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Checkliste zur Nachweisvorbereitung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -326,29 +377,17 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
- <span class="menu-text">Dokumentation und Referenzen</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Python &amp; Automatisierung</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./learn.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Dokumentation und Arbeitsabläufe</span></a>
-  </div>
-</li>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./python.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Python-Schnittstelle und Notebooks</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./assessment.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Bewertung von Plus-Energie-Quartieren</span></a>
+ <span class="menu-text">Python &amp; Automatisierung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -357,6 +396,23 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Python-Szenarioexplorer</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assessment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bewertung von Plus-Energie-Quartieren</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">Dokumentation und Referenzen</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./glossary.html" class="sidebar-item-text sidebar-link">
@@ -391,6 +447,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#wetter" id="toc-wetter" class="nav-link" data-scroll-target="#wetter">Wetter</a></li>
   <li><a href="#weitere-eingabewege" id="toc-weitere-eingabewege" class="nav-link" data-scroll-target="#weitere-eingabewege">Weitere Eingabewege</a></li>
   <li><a href="#excel-python" id="toc-excel-python" class="nav-link" data-scroll-target="#excel-python">Excel ↔︎ Python</a></li>
+  <li><a href="#use-case-daten" id="toc-use-case-daten" class="nav-link" data-scroll-target="#use-case-daten">Daten für Konzeptvergleich und Validierung</a></li>
   </ul>
 </nav>
     </div>
@@ -416,7 +473,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>Gegenstand:</strong> Eingaben nachvollziehbar übernehmen. Das Tool bietet Schnittstellen für Energieausweis, Wetter, stündliche PV-Erzeugung und Bauteildaten. Exakte Importfelder und Einheiten richten sich nach der verwendeten Toolversion.</p>
+<p>Eingaben nachvollziehbar übernehmen. Das Tool bietet Schnittstellen für Energieausweis, Wetter, stündliche PV-Erzeugung und Bauteildaten. Exakte Importfelder und Einheiten richten sich nach der verwendeten Toolversion.</p>
 <section id="energieausweis" class="level2">
 <h2 class="anchored" data-anchor-id="energieausweis">Energieausweis</h2>
 <p>Gebäude- und Hüllkennwerte werden aus den Projektunterlagen übernommen. Bezugsflächen, Nutzungen, Bauteilflächen und Einheiten sind gegen den Energieausweis abzugleichen. Ein Aggregat aus mehreren Gebäuden braucht eine dokumentierte Zusammenführung; Summen und spezifische Kennwerte sind nicht austauschbar.</p>
@@ -425,7 +482,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="wetter" class="level2">
 <h2 class="anchored" data-anchor-id="wetter">Wetter</h2>
 <p>Der Wetterdatensatz muss zu Standort und Untersuchungsziel passen. Die Schulung nennt Helios-PC als Datenzugang; im Repository liegen weitere Wetterdateien. Bei Zukunftswettervergleichen bleibt die Bewertungsvorgabe separat dokumentiert.</p>
-<p><strong>Excel-Orte:</strong> Blatt <span class="excel-menu darkred">🌦 Wetter</span> für die Hinterlegung; Blatt <span class="excel-menu darkred">🏙 Quartier</span> für die Auswahl des Datensatzes.</p>
+<p><strong>Excel-Orte:</strong> Blatt <span class="excel-menu darkred">🌦</span> (“Wetter”) für die Hinterlegung; Blatt <span class="excel-menu darkred">🏙</span> (“Quartier”) für die Auswahl des Datensatzes.</p>
 <p><strong>Arbeitsablauf:</strong> Standort und Wetterjahr festhalten → Stundenreihenfolge und Vollständigkeit prüfen → im vorgesehenen Wetterbereich übernehmen → Rechenlauf prüfen. Bei isolierter Untersuchung einer Anlagenmaßnahme bleibt der Wetterdatensatz unverändert.</p>
 </section>
 <section id="weitere-eingabewege" class="level2">
@@ -436,6 +493,56 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="excel-python">Excel ↔︎ Python</h2>
 <p><code>Project.from_excel</code> lädt gespeicherte Exporte. Schema und Exportversion müssen zueinander passen. Jahresergebnisse und Stundenexporte sind unterschiedliche Datenquellen. Das <a href="./python.html">Python-Tutorial</a> verwendet bestehende Import- und Reportingfunktionen.</p>
 <p><a href="downloads/schulung.pdf">Schulung, Folie 31</a> · <a href="downloads/handbuch.pdf">Handbuch mit Bedienung und Feldzuordnung</a></p>
+</section>
+<section id="use-case-daten" class="level2">
+<h2 class="anchored" data-anchor-id="use-case-daten">Daten für Konzeptvergleich und Validierung</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Datenpaket</th>
+<th>Benötigte Angaben</th>
+<th>Wofür?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Quartier</td>
+<td>Standort, Flächen nach Nutzung, Geometrie, Neubau-/Sanierungsanteile</td>
+<td>Modellgrenze und Bezugsgrößen</td>
+</tr>
+<tr class="even">
+<td>Gebäude und Betrieb</td>
+<td>Hülle, Nutzungsprofile, Solltemperaturen, Heizung, Kühlung, Warmwasser und Lüftung</td>
+<td>Bedarf und thermische Flexibilität</td>
+</tr>
+<tr class="odd">
+<td>Erzeugung und Speicher</td>
+<td>PV-Leistung und Profil, Batteriekapazität und Leistung, Wirkungsgrade, thermische Speicher</td>
+<td>Versorgung und Speicherbetrieb</td>
+</tr>
+<tr class="even">
+<td>Mobilität</td>
+<td>Nutzungen, Fahrleistungsannahmen, EV-Anteil, Fahrzeuge, Ladepunkte und Leistungen</td>
+<td>Fahrbedarf, Anwesenheit und Ladung</td>
+</tr>
+<tr class="odd">
+<td>Zeitreihen zur Validierung</td>
+<td>Messwerte für Verbrauch, Erzeugung, Bezug, Einspeisung und Speicherzustände; Zeitstempel und Einheiten</td>
+<td>Modell mit beobachtetem Betrieb vergleichen</td>
+</tr>
+<tr class="even">
+<td>Ergänzende Netzuntersuchung</td>
+<td>Anschlussleistung, Netztopologie, Transformator- und Leitungsdaten</td>
+<td>Übergabe an ein ergänzendes Netzmodell</td>
+</tr>
+</tbody>
+</table>
+<p>Für jede Angabe Quelle, Zeitraum und Status festhalten: Messwert, Planungswert oder Annahme. Zeitreihen benötigen einen gemeinsamen Kalender, eine geklärte Zeitzone und eine dokumentierte Behandlung von Lücken. Feinere Messdaten können für den Stundenvergleich aggregiert werden; kurzzeitige Spitzen bleiben als eigene Information erhalten.</p>
 
 
 </section>

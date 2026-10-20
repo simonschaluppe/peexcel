@@ -76,6 +76,18 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Suchen"
   }
 }</script>
+<script type="application/json" class="js-hypothesis-config">
+{
+  "theme": "clean",
+  "openSidebar": false
+}
+</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -103,12 +115,8 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
-<span class="menu-text">Übersicht</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link active" href="./start.html" aria-current="page"> 
-<span class="menu-text">Tool-Anwendung</span></a>
+    <a class="nav-link active" href="./excel-overview.html" aria-current="page"> 
+<span class="menu-text">Starten</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./model.html"> 
@@ -116,11 +124,19 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./results.html"> 
-<span class="menu-text">Analysieren und Bewerten</span></a>
+<span class="menu-text">Analysieren</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./learn.html"> 
+    <a class="nav-link" href="./projekte-nachweisen.html"> 
+<span class="menu-text">Deklarieren</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./research.html"> 
 <span class="menu-text">Dokumentation</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./assessment-explained.html"> 
+<span class="menu-text">Quick-Check</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -159,7 +175,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
- <span class="menu-text">Tool-Anwendung</span></a>
+ <span class="menu-text">Starten</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -167,14 +183,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./start.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Tool-Anwendung</span></a>
+  <a href="./excel-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Erste Schritte</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./presets.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Schnelleinstieg mit Presets</span></a>
+  <a href="./download.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Download und Voraussetzungen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -185,14 +201,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./migration.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Migration auf eine neue Toolversion</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./download.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Tool und Unterlagen</span></a>
+  <a href="./presets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schnellauswahl mit Presets</span></a>
   </div>
 </li>
       </ul>
@@ -216,12 +226,6 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="./envelope.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Thermische Hülle und Wärmeflüsse</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./components.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Bauteile richtig zuordnen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -257,7 +261,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./mobility.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mobilität: Laden und Verantwortung</span></a>
+ <span class="menu-text">Mobilität</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -268,8 +272,20 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./components.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bauteile richtig zuordnen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./variants.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Varianten verwalten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./migration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Migration auf eine neue Toolversion</span></a>
   </div>
 </li>
       </ul>
@@ -277,7 +293,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
- <span class="menu-text">Analysieren und Bewerten</span></a>
+ <span class="menu-text">Analysieren</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -286,13 +302,25 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./results.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Ergebnisblatt</span></a>
+ <span class="menu-text">Ergebnisse und Kennzahlen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./excel-dashboard.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Excel-Dashboard</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./flexibility.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Flexibilität</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mobility-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mobilitätsverhalten</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -310,13 +338,36 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./examples.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Variantenvergleich · Bsp San 6G</span></a>
+ <span class="menu-text">Beispiele</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./assessment-explained.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Projekt-Varianten-Explorer</span></a>
+ <span class="menu-text">Quick-Check</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Deklarieren</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./projekte-nachweisen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Nachweisführung von Projekten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./checklist.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Checkliste zur Nachweisvorbereitung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -329,29 +380,17 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
- <span class="menu-text">Dokumentation und Referenzen</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Python &amp; Automatisierung</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./learn.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Dokumentation und Arbeitsabläufe</span></a>
-  </div>
-</li>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./python.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Python-Schnittstelle und Notebooks</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./assessment.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Bewertung von Plus-Energie-Quartieren</span></a>
+ <span class="menu-text">Python &amp; Automatisierung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -360,6 +399,23 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Python-Szenarioexplorer</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assessment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bewertung von Plus-Energie-Quartieren</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">Dokumentation und Referenzen</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./glossary.html" class="sidebar-item-text sidebar-link">
@@ -390,11 +446,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#excel-flexibilitaet" id="toc-excel-flexibilitaet" class="nav-link active" data-scroll-target="#excel-flexibilitaet">Freigaben und Quellen</a>
+  <li><a href="#wie-die-speicher-zusammenwirken" id="toc-wie-die-speicher-zusammenwirken" class="nav-link active" data-scroll-target="#wie-die-speicher-zusammenwirken">Wie die Speicher zusammenwirken</a>
   <ul class="collapse">
   <li><a href="#im-excel-tool" id="toc-im-excel-tool" class="nav-link" data-scroll-target="#im-excel-tool">Im Excel-Tool</a></li>
   </ul></li>
-  <li><a href="#thermische-gebäudemasse" id="toc-thermische-gebäudemasse" class="nav-link" data-scroll-target="#thermische-gebäudemasse">Thermische Gebäudemasse</a></li>
+  <li><a href="#thermische-gebäudemasse" id="toc-thermische-gebäudemasse" class="nav-link" data-scroll-target="#thermische-gebäudemasse">Thermische Gebäudemasse</a>
+  <ul class="collapse">
+  <li><a href="#komfortband-und-systemauswahl" id="toc-komfortband-und-systemauswahl" class="nav-link" data-scroll-target="#komfortband-und-systemauswahl">Komfortband und Systemauswahl</a></li>
+  </ul></li>
   <li><a href="#warmwasserspeicher" id="toc-warmwasserspeicher" class="nav-link" data-scroll-target="#warmwasserspeicher">Warmwasserspeicher</a></li>
   <li><a href="#elektrische-batterie" id="toc-elektrische-batterie" class="nav-link" data-scroll-target="#elektrische-batterie">Elektrische Batterie</a></li>
   <li><a href="#e-fahrzeuge" id="toc-e-fahrzeuge" class="nav-link" data-scroll-target="#e-fahrzeuge">E-Fahrzeuge</a></li>
@@ -424,16 +483,66 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>Excel-Ort:</strong> Blatt <span class="excel-menu darkred">🔋 Flexibilität und Speicher</span>.</p>
+<p><strong>Excel-Ort:</strong> Blatt <span class="excel-menu darkred">🔋</span> (“Flexibilität und Speicher”).</p>
 <p>Energieflexibilität verknüpft die zeitliche Verfügbarkeit erneuerbarer Energie mit dem Betrieb des Quartiers. Lokale PV-Überschüsse und externe Flexibilitätssignale können für zusätzliche Konditionierung und Speicherladung genutzt werden. <strong>Mindestbedarfsdeckung und flexible Überdeckung</strong> bleiben getrennte Größen.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="media/manual/dispatch.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Stromflüsse: Deckungsreihenfolge, Mindestbedarfe und flexible Speicherladung. Bereitgestellte Darstellung aus der Schulung; die tatsächlich aktiven Pfade hängen von der Modellkonfiguration ab."><img src="media/manual/dispatch.png" class="manual-figure img-fluid figure-img" alt="Stromflüsse: Deckungsreihenfolge, Mindestbedarfe und flexible Speicherladung. Bereitgestellte Darstellung aus der Schulung; die tatsächlich aktiven Pfade hängen von der Modellkonfiguration ab."></a></p>
-<figcaption>Stromflüsse: Deckungsreihenfolge, Mindestbedarfe und flexible Speicherladung. Bereitgestellte Darstellung aus der Schulung; die tatsächlich aktiven Pfade hängen von der Modellkonfiguration ab.</figcaption>
+<p><a href="media/manual/dispatch.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Stromflüsse: Deckungsreihenfolge, Mindestbedarfe und flexible Speicherladung. Quelle: PEExcel-Schulung; die tatsächlich aktiven Pfade hängen von der Modellkonfiguration ab."><img src="media/manual/dispatch.png" class="manual-figure img-fluid figure-img" alt="Stromflüsse: Deckungsreihenfolge, Mindestbedarfe und flexible Speicherladung. Quelle: PEExcel-Schulung; die tatsächlich aktiven Pfade hängen von der Modellkonfiguration ab."></a></p>
+<figcaption>Stromflüsse: Deckungsreihenfolge, Mindestbedarfe und flexible Speicherladung. Quelle: PEExcel-Schulung; die tatsächlich aktiven Pfade hängen von der Modellkonfiguration ab.</figcaption>
 </figure>
 </div>
-<section id="excel-flexibilitaet" class="level2">
-<h2 class="anchored" data-anchor-id="excel-flexibilitaet">Freigaben und Quellen</h2>
+<section id="wie-die-speicher-zusammenwirken" class="level2">
+<h2 class="anchored" data-anchor-id="wie-die-speicher-zusammenwirken">Wie die Speicher zusammenwirken</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="illustrations/userflexmodel.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Zusammenspiel von Wärmepumpen, thermischer Gebäudemasse, stationärer Batterie und gepoolter E-Mobilität. Bei einem Freigabesignal werden nutzbare Speicher beladen; außerhalb der Freigabe können sie Bedarfe decken. Die Grafik zeigt das Prinzip, keinen für jedes Quartier identischen Fahrplan."><img src="illustrations/userflexmodel.svg" class="manual-figure img-fluid figure-img" alt="Zusammenspiel von Wärmepumpen, thermischer Gebäudemasse, stationärer Batterie und gepoolter E-Mobilität. Bei einem Freigabesignal werden nutzbare Speicher beladen; außerhalb der Freigabe können sie Bedarfe decken. Die Grafik zeigt das Prinzip, keinen für jedes Quartier identischen Fahrplan."></a></p>
+<figcaption>Zusammenspiel von Wärmepumpen, thermischer Gebäudemasse, stationärer Batterie und gepoolter E-Mobilität. Bei einem Freigabesignal werden nutzbare Speicher beladen; außerhalb der Freigabe können sie Bedarfe decken. Die Grafik zeigt das Prinzip, keinen für jedes Quartier identischen Fahrplan.</figcaption>
+</figure>
+</div>
+<p>Lokale PV-Überschüsse und ein externes Signal sind getrennte Anlässe für flexible Nutzung. Ein Signal gibt Anwendungen innerhalb ihrer Grenzen frei. Ob tatsächlich Energie aufgenommen wird, hängt von verfügbarem Überschuss beziehungsweise Bezug, Anlagenleistung und Speicherzustand ab.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Flexibilitätsoption</th>
+<th>Was wird getan?</th>
+<th>Was begrenzt die Nutzung?</th>
+<th>Was zeigt die Wirkung?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Thermische Gebäudemasse</td>
+<td>Heizen oder Kühlen wird temporär erhöht</td>
+<td>Wirksame Speichermasse, Komfortband und Anlagenleistung</td>
+<td>Raumtemperatur und späterer Heiz-/Kühlbedarf</td>
+</tr>
+<tr class="even">
+<td>Warmwasserspeicher</td>
+<td>Zusätzliche Erwärmung des (Puffer-)Speichers</td>
+<td>Speichervolumen, obere Temperatur und Ladeleistung</td>
+<td>Speicherzustand, Beladung und Verluste</td>
+</tr>
+<tr class="odd">
+<td>Stationäre Batterie</td>
+<td>Strom wird gespeichert und später genutzt</td>
+<td>Kapazität, C-Rate und Wirkungsgrade</td>
+<td>SoC, Ladung, Entladung und Vollzyklen</td>
+</tr>
+<tr class="even">
+<td>Elektrofahrzeuge</td>
+<td>Flexible Ladung; bei Freigabe auch Versorgung des Quartiers</td>
+<td>Anwesenheit, Ladepunkte, Leistung und Mindest-SoC</td>
+<td>Ladeflüsse und SoC nach Nutzung</td>
+</tr>
+</tbody>
+</table>
+<p>Die Mindestversorgung bleibt Bestandteil der Simulation. Flexible Beladung nutzt den darüber hinaus verfügbaren Spielraum. Ein hoher Freigabeanteil allein sagt deshalb wenig über die tatsächlich verschobene Energiemenge aus. ## Freigaben und Quellen {#excel-flexibilitaet}</p>
 <section id="im-excel-tool" class="level3 excel-operation">
 <h3 class="anchored" data-anchor-id="im-excel-tool">Im Excel-Tool</h3>
 <p>PV-Überschussnutzung und <span class="excel-field">Signal verwenden</span> getrennt prüfen. Festlegen, welche Anwendungen das Signal nutzen dürfen und welche Leistungsgrenzen gelten. <a href="./presets.html">Presets</a> dienen der Vorauswahl; entscheidend sind die tatsächlichen Schalter und Parameter.</p>
@@ -442,34 +551,104 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="thermische-gebäudemasse" class="level2">
 <h2 class="anchored" data-anchor-id="thermische-gebäudemasse">Thermische Gebäudemasse</h2>
-<p>Zusätzliche elektrische Heizung beziehungsweise Kühlung kann die Gebäudemasse als Speicher nutzen. Verwendetes System und zulässige Abweichung vom Solltemperaturniveau bestimmen die Vor-Konditionierung. Die Bauweise beziehungsweise wirksame Speichermasse wird im Blatt <a href="./envelope.html#excel-bauphysik">Bauphysik</a> eingestellt.</p>
+<p>Zusätzliche elektrische Heizung beziehungsweise Kühlung kann die Gebäudemasse als Speicher nutzen. Verwendetes System und zulässige Abweichung vom Solltemperaturniveau bestimmen die Vor-Konditionierung. Die Bauweise beziehungsweise wirksame Speichermasse wird im Blatt <span class="excel-menu darkred">🧱</span> (“Bauphysik”) eingestellt; siehe <a href="./envelope.html#excel-bauphysik">Bauphysik</a>.</p>
+<section id="komfortband-und-systemauswahl" class="level3">
+<h3 class="anchored" data-anchor-id="komfortband-und-systemauswahl">Komfortband und Systemauswahl</h3>
+<p>Die folgenden Felder legen fest, wie weit die Raumtemperatur bei flexibler Konditionierung vom Sollwert abweichen darf:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Feld</th>
+<th>Beispiel aus der Schulungsfolie</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="excel-field">Heizfall</span></td>
+<td>3 K</td>
+<td>Bei 22 °C Heizsollwert darf bis 25 °C vorgeheizt werden</td>
+</tr>
+<tr class="even">
+<td><span class="excel-field">Verwendetes Heiz-System</span></td>
+<td>System 1</td>
+<td>Erzeuger für die flexible Erwärmung</td>
+</tr>
+<tr class="odd">
+<td><span class="excel-field">Kühlfall</span></td>
+<td>2 K</td>
+<td>Bei 25 °C Kühlsollwert darf bis 23 °C vorgekühlt werden</td>
+</tr>
+<tr class="even">
+<td><span class="excel-field">Verwendetes Kühl-System</span></td>
+<td>System 1</td>
+<td>Erzeuger für die flexible Kühlung</td>
+</tr>
+</tbody>
+</table>
+<p>Die Werte illustrieren das Prinzip und sind keine allgemeinen Vorgaben. Das Temperaturband ist eine Differenz in Kelvin; der daraus berechnete Sollwert eine Temperatur in °C. Zusätzlich begrenzen Anlagen- und Abgabeleistung die tatsächlich mögliche Konditionierung.</p>
+</section>
 </section>
 <section id="warmwasserspeicher" class="level2">
 <h2 class="anchored" data-anchor-id="warmwasserspeicher">Warmwasserspeicher</h2>
 <p>Flexible Erwärmung erhöht zeitweise das Temperaturniveau vorhandener Speicher. Aktivierung und obere Temperatur prüfen. Speichergröße, Grundversorgung und Verluste gehören zur <a href="./hvac.html#warmwasser">Warmwasser-Konfiguration</a>.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Feld</th>
+<th>Beispiel aus der Schulungsfolie</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="excel-field">Dynamische WW-Speicherung</span></td>
+<td>Aktivierung über Kontrollkästchen</td>
+<td>Flexible Speicherbeladung freigeben</td>
+</tr>
+<tr class="even">
+<td><span class="excel-field">Maximale Speichertemperatur</span></td>
+<td>70 °C</td>
+<td>Obere Temperatur im gezeigten Beispiel</td>
+</tr>
+</tbody>
+</table>
+<p>Eine höhere Temperatur schafft zusätzlichen Spielraum, kann aber die Speicherverluste erhöhen. Ob die zusätzliche Beladung wirksam genutzt wird, zeigt der Verlauf im <a href="./excel-dashboard.html">Excel-Dashboard</a>.</p>
 </section>
 <section id="elektrische-batterie" class="level2">
 <h2 class="anchored" data-anchor-id="elektrische-batterie">Elektrische Batterie</h2>
-<p>Aktivierung, Kapazität, Lade-/Entladeleistung, Wirkungsgrade und Selbstentladung gemeinsam festlegen. Kapazität in kWh und Leistung in kW sind unterschiedliche Größen. Die Herkunft der Beladung und Verwendung der Entladung bestimmen die Wirkung auf Bezug und Einspeisung.</p>
+<p>Aktivierung, Kapazität, Lade-/Entladeleistung, Wirkungsgrade und Selbstentladung gemeinsam festlegen. Kapazität in kWh und Leistung in kW sind unterschiedliche Größen. Die Herkunft der Beladung und Verwendung der Entladung bestimmen die Wirkung auf Bezug und Einspeisung. Die C-Rate verknüpft Leistung und Kapazität: 20 kWh bei 0,5 h⁻¹ entsprechen einer maximalen Leistung von 10 kW.</p>
 </section>
 <section id="e-fahrzeuge" class="level2">
 <h2 class="anchored" data-anchor-id="e-fahrzeuge">E-Fahrzeuge</h2>
-<p>Flexible Ladung und bidirektionale Nutzung hängen von Standzeiten, Ladeleistung, Kapazität und Mindest-SOC ab. Diese Eingaben stehen im Blatt <a href="./mobility.html">Mobilität</a>.</p>
+<p>Flexible Ladung und bidirektionale Nutzung hängen von Standzeiten, Ladeleistung, Kapazität und Mindestladestand (SoC) ab. Diese Eingaben stehen im Blatt <span class="excel-menu orange">🚗</span> (“Mobilität”); siehe <a href="./mobility.html">Mobilitätsmodell</a>.</p>
 </section>
 <section id="dynamische-bewertung" class="level2">
 <h2 class="anchored" data-anchor-id="dynamische-bewertung">Dynamische Bewertung</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="media/manual/dynamic-assessment.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Methodik: Importe, Exporte und zeitabhängige Bewertung der Energieträger. Bereitgestellte Schulungsdarstellung."><img src="media/manual/dynamic-assessment.png" class="manual-figure img-fluid figure-img" alt="Methodik: Importe, Exporte und zeitabhängige Bewertung der Energieträger. Bereitgestellte Schulungsdarstellung."></a></p>
-<figcaption>Methodik: Importe, Exporte und zeitabhängige Bewertung der Energieträger. Bereitgestellte Schulungsdarstellung.</figcaption>
+<p><a href="media/manual/dynamic-assessment.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Methodik: Importe, Exporte und zeitabhängige Bewertung der Energieträger. Quelle: PEExcel-Schulung."><img src="media/manual/dynamic-assessment.png" class="manual-figure img-fluid figure-img" alt="Methodik: Importe, Exporte und zeitabhängige Bewertung der Energieträger. Quelle: PEExcel-Schulung."></a></p>
+<figcaption>Methodik: Importe, Exporte und zeitabhängige Bewertung der Energieträger. Quelle: PEExcel-Schulung.</figcaption>
 </figure>
 </div>
 <p>Stündliche Konversionsfaktoren bewerten den zeitlichen Energieeinsatz. Physische Einsparung, zeitliche Verschiebung und Verbesserung einer bewerteten Bilanz sind deshalb getrennt auszuweisen.</p>
 <div class="declaration-note">
 <p><strong>Für die Deklaration:</strong> ausgewiesene Vorgaben für Freigaben, Leistungen und Konversionsfaktoren verwenden. Freie Modellannahmen sind möglich, begründen aber keinen automatischen Nachweisstatus.</p>
 </div>
+<p><a href="./flexibility.html">Flexibilität Schritt für Schritt analysieren</a></p>
 <p><strong>Ergebnisprüfung:</strong> <a href="./results.html">Jahreskennwerte</a> und <a href="./excel-dashboard.html">Stundenflüsse/Speicherzustände</a> gemeinsam auswerten.</p>
 <p>Quelle: <a href="downloads/schulung.pdf#page=15">Schulung, Folien 9, 15 und 21</a>.</p>
+<p>Die Feldbeispiele zum Komfortband und zur Warmwasserspeicherung stammen aus der bereitgestellten KlimSta-Folie „Building as Battery, thermische Speicher Gebäude“.</p>
 
 
 </section>

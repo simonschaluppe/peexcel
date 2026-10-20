@@ -1,0 +1,74 @@
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Variant</th>
+      <th>Nutzerstrom</th>
+      <th>Lokale Erneuerbare (Netzstrom Substitutionsäquivalent)</th>
+      <th>HKLS Strom</th>
+      <th>Energieflexibilität (Netzstrom Substitutionsäquivalent)</th>
+      <th>HKLS Fernwärme</th>
+      <th>Kontext bauliche Dichte positiv</th>
+      <th>HKLS Erdgas</th>
+      <th>Kontext Mobilität</th>
+      <th>HKLS Biomasse</th>
+      <th>Kontext Sanierung</th>
+      <th>HKLS Sonstige</th>
+      <th>MIV Fossil</th>
+      <th>MIV Elektrisch</th>
+      <th>Kontext bauliche Dichte negativ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Bsp_San_6G</td>
+      <td>39.786</td>
+      <td>71.599</td>
+      <td>25.056</td>
+      <td>0.000</td>
+      <td>0</td>
+      <td>22.620</td>
+      <td>0</td>
+      <td>14.108</td>
+      <td>0</td>
+      <td>15</td>
+      <td>0</td>
+      <td>11.776</td>
+      <td>9.698</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Bsp_San_6G_pv</td>
+      <td>39.786</td>
+      <td>71.599</td>
+      <td>25.602</td>
+      <td>0.000</td>
+      <td>0</td>
+      <td>22.620</td>
+      <td>0</td>
+      <td>14.108</td>
+      <td>0</td>
+      <td>15</td>
+      <td>0</td>
+      <td>11.776</td>
+      <td>9.698</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Bsp_San_6G_flex</td>
+      <td>39.786</td>
+      <td>71.599</td>
+      <td>25.646</td>
+      <td>27.293</td>
+      <td>0</td>
+      <td>22.620</td>
+      <td>0</td>
+      <td>14.108</td>
+      <td>0</td>
+      <td>15</td>
+      <td>0</td>
+      <td>11.776</td>
+      <td>9.698</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>

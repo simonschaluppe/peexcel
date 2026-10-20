@@ -76,6 +76,18 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Suchen"
   }
 }</script>
+<script type="application/json" class="js-hypothesis-config">
+{
+  "theme": "clean",
+  "openSidebar": false
+}
+</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -103,12 +115,8 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
-<span class="menu-text">Übersicht</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link active" href="./start.html" aria-current="page"> 
-<span class="menu-text">Tool-Anwendung</span></a>
+    <a class="nav-link active" href="./excel-overview.html" aria-current="page"> 
+<span class="menu-text">Starten</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./model.html"> 
@@ -116,11 +124,19 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./results.html"> 
-<span class="menu-text">Analysieren und Bewerten</span></a>
+<span class="menu-text">Analysieren</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./learn.html"> 
+    <a class="nav-link" href="./projekte-nachweisen.html"> 
+<span class="menu-text">Deklarieren</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./research.html"> 
 <span class="menu-text">Dokumentation</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./assessment-explained.html"> 
+<span class="menu-text">Quick-Check</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -159,7 +175,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
- <span class="menu-text">Tool-Anwendung</span></a>
+ <span class="menu-text">Starten</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -167,14 +183,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./start.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Tool-Anwendung</span></a>
+  <a href="./excel-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Erste Schritte</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./presets.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Schnelleinstieg mit Presets</span></a>
+  <a href="./download.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Download und Voraussetzungen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -185,14 +201,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./migration.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Migration auf eine neue Toolversion</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./download.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Tool und Unterlagen</span></a>
+  <a href="./presets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schnellauswahl mit Presets</span></a>
   </div>
 </li>
       </ul>
@@ -216,12 +226,6 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="./envelope.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Thermische Hülle und Wärmeflüsse</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./components.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Bauteile richtig zuordnen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -257,7 +261,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./mobility.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mobilität: Laden und Verantwortung</span></a>
+ <span class="menu-text">Mobilität</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -268,8 +272,20 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./components.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bauteile richtig zuordnen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./variants.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Varianten verwalten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./migration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Migration auf eine neue Toolversion</span></a>
   </div>
 </li>
       </ul>
@@ -277,7 +293,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
- <span class="menu-text">Analysieren und Bewerten</span></a>
+ <span class="menu-text">Analysieren</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -286,13 +302,25 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./results.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Ergebnisblatt</span></a>
+ <span class="menu-text">Ergebnisse und Kennzahlen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./excel-dashboard.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Excel-Dashboard</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./flexibility.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Flexibilität</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mobility-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mobilitätsverhalten</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -310,13 +338,36 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./examples.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Variantenvergleich · Bsp San 6G</span></a>
+ <span class="menu-text">Beispiele</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./assessment-explained.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Projekt-Varianten-Explorer</span></a>
+ <span class="menu-text">Quick-Check</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Deklarieren</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./projekte-nachweisen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Nachweisführung von Projekten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./checklist.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Checkliste zur Nachweisvorbereitung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -329,29 +380,17 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
- <span class="menu-text">Dokumentation und Referenzen</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Python &amp; Automatisierung</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./learn.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Dokumentation und Arbeitsabläufe</span></a>
-  </div>
-</li>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./python.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Python-Schnittstelle und Notebooks</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./assessment.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Bewertung von Plus-Energie-Quartieren</span></a>
+ <span class="menu-text">Python &amp; Automatisierung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -360,6 +399,23 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Python-Szenarioexplorer</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assessment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bewertung von Plus-Energie-Quartieren</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">Dokumentation und Referenzen</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./glossary.html" class="sidebar-item-text sidebar-link">
@@ -393,11 +449,11 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#drei-zeitbegriffe-auseinanderhalten" id="toc-drei-zeitbegriffe-auseinanderhalten" class="nav-link active" data-scroll-target="#drei-zeitbegriffe-auseinanderhalten">Drei Zeitbegriffe auseinanderhalten</a></li>
   <li><a href="#thg-absenkpfade-und-lebenszyklus" id="toc-thg-absenkpfade-und-lebenszyklus" class="nav-link" data-scroll-target="#thg-absenkpfade-und-lebenszyklus">THG-Absenkpfade und Lebenszyklus</a></li>
   <li><a href="#bauteile-betrieb-und-budget" id="toc-bauteile-betrieb-und-budget" class="nav-link" data-scroll-target="#bauteile-betrieb-und-budget">Bauteile, Betrieb und Budget</a></li>
-  <li><a href="#nachvollziehbar-dokumentieren" id="toc-nachvollziehbar-dokumentieren" class="nav-link" data-scroll-target="#nachvollziehbar-dokumentieren">Nachvollziehbar dokumentieren</a></li>
   <li><a href="#excel-thg" id="toc-excel-thg" class="nav-link" data-scroll-target="#excel-thg">Ökobilanz eingeben</a>
   <ul class="collapse">
   <li><a href="#im-excel-tool" id="toc-im-excel-tool" class="nav-link" data-scroll-target="#im-excel-tool">Im Excel-Tool</a></li>
   </ul></li>
+  <li><a href="#vorgehen-bei-der-projektbearbeitung" id="toc-vorgehen-bei-der-projektbearbeitung" class="nav-link" data-scroll-target="#vorgehen-bei-der-projektbearbeitung">Vorgehen bei der Projektbearbeitung</a></li>
   <li><a href="#eco2soft" id="toc-eco2soft" class="nav-link" data-scroll-target="#eco2soft">Verknüpfung mit Eco2soft</a></li>
   </ul>
 </nav>
@@ -424,7 +480,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>Excel-Ort:</strong> Blatt <span class="excel-menu teal">☁ Treibhauspotential (THG)</span>, im Handbuch auch „Global Warming Potential“.</p>
+<p><strong>Excel-Ort:</strong> Blatt <span class="excel-menu teal">☁ THG</span> (“Graue Emissionen, Ökobilanz”), im Handbuch auch „Global Warming Potential“.</p>
 <p>Die klimaneutrale PEQ-Bewertung erweitert den Blick über die Betriebsenergie hinaus. Graue Emissionen der Gebäude und betriebliche Treibhausgasemissionen werden über den festgelegten Betrachtungszeitraum eingeordnet.</p>
 <section id="drei-zeitbegriffe-auseinanderhalten" class="level2">
 <h2 class="anchored" data-anchor-id="drei-zeitbegriffe-auseinanderhalten">Drei Zeitbegriffe auseinanderhalten</h2>
@@ -460,25 +516,24 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="thg-absenkpfade-und-lebenszyklus">THG-Absenkpfade und Lebenszyklus</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="media/manual/decarbonisation.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Methodik: THG-Absenkpfade bis 2050 für unterschiedliche Energieträger, bereitgestellte Schulungsabbildung."><img src="media/manual/decarbonisation.png" class="manual-figure img-fluid figure-img" alt="Methodik: THG-Absenkpfade bis 2050 für unterschiedliche Energieträger, bereitgestellte Schulungsabbildung."></a></p>
-<figcaption>Methodik: THG-Absenkpfade bis 2050 für unterschiedliche Energieträger, bereitgestellte Schulungsabbildung.</figcaption>
+<p><a href="media/manual/decarbonisation.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Methodik: THG-Absenkpfade bis 2050 für unterschiedliche Energieträger, Quelle: PEExcel-Schulung."><img src="media/manual/decarbonisation.png" class="manual-figure img-fluid figure-img" alt="Methodik: THG-Absenkpfade bis 2050 für unterschiedliche Energieträger, Quelle: PEExcel-Schulung."></a></p>
+<figcaption>Methodik: THG-Absenkpfade bis 2050 für unterschiedliche Energieträger, Quelle: PEExcel-Schulung.</figcaption>
 </figure>
 </div>
-<p>Die Schulung verwendet einen Betrachtungszeitraum 2025–2075 und sektorale Dekarbonisierungspfade bis 2050. Nach 2050 dekarbonisierte Systeme sind eine Bewertungsannahme. Das in der Schulung genannte Budget von 320 kg CO₂eq/m² BGF ist ein kumulierter Referenzwert, keine jährliche Emissionsrate.</p>
+<p>Die Methodik verwendet einen Betrachtungszeitraum 2025–2075 und sektorale Dekarbonisierungspfade bis 2050. Nach 2050 dekarbonisierte Systeme sind eine Bewertungsannahme. Das in der Schulung genannte Budget von 320 kg CO₂eq/m² BGF ist ein kumulierter Referenzwert, keine jährliche Emissionsrate.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="media/manual/lifecycle.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Methodik: kumulative Emissionen aus Errichtung, Betrieb und Instandsetzung sowie biogene Speicherung. Bereitgestellte Darstellung aus der Schulung."><img src="media/manual/lifecycle.png" class="manual-figure img-fluid figure-img" alt="Methodik: kumulative Emissionen aus Errichtung, Betrieb und Instandsetzung sowie biogene Speicherung. Bereitgestellte Darstellung aus der Schulung."></a></p>
-<figcaption>Methodik: kumulative Emissionen aus Errichtung, Betrieb und Instandsetzung sowie biogene Speicherung. Bereitgestellte Darstellung aus der Schulung.</figcaption>
+<p><a href="media/manual/lifecycle.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Methodik: kumulative Emissionen aus Errichtung, Betrieb und Instandsetzung sowie biogene Speicherung. Quelle: PEExcel-Schulung."><img src="media/manual/lifecycle.png" class="manual-figure img-fluid figure-img" alt="Methodik: kumulative Emissionen aus Errichtung, Betrieb und Instandsetzung sowie biogene Speicherung. Quelle: PEExcel-Schulung."></a></p>
+<figcaption>Methodik: kumulative Emissionen aus Errichtung, Betrieb und Instandsetzung sowie biogene Speicherung. Quelle: PEExcel-Schulung.</figcaption>
 </figure>
 </div>
 <p>Die zeitliche Zuordnung von Emissionen, Instandsetzung und biogener Speicherung beeinflusst die Lebenszyklusbilanz. Die in der Darstellung genannten Anrechnungen sind methodische Annahmen und keine frei übertragbaren Materialkennwerte.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="media/manual/operational-emissions.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Bilanzgrenze betrieblicher Emissionen: Bezug, lokale PV-Nutzung und Einspeisung. Bereitgestellte Grafik; englische Originalbeschriftung."><img src="media/manual/operational-emissions.png" class="manual-figure img-fluid figure-img" alt="Bilanzgrenze betrieblicher Emissionen: Bezug, lokale PV-Nutzung und Einspeisung. Bereitgestellte Grafik; englische Originalbeschriftung."></a></p>
-<figcaption>Bilanzgrenze betrieblicher Emissionen: Bezug, lokale PV-Nutzung und Einspeisung. Bereitgestellte Grafik; englische Originalbeschriftung.</figcaption>
+<p><a href="media/manual/operational-emissions.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Bilanzgrenze betrieblicher Emissionen: Bezug, lokale PV-Nutzung und Einspeisung. Schulungsgrafik; englische Originalbeschriftung. Quelle: Schulung, Folien 22–23 und 31."><img src="media/manual/operational-emissions.png" class="manual-figure img-fluid figure-img" alt="Bilanzgrenze betrieblicher Emissionen: Bezug, lokale PV-Nutzung und Einspeisung. Schulungsgrafik; englische Originalbeschriftung. Quelle: Schulung, Folien 22–23 und 31."></a></p>
+<figcaption>Bilanzgrenze betrieblicher Emissionen: Bezug, lokale PV-Nutzung und Einspeisung. Schulungsgrafik; englische Originalbeschriftung. Quelle: <a href="downloads/schulung.pdf#page=31">Schulung, Folien 22–23 und 31</a>.</figcaption>
 </figure>
 </div>
-<p>Quelle: <a href="downloads/schulung.pdf#page=31">Schulung, Folien 22–23 und 31</a>.</p>
 </section>
 <section id="bauteile-betrieb-und-budget" class="level2">
 <h2 class="anchored" data-anchor-id="bauteile-betrieb-und-budget">Bauteile, Betrieb und Budget</h2>
@@ -489,27 +544,17 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Wichtig</span>PV-LCA: modellierbar, in ka nicht bewertet
+<span class="screen-reader-only">Wichtig</span>PV-LCA: modellierbar, in klimaaktiv PEQ aber nicht Teil der Bilanz
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Lebenszyklusemissionen der PV können im Tool modelliert werden. In der <strong>klimaaktiv-Bewertungsmethode werden sie nicht berücksichtigt</strong>. Ein Eingabefeld oder Ergebnis bedeutet nicht automatisch, dass der Beitrag in die Deklaration eingeht. Diese Aussage nicht pauschal auf andere Anlagen oder Bewertungsverfahren übertragen.</p>
+<p>Graue Emissionen der PV-Herstellung können im Tool modelliert werden. In der <strong>klimaaktiv-Bewertungsmethode werden sie nicht berücksichtigt</strong>. Ein Eingabefeld oder Ergebnis bedeutet nicht automatisch, dass der Beitrag in die Deklaration eingeht. Diese Aussage nicht pauschal auf andere Anlagen oder Bewertungsverfahren übertragen.</p>
 </div>
 </div>
-</section>
-<section id="nachvollziehbar-dokumentieren" class="level2">
-<h2 class="anchored" data-anchor-id="nachvollziehbar-dokumentieren">Nachvollziehbar dokumentieren</h2>
-<p>Toolversion, Datenquellen, Zeitraum, Konversionsfaktoren, Dekarbonisierungspfad und Systemgrenze sind zu dokumentieren. Frei modellierte Varianten dürfen abweichen; zur Deklaration gelten die entsprechenden Vorgaben.</p>
-<details>
-<summary>
-Fachliche Einordnung
-</summary>
-Bei veränderlichen Emissionsfaktoren führt dieselbe Energiemenge in unterschiedlichen Jahren zu unterschiedlichen bewerteten Emissionen. Energiemenge und Bewertung sind getrennte Größen.
-</details>
-<p><a href="downloads/schulung.pdf">Schulung, Folien 22–23</a> · <a href="downloads/hintergrund.pdf">Methodischer Hintergrund</a> · <a href="./declaration.html">Deklaration</a></p>
 </section>
 <section id="excel-thg" class="level2">
 <h2 class="anchored" data-anchor-id="excel-thg">Ökobilanz eingeben</h2>
+<p><strong>Ökobilanz:</strong> Blatt <span class="excel-menu teal">☁ THG</span> (“Graue Emissionen, Ökobilanz”) → <span class="excel-section">Baulich</span>.</p>
 <section id="im-excel-tool" class="level3 excel-operation">
 <h3 class="anchored" data-anchor-id="im-excel-tool">Im Excel-Tool</h3>
 <ol type="1">
@@ -520,16 +565,40 @@ Bei veränderlichen Emissionsfaktoren führt dieselbe Energiemenge in unterschie
 <li>Neu berechnen und im <a href="./results.html">Ergebnisblatt</a> bauliche und betriebliche Beiträge gemeinsam prüfen.</li>
 </ol>
 </section>
+<p>Bauteilzuordnung verbindet Geometrie, Mengen und Lebenszyklusbilanz. <strong>Eine geometrische Fläche ist noch keine vollständige LCA-Zuordnung.</strong> Konstruktion, Randbedingung und Nutzung müssen nachvollziehbar sein.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/components.png" class="full-figure img-fluid figure-img"></p>
+<figcaption>Bauteiltypen: Zuordnung im Gebäudeschnitt</figcaption>
+</figure>
+</div>
+<p>Die Originalgrafik ergänzt die reduzierten schematischen Schnitte um weitere Situationen. Vergrößern durch Anklicken. Quelle: <code>docs/ComponentTypes.png</code>; siehe auch <a href="downloads/schulung.pdf">Schulung, Folien 13–14</a>.</p>
+</section>
+<section id="vorgehen-bei-der-projektbearbeitung" class="level2">
+<h2 class="anchored" data-anchor-id="vorgehen-bei-der-projektbearbeitung">Vorgehen bei der Projektbearbeitung</h2>
+<ol type="1">
+<li>Flächen und Bauteile anhand der tatsächlichen Konstruktion zuordnen.</li>
+<li>Außenluft, Erdreich, beheizte und unbeheizte Nachbarräume unterscheiden.</li>
+<li>Mengen und Einheiten vor dem Import von LCA-Kennwerten prüfen.</li>
+<li>Nicht dargestellte Elemente, etwa Balkone, Stützen oder Fensterrahmen, separat dokumentieren.</li>
+<li>Übernommene Bauteilwerte und Bewertungsgrenze kontrollieren.</li>
+</ol>
+<details>
+<summary>
+Fachliche Einordnung
+</summary>
+Die Kellerdecke trennt im zweiten Referenzmodell beheizt von unbeheizt und gehört zur Wärmebilanzgrenze. Die innere Geschoßdecke ist ebenfalls ein bilanziertes Konstruktionsbauteil, bildet dort aber keine äußere thermische Grenze. Thermische und Lebenszyklusbilanz betrachten unterschiedliche Eigenschaften desselben Bauteils.
+</details>
+<p><a href="./climate.html#eco2soft">Ökobilanz und Eco2soft-Import</a></p>
+<p>Eine interaktive Ansicht ist über den separaten Link unten verfügbar.</p>
+<p><a href="assets/components/index.html">Bauteilkatalog separat öffnen</a></p>
 </section>
 <section id="eco2soft" class="level2">
 <h2 class="anchored" data-anchor-id="eco2soft">Verknüpfung mit Eco2soft</h2>
-<p>Die Schulung nennt <strong>baubook / Eco2soft</strong>, die dort hinterlegte passende Systemgrenze <strong>„Aspern Klimafit“</strong> und den <strong>direkten Import als CSV</strong>. Die vorgelagerte Gebäudeökobilanz liefert damit eine Datengrundlage für das THG-Blatt.</p>
 <div class="excel-operation">
 <p>Die passende Bilanz in Eco2soft erstellen und als CSV exportieren. Für die Übernahme ins Tool Systemgrenze, Bezugsfläche, Einheiten, fossile/biogene Beiträge und Erneuerungsannahmen abgleichen. Nach dem Import prüfen, welche Bauteile beziehungsweise Sammelergebnisse übernommen wurden, und bereits vorhandene Eingaben auf Doppelzählung kontrollieren.</p>
 </div>
-<div class="pending">
-<p><strong>Importdialog in Vorbereitung:</strong> aktueller Eco2soft-CSV-Import mit Zuordnung der Felder. Die Schulung belegt die Importmöglichkeit; die konkrete Klickfolge wird nach Ergänzung der Ansicht dokumentiert.</p>
-</div>
+<p>Für den CSV-Import die Feldzuordnung im Importdialog prüfen. Unterschiedliche Systemgrenzen oder bereits erfasste Bauteile können sonst zu fehlenden Beiträgen oder Doppelzählung führen.</p>
 
 
 </section>

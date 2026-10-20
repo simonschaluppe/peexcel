@@ -76,6 +76,18 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Suchen"
   }
 }</script>
+<script type="application/json" class="js-hypothesis-config">
+{
+  "theme": "clean",
+  "openSidebar": false
+}
+</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -103,12 +115,8 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
-<span class="menu-text">Übersicht</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link active" href="./start.html" aria-current="page"> 
-<span class="menu-text">Tool-Anwendung</span></a>
+    <a class="nav-link active" href="./excel-overview.html" aria-current="page"> 
+<span class="menu-text">Starten</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./model.html"> 
@@ -116,11 +124,19 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./results.html"> 
-<span class="menu-text">Analysieren und Bewerten</span></a>
+<span class="menu-text">Analysieren</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./learn.html"> 
+    <a class="nav-link" href="./projekte-nachweisen.html"> 
+<span class="menu-text">Deklarieren</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./research.html"> 
 <span class="menu-text">Dokumentation</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./assessment-explained.html"> 
+<span class="menu-text">Quick-Check</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -159,7 +175,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
- <span class="menu-text">Tool-Anwendung</span></a>
+ <span class="menu-text">Starten</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -167,14 +183,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./start.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Tool-Anwendung</span></a>
+  <a href="./excel-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Erste Schritte</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./presets.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Schnelleinstieg mit Presets</span></a>
+  <a href="./download.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Download und Voraussetzungen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -185,14 +201,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./migration.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Migration auf eine neue Toolversion</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./download.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Tool und Unterlagen</span></a>
+  <a href="./presets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schnellauswahl mit Presets</span></a>
   </div>
 </li>
       </ul>
@@ -216,12 +226,6 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="./envelope.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Thermische Hülle und Wärmeflüsse</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./components.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Bauteile richtig zuordnen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -257,7 +261,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./mobility.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mobilität: Laden und Verantwortung</span></a>
+ <span class="menu-text">Mobilität</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -268,8 +272,20 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./components.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bauteile richtig zuordnen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./variants.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Varianten verwalten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./migration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Migration auf eine neue Toolversion</span></a>
   </div>
 </li>
       </ul>
@@ -277,7 +293,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
- <span class="menu-text">Analysieren und Bewerten</span></a>
+ <span class="menu-text">Analysieren</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -286,13 +302,25 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./results.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Ergebnisblatt</span></a>
+ <span class="menu-text">Ergebnisse und Kennzahlen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./excel-dashboard.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Excel-Dashboard</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./flexibility.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Flexibilität</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mobility-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mobilitätsverhalten</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -310,13 +338,36 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./examples.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Variantenvergleich · Bsp San 6G</span></a>
+ <span class="menu-text">Beispiele</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./assessment-explained.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Projekt-Varianten-Explorer</span></a>
+ <span class="menu-text">Quick-Check</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Deklarieren</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./projekte-nachweisen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Nachweisführung von Projekten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./checklist.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Checkliste zur Nachweisvorbereitung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -329,29 +380,17 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
- <span class="menu-text">Dokumentation und Referenzen</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Python &amp; Automatisierung</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./learn.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Dokumentation und Arbeitsabläufe</span></a>
-  </div>
-</li>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./python.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Python-Schnittstelle und Notebooks</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./assessment.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Bewertung von Plus-Energie-Quartieren</span></a>
+ <span class="menu-text">Python &amp; Automatisierung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -360,6 +399,23 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Python-Szenarioexplorer</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assessment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bewertung von Plus-Energie-Quartieren</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">Dokumentation und Referenzen</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./glossary.html" class="sidebar-item-text sidebar-link">
@@ -390,13 +446,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#excel-bauphysik" id="toc-excel-bauphysik" class="nav-link active" data-scroll-target="#excel-bauphysik">Eingaben im Blatt Bauphysik</a>
+  <li><a href="#excel-bauphysik" id="toc-excel-bauphysik" class="nav-link active" data-scroll-target="#excel-bauphysik">Bauphysik eingeben</a>
   <ul class="collapse">
   <li><a href="#im-excel-tool" id="toc-im-excel-tool" class="nav-link" data-scroll-target="#im-excel-tool">Im Excel-Tool</a></li>
   </ul></li>
-  <li><a href="#stil-und-fachebenen" id="toc-stil-und-fachebenen" class="nav-link" data-scroll-target="#stil-und-fachebenen">Stil und Fachebenen</a></li>
-  <li><a href="#zwei-thermisch-entkoppelte-modellzonen" id="toc-zwei-thermisch-entkoppelte-modellzonen" class="nav-link" data-scroll-target="#zwei-thermisch-entkoppelte-modellzonen">Zwei thermisch entkoppelte Modellzonen</a></li>
-  <li><a href="#abgrenzung-innerer-decken" id="toc-abgrenzung-innerer-decken" class="nav-link" data-scroll-target="#abgrenzung-innerer-decken">Abgrenzung innerer Decken</a></li>
   </ul>
 </nav>
     </div>
@@ -422,10 +475,26 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<div class="lead">
+<p>Zwei thermisch entkoppelte Modellzonen</p>
+</div>
+<p>Die thermische Modellierung unterscheidet eine <strong>gekühlte und eine ungekühlte, thermisch entkoppelte Zone</strong>.</p>
+<p>Solare Gewinne kommen durch Fenster, interne Wärmegewinne entstehen im Raum. Transmission und Lüftung werden als beispielhafte Wärmeabfuhr gezeigt; ihre tatsächliche Richtung hängt vom Zustand ab. Die Pfeile sind <strong>qualitativ</strong>, ihre Dicke kodiert keine Leistung.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="illustrations/thermisches_modell.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Thermisches Energiemodell mit zwei thermisch entkoppelten Zonen, Wärmeflüssen und beispielhaften Bilanzen."><img src="illustrations/thermisches_modell.svg" class="manual-figure img-fluid figure-img" alt="Thermisches Energiemodell mit zwei thermisch entkoppelten Zonen, Wärmeflüssen und beispielhaften Bilanzen."></a></p>
+<figcaption>Thermisches Energiemodell mit zwei thermisch entkoppelten Zonen, Wärmeflüssen und beispielhaften Bilanzen.</figcaption>
+</figure>
+</div>
+<!-- Interactive embed paused for page performance.
+<iframe class="peq-lesson" data-fit src="assets/teaching/index.html" title="Interaktive Schnittdarstellung: Bauteile, Hülle und Wärmeflüsse"></iframe>
+-->
+<p>Eine interaktive Ansicht ist über den separaten Link unten verfügbar: <a href="assets/teaching/index.html">Schnittdarstellung separat öffnen</a> · <a href="downloads/howto_section_teaching_preview.ipynb">Ausführbares Notebook</a> Die Schnittdarstellung ordnet die Bilanzgrenze räumlich zu.</p>
+<p>Im Unterschied zur thermischen Hülle, umfasst die <a href="./climate.html">Ökobilanz</a> darüber hinaus Konstruktionen innerhalb und außerhalb dieser Grenze; thermische Hüllfläche und LCA-Menge sind daher nicht gleichzusetzen.</p>
 <section id="excel-bauphysik" class="level2">
-<h2 class="anchored" data-anchor-id="excel-bauphysik">Eingaben im Blatt Bauphysik</h2>
-<p><strong>Gegenstand:</strong> Konstruktion, thermische Bilanzgrenze und Wärmeflüsse auseinanderhalten. Bauteilzuordnung, Bilanzgrenze und qualitative Wärmeflüsse sind separat schaltbar.</p>
-<p><strong>Excel-Ort:</strong> Blatt <span class="excel-menu darkred">🧱 Bauphysik</span>.</p>
+<h2 class="anchored" data-anchor-id="excel-bauphysik">Bauphysik eingeben</h2>
+<p>Konstruktion, thermische Bilanzgrenze und Wärmeflüsse auseinanderhalten. Bauteilzuordnung, Bilanzgrenze und qualitative Wärmeflüsse sind separat schaltbar.</p>
+<p><strong>Excel-Ort:</strong> Blatt <span class="excel-menu darkred">🧱</span> (“Bauphysik”).</p>
 <section id="im-excel-tool" class="level3 excel-operation">
 <h3 class="anchored" data-anchor-id="im-excel-tool">Im Excel-Tool</h3>
 <table class="caption-top table">
@@ -464,49 +533,8 @@ ul.task-list li input[type="checkbox"] {
 </table>
 <p><a href="./presets.html">Schnellauswahlen</a> zunächst übernehmen, anschließend projektspezifische Flächen und Kennwerte prüfen. Nach der Berechnung die Wärmebilanz im <a href="./results.html#waermebilanz">Ergebnisblatt</a> kontrollieren.</p>
 </section>
-<p>Die Schnittdarstellung ordnet die Bilanzgrenze räumlich zu. Die <a href="./climate.html">Ökobilanz</a> umfasst darüber hinaus Konstruktionen innerhalb dieser Grenze; thermische Hüllfläche und LCA-Menge sind daher nicht gleichzusetzen.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="media/manual/thermal-model.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Thermisches Energiemodell mit zwei thermisch entkoppelten Zonen, Wärmeflüssen und beispielhaften Bilanzen. Bereitgestellte Schulungsgrafik."><img src="media/manual/thermal-model.png" class="manual-figure img-fluid figure-img" alt="Thermisches Energiemodell mit zwei thermisch entkoppelten Zonen, Wärmeflüssen und beispielhaften Bilanzen. Bereitgestellte Schulungsgrafik."></a></p>
-<figcaption>Thermisches Energiemodell mit zwei thermisch entkoppelten Zonen, Wärmeflüssen und beispielhaften Bilanzen. Bereitgestellte Schulungsgrafik.</figcaption>
-</figure>
-</div>
-<!-- Interactive embed paused for page performance.
-<iframe class="peq-lesson" data-fit src="assets/teaching/index.html" title="Interaktive Schnittdarstellung: Bauteile, Hülle und Wärmeflüsse"></iframe>
--->
-<p>Die interaktive Ansicht ist über den separaten Link unten verfügbar.</p>
-<p><a href="assets/teaching/index.html">Schnittdarstellung separat öffnen</a> · <a href="downloads/howto_section_teaching_preview.ipynb">Ausführbares Notebook</a></p>
-</section>
-<section id="stil-und-fachebenen" class="level2">
-<h2 class="anchored" data-anchor-id="stil-und-fachebenen">Stil und Fachebenen</h2>
-<p>Der Stil <strong>teaching</strong> reduziert Umgebung und Dekoration und erhält die Geometrie des Section-Renderers. Bauteilfarben, Wärmebilanzgrenze, Auswahl und Wärmeflüsse sind unabhängig davon aufgelegte Fachebenen. Die bestehenden Stile bleiben für andere Darstellungszwecke verfügbar.</p>
-</section>
-<section id="zwei-thermisch-entkoppelte-modellzonen" class="level2">
-<h2 class="anchored" data-anchor-id="zwei-thermisch-entkoppelte-modellzonen">Zwei thermisch entkoppelte Modellzonen</h2>
-<p>Der Umschalter zeigt gekühlt und ungekühlt einzeln; die beiden Geschosse stellen <strong>nicht</strong> diese beiden Modellzonen dar. Heizung ist in beiden Zonen möglich, aktive Kühlung nur in der gekühlten Zone und Nachtlüftung im dargestellten Referenzmodell nur in der ungekühlten Zone.</p>
-<p>Solare Gewinne kommen durch Fenster, interne Wärmegewinne entstehen im Raum. Transmission und Lüftung werden als beispielhafte Wärmeabfuhr gezeigt; ihre tatsächliche Richtung hängt vom Zustand ab. Die Pfeile sind <strong>qualitativ</strong>, ihre Dicke kodiert keine Leistung.</p>
-</section>
-<section id="abgrenzung-innerer-decken" class="level2">
-<h2 class="anchored" data-anchor-id="abgrenzung-innerer-decken">Abgrenzung innerer Decken</h2>
-<p>Die thermische Hülle und die Bauteilauswahl verdeutlichen unterschiedliche Bilanzgrenzen.</p>
-<details>
-<summary>
-Thermische Randbedingungen
-</summary>
-Die innere Decke liegt zwischen zwei beheizten Geschossen und damit innerhalb der Bilanzgrenze. Über einem unbeheizten Keller kann eine Decke dagegen zur thermischen Hülle gehören. Entscheidend ist die thermische Randbedingung, nicht allein der geometrische Typ „slab“. Die <a href="components.html">zweite Referenzgeometrie</a> zeigt diesen Unterschied.
-</details>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Hinweis</span>Für die Deklaration
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Interne Wärmegewinne und Nutzerstrom können frei modelliert werden. Für die Deklaration gelten die ausgewiesenen Deklarationswerte der verwendeten Toolversion.</p>
-</div>
+<div class="declaration-note">
+<p><strong>Deklaration</strong>: Interne Wärmegewinne und Nutzerstrom können im Tool prinzipiell frei modelliert werden. Für die Deklaration gelten die ausgewiesenen Deklarationswerte der verwendeten Toolversion.</p>
 </div>
 <p>Quelle: <a href="downloads/schulung.pdf">Schulung, Folien 11–14</a>. Die Geometrie ist ein ausdrücklich angenommenes Referenzgebäude, kein Projektergebnis.</p>
 

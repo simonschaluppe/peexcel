@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Ergebnisblatt – PEExcel</title>
+<title>Ergebnisse und Kennzahlen – PEExcel</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -73,6 +73,18 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Suchen"
   }
 }</script>
+<script type="application/json" class="js-hypothesis-config">
+{
+  "theme": "clean",
+  "openSidebar": false
+}
+</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -100,12 +112,8 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
-<span class="menu-text">Übersicht</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link active" href="./start.html" aria-current="page"> 
-<span class="menu-text">Tool-Anwendung</span></a>
+    <a class="nav-link active" href="./excel-overview.html" aria-current="page"> 
+<span class="menu-text">Starten</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./model.html"> 
@@ -113,11 +121,19 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./results.html"> 
-<span class="menu-text">Analysieren und Bewerten</span></a>
+<span class="menu-text">Analysieren</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./learn.html"> 
+    <a class="nav-link" href="./projekte-nachweisen.html"> 
+<span class="menu-text">Deklarieren</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./research.html"> 
 <span class="menu-text">Dokumentation</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./assessment-explained.html"> 
+<span class="menu-text">Quick-Check</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -141,7 +157,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./results.html">Analysieren und Bewerten</a></li><li class="breadcrumb-item"><a href="./results.html">Ergebnisblatt</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./results.html">Analysieren</a></li><li class="breadcrumb-item"><a href="./results.html">Ergebnisse und Kennzahlen</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -156,7 +172,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
- <span class="menu-text">Tool-Anwendung</span></a>
+ <span class="menu-text">Starten</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -164,14 +180,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./start.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Tool-Anwendung</span></a>
+  <a href="./excel-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Erste Schritte</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./presets.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Schnelleinstieg mit Presets</span></a>
+  <a href="./download.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Download und Voraussetzungen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -182,14 +198,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./migration.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Migration auf eine neue Toolversion</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./download.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Tool und Unterlagen</span></a>
+  <a href="./presets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schnellauswahl mit Presets</span></a>
   </div>
 </li>
       </ul>
@@ -213,12 +223,6 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="./envelope.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Thermische Hülle und Wärmeflüsse</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./components.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Bauteile richtig zuordnen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -254,7 +258,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./mobility.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mobilität: Laden und Verantwortung</span></a>
+ <span class="menu-text">Mobilität</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -265,8 +269,20 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./components.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bauteile richtig zuordnen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./variants.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Varianten verwalten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./migration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Migration auf eine neue Toolversion</span></a>
   </div>
 </li>
       </ul>
@@ -274,7 +290,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Analysieren und Bewerten</span></a>
+ <span class="menu-text">Analysieren</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -283,13 +299,25 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./results.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Ergebnisblatt</span></a>
+ <span class="menu-text">Ergebnisse und Kennzahlen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./excel-dashboard.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Excel-Dashboard</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./flexibility.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Flexibilität</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mobility-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mobilitätsverhalten</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -307,13 +335,36 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./examples.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Variantenvergleich · Bsp San 6G</span></a>
+ <span class="menu-text">Beispiele</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./assessment-explained.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Projekt-Varianten-Explorer</span></a>
+ <span class="menu-text">Quick-Check</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Deklarieren</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./projekte-nachweisen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Nachweisführung von Projekten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./checklist.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Checkliste zur Nachweisvorbereitung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -326,29 +377,17 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
- <span class="menu-text">Dokumentation und Referenzen</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Python &amp; Automatisierung</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./learn.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Dokumentation und Arbeitsabläufe</span></a>
-  </div>
-</li>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./python.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Python-Schnittstelle und Notebooks</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./assessment.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Bewertung von Plus-Energie-Quartieren</span></a>
+ <span class="menu-text">Python &amp; Automatisierung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -357,6 +396,23 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Python-Szenarioexplorer</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assessment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bewertung von Plus-Energie-Quartieren</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">Dokumentation und Referenzen</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./glossary.html" class="sidebar-item-text sidebar-link">
@@ -387,21 +443,35 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#projektkennwerte" id="toc-projektkennwerte" class="nav-link active" data-scroll-target="#projektkennwerte">Projektkennwerte</a></li>
+  <li><a href="#die-passende-auswertung-wählen" id="toc-die-passende-auswertung-wählen" class="nav-link active" data-scroll-target="#die-passende-auswertung-wählen">Die passende Auswertung wählen</a></li>
+  <li><a href="#kennzahlen" id="toc-kennzahlen" class="nav-link" data-scroll-target="#kennzahlen">Vorhandene Kennzahlen</a>
+  <ul class="collapse">
+  <li><a href="#eigenverbrauch-und-energie-autonomie" id="toc-eigenverbrauch-und-energie-autonomie" class="nav-link" data-scroll-target="#eigenverbrauch-und-energie-autonomie">Eigenverbrauch und Energie-Autonomie</a></li>
+  </ul></li>
+  <li><a href="#projektkennwerte" id="toc-projektkennwerte" class="nav-link" data-scroll-target="#projektkennwerte">Projektkennwerte</a></li>
   <li><a href="#waermebilanz" id="toc-waermebilanz" class="nav-link" data-scroll-target="#waermebilanz">Wärmebilanz</a></li>
   <li><a href="#endenergiebilanz" id="toc-endenergiebilanz" class="nav-link" data-scroll-target="#endenergiebilanz">Endenergiebilanz</a></li>
   <li><a href="#flexibilität-und-batterie" id="toc-flexibilität-und-batterie" class="nav-link" data-scroll-target="#flexibilität-und-batterie">Flexibilität und Batterie</a></li>
   <li><a href="#primärenergiebilanz" id="toc-primärenergiebilanz" class="nav-link" data-scroll-target="#primärenergiebilanz">Primärenergiebilanz</a></li>
   <li><a href="#thg-bilanz" id="toc-thg-bilanz" class="nav-link" data-scroll-target="#thg-bilanz">THG-Bilanz</a></li>
+  <li><a href="#konzeptplanung" id="toc-konzeptplanung" class="nav-link" data-scroll-target="#konzeptplanung">Häufige Fragen zur Konzeptplanung</a>
+  <ul class="collapse">
+  <li><a href="#funktionieren-variantenvergleich-und-sensitivitäten-bereits" id="toc-funktionieren-variantenvergleich-und-sensitivitäten-bereits" class="nav-link" data-scroll-target="#funktionieren-variantenvergleich-und-sensitivitäten-bereits">Funktionieren Variantenvergleich und Sensitivitäten bereits?</a></li>
+  <li><a href="#welche-zeitliche-auflösung-steht-zur-verfügung" id="toc-welche-zeitliche-auflösung-steht-zur-verfügung" class="nav-link" data-scroll-target="#welche-zeitliche-auflösung-steht-zur-verfügung">Welche zeitliche Auflösung steht zur Verfügung?</a></li>
+  <li><a href="#kann-eine-netzentlastung-beurteilt-werden" id="toc-kann-eine-netzentlastung-beurteilt-werden" class="nav-link" data-scroll-target="#kann-eine-netzentlastung-beurteilt-werden">Kann eine Netzentlastung beurteilt werden?</a></li>
+  <li><a href="#wie-werden-co₂-einsparungen-bestimmt" id="toc-wie-werden-co₂-einsparungen-bestimmt" class="nav-link" data-scroll-target="#wie-werden-co₂-einsparungen-bestimmt">Wie werden CO₂-Einsparungen bestimmt?</a></li>
+  <li><a href="#sind-wirtschaftlichkeit-resilienz-und-genehmigungsfähigkeit-abgedeckt" id="toc-sind-wirtschaftlichkeit-resilienz-und-genehmigungsfähigkeit-abgedeckt" class="nav-link" data-scroll-target="#sind-wirtschaftlichkeit-resilienz-und-genehmigungsfähigkeit-abgedeckt">Sind Wirtschaftlichkeit, Resilienz und Genehmigungsfähigkeit abgedeckt?</a></li>
+  <li><a href="#welche-daten-benötigt-ein-use-case" id="toc-welche-daten-benötigt-ein-use-case" class="nav-link" data-scroll-target="#welche-daten-benötigt-ein-use-case">Welche Daten benötigt ein Use Case?</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./results.html">Analysieren und Bewerten</a></li><li class="breadcrumb-item"><a href="./results.html">Ergebnisblatt</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./results.html">Analysieren</a></li><li class="breadcrumb-item"><a href="./results.html">Ergebnisse und Kennzahlen</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Ergebnisblatt</h1>
+<h1 class="title">Ergebnisse und Kennzahlen</h1>
 </div>
 
 
@@ -418,11 +488,114 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>Excel-Ort:</strong> Blatt <span class="excel-menu red">📊 Ergebnisse (Erg)</span>.</p>
+<p><strong>Excel-Ort:</strong> Blatt <span class="excel-menu red">📊 Erg</span> (“Ergebnisse”).</p>
 <p>Hier stehen die Tabellen und Diagramme der aktuell berechneten Variante. Die Schulung unterscheidet dieses Ergebnisblatt vom internen Ergebnisspeicher <strong>OUT</strong> und vom <a href="./excel-dashboard.html">Excel-Dashboard</a> für zeitaufgelöste Analysen.</p>
 <div class="excel-path">
 <p><strong>Menüband:</strong> klimaaktiv PEQ → Ergebnisse → <span class="excel-action">Ergebnisse</span></p>
 </div>
+<section id="die-passende-auswertung-wählen" class="level2">
+<h2 class="anchored" data-anchor-id="die-passende-auswertung-wählen">Die passende Auswertung wählen</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Fragestellung</th>
+<th>Ansicht</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Wie viel Energie wird über das Jahr benötigt und gedeckt?</td>
+<td>Jahresbilanzen auf dieser Seite</td>
+</tr>
+<tr class="even">
+<td>Wann entstehen Bedarf, Überschuss und Speicherladung?</td>
+<td><a href="./excel-dashboard.html">Excel-Dashboard</a></td>
+</tr>
+<tr class="odd">
+<td>Was bewirken Temperaturband, Signale und Speicher?</td>
+<td><a href="./flexibility.html">Flexibilität analysieren</a></td>
+</tr>
+<tr class="even">
+<td>Wie beeinflussen Standzeiten und Nutzung das Laden?</td>
+<td><a href="./mobility-analysis.html">Mobilitätsverhalten</a></td>
+</tr>
+<tr class="odd">
+<td>Welche Maßnahmenkombination ist günstiger?</td>
+<td><a href="./comparison.html">Variantenvergleich</a></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="kennzahlen" class="level2">
+<h2 class="anchored" data-anchor-id="kennzahlen">Vorhandene Kennzahlen</h2>
+<p>Die Jahresauswertung ergänzt die stündlichen Diagramme. Kennzahl, Bezugsfläche und Bilanzgrenze müssen beim Vergleich gleich bleiben.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Bereich</th>
+<th>Kennzahlen</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Gebäude</td>
+<td>Heizwärme- und Kühlbedarf, Wärmegewinne und -verluste</td>
+<td>Jahresenergie von Leistung und Temperatur unterscheiden</td>
+</tr>
+<tr class="even">
+<td>Strom</td>
+<td>Bedarf, Netzbezug, PV-Nutzung und Einspeisung</td>
+<td>Lokale Versorgung und externe Mobilitätsladung getrennt lesen</td>
+</tr>
+<tr class="odd">
+<td>PV-Eigenverbrauch</td>
+<td>Direkter, flexibler und gesamter Eigenverbrauchsanteil</td>
+<td>Anteil der PV-Erzeugung, der den entsprechenden lokalen Nutzungen zugeordnet wird</td>
+</tr>
+<tr class="even">
+<td>Energie-Autonomie</td>
+<td>Lokale direkte und flexible PV-Nutzung bezogen auf den elektrischen Bedarf</td>
+<td>PV-bezogene Kennzahl; nicht mit Versorgungssicherheit oder Inselbetriebsfähigkeit gleichsetzen</td>
+</tr>
+<tr class="odd">
+<td>Netzeinspeisung</td>
+<td>PV-Spitzeneinspeisung in kW und zugehöriger Zeitpunkt</td>
+<td>Maximum auf der stündlichen Zeitbasis; keine Aussage über kürzere Spitzen oder Netzspannungen</td>
+</tr>
+<tr class="even">
+<td>Stationäre Batterie</td>
+<td>Jährliche Beladung und Entladung, Lade-/Entladeverluste, Round-Trip-Effizienz, äquivalente Vollzyklen</td>
+<td>Nutzung und Verluste gemeinsam beurteilen; Vollzyklen allein bestimmen keine Lebensdauer</td>
+</tr>
+<tr class="odd">
+<td>Flexibilität</td>
+<td>Freigabeanteil im Jahr sowie Sommer/Winter, flexible Netz- und PV-Nutzung</td>
+<td>Freigabe ist eine Gelegenheit; die tatsächliche Nutzung hängt von Bedarf und Speicherzustand ab</td>
+</tr>
+<tr class="even">
+<td>Mobilität</td>
+<td>Fahrleistung, elektrischer und fossiler Zielverkehrsbedarf, EV-Ladung und EV-Vollzyklen</td>
+<td>Verursachter Verkehr und physische Ladung haben unterschiedliche Bilanzgrenzen</td>
+</tr>
+<tr class="odd">
+<td>Bewertung</td>
+<td>Primärenergie, betriebliche und graue THG-Beiträge, Gesamtbilanz und Budgetabstand</td>
+<td>Bewertete Größen ergänzen die physischen Energieflüsse</td>
+</tr>
+</tbody>
+</table>
+<section id="eigenverbrauch-und-energie-autonomie" class="level3">
+<h3 class="anchored" data-anchor-id="eigenverbrauch-und-energie-autonomie">Eigenverbrauch und Energie-Autonomie</h3>
+<p>Der <strong>PV-Eigenverbrauchsanteil</strong> setzt die Summe aus direkter und flexibler lokaler PV-Nutzung ins Verhältnis zur PV-Erzeugung. Die <strong>Energie-Autonomie</strong> verwendet dieselbe lokale PV-Nutzung im Zähler, aber den elektrischen Gesamtbedarf als Nenner. Ein größerer PV-Ertrag kann diese beiden Anteile unterschiedlich verändern.</p>
+<p>Bei Vergleichen mit anderen Tools die Definitionen einschließlich Mobilität und Speicherladung abgleichen. Ein identischer Begriff wie „Autarkie“ garantiert keine identische Bilanzgrenze.</p>
+</section>
+</section>
 <section id="projektkennwerte" class="level2">
 <h2 class="anchored" data-anchor-id="projektkennwerte">Projektkennwerte</h2>
 <p>Projekt-/Variantenbezeichnung, Flächen, Nutzungsmischung, bauliche Dichte sowie gekühlte und mechanisch belüftete Anteile prüfen. Die Bezugsgrößen NGF und BGF sind bei jeder Bilanz zu beachten.</p>
@@ -446,13 +619,37 @@ ul.task-list li input[type="checkbox"] {
 <section id="thg-bilanz" class="level2">
 <h2 class="anchored" data-anchor-id="thg-bilanz">THG-Bilanz</h2>
 <p>Bauliche und betriebliche Beiträge einschließlich Mobilität werden kumuliert dargestellt. Emissionen, Gutschriften, Budget und Saldo sind getrennte Größen. Bewertungszeitraum und BGF-Bezug prüfen; <a href="./climate.html">Ökobilanz-Eingaben</a> und <a href="./declaration.html">Nachweisführung</a> sind separat dokumentiert.</p>
-<div class="pending">
-<p><strong>Detailabbildungen in Vorbereitung:</strong> aktuelle Ausschnitte des Ergebnisblatts für Wärmebilanz, Endenergie-Matrix, Primärenergie und THG. Die bereitgestellte Toolübersicht zeigt die Ausgabearten, ersetzt aber keine lesbare Detailaufnahme. Hier werden keine Python-Plots als Excel-Diagramme ausgegeben.</p>
-</div>
 <p><a href="./comparison.html">Variantenvergleich</a> · <a href="./excel-dashboard.html">Excel-Dashboard</a> · <a href="./examples.html">Reale Website-Beispiele</a></p>
 <p>Quelle: <a href="downloads/schulung.pdf#page=25">Schulung, Folien 21–25</a>; Bediengliederung gemäß Handbuch S. 74–82.</p>
+</section>
+<section id="konzeptplanung" class="level2">
+<h2 class="anchored" data-anchor-id="konzeptplanung">Häufige Fragen zur Konzeptplanung</h2>
+<section id="funktionieren-variantenvergleich-und-sensitivitäten-bereits" class="level3">
+<h3 class="anchored" data-anchor-id="funktionieren-variantenvergleich-und-sensitivitäten-bereits">Funktionieren Variantenvergleich und Sensitivitäten bereits?</h3>
+<p>Ja. Eingaben können als Varianten gespeichert, einzeln oder per <a href="./batch.html">Batch</a> berechnet und im <a href="./comparison.html">Variantenvergleich</a> ausgewertet werden. So lassen sich beispielsweise Speichergrößen und C-Raten bei gleichem Gebäude und gleicher PV-Anlage vergleichen. Die Varianten werden gezielt vorgegeben; eine automatische Optimierung ist damit nicht verbunden.</p>
+</section>
+<section id="welche-zeitliche-auflösung-steht-zur-verfügung" class="level3">
+<h3 class="anchored" data-anchor-id="welche-zeitliche-auflösung-steht-zur-verfügung">Welche zeitliche Auflösung steht zur Verfügung?</h3>
+<p>Die Jahressimulation arbeitet mit <strong>8.760 Stunden</strong>. Tages-, Monats- und Jahresauswertungen fassen diese Ergebnisse zusammen. Ein 15-Minuten-Modell würde angepasste Eingangsdaten und Rechenverfahren benötigen; das Aufteilen eines Stundenwerts auf vier gleiche Intervalle liefert keine zusätzliche zeitliche Information.</p>
+</section>
+<section id="kann-eine-netzentlastung-beurteilt-werden" class="level3">
+<h3 class="anchored" data-anchor-id="kann-eine-netzentlastung-beurteilt-werden">Kann eine Netzentlastung beurteilt werden?</h3>
+<p>Stündliche Bezugs- und Einspeiseverläufe sowie die Einspeisespitze unterstützen den Vergleich des Quartiersaustauschs. Für Aussagen zu Trafobelastung, Spannungsband oder einzelnen Netzausläufern ist ein ergänzendes Netzmodell erforderlich. Ein geringerer Jahresbezug allein belegt keine Entlastung zur kritischen Netzstunde.</p>
+</section>
+<section id="wie-werden-co₂-einsparungen-bestimmt" class="level3">
+<h3 class="anchored" data-anchor-id="wie-werden-co₂-einsparungen-bestimmt">Wie werden CO₂-Einsparungen bestimmt?</h3>
+<p>Eine Referenz und eine Maßnahmenvariante mit gleicher Bewertungsgrenze vergleichen. Betriebs- und Lebenszyklusbilanz getrennt benennen; dieselben Faktoren, Zeiträume und Flächen verwenden. Werden Faktoren oder Signale verändert, deren Einfluss ausdrücklich mit ausweisen, wie im <a href="./flexibility.html">Flexibilitätsbeispiel</a>.</p>
+</section>
+<section id="sind-wirtschaftlichkeit-resilienz-und-genehmigungsfähigkeit-abgedeckt" class="level3">
+<h3 class="anchored" data-anchor-id="sind-wirtschaftlichkeit-resilienz-und-genehmigungsfähigkeit-abgedeckt">Sind Wirtschaftlichkeit, Resilienz und Genehmigungsfähigkeit abgedeckt?</h3>
+<p>Die Ergebnisstruktur enthält Kostenfelder für Netzbezug, flexiblen Bezug und Einspeisung. Daraus folgt noch keine vollständige Investitions- oder Lebenszykluskostenrechnung. Tarifansätze und Vollständigkeit der Ausgabe sind für eine wirtschaftliche Auswertung zu prüfen. Resilienz bei Netzausfall, Brandschutz und Genehmigungsbedingungen brauchen zusätzliche Kriterien und Untersuchungen.</p>
+</section>
+<section id="welche-daten-benötigt-ein-use-case" class="level3">
+<h3 class="anchored" data-anchor-id="welche-daten-benötigt-ein-use-case">Welche Daten benötigt ein Use Case?</h3>
+<p>Für den Einstieg werden Standort, Flächen und Nutzungen, Hüllkennwerte, Versorgung, PV, Speicher und Mobilitätsannahmen benötigt. <a href="./presets.html">Presets</a> erleichtern erste Konzepte; die wichtigsten Annahmen werden danach projektspezifisch ersetzt. Für einen Abgleich mit dem Betrieb sind zeitlich abgestimmte Messreihen zu Verbrauch, Erzeugung, Netzaustausch und möglichst Speicherzuständen hilfreich. Die <a href="./interfaces.html#use-case-daten">Datenschnittstellen</a> unterscheiden Konzeptdaten und Validierungsdaten.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

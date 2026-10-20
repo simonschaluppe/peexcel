@@ -3900,7 +3900,7 @@ return Plotly;
 
 <div id="empty" class="empty" hidden>Wählen Sie mindestens ein Szenario aus, um beide Grafiken zu sehen.</div>
 <section class="card"><div><h2 id="Prim%C3%A4renergie:-Bedarf-und-Deckung-bewerten">Prim&#228;renergie: Bedarf und Deckung bewerten<a class="anchor-link" href="#Prim%C3%A4renergie:-Bedarf-und-Deckung-bewerten">&#182;</a></h2><p>Die PE-Bilanz stellt den bewerteten Bedarf der bewerteten Deckung gegenüber. Neben den Energieanwendungen und der lokalen erneuerbaren Versorgung berücksichtigt die Bewertungsmethodik auch Energieflexibilität und Kontextfaktoren. Die Werte beziehen sich auf ein Jahr und einen Quadratmeter Nettogrundfläche.</p>
-</div><aside class="callout"><h3 id="So-lesen-Sie-die-PE-Grafik">So lesen Sie die PE-Grafik<a class="anchor-link" href="#So-lesen-Sie-die-PE-Grafik">&#182;</a></h3><ul>
+</div><aside class="callout"><h3 id="So-liest-du-die-PE-Grafik">So liest du die PE-Grafik<a class="anchor-link" href="#So-liest-du-die-PE-Grafik">&#182;</a></h3><ul>
 <li><strong>Bedarf:</strong> Die linke Säule zeigt die bewerteten Beiträge der Energieanwendungen und gegebenenfalls negative Kontextbeiträge.</li>
 <li><strong>Deckung:</strong> Die rechte Säule zeigt lokale Erneuerbare, Energieflexibilität und positive Kontextbeiträge.</li>
 <li><strong>Differenz:</strong> Die Klammer zeigt Deckung minus Bedarf. Grün bedeutet eine positive PE-Bilanz, Rot eine negative.</li>
@@ -3914,7 +3914,7 @@ return Plotly;
 </div></section>
 <section class="card"><div><h2 id="Wie-liest-man-die-Treibhausgasbilanz?">Wie liest man die Treibhausgasbilanz?<a class="anchor-link" href="#Wie-liest-man-die-Treibhausgasbilanz?">&#182;</a></h2><p>Die Lebenszyklusbetrachtung umfasst mehr als den jährlichen Energieverbrauch. <strong>EE</strong> steht hier für graue, insbesondere herstellungsbezogene Emissionen; <strong>OE</strong> für betriebliche Emissionen. Die farbigen Beiträge zeigen unter anderem Konstruktion, technische Anlagen, Energieversorgung und Mobilität. Gutschriften oder andere negative Beiträge stehen unterhalb der Nulllinie.</p>
 <p>Die <strong>Raute</strong> zeigt die vorhandene Gesamtbilanz einschließlich negativer Beiträge. Die rote Linie markiert das hier verwendete <strong>Referenzbudget von 320 kg CO₂e je Quadratmeter Bruttogrundfläche</strong>. Die Beschriftung zeigt, wie weit der Gesamtwert darüber oder darunter liegt. Ein niedrigerer Wert bedeutet eine geringere bilanzierte Klimawirkung innerhalb der betrachteten Systemgrenze.</p>
-</div><aside class="callout"><h3 id="So-lesen-Sie-die-THG-Grafik">So lesen Sie die THG-Grafik<a class="anchor-link" href="#So-lesen-Sie-die-THG-Grafik">&#182;</a></h3><ul>
+</div><aside class="callout"><h3 id="So-liest-du-die-THG-Grafik">So liest du die THG-Grafik<a class="anchor-link" href="#So-liest-du-die-THG-Grafik">&#182;</a></h3><ul>
 <li><strong>EE und OE:</strong> Die Säulen unterscheiden graue, insbesondere herstellungsbezogene Emissionen und betriebliche Emissionen.</li>
 <li><strong>Negative Beiträge:</strong> Gutschriften und andere negative Beiträge stehen unterhalb der Nulllinie und gehen mit ihrem Vorzeichen in die Gesamtbilanz ein.</li>
 <li><strong>Raute:</strong> Sie zeigt die gesamte bilanzierte Klimawirkung.</li>
@@ -3929,9 +3929,8 @@ return Plotly;
 <li>Welche Beiträge prägen die gesamte Klimawirkung?</li>
 <li>Welche Unterschiede beruhen auf Planung und welche auf den Rahmenbedingungen?</li>
 </ul>
-<p>Der Quick Check vergleicht vorhandene Szenarien. Er ersetzt weder eine vollständige Nachweisführung noch eine Prüfung der zugrunde liegenden Annahmen.</p>
+<p>Der Quick-Check vergleicht vorhandene Szenarien. Er ersetzt weder eine vollständige Nachweisführung noch eine Prüfung der zugrunde liegenden Annahmen.</p>
 </section><footer><p><strong>Datengrundlage:</strong> Klimsta_Abschlussprojekt_Varianten_V3.xlsx</p><p><strong>Datengrundlage:</strong> Gespeicherte Szenarien des angegebenen Projektexports. Die Auswahl verändert ausschließlich den Vergleich. Die dargestellten Ergebnisse werden nicht neu berechnet.</p>
-<p><strong>Arbeitsstand:</strong> Fachlicher Textentwurf zur weiteren Bearbeitung. Zeitraum und Einheiten werden aus der vorhandenen Darstellung übernommen.</p>
 <p>Mit der Maus auf einen Beitrag zeigen, um seinen Wert zu lesen. Die Legende blendet Beiträge ein oder aus. Differenzmarkierungen und Budgetabstände beziehen sich immer auf die vollständige Bilanz. Die Gesamtbreite der Grafiken bleibt gleich; bei mehr Szenarien werden die Säulen schmaler.</p></footer>
 </div><aside class="card quick-panel" aria-labelledby="quick-title"><h2 id="quick-title">Quartiere vergleichen – Quick Check</h2><p>Wählen Sie vorhandene Szenarien aus. Beide Grafiken zeigen dieselbe Auswahl. Eine Auswahl ist für den Einstieg vorausgewählt.</p>
 <div class="picker"><div><label for="search">Szenarien suchen</label><input id="search" type="search" placeholder="Name oder Baualter eingeben"><fieldset><legend>Mehrfachauswahl</legend><div class="choices" id="choices"></div></fieldset><p id="no-results" hidden>Keine passenden Szenarien gefunden.</p><div class="actions"><button id="reset">Beispiele zurücksetzen</button><button id="clear">Auswahl leeren</button></div></div>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Tool-Anwendung – PEExcel</title>
+<title>Nachweisführung von Projekten – PEExcel</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -76,6 +76,18 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Suchen"
   }
 }</script>
+<script type="application/json" class="js-hypothesis-config">
+{
+  "theme": "clean",
+  "openSidebar": false
+}
+</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -103,12 +115,8 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
-<span class="menu-text">Übersicht</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link active" href="./start.html" aria-current="page"> 
-<span class="menu-text">Tool-Anwendung</span></a>
+    <a class="nav-link active" href="./excel-overview.html" aria-current="page"> 
+<span class="menu-text">Starten</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./model.html"> 
@@ -116,11 +124,19 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./results.html"> 
-<span class="menu-text">Analysieren und Bewerten</span></a>
+<span class="menu-text">Analysieren</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./learn.html"> 
+    <a class="nav-link" href="./projekte-nachweisen.html"> 
+<span class="menu-text">Deklarieren</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./research.html"> 
 <span class="menu-text">Dokumentation</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./assessment-explained.html"> 
+<span class="menu-text">Quick-Check</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -144,7 +160,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./start.html">Tool-Anwendung</a></li><li class="breadcrumb-item"><a href="./start.html">Tool-Anwendung</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./projekte-nachweisen.html">Deklarieren</a></li><li class="breadcrumb-item"><a href="./projekte-nachweisen.html">Nachweisführung von Projekten</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -158,23 +174,23 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Tool-Anwendung</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Starten</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./start.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Tool-Anwendung</span></a>
+  <a href="./excel-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Erste Schritte</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./presets.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Schnelleinstieg mit Presets</span></a>
+  <a href="./download.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Download und Voraussetzungen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -185,14 +201,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./migration.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Migration auf eine neue Toolversion</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./download.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Tool und Unterlagen</span></a>
+  <a href="./presets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schnellauswahl mit Presets</span></a>
   </div>
 </li>
       </ul>
@@ -216,12 +226,6 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="./envelope.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Thermische Hülle und Wärmeflüsse</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./components.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Bauteile richtig zuordnen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -257,7 +261,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./mobility.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mobilität: Laden und Verantwortung</span></a>
+ <span class="menu-text">Mobilität</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -268,8 +272,20 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./components.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bauteile richtig zuordnen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./variants.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Varianten verwalten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./migration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Migration auf eine neue Toolversion</span></a>
   </div>
 </li>
       </ul>
@@ -277,7 +293,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
- <span class="menu-text">Analysieren und Bewerten</span></a>
+ <span class="menu-text">Analysieren</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -286,13 +302,25 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./results.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Ergebnisblatt</span></a>
+ <span class="menu-text">Ergebnisse und Kennzahlen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./excel-dashboard.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Excel-Dashboard</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./flexibility.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Flexibilität</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mobility-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mobilitätsverhalten</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -310,13 +338,36 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./examples.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Variantenvergleich · Bsp San 6G</span></a>
+ <span class="menu-text">Beispiele</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./assessment-explained.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Projekt-Varianten-Explorer</span></a>
+ <span class="menu-text">Quick-Check</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Deklarieren</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./projekte-nachweisen.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Nachweisführung von Projekten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./checklist.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Checkliste zur Nachweisvorbereitung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -329,29 +380,17 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
- <span class="menu-text">Dokumentation und Referenzen</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Python &amp; Automatisierung</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./learn.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Dokumentation und Arbeitsabläufe</span></a>
-  </div>
-</li>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./python.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Python-Schnittstelle und Notebooks</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./assessment.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Bewertung von Plus-Energie-Quartieren</span></a>
+ <span class="menu-text">Python &amp; Automatisierung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -360,6 +399,23 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Python-Szenarioexplorer</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assessment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bewertung von Plus-Energie-Quartieren</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">Dokumentation und Referenzen</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./glossary.html" class="sidebar-item-text sidebar-link">
@@ -390,20 +446,30 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#arbeitsdatei-vorbereiten" id="toc-arbeitsdatei-vorbereiten" class="nav-link active" data-scroll-target="#arbeitsdatei-vorbereiten">Arbeitsdatei vorbereiten</a>
+  <li><a href="#drei-deklarationsphasen" id="toc-drei-deklarationsphasen" class="nav-link active" data-scroll-target="#drei-deklarationsphasen">Drei Deklarationsphasen</a>
   <ul class="collapse">
-  <li><a href="#im-excel-tool" id="toc-im-excel-tool" class="nav-link" data-scroll-target="#im-excel-tool">Im Excel-Tool</a></li>
+  <li><a href="#planungsdeklaration-potenziale-und-varianten-nachweisen" id="toc-planungsdeklaration-potenziale-und-varianten-nachweisen" class="nav-link" data-scroll-target="#planungsdeklaration-potenziale-und-varianten-nachweisen">📐 Planungsdeklaration – Potenziale und Varianten nachweisen</a></li>
+  <li><a href="#fertigstellungsdeklaration-umsetzung-überprüfen" id="toc-fertigstellungsdeklaration-umsetzung-überprüfen" class="nav-link" data-scroll-target="#fertigstellungsdeklaration-umsetzung-überprüfen">🏗️ Fertigstellungsdeklaration – Umsetzung überprüfen</a></li>
+  <li><a href="#betriebs--bzw.-monitoringdeklaration-wirkung-im-betrieb-belegen" id="toc-betriebs--bzw.-monitoringdeklaration-wirkung-im-betrieb-belegen" class="nav-link" data-scroll-target="#betriebs--bzw.-monitoringdeklaration-wirkung-im-betrieb-belegen">🔍 Betriebs- bzw. Monitoringdeklaration – Wirkung im Betrieb belegen</a></li>
   </ul></li>
-  <li><a href="#projektbearbeitung" id="toc-projektbearbeitung" class="nav-link" data-scroll-target="#projektbearbeitung">Projektbearbeitung</a></li>
+  <li><a href="#auf-dem-weg-zielerreichung-in-etappen" id="toc-auf-dem-weg-zielerreichung-in-etappen" class="nav-link" data-scroll-target="#auf-dem-weg-zielerreichung-in-etappen">🧭 „Auf dem Weg“ – Zielerreichung in Etappen</a></li>
+  <li><a href="#ablauf-der-nachweisführung" id="toc-ablauf-der-nachweisführung" class="nav-link" data-scroll-target="#ablauf-der-nachweisführung">Ablauf der Nachweisführung</a>
+  <ul class="collapse">
+  <li><a href="#schritt-1-mindestanforderungen-und-aussichten-prüfen" id="toc-schritt-1-mindestanforderungen-und-aussichten-prüfen" class="nav-link" data-scroll-target="#schritt-1-mindestanforderungen-und-aussichten-prüfen">Schritt 1 – Mindestanforderungen und Aussichten prüfen</a></li>
+  <li><a href="#schritt-2-kompetenzpartnerin-auswählen" id="toc-schritt-2-kompetenzpartnerin-auswählen" class="nav-link" data-scroll-target="#schritt-2-kompetenzpartnerin-auswählen">Schritt 2 – Kompetenzpartner:in auswählen</a></li>
+  <li><a href="#schritt-3-einreichung-und-qualitätssicherung" id="toc-schritt-3-einreichung-und-qualitätssicherung" class="nav-link" data-scroll-target="#schritt-3-einreichung-und-qualitätssicherung">Schritt 3 – Einreichung und Qualitätssicherung</a></li>
+  </ul></li>
+  <li><a href="#akteure-und-zuständigkeiten" id="toc-akteure-und-zuständigkeiten" class="nav-link" data-scroll-target="#akteure-und-zuständigkeiten">Akteure und Zuständigkeiten</a></li>
+  <li><a href="#anforderungen-an-datenqualität-und-nachvollziehbarkeit" id="toc-anforderungen-an-datenqualität-und-nachvollziehbarkeit" class="nav-link" data-scroll-target="#anforderungen-an-datenqualität-und-nachvollziehbarkeit">Anforderungen an Datenqualität und Nachvollziehbarkeit</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./start.html">Tool-Anwendung</a></li><li class="breadcrumb-item"><a href="./start.html">Tool-Anwendung</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./projekte-nachweisen.html">Deklarieren</a></li><li class="breadcrumb-item"><a href="./projekte-nachweisen.html">Nachweisführung von Projekten</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Tool-Anwendung</h1>
+<h1 class="title">Nachweisführung von Projekten</h1>
 </div>
 
 
@@ -420,33 +486,178 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>PEExcel bildet Gebäude-Betrieb, motorisierten Individualverkehr und Ökobilanz in einem stündlichen Quartiersmodell ab. Der Arbeitsablauf folgt der <strong>Nachweis-Schleife: Modellierung → Simulation → Analyse</strong>. Python ist für die Excel-Anwendung nicht erforderlich.</p>
-<section id="arbeitsdatei-vorbereiten" class="level2">
-<h2 class="anchored" data-anchor-id="arbeitsdatei-vorbereiten">Arbeitsdatei vorbereiten</h2>
-<p>Die <a href="./download.html">Arbeitsmappe</a> lokal speichern und mit Microsoft Excel / Office 365 öffnen. Für die Variantenfunktionen sind Makros erforderlich. Bei einer Windows-Dateisperre die vertrauenswürdig bezogene Datei über <strong>Eigenschaften → Zulassen / Entsperren</strong> freigeben. Eine unveränderte Ausgangsdatei aufbewahren.</p>
-<section id="im-excel-tool" class="level3 excel-operation">
-<h3 class="anchored" data-anchor-id="im-excel-tool">Im Excel-Tool</h3>
-<p><strong>Excel-Ort:</strong> Blatt <span class="excel-menu darkred">▶ Quick Start</span></p>
-<ol type="1">
-<li>Projekt und Geometrie über die Schnellauswahlen festlegen oder eine <a href="./variants.html">gespeicherte Variante laden</a>.</li>
-<li><a href="./presets.html">Presets</a> wählen und projektspezifische Detaileingaben kontrollieren.</li>
-<li>Über <strong>Formeln → Berechnung → Neu berechnen</strong> (<kbd>F9</kbd>) berechnen. Bei manuellem Berechnungsmodus sind Ergebnisse nach Änderungen erst nach dem Rechenlauf aktuell.</li>
-<li><a href="./results.html">Ergebnisblatt</a> und <a href="./excel-dashboard.html">Excel-Dashboard</a> auswerten.</li>
-<li>Den bearbeiteten Stand als eindeutig benannte <a href="./variants.html">Variante speichern</a>.</li>
-</ol>
-</section>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="media/manual/quick-start.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Excel-Bedienung: Quick Start mit thematischen Eingabeblättern und Schnellauswahl. Bereitgestellte Ansicht v1_12 vom 24.06.2026; Beispielwerte sind keine Projektvorgaben."><img src="media/manual/quick-start.png" class="manual-figure img-fluid figure-img" alt="Excel-Bedienung: Quick Start mit thematischen Eingabeblättern und Schnellauswahl. Bereitgestellte Ansicht v1_12 vom 24.06.2026; Beispielwerte sind keine Projektvorgaben."></a></p>
-<figcaption>Excel-Bedienung: Quick Start mit thematischen Eingabeblättern und Schnellauswahl. Bereitgestellte Ansicht v1_12 vom 24.06.2026; Beispielwerte sind keine Projektvorgaben.</figcaption>
+<div class="lead">
+<p>Vom untersuchten Konzept über die realisierte Lösung bis zum nachgewiesenen Betrieb</p>
+</div>
+<p>Der klimaaktiv Standard kann in unterschiedlichen Projektphasen angewendet werden. Dabei sind zwei Fragen zu unterscheiden: <strong>Welche Qualitätsstufe wird rechnerisch erreicht?</strong> Und <strong>wie belastbar ist der zugrunde liegende Projektstand?</strong> Die Qualitätsstufen beschreibt <a href="./research.html">Der Standard</a>; die Deklarationsphase kennzeichnet den Stand der Nachweisführung.</p>
+<section id="drei-deklarationsphasen" class="level2">
+<h2 class="anchored" data-anchor-id="drei-deklarationsphasen">Drei Deklarationsphasen</h2>
+<p>Die Nachweisführung kann in der Planung, nach Fertigstellung sowie auf Grundlage gemessener Betriebsdaten erfolgen. Mit fortschreitendem Projektstand verändert sich die Datengrundlage und damit die Aussagekraft der Deklaration.</p>
+<div id="fig-deklarationsphasen" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-deklarationsphasen-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="illustrations/deklarationen.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Abbildung&nbsp;1: Deklaration je nach Projektstand: Planungsdeklaration, Fertigstellungsdeklaration und Betriebsdeklaration mit zunehmender Verfügbarkeit von Ausführungs- und Messdaten."><img src="illustrations/deklarationen.svg" class="img-fluid figure-img" style="width:100.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-deklarationsphasen-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;1: <strong>Deklaration je nach Projektstand:</strong> Planungsdeklaration, Fertigstellungsdeklaration und Betriebsdeklaration mit zunehmender Verfügbarkeit von Ausführungs- und Messdaten.
+</figcaption>
 </figure>
 </div>
+<section id="planungsdeklaration-potenziale-und-varianten-nachweisen" class="level3">
+<h3 class="anchored" data-anchor-id="planungsdeklaration-potenziale-und-varianten-nachweisen">📐 Planungsdeklaration – Potenziale und Varianten nachweisen</h3>
+<p>Eine <strong>Planungsdeklaration</strong> zeichnet die fundierte Untersuchung eines Quartierskonzepts aus. Sie zeigt, <strong>unter welchen planerischen, technischen und organisatorischen Voraussetzungen</strong> eine angestrebte Qualitätsstufe erreicht werden könnte. Insbesondere in frühen Phasen ermöglicht sie die Beantwortung von <em>Was-wäre-wenn-Fragen</em>: Welche PV-Flächen wären erforderlich? Welche Wärmeversorgung oder Mobilitätsmaßnahmen würden den Ausschlag geben? Wie stark beeinflussen unterschiedliche Bauweisen die THG-Bilanz?</p>
+<p>Die betrachtete Variante <strong>muss nicht später genau so umgesetzt werden</strong>. Eine Planungsdeklaration ist daher weder eine Ausführungsverpflichtung noch ein Nachweis der später tatsächlich erreichten Performance. Entscheidend sind eine ausreichend detaillierte, nachvollziehbare Untersuchung sowie die transparente Kennzeichnung der zugrunde liegenden Annahmen und Abhängigkeiten.</p>
 </section>
-<section id="projektbearbeitung" class="level2">
-<h2 class="anchored" data-anchor-id="projektbearbeitung">Projektbearbeitung</h2>
-<p><a href="./excel-navigation.html">Orientierung im Excel-Tool</a> erklärt Blätter, Formatierungen und Bedienpfade. <a href="./model.html">Modellieren</a> führt durch die Eingabegruppen. Für bestehende Projekte beschreibt <a href="./migration.html">Migration</a> den Export aus der alten und Import in die neue Toolversion.</p>
-<p>Die <a href="./declaration.html#qualitaetssicherung">Qualitätssicherung für die Nachweisführung</a> umfasst AUDIT, Deklarationswerte und die Dokumentation der Datenquellen.</p>
-<p>Quelle: <a href="downloads/schulung.pdf#page=7">Schulung, Folien 3, 7–8, 24–30</a>.</p>
+<section id="fertigstellungsdeklaration-umsetzung-überprüfen" class="level3">
+<h3 class="anchored" data-anchor-id="fertigstellungsdeklaration-umsetzung-überprüfen">🏗️ Fertigstellungsdeklaration – Umsetzung überprüfen</h3>
+<p>Die <strong>Fertigstellungsdeklaration</strong> bewertet das <strong>tatsächlich errichtete beziehungsweise sanierte Quartier</strong>. Die in der Planung angesetzten Maßnahmen werden mit dem Ausführungsstand abgeglichen: etwa Gebäudehülle, installierte Wärmeerzeugung, tatsächlich verfügbare PV-Flächen und -Leistungen, Speicher, Ladeinfrastruktur sowie realisierte Mobilitätsangebote.</p>
+<p>Abweichungen von früheren Varianten sind zu dokumentieren und, soweit bilanzrelevant, neu zu bewerten. Maßgeblich ist die nachvollziehbar belegte Ausführung und die daraus berechnete Zielerreichung – nicht allein das ursprüngliche Planungsergebnis.</p>
+</section>
+<section id="betriebs--bzw.-monitoringdeklaration-wirkung-im-betrieb-belegen" class="level3">
+<h3 class="anchored" data-anchor-id="betriebs--bzw.-monitoringdeklaration-wirkung-im-betrieb-belegen">🔍 Betriebs- bzw. Monitoringdeklaration – Wirkung im Betrieb belegen</h3>
+<p>Die <strong>Betriebsdeklaration</strong> ergänzt die modellbasierte Bewertung um <strong>gemessene Betriebsdaten</strong> aus einer mindestens einjährigen Monitoringphase. Insbesondere Energiebezug, Erzeugung und Einspeisung sowie – soweit erfassbar und für die gewählte Qualitätsstufe relevant – weitere Energieflüsse und Nutzungsbedingungen werden mit den Annahmen der Bewertung abgeglichen.</p>
+<p>Eine sachgerechte Interpretation berücksichtigt unter anderem Wetter, Belegung, Nutzungsänderungen und die Verfügbarkeit der technischen Anlagen. Das Monitoring ermöglicht es, Abweichungen zwischen prognostizierter und tatsächlicher Performance zu erkennen. Es ersetzt jedoch nicht die Bilanzierung jener Lebenszyklus- oder Mobilitätsemissionen, die nicht unmittelbar gemessen werden können.</p>
+<div id="tbl-deklarationsphasen" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-deklarationsphasen-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabelle&nbsp;1: Bewertungsgrundlagen und Aussagekraft der Deklarationsphasen.
+</figcaption>
+<div aria-describedby="tbl-deklarationsphasen-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Phase</th>
+<th>Bewertungsgrundlage</th>
+<th>Aussage der Deklaration</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>📐 <strong>Planung</strong></td>
+<td>Quartierskonzept, Fachannahmen und untersuchte Varianten</td>
+<td>Unter welchen Bedingungen eine Qualitätsstufe erreichbar ist</td>
+</tr>
+<tr class="even">
+<td>🏗️ <strong>Fertigstellung</strong></td>
+<td>Nachgewiesene Ausführung und aktualisierte Berechnung</td>
+<td>Ob das ausgeführte Projekt die Anforderungen erfüllt</td>
+</tr>
+<tr class="odd">
+<td>🔍 <strong>Betrieb / Monitoring</strong></td>
+<td>Messdaten und dokumentierte Betriebsbedingungen</td>
+<td>Inwieweit die prognostizierte Performance im Betrieb bestätigt wird</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<div class="callout callout-style-simple callout-warning callout-titled" title="Qualitätsstufe ist nicht Deklarationsphase">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warnung</span>Qualitätsstufe ist nicht Deklarationsphase
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Die <strong>Qualitätsstufe</strong> bezeichnet den Umfang der erfüllten Energie- und THG-Anforderungen. Die <strong>Deklarationsphase</strong> beschreibt, ob die Beurteilung auf Planungsannahmen, der realisierten Ausführung oder gemessenen Betriebsdaten beruht. Beide Angaben sind unabhängig voneinander und müssen gemeinsam ausgewiesen werden.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="auf-dem-weg-zielerreichung-in-etappen" class="level2">
+<h2 class="anchored" data-anchor-id="auf-dem-weg-zielerreichung-in-etappen">🧭 „Auf dem Weg“ – Zielerreichung in Etappen</h2>
+<p>Nicht jedes Quartier erfüllt bereits <strong>zum Nachweiszeitpunkt</strong> sämtliche Anforderungen einer angestrebten Qualitätsstufe. Vor allem im Bestand oder bei abschnittsweiser Entwicklung können wesentliche Maßnahmen erst später wirksam werden.</p>
+<p>Die Deklaration <strong>„Auf dem Weg zum Plus-Energie-Quartier“</strong> berücksichtigt solche Entwicklungspfade, sofern eine spätere Zielerreichung innerhalb des vorgesehenen Zeitraums plausibel nachgewiesen werden kann. Das Konzept sieht hierfür einen Zeitraum von bis zu fünf Jahren vor.</p>
+<p>Entscheidend ist die Unterscheidung zwischen einer allgemeinen Absicht und einem <strong>technisch sowie zeitlich glaubhaften Umsetzungspfad</strong>. Geeignete Nachweise können insbesondere sein:</p>
+<ul>
+<li><strong>PV-Vorhalteflächen:</strong> planerisch gesicherte Dach- oder Fassadenflächen einschließlich Tragfähigkeit, Verschattung, Leitungsführung und künftiger Anschlussmöglichkeit.</li>
+<li><strong>Vorbereitete Energieflexibilität:</strong> Mess-, Steuer- und Kommunikationsinfrastruktur sowie ein umsetzbares Regelungskonzept.</li>
+<li><strong>Technische Vorhaltungen:</strong> Leerrohre, Platzreserven, Trassen oder elektrische Anschlussreserven für einen späteren Ausbau.</li>
+<li><strong>Nachvollziehbare Etappen:</strong> konkrete Maßnahmen, Verantwortlichkeiten, Voraussetzungen und Zeitpunkte der Umsetzung.</li>
+</ul>
+<p>Ein solcher Pfad ist <strong>kein Nachweis einer bereits erreichten Qualitätsstufe</strong>. Der aktuelle Zustand und die angestrebte vollständige Zielerreichung müssen getrennt dargestellt werden.</p>
+<p>Für die THG-Bewertung sind außerdem die Emissionen bis zur späteren Umsetzung und die zusätzlichen Herstellungsemissionen der Maßnahmen zu berücksichtigen. Ein zukünftiges gutes Ergebnis macht bereits entstandene Emissionen nicht rückgängig.</p>
+<p>Die Bewertung von Sanierung und Lebenszyklus wird unter <a href="./climate.html">Ökobilanz</a> erläutert.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Methodische Einordnung">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Hinweis</span>Methodische Einordnung
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Die verbindlichen Bedingungen für eine Deklaration „Auf dem Weg“, insbesondere Fristen, erforderliche Nachweise und die Zuordnung zur Qualitätsstufe, richten sich nach den jeweils gültigen Deklarationsvorgaben.</p>
+</div>
+</div>
+</section>
+<section id="ablauf-der-nachweisführung" class="level2">
+<h2 class="anchored" data-anchor-id="ablauf-der-nachweisführung">Ablauf der Nachweisführung</h2>
+<p>Der Weg zur klimaaktiv Auszeichnung wird durch ein Netzwerk aus Anlaufstelle, Kompetenzpartner:innen und Expert:innengremium begleitet. Der Ablauf lässt sich aus Sicht der Projektverantwortlichen in drei Schritte gliedern.</p>
+<div id="fig-weg-zum-peq" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-weg-zum-peq-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="illustrations/ihr_weg_zum_peq.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Abbildung&nbsp;2: Ihr Weg zum Plus-Energie-Quartier: Von der ersten Prüfung der Mindestanforderungen über die Auswahl einer fachlichen Projektbegleitung bis zur Einreichung und Qualitätssicherung."><img src="illustrations/ihr_weg_zum_peq.svg" class="img-fluid figure-img" style="width:100.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-weg-zum-peq-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;2: <strong>Ihr Weg zum Plus-Energie-Quartier:</strong> Von der ersten Prüfung der Mindestanforderungen über die Auswahl einer fachlichen Projektbegleitung bis zur Einreichung und Qualitätssicherung.
+</figcaption>
+</figure>
+</div>
+<section id="schritt-1-mindestanforderungen-und-aussichten-prüfen" class="level3">
+<h3 class="anchored" data-anchor-id="schritt-1-mindestanforderungen-und-aussichten-prüfen">Schritt 1 – Mindestanforderungen und Aussichten prüfen</h3>
+<p>Zu Beginn werden die grundsätzlichen Voraussetzungen des Vorhabens und die Aussichten auf eine erfolgreiche Deklaration geklärt. Ein <strong>PEQ-Quick-Check</strong> kann eine erste Einschätzung ermöglichen.</p>
+<p>Dabei werden mögliche Anpassungen des Projektkonzepts, offene Anforderungen und ein geeigneter Zeitplan besprochen. Für diese erste Orientierung steht die <strong>Anlaufstelle Plus-Energie-Quartiere</strong> zur Verfügung.</p>
+</section>
+<section id="schritt-2-kompetenzpartnerin-auswählen" class="level3">
+<h3 class="anchored" data-anchor-id="schritt-2-kompetenzpartnerin-auswählen">Schritt 2 – Kompetenzpartner:in auswählen</h3>
+<p>Für die vertiefte Bearbeitung können Projektverantwortliche eine:n <strong>klimaaktiv Kompetenzpartner:in</strong> auswählen.</p>
+<p>Gemeinsam werden der Projektumfang, die Bilanzgrenzen, die untersuchten Varianten und der Leistungsumfang der Begleitung festgelegt. Dazu gehören gegebenenfalls die Datenerhebung, Berechnung, fachliche Beratung und Vorbereitung der Deklarationsunterlagen.</p>
+<p>Die Kompetenzpartner:innen unterstützen die Anwendung des Standards und die nachvollziehbare Aufbereitung der erforderlichen Nachweise.</p>
+</section>
+<section id="schritt-3-einreichung-und-qualitätssicherung" class="level3">
+<h3 class="anchored" data-anchor-id="schritt-3-einreichung-und-qualitätssicherung">Schritt 3 – Einreichung und Qualitätssicherung</h3>
+<p>Nach Abschluss der Projektbegleitung werden die erforderlichen Ergebnisse und Unterlagen zur fachlichen Prüfung übermittelt.</p>
+<p>Das <strong>klimaaktiv Expert:innengremium</strong> prüft die Nachweisführung und kann Rückfragen zu einzelnen Annahmen, Berechnungen oder Belegen stellen. Nach erfolgreicher Prüfung erfolgt die entsprechende Deklaration beziehungsweise Auszeichnung.</p>
+<p>Die Qualitätssicherung dient insbesondere der fachlichen Plausibilisierung, Nachvollziehbarkeit und einheitlichen Anwendung des Standards.</p>
+</section>
+</section>
+<section id="akteure-und-zuständigkeiten" class="level2">
+<h2 class="anchored" data-anchor-id="akteure-und-zuständigkeiten">Akteure und Zuständigkeiten</h2>
+<p>Die Nachweisführung ist in die Organisationsstruktur des klimaaktiv Programms für Siedlungen und Quartiere eingebettet. Die beteiligten Akteure übernehmen unterschiedliche, aufeinander abgestimmte Aufgaben.</p>
+<div id="fig-programmteam" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-programmteam-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="illustrations/programmteam.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Abbildung&nbsp;3: Das klimaaktiv Programmteam: Anlaufstelle, Siedlungen-und-Quartiere-Team, Kompetenzpartner:innen und Expert:innengremium sowie ihre Zusammenarbeit mit Projektverantwortlichen und Fachplanenden."><img src="illustrations/programmteam.svg" class="img-fluid figure-img" style="width:100.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-programmteam-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;3: <strong>Das klimaaktiv Programmteam:</strong> Anlaufstelle, Siedlungen-und-Quartiere-Team, Kompetenzpartner:innen und Expert:innengremium sowie ihre Zusammenarbeit mit Projektverantwortlichen und Fachplanenden.
+</figcaption>
+</figure>
+</div>
+<p>Die wesentlichen Rollen sind:</p>
+<ul>
+<li><strong>Anlaufstelle Plus-Energie-Quartiere:</strong> Erstinformation, Beratung zur grundsätzlichen Anwendbarkeit des Standards und Unterstützung bei Fragen zur Nachweisführung.</li>
+<li><strong>klimaaktiv Siedlungen und Quartiere:</strong> Programmkoordination und Unterstützung der entsprechenden Qualitätssicherungs- und Beratungsstrukturen.</li>
+<li><strong>klimaaktiv Kompetenzpartner:innen:</strong> Projektbezogene Beratung, Bewertung und Unterstützung bei der Erarbeitung der Nachweisunterlagen.</li>
+<li><strong>klimaaktiv Expert:innengremium:</strong> Fachliche Qualitätssicherung und Prüfung der eingereichten Ergebnisse.</li>
+<li><strong>Projektverantwortliche und Fachplanende:</strong> Erarbeitung des Projekts, Bereitstellung der notwendigen Daten, Umsetzung der Maßnahmen und Dokumentation der Nachweise.</li>
+</ul>
+<p>Die Zusammenarbeit zwischen den beteiligten Stellen soll eine nachvollziehbare Bewertung ermöglichen, ohne die Verantwortlichkeiten für Projektplanung, Berechnung und Qualitätssicherung zu vermischen.</p>
+</section>
+<section id="anforderungen-an-datenqualität-und-nachvollziehbarkeit" class="level2">
+<h2 class="anchored" data-anchor-id="anforderungen-an-datenqualität-und-nachvollziehbarkeit">Anforderungen an Datenqualität und Nachvollziehbarkeit</h2>
+<p>Die Nachweisführung bündelt Angaben aus Architektur, Bauphysik, Haustechnik, Mobilitätsplanung und Ökobilanz. Für ergebnisrelevante Eingaben ist zu kennzeichnen, ob es sich um <strong>Referenzannahmen</strong>, <strong>projektspezifische Berechnungen</strong>, <strong>bestätigte Ausführungsangaben</strong> oder <strong>Messwerte</strong> handelt. Abhängigkeiten von nicht gesicherten Maßnahmen sind sichtbar auszuweisen.</p>
+<p>Für Variantenvergleiche sind Quartiersabgrenzung, Nutzungsumfang, Flächenbezüge und Bewertungsstand konsistent zu halten. Werden sie verändert, muss die Auswirkung auf Bedarf, Kontextfaktoren und zugeteilte Budgets kenntlich gemacht werden.</p>
 
 
 </section>

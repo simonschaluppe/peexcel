@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Tool und Unterlagen – PEExcel</title>
+<title>Download und Voraussetzungen – PEExcel</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -73,6 +73,18 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Suchen"
   }
 }</script>
+<script type="application/json" class="js-hypothesis-config">
+{
+  "theme": "clean",
+  "openSidebar": false
+}
+</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -100,12 +112,8 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
-<span class="menu-text">Übersicht</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link active" href="./start.html" aria-current="page"> 
-<span class="menu-text">Tool-Anwendung</span></a>
+    <a class="nav-link active" href="./excel-overview.html" aria-current="page"> 
+<span class="menu-text">Starten</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./model.html"> 
@@ -113,11 +121,19 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./results.html"> 
-<span class="menu-text">Analysieren und Bewerten</span></a>
+<span class="menu-text">Analysieren</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./learn.html"> 
+    <a class="nav-link" href="./projekte-nachweisen.html"> 
+<span class="menu-text">Deklarieren</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./research.html"> 
 <span class="menu-text">Dokumentation</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./assessment-explained.html"> 
+<span class="menu-text">Quick-Check</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -141,7 +157,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./start.html">Tool-Anwendung</a></li><li class="breadcrumb-item"><a href="./download.html">Tool und Unterlagen</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./excel-overview.html">Starten</a></li><li class="breadcrumb-item"><a href="./download.html">Download und Voraussetzungen</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -156,7 +172,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Tool-Anwendung</span></a>
+ <span class="menu-text">Starten</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -164,14 +180,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./start.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Tool-Anwendung</span></a>
+  <a href="./excel-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Erste Schritte</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./presets.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Schnelleinstieg mit Presets</span></a>
+  <a href="./download.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Download und Voraussetzungen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -182,14 +198,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./migration.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Migration auf eine neue Toolversion</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./download.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Tool und Unterlagen</span></a>
+  <a href="./presets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schnellauswahl mit Presets</span></a>
   </div>
 </li>
       </ul>
@@ -213,12 +223,6 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="./envelope.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Thermische Hülle und Wärmeflüsse</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./components.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Bauteile richtig zuordnen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -254,7 +258,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./mobility.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mobilität: Laden und Verantwortung</span></a>
+ <span class="menu-text">Mobilität</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -265,8 +269,20 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./components.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bauteile richtig zuordnen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./variants.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Varianten verwalten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./migration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Migration auf eine neue Toolversion</span></a>
   </div>
 </li>
       </ul>
@@ -274,7 +290,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
- <span class="menu-text">Analysieren und Bewerten</span></a>
+ <span class="menu-text">Analysieren</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -283,13 +299,25 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./results.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Ergebnisblatt</span></a>
+ <span class="menu-text">Ergebnisse und Kennzahlen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./excel-dashboard.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Excel-Dashboard</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./flexibility.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Flexibilität</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mobility-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mobilitätsverhalten</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -307,13 +335,36 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./examples.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Variantenvergleich · Bsp San 6G</span></a>
+ <span class="menu-text">Beispiele</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./assessment-explained.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Projekt-Varianten-Explorer</span></a>
+ <span class="menu-text">Quick-Check</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Deklarieren</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./projekte-nachweisen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Nachweisführung von Projekten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./checklist.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Checkliste zur Nachweisvorbereitung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -326,29 +377,17 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
- <span class="menu-text">Dokumentation und Referenzen</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Python &amp; Automatisierung</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./learn.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Dokumentation und Arbeitsabläufe</span></a>
-  </div>
-</li>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./python.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Python-Schnittstelle und Notebooks</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./assessment.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Bewertung von Plus-Energie-Quartieren</span></a>
+ <span class="menu-text">Python &amp; Automatisierung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -357,6 +396,23 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Python-Szenarioexplorer</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assessment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bewertung von Plus-Energie-Quartieren</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">Dokumentation und Referenzen</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./glossary.html" class="sidebar-item-text sidebar-link">
@@ -387,17 +443,20 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#excel-werkzeug" id="toc-excel-werkzeug" class="nav-link active" data-scroll-target="#excel-werkzeug">Excel-Werkzeug</a></li>
-  <li><a href="#nachschlagen-und-vertiefen" id="toc-nachschlagen-und-vertiefen" class="nav-link" data-scroll-target="#nachschlagen-und-vertiefen">Nachschlagen und vertiefen</a></li>
+  <li><a href="#excel-nachweistool-herunterladen" id="toc-excel-nachweistool-herunterladen" class="nav-link active" data-scroll-target="#excel-nachweistool-herunterladen">Excel-Nachweistool herunterladen</a>
+  <ul class="collapse">
+  <li><a href="#arbeitsmappe-vorbereiten" id="toc-arbeitsmappe-vorbereiten" class="nav-link" data-scroll-target="#arbeitsmappe-vorbereiten">Arbeitsmappe vorbereiten</a></li>
+  </ul></li>
+  <li><a href="#handbuch-und-schulungsunterlagen" id="toc-handbuch-und-schulungsunterlagen" class="nav-link" data-scroll-target="#handbuch-und-schulungsunterlagen">Handbuch und Schulungsunterlagen</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./start.html">Tool-Anwendung</a></li><li class="breadcrumb-item"><a href="./download.html">Tool und Unterlagen</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./excel-overview.html">Starten</a></li><li class="breadcrumb-item"><a href="./download.html">Download und Voraussetzungen</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Tool und Unterlagen</h1>
+<h1 class="title">Download und Voraussetzungen</h1>
 </div>
 
 
@@ -414,70 +473,107 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="excel-werkzeug" class="level2">
-<h2 class="anchored" data-anchor-id="excel-werkzeug">Excel-Werkzeug</h2>
-<p>Diese Einordnung entspricht dem im Repository dokumentierten Stand. Maßgeblich sind die Versionshinweise und der <a href="https://github.com/simonschaluppe/peexcel/blob/master/CHANGELOG.md">Changelog</a>.</p>
+<p>Hier stehen das PEExcel-Nachweistool und die wichtigsten Unterlagen für die Anwendung und Nachweisführung zur Verfügung.</p>
+<section id="excel-nachweistool-herunterladen" class="level2">
+<h2 class="anchored" data-anchor-id="excel-nachweistool-herunterladen">Excel-Nachweistool herunterladen</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th>Stand</th>
-<th>Einsatz</th>
+<th>Version</th>
+<th>Verwendung</th>
 <th>Download</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><a href="https://github.com/simonschaluppe/peexcel/releases/tag/v1.12.7">v1.12.7 · Stable</a></td>
+<td><a href="https://github.com/simonschaluppe/peexcel/releases/tag/v1.12.7"><strong>v1.12.7 – Stable</strong></a></td>
 <td>Reguläre Anwendung und Tests</td>
-<td><a href="https://github.com/simonschaluppe/peexcel/raw/refs/heads/master/excel/tool/ka_PEQ_Nachweistool.xlsb">Excel-Datei</a></td>
+<td><a href="https://github.com/simonschaluppe/peexcel/raw/refs/heads/master/excel/tool/ka_PEQ_Nachweistool.xlsb">Excel-Nachweistool</a></td>
 </tr>
 <tr class="even">
-<td>v1.13.x · Development</td>
-<td>Neue Funktionen und laufende Anpassungen</td>
+<td><strong>v1.13.x – Development</strong></td>
+<td>Entwicklung, Erprobung neuer Funktionen und laufende Anpassungen</td>
 <td><a href="https://github.com/simonschaluppe/peexcel/raw/refs/heads/master/excel/development/ka_PEQ_Nachweistool_dev.xlsb">Entwicklungsdatei</a></td>
 </tr>
 </tbody>
 </table>
-<p><strong>Voraussetzung:</strong> Microsoft Excel / Office 365 mit aktivierten Makros. Die Arbeitsmappe lokal speichern und bei Bedarf in den Windows-Dateieigenschaften entsperren. Die verlinkten Arbeitsdateien folgen dem Repository-Stand; für den bezeichneten Release auch dessen Versionsseite prüfen.</p>
-<p><a href="./start.html">🚀 Schritt für Schritt starten</a></p>
+<div class="callout callout-style-simple callout-note callout-titled" title="Welche Version verwenden?">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Hinweis</span>Welche Version verwenden?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Für reguläre Projektbewertungen und Deklarationen den freigegebenen Toolstand verwenden. Die Entwicklungsversion kann neue oder noch nicht abschließend geprüfte Funktionen enthalten.</p>
+<p>Maßgeblich sind die <a href="https://github.com/simonschaluppe/peexcel/releases">Versionshinweise</a> und der <a href="https://github.com/simonschaluppe/peexcel/blob/master/CHANGELOG.md">Changelog</a>. Für eine Nachweisführung ist der verwendete Toolstand zu dokumentieren.</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-warning callout-titled" title="MS Office Version">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warnung</span>MS Office Version
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Für die Excel-Anwendung wird <strong>Microsoft Excel mit Unterstützung für VBA-Makros</strong>, mindestens Version 365 benötigt. (MS Office 2019 wird nicht unterstützt)</p>
+</div>
+</div>
+<section id="arbeitsmappe-vorbereiten" class="level3 excel-operation">
+<h3 class="anchored" data-anchor-id="arbeitsmappe-vorbereiten">Arbeitsmappe vorbereiten</h3>
+<ol type="1">
+<li>Excel-Datei herunterladen und lokal speichern.</li>
+<li>Datei in Microsoft Excel öffnen.</li>
+<li>Bei einer Windows-Dateisperre die Datei über <strong>Eigenschaften → Zulassen / Entsperren</strong> freigeben, sofern sie aus einer vertrauenswürdigen Quelle stammt.</li>
+<li>Für die vorgesehenen Bedienfunktionen Makros aktivieren.</li>
+<li>Eine unveränderte Kopie als Ausgangsdatei aufbewahren.</li>
+</ol>
+<p>Anschließend kannst du mit <a href="./excel-overview.html">Erste Schritte mit PEExcel</a> beginnen.</p>
 </section>
-<section id="nachschlagen-und-vertiefen" class="level2">
-<h2 class="anchored" data-anchor-id="nachschlagen-und-vertiefen">Nachschlagen und vertiefen</h2>
+</section>
+<section id="handbuch-und-schulungsunterlagen" class="level2">
+<h2 class="anchored" data-anchor-id="handbuch-und-schulungsunterlagen">Handbuch und Schulungsunterlagen</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
 <th>Unterlage</th>
-<th>Verwendung</th>
+<th>Inhalt</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><a href="downloads/handbuch.pdf">Handbuch zur Nachweisführung</a></td>
+<td><a href="downloads/handbuch.pdf"><strong>Handbuch zur Nachweisführung</strong></a></td>
 <td>Bedienung, Quick-Start und Nachweisablauf</td>
 </tr>
 <tr class="even">
-<td><a href="downloads/schulung.pdf">Schulung 14.10.2026</a> · <a href="downloads/schulung.pptx">PowerPoint</a></td>
-<td>Modell, Bilanzierung und Toolfunktionen; Grundlage der Webdokumentation</td>
+<td><a href="downloads/schulung.pdf"><strong>PEExcel-Schulung vom 14.10.2026</strong></a> · <a href="downloads/schulung.pptx">PowerPoint</a></td>
+<td>Modell, Bilanzierung und Toolfunktionen</td>
 </tr>
 <tr class="odd">
-<td><a href="downloads/broschuere.pdf">klimaaktiv Broschüre</a></td>
-<td>Standard und Qualitätsstufen</td>
+<td><a href="downloads/broschuere.pdf"><strong>klimaaktiv Broschüre</strong></a></td>
+<td>Einführung in den Standard und die Qualitätsstufen</td>
 </tr>
 <tr class="even">
-<td><a href="downloads/standard.pdf">Plus-Energie-Standard im Überblick</a></td>
-<td>Einordnung des Standards</td>
+<td><a href="downloads/standard.pdf"><strong>Plus-Energie-Standard im Überblick</strong></a></td>
+<td>Einordnung des Bewertungsrahmens</td>
 </tr>
 <tr class="odd">
-<td><a href="downloads/hintergrund.pdf">Definition und Operationalisierung · Juni 2023</a></td>
-<td>Methodischer Hintergrundbericht</td>
+<td><a href="downloads/hintergrund.pdf"><strong>Definition und Operationalisierung, Juni 2023</strong></a></td>
+<td>Frühere methodische Grundlagen</td>
 </tr>
 <tr class="even">
-<td><a href="downloads/tool-dokumentation.pdf">Frühere Tool-Dokumentation</a></td>
-<td>Ergänzende Dokumentation; Versionsbezug beachten</td>
+<td><a href="downloads/tool-dokumentation.pdf"><strong>Frühere Tool-Dokumentation</strong></a></td>
+<td>Ergänzende technische Dokumentation mit entsprechendem Versionsbezug</td>
 </tr>
 </tbody>
 </table>
-<p>Die <a href="./learn.html">Arbeitsabläufe</a> erschließen diese Inhalte thematisch. Für verbindliche Werte und Nachweise immer die zum Toolstand gehörenden Vorgaben verwenden.</p>
+<p>Die <a href="./checklist.html">weiterführende Dokumentation</a> erschließt die Inhalte nach Themen.</p>
+<p>Für die verbindliche Nachweisführung sind die zum verwendeten Tool- und Methodenstand gehörenden Anforderungen maßgeblich.</p>
 
 
 </section>

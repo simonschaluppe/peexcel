@@ -76,6 +76,18 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Suchen"
   }
 }</script>
+<script type="application/json" class="js-hypothesis-config">
+{
+  "theme": "clean",
+  "openSidebar": false
+}
+</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -103,12 +115,8 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
-<span class="menu-text">Übersicht</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./start.html"> 
-<span class="menu-text">Tool-Anwendung</span></a>
+    <a class="nav-link" href="./excel-overview.html"> 
+<span class="menu-text">Starten</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./model.html"> 
@@ -116,11 +124,19 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./results.html"> 
-<span class="menu-text">Analysieren und Bewerten</span></a>
+<span class="menu-text">Analysieren</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./learn.html"> 
+    <a class="nav-link" href="./projekte-nachweisen.html"> 
+<span class="menu-text">Deklarieren</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./research.html"> 
 <span class="menu-text">Dokumentation</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./assessment-explained.html"> 
+<span class="menu-text">Quick-Check</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -160,49 +176,54 @@ ul.task-list li input[type="checkbox"] {
 PEExcel · Plus-Energie-Quartiere
 </div>
 <h1>
-Vom Quartiersentwurf zur nachvollziehbaren Bewertung.
+Ein Jahr simulieren. Varianten verstehen.
 </h1>
 <p class="lead">
-Stündliche Simulation, Variantenvergleich und klimaaktiv-Bewertung für Gebäude, Energieversorgung und Mobilität.
+Gebäude, PV, Speicher und Mobilität in 8.760 Stunden verknüpfen. Energieflüsse, Flexibilität und Klimawirkung gemeinsam bewerten.
 </p>
 <div class="actions">
-<a href="start.html">Projektbearbeitung</a><a class="secondary" href="envelope.html">Gebäudeschnitt</a>
+<a href="excel-overview.html">Mit Excel starten</a><a class="secondary" href="results.html">Ergebnisse verstehen</a>
 </div>
 </div>
-<img src="https://github.com/simonschaluppe/peexcel/assets/22156735/2856e7d9-54d9-4ea9-a894-1128f435c139" alt="PEExcel – Plus-Energie-Quartiere">
+<img src="media/logo.png" alt="PEExcel – Plus-Energie-Quartiere">
 </div>
 <p>Für <strong>professionelle Kompetenzpartner:innen</strong>, Planende, Konsulent:innen, Forschende und Studierende: PEExcel verbindet Excel mit stündlicher Simulation, nachvollziehbaren Bewertungsmethoden und einer Python-Schnittstelle. Entwickelt von der Forschungsgruppe <a href="https://www.technikum-wien.at/forschungsschwerpunkt-renewable-energy-systems/">Climate-fit Buildings and Districts</a> an der FH Technikum Wien.</p>
-<section id="ein-quartier-mehrere-perspektiven" class="level2">
-<h2 class="anchored" data-anchor-id="ein-quartier-mehrere-perspektiven">Ein Quartier, mehrere Perspektiven</h2>
+<section id="was-du-untersuchen-kannst" class="level2">
+<h2 class="anchored" data-anchor-id="was-du-untersuchen-kannst">Was du untersuchen kannst</h2>
 <div class="feature-grid">
 <div class="feature">
-<span class="icon" aria-hidden="true">🏙️</span>
+<span class="icon" aria-hidden="true">📊</span>
 <h3 class="anchored">
-Modellieren
+Varianten vergleichen
 </h3>
 <p>
-Gebäude, Nutzungen und Bauteile zusammenführen. <a href="model.html">Das Modell verstehen →</a>
+Einzelmaßnahmen und Maßnahmenpakete mit denselben Bilanzgrenzen bewerten. <a href="comparison.html">Zum Variantenvergleich →</a>
 </p>
 </div>
 <div class="feature">
-<span class="icon" aria-hidden="true">🌞</span>
+<span class="icon" aria-hidden="true">🔋</span>
 <h3 class="anchored">
-Energie verknüpfen
+Flexibilität nutzen
 </h3>
 <p>
-Wärme, Kälte, PV, Speicher und Netzinteraktion stündlich betrachten. <a href="systems.html">Energieversorgung →</a>
+Gebäudemasse, Warmwasser, Batterie und EVs im Stundenverlauf untersuchen. <a href="flexibility.html">Flexibilität analysieren →</a>
 </p>
 </div>
 <div class="feature">
-<span class="icon" aria-hidden="true">☁️</span>
+<span class="icon" aria-hidden="true">🚗</span>
 <h3 class="anchored">
-Wirkung bewerten
+Mobilität einbeziehen
 </h3>
 <p>
-Energiebilanz, Mobilität und Lebenszyklus gemeinsam beurteilen. <a href="results.html">Ergebnisse lesen →</a>
+Anwesenheit, Laden und Fahrbedarf nach Nutzung und Jahreszeit verstehen. <a href="mobility-analysis.html">Mobilitätsverhalten analysieren →</a>
 </p>
 </div>
 </div>
+</section>
+<section id="jahresbilanz-und-stundenverlauf-verbinden" class="level2">
+<h2 class="anchored" data-anchor-id="jahresbilanz-und-stundenverlauf-verbinden">Jahresbilanz und Stundenverlauf verbinden</h2>
+<p>Die Jahresbilanz zeigt, <strong>wie viel</strong> Energie benötigt und bereitgestellt wird. Die stündliche Simulation zeigt, <strong>wann</strong> PV, Bedarf und Speicher zusammenpassen. So lassen sich Eigenverbrauch, Netzbezug, Speicherverluste und Komfort gemeinsam beurteilen. Die Primärenergie- und Lebenszyklus-THG-Bewertung ergänzt die physischen Flüsse.</p>
+<p><a href="./results.html#kennzahlen">Ergebnisse und Kennzahlen</a> · <a href="./excel-dashboard.html">Stündliches Excel-Dashboard</a> · <a href="./model.html">Modell und Eingaben</a></p>
 </section>
 <section id="drei-stufen-des-plus-energie-standards" class="level2">
 <h2 class="anchored" data-anchor-id="drei-stufen-des-plus-energie-standards">Drei Stufen des Plus-Energie-Standards</h2>
@@ -223,7 +244,7 @@ Energiebilanz, Mobilität und Lebenszyklus gemeinsam beurteilen. <a href="result
 <h2 class="anchored" data-anchor-id="projektvergleich-und-zeitaufgelöste-auswertung">Projektvergleich und zeitaufgelöste Auswertung</h2>
 <p>Die <a href="./examples.html">drei Sanierungsvarianten</a> zeigen Wärme-, Endenergie-, Primärenergie- und THG-Bilanzen auf gemeinsamer Datengrundlage. <strong>Aspern F7</strong> ergänzt den Vergleich durch <a href="./examples.html#aspern-f7">saisonale Tagesprofile und chronologische Stundenverläufe</a>.</p>
 <p>Der <a href="./envelope.html">schematische Gebäudeschnitt</a> stellt Bauteilzuordnung, thermische Bilanzgrenzen und qualitative Wärmeflüsse getrennt dar.</p>
-<p><a href="./learn.html">Technische Dokumentation</a> · <a href="./download.html">Excel herunterladen</a> · <a href="./python.html">Python-Schnittstelle</a></p>
+<p><a href="./research.html">Methodik und Forschung</a> · <a href="./download.html">Excel herunterladen</a> · <a href="./python.html">Python-Schnittstelle</a></p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">

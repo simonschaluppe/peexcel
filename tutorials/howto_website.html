@@ -52,9 +52,20 @@
 <div class="cell border-box-sizing text_cell rendered" id="cell-id=c5cf8442"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Quarto-rendern-und-pr%C3%BCfen">Quarto rendern und prüfen<a class="anchor-link" href="#Quarto-rendern-und-pr%C3%BCfen">¶</a></h2><p>Im Repository: <code>quarto render website</code>. Das deutsche Projekt baut die Hauptseiten; sein Post-Render-Schritt startet das englische Unterprojekt <code>website/en</code>. Beide Sprachfassungen landen gemeinsam in <code>website/_site</code>, die englischen Seiten unter <code>_site/en/</code>.</p>
-<p>Die beiden <code>_quarto.yml</code>-Dateien definieren getrennte Kopf- und Seitenleisten. Die Quelldateien liegen im selben Sprachverzeichnis wie ihre Navigation. Beide Versionen lokal über die Website-Vorschau kontrollieren; nach Inhaltsänderungen den Build erneut ausführen.</p>
-<p>Die bisherigen Notebook-Lesefassungen und alle Downloads enthalten keine gespeicherten Zellenausgaben. Das Bewertungstutorial übernimmt seine gespeicherten Ausgaben in eine native Quarto-Seite; die Originale bleiben unverändert. Quellen: <code>docs/</code>, <code>notebooks/</code>, <code>data/schemas/1.13.1_dev/IN.csv</code>. Generierte Veröffentlichungsdateien liegen in <code>website/_site</code>.</p>
+<h2 id="Quarto-rendern-und-pr%C3%BCfen">Quarto rendern und prüfen<a class="anchor-link" href="#Quarto-rendern-und-pr%C3%BCfen">¶</a></h2><p>Im Repository <code>quarto render website</code> ausführen. Der aktive Pre-Render-Schritt
+<code>website_assets.py</code> erstellt Downloads, Notebook-Lesefassungen, den Explorer und
+die konfigurierten Ergebnisgrafiken mit den bestehenden Implementierungsfunktionen.
+Quarto rendert anschließend die deutschen QMD-Seiten und das Bewertungstutorial.
+Die Ausgabe liegt in <code>website/_site</code>.</p>
+<p>Englisch ist ein getrenntes Unterprojekt. Sein automatischer Post-Render-Aufruf
+ist deaktiviert. Bei einer späteren Veröffentlichung die bestehende englische
+Ausgabe bewusst erhalten oder separat bauen; ein deutscher Build allein ist kein
+vollständiges zweisprachiges Veröffentlichungspaket.</p>
+<p>Unter Windows kann für Kaleido ein vorhandener kompatibler Browser gewählt werden.
+Falls Chrome beim Grafikexport hängt, vor dem Build in derselben PowerShell-Sitzung
+beispielsweise <code>$env:BROWSER_PATH = 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe'</code>
+setzen, sofern dieser Pfad vorhanden ist. Das ist eine lokale Laufzeitwahl;
+die Website und ihre Ergebnisse ändern sich dadurch nicht.</p>
 </div>
 </div>
 </div>
@@ -82,10 +93,23 @@
 <div class="cell border-box-sizing text_cell rendered" id="cell-id=5b05d806"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Excel-Dokumentation-und-bereitgestellte-Abbildungen">Excel-Dokumentation und bereitgestellte Abbildungen<a class="anchor-link" href="#Excel-Dokumentation-und-bereitgestellte-Abbildungen">¶</a></h2><p>Die deutsche Navigation trennt Tool-Anwendung, Modellieren und Analysieren und Bewerten. Die englische Quarto-Unterseite definiert dieselbe Struktur mit eigener englischer Kopf- und Seitenleiste. <code>results.qmd</code> beschreibt Erg; <code>excel-dashboard.qmd</code> beschreibt das Excel-Dashboard; <code>dashboard.qmd</code> bleibt der Python-Szenarioexplorer. Migration, PV, Varianten und Scen besitzen eigene Seiten.</p>
-<p>Originalbilder liegen unter <code>docs/website/</code>. Die explizite Liste <code>MANUAL_FIGURES</code> in <code>website_assets.py</code> ist die Veröffentlichungsauswahl. <code>build</code> kopiert sie unverändert nach <code>media/manual/</code>; keine veralteten Handbuch-Screenshots werden erzeugt. Bei Austausch Quellen-/Versionshinweis in der QMD-Bildunterschrift mitpflegen.</p>
-<p>Bedienorte mit <code>.excel-menu</code> markieren, Pfade in <code>.excel-path</code>, Schritte in <code>.excel-operation</code>, Felder mit <code>.excel-field</code>. Fachliche Erläuterungen bleiben normaler Fließtext; Nachweisbindungen stehen in <code>.declaration-note</code>. Jede Abbildung benötigt Alt-Text und eine Quellenangabe. Die Marken sind keine Excel-Schaltflächen.</p>
-<p>Beispiel: <code>**Excel-Ort:** Blatt [🔥 Heizung]{.excel-menu .darkred}</code>. Die vollständige Formatierungslegende steht in <code>excel-navigation.qmd</code>.</p>
+<h2 id="Excel-Dokumentation-und-Abbildungen">Excel-Dokumentation und Abbildungen<a class="anchor-link" href="#Excel-Dokumentation-und-Abbildungen">¶</a></h2><p>Die deutsche Navigation trennt Starten, Modellieren, Analysieren, Deklarieren,
+Python &amp; Automatisierung sowie Referenzen. <code>systems.qmd</code> und <code>mobility.qmd</code>
+beschreiben Eingaben; <code>flexibility.qmd</code> und <code>mobility-analysis.qmd</code> erklären deren
+Auswertung. <code>results.qmd</code> führt Kennzahlen und Bilanzgrenzen zusammen.</p>
+<p><code>excel-navigation.qmd</code> ist die maßgebliche Liste für Blattmarken und Namen.
+Beispiel: <code>Blatt [🔥H]{.excel-menu .darkred} ("Heizung")</code>.
+Felder tragen <code>.excel-field</code>, Aktionen <code>.excel-action</code>, Eingabeabschnitte
+<code>.excel-section</code>. Keine zusätzliche Mapping-Datei pflegen.</p>
+<p>Schulungsbilder werden durch <code>website_assets.build</code> unverändert aus
+<code>docs/website/</code> nach <code>media/manual/</code> kopiert. Weitere verwendete Grafiken liegen
+unter <code>website/illustrations/</code> und werden direkt von Quarto übernommen.
+Die dortige README dokumentiert Herkunft und Reproduktion der Paperausschnitte.
+Ein normaler Build benötigt die lokalen Zotero-PDFs nicht.</p>
+<p>Für neue Bedienannotationen eine Blattübersicht und lesbare Detailansichten mit
+Feldnamen, Einheiten und Zeilen-/Spaltenköpfen verwenden. Die Arbeitsmappenversion
+intern dokumentieren und Feldbezeichnungen mit dem vorhandenen Schema abgleichen.
+Bild und Erklärungstabelle gemeinsam aktualisieren; Beispielwerte als solche kennzeichnen.</p>
 </div>
 </div>
 </div>
@@ -115,7 +139,9 @@
 <div class="cell border-box-sizing text_cell rendered" id="cell-id=ffb29de2"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="English-pages">English pages<a class="anchor-link" href="#English-pages">¶</a></h2><p>English mirrors live in <code>website/en/</code> as a separate Quarto website project with <code>lang: en</code>. It defines its own English navbar and sidebar, while the German project keeps its German navigation. Keep German worksheet and ribbon labels where they identify controls in the workbook. English links point to pages within <code>en/</code>; images, downloads and generated visualisations use paths relative to the parent website. Running <code>quarto render website</code> renders the German site and then the English subproject into the shared <code>_site/en/</code> output. The English render is launched with <code>website/en</code> as its working directory so Quarto reads the English project configuration.</p>
+<h2 id="Englisches-Unterprojekt">Englisches Unterprojekt<a class="anchor-link" href="#Englisches-Unterprojekt">¶</a></h2><p>Die englischen Quellen liegen unter <code>website/en/</code> und bleiben von der deutschen
+Redaktion unberührt. Bei Bedarf separat mit <code>python scripts/render_english_site.py</code>
+bauen. Das ist für die deutsche Vorschau nicht erforderlich.</p>
 </div>
 </div>
 </div>
@@ -125,7 +151,7 @@
 <h2 id="Quellenstand-und-reproduzierbarer-Build">Quellenstand und reproduzierbarer Build<a class="anchor-link" href="#Quellenstand-und-reproduzierbarer-Build">¶</a></h2><p><code>master</code> enthält die bearbeitbaren QMD-Seiten, beide Quarto-Konfigurationen, CSS, Python-Skripte, Notebooks und die benötigten Eingabedateien. <code>gh-pages</code> enthält ausschließlich die Veröffentlichung einschließlich der vorgesehenen Notebook-Downloads. Generierte Verzeichnisse unter <code>website/</code> bleiben ignoriert.</p>
 <p>Vor Änderungen lokale, unversionierte und benötigte ignorierte Dateien separat sichern; ein Git-Bundle enthält nur Git-Objekte und Referenzen. Änderungen zunächst auf einem Entwicklungsbranch prüfen. Commit, Übernahme in <code>master</code>, Push und Veröffentlichung erfolgen nur nach der jeweiligen Freigabe.</p>
 <p>Für einen frischen Build müssen insbesondere die drei <code>data/exports/Bsp_San_6G*.xlsx</code>, die Schulungs-PDF und -PPTX, <code>docs/ComponentTypes.png</code>, <code>docs/mobilität.png</code>, <code>docs/website/*.png</code> und <code>website/illustrations/peq-stufen.png</code> vorhanden sein. Die eng begrenzten Ignore-Ausnahmen erhalten diese Quellen. <code>website/_examples.yml</code> und <code>scripts/website_assets.py</code> definieren die verwendeten Daten und Downloads.</p>
-<p>In einer frischen Arbeitskopie die bestehenden Abhängigkeiten mit <code>python -m pip install -e ".[publication]"</code> bereitstellen; außerdem Quarto und Chrome/Chromium für Kaleido. Anschließend <code>quarto render website</code> ausführen. Die Pre-render-Schritte verwenden <code>website_assets.py</code> und <code>publication_example.py</code>; dadurch bleiben auch die bereits veröffentlichten synthetischen Grafik-URLs aus einem frischen Quellenstand erreichbar. Der Sprachwechsel verweist auf <code>en/index.html</code>, da Englisch ein eigenes Quarto-Projekt ist; so wird dessen QMD-Quelle nicht als Ressource kopiert. Die folgende Zelle führt genau diesen Build aus und prüft Seitenumfang, Sprachwechsel und die Trennung von Quellen und Ausgabe. Sie veröffentlicht nichts.</p>
+<p>In einer frischen Arbeitskopie die bestehenden Abhängigkeiten mit <code>python -m pip install -e ".[publication]"</code> bereitstellen; außerdem Quarto und Chrome/Chromium für Kaleido. Anschließend <code>quarto render website</code> ausführen. Der Pre-render-Schritt verwendet <code>website_assets.py</code>; dadurch bleiben auch die bereits veröffentlichten synthetischen Grafik-URLs aus einem frischen Quellenstand erreichbar. Der Sprachwechsel verweist auf <code>en/index.html</code>, da Englisch ein eigenes Quarto-Projekt ist; so wird dessen QMD-Quelle nicht als Ressource kopiert. Die folgende Zelle führt genau diesen Build aus und prüft Seitenumfang, Sprachwechsel und die Trennung von Quellen und Ausgabe. Sie veröffentlicht nichts.</p>
 </div>
 </div>
 </div>
@@ -137,20 +163,11 @@
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
 <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">"quarto"</span><span class="p">,</span> <span class="s2">"render"</span><span class="p">,</span> <span class="s2">"website"</span><span class="p">],</span> <span class="n">cwd</span><span class="o">=</span><span class="n">ROOT</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">site</span> <span class="o">=</span> <span class="n">ROOT</span> <span class="o">/</span> <span class="s2">"website/_site"</span>
-<span class="k">for</span> <span class="n">language</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">""</span><span class="p">,</span> <span class="s2">"en"</span><span class="p">):</span>
-    <span class="n">sources</span> <span class="o">=</span> <span class="nb">list</span><span class="p">((</span><span class="n">ROOT</span> <span class="o">/</span> <span class="s2">"website"</span> <span class="o">/</span> <span class="n">language</span><span class="p">)</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">"*.qmd"</span><span class="p">))</span>
-    <span class="k">assert</span> <span class="n">sources</span>
-    <span class="k">for</span> <span class="n">source</span> <span class="ow">in</span> <span class="n">sources</span><span class="p">:</span>
-        <span class="k">assert</span> <span class="p">(</span><span class="n">site</span> <span class="o">/</span> <span class="n">language</span> <span class="o">/</span> <span class="n">source</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s2">".html"</span><span class="p">)</span><span class="o">.</span><span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="n">is_file</span><span class="p">(),</span> <span class="n">source</span>
-<span class="k">assert</span> <span class="ow">not</span> <span class="nb">list</span><span class="p">(</span><span class="n">site</span><span class="o">.</span><span class="n">rglob</span><span class="p">(</span><span class="s2">"*.qmd"</span><span class="p">)),</span> <span class="s2">"Quarto-Quellen gehören nicht in die Veröffentlichung"</span>
-<span class="k">assert</span> <span class="s1">'href="./en/index.html"'</span> <span class="ow">in</span> <span class="p">(</span><span class="n">site</span> <span class="o">/</span> <span class="s2">"index.html"</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="ow">or</span> <span class="s1">'href="en/index.html"'</span> <span class="ow">in</span> <span class="p">(</span><span class="n">site</span> <span class="o">/</span> <span class="s2">"index.html"</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
-<span class="k">assert</span> <span class="p">(</span><span class="n">site</span> <span class="o">/</span> <span class="s2">"assessment.html"</span><span class="p">)</span><span class="o">.</span><span class="n">is_file</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Website einschließlich Bewertungstutorial erstellt; Veröffentlichung bleibt separat."</span><span class="p">)</span>
-
-<span class="k">assert</span> <span class="p">(</span><span class="n">site</span> <span class="o">/</span> <span class="s2">"assessment-explained.html"</span><span class="p">)</span><span class="o">.</span><span class="n">is_file</span><span class="p">()</span>
-<span class="k">assert</span> <span class="p">(</span><span class="n">site</span> <span class="o">/</span> <span class="s2">"assets/assessment-explained/index.html"</span><span class="p">)</span><span class="o">.</span><span class="n">is_file</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"howto_assess"</span><span class="p">,</span> <span class="s2">"howto_assessment_explained"</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="p">(</span><span class="n">site</span> <span class="o">/</span> <span class="s2">"downloads"</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">.ipynb"</span><span class="p">)</span><span class="o">.</span><span class="n">is_file</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">source</span> <span class="ow">in</span> <span class="p">(</span><span class="n">ROOT</span> <span class="o">/</span> <span class="s2">"website"</span><span class="p">)</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">"*.qmd"</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="n">site</span> <span class="o">/</span> <span class="n">source</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s2">".html"</span><span class="p">)</span><span class="o">.</span><span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="n">is_file</span><span class="p">(),</span> <span class="n">source</span><span class="o">.</span><span class="n">name</span>
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"mobprofiles.png"</span><span class="p">,</span> <span class="s2">"userflexmodel.svg"</span><span class="p">,</span> <span class="s2">"flexibility-study.png"</span><span class="p">,</span> <span class="s2">"mobility-results.png"</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="n">site</span> <span class="o">/</span> <span class="s2">"illustrations"</span> <span class="o">/</span> <span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="n">is_file</span><span class="p">(),</span> <span class="n">name</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Deutsche Seiten und Analyse-Abbildungen vorhanden; keine Veröffentlichung."</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -159,8 +176,13 @@
 <div class="cell border-box-sizing text_cell rendered" id="cell-id=github-pages-publish"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Auf-GitHub-Pages-ver%C3%B6ffentlichen">Auf GitHub Pages veröffentlichen<a class="anchor-link" href="#Auf-GitHub-Pages-ver%C3%B6ffentlichen">¶</a></h2><p>Zuerst eine laufende Quarto-Vorschau beenden und <code>quarto render website</code> ausführen. Der Build erzeugt Deutsch und Englisch gemeinsam in <code>website/_site</code>. Danach <code>quarto publish gh-pages website --no-render --no-prompt --no-browser</code> ausführen. Quarto veröffentlicht die fertigen Dateien auf dem Branch <code>gh-pages</code>. GitHub Pages verwendet diesen Branch und den Ordner <code>/</code>.</p>
-<p>Öffentliche URLs: <a href="https://simonschaluppe.github.io/peexcel/">https://simonschaluppe.github.io/peexcel/</a> und <a href="https://simonschaluppe.github.io/peexcel/en/">https://simonschaluppe.github.io/peexcel/en/</a>. Voraussetzung ist ein GitHub-Konto mit Schreibzugriff auf das Repository. Die folgende Zelle veröffentlicht nur, wenn <code>PUBLISH</code> ausdrücklich aktiviert wird.</p>
+<h2 id="Lokale-Vorschau-und-sp%C3%A4tere-Ver%C3%B6ffentlichung">Lokale Vorschau und spätere Veröffentlichung<a class="anchor-link" href="#Lokale-Vorschau-und-sp%C3%A4tere-Ver%C3%B6ffentlichung">¶</a></h2><p>Nach erfolgreichem Build <code>quarto preview website --no-browser --no-render</code> starten.
+Die ausgegebene lokale URL öffnen. Startseite, Blattnavigator, Ergebnisse,
+Flexibilität und Mobilitätsverhalten auf Desktop und bei 390 px Breite prüfen.
+Abbildungen vergrößern, Navigation und Downloads anklicken.</p>
+<p>Die folgende Zelle veröffentlicht standardmäßig nichts. Vor einem späteren
+GitHub-Pages-Deployment die Vorschau beenden und die Sprachfassungen des fertigen
+Ausgabeverzeichnisses prüfen. GitHub Pages verwendet <code>gh-pages</code> und den Ordner <code>/</code>.</p>
 </div>
 </div>
 </div>
@@ -194,7 +216,7 @@
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Das-Bewertungs-Notebook-als-Quarto-Seite">Das Bewertungs-Notebook als Quarto-Seite<a class="anchor-link" href="#Das-Bewertungs-Notebook-als-Quarto-Seite">¶</a></h2><p><code>notebooks/howto_assess.ipynb</code> ist die einzige bearbeitbare Inhaltsquelle des Bewertungstutorials. Texte und Python-Code werden dort geändert. Nach Code- oder Datenänderungen das Notebook ausführen und mit seinen Ausgaben speichern.</p>
 <p>Der vorhandene Pre-render-Schritt <code>scripts/website_assets.py</code> ruft <code>prepare_assessment()</code> auf. Diese Funktion erzeugt <code>website/assessment.ipynb</code> mit Seitentitel, Downloadlink und den gespeicherten Ausgaben. Die Kopie ist ignoriert und wird bei jedem Build überschrieben; sie wird nicht manuell gepflegt. Der Zweck dieser einen abgeleiteten Datei ist, das außerhalb des Website-Projekts liegende Notebook mit dessen Navigation und Gestaltung nativ zu rendern. Es gibt keine zweite Text- oder Berechnungsquelle und kein neues Datenschema. Der Download wird wie die übrigen Downloads ohne gespeicherte Ausgaben erzeugt.</p>
-<p>In <code>website/_quarto.yml</code> steht unter <code>project.render</code> zusätzlich <code>assessment.ipynb</code>. Derselbe Dateiname steht in der Seitenleiste unter „Dokumentation und Referenzen“. Quarto rendert Markdown, aufklappbaren Python-Code, Tabellen und interaktive Plotly-Ausgaben gemeinsam nach <code>website/_site/assessment.html</code>. <code>execute.enabled: false</code> in der erzeugten Kopie verhindert eine erneute Ausführung beim Rendern. Die öffentliche Seite benötigt keinen Python-Server.</p>
+<p>In <code>website/_quarto.yml</code> steht unter <code>project.render</code> zusätzlich <code>assessment.ipynb</code>. Derselbe Dateiname steht in der Seitenleiste unter „Python &amp; Automatisierung“. Quarto rendert Markdown, aufklappbaren Python-Code, Tabellen und interaktive Plotly-Ausgaben gemeinsam nach <code>website/_site/assessment.html</code>. <code>execute.enabled: false</code> in der erzeugten Kopie verhindert eine erneute Ausführung beim Rendern. Die öffentliche Seite benötigt keinen Python-Server.</p>
 <p>Die folgende Zelle zeigt genau diesen Vorbereitungsschritt. Danach baut <code>quarto render website</code> die Website wie gewohnt. Auf „Python-Schnittstelle und Notebooks“ führt ein Link zum Tutorial; die Seite selbst bietet den Notebook-Download. Es wird nichts veröffentlicht.</p>
 </div>
 </div>
@@ -256,7 +278,7 @@
 <h3 id="2.-Technisches-Notebook-mit-demselben-Export-ausf%C3%BChren">2. Technisches Notebook mit demselben Export ausführen<a class="anchor-link" href="#2.-Technisches-Notebook-mit-demselben-Export-ausf%C3%BChren">¶</a></h3><p>In <code>notebooks/howto_assess.ipynb</code> die Variable <code>QUELLE</code> auf dieselbe Exportdatei setzen. Das Notebook zeigt zunächst die vorhandenen Varianten. Anschließend <code>AUSWAHL</code> an deren tatsächliche Namen anpassen, alle Zellen ausführen und mit Ausgaben speichern. Diese gespeicherten Ausgaben übernimmt Quarto; der Website-Build führt das technische Notebook nicht nochmals aus.</p>
 <h3 id="3.-Beide-Ansichten-in-PEExcel-Pages-bauen">3. Beide Ansichten in PEExcel-Pages bauen<a class="anchor-link" href="#3.-Beide-Ansichten-in-PEExcel-Pages-bauen">¶</a></h3><div class="highlight"><pre><span></span><span class="n">quarto</span> <span class="n">render</span> <span class="n">website</span>
 </pre></div>
-<p>Der vorhandene Pre-render-Schritt <code>website_assets.py</code> erzeugt nun auch den Explorer sowie beide Notebook-Downloads. Die Navigation enthält den Explorer unter „Analysieren und Bewerten“; unter „Python-Schnittstelle und Notebooks“ sind beide Ansichten verlinkt.</p>
+<p>Der vorhandene Pre-render-Schritt <code>website_assets.py</code> erzeugt nun auch den Explorer sowie beide Notebook-Downloads. Die Navigation enthält den Explorer unter „Analysieren“; unter „Python-Schnittstelle und Notebooks“ sind beide Ansichten verlinkt.</p>
 <p>Der reguläre Website-Build verwendet den mitgelieferten Lehrprojektexport. Soll die Website dauerhaft einen anderen Export zeigen, in <code>scripts/website_assets.py</code> beim Aufruf von <code>build_explorer(...)</code> zusätzlich <code>source=ROOT / "data/exports/MeinProjekt.xlsx"</code> setzen. Die Quelldatei muss beim Build verfügbar sein. Ein zuvor manuell erzeugtes Explorer-HTML wird vom regulären Build ersetzt.</p>
 <p>Zu prüfen sind <code>website/_site/assessment.html</code>, <code>website/_site/assessment-explained.html</code> und <code>website/_site/assets/assessment-explained/index.html</code>. Beide Downloads liegen unter <code>website/_site/downloads/</code>.</p>
 <h3 id="4.-Nach-Pr%C3%BCfung-ver%C3%B6ffentlichen">4. Nach Prüfung veröffentlichen<a class="anchor-link" href="#4.-Nach-Pr%C3%BCfung-ver%C3%B6ffentlichen">¶</a></h3><div class="highlight"><pre><span></span><span class="n">quarto</span> <span class="n">publish</span> <span class="n">gh-pages</span> <span class="n">website</span> <span class="p">-</span><span class="n">-no-render</span>
