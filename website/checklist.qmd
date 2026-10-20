@@ -1,8 +1,8 @@
 ---
-title: "Dokumentation und Arbeitsabläufe"
+title: "Deklaration: Checkliste Dokumentation und Arbeitsabläufe"
 ---
 
-Technische Dokumentation zur Modellierung, Ergebnisanalyse und Vorbereitung der klimaaktiv-Deklaration. Die Arbeitsabläufe richten sich an Energie-, Gebäude- und HKLS-Fachplaner:innen sowie an Anwender:innen in Forschung und Hochschullehre.
+Technische Dokumentation zur Modellierung, Ergebnisanalyse und Vorbereitung der klimaaktiv-Deklaration. Die Arbeitsabläufe richten sich an Kompetenzpartner:innen und Anwender:innen des Deklarationsstandards, Energie-, Gebäude- und HKLS-Fachplaner:innen sowie an Anwender:innen in Forschung und Hochschullehre.
 
 ## Modellaufbau und Datengrundlagen
 

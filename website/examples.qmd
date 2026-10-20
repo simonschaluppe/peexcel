@@ -1,8 +1,5 @@
 ---
-title: "Variantenvergleich · Bsp San 6G"
-page-layout: full
-sidebar: false
-toc: true
+title: "Beispiele"
 ---
 
 Die drei Exporte zeigen denselben Flächenbezug: **1.175,8 m² NGF** und **1.469,75 m² BGF**, Toolstand **1.13.1_dev**. Die Referenz enthält bereits PV. Die Varianten unterscheiden sich in den exportierten Flexibilitätseinstellungen, nicht in einer pauschalen Gegenüberstellung „ohne/mit PV“.

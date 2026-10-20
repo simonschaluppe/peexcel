@@ -1,12 +1,19 @@
+
 ---
 title: "Methodik und Forschung"
 ---
 
-PEExcel kombiniert Gebäudebetrieb, stündlichen Import und Export, erneuerbare Erzeugung, standortbezogene Mobilität, graue Emissionen und Kontextfaktoren zu Dichte, Bestand und Flexibilität. Die Bausteine unterstützen Variantenvergleich, Qualitätssicherung und nachvollziehbare Planungsdeklarationen.
+PEExcel setzt die Bewertungsmethodik des **klimaaktiv Standards für klimaneutrale Plus-Energie-Quartiere** in einem Berechnungs- und Nachweiswerkzeug um. Der Standard definiert quantitative Anforderungen an die Primärenergie- und Treibhausgasbilanz von Gebäuden und Quartieren. Die wissenschaftlichen Grundlagen, die Herleitung der Zielwerte sowie die Bilanzierungsregeln werden im [Online-Hintergrundbericht zum klimaaktiv Standard](https://simonschaluppe.github.io/peq-higrube/) ausführlich beschrieben.
+
+PEExcel verbindet Gebäudebetrieb, stündliche Energieflüsse, erneuerbare Erzeugung, standortbezogene Mobilität, Lebenszyklusemissionen und Kontextfaktoren zu einem integrierten Bewertungsmodell. Das Werkzeug unterstützt die Untersuchung von Planungsvarianten, die quantitative Bewertung der Zielerreichung und die nachvollziehbare Nachweisführung.
 
 ## Grundlagen zum Standard
 
-[klimaaktiv Plus-Energie-Quartiere](https://www.klimaaktiv.at/publikationen/plus-energie-quartiere) · [Broschüre](downloads/broschuere.pdf) · [Definition und Operationalisierung](downloads/hintergrund.pdf)
+- [**Online-Hintergrundbericht: Klimaneutrale Plus-Energie-Quartiere**](https://simonschaluppe.github.io/peq-higrube/) – Methodik, Zielwertherleitung, Systemgrenzen und Bilanzierungsregeln
+- [**klimaaktiv Plus-Energie-Quartiere**](https://www.klimaaktiv.at/publikationen/plus-energie-quartiere) – Allgemeinverständliche Einführung in den Standard
+- [**Broschüre**](downloads/broschuere.pdf) – Überblick über Anforderungen und Anwendung
+- [**Definition und Operationalisierung**](downloads/hintergrund.pdf) – Frühere methodische Grundlagen
+
 
 ## Publikationen
 
@@ -19,8 +26,6 @@ PEExcel kombiniert Gebäudebetrieb, stündlichen Import und Export, erneuerbare 
 | 2025 | Schneider & Baptista – [Annual Hourly E-Mobility Modelling and Assessment in Climate Neutral Positive Energy Districts](https://doi.org/10.1109/EEEIC/ICPSEurope64998.2025.11169136) | Stündliche E-Mobilität |
 | 2025 | Schneider et al. – [Declaration-Ready Climate-Neutral PEDs](https://doi.org/10.3390/designs9060123) | Deklarationsfähige Bewertung und Fallbeispiele |
 
-<figure><a href="https://github.com/user-attachments/assets/696c5440-e451-46fd-823e-d94ec4e45ea5"><img class="full-figure" src="https://github.com/user-attachments/assets/696c5440-e451-46fd-823e-d94ec4e45ea5" alt="Illustration aus der bisherigen Projektdokumentation"></a><figcaption>Illustration aus der bisherigen Projektdokumentation.</figcaption></figure>
+
 
 Diese Arbeiten erläutern die Methodenentwicklung. Für konkrete Nachweise gelten die [Unterlagen zum verwendeten Toolstand](download.qmd).
-
-[Frühere README-Stufengrafik](https://github.com/user-attachments/assets/095a8e31-2daf-47f3-8174-8890566f9fb6) · Die Startseiten verwenden die entsprechende lokale Schulungsdarstellung (Folie 4).

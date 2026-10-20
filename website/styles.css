@@ -52,6 +52,15 @@ body:has(.hero) #title-block-header{display:none}
 .excel-path{background:#f0f3f5;padding:.7rem 1rem;margin:.8rem 0;overflow-wrap:anywhere;border-left:3px solid #607d8b}
 .excel-operation{background:#f4f8f6;border-left:4px solid #297658;padding:1rem 1.25rem;margin:1.25rem 0}
 .excel-operation h3{margin-top:0;font-size:1.15rem}
+.excel-operation::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: url("illustrations/logo.png") center / contain no-repeat;
+  flex-shrink: 0;
+}
+
 .excel-field{background:#e1efdf;color:#205329;border:1px solid #80a67d;padding:.08em .35em}
 .excel-action{border:1px solid #74858c;padding:.08em .35em;background:#fff;color:#243746}
 .excel-value{background:#fbe0d7;color:#7b2b15;padding:.08em .35em;font-weight:600}

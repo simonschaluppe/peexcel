@@ -1,46 +1,74 @@
+
 ---
-title: "Schnelleinstieg mit Presets"
+title: "Schnellauswahl mit Presets"
 ---
 
-Für die meisten Eingabekategorien existieren speziell formatierte Auswahlfelder. Damit lassen sich schnell typische Konfigurationen festlegen. Die Schnellauswahl übernimmt ein **Parameterpaket**; anschließend können die Detaileingaben projektspezifisch geprüft und geändert werden.
+**Presets** erleichtern die Eingabe typischer Gebäudekonfigurationen und technischer Systeme. Statt zahlreiche Parameter einzeln festzulegen, wird mit einer Auswahl ein zusammengehöriges **Parameterpaket** übernommen.
 
-**Excel-Ort:** Blatt [▶ Quick Start]{.excel-menu .darkred} → [Schnellauswahl]{.excel-section}; alternativ das jeweilige Fachblatt oder dessen Menü im Ribbon **klimaaktiv PEQ**.
+Das ermöglicht einen schnellen Modellaufbau und vereinfacht die Untersuchung unterschiedlicher Planungsvarianten. Die übernommenen Werte können anschließend projektspezifisch angepasst werden.
+
+::: {.excel-operation}
+**Excel-Ort:** Blatt [▶]{.excel-menu .darkred} "Quick Start" → [Schnellauswahl]{.excel-section}
+
+Alternativ können Presets in den jeweiligen Fachblättern oder über das Menüband **klimaaktiv PEQ** ausgewählt werden.
+:::
 
 ![Excel-Bedienung: Preset-Auswahl und Zuordnung zu Eingabevariablen. Die Presets_xx-Tabellen enthalten spaltenweise Presets und zeilenweise die angesteuerten Inputvariablen. Bereitgestellte Schulungsfolie 34.](media/manual/presets.png){.manual-figure}
 
+## Preset anwenden
+
 ::: {.excel-operation}
-### Preset anwenden und Ergebnis kontrollieren
-1. Ausgangsstand als [Variante speichern](variants.qmd). **Presets können vorhandene Eingaben überschreiben; nicht auf Excel-Undo verlassen.**
-2. In der Schnellauswahl das gewünschte Preset wählen.
-3. Im Fachblatt die übernommenen Parameter kontrollieren: Leistungen, Systemanteile, Sollwerte, Verluste und Aktivierungsschalter.
-4. Neu berechnen und die betroffenen Bilanzen im [Ergebnisblatt](results.qmd) prüfen.
-5. Als neue Variante speichern und im [Variantenvergleich](comparison.qmd) gegenüberstellen.
+### Im Excel-Tool
+
+1. **Ausgangsvariante sichern:** Den aktuellen Eingabestand als [Variante speichern](variants.qmd).
+2. **Preset auswählen:** In der Schnellauswahl die gewünschte Konfiguration festlegen.
+3. **Eingaben kontrollieren:** Im zugehörigen Fachblatt die übernommenen Werte prüfen.
+4. **Neu berechnen:** Berechnung auslösen und die betroffenen Bilanzen im [Ergebnisblatt](results.qmd) auswerten.
+5. **Variante vergleichen:** Den neuen Stand speichern und im [Variantenvergleich](comparison.qmd) gegenüberstellen.
+:::
+
+::: {.callout-warning appearance="simple" title="Presets überschreiben Eingaben"}
+Ein Preset kann bestehende Eingabewerte ersetzen. Deshalb die Ausgangsvariante vor der Auswahl sichern und sich nicht auf die Rückgängig-Funktion von Excel verlassen.
 :::
 
 ## Beispiel: Heizsystem ändern
+
+Im folgenden Beispiel wird eine Variante mit einer anderen Wärmeversorgung untersucht.
 
 ::: {.excel-path}
 **Menüband:** klimaaktiv PEQ → Heizung → Auswahl Heizsystem
 :::
 
-Das Preset [„Fernwärme“]{.excel-value} wählen. Im Blatt [🔥 Heizung]{.excel-menu .darkred} insbesondere Energieträger, [Maximale Heizleistung]{.excel-field} und Erzeugungseffizienz kontrollieren. Nach der Berechnung im Ergebnisblatt die Verteilung der Endenergieträger und die Primärenergiebilanz vergleichen. Das Preset ersetzt keine Anlagendimensionierung.
+1. Das Preset [„Fernwärme“]{.excel-value} auswählen.
+2. Im Blatt [🔥 Heizung]{.excel-menu .darkred} die übernommenen Parameter kontrollieren, insbesondere den Energieträger, die [Maximale Heizleistung]{.excel-field} und die Erzeugungseffizienz.
+3. Neu berechnen.
+4. Im [Ergebnisblatt](results.qmd) die Verteilung der Endenergieträger und die Primärenergiebilanz prüfen.
+5. Das Ergebnis als eigene Variante sichern.
 
-## Schnellauswahl nach Eingabegruppe
+Der Vergleich zeigt die Auswirkungen unterschiedlicher Wärmeversorgungskonzepte innerhalb der Modellannahmen. **Ein Preset ersetzt keine projektspezifische Anlagendimensionierung.**
 
-| Gruppe | Weiterführende Eingabe |
+## Verfügbare Eingabegruppen
+
+Die Presets decken unterschiedliche Teile des Quartiersmodells ab.
+
+| Eingabegruppe | Weiterführende Informationen |
 |---|---|
-| Geometrie, Neubau/Sanierung | [Quartier](model.qmd#quartier-eingeben) |
-| Hüllqualität, Luftdichtheit, Verschattung, Bauweise | [Bauphysik](envelope.qmd#excel-bauphysik) |
-| Heizung, Abgabe, Kühlung, Warmwasser, Lüftung | [HKLS](hvac.qmd) |
-| PV | [Dachflächen-Skalierung oder Stundenprofil](pv.qmd) |
-| Flexibilität und Speicher | [Freigaben und Speicherparameter](systems.qmd) |
-| Mobilität | [Standort, MIV und E-Fahrzeuge](mobility.qmd) |
+| Geometrie, Neubau und Sanierung | [Quartier und Projektparameter](model.qmd#quartier-eingeben) |
+| Hüllqualität, Luftdichtheit, Verschattung und Bauweise | [Bauphysik](envelope.qmd#excel-bauphysik) |
+| Heizung, Wärmeabgabe, Kühlung, Warmwasser und Lüftung | [HKLS](hvac.qmd) |
+| Photovoltaik | [PV-Flächen und Erzeugungsprofile](pv.qmd) |
+| Flexibilität und Speicher | [Speicher und Regelung](systems.qmd) |
+| Mobilität | [Standort, MIV und Elektrofahrzeuge](mobility.qmd) |
 | Ökobilanz | [Bauliche Maßnahmen und TGA](climate.qmd) |
 
-Der Preset-Name allein beschreibt nicht sämtliche aktiven Einstellungen. Maßgeblich sind die tatsächlich übernommenen Eingabewerte.
+## Presets und projektspezifische Eingaben
+
+Ein Preset ist eine **Eingabehilfe, kein projektspezifischer Nachweis**. Der Preset-Name beschreibt nicht sämtliche aktiven Einstellungen. Maßgeblich sind die tatsächlich übernommenen Parameterwerte.
+
+Insbesondere technische Leistungen, Systemanteile, Sollwerte, Verluste und Aktivierungsschalter sind auf Plausibilität und Übereinstimmung mit dem untersuchten Projekt zu prüfen.
 
 ::: {.declaration-note}
-**Für die Deklaration:** Beispielwerte und Schätzungen durch Projektangaben ersetzen. Als Deklarationswerte gekennzeichnete Parameter sind für den Nachweis verbindlich, bleiben für freie Modellvarianten aber veränderbar.
+**Für die Deklaration:** Beispielwerte und Schätzungen sind durch geeignete Projektangaben zu ersetzen. Als Deklarationswerte gekennzeichnete Parameter sind für die Nachweisführung verbindlich, können jedoch in freien Modellvarianten abweichend eingestellt werden.
 :::
 
-Quelle: [Schulung, Folien 8, 29 und 34](downloads/schulung.pdf#page=34).
+Quelle: [PEExcel-Schulung, Folien 8, 29 und 34](downloads/schulung.pdf#page=34).

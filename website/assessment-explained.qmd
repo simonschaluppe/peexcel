@@ -1,11 +1,10 @@
 ---
-title: "Projekt-Varianten-Explorer"
+title: "Quick-Check"
 toc: false
 page-layout: full
 ---
 
-Das Bewertungssystem anhand der Primärenergie- und Treibhausgasbilanz verstehen
-und vorhandene Projektszenarien gemeinsam vergleichen.
+Das Bewertungssystem anhand der Primärenergie- und Treibhausgasbilanz typischer Quartiere kennenlernen.
 
 [Explorer in voller Breite öffnen](assets/assessment-explained/index.html){.btn .btn-primary target="_blank"}
 [Notebook herunterladen](downloads/howto_assessment_explained.ipynb){.btn .btn-outline-primary}

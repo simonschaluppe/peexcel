@@ -1,29 +1,50 @@
+
 ---
-title: "Tool und Unterlagen"
+title: "Download und Voraussetzungen"
 ---
 
-## Excel-Werkzeug
+Hier stehen das PEExcel-Nachweistool und die wichtigsten Unterlagen für die Anwendung und Nachweisführung zur Verfügung.
 
-Diese Einordnung entspricht dem im Repository dokumentierten Stand. Maßgeblich sind die Versionshinweise und der [Changelog](https://github.com/simonschaluppe/peexcel/blob/master/CHANGELOG.md).
+## Excel-Nachweistool herunterladen
 
-| Stand | Einsatz | Download |
+| Version | Verwendung | Download |
 |---|---|---|
-| [v1.12.7 · Stable](https://github.com/simonschaluppe/peexcel/releases/tag/v1.12.7) | Reguläre Anwendung und Tests | [Excel-Datei](https://github.com/simonschaluppe/peexcel/raw/refs/heads/master/excel/tool/ka_PEQ_Nachweistool.xlsb) |
-| v1.13.x · Development | Neue Funktionen und laufende Anpassungen | [Entwicklungsdatei](https://github.com/simonschaluppe/peexcel/raw/refs/heads/master/excel/development/ka_PEQ_Nachweistool_dev.xlsb) |
+| [**v1.12.7 – Stable**](https://github.com/simonschaluppe/peexcel/releases/tag/v1.12.7) | Reguläre Anwendung und Tests | [Excel-Nachweistool](https://github.com/simonschaluppe/peexcel/raw/refs/heads/master/excel/tool/ka_PEQ_Nachweistool.xlsb) |
+| **v1.13.x – Development** | Entwicklung, Erprobung neuer Funktionen und laufende Anpassungen | [Entwicklungsdatei](https://github.com/simonschaluppe/peexcel/raw/refs/heads/master/excel/development/ka_PEQ_Nachweistool_dev.xlsb) |
 
-**Voraussetzung:** Microsoft Excel / Office 365 mit aktivierten Makros. Die Arbeitsmappe lokal speichern und bei Bedarf in den Windows-Dateieigenschaften entsperren. Die verlinkten Arbeitsdateien folgen dem Repository-Stand; für den bezeichneten Release auch dessen Versionsseite prüfen.
+::: {.callout-note appearance="simple" title="Welche Version verwenden?"}
+Für reguläre Projektbewertungen und Deklarationen der freigegebene Toolstand. Die Entwicklungsversion kann neue oder noch nicht abschließend geprüfte Funktionen enthalten.
 
-[🚀 Schritt für Schritt starten](start.qmd)
+Maßgeblich sind die [Versionshinweise](https://github.com/simonschaluppe/peexcel/releases) und der [Changelog](https://github.com/simonschaluppe/peexcel/blob/master/CHANGELOG.md). Für eine Nachweisführung ist der verwendete Toolstand zu dokumentieren.
+:::
 
-## Nachschlagen und vertiefen
+::: {.callout-warning appearance="simple" title="MS Office Version"}
+Für die Excel-Anwendung wird **Microsoft Excel mit Unterstützung für VBA-Makros**, mindestens Version 365 benötigt. (MS Office 2019 wird nicht unterstützt)
+:::
+::: {.excel-operation}
+### Arbeitsmappe vorbereiten
 
-| Unterlage | Verwendung |
+1. Excel-Datei herunterladen und lokal speichern.
+2. Datei in Microsoft Excel öffnen.
+3. Bei einer Windows-Dateisperre die Datei über **Eigenschaften → Zulassen / Entsperren** freigeben, sofern sie aus einer vertrauenswürdigen Quelle stammt.
+4. Für die vorgesehenen Bedienfunktionen Makros aktivieren.
+5. Eine unveränderte Kopie als Ausgangsdatei aufbewahren.
+
+
+Anschließend kannst du mit [Erste Schritte mit PEExcel](excel-overview.qmd) beginnen.
+:::
+
+## Handbuch und Schulungsunterlagen
+
+| Unterlage | Inhalt |
 |---|---|
-| [Handbuch zur Nachweisführung](downloads/handbuch.pdf) | Bedienung, Quick-Start und Nachweisablauf |
-| [Schulung 14.10.2026](downloads/schulung.pdf) · [PowerPoint](downloads/schulung.pptx) | Modell, Bilanzierung und Toolfunktionen; Grundlage der Webdokumentation |
-| [klimaaktiv Broschüre](downloads/broschuere.pdf) | Standard und Qualitätsstufen |
-| [Plus-Energie-Standard im Überblick](downloads/standard.pdf) | Einordnung des Standards |
-| [Definition und Operationalisierung · Juni 2023](downloads/hintergrund.pdf) | Methodischer Hintergrundbericht |
-| [Frühere Tool-Dokumentation](downloads/tool-dokumentation.pdf) | Ergänzende Dokumentation; Versionsbezug beachten |
+| [**Handbuch zur Nachweisführung**](downloads/handbuch.pdf) | Bedienung, Quick-Start und Nachweisablauf |
+| [**PEExcel-Schulung vom 14.10.2026**](downloads/schulung.pdf) · [PowerPoint](downloads/schulung.pptx) | Modell, Bilanzierung und Toolfunktionen |
+| [**klimaaktiv Broschüre**](downloads/broschuere.pdf) | Einführung in den Standard und die Qualitätsstufen |
+| [**Plus-Energie-Standard im Überblick**](downloads/standard.pdf) | Einordnung des Bewertungsrahmens |
+| [**Definition und Operationalisierung, Juni 2023**](downloads/hintergrund.pdf) | Frühere methodische Grundlagen |
+| [**Frühere Tool-Dokumentation**](downloads/tool-dokumentation.pdf) | Ergänzende technische Dokumentation mit entsprechendem Versionsbezug |
 
-Die [Arbeitsabläufe](learn.qmd) erschließen diese Inhalte thematisch. Für verbindliche Werte und Nachweise immer die zum Toolstand gehörenden Vorgaben verwenden.
+Die [weiterführende Dokumentation](checklist.qmd) erschließt die Inhalte nach Themen.
+
+Für die verbindliche Nachweisführung sind die zum verwendeten Tool- und Methodenstand gehörenden Anforderungen maßgeblich.

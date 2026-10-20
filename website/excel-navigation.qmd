@@ -1,51 +1,62 @@
+
 ---
 title: "Orientierung im Excel-Tool"
 ---
 
-Das Tool verwendet thematisch gruppierte Eingabeblätter. Eingaben werden als Varianten gespeichert, stündlich simuliert und anschließend über Ergebnisblatt, Dashboard und Nachweisblätter ausgewertet.
+Das PEExcel-Nachweistool ist nach Eingabegruppen, Berechnung und Auswertung gegliedert. Die wichtigsten Einstellungen werden über thematische Fachblätter vorgenommen; zusätzliche Blätter dienen der Speicherung von Varianten, der Simulation und der Ergebnisdarstellung.
 
 ![Toolübersicht: Eingabeblätter, Variantenspeicher IN, Simulation SIM2, Ergebnisse OUT und Ausgabeansichten. Bereitgestellte Schulungsfolie 25; die angegebenen Größenordnungen beschreiben den gezeigten Toolstand.](media/manual/tool-workflow.png){.manual-figure}
 
+## Die wichtigsten Bereiche
+
+Für die Anwendung lassen sich die Arbeitsblätter in drei Gruppen einteilen:
+
+- **Eingaben:** Projekt, Gebäude, Energieversorgung, Mobilität und Ökobilanz.
+- **Berechnung und Varianten:** gespeicherte Eingaben, Simulationen und Variantenverwaltung.
+- **Auswertung und Nachweis:** Ergebnisblatt, Dashboard, Variantenvergleich, Deklarations- und Prüfblätter.
+
+Die folgende Übersicht zeigt, wo die jeweiligen Einstellungen zu finden sind und welche Kapitel sie erläutern.
+
 ## Blattnavigator
 
-| Excel-Ort | Inhalt der Website |
+| Excel-Blatt | Beschreibung und Anleitung |
 |---|---|
-| [▶ Quick Start]{.excel-menu .darkred} | [Einstieg](start.qmd), [Presets](presets.qmd) |
-| [🏙 Quartier]{.excel-menu .darkred} | [Projekt, Flächen und Standort](model.qmd#quartier-eingeben) |
-| [🌦 Wetter]{.excel-menu .darkred} | [Wetterdaten](interfaces.qmd#wetter) |
-| [🧱 Bauphysik]{.excel-menu .darkred} | [Hülle, Verschattung, Speichermasse](envelope.qmd#excel-bauphysik) |
-| [🔥 H ]{.excel-menu .darkred} [❄ K]{.excel-menu .darkred} [💧 WW]{.excel-menu .darkred} [💨 L]{.excel-menu .darkred} | [Heizung, Kühlung, Warmwasser, Lüftung](hvac.qmd) |
-| [🌞 PV]{.excel-menu .darkred} [💾 PV-Import]{.excel-menu .darkred} | [PV-Eingabe](pv.qmd) |
-| [🔋 Flexibilität und Speicher]{.excel-menu .darkred} | [Speicher und Flexibilität](systems.qmd) |
-| [🚗 Mobilität]{.excel-menu .orange} | [Mobilität und E-Fahrzeuge](mobility.qmd) |
-| [☁ THG / Treibhauspotential]{.excel-menu .teal} | [Ökobilanz und Eco2soft](climate.qmd) |
-| [👤 Nutzungsparameter]{.excel-menu .darkred} | [Nutzerstrom, interne Gewinne, Beleuchtung](usage.qmd) |
-| [📊 Erg / Ergebnisse]{.excel-menu .red} | [Ergebnisblatt](results.qmd) |
-| [📈 Dashboard]{.excel-menu .red} | [Dynamische Diagramme](excel-dashboard.qmd) |
-| [🔎 var / Variantenvergleich]{.excel-menu .red} | [Variantenvergleich](comparison.qmd) |
-| [Scen]{.excel-menu .red} | [Automatische Batch-Simulation](batch.qmd) |
-| [PEQ]{.excel-menu .darkred} [PEQ+M]{.excel-menu .orange} [KN PEQ]{.excel-menu .teal} | [Nachweisführung](declaration.qmd) |
+| [▶]{.excel-menu .darkred} Quick Start | [Erste Schritte](excel-overview.qmd) und [Schnellauswahl mit Presets](presets.qmd) |
+| [🏙]{.excel-menu .darkred} Quartier | [Projekt, Flächen und Standort](model.qmd#quartier-eingeben) |
+| [🌦]{.excel-menu .darkred} Wetter | [Wetterdaten](interfaces.qmd#wetter) |
+| [🧱]{.excel-menu .darkred} Bauphysik | [Hülle, Verschattung und Speichermasse](envelope.qmd#excel-bauphysik) |
+| [🔥H]{.excel-menu .darkred} Heizung, [❄K]{.excel-menu .darkred} Kühlung, [💧WW]{.excel-menu .darkred} Warmwasser, [💨L]{.excel-menu .darkred} Lüftung | [Heizung, Kühlung, Warmwasser und Lüftung](hvac.qmd) |
+| [🌞 PV]{.excel-menu .darkred},  [PV-Import]{.excel-menu .darkred} | [Photovoltaik](pv.qmd) |
+| [🔋]{.excel-menu .darkred} Flexibilität und Speicher | [Speicher und Energieflexibilität](systems.qmd) |
+| [🚗]{.excel-menu .orange} Mobilität | [Mobilität und Elektrofahrzeuge](mobility.qmd) |
+| [☁ THG]{.excel-menu .teal} Graue Emissionen, Ökobilanz | [Ökobilanz](climate.qmd) |
+| [👤]{.excel-menu .darkred} Nutzungsparameter| [Nutzerstrom, interne Gewinne und Beleuchtung](usage.qmd) |
+| [📊 Erg]{.excel-menu .red}  Ergebnisse| [Ergebnisblatt](results.qmd) |
+| [📈]{.excel-menu .red} Dashboard| [Dynamische Diagramme](excel-dashboard.qmd) |
+| [🔎 var]{.excel-menu .red} Variantenvergleich| [Variantenvergleich](comparison.qmd) |
+| [Scen]{.excel-menu .red} | [Batch-Simulation](batch.qmd) |
+| [PEQ]{.excel-menu .darkred} [PEQ+M]{.excel-menu .orange} [KN PEQ]{.excel-menu .teal} | [Deklarationsergebnis](declaration.qmd) |
 | [AUDIT]{.excel-menu .red} | [Qualitätssicherung](declaration.qmd#qualitaetssicherung) |
 
-Blattnamen und Kurzformen können sich zwischen Versionen unterscheiden. **IN**, **OUT** und **SIM2** bezeichnen interne Datenbereiche; sie sind nicht mit dem sichtbaren Ergebnisblatt Erg gleichzusetzen.
+Die Bezeichnungen einzelner Blätter können je nach Toolversion abweichen.
 
-## Formatierung lesen
+**IN**, **OUT** und **SIM2** bezeichnen interne Datenbereiche für Eingaben, Ergebnisse und stündliche Simulationen. Diese sind vom sichtbaren Ergebnisblatt **Erg** zu unterscheiden.
+
+## So sind die Anleitungen aufgebaut
+
+Die Website verwendet eine einheitliche Kennzeichnung von Excel-Orten, Eingabefeldern und Aktionen.
 
 | Kennzeichnung | Bedeutung |
 |---|---|
-| Blatt [🔥 Heizung]{.excel-menu .darkred} | Ort in Excel; die Marke selbst öffnet keine Arbeitsmappe |
-| Feld [Maximale Heizleistung]{.excel-field} | Konkretes Eingabefeld; grüne Eingabeformatierung |
-| Befehl [Aktuelle Eingabe speichern]{.excel-action} | Aktion in Excel |
-| Preset [„Fernwärme“]{.excel-value} | Ausgewählter Wert beziehungsweise Parameterpaket |
-| Abschnitt [Heizsysteme]{.excel-section} | Bereich innerhalb eines Blatts |
-| **Default** | Vorbelegter Modellwert; Bedeutung und Verbindlichkeit prüfen |
-| **Berechnet** | Ergebnis oder Zwischenrechnung, keine direkte Eingabe |
-| **Deklarationswert** | Für den Nachweis vorgeschriebene Annahme; im freien Modell veränderbar |
+| Blatt [🔥 H]{.excel-menu .darkred} | Arbeitsblatt oder Menü im Excel-Tool |
+| Feld [Maximale Heizleistung]{.excel-field} | Konkretes Eingabefeld |
+| Befehl [Aktuelle Eingabe speichern]{.excel-action} | Auszuführende Aktion |
+| Preset [„Fernwärme“]{.excel-value} | Ausgewähltes Parameterpaket |
+| Abschnitt [Heizsysteme]{.excel-section} | Thematischer Bereich eines Blatts |
 
-Bedienfolgen stehen in Kästen **Im Excel-Tool**. Fachliche Erläuterungen erklären Modell und Bilanzwirkung. Hinweise **Für die Deklaration** benennen die Nachweisbindung zusätzlich zur Eingabeart.
+Bedienanweisungen sind zusätzlich als **„Im Excel-Tool“** hervorgehoben.
 
-## Arbeitsmappe im Überblick
 
-![Orientierungsansicht der Arbeitsmappe, vom Projektverantwortlichen bereitgestellt. Die stark verkleinerte Gesamtansicht dient der räumlichen Übersicht, nicht dem Ablesen einzelner Felder.](media/manual/excel-overview.png){.manual-figure}
+Für die erste praktische Anwendung empfiehlt sich der [Schnellstart](excel-overview.qmd). Eine typische Konfiguration lässt sich anschließend mit [Presets](presets.qmd) aufbauen.
 
-Quelle: [Schulung, Folien 25, 28 und 30](downloads/schulung.pdf#page=25).
+Quelle: [PEExcel-Schulung, Folien 25, 28 und 30](downloads/schulung.pdf#page=25).
