@@ -5,12 +5,12 @@ project:
     - "*.qmd"
     - "assessment.ipynb"
     - "!en/**"
-  # pre-render:
-  #   - python ../scripts/website_assets.py
-  #   - python ../scripts/publication_example.py --output assets
+  pre-render:
+    - python ../scripts/website_assets.py
   # post-render:
   #   - python ../scripts/render_english_site.py
   resources:
+    - illustrations/**
     - assets/**
     - media/**
     - downloads/**
@@ -47,13 +47,23 @@ website:
           - text: "Schnellauswahl mit Presets"
             href: presets.qmd
       - section: Modellieren
-        contents: [model.qmd, envelope.qmd, components.qmd, hvac.qmd, pv.qmd, systems.qmd, usage.qmd, interfaces.qmd, mobility.qmd, climate.qmd, variants.qmd, migration.qmd]
+        contents: [model.qmd, envelope.qmd, hvac.qmd, pv.qmd, systems.qmd, usage.qmd, interfaces.qmd, mobility.qmd, climate.qmd,components.qmd,  variants.qmd, migration.qmd]
       - section: Analysieren
-        contents: [results.qmd, excel-dashboard.qmd, comparison.qmd, batch.qmd, examples.qmd, assessment-explained.qmd, assessment.ipynb]
+        contents:
+          - results.qmd
+          - excel-dashboard.qmd
+          - {href: flexibility.qmd, text: Flexibilität}
+          - {href: mobility-analysis.qmd, text: Mobilitätsverhalten}
+          - comparison.qmd
+          - batch.qmd
+          - examples.qmd
+          - assessment-explained.qmd
       - section: Deklarieren
         contents: [projekte-nachweisen.qmd, checklist.qmd,  declaration.qmd]
+      - section: "Python & Automatisierung"
+        contents: [python.qmd, dashboard.qmd, assessment.ipynb]
       - section: Dokumentation und Referenzen
-        contents: [python.qmd, dashboard.qmd, glossary.qmd, research.qmd, about.qmd]
+        contents: [glossary.qmd, research.qmd, about.qmd]
   page-footer:
     left: "PEExcel · FH Technikum Wien · klimaaktiv Plus-Energie-Quartiere"
     right:

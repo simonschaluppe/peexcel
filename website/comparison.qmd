@@ -2,7 +2,7 @@
 title: "Variantenvergleich"
 ---
 
-**Excel-Ort:** Blatt [🔎 Variantenvergleich]{.excel-menu .red} (var).
+**Excel-Ort:** Blatt [🔎 var]{.excel-menu .red} ("Variantenvergleich").
 
 Der Variantenvergleich stellt die Ergebnisse mehrerer gespeicherter Konfigurationen gegenüber. Einzelmaßnahmen und Maßnahmenpakete werden auf derselben Bilanzgrundlage untersucht.
 
@@ -13,12 +13,12 @@ Der Variantenvergleich stellt die Ergebnisse mehrerer gespeicherter Konfiguratio
 ::: {.excel-operation}
 ### Vergleich aufbauen
 1. Die benötigten Varianten einzeln oder per [Batch](batch.qmd) berechnen und speichern.
-2. Im Blatt Variantenvergleich die Vergleichsgruppe auswählen.
+2. Im Blatt [🔎 var]{.excel-menu .red} ("Variantenvergleich") die Vergleichsgruppe auswählen.
 3. Diagrammbereiche auf die tatsächlich auszuwertenden Varianten beschränken.
 4. Gleiche Bezugsflächen, Systemgrenzen, Wettergrundlagen und Bewertungsannahmen sicherstellen; bewusste Unterschiede dokumentieren.
 :::
 
-![Excel-Auswertung: Primärenergievergleich einzelner Maßnahmen und Kombinationen. Bereitgestellte Schulungsabbildung; diese Varianten sind nicht die drei Bsp-Sanierungsvarianten der Website.](media/manual/variant-comparison.png){.manual-figure}
+![Excel-Auswertung: Primärenergievergleich einzelner Maßnahmen und Kombinationen. Schulungsabbildung; diese Varianten sind nicht die drei Bsp-Sanierungsvarianten der Website.](media/manual/variant-comparison.png){.manual-figure}
 
 ## Bilanzen gemeinsam interpretieren
 
@@ -29,3 +29,11 @@ Die Primärenergiedarstellung enthält neben Bedarf und Deckung auch Kontextbeit
 [Reale Sanierungsbeispiele: vier Bilanzen](examples.qmd) · [Varianten verwalten](variants.qmd)
 
 Quelle: [Schulung, Folie 33](downloads/schulung.pdf#page=33).
+
+## Beispiel: Speichergröße und Ladeleistung
+
+Eine Referenz ohne stationäre Batterie sowie Varianten mit 10 und 20 kWh speichern. Für beide Speichergrößen beispielsweise 0,5 und 1 h⁻¹ als C-Rate untersuchen. PV, Wetter, Nutzungen und Komfortband gleich halten. Die resultierenden Leistungen betragen 5, 10, 10 und 20 kW.
+
+Nach der Berechnung Eigenverbrauch, Energie-Autonomie, Bezug, Einspeisespitze, Verluste, Vollzyklen und THG-Bilanz gegenüberstellen. Die Zahlen sind ein Beispiel für den Versuchsaufbau, keine Dimensionierungsempfehlung. Der [Stundenverlauf](excel-dashboard.qmd) erklärt, ob eine größere Kapazität tatsächlich genutzt wird oder vor allem die Leistung begrenzt.
+
+[Flexibilität auswerten](flexibility.qmd) · [Kennzahlen und Definitionen](results.qmd#kennzahlen)

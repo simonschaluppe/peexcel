@@ -2,7 +2,7 @@
 title: "Ökobilanz"
 ---
 
-**Excel-Ort:** Blatt [☁ Treibhauspotential (THG)]{.excel-menu .teal}, im Handbuch auch „Global Warming Potential“.
+**Excel-Ort:** Blatt [☁ THG]{.excel-menu .teal} ("Graue Emissionen, Ökobilanz"), im Handbuch auch „Global Warming Potential“.
 
 Die klimaneutrale PEQ-Bewertung erweitert den Blick über die Betriebsenergie hinaus. Graue Emissionen der Gebäude und betriebliche Treibhausgasemissionen werden über den festgelegten Betrachtungszeitraum eingeordnet.
 
@@ -18,36 +18,30 @@ Eine kumulierte Darstellung integriert Beiträge über die Zeit. Sie ist weder e
 
 ## THG-Absenkpfade und Lebenszyklus
 
-![Methodik: THG-Absenkpfade bis 2050 für unterschiedliche Energieträger, bereitgestellte Schulungsabbildung.](media/manual/decarbonisation.png){.manual-figure}
+![Methodik: THG-Absenkpfade bis 2050 für unterschiedliche Energieträger, Quelle: PEExcel-Schulung.](media/manual/decarbonisation.png){.manual-figure}
 
-Die Schulung verwendet einen Betrachtungszeitraum 2025–2075 und sektorale Dekarbonisierungspfade bis 2050. Nach 2050 dekarbonisierte Systeme sind eine Bewertungsannahme. Das in der Schulung genannte Budget von 320 kg CO₂eq/m² BGF ist ein kumulierter Referenzwert, keine jährliche Emissionsrate.
+Die Methodik verwendet einen Betrachtungszeitraum 2025–2075 und sektorale Dekarbonisierungspfade bis 2050. Nach 2050 dekarbonisierte Systeme sind eine Bewertungsannahme. Das in der Schulung genannte Budget von 320 kg CO₂eq/m² BGF ist ein kumulierter Referenzwert, keine jährliche Emissionsrate.
 
-![Methodik: kumulative Emissionen aus Errichtung, Betrieb und Instandsetzung sowie biogene Speicherung. Bereitgestellte Darstellung aus der Schulung.](media/manual/lifecycle.png){.manual-figure}
+![Methodik: kumulative Emissionen aus Errichtung, Betrieb und Instandsetzung sowie biogene Speicherung. Quelle: PEExcel-Schulung.](media/manual/lifecycle.png){.manual-figure}
 
 Die zeitliche Zuordnung von Emissionen, Instandsetzung und biogener Speicherung beeinflusst die Lebenszyklusbilanz. Die in der Darstellung genannten Anrechnungen sind methodische Annahmen und keine frei übertragbaren Materialkennwerte.
 
-![Bilanzgrenze betrieblicher Emissionen: Bezug, lokale PV-Nutzung und Einspeisung. Bereitgestellte Grafik; englische Originalbeschriftung.](media/manual/operational-emissions.png){.manual-figure}
+![Bilanzgrenze betrieblicher Emissionen: Bezug, lokale PV-Nutzung und Einspeisung. Schulungsgrafik; englische Originalbeschriftung. 
+Quelle: [Schulung, Folien 22–23 und 31](downloads/schulung.pdf#page=31).](media/manual/operational-emissions.png){.manual-figure}
 
-Quelle: [Schulung, Folien 22–23 und 31](downloads/schulung.pdf#page=31).
 
 ## Bauteile, Betrieb und Budget
 
 Konstruktionen und Mengen sind nachvollziehbar zuzuordnen. Graue und betriebliche Beiträge werden gemeinsam mit Bewertungsgrenze, Zeitraum und Budget interpretiert. Der [Variantenvergleich](examples.qmd#thg-bilanz) zeigt die exportierten Lebenszyklusergebnisse einschließlich negativer Bewertungsbeiträge.
 
 ::: {.callout-important}
-## PV-LCA: modellierbar, in ka nicht bewertet
-Lebenszyklusemissionen der PV können im Tool modelliert werden. In der **klimaaktiv-Bewertungsmethode werden sie nicht berücksichtigt**. Ein Eingabefeld oder Ergebnis bedeutet nicht automatisch, dass der Beitrag in die Deklaration eingeht. Diese Aussage nicht pauschal auf andere Anlagen oder Bewertungsverfahren übertragen.
+## PV-LCA: modellierbar, in klimaaktiv PEQ aber nicht Teil der Bilanz
+Graue Emissionen der PV-Herstellung können im Tool modelliert werden. In der **klimaaktiv-Bewertungsmethode werden sie nicht berücksichtigt**. Ein Eingabefeld oder Ergebnis bedeutet nicht automatisch, dass der Beitrag in die Deklaration eingeht. Diese Aussage nicht pauschal auf andere Anlagen oder Bewertungsverfahren übertragen.
 :::
 
-## Nachvollziehbar dokumentieren
-
-Toolversion, Datenquellen, Zeitraum, Konversionsfaktoren, Dekarbonisierungspfad und Systemgrenze sind zu dokumentieren. Frei modellierte Varianten dürfen abweichen; zur Deklaration gelten die entsprechenden Vorgaben.
-
-<details><summary>Fachliche Einordnung</summary>Bei veränderlichen Emissionsfaktoren führt dieselbe Energiemenge in unterschiedlichen Jahren zu unterschiedlichen bewerteten Emissionen. Energiemenge und Bewertung sind getrennte Größen.</details>
-
-[Schulung, Folien 22–23](downloads/schulung.pdf) · [Methodischer Hintergrund](downloads/hintergrund.pdf) · [Deklaration](declaration.qmd)
-
 ## Ökobilanz eingeben {#excel-thg}
+
+**Ökobilanz:** Blatt [☁ THG]{.excel-menu .teal} ("Graue Emissionen, Ökobilanz") → [Baulich]{.excel-section}.
 
 ::: {.excel-operation}
 ### Im Excel-Tool
@@ -58,14 +52,39 @@ Toolversion, Datenquellen, Zeitraum, Konversionsfaktoren, Dekarbonisierungspfad 
 5. Neu berechnen und im [Ergebnisblatt](results.qmd) bauliche und betriebliche Beiträge gemeinsam prüfen.
 :::
 
+
+Bauteilzuordnung verbindet Geometrie, Mengen und Lebenszyklusbilanz. **Eine geometrische Fläche ist noch keine vollständige LCA-Zuordnung.** Konstruktion, Randbedingung und Nutzung müssen nachvollziehbar sein.
+
+[![Bauteiltypen: Zuordnung im Gebäudeschnitt](media/components.png){.full-figure}](media/components.png)
+
+Die Originalgrafik ergänzt die reduzierten schematischen Schnitte um weitere Situationen. Vergrößern durch Anklicken. Quelle: `docs/ComponentTypes.png`; siehe auch [Schulung, Folien 13–14](downloads/schulung.pdf).
+
+## Vorgehen bei der Projektbearbeitung
+
+1. Flächen und Bauteile anhand der tatsächlichen Konstruktion zuordnen.
+2. Außenluft, Erdreich, beheizte und unbeheizte Nachbarräume unterscheiden.
+3. Mengen und Einheiten vor dem Import von LCA-Kennwerten prüfen.
+4. Nicht dargestellte Elemente, etwa Balkone, Stützen oder Fensterrahmen, separat dokumentieren.
+5. Übernommene Bauteilwerte und Bewertungsgrenze kontrollieren.
+
+<details><summary>Fachliche Einordnung</summary>Die Kellerdecke trennt im zweiten Referenzmodell beheizt von unbeheizt und gehört zur Wärmebilanzgrenze. Die innere Geschoßdecke ist ebenfalls ein bilanziertes Konstruktionsbauteil, bildet dort aber keine äußere thermische Grenze. Thermische und Lebenszyklusbilanz betrachten unterschiedliche Eigenschaften desselben Bauteils.</details>
+
+
+
+
+[Ökobilanz und Eco2soft-Import](climate.qmd#eco2soft)
+
+
+
+Eine interaktive Ansicht ist über den separaten Link unten verfügbar.
+
+[Bauteilkatalog separat öffnen](assets/components/index.html)
+
 ## Verknüpfung mit Eco2soft {#eco2soft}
 
-Die Schulung nennt **baubook / Eco2soft**, die dort hinterlegte passende Systemgrenze **„Aspern Klimafit“** und den **direkten Import als CSV**. Die vorgelagerte Gebäudeökobilanz liefert damit eine Datengrundlage für das THG-Blatt.
 
 ::: {.excel-operation}
 Die passende Bilanz in Eco2soft erstellen und als CSV exportieren. Für die Übernahme ins Tool Systemgrenze, Bezugsfläche, Einheiten, fossile/biogene Beiträge und Erneuerungsannahmen abgleichen. Nach dem Import prüfen, welche Bauteile beziehungsweise Sammelergebnisse übernommen wurden, und bereits vorhandene Eingaben auf Doppelzählung kontrollieren.
 :::
 
-::: {.pending}
-**Importdialog in Vorbereitung:** aktueller Eco2soft-CSV-Import mit Zuordnung der Felder. Die Schulung belegt die Importmöglichkeit; die konkrete Klickfolge wird nach Ergänzung der Ansicht dokumentiert.
-:::
+Für den CSV-Import die Feldzuordnung im Importdialog prüfen. Unterschiedliche Systemgrenzen oder bereits erfasste Bauteile können sonst zu fehlenden Beiträgen oder Doppelzählung führen.

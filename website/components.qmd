@@ -4,7 +4,6 @@ title: "Bauteile richtig zuordnen"
 
 Bauteilzuordnung verbindet Geometrie, Mengen und Lebenszyklusbilanz. **Eine geometrische Fläche ist noch keine vollständige LCA-Zuordnung.** Konstruktion, Randbedingung und Nutzung müssen nachvollziehbar sein.
 
-
 [![Bauteiltypen: Zuordnung im Gebäudeschnitt](media/components.png){.full-figure}](media/components.png)
 
 Die Originalgrafik ergänzt die reduzierten schematischen Schnitte um weitere Situationen. Vergrößern durch Anklicken. Quelle: `docs/ComponentTypes.png`; siehe auch [Schulung, Folien 13–14](downloads/schulung.pdf).
@@ -23,16 +22,15 @@ Die Originalgrafik ergänzt die reduzierten schematischen Schnitte um weitere Si
 
 ## Zuordnung im Excel-Tool {#excel-zuordnung}
 
-**Thermische Eingabe:** Blatt [🧱 Bauphysik]{.excel-menu .darkred} → opake und transluzente Bauteile.
+**Thermische Eingabe:** Blatt [🧱]{.excel-menu .darkred} ("Bauphysik") → opake und transluzente Bauteile.
 
-**Ökobilanz:** Blatt [☁ Treibhauspotential (THG)]{.excel-menu .teal} → [Baulich]{.excel-section}.
+**Ökobilanz:** Blatt [☁ THG]{.excel-menu .teal} ("Graue Emissionen, Ökobilanz") → [Baulich]{.excel-section}.
 
 ::: {.excel-operation}
 Kategorie, Konstruktion und Menge für Außenwand, Fenster, Dach, Kellerdecke/Fundament und Zwischengeschoßdecken zuordnen. Zusätzliche bauliche Maßnahmen, Sammelmaßnahmen und eine LCA-Gesamteingabe auf überschneidungsfreie Erfassung prüfen. Ein in der thermischen Hülle nicht benötigtes Bauteil kann weiterhin eine relevante Herstellungsbilanz besitzen.
 :::
 
 [Ökobilanz und Eco2soft-Import](climate.qmd#eco2soft)
-
 
 ## Vom Schnitt zur Kategorie
 

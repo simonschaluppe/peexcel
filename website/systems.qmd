@@ -2,12 +2,26 @@
 title: "Speicher und Flexibilität"
 ---
 
-**Excel-Ort:** Blatt [🔋 Flexibilität und Speicher]{.excel-menu .darkred}.
+**Excel-Ort:** Blatt [🔋]{.excel-menu .darkred} ("Flexibilität und Speicher").
 
 Energieflexibilität verknüpft die zeitliche Verfügbarkeit erneuerbarer Energie mit dem Betrieb des Quartiers. Lokale PV-Überschüsse und externe Flexibilitätssignale können für zusätzliche Konditionierung und Speicherladung genutzt werden. **Mindestbedarfsdeckung und flexible Überdeckung** bleiben getrennte Größen.
 
-![Stromflüsse: Deckungsreihenfolge, Mindestbedarfe und flexible Speicherladung. Bereitgestellte Darstellung aus der Schulung; die tatsächlich aktiven Pfade hängen von der Modellkonfiguration ab.](media/manual/dispatch.png){.manual-figure}
+![Stromflüsse: Deckungsreihenfolge, Mindestbedarfe und flexible Speicherladung. Quelle: PEExcel-Schulung; die tatsächlich aktiven Pfade hängen von der Modellkonfiguration ab.](media/manual/dispatch.png){.manual-figure}
 
+## Wie die Speicher zusammenwirken
+
+![Zusammenspiel von Wärmepumpen, thermischer Gebäudemasse, stationärer Batterie und gepoolter E-Mobilität. Bei einem Freigabesignal werden nutzbare Speicher beladen; außerhalb der Freigabe können sie Bedarfe decken. Die Grafik zeigt das Prinzip, keinen für jedes Quartier identischen Fahrplan.](illustrations/userflexmodel.svg){.manual-figure}
+
+Lokale PV-Überschüsse und ein externes Signal sind getrennte Anlässe für flexible Nutzung. Ein Signal gibt Anwendungen innerhalb ihrer Grenzen frei. Ob tatsächlich Energie aufgenommen wird, hängt von verfügbarem Überschuss beziehungsweise Bezug, Anlagenleistung und Speicherzustand ab.
+
+| Flexibilitätsoption | Was wird getan? | Was begrenzt die Nutzung? | Was zeigt die Wirkung? |
+|---|---|---|---|
+| Thermische Gebäudemasse | Heizen oder Kühlen wird temporär erhöht | Wirksame Speichermasse, Komfortband und Anlagenleistung | Raumtemperatur und späterer Heiz-/Kühlbedarf |
+| Warmwasserspeicher | Zusätzliche Erwärmung des (Puffer-)Speichers | Speichervolumen, obere Temperatur und Ladeleistung | Speicherzustand, Beladung und Verluste |
+| Stationäre Batterie | Strom wird gespeichert und später genutzt | Kapazität, C-Rate und Wirkungsgrade | SoC, Ladung, Entladung und Vollzyklen |
+| Elektrofahrzeuge | Flexible Ladung; bei Freigabe auch Versorgung des Quartiers | Anwesenheit, Ladepunkte, Leistung und Mindest-SoC | Ladeflüsse und SoC nach Nutzung |
+
+Die Mindestversorgung bleibt Bestandteil der Simulation. Flexible Beladung nutzt den darüber hinaus verfügbaren Spielraum. Ein hoher Freigabeanteil allein sagt deshalb wenig über die tatsächlich verschobene Energiemenge aus.
 ## Freigaben und Quellen {#excel-flexibilitaet}
 
 ::: {.excel-operation}
@@ -19,23 +33,43 @@ Die PV-Erzeugung wird auf der eigenen Seite [PV-Eingabe](pv.qmd) konfiguriert. K
 
 ## Thermische Gebäudemasse
 
-Zusätzliche elektrische Heizung beziehungsweise Kühlung kann die Gebäudemasse als Speicher nutzen. Verwendetes System und zulässige Abweichung vom Solltemperaturniveau bestimmen die Vor-Konditionierung. Die Bauweise beziehungsweise wirksame Speichermasse wird im Blatt [Bauphysik](envelope.qmd#excel-bauphysik) eingestellt.
+Zusätzliche elektrische Heizung beziehungsweise Kühlung kann die Gebäudemasse als Speicher nutzen. Verwendetes System und zulässige Abweichung vom Solltemperaturniveau bestimmen die Vor-Konditionierung. Die Bauweise beziehungsweise wirksame Speichermasse wird im Blatt [🧱]{.excel-menu .darkred} ("Bauphysik") eingestellt; siehe [Bauphysik](envelope.qmd#excel-bauphysik).
+
+### Komfortband und Systemauswahl
+
+Die folgenden Felder legen fest, wie weit die Raumtemperatur bei flexibler Konditionierung vom Sollwert abweichen darf:
+
+| Feld | Beispiel aus der Schulungsfolie | Bedeutung |
+|---|---|---|
+| [Heizfall]{.excel-field} | 3 K | Bei 22 °C Heizsollwert darf bis 25 °C vorgeheizt werden |
+| [Verwendetes Heiz-System]{.excel-field} | System 1 | Erzeuger für die flexible Erwärmung |
+| [Kühlfall]{.excel-field} | 2 K | Bei 25 °C Kühlsollwert darf bis 23 °C vorgekühlt werden |
+| [Verwendetes Kühl-System]{.excel-field} | System 1 | Erzeuger für die flexible Kühlung |
+
+Die Werte illustrieren das Prinzip und sind keine allgemeinen Vorgaben. Das Temperaturband ist eine Differenz in Kelvin; der daraus berechnete Sollwert eine Temperatur in °C. Zusätzlich begrenzen Anlagen- und Abgabeleistung die tatsächlich mögliche Konditionierung.
 
 ## Warmwasserspeicher {#warmwasserspeicher}
 
 Flexible Erwärmung erhöht zeitweise das Temperaturniveau vorhandener Speicher. Aktivierung und obere Temperatur prüfen. Speichergröße, Grundversorgung und Verluste gehören zur [Warmwasser-Konfiguration](hvac.qmd#warmwasser).
 
+| Feld | Beispiel aus der Schulungsfolie | Bedeutung |
+|---|---|---|
+| [Dynamische WW-Speicherung]{.excel-field} | Aktivierung über Kontrollkästchen | Flexible Speicherbeladung freigeben |
+| [Maximale Speichertemperatur]{.excel-field} | 70 °C | Obere Temperatur im gezeigten Beispiel |
+
+Eine höhere Temperatur schafft zusätzlichen Spielraum, kann aber die Speicherverluste erhöhen. Ob die zusätzliche Beladung wirksam genutzt wird, zeigt der Verlauf im [Excel-Dashboard](excel-dashboard.qmd).
+
 ## Elektrische Batterie
 
-Aktivierung, Kapazität, Lade-/Entladeleistung, Wirkungsgrade und Selbstentladung gemeinsam festlegen. Kapazität in kWh und Leistung in kW sind unterschiedliche Größen. Die Herkunft der Beladung und Verwendung der Entladung bestimmen die Wirkung auf Bezug und Einspeisung.
+Aktivierung, Kapazität, Lade-/Entladeleistung, Wirkungsgrade und Selbstentladung gemeinsam festlegen. Kapazität in kWh und Leistung in kW sind unterschiedliche Größen. Die Herkunft der Beladung und Verwendung der Entladung bestimmen die Wirkung auf Bezug und Einspeisung. Die C-Rate verknüpft Leistung und Kapazität: 20 kWh bei 0,5 h⁻¹ entsprechen einer maximalen Leistung von 10 kW.
 
 ## E-Fahrzeuge
 
-Flexible Ladung und bidirektionale Nutzung hängen von Standzeiten, Ladeleistung, Kapazität und Mindest-SOC ab. Diese Eingaben stehen im Blatt [Mobilität](mobility.qmd).
+Flexible Ladung und bidirektionale Nutzung hängen von Standzeiten, Ladeleistung, Kapazität und Mindestladestand (SoC) ab. Diese Eingaben stehen im Blatt [🚗]{.excel-menu .orange} ("Mobilität"); siehe [Mobilitätsmodell](mobility.qmd).
 
 ## Dynamische Bewertung
 
-![Methodik: Importe, Exporte und zeitabhängige Bewertung der Energieträger. Bereitgestellte Schulungsdarstellung.](media/manual/dynamic-assessment.png){.manual-figure}
+![Methodik: Importe, Exporte und zeitabhängige Bewertung der Energieträger. Quelle: PEExcel-Schulung.](media/manual/dynamic-assessment.png){.manual-figure}
 
 Stündliche Konversionsfaktoren bewerten den zeitlichen Energieeinsatz. Physische Einsparung, zeitliche Verschiebung und Verbesserung einer bewerteten Bilanz sind deshalb getrennt auszuweisen.
 
@@ -43,6 +77,10 @@ Stündliche Konversionsfaktoren bewerten den zeitlichen Energieeinsatz. Physisch
 **Für die Deklaration:** ausgewiesene Vorgaben für Freigaben, Leistungen und Konversionsfaktoren verwenden. Freie Modellannahmen sind möglich, begründen aber keinen automatischen Nachweisstatus.
 :::
 
+[Flexibilität Schritt für Schritt analysieren](flexibility.qmd)
+
 **Ergebnisprüfung:** [Jahreskennwerte](results.qmd) und [Stundenflüsse/Speicherzustände](excel-dashboard.qmd) gemeinsam auswerten.
 
 Quelle: [Schulung, Folien 9, 15 und 21](downloads/schulung.pdf#page=15).
+
+Die Feldbeispiele zum Komfortband und zur Warmwasserspeicherung stammen aus der bereitgestellten KlimSta-Folie „Building as Battery, thermische Speicher Gebäude“.

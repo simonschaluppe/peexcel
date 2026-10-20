@@ -1,4 +1,3 @@
-
 ---
 title: "Methodik und Forschung"
 ---
@@ -14,7 +13,6 @@ PEExcel verbindet Gebäudebetrieb, stündliche Energieflüsse, erneuerbare Erzeu
 - [**Broschüre**](downloads/broschuere.pdf) – Überblick über Anforderungen und Anwendung
 - [**Definition und Operationalisierung**](downloads/hintergrund.pdf) – Frühere methodische Grundlagen
 
-
 ## Publikationen
 
 | Jahr | Publikation | Schwerpunkt |
@@ -25,7 +23,5 @@ PEExcel verbindet Gebäudebetrieb, stündliche Energieflüsse, erneuerbare Erzeu
 | 2025 | Bruckner et al. – [Lessons Learned from Four Real-Life Case Studies](https://doi.org/10.3390/en18030560) | Energiebilanzen realer PED-Fallstudien |
 | 2025 | Schneider & Baptista – [Annual Hourly E-Mobility Modelling and Assessment in Climate Neutral Positive Energy Districts](https://doi.org/10.1109/EEEIC/ICPSEurope64998.2025.11169136) | Stündliche E-Mobilität |
 | 2025 | Schneider et al. – [Declaration-Ready Climate-Neutral PEDs](https://doi.org/10.3390/designs9060123) | Deklarationsfähige Bewertung und Fallbeispiele |
-
-
 
 Diese Arbeiten erläutern die Methodenentwicklung. Für konkrete Nachweise gelten die [Unterlagen zum verwendeten Toolstand](download.qmd).

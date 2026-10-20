@@ -11,7 +11,7 @@ Forschungsgruppe Climate-fit Buildings and Districts
 
 Technische Fragen, Fehlerberichte und Verbesserungsvorschläge bitte über [GitHub Issues](https://github.com/simonschaluppe/peexcel/issues) einbringen. Für fachliche Fragen zur klimaaktiv-Deklaration stehen die offiziellen Kontaktstellen in der Dokumentation und die Informationsangebote des klimaaktiv Programms zur Verfügung.
 
-## 📩 Newsletter
+## Newsletter
 
 Informationen zu Tool-Updates, Veranstaltungen, Schulungen und Weiterentwicklungen der Deklaration bietet der **klimaaktiv PEQ Kompetenzpartner Newsletter**.
 
@@ -31,6 +31,6 @@ Informationen zu Tool-Updates, Veranstaltungen, Schulungen und Weiterentwicklung
 
 [Repository](https://github.com/simonschaluppe/peexcel) · [Changelog](https://github.com/simonschaluppe/peexcel/blob/master/CHANGELOG.md) · [Projektleitlinien](https://github.com/simonschaluppe/peexcel/blob/master/AGENTS.md)
 
-## 📄 Lizenz und Nutzung
+## Lizenz und Nutzung
 
 Es gelten die im Repository angeführten Lizenz- und Nutzungshinweise. Bei Verwendung des Tools in Projekten, Publikationen oder Lehrveranstaltungen wird um entsprechende Quellenangabe gebeten.

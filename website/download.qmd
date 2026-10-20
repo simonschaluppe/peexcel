@@ -1,4 +1,3 @@
-
 ---
 title: "Download und Voraussetzungen"
 ---
@@ -13,7 +12,7 @@ Hier stehen das PEExcel-Nachweistool und die wichtigsten Unterlagen für die Anw
 | **v1.13.x – Development** | Entwicklung, Erprobung neuer Funktionen und laufende Anpassungen | [Entwicklungsdatei](https://github.com/simonschaluppe/peexcel/raw/refs/heads/master/excel/development/ka_PEQ_Nachweistool_dev.xlsb) |
 
 ::: {.callout-note appearance="simple" title="Welche Version verwenden?"}
-Für reguläre Projektbewertungen und Deklarationen der freigegebene Toolstand. Die Entwicklungsversion kann neue oder noch nicht abschließend geprüfte Funktionen enthalten.
+Für reguläre Projektbewertungen und Deklarationen den freigegebenen Toolstand verwenden. Die Entwicklungsversion kann neue oder noch nicht abschließend geprüfte Funktionen enthalten.
 
 Maßgeblich sind die [Versionshinweise](https://github.com/simonschaluppe/peexcel/releases) und der [Changelog](https://github.com/simonschaluppe/peexcel/blob/master/CHANGELOG.md). Für eine Nachweisführung ist der verwendete Toolstand zu dokumentieren.
 :::
@@ -29,7 +28,6 @@ Für die Excel-Anwendung wird **Microsoft Excel mit Unterstützung für VBA-Makr
 3. Bei einer Windows-Dateisperre die Datei über **Eigenschaften → Zulassen / Entsperren** freigeben, sofern sie aus einer vertrauenswürdigen Quelle stammt.
 4. Für die vorgesehenen Bedienfunktionen Makros aktivieren.
 5. Eine unveränderte Kopie als Ausgangsdatei aufbewahren.
-
 
 Anschließend kannst du mit [Erste Schritte mit PEExcel](excel-overview.qmd) beginnen.
 :::

@@ -18,7 +18,6 @@ PEExcel verbindet ein physisches Modell mit einer Bewertungsmethode. Systemgrenz
 
 Das Tool betrachtet Raumwärme und -kälte, Warmwasser, Lüftung, Hilfsenergie und Nutzerstrom. PV, Eigenverbrauch, Einspeisung, Speicher und Flexibilitätsmaßnahmen verändern die stündlichen Flüsse. Eine Maßnahme kann mehrere Ergebnisgrößen gleichzeitig beeinflussen.
 
-Die thermische Modellierung unterscheidet eine **gekühlte und eine ungekühlte, thermisch entkoppelte Zone**. Ein schematischer Gebäudeschnitt zeigt eine räumliche Zuordnung. Er ist keine zusätzliche thermische Simulation und keine geometrische Nachweisplanung.
 
 ## Varianten sinnvoll aufbauen
 
@@ -33,7 +32,7 @@ Eigene Nutzerstrom- und Wärmegewinnannahmen lassen sich modellieren. Für die D
 
 ## Quartier eingeben {#quartier-eingeben}
 
-**Excel-Ort:** Blatt [🏙 Quartier]{.excel-menu .darkred}.
+**Excel-Ort:** Blatt [🏙]{.excel-menu .darkred} ("Quartier").
 
 ::: {.excel-operation}
 ### Im Excel-Tool
@@ -51,6 +50,6 @@ Flächen und Anteile mit den Projektunterlagen abgleichen. Berechnete NGF, Volum
 
 ## Energiemodell Betrieb {#simulationsmodell}
 
-![Energiemodell Betrieb: Quellen, Umwandlung, Speicher und Nutzungen innerhalb der Quartiersgrenze sowie Bezug und Einspeisung. Vom Projektverantwortlichen bereitgestellte Schulungsgrafik.](media/manual/energy-model.png){.manual-figure}
+![Energiemodell Betrieb: Quellen, Umwandlung, Speicher und Nutzungen innerhalb der Quartiersgrenze sowie Bezug und Einspeisung. Vom Projektverantwortlichen Quelle: PEExcel-Schulung.](media/manual/energy-model.png){.manual-figure}
 
 Die Schulung unterscheidet Quellen, Speicher, Senken, Nutzungen und Umwandlung. Die Bilanzierung verbindet die physischen Energieflüsse mit Primärenergie- und THG-Bewertung. [PV](pv.qmd), [Speicher und Flexibilität](systems.qmd), [Mobilität](mobility.qmd) und [Ökobilanz](climate.qmd) besitzen eigene Eingabeseiten. Abschließend [Varianten verwalten](variants.qmd).

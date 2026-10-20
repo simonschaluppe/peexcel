@@ -2,7 +2,7 @@
 title: "Excel-Dashboard"
 ---
 
-**Excel-Ort:** Blatt [📈 Dashboard]{.excel-menu .red}.
+**Excel-Ort:** Blatt [📈]{.excel-menu .red} ("Dashboard").
 
 Das Dashboard zeigt **stündliche Energieflüsse** und Speicherzustände. Ein gemeinsamer Zeitraum ermöglicht es, Bedarf, Deckung und Speicherreaktion zusammen zu untersuchen. Der [Python-Szenarioexplorer](dashboard.qmd) ist eine separate Anwendung.
 
@@ -40,15 +40,15 @@ Die Zustände von WW-System 1 und 2 zeigen Beladung und Nutzung im ausgewählten
 
 ## E-Fahrzeuge und Batterie
 
-**EV SoC** zeigt die Ladezustände nach Nutzung; **Batterie SOC** den stationären elektrischen Speicher. Mindestladestand, flexible Beladung und Entladung im Zusammenhang mit den Stromflüssen beurteilen.
+**EV-SoC** zeigt die Ladezustände nach Nutzung; **Batterie-SoC** den stationären elektrischen Speicher. Mindestladestand, flexible Beladung und Entladung im Zusammenhang mit den Stromflüssen beurteilen.
 
 ## Thermische Tagesmittel und weitere Ansichten
 
 Die Wärmegewinne und -verluste der beiden thermisch entkoppelten Zonen werden zusätzlich als Tagesmittel ausgewertet. Tagesmittel und Stundenleistung sind unterschiedliche Aggregationen.
 
-![Modell und Dashboard: thermisch entkoppelte Zonen, Wärmebilanz und Tagesmittel der Wärmeflüsse. Bereitgestellte Schulungsabbildung; die untere Darstellung zeigt ausdrücklich Tagesmittelwerte.](media/manual/thermal-model.png){.manual-figure}
+![Modell und Dashboard: thermisch entkoppelte Zonen, Wärmebilanz und Tagesmittel der Wärmeflüsse. Schulungsabbildung; die untere Darstellung zeigt ausdrücklich Tagesmittelwerte.](media/manual/thermal-model.png){.manual-figure}
 
-[Speicherparameter](systems.qmd) · [Ergebnisblatt](results.qmd) · [Aspern-F7-Profile auf der Website](examples.qmd#aspern-f7)
+[Flexibilität analysieren](flexibility.qmd) · [Mobilitätsverhalten](mobility-analysis.qmd) · [Speicherparameter](systems.qmd) · [Ergebnisblatt](results.qmd) · [Aspern-F7-Profile auf der Website](examples.qmd#aspern-f7)
 
 Die Website-Profile verwenden exportierte Kanäle. Fehlende Kanäle im Export bedeuten nicht, dass diese Größen im Excel-Dashboard fehlen.
 

@@ -6,17 +6,23 @@ sidebar: false
 page-layout: full
 ---
 
-<div class="hero"><div><div class="eyebrow">PEExcel · Plus-Energie-Quartiere</div><h1>Vom Quartiersentwurf zur nachvollziehbaren Bewertung.</h1><p class="lead">Stündliche Simulation, Variantenvergleich und klimaaktiv-Bewertung für Gebäude, Energieversorgung und Mobilität.</p><div class="actions"><a href="start.html">Projektbearbeitung</a><a class="secondary" href="envelope.html">Gebäudeschnitt</a></div></div><img src="https://github.com/simonschaluppe/peexcel/assets/22156735/2856e7d9-54d9-4ea9-a894-1128f435c139" alt="PEExcel – Plus-Energie-Quartiere"></div>
+<div class="hero"><div><div class="eyebrow">PEExcel · Plus-Energie-Quartiere</div><h1>Ein Jahr simulieren. Varianten verstehen.</h1><p class="lead">Gebäude, PV, Speicher und Mobilität in 8.760 Stunden verknüpfen. Energieflüsse, Flexibilität und Klimawirkung gemeinsam bewerten.</p><div class="actions"><a href="excel-overview.html">Mit Excel starten</a><a class="secondary" href="results.html">Ergebnisse verstehen</a></div></div><img src="media/logo.png" alt="PEExcel – Plus-Energie-Quartiere"></div>
 
 Für **professionelle Kompetenzpartner:innen**, Planende, Konsulent:innen, Forschende und Studierende: PEExcel verbindet Excel mit stündlicher Simulation, nachvollziehbaren Bewertungsmethoden und einer Python-Schnittstelle. Entwickelt von der Forschungsgruppe [Climate-fit Buildings and Districts](https://www.technikum-wien.at/forschungsschwerpunkt-renewable-energy-systems/) an der FH Technikum Wien.
 
-## Ein Quartier, mehrere Perspektiven
+## Was du untersuchen kannst
 
 <div class="feature-grid">
-<div class="feature"><span class="icon" aria-hidden="true">🏙️</span><h3>Modellieren</h3><p>Gebäude, Nutzungen und Bauteile zusammenführen. <a href="model.html">Das Modell verstehen →</a></p></div>
-<div class="feature"><span class="icon" aria-hidden="true">🌞</span><h3>Energie verknüpfen</h3><p>Wärme, Kälte, PV, Speicher und Netzinteraktion stündlich betrachten. <a href="systems.html">Energieversorgung →</a></p></div>
-<div class="feature"><span class="icon" aria-hidden="true">☁️</span><h3>Wirkung bewerten</h3><p>Energiebilanz, Mobilität und Lebenszyklus gemeinsam beurteilen. <a href="results.html">Ergebnisse lesen →</a></p></div>
+<div class="feature"><span class="icon" aria-hidden="true">📊</span><h3>Varianten vergleichen</h3><p>Einzelmaßnahmen und Maßnahmenpakete mit denselben Bilanzgrenzen bewerten. <a href="comparison.html">Zum Variantenvergleich →</a></p></div>
+<div class="feature"><span class="icon" aria-hidden="true">🔋</span><h3>Flexibilität nutzen</h3><p>Gebäudemasse, Warmwasser, Batterie und EVs im Stundenverlauf untersuchen. <a href="flexibility.html">Flexibilität analysieren →</a></p></div>
+<div class="feature"><span class="icon" aria-hidden="true">🚗</span><h3>Mobilität einbeziehen</h3><p>Anwesenheit, Laden und Fahrbedarf nach Nutzung und Jahreszeit verstehen. <a href="mobility-analysis.html">Mobilitätsverhalten analysieren →</a></p></div>
 </div>
+
+## Jahresbilanz und Stundenverlauf verbinden
+
+Die Jahresbilanz zeigt, **wie viel** Energie benötigt und bereitgestellt wird. Die stündliche Simulation zeigt, **wann** PV, Bedarf und Speicher zusammenpassen. So lassen sich Eigenverbrauch, Netzbezug, Speicherverluste und Komfort gemeinsam beurteilen. Die Primärenergie- und Lebenszyklus-THG-Bewertung ergänzt die physischen Flüsse.
+
+[Ergebnisse und Kennzahlen](results.qmd#kennzahlen) · [Stündliches Excel-Dashboard](excel-dashboard.qmd) · [Modell und Eingaben](model.qmd)
 
 ## Drei Stufen des Plus-Energie-Standards
 
@@ -34,7 +40,7 @@ Die [drei Sanierungsvarianten](examples.qmd) zeigen Wärme-, Endenergie-, Primä
 
 Der [schematische Gebäudeschnitt](envelope.qmd) stellt Bauteilzuordnung, thermische Bilanzgrenzen und qualitative Wärmeflüsse getrennt dar.
 
-[Technische Dokumentation](learn.qmd) · [Excel herunterladen](download.qmd) · [Python-Schnittstelle](python.qmd)
+[Methodik und Forschung](research.qmd) · [Excel herunterladen](download.qmd) · [Python-Schnittstelle](python.qmd)
 
 ::: {.callout-note}
 ## Modellieren und deklarieren

@@ -20,9 +20,7 @@ Ein bestehendes Projekt wird über eine **Projekt-Exportdatei** aus dem alten To
 
 Der Importbefehl ist im Repository-Ribbon dokumentiert. Die genaue Exportauswahl hängt vom alten Toolstand ab. Eigene Wetter-/PV-Profile und weitere projektspezifische Daten nach dem Import auf Verfügbarkeit und Zuordnung prüfen. Eine vollständige Übernahme aller Zusatzdaten ist nicht pauschal zugesichert.
 
-::: {.pending}
-**Bedienabbildungen in Vorbereitung:** Projekt-Exportdialog im alten Tool sowie Importdialog und Abschlussmeldung im neuen Tool. Bis dahin dient die oben beschriebene Abfolge als Orientierung; es werden keine unbestätigten Export-Schaltflächen angegeben.
-:::
+Export- und Importdialog hängen vom jeweiligen Toolstand ab. Die Ausgangsdatei aufbewahren und das Ergebnis der Übernahme vor der Weiterbearbeitung prüfen.
 
 ## Ergebnisse nach dem Versionswechsel
 
@@ -30,4 +28,4 @@ Der Importbefehl ist im Repository-Ribbon dokumentiert. Die genaue Exportauswahl
 
 [Varianten verwalten](variants.qmd) · [Qualitätssicherung für den Nachweis](declaration.qmd#qualitaetssicherung)
 
-Grundlage: Projekt-Export der [Schulung, Folie 25](downloads/schulung.pdf#page=25); Migrationsablauf gemäß Projektvorgabe.
+Grundlage: Projekt-Export der [Schulung, Folie 25](downloads/schulung.pdf#page=25); Projektübernahme in eine neue Arbeitsmappe.

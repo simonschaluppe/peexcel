@@ -1,4 +1,3 @@
-
 ---
 title: "Erste Schritte mit PEExcel"
 ---
@@ -11,7 +10,7 @@ Mit dem Excel-Tool können Projektvarianten untersucht, berechnet und anhand ihr
 
 Die Bearbeitung folgt einem wiederkehrenden Ablauf:
 
-![**Modellieren → Berechnen → Auswerten → Variante sichern**](../illustrations/schleife.svg){.manual-figure}
+![**Modellieren → Berechnen → Auswerten → Variante sichern**](illustrations/schleife.svg){.manual-figure}
 
 Ausgehend von einer Projektbeschreibung werden Eingabeparameter und Maßnahmen festgelegt, die Berechnung durchgeführt und die Ergebnisse geprüft. Anschließend können Varianten angepasst und miteinander verglichen werden.
 
@@ -19,19 +18,19 @@ Ausgehend von einer Projektbeschreibung werden Eingabeparameter und Maßnahmen f
 
 ### 1. Excel-Tool herunterladen und öffnen
 
-Lade das aktuelle [Excel-Tool](download.qmd) herunter, speichere sie lokal und öffne sie in Microsoft Excel. Für die erweiterten Bedien- und Variantenfunktionen müssen Makros zugelassen sein.
+Lade das aktuelle [Excel-Tool](download.qmd) herunter, speichere es lokal und öffne es in Microsoft Excel. Für die erweiterten Bedien- und Variantenfunktionen müssen Makros zugelassen sein.
 
 Bewahre für eigene Projekte eine unveränderte Ausgangsdatei auf.
 
 ### 2. Projekt und Ausgangsvariante festlegen
 
 ::: {.excel-operation}
-**Excel-Ort:** Blatt Quick Start [▶]{.excel-menu .darkred}
+**Excel-Ort:** Blatt [▶]{.excel-menu .darkred} ("Quick Start")
 
 Wähle die grundlegenden Projekt- und Geometrieparameter. Alternativ kannst du eine bereits [gespeicherte Variante laden](variants.qmd).
 :::
 
-Das Blatt **Quick Start** bietet einen schnellen Zugang zu den wichtigsten Modelleinstellungen.
+Das Blatt [▶]{.excel-menu .darkred} ("Quick Start") bietet einen schnellen Zugang zu den wichtigsten Modelleinstellungen.
 
 ![Excel-Bedienung: Quick Start mit thematischen Eingabeblättern und Schnellauswahl. Bereitgestellte Ansicht v1_12 vom 24.06.2026; Beispielwerte sind keine Projektvorgaben.](media/manual/quick-start.png){.manual-figure}
 
@@ -49,9 +48,9 @@ Projektspezifische Änderungen erfolgen in den jeweiligen Fachblättern.
 **Im Excel-Tool:**
 
 1. Berechnung mit <kbd>F9</kbd> auslösen.
-2. Das [📊Erg]{.excel-menu .darkred} [Ergebnisblatt ](results.qmd) öffnen.
+2. Blatt [📊 Erg]{.excel-menu .red} ("Ergebnisse") öffnen und die [Jahresbilanzen](results.qmd) prüfen.
 3. Primärenergie- und THG-Bilanz prüfen.
-4. Bei Bedarf das [📈]{.excel-menu .darkred} [Excel-Dashboard](excel-dashboard.qmd) für weiterführende Auswertungen verwenden.
+4. Bei Bedarf Blatt [📈]{.excel-menu .red} ("Dashboard") für [stündliche Auswertungen](excel-dashboard.qmd) verwenden.
 :::
 
 Bei manuellem Berechnungsmodus sind die Ergebnisse erst nach einer erneuten Berechnung aktuell.

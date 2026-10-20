@@ -9,7 +9,12 @@ title: "Begriffe nachschlagen"
 | Thermische Hülle | Grenze zwischen thermisch betrachteten Räumen und ihren Randbedingungen |
 | Thermische Zone | Im thermischen Modell zusammengefasster Bereich; hier gekühlt oder ungekühlt |
 | Nutzerstrom | Strombedarf der Nutzung; zur Deklaration gelten ausgewiesene Vorgaben |
-| Eigenverbrauch | Vor Ort erzeugte und im betrachteten System selbst genutzte Energie |
+| Eigenverbrauch | Vor Ort erzeugte und im betrachteten System selbst genutzte Energie; als Anteil auf die Erzeugung bezogen |
+| Energie-Autonomie | Direkte und flexible lokale PV-Nutzung im Verhältnis zum elektrischen Bedarf des Modells |
+| SoC | State of Charge: Ladezustand eines Speichers, üblicherweise als Anteil seiner Kapazität |
+| C-Rate | Verhältnis von Lade-/Entladeleistung zur Kapazität; 0,5 h⁻¹ bei 20 kWh entspricht 10 kW |
+| Äquivalente Vollzyklen | Auf die Kapazität bezogener Energiedurchsatz gemäß der jeweiligen Speicherkennzahl |
+| Leistung / Energie | Leistung in kW beschreibt einen Energiefluss; Energie in kWh dessen Menge über einen Zeitraum |
 | Flexibilität | Zeitliche Verschiebung von Energieflüssen innerhalb technischer Grenzen |
 | Konversionsfaktor | Umrechnung physischer Energie in eine Bewertungsgröße |
 | Kontextfaktor | Methodischer Beitrag etwa zu Standort oder Dichte; keine physische Erzeugung |

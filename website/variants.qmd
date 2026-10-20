@@ -21,10 +21,6 @@ Ein Projekt kann mehrere Varianten beziehungsweise Szenarien enthalten. Variante
 
 Im Variantenmanager das Projekt und die gewünschte Variante auswählen und laden. Projekt-/Variantenname sowie die geladenen Eingaben kontrollieren; bei Änderungen oder nicht aktuellem Rechenstand neu berechnen. Noch nicht gespeicherte Änderungen vor einem Variantenwechsel sichern.
 
-::: {.pending}
-**Bedienabbildung in Vorbereitung:** aktueller Variantenmanager mit Projektwahl, Speichern und Laden.
-:::
-
 ## Weiterbearbeitung
 
 [Presets](presets.qmd) erleichtern die Parametrisierung. [Migration](migration.qmd) überträgt Projekte auf neue Toolversionen. Die Auswertung erfolgt im [Variantenvergleich](comparison.qmd); viele Varianten werden über die [Batch-Simulation](batch.qmd) bearbeitet.

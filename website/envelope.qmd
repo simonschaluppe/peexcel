@@ -4,11 +4,31 @@ title: "Thermische Hülle und Wärmeflüsse"
 
 
 
-## Eingaben im Blatt Bauphysik {#excel-bauphysik}
+::: {.lead} 
+Zwei thermisch entkoppelte Modellzonen
+:::
+Die thermische Modellierung unterscheidet eine **gekühlte und eine ungekühlte, thermisch entkoppelte Zone**.
 
-**Gegenstand:** Konstruktion, thermische Bilanzgrenze und Wärmeflüsse auseinanderhalten. Bauteilzuordnung, Bilanzgrenze und qualitative Wärmeflüsse sind separat schaltbar.
+Solare Gewinne kommen durch Fenster, interne Wärmegewinne entstehen im Raum. Transmission und Lüftung werden als beispielhafte Wärmeabfuhr gezeigt; ihre tatsächliche Richtung hängt vom Zustand ab. Die Pfeile sind **qualitativ**, ihre Dicke kodiert keine Leistung.
 
-**Excel-Ort:** Blatt [🧱 Bauphysik]{.excel-menu .darkred}.
+![Thermisches Energiemodell mit zwei thermisch entkoppelten Zonen, Wärmeflüssen und beispielhaften Bilanzen.](illustrations/thermisches_modell.svg){.manual-figure}
+
+<!-- Interactive embed paused for page performance.
+<iframe class="peq-lesson" data-fit src="assets/teaching/index.html" title="Interaktive Schnittdarstellung: Bauteile, Hülle und Wärmeflüsse"></iframe>
+-->
+
+Eine interaktive Ansicht ist über den separaten Link unten verfügbar: 
+[Schnittdarstellung separat öffnen](assets/teaching/index.html) · [Ausführbares Notebook](downloads/howto_section_teaching_preview.ipynb)
+Die Schnittdarstellung ordnet die Bilanzgrenze räumlich zu. 
+
+Im Unterschied zur thermischen Hülle, umfasst die [Ökobilanz](climate.qmd)  darüber hinaus Konstruktionen innerhalb und außerhalb dieser Grenze; thermische Hüllfläche und LCA-Menge sind daher nicht gleichzusetzen.
+
+
+## Bauphysik eingeben {#excel-bauphysik}
+
+Konstruktion, thermische Bilanzgrenze und Wärmeflüsse auseinanderhalten. Bauteilzuordnung, Bilanzgrenze und qualitative Wärmeflüsse sind separat schaltbar.
+
+**Excel-Ort:** Blatt [🧱]{.excel-menu .darkred} ("Bauphysik").
 
 ::: {.excel-operation}
 ### Im Excel-Tool
@@ -23,38 +43,11 @@ title: "Thermische Hülle und Wärmeflüsse"
 [Schnellauswahlen](presets.qmd) zunächst übernehmen, anschließend projektspezifische Flächen und Kennwerte prüfen. Nach der Berechnung die Wärmebilanz im [Ergebnisblatt](results.qmd#waermebilanz) kontrollieren.
 :::
 
-Die Schnittdarstellung ordnet die Bilanzgrenze räumlich zu. Die [Ökobilanz](climate.qmd) umfasst darüber hinaus Konstruktionen innerhalb dieser Grenze; thermische Hüllfläche und LCA-Menge sind daher nicht gleichzusetzen.
-
-![Thermisches Energiemodell mit zwei thermisch entkoppelten Zonen, Wärmeflüssen und beispielhaften Bilanzen. Bereitgestellte Schulungsgrafik.](media/manual/thermal-model.png){.manual-figure}
 
 
-<!-- Interactive embed paused for page performance.
-<iframe class="peq-lesson" data-fit src="assets/teaching/index.html" title="Interaktive Schnittdarstellung: Bauteile, Hülle und Wärmeflüsse"></iframe>
--->
-
-Die interaktive Ansicht ist über den separaten Link unten verfügbar.
-
-[Schnittdarstellung separat öffnen](assets/teaching/index.html) · [Ausführbares Notebook](downloads/howto_section_teaching_preview.ipynb)
-
-## Stil und Fachebenen
-
-Der Stil **teaching** reduziert Umgebung und Dekoration und erhält die Geometrie des Section-Renderers. Bauteilfarben, Wärmebilanzgrenze, Auswahl und Wärmeflüsse sind unabhängig davon aufgelegte Fachebenen. Die bestehenden Stile bleiben für andere Darstellungszwecke verfügbar.
-
-## Zwei thermisch entkoppelte Modellzonen
-
-Der Umschalter zeigt gekühlt und ungekühlt einzeln; die beiden Geschosse stellen **nicht** diese beiden Modellzonen dar. Heizung ist in beiden Zonen möglich, aktive Kühlung nur in der gekühlten Zone und Nachtlüftung im dargestellten Referenzmodell nur in der ungekühlten Zone.
-
-Solare Gewinne kommen durch Fenster, interne Wärmegewinne entstehen im Raum. Transmission und Lüftung werden als beispielhafte Wärmeabfuhr gezeigt; ihre tatsächliche Richtung hängt vom Zustand ab. Die Pfeile sind **qualitativ**, ihre Dicke kodiert keine Leistung.
-
-## Abgrenzung innerer Decken
-
-Die thermische Hülle und die Bauteilauswahl verdeutlichen unterschiedliche Bilanzgrenzen.
-
-<details><summary>Thermische Randbedingungen</summary>Die innere Decke liegt zwischen zwei beheizten Geschossen und damit innerhalb der Bilanzgrenze. Über einem unbeheizten Keller kann eine Decke dagegen zur thermischen Hülle gehören. Entscheidend ist die thermische Randbedingung, nicht allein der geometrische Typ „slab“. Die <a href="components.html">zweite Referenzgeometrie</a> zeigt diesen Unterschied.</details>
-
-::: {.callout-note}
-## Für die Deklaration
-Interne Wärmegewinne und Nutzerstrom können frei modelliert werden. Für die Deklaration gelten die ausgewiesenen Deklarationswerte der verwendeten Toolversion.
+::: {.declaration-note }
+**Deklaration**:
+Interne Wärmegewinne und Nutzerstrom können im Tool prinzipiell frei modelliert werden. Für die Deklaration gelten die ausgewiesenen Deklarationswerte der verwendeten Toolversion.
 :::
 
 Quelle: [Schulung, Folien 11–14](downloads/schulung.pdf). Die Geometrie ist ein ausdrücklich angenommenes Referenzgebäude, kein Projektergebnis.

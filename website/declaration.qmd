@@ -30,7 +30,7 @@ AUDIT unterstützt die Qualitätssicherung. Die Website führt keine eigene Zul�
 
 ## Nachweisblätter {#excel-nachweise}
 
-**Excel-Orte:** [🏆 PEQ]{.excel-menu .darkred}, [🏆 PEQ+M]{.excel-menu .orange} und [🏆 KN PEQ]{.excel-menu .teal}.
+**Excel-Orte:** Blatt [PEQ]{.excel-menu .darkred} ("Plus-Energie-Quartier"), Blatt [PEQ+M]{.excel-menu .orange} ("Plus-Energie-Quartier mit Mobilität") und Blatt [KN PEQ]{.excel-menu .teal} ("Klimaneutrales Plus-Energie-Quartier").
 
 ::: {.excel-path}
 **Menüband:** klimaaktiv PEQ → Nachweise → PEQ im Betrieb / PEQ mit Mobilität / Klimaneutrales PEQ
@@ -40,17 +40,13 @@ Die Blätter fassen Projektwert, Zielwert beziehungsweise Budget und Differenz f
 
 ## Qualitätssicherung {#qualitaetssicherung}
 
-**Excel-Ort:** Blatt [AUDIT]{.excel-menu .red}.
+**Excel-Ort:** Blatt [AUDIT]{.excel-menu .red} ("Qualitätssicherung").
 
 Die Schulung bezeichnet AUDIT als **automatisierte Plausibilitätskontrolle**. Es zeigt für die aktuell eingegebene Variante Abweichungen von vordefinierten Deklarationswerten. Eine Abweichung muss kein Modellfehler sein; sie ist für die Nachweisführung zu prüfen und im Auditbericht zu begründen. Eine Begründung allein ersetzt keine fachliche Anerkennung einer Abweichung.
 
 ::: {.excel-operation}
 ### Nachweisstand prüfen
 Projekt-/Variantenname, Toolversion und Rechenstand sichern. Datenquellen und Bilanzgrenzen kontrollieren; AUDIT-Hinweise einzeln bearbeiten. Für den Nachweis die verbindlichen Vorgaben verwenden beziehungsweise Abweichungen fachlich klären. Ergebnisblätter und Export zusammen mit der Nachweisdokumentation ablegen.
-:::
-
-::: {.pending}
-**Aktuelle Ansicht in Vorbereitung:** AUDIT mit einer beispielhaften Abweichung sowie die drei Nachweisblätter.
 :::
 
 Quelle: [Schulung, Folien 4 und 35](downloads/schulung.pdf#page=35).

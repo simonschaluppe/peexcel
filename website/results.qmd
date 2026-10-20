@@ -1,14 +1,46 @@
 ---
-title: "Ergebnisblatt"
+title: "Ergebnisse und Kennzahlen"
 ---
 
-**Excel-Ort:** Blatt [📊 Ergebnisse (Erg)]{.excel-menu .red}.
+**Excel-Ort:** Blatt [📊 Erg]{.excel-menu .red} ("Ergebnisse").
 
 Hier stehen die Tabellen und Diagramme der aktuell berechneten Variante. Die Schulung unterscheidet dieses Ergebnisblatt vom internen Ergebnisspeicher **OUT** und vom [Excel-Dashboard](excel-dashboard.qmd) für zeitaufgelöste Analysen.
 
 ::: {.excel-path}
 **Menüband:** klimaaktiv PEQ → Ergebnisse → [Ergebnisse]{.excel-action}
 :::
+
+## Die passende Auswertung wählen
+
+| Fragestellung | Ansicht |
+|---|---|
+| Wie viel Energie wird über das Jahr benötigt und gedeckt? | Jahresbilanzen auf dieser Seite |
+| Wann entstehen Bedarf, Überschuss und Speicherladung? | [Excel-Dashboard](excel-dashboard.qmd) |
+| Was bewirken Temperaturband, Signale und Speicher? | [Flexibilität analysieren](flexibility.qmd) |
+| Wie beeinflussen Standzeiten und Nutzung das Laden? | [Mobilitätsverhalten](mobility-analysis.qmd) |
+| Welche Maßnahmenkombination ist günstiger? | [Variantenvergleich](comparison.qmd) |
+
+## Vorhandene Kennzahlen {#kennzahlen}
+
+Die Jahresauswertung ergänzt die stündlichen Diagramme. Kennzahl, Bezugsfläche und Bilanzgrenze müssen beim Vergleich gleich bleiben.
+
+| Bereich | Kennzahlen | Interpretation |
+|---|---|---|
+| Gebäude | Heizwärme- und Kühlbedarf, Wärmegewinne und -verluste | Jahresenergie von Leistung und Temperatur unterscheiden |
+| Strom | Bedarf, Netzbezug, PV-Nutzung und Einspeisung | Lokale Versorgung und externe Mobilitätsladung getrennt lesen |
+| PV-Eigenverbrauch | Direkter, flexibler und gesamter Eigenverbrauchsanteil | Anteil der PV-Erzeugung, der den entsprechenden lokalen Nutzungen zugeordnet wird |
+| Energie-Autonomie | Lokale direkte und flexible PV-Nutzung bezogen auf den elektrischen Bedarf | PV-bezogene Kennzahl; nicht mit Versorgungssicherheit oder Inselbetriebsfähigkeit gleichsetzen |
+| Netzeinspeisung | PV-Spitzeneinspeisung in kW und zugehöriger Zeitpunkt | Maximum auf der stündlichen Zeitbasis; keine Aussage über kürzere Spitzen oder Netzspannungen |
+| Stationäre Batterie | Jährliche Beladung und Entladung, Lade-/Entladeverluste, Round-Trip-Effizienz, äquivalente Vollzyklen | Nutzung und Verluste gemeinsam beurteilen; Vollzyklen allein bestimmen keine Lebensdauer |
+| Flexibilität | Freigabeanteil im Jahr sowie Sommer/Winter, flexible Netz- und PV-Nutzung | Freigabe ist eine Gelegenheit; die tatsächliche Nutzung hängt von Bedarf und Speicherzustand ab |
+| Mobilität | Fahrleistung, elektrischer und fossiler Zielverkehrsbedarf, EV-Ladung und EV-Vollzyklen | Verursachter Verkehr und physische Ladung haben unterschiedliche Bilanzgrenzen |
+| Bewertung | Primärenergie, betriebliche und graue THG-Beiträge, Gesamtbilanz und Budgetabstand | Bewertete Größen ergänzen die physischen Energieflüsse |
+
+### Eigenverbrauch und Energie-Autonomie
+
+Der **PV-Eigenverbrauchsanteil** setzt die Summe aus direkter und flexibler lokaler PV-Nutzung ins Verhältnis zur PV-Erzeugung. Die **Energie-Autonomie** verwendet dieselbe lokale PV-Nutzung im Zähler, aber den elektrischen Gesamtbedarf als Nenner. Ein größerer PV-Ertrag kann diese beiden Anteile unterschiedlich verändern.
+
+Bei Vergleichen mit anderen Tools die Definitionen einschließlich Mobilität und Speicherladung abgleichen. Ein identischer Begriff wie „Autarkie“ garantiert keine identische Bilanzgrenze.
 
 ## Projektkennwerte
 
@@ -34,10 +66,32 @@ Bedarf und Deckung werden mit Konversionsfaktoren bewertet. Lokale Erneuerbare u
 
 Bauliche und betriebliche Beiträge einschließlich Mobilität werden kumuliert dargestellt. Emissionen, Gutschriften, Budget und Saldo sind getrennte Größen. Bewertungszeitraum und BGF-Bezug prüfen; [Ökobilanz-Eingaben](climate.qmd) und [Nachweisführung](declaration.qmd) sind separat dokumentiert.
 
-::: {.pending}
-**Detailabbildungen in Vorbereitung:** aktuelle Ausschnitte des Ergebnisblatts für Wärmebilanz, Endenergie-Matrix, Primärenergie und THG. Die bereitgestellte Toolübersicht zeigt die Ausgabearten, ersetzt aber keine lesbare Detailaufnahme. Hier werden keine Python-Plots als Excel-Diagramme ausgegeben.
-:::
-
 [Variantenvergleich](comparison.qmd) · [Excel-Dashboard](excel-dashboard.qmd) · [Reale Website-Beispiele](examples.qmd)
 
 Quelle: [Schulung, Folien 21–25](downloads/schulung.pdf#page=25); Bediengliederung gemäß Handbuch S. 74–82.
+
+## Häufige Fragen zur Konzeptplanung {#konzeptplanung}
+
+### Funktionieren Variantenvergleich und Sensitivitäten bereits?
+
+Ja. Eingaben können als Varianten gespeichert, einzeln oder per [Batch](batch.qmd) berechnet und im [Variantenvergleich](comparison.qmd) ausgewertet werden. So lassen sich beispielsweise Speichergrößen und C-Raten bei gleichem Gebäude und gleicher PV-Anlage vergleichen. Die Varianten werden gezielt vorgegeben; eine automatische Optimierung ist damit nicht verbunden.
+
+### Welche zeitliche Auflösung steht zur Verfügung?
+
+Die Jahressimulation arbeitet mit **8.760 Stunden**. Tages-, Monats- und Jahresauswertungen fassen diese Ergebnisse zusammen. Ein 15-Minuten-Modell würde angepasste Eingangsdaten und Rechenverfahren benötigen; das Aufteilen eines Stundenwerts auf vier gleiche Intervalle liefert keine zusätzliche zeitliche Information.
+
+### Kann eine Netzentlastung beurteilt werden?
+
+Stündliche Bezugs- und Einspeiseverläufe sowie die Einspeisespitze unterstützen den Vergleich des Quartiersaustauschs. Für Aussagen zu Trafobelastung, Spannungsband oder einzelnen Netzausläufern ist ein ergänzendes Netzmodell erforderlich. Ein geringerer Jahresbezug allein belegt keine Entlastung zur kritischen Netzstunde.
+
+### Wie werden CO₂-Einsparungen bestimmt?
+
+Eine Referenz und eine Maßnahmenvariante mit gleicher Bewertungsgrenze vergleichen. Betriebs- und Lebenszyklusbilanz getrennt benennen; dieselben Faktoren, Zeiträume und Flächen verwenden. Werden Faktoren oder Signale verändert, deren Einfluss ausdrücklich mit ausweisen, wie im [Flexibilitätsbeispiel](flexibility.qmd).
+
+### Sind Wirtschaftlichkeit, Resilienz und Genehmigungsfähigkeit abgedeckt?
+
+Die Ergebnisstruktur enthält Kostenfelder für Netzbezug, flexiblen Bezug und Einspeisung. Daraus folgt noch keine vollständige Investitions- oder Lebenszykluskostenrechnung. Tarifansätze und Vollständigkeit der Ausgabe sind für eine wirtschaftliche Auswertung zu prüfen. Resilienz bei Netzausfall, Brandschutz und Genehmigungsbedingungen brauchen zusätzliche Kriterien und Untersuchungen.
+
+### Welche Daten benötigt ein Use Case?
+
+Für den Einstieg werden Standort, Flächen und Nutzungen, Hüllkennwerte, Versorgung, PV, Speicher und Mobilitätsannahmen benötigt. [Presets](presets.qmd) erleichtern erste Konzepte; die wichtigsten Annahmen werden danach projektspezifisch ersetzt. Für einen Abgleich mit dem Betrieb sind zeitlich abgestimmte Messreihen zu Verbrauch, Erzeugung, Netzaustausch und möglichst Speicherzuständen hilfreich. Die [Datenschnittstellen](interfaces.qmd#use-case-daten) unterscheiden Konzeptdaten und Validierungsdaten.

@@ -2,7 +2,7 @@
 title: "Daten und Schnittstellen"
 ---
 
-**Gegenstand:** Eingaben nachvollziehbar übernehmen. Das Tool bietet Schnittstellen für Energieausweis, Wetter, stündliche PV-Erzeugung und Bauteildaten. Exakte Importfelder und Einheiten richten sich nach der verwendeten Toolversion.
+Eingaben nachvollziehbar übernehmen. Das Tool bietet Schnittstellen für Energieausweis, Wetter, stündliche PV-Erzeugung und Bauteildaten. Exakte Importfelder und Einheiten richten sich nach der verwendeten Toolversion.
 
 ## Energieausweis
 
@@ -14,7 +14,7 @@ Gebäude- und Hüllkennwerte werden aus den Projektunterlagen übernommen. Bezug
 
 Der Wetterdatensatz muss zu Standort und Untersuchungsziel passen. Die Schulung nennt Helios-PC als Datenzugang; im Repository liegen weitere Wetterdateien. Bei Zukunftswettervergleichen bleibt die Bewertungsvorgabe separat dokumentiert.
 
-**Excel-Orte:** Blatt [🌦 Wetter]{.excel-menu .darkred} für die Hinterlegung; Blatt [🏙 Quartier]{.excel-menu .darkred} für die Auswahl des Datensatzes.
+**Excel-Orte:** Blatt [🌦]{.excel-menu .darkred} ("Wetter") für die Hinterlegung; Blatt [🏙]{.excel-menu .darkred} ("Quartier") für die Auswahl des Datensatzes.
 
 **Arbeitsablauf:** Standort und Wetterjahr festhalten → Stundenreihenfolge und Vollständigkeit prüfen → im vorgesehenen Wetterbereich übernehmen → Rechenlauf prüfen. Bei isolierter Untersuchung einer Anlagenmaßnahme bleibt der Wetterdatensatz unverändert.
 
@@ -27,3 +27,16 @@ Die [PV-Eingabe](pv.qmd) beschreibt Dachflächen-Skalierung und detaillierte Stu
 `Project.from_excel` lädt gespeicherte Exporte. Schema und Exportversion müssen zueinander passen. Jahresergebnisse und Stundenexporte sind unterschiedliche Datenquellen. Das [Python-Tutorial](python.qmd) verwendet bestehende Import- und Reportingfunktionen.
 
 [Schulung, Folie 31](downloads/schulung.pdf) · [Handbuch mit Bedienung und Feldzuordnung](downloads/handbuch.pdf)
+
+## Daten für Konzeptvergleich und Validierung {#use-case-daten}
+
+| Datenpaket | Benötigte Angaben | Wofür? |
+|---|---|---|
+| Quartier | Standort, Flächen nach Nutzung, Geometrie, Neubau-/Sanierungsanteile | Modellgrenze und Bezugsgrößen |
+| Gebäude und Betrieb | Hülle, Nutzungsprofile, Solltemperaturen, Heizung, Kühlung, Warmwasser und Lüftung | Bedarf und thermische Flexibilität |
+| Erzeugung und Speicher | PV-Leistung und Profil, Batteriekapazität und Leistung, Wirkungsgrade, thermische Speicher | Versorgung und Speicherbetrieb |
+| Mobilität | Nutzungen, Fahrleistungsannahmen, EV-Anteil, Fahrzeuge, Ladepunkte und Leistungen | Fahrbedarf, Anwesenheit und Ladung |
+| Zeitreihen zur Validierung | Messwerte für Verbrauch, Erzeugung, Bezug, Einspeisung und Speicherzustände; Zeitstempel und Einheiten | Modell mit beobachtetem Betrieb vergleichen |
+| Ergänzende Netzuntersuchung | Anschlussleistung, Netztopologie, Transformator- und Leitungsdaten | Übergabe an ein ergänzendes Netzmodell |
+
+Für jede Angabe Quelle, Zeitraum und Status festhalten: Messwert, Planungswert oder Annahme. Zeitreihen benötigen einen gemeinsamen Kalender, eine geklärte Zeitzone und eine dokumentierte Behandlung von Lücken. Feinere Messdaten können für den Stundenvergleich aggregiert werden; kurzzeitige Spitzen bleiben als eigene Information erhalten.

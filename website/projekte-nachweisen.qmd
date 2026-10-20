@@ -1,17 +1,18 @@
-
-# Nachweisführung von Projekten {#sec-anwendung}
+---
+title: "Nachweisführung von Projekten"
+---
 
 ::: {.lead}
 Vom untersuchten Konzept über die realisierte Lösung bis zum nachgewiesenen Betrieb
 :::
 
-Der klimaaktiv Standard kann in unterschiedlichen Projektphasen angewendet werden. Dabei sind zwei Fragen zu unterscheiden: **Welche Qualitätsstufe wird rechnerisch erreicht?** Und **wie belastbar ist der zugrunde liegende Projektstand?** Die Qualitätsstufen beschreibt [Der Standard](02-standard.qmd); die Deklarationsphase kennzeichnet den Stand der Nachweisführung.
+Der klimaaktiv Standard kann in unterschiedlichen Projektphasen angewendet werden. Dabei sind zwei Fragen zu unterscheiden: **Welche Qualitätsstufe wird rechnerisch erreicht?** Und **wie belastbar ist der zugrunde liegende Projektstand?** Die Qualitätsstufen beschreibt [Der Standard](research.qmd); die Deklarationsphase kennzeichnet den Stand der Nachweisführung.
 
 ## Drei Deklarationsphasen
 
 Die Nachweisführung kann in der Planung, nach Fertigstellung sowie auf Grundlage gemessener Betriebsdaten erfolgen. Mit fortschreitendem Projektstand verändert sich die Datengrundlage und damit die Aussagekraft der Deklaration.
 
-![**Deklaration je nach Projektstand:** Planungsdeklaration, Fertigstellungsdeklaration und Betriebsdeklaration mit zunehmender Verfügbarkeit von Ausführungs- und Messdaten.](../docs/website/deklarationen.svg){#fig-deklarationsphasen width="100%"}
+![**Deklaration je nach Projektstand:** Planungsdeklaration, Fertigstellungsdeklaration und Betriebsdeklaration mit zunehmender Verfügbarkeit von Ausführungs- und Messdaten.](illustrations/deklarationen.svg){#fig-deklarationsphasen width="100%"}
 
 ### 📐 Planungsdeklaration – Potenziale und Varianten nachweisen
 
@@ -62,7 +63,7 @@ Ein solcher Pfad ist **kein Nachweis einer bereits erreichten Qualitätsstufe**.
 
 Für die THG-Bewertung sind außerdem die Emissionen bis zur späteren Umsetzung und die zusätzlichen Herstellungsemissionen der Maßnahmen zu berücksichtigen. Ein zukünftiges gutes Ergebnis macht bereits entstandene Emissionen nicht rückgängig.
 
-Die vertiefte Darstellung von Renovierungsetappen findet sich unter [Sanierungsfahrpläne](07-renovierungsfahrplan.qmd).
+Die Bewertung von Sanierung und Lebenszyklus wird unter [Ökobilanz](climate.qmd) erläutert.
 
 ::: {.callout-note appearance="minimal" icon=false title="Methodische Einordnung"}
 
@@ -74,7 +75,7 @@ Die verbindlichen Bedingungen für eine Deklaration „Auf dem Weg“, insbesond
 
 Der Weg zur klimaaktiv Auszeichnung wird durch ein Netzwerk aus Anlaufstelle, Kompetenzpartner:innen und Expert:innengremium begleitet. Der Ablauf lässt sich aus Sicht der Projektverantwortlichen in drei Schritte gliedern.
 
-![**Ihr Weg zum Plus-Energie-Quartier:** Von der ersten Prüfung der Mindestanforderungen über die Auswahl einer fachlichen Projektbegleitung bis zur Einreichung und Qualitätssicherung.](../docs/website/ihr_weg_zum_peq.svg){#fig-weg-zum-peq width="100%"}
+![**Ihr Weg zum Plus-Energie-Quartier:** Von der ersten Prüfung der Mindestanforderungen über die Auswahl einer fachlichen Projektbegleitung bis zur Einreichung und Qualitätssicherung.](illustrations/ihr_weg_zum_peq.svg){#fig-weg-zum-peq width="100%"}
 
 ### Schritt 1 – Mindestanforderungen und Aussichten prüfen
 
@@ -102,7 +103,7 @@ Die Qualitätssicherung dient insbesondere der fachlichen Plausibilisierung, Nac
 
 Die Nachweisführung ist in die Organisationsstruktur des klimaaktiv Programms für Siedlungen und Quartiere eingebettet. Die beteiligten Akteure übernehmen unterschiedliche, aufeinander abgestimmte Aufgaben.
 
-![**Das klimaaktiv Programmteam:** Anlaufstelle, Siedlungen-und-Quartiere-Team, Kompetenzpartner:innen und Expert:innengremium sowie ihre Zusammenarbeit mit Projektverantwortlichen und Fachplanenden.](../docs/website/programmteam.svg){#fig-programmteam width="100%"}
+![**Das klimaaktiv Programmteam:** Anlaufstelle, Siedlungen-und-Quartiere-Team, Kompetenzpartner:innen und Expert:innengremium sowie ihre Zusammenarbeit mit Projektverantwortlichen und Fachplanenden.](illustrations/programmteam.svg){#fig-programmteam width="100%"}
 
 Die wesentlichen Rollen sind:
 

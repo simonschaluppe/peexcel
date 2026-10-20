@@ -1,4 +1,3 @@
-
 ---
 title: "Schnellauswahl mit Presets"
 ---
@@ -8,12 +7,12 @@ title: "Schnellauswahl mit Presets"
 Das ermöglicht einen schnellen Modellaufbau und vereinfacht die Untersuchung unterschiedlicher Planungsvarianten. Die übernommenen Werte können anschließend projektspezifisch angepasst werden.
 
 ::: {.excel-operation}
-**Excel-Ort:** Blatt [▶]{.excel-menu .darkred} "Quick Start" → [Schnellauswahl]{.excel-section}
+**Excel-Ort:** Blatt [▶]{.excel-menu .darkred} ("Quick Start") → [Schnellauswahl]{.excel-section}
 
 Alternativ können Presets in den jeweiligen Fachblättern oder über das Menüband **klimaaktiv PEQ** ausgewählt werden.
 :::
 
-![Excel-Bedienung: Preset-Auswahl und Zuordnung zu Eingabevariablen. Die Presets_xx-Tabellen enthalten spaltenweise Presets und zeilenweise die angesteuerten Inputvariablen. Bereitgestellte Schulungsfolie 34.](media/manual/presets.png){.manual-figure}
+![Excel-Bedienung: Preset-Auswahl und Zuordnung zu Eingabevariablen. Die Presets_xx-Tabellen enthalten spaltenweise Presets und zeilenweise die angesteuerten Inputvariablen. Schulungsfolie 34.](media/manual/presets.png){.manual-figure}
 
 ## Preset anwenden
 
@@ -40,12 +39,16 @@ Im folgenden Beispiel wird eine Variante mit einer anderen Wärmeversorgung unte
 :::
 
 1. Das Preset [„Fernwärme“]{.excel-value} auswählen.
-2. Im Blatt [🔥 Heizung]{.excel-menu .darkred} die übernommenen Parameter kontrollieren, insbesondere den Energieträger, die [Maximale Heizleistung]{.excel-field} und die Erzeugungseffizienz.
+2. Im Blatt [🔥H]{.excel-menu .darkred} ("Heizung") die übernommenen Parameter kontrollieren, insbesondere den Energieträger, die [Maximale Heizleistung]{.excel-field} und die Erzeugungseffizienz.
 3. Neu berechnen.
 4. Im [Ergebnisblatt](results.qmd) die Verteilung der Endenergieträger und die Primärenergiebilanz prüfen.
 5. Das Ergebnis als eigene Variante sichern.
 
-Der Vergleich zeigt die Auswirkungen unterschiedlicher Wärmeversorgungskonzepte innerhalb der Modellannahmen. **Ein Preset ersetzt keine projektspezifische Anlagendimensionierung.**
+Der Vergleich zeigt die Auswirkungen unterschiedlicher Wärmeversorgungskonzepte innerhalb der Modellannahmen. 
+
+::: {.callout-important title="Achtung"}
+Ein Preset ersetzt keine projektspezifische Anlagendimensionierung.
+:::
 
 ## Verfügbare Eingabegruppen
 

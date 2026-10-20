@@ -57,7 +57,7 @@ body:has(.hero) #title-block-header{display:none}
   display: inline-block;
   width: 24px;
   height: 24px;
-  background: url("illustrations/logo.png") center / contain no-repeat;
+  background: url("media/logo.png") center / contain no-repeat;
   flex-shrink: 0;
 }
 
@@ -75,3 +75,14 @@ body:has(.hero) #title-block-header{display:none}
 .cell-output-display .plotly-graph-div{min-width:900px}
 @media(max-width:600px){.excel-operation{padding:.8rem}.excel-path{padding:.6rem}h1{overflow-wrap:anywhere}}
 @media print{.excel-menu{color:#000!important;background:#fff!important;border:1px solid #555}.excel-operation,.declaration-note{background:white;border:1px solid #777}}
+
+/* Keep long documentation tables readable on narrow screens. */
+main .table {font-size:.94rem}
+main .table th,main .table td{vertical-align:top}
+main .table-responsive{margin-block:1rem}
+main img{max-width:100%}
+
+@media(max-width:800px){main table{display:block;max-width:100%;overflow-x:auto}}
+
+/* Reserve space for descriptive captions in enlarged research figures. */
+.glightbox-container .gslide-image img{max-height:65vh!important;width:auto!important;object-fit:contain}

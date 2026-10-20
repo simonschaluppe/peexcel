@@ -1,5 +1,5 @@
 ---
-title: "Deklaration: Checkliste Dokumentation und Arbeitsabläufe"
+title: "Checkliste zur Nachweisvorbereitung"
 ---
 
 Technische Dokumentation zur Modellierung, Ergebnisanalyse und Vorbereitung der klimaaktiv-Deklaration. Die Arbeitsabläufe richten sich an Kompetenzpartner:innen und Anwender:innen des Deklarationsstandards, Energie-, Gebäude- und HKLS-Fachplaner:innen sowie an Anwender:innen in Forschung und Hochschullehre.
@@ -10,7 +10,7 @@ Technische Dokumentation zur Modellierung, Ergebnisanalyse und Vorbereitung der 
 2. [Eingangsdaten und Schnittstellen](interfaces.qmd) prüfen.
 3. [Thermische Bilanzgrenze](envelope.qmd) und [Bauteilzuordnung](components.qmd) dokumentieren.
 4. [Energieversorgung und Betriebsführung](systems.qmd) parametrisieren.
-5. [Berechnung und Variantenverwaltung](start.qmd) durchführen.
+5. [Berechnung und Variantenverwaltung](excel-overview.qmd) durchführen.
 
 ## Ergebnisanalyse und Nachweisvorbereitung
 
@@ -33,7 +33,7 @@ Die [Python-Dokumentation](python.qmd) enthält ausführbare Notebooks für Impo
 | Mobilität | 17–20 | [Mobilität](mobility.qmd) |
 | Flexibilität | 21 | [Versorgung](systems.qmd) |
 | THG und Klimaziele | 22–23 | [Lebenszyklus](climate.qmd) |
-| Bedienung und Schnittstellen | 24–35 | [Arbeitsablauf](start.qmd), [Schnittstellen](interfaces.qmd), [Deklaration](declaration.qmd) |
+| Bedienung und Schnittstellen | 24–35 | [Arbeitsablauf](excel-overview.qmd), [Schnittstellen](interfaces.qmd), [Deklaration](declaration.qmd) |
 | Kontakt | 36 | [Kontakt](about.qmd) |
 
 [Schulungsunterlage als PDF](downloads/schulung.pdf) · [Begriffe](glossary.qmd)
@@ -42,4 +42,4 @@ Die [Python-Dokumentation](python.qmd) enthält ausführbare Notebooks für Impo
 
 [Blattnavigator und Formatierung](excel-navigation.qmd) · [Presets](presets.qmd) · [Migration](migration.qmd) · [Varianten verwalten](variants.qmd) · [Ergebnisblatt](results.qmd) · [Excel-Dashboard](excel-dashboard.qmd) · [Variantenvergleich](comparison.qmd) · [Batch-Simulation](batch.qmd)
 
-Die Bedienabbildungen stammen aus den vom Projektverantwortlichen bereitgestellten Bildern. Fachliche Begriffe folgen der Schulung vom 14.10.2026. Fehlende aktuelle Detailansichten sind auf den betroffenen Seiten gekennzeichnet.
+Die Bedienabbildungen und fachlichen Begriffe folgen der PEExcel-Schulung. Ergänzende Forschungsbeispiele sind auf den jeweiligen Seiten mit ihrer Quelle gekennzeichnet.

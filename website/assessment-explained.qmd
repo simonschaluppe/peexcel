@@ -4,7 +4,7 @@ toc: false
 page-layout: full
 ---
 
-Das Bewertungssystem anhand der Primärenergie- und Treibhausgasbilanz typischer Quartiere kennenlernen.
+Das Bewertungssystem anhand der Primärenergie- und Treibhausgasbilanz vorhandener Quartiersvarianten kennenlernen. Wähle Varianten aus und vergleiche ihre Beiträge in beiden Diagrammen. Der Explorer zeigt gespeicherte Ergebnisse; eigene Projekte werden im Excel-Tool modelliert und berechnet.
 
 [Explorer in voller Breite öffnen](assets/assessment-explained/index.html){.btn .btn-primary target="_blank"}
 [Notebook herunterladen](downloads/howto_assessment_explained.ipynb){.btn .btn-outline-primary}

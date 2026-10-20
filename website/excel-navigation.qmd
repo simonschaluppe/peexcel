@@ -1,11 +1,10 @@
-
 ---
 title: "Orientierung im Excel-Tool"
 ---
 
 Das PEExcel-Nachweistool ist nach Eingabegruppen, Berechnung und Auswertung gegliedert. Die wichtigsten Einstellungen werden über thematische Fachblätter vorgenommen; zusätzliche Blätter dienen der Speicherung von Varianten, der Simulation und der Ergebnisdarstellung.
 
-![Toolübersicht: Eingabeblätter, Variantenspeicher IN, Simulation SIM2, Ergebnisse OUT und Ausgabeansichten. Bereitgestellte Schulungsfolie 25; die angegebenen Größenordnungen beschreiben den gezeigten Toolstand.](media/manual/tool-workflow.png){.manual-figure}
+![Toolübersicht: Eingabeblätter, Variantenspeicher IN, Simulation SIM2, Ergebnisse OUT und Ausgabeansichten. Schulungsfolie 25; die angegebenen Größenordnungen beschreiben den gezeigten Toolstand.](media/manual/tool-workflow.png){.manual-figure}
 
 ## Die wichtigsten Bereiche
 
@@ -21,24 +20,28 @@ Die folgende Übersicht zeigt, wo die jeweiligen Einstellungen zu finden sind un
 
 | Excel-Blatt | Beschreibung und Anleitung |
 |---|---|
-| [▶]{.excel-menu .darkred} Quick Start | [Erste Schritte](excel-overview.qmd) und [Schnellauswahl mit Presets](presets.qmd) |
-| [🏙]{.excel-menu .darkred} Quartier | [Projekt, Flächen und Standort](model.qmd#quartier-eingeben) |
-| [🌦]{.excel-menu .darkred} Wetter | [Wetterdaten](interfaces.qmd#wetter) |
-| [🧱]{.excel-menu .darkred} Bauphysik | [Hülle, Verschattung und Speichermasse](envelope.qmd#excel-bauphysik) |
-| [🔥H]{.excel-menu .darkred} Heizung, [❄K]{.excel-menu .darkred} Kühlung, [💧WW]{.excel-menu .darkred} Warmwasser, [💨L]{.excel-menu .darkred} Lüftung | [Heizung, Kühlung, Warmwasser und Lüftung](hvac.qmd) |
-| [🌞 PV]{.excel-menu .darkred},  [PV-Import]{.excel-menu .darkred} | [Photovoltaik](pv.qmd) |
-| [🔋]{.excel-menu .darkred} Flexibilität und Speicher | [Speicher und Energieflexibilität](systems.qmd) |
-| [🚗]{.excel-menu .orange} Mobilität | [Mobilität und Elektrofahrzeuge](mobility.qmd) |
-| [☁ THG]{.excel-menu .teal} Graue Emissionen, Ökobilanz | [Ökobilanz](climate.qmd) |
-| [👤]{.excel-menu .darkred} Nutzungsparameter| [Nutzerstrom, interne Gewinne und Beleuchtung](usage.qmd) |
-| [📊 Erg]{.excel-menu .red}  Ergebnisse| [Ergebnisblatt](results.qmd) |
-| [📈]{.excel-menu .red} Dashboard| [Dynamische Diagramme](excel-dashboard.qmd) |
-| [🔎 var]{.excel-menu .red} Variantenvergleich| [Variantenvergleich](comparison.qmd) |
-| [Scen]{.excel-menu .red} | [Batch-Simulation](batch.qmd) |
-| [PEQ]{.excel-menu .darkred} [PEQ+M]{.excel-menu .orange} [KN PEQ]{.excel-menu .teal} | [Deklarationsergebnis](declaration.qmd) |
-| [AUDIT]{.excel-menu .red} | [Qualitätssicherung](declaration.qmd#qualitaetssicherung) |
-
-Die Bezeichnungen einzelner Blätter können je nach Toolversion abweichen.
+| Blatt [▶]{.excel-menu .darkred} ("Quick Start") | [Erste Schritte](excel-overview.qmd) und [Presets](presets.qmd) |
+| Blatt [🏙]{.excel-menu .darkred} ("Quartier") | [Projekt, Flächen und Standort](model.qmd#quartier-eingeben) |
+| Blatt [🌦]{.excel-menu .darkred} ("Wetter") | [Wetterdaten](interfaces.qmd#wetter) |
+| Blatt [🧱]{.excel-menu .darkred} ("Bauphysik") | [Hülle und Speichermasse](envelope.qmd#excel-bauphysik) |
+| Blatt [🔥H]{.excel-menu .darkred} ("Heizung") | [Heizung](hvac.qmd#heizung) |
+| Blatt [❄K]{.excel-menu .darkred} ("Kühlung") | [Kühlung](hvac.qmd#kuehlung) |
+| Blatt [💧WW]{.excel-menu .darkred} ("Warmwasser") | [Warmwasser](hvac.qmd#warmwasser) |
+| Blatt [💨L]{.excel-menu .darkred} ("Lüftung") | [Lüftung](hvac.qmd#lueftung) |
+| Blatt [🌞 PV]{.excel-menu .darkred} ("Photovoltaik") | [Photovoltaik](pv.qmd) |
+| Blatt [PV-Import]{.excel-menu .darkred} ("PV-Import") | [Stundenprofil importieren](pv.qmd#profilimport) |
+| Blatt [🔋]{.excel-menu .darkred} ("Flexibilität und Speicher") | [Speicher konfigurieren](systems.qmd) und [Flexibilität analysieren](flexibility.qmd) |
+| Blatt [🚗]{.excel-menu .orange} ("Mobilität") | [Mobilität modellieren](mobility.qmd) und [Verhalten analysieren](mobility-analysis.qmd) |
+| Blatt [☁ THG]{.excel-menu .teal} ("Graue Emissionen, Ökobilanz") | [Ökobilanz](climate.qmd) |
+| Blatt [👤]{.excel-menu .darkred} ("Nutzungsparameter") | [Nutzerstrom und interne Gewinne](usage.qmd) |
+| Blatt [📊 Erg]{.excel-menu .red} ("Ergebnisse") | [Ergebnisse und Kennzahlen](results.qmd) |
+| Blatt [📈]{.excel-menu .red} ("Dashboard") | [Stündliche Diagramme](excel-dashboard.qmd) |
+| Blatt [🔎 var]{.excel-menu .red} ("Variantenvergleich") | [Variantenvergleich](comparison.qmd) |
+| Blatt [Scen]{.excel-menu .red} ("Batch-Simulation") | [Batch-Simulation](batch.qmd) |
+| Blatt [PEQ]{.excel-menu .darkred} ("Plus-Energie-Quartier") | [Betriebsbilanz nachweisen](declaration.qmd#excel-nachweise) |
+| Blatt [PEQ+M]{.excel-menu .orange} ("Plus-Energie-Quartier mit Mobilität") | [Mobilität einbeziehen](declaration.qmd#excel-nachweise) |
+| Blatt [KN PEQ]{.excel-menu .teal} ("Klimaneutrales Plus-Energie-Quartier") | [Lebenszyklus bewerten](declaration.qmd#excel-nachweise) |
+| Blatt [AUDIT]{.excel-menu .red} ("Qualitätssicherung") | [Qualitätssicherung](declaration.qmd#qualitaetssicherung) |
 
 **IN**, **OUT** und **SIM2** bezeichnen interne Datenbereiche für Eingaben, Ergebnisse und stündliche Simulationen. Diese sind vom sichtbaren Ergebnisblatt **Erg** zu unterscheiden.
 
@@ -48,14 +51,13 @@ Die Website verwendet eine einheitliche Kennzeichnung von Excel-Orten, Eingabefe
 
 | Kennzeichnung | Bedeutung |
 |---|---|
-| Blatt [🔥 H]{.excel-menu .darkred} | Arbeitsblatt oder Menü im Excel-Tool |
+| Blatt [🔥H]{.excel-menu .darkred} ("Heizung") | Arbeitsblatt oder Menü im Excel-Tool |
 | Feld [Maximale Heizleistung]{.excel-field} | Konkretes Eingabefeld |
 | Befehl [Aktuelle Eingabe speichern]{.excel-action} | Auszuführende Aktion |
 | Preset [„Fernwärme“]{.excel-value} | Ausgewähltes Parameterpaket |
 | Abschnitt [Heizsysteme]{.excel-section} | Thematischer Bereich eines Blatts |
 
 Bedienanweisungen sind zusätzlich als **„Im Excel-Tool“** hervorgehoben.
-
 
 Für die erste praktische Anwendung empfiehlt sich der [Schnellstart](excel-overview.qmd). Eine typische Konfiguration lässt sich anschließend mit [Presets](presets.qmd) aufbauen.
 

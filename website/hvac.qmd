@@ -6,7 +6,7 @@ Die Anlagen wandeln Endenergie in die benötigten Energiedienstleistungen um. Le
 
 ## Heizung {#heizung}
 
-**Excel-Ort:** Blatt [🔥 Heizung (H)]{.excel-menu .darkred} → [Heizsysteme]{.excel-section}.
+**Excel-Ort:** Blatt [🔥H]{.excel-menu .darkred} ("Heizung") → [Heizsysteme]{.excel-section}.
 
 Bis zu vier Heizsysteme werden kaskadisch eingesetzt. System 1 und 3 sind elektrisch, System 2 und 4 thermisch mit auswählbarem Energieträger. Die verfügbare Leistung des jeweiligen Systems begrenzt dessen Beitrag; zusätzlich begrenzt das raumseitige Abgabesystem die Wärmeabgabe.
 
@@ -28,7 +28,7 @@ Neu berechnen; Wärmebedarf und Energieträger im [Ergebnisblatt](results.qmd) p
 
 ## Kühlung {#kuehlung}
 
-**Excel-Ort:** Blatt [❄ Kühlung (K)]{.excel-menu .darkred}.
+**Excel-Ort:** Blatt [❄K]{.excel-menu .darkred} ("Kühlung").
 
 Aktive Kühlung wird über den gekühlten Flächenanteil je Nutzung zugeordnet. Das thermische Modell trennt aktiv gekühlte und ungekühlte Bereiche ohne Wärmeaustausch. FreeCooling und aktive Kühlsysteme sind von der [Nachtauskühlung über Fenster](#lueftung) zu unterscheiden.
 
@@ -39,7 +39,7 @@ Gekühlte Anteile, maximale Raumsolltemperatur, raumseitige Kühlleistung, FreeC
 
 ## Warmwasser {#warmwasser}
 
-**Excel-Ort:** Blatt [💧 Warmwasser (WW)]{.excel-menu .darkred}.
+**Excel-Ort:** Blatt [💧WW]{.excel-menu .darkred} ("Warmwasser").
 
 Zwei Warmwassersysteme können über nutzungsbezogene Anteile abgebildet werden. Erzeugung, Verteilung und Speicherung sind getrennte Eingabegrößen. Der Warmwasserwärmebedarf ist vom dafür benötigten Endenergieeinsatz zu unterscheiden.
 
@@ -50,7 +50,7 @@ Energieträger und Erzeugungseffizienz je System, Verteil-/Speicherverluste, Hil
 
 ## Lüftung {#lueftung}
 
-**Excel-Ort:** Blatt [💨 Lüftung (L)]{.excel-menu .darkred}.
+**Excel-Ort:** Blatt [💨L]{.excel-menu .darkred} ("Lüftung").
 
 Luftwechsel, mechanisch belüfteter Anteil, Wärmerückgewinnung und Lüfterstrom beeinflussen Wärme- und Strombilanz gleichzeitig. Fensterlüftung beziehungsweise Nachtauskühlung sind eigene Modellparameter.
 
@@ -59,8 +59,4 @@ Luftwechsel, mechanisch belüfteter Anteil, Wärmerückgewinnung und Lüfterstro
 Preset auswählen und je Nutzung Luftwechsel, mechanischen Anteil, WRG für Winter/Sommer, Lüfterstrom und Fensterstellung für Nachtauskühlung prüfen. Keine pauschale WRG-Effizienz aus dem Preset-Namen ableiten. Nach der Berechnung Lüftungswärmeverluste, Heiz-/Kühlbedarf und elektrischen Lüftungsbedarf vergleichen.
 :::
 
-::: {.pending}
-**Aktuelle Feldansichten in Vorbereitung:** Detailblöcke der vier HKLS-Blätter. Die bereitgestellte [Preset-Abbildung](presets.qmd) zeigt bereits die Zuordnung von Heizungsparametern.
-:::
-
-Fachlicher Zusammenhang: [Schulung, Folien 9, 11 und 15](downloads/schulung.pdf#page=11). Feldreferenz: Handbuch S. 49–60; keine Handbuch-Abbildungen übernommen.
+Fachlicher Zusammenhang: [Schulung, Folien 9, 11 und 15](downloads/schulung.pdf#page=11). Feldreferenz: Handbuch S. 49–60.
