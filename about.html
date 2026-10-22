@@ -46,6 +46,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-5761cafa55920ddedffa83b74af88b0b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -443,7 +446,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#kontakt-und-austausch" id="toc-kontakt-und-austausch" class="nav-link active" data-scroll-target="#kontakt-und-austausch">Kontakt und Austausch</a></li>
+  <li><a href="#projektkontext-und-förderung" id="toc-projektkontext-und-förderung" class="nav-link active" data-scroll-target="#projektkontext-und-förderung">Projektkontext und Förderung</a></li>
+  <li><a href="#kontakt-und-austausch" id="toc-kontakt-und-austausch" class="nav-link" data-scroll-target="#kontakt-und-austausch">Kontakt und Austausch</a></li>
   <li><a href="#newsletter" id="toc-newsletter" class="nav-link" data-scroll-target="#newsletter">Newsletter</a></li>
   <li><a href="#repository-und-mitarbeit" id="toc-repository-und-mitarbeit" class="nav-link" data-scroll-target="#repository-und-mitarbeit">Repository und Mitarbeit</a></li>
   <li><a href="#lizenz-und-nutzung" id="toc-lizenz-und-nutzung" class="nav-link" data-scroll-target="#lizenz-und-nutzung">Lizenz und Nutzung</a></li>
@@ -472,7 +476,18 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>PEExcel wurde von der Forschungsgruppe <strong><a href="https://www.technikum-wien.at/forschungsschwerpunkt-renewable-energy-systems/">Climate-fit Buildings and Districts</a></strong> an der <a href="https://www.technikum-wien.at/">FH Technikum Wien</a> im Rahmen der Entwicklung des klimaaktiv Qualitätsstandards für Plus-Energie-Quartiere erarbeitet.</p>
+<p>PEExcel wurde von der Forschungsgruppe <a href="https://www.technikum-wien.at/forschungsschwerpunkt-renewable-energy-systems/">Climate-fit Buildings and Districts</a> an der <a href="https://www.technikum-wien.at/">FH Technikum Wien</a> entwickelt.</p>
+<section id="projektkontext-und-förderung" class="level2">
+<h2 class="anchored" data-anchor-id="projektkontext-und-förderung">Projektkontext und Förderung</h2>
+<p>Die Entwicklung von PEExcel wurde unter anderem im Rahmen des <strong>Kompetenzteams für Lehre „KlimSta – Klimafitte Stadtsanierung“</strong> sowie der Arbeiten zum <strong>klimaaktiv Qualitätsstandard für Plus-Energie-Quartiere</strong>.</p>
+<p>Das Kompetenzteam KlimSta wurde von der <strong>Stadt Wien – Magistratsabteilung 23 (Wirtschaft, Arbeit und Statistik)</strong> im Rahmen der Ausschreibung „Stiftungsprofessuren und Kompetenzteams für Lehre“ (Call 35) gefördert.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="illustrations/stadtwien.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Stadt Wien"><img src="illustrations/stadtwien.png" class="img-fluid figure-img" alt="Fördergeber Stadt Wien" width="180"></a></p>
+<figcaption>Stadt Wien</figcaption>
+</figure>
+</div>
+</section>
 <section id="kontakt-und-austausch" class="level2">
 <h2 class="anchored" data-anchor-id="kontakt-und-austausch">Kontakt und Austausch</h2>
 <p><strong>Simon Schneider · FH Technikum Wien</strong><br>
@@ -533,6 +548,12 @@ Forschungsgruppe Climate-fit Buildings and Districts</p>
 <section id="lizenz-und-nutzung" class="level2">
 <h2 class="anchored" data-anchor-id="lizenz-und-nutzung">Lizenz und Nutzung</h2>
 <p>Es gelten die im Repository angeführten Lizenz- und Nutzungshinweise. Bei Verwendung des Tools in Projekten, Publikationen oder Lehrveranstaltungen wird um entsprechende Quellenangabe gebeten.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="illustrations/stadtwien.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Gefördert von der Stadt Wien im Rahmen des Programmes (MA23 Call 35 „Stiftungsprofessuren und Kompetenzteams für Lehre“)"><img src="illustrations/stadtwien.png" class="img-fluid figure-img" alt="Gefördert von der Stadt Wien im Rahmen des Programmes (MA23 Call 35 „Stiftungsprofessuren und Kompetenzteams für Lehre“)"></a></p>
+<figcaption>Gefördert von der Stadt Wien im Rahmen des Programmes (MA23 Call 35 „Stiftungsprofessuren und Kompetenzteams für Lehre“)</figcaption>
+</figure>
+</div>
 
 
 </section>
@@ -995,6 +1016,38 @@ document.querySelectorAll('iframe[data-fit]').forEach(frame=>{
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

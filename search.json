@@ -993,7 +993,19 @@
     "href": "about.html",
     "title": "Kontakt, Projekt und Nutzung",
     "section": "",
-    "text": "PEExcel wurde von der Forschungsgruppe Climate-fit Buildings and Districts an der FH Technikum Wien im Rahmen der Entwicklung des klimaaktiv Qualitätsstandards für Plus-Energie-Quartiere erarbeitet.",
+    "text": "PEExcel wurde von der Forschungsgruppe Climate-fit Buildings and Districts an der FH Technikum Wien entwickelt.",
+    "crumbs": [
+      "Starten",
+      "Dokumentation und Referenzen",
+      "Kontakt, Projekt und Nutzung"
+    ]
+  },
+  {
+    "objectID": "about.html#projektkontext-und-förderung",
+    "href": "about.html#projektkontext-und-förderung",
+    "title": "Kontakt, Projekt und Nutzung",
+    "section": "Projektkontext und Förderung",
+    "text": "Projektkontext und Förderung\nDie Entwicklung von PEExcel wurde unter anderem im Rahmen des Kompetenzteams für Lehre „KlimSta – Klimafitte Stadtsanierung“ sowie der Arbeiten zum klimaaktiv Qualitätsstandard für Plus-Energie-Quartiere.\nDas Kompetenzteam KlimSta wurde von der Stadt Wien – Magistratsabteilung 23 (Wirtschaft, Arbeit und Statistik) im Rahmen der Ausschreibung „Stiftungsprofessuren und Kompetenzteams für Lehre“ (Call 35) gefördert.\n\n\n\nStadt Wien",
     "crumbs": [
       "Starten",
       "Dokumentation und Referenzen",
@@ -1041,7 +1053,7 @@
     "href": "about.html#lizenz-und-nutzung",
     "title": "Kontakt, Projekt und Nutzung",
     "section": "Lizenz und Nutzung",
-    "text": "Lizenz und Nutzung\nEs gelten die im Repository angeführten Lizenz- und Nutzungshinweise. Bei Verwendung des Tools in Projekten, Publikationen oder Lehrveranstaltungen wird um entsprechende Quellenangabe gebeten.",
+    "text": "Lizenz und Nutzung\nEs gelten die im Repository angeführten Lizenz- und Nutzungshinweise. Bei Verwendung des Tools in Projekten, Publikationen oder Lehrveranstaltungen wird um entsprechende Quellenangabe gebeten.\n\n\n\nGefördert von der Stadt Wien im Rahmen des Programmes (MA23 Call 35 „Stiftungsprofessuren und Kompetenzteams für Lehre“)",
     "crumbs": [
       "Starten",
       "Dokumentation und Referenzen",
