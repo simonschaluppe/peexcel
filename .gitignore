@@ -78,3 +78,6 @@ website/assessment.ipynb
 !website/illustrations/deklarationen.svg
 !website/illustrations/ihr_weg_zum_peq.svg
 !website/illustrations/programmteam.svg
+
+/.quarto/
+**/*.quarto_ipynb
