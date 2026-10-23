@@ -179,3 +179,7 @@ Die aktuelle Inhaltsstruktur und Pflege der Lehrmodule sind im
 nur QMD-Seiten; die freigegebenen Notebooks werden separat als Lesefassung und
 Download ohne gespeicherte Ausgaben bereitgestellt. Konkrete neue Projekte und
 Stundenexporte sind zurückgestellt; der synthetische Generator bleibt unverändert.
+
+## Python-Batchsimulation
+
+`notebooks/howto_batch_simulate.ipynb` ist die einzige editierbare Quelle des neuen Tutorials. Der bestehende Notebook-Seitenexport wird intern wiederverwendet und erzeugt `website/batch-python.ipynb` sowie einen Download. Das vermeidet eine zweite Code-Implementierung in einer QMD-Datei; die Simulation verwendet weiterhin `RunScenariosAutomated`. Die generierte Seite ist ignoriert, wird bei jedem Asset-Build aktualisiert und benötigt keine Migration oder neue öffentliche API. Pflege: Notebook-Inhalt und Navigation; Prüfung: Notebook-Validierung, Seitenexport und Quarto-Render. Der Website-Build führt keine Excel-Makros aus.

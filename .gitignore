@@ -81,3 +81,5 @@ website/assessment.ipynb
 
 /.quarto/
 **/*.quarto_ipynb
+
+website/batch-python.ipynb

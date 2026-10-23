@@ -18,3 +18,7 @@ Die automatische Batch-Simulation dient der Berechnung einer großen Anzahl von 
 Fehlgeschlagene oder noch nicht berechnete Varianten nicht als vollständige Vergleichsgruppe interpretieren. Eingabestand, Toolversion und Rechenstatus gemeinsam dokumentieren.
 
 Quelle: [Schulung, Folie 33: Simulieren (Batch)](downloads/schulung.pdf#page=33); Batch-Ablauf mit gespeicherten Varianten.
+
+## Mit Python automatisieren
+
+[Batchsimulation mit Python](batch-python.ipynb) zeigt den vollständigen Ablauf von der Szenarienauswahl über `RunScenariosAutomated` bis zur Prüfung und Visualisierung der Zeitreihenexporte.

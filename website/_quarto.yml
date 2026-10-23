@@ -4,6 +4,7 @@ project:
   render:
     - "*.qmd"
     - "assessment.ipynb"
+    - "batch-python.ipynb"
     - "!en/**"
   pre-render:
     - python ../scripts/website_assets.py
@@ -61,7 +62,7 @@ website:
       - section: Deklarieren
         contents: [projekte-nachweisen.qmd, checklist.qmd,  declaration.qmd]
       - section: "Python & Automatisierung"
-        contents: [python.qmd, dashboard.qmd, assessment.ipynb]
+        contents: [python.qmd, batch-python.ipynb, dashboard.qmd, assessment.ipynb]
       - section: Dokumentation und Referenzen
         contents: [glossary.qmd, research.qmd, about.qmd]
   page-footer:

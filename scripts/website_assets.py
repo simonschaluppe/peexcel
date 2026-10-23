@@ -32,21 +32,21 @@ MANUAL_FIGURES = (
 )
 
 
-def prepare_assessment(output):
-    """Prepare a native Quarto page from the saved assessment notebook.
+def _prepare_notebook_page(output, name, title, page):
+    """Prepare a native Quarto page from a saved how-to notebook.
 
     The notebook remains the only editable content source. The ignored page
     copy retains its outputs; the downloadable copy follows the existing
     output-free download convention. No notebook code is executed here.
     """
     output = Path(output)
-    notebook = nbformat.read(ROOT / "notebooks/howto_assess.ipynb", as_version=4)
+    notebook = nbformat.read(ROOT / "notebooks" / f"{name}.ipynb", as_version=4)
     download = nbformat.from_dict(json.loads(nbformat.writes(notebook)))
     for cell in download.cells:
         if cell.cell_type == "code":
             cell.outputs, cell.execution_count = [], None
     (output / "downloads").mkdir(parents=True, exist_ok=True)
-    nbformat.write(download, output / "downloads/howto_assess.ipynb")
+    nbformat.write(download, output / "downloads" / f"{name}.ipynb")
 
     # Quarto supplies the page title; keep all remaining notebook prose intact.
     if notebook.cells and notebook.cells[0].cell_type == "markdown":
@@ -54,17 +54,23 @@ def prepare_assessment(output):
         if lines and lines[0].startswith("# "):
             notebook.cells[0].source = "\n".join(lines[1:]).lstrip()
     notebook.cells.insert(0, nbformat.v4.new_raw_cell(
-        '---\ntitle: "Bewertung von Plus-Energie-Quartieren"\n'
+        f'---\ntitle: "{title}"\n'
         'lang: de\nexecute:\n  enabled: false\n'
         'format:\n  html:\n    code-fold: true\n    code-summary: "Python-Code anzeigen"\n'
         '---\n'
     ))
     notebook.cells.insert(1, nbformat.v4.new_markdown_cell(
-        '[Notebook herunterladen](downloads/howto_assess.ipynb){.btn .btn-primary}\n\n'
+        f'[Notebook herunterladen](downloads/{name}.ipynb){{.btn .btn-primary}}\n\n'
         '[Zur Notebook-Übersicht](python.qmd)'
     ))
-    nbformat.write(notebook, output / "assessment.ipynb")
-    return output / "assessment.ipynb"
+    nbformat.write(notebook, output / page)
+    return output / page
+
+
+def prepare_assessment(output):
+    return _prepare_notebook_page(
+        output, "howto_assess", "Bewertung von Plus-Energie-Quartieren", "assessment.ipynb"
+    )
 
 
 def build(output=None):
@@ -114,6 +120,9 @@ def build(output=None):
                 'herunterladen und im Repository öffnen.</p>' + body + '</html>')
         (output / "tutorials" / f"{name}.html").write_text(html, encoding="utf-8")
     prepare_assessment(output)
+    _prepare_notebook_page(
+        output, "howto_batch_simulate", "Batchsimulation mit Python", "batch-python.ipynb"
+    )
     from assessment_explained import build as build_explorer
     build_explorer(output / "assets/assessment-explained/index.html")
     explained = nbformat.read(ROOT / "notebooks/howto_assessment_explained.ipynb", as_version=4)

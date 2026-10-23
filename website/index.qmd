@@ -40,7 +40,7 @@ Die [drei Sanierungsvarianten](examples.qmd) zeigen Wärme-, Endenergie-, Primä
 
 Der [schematische Gebäudeschnitt](envelope.qmd) stellt Bauteilzuordnung, thermische Bilanzgrenzen und qualitative Wärmeflüsse getrennt dar.
 
-[Methodik und Forschung](research.qmd) · [Excel herunterladen](download.qmd) · [Python-Schnittstelle](python.qmd)
+[Methodik und Forschung](research.qmd) · [Excel herunterladen](download.qmd) · [Python-Schnittstelle](python.qmd) · [Batchsimulation mit Python](batch-python.ipynb)
 
 ::: {.callout-note}
 ## Modellieren und deklarieren

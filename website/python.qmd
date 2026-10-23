@@ -11,6 +11,14 @@ Die Excel-Anwendung berechnet die Varianten. Python liest gespeicherte Exporte, 
 
 ## Ausführbare Tutorials
 
+### Batchsimulation mit Python
+
+Szenarien über Excel-COM auswählen, mit der VBA-Batchsimulation berechnen und exportierte Stundenwerte prüfen und darstellen.
+
+[Tutorial öffnen](batch-python.ipynb){.btn .btn-primary}
+[Notebook herunterladen](downloads/howto_batch_simulate.ipynb){.btn .btn-outline-primary}
+
+
 ### Bewertung verstehen und Projektvarianten vergleichen
 
 Der [Projekt-Varianten-Explorer](assessment-explained.qmd) erklärt die

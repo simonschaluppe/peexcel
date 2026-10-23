@@ -9,7 +9,7 @@ Hier stehen das PEExcel-Nachweistool und die wichtigsten Unterlagen für die Anw
 | Version | Verwendung | Download |
 |---|---|---|
 | [**v1.12.7 – Stable**](https://github.com/simonschaluppe/peexcel/releases/tag/v1.12.7) | Reguläre Anwendung und Tests | [Excel-Nachweistool](https://github.com/simonschaluppe/peexcel/raw/refs/heads/master/excel/tool/ka_PEQ_Nachweistool.xlsb) |
-| **v1.13.x – Development** | Entwicklung, Erprobung neuer Funktionen und laufende Anpassungen | [Entwicklungsdatei](https://github.com/simonschaluppe/peexcel/raw/refs/heads/master/excel/development/ka_PEQ_Nachweistool_dev.xlsb) |
+| **v1.13.x – Development** | Entwicklung, Erprobung neuer Funktionen und laufende Anpassungen | [Entwicklungsdatei](https://github.com/simonschaluppe/peexcel/raw/refs/heads/master/excel/development/ka_PEQ_Nachweistool_DEV.xlsb) |
 
 ::: {.callout-note appearance="simple" title="Welche Version verwenden?"}
 Für reguläre Projektbewertungen und Deklarationen den freigegebenen Toolstand verwenden. Die Entwicklungsversion kann neue oder noch nicht abschließend geprüfte Funktionen enthalten.
