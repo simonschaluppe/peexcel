@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Schema-Bindings in einem isolierten Ausgabeordner erzeugen, Unterschiede prüfen und die spätere Aktivierung vorbereiten.">
+
+<title>Ein neues Excel-Schema prüfen – PEExcel</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-5761cafa55920ddedffa83b74af88b0b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken",
+    "search-label": "Suchen"
+  }
+}</script>
+<script type="application/json" class="js-hypothesis-config">
+{
+  "theme": "clean",
+  "openSidebar": false
+}
+</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./media/logo.png" alt="PEExcel Logo" class="navbar-logo light-content">
+    <img src="./media/logo.png" alt="PEExcel Logo" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">PEExcel</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Suchen"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Navigation umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./excel-overview.html" aria-current="page"> 
+<span class="menu-text">Starten</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./model.html"> 
+<span class="menu-text">Modellieren</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./results.html"> 
+<span class="menu-text">Analysieren</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./projekte-nachweisen.html"> 
+<span class="menu-text">Deklarieren</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./glossary.html"> 
+<span class="menu-text">Nachschlagen</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./python.html"> 
+<span class="menu-text">Python</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./assessment-explained.html"> 
+<span class="menu-text">Quick-Check</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./download.html"> <i class="bi bi-download" role="img">
+</i> 
+<span class="menu-text">Download</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./en/index.html"> 
+<span class="menu-text">English</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./python.html">Python &amp; Automatisierung</a></li><li class="breadcrumb-item"><a href="./tutorial_schema.html">Entwicklung und Dokumentation</a></li><li class="breadcrumb-item"><a href="./tutorial_schema.html">Ein neues Excel-Schema prüfen</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Starten</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./excel-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Erste Schritte</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./download.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Download und Voraussetzungen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./excel-navigation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Orientierung im Excel-Tool</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./presets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schnellauswahl mit Presets</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Modellieren</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Das Quartier modellieren</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./envelope.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Thermische Hülle und Wärmeflüsse</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hvac.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Heizung, Kühlung, Warmwasser und Lüftung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PV-Eingabe</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./systems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Speicher und Flexibilität</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./usage.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Nutzungsparameter</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./interfaces.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Daten und Schnittstellen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mobility.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mobilität</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./climate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ökobilanz</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./components.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bauteile richtig zuordnen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./variants.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Varianten verwalten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./migration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Migration auf eine neue Toolversion</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Analysieren</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./results.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ergebnisse und Kennzahlen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./excel-dashboard.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Excel-Dashboard</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./flexibility.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Flexibilität</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mobility-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mobilitätsverhalten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./comparison.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Variantenvergleich</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./batch.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Automatische Batch-Simulation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./examples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Beispiele</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assessment-explained.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quick-Check</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Deklarieren</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./projekte-nachweisen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Nachweisführung von Projekten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./checklist.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Checkliste zur Nachweisvorbereitung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./declaration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Nachweisführung</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Begriffe, Parameter und Kennzahlen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Python &amp; Automatisierung</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Übersicht und Einstieg</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">Einstieg und Daten</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial_excel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Excel-Projekte mit Python bearbeiten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial_zeitreihen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Zeitreihenexporte zu einem Projekt verbinden</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial_baubook.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Baubook-Daten importieren</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
+ <span class="menu-text">Simulieren und analysieren</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./batch-python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Batchsimulation mit Python</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assessment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Primärenergie und Treibhausgase bewerten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial_stromprofile.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Elektrische Flussprofile untersuchen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial_netzlast.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Netzbezug und PV-Einspeisung analysieren</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial_sankey.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Energieflüsse als Sankey-Diagramm lesen</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false">
+ <span class="menu-text">Visualisieren und weitergeben</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial_gebaeudeschnitt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gebäudeschnitte und Lehransichten erstellen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial_grafikexport.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Grafiken mit Datenherkunft exportieren</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dashboard.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python-Szenarioexplorer</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+ <span class="menu-text">Entwicklung und Dokumentation</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial_schema.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Ein neues Excel-Schema prüfen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial_website.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tutorials und Website mit Quarto pflegen</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false">
+ <span class="menu-text">Über das Projekt</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./research.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Methodik und Forschung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./about.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Projekt, Kontakt und Nutzung</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Auf dieser Seite</h2>
+   
+  <ul>
+  <li><a href="#lernziel" id="toc-lernziel" class="nav-link active" data-scroll-target="#lernziel">Lernziel</a></li>
+  <li><a href="#version-und-quelle-festlegen" id="toc-version-und-quelle-festlegen" class="nav-link" data-scroll-target="#version-und-quelle-festlegen">1. Version und Quelle festlegen</a></li>
+  <li><a href="#bindings-getrennt-erzeugen" id="toc-bindings-getrennt-erzeugen" class="nav-link" data-scroll-target="#bindings-getrennt-erzeugen">2. Bindings getrennt erzeugen</a></li>
+  <li><a href="#unterschiede-prüfen" id="toc-unterschiede-prüfen" class="nav-link" data-scroll-target="#unterschiede-prüfen">3. Unterschiede prüfen</a></li>
+  <li><a href="#aktivierung-bewusst-vornehmen" id="toc-aktivierung-bewusst-vornehmen" class="nav-link" data-scroll-target="#aktivierung-bewusst-vornehmen">4. Aktivierung bewusst vornehmen</a></li>
+  <li><a href="#ergebnis" id="toc-ergebnis" class="nav-link" data-scroll-target="#ergebnis">Ergebnis</a></li>
+  <li><a href="#weiterarbeiten" id="toc-weiterarbeiten" class="nav-link" data-scroll-target="#weiterarbeiten">Weiterarbeiten</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./python.html">Python &amp; Automatisierung</a></li><li class="breadcrumb-item"><a href="./tutorial_schema.html">Entwicklung und Dokumentation</a></li><li class="breadcrumb-item"><a href="./tutorial_schema.html">Ein neues Excel-Schema prüfen</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Ein neues Excel-Schema prüfen</h1>
+</div>
+
+<div>
+  <div class="description">
+    Schema-Bindings in einem isolierten Ausgabeordner erzeugen, Unterschiede prüfen und die spätere Aktivierung vorbereiten.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="lernziel" class="level2">
+<h2 class="anchored" data-anchor-id="lernziel">Lernziel</h2>
+<p>Schema-Bindings in einem isolierten Ausgabeordner erzeugen, Unterschiede prüfen und die spätere Aktivierung vorbereiten.</p>
+<p><strong>Voraussetzungen:</strong> Gespeicherte PEExcel-Exporte; keine Excel-Installation erforderlich.</p>
+<p>Einmalig im Repository installieren: <code>python -m pip install -e ".[publication]"</code>. Zum eigenen Ausführen das Notebook im geklonten Repository öffnen und die Zellen von oben nach unten ausführen. Die Website zeigt gespeicherte Ausgaben; sie führt keinen Python-Code im Browser aus.</p>
+<p><a href="downloads/tutorial_schema.ipynb">Tutorial-Notebook herunterladen</a> · <a href="./python.html">Alle Tutorials</a></p>
+</section>
+<section id="version-und-quelle-festlegen" class="level2">
+<h2 class="anchored" data-anchor-id="version-und-quelle-festlegen">1. Version und Quelle festlegen</h2>
+<p>Ein neues Excel-Schema verändert Variablendefinitionen, Zeitreihen und Berichte. Wir verwenden einen vorhandenen Schemaexport und schreiben ausschließlich in einen lokalen Prüfbereich. Das aktive Paket-Schema wird dabei nicht überschrieben.</p>
+<div id="b06c0466" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-23T18:55:20.883506Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-23T18:55:20.883354Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-23T18:55:21.694180Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-23T18:55:21.693521Z&quot;}}" data-execution_count="1">
+<details class="code-fold">
+<summary>Python-Code anzeigen</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> display</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Im geklonten Repository ausführen, z. B. aus website/ oder notebooks/.</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>ROOT <span class="op">=</span> <span class="bu">next</span>((p <span class="cf">for</span> p <span class="kw">in</span> (Path.cwd(), <span class="op">*</span>Path.cwd().parents)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>             <span class="cf">if</span> (p <span class="op">/</span> <span class="st">"src/pexl"</span>).is_dir() <span class="kw">and</span> (p <span class="op">/</span> <span class="st">"pyproject.toml"</span>).is_file()), <span class="va">None</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> ROOT <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">raise</span> <span class="pp">FileNotFoundError</span>(<span class="st">"Bitte das Notebook innerhalb des peexcel-Repositorys öffnen."</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>sys.path.insert(<span class="dv">0</span>, <span class="bu">str</span>(ROOT <span class="op">/</span> <span class="st">"src"</span>))</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>sys.path.insert(<span class="dv">0</span>, <span class="bu">str</span>(ROOT <span class="op">/</span> <span class="st">"scripts"</span>))</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>OUTPUT <span class="op">=</span> ROOT <span class="op">/</span> <span class="st">"notebooks/local_exports/tutorials"</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>OUTPUT.mkdir(parents<span class="op">=</span><span class="va">True</span>, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pexl <span class="im">import</span> schema</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pexl.schema.current <span class="im">import</span> SCHEMA_VERSION</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>VERSION <span class="op">=</span> <span class="st">"1.13.1_dev"</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>QUELLE <span class="op">=</span> ROOT <span class="op">/</span> <span class="ss">f"data/exports/schema_</span><span class="sc">{</span>VERSION<span class="sc">}</span><span class="ss">.xlsx"</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>ALT <span class="op">=</span> ROOT <span class="op">/</span> <span class="st">"data/schemas/v1_12_7"</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>PRUEFUNG <span class="op">=</span> OUTPUT <span class="op">/</span> <span class="st">"schema_pruefung"</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> QUELLE.is_file() <span class="kw">and</span> ALT.is_dir()</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Aktives Schema:"</span>, SCHEMA_VERSION)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Zu prüfender Export:"</span>, QUELLE.name)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Aktives Schema: 1_13_1_dev
+Zu prüfender Export: schema_1.13.1_dev.xlsx</code></pre>
+</div>
+</div>
+</section>
+<section id="bindings-getrennt-erzeugen" class="level2">
+<h2 class="anchored" data-anchor-id="bindings-getrennt-erzeugen">2. Bindings getrennt erzeugen</h2>
+<p><code>dataset_dir</code> und <code>generated_dir</code> sind beide ausdrücklich gesetzt. Ohne <code>generated_dir</code> würde die Funktion in das Paketverzeichnis schreiben. Wiederholung ersetzt nur Dateien im lokalen Prüfbereich.</p>
+<div id="4537925e" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-23T18:55:21.697463Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-23T18:55:21.697015Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-23T18:55:23.464493Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-23T18:55:23.463975Z&quot;}}" data-execution_count="2">
+<details class="code-fold">
+<summary>Python-Code anzeigen</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ergebnis <span class="op">=</span> schema.create(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    QUELLE, dataset_dir<span class="op">=</span>PRUEFUNG <span class="op">/</span> <span class="st">"daten"</span>, generated_dir<span class="op">=</span>PRUEFUNG <span class="op">/</span> <span class="st">"generated"</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    version<span class="op">=</span>VERSION, replace_files<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>display(pd.Series({<span class="st">"Schema"</span>: ergebnis.schema_module.name,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Zeitreihen"</span>: ergebnis.timeseries_module.name,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Reports"</span>: ergebnis.report_module.name}))</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<pre><code>Schema             excel_1_13_1_dev.py
+Zeitreihen    timeseries_1_13_1_dev.py
+Reports          reports_1_13_1_dev.py
+dtype: object</code></pre>
+</div>
+</div>
+</section>
+<section id="unterschiede-prüfen" class="level2">
+<h2 class="anchored" data-anchor-id="unterschiede-prüfen">3. Unterschiede prüfen</h2>
+<p>Die vorhandene Vergleichsfunktion prüft die Dataset-Verzeichnisse. Hinzugefügte oder entfernte Variablen, Einheiten und Metadaten müssen fachlich geprüft werden; erfolgreiche Codegenerierung allein reicht nicht.</p>
+<div id="db277409" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-23T18:55:23.466368Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-23T18:55:23.466037Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-23T18:55:23.635238Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-23T18:55:23.634832Z&quot;}}" data-execution_count="3">
+<details class="code-fold">
+<summary>Python-Code anzeigen</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pexl.validate.schema <span class="im">import</span> diff_schema_dirs, schema_diff_to_markdown</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> Markdown</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>unterschiede <span class="op">=</span> diff_schema_dirs(old_dir<span class="op">=</span>ALT, new_dir<span class="op">=</span>ergebnis.dataset_dir)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>vergleich <span class="op">=</span> schema_diff_to_markdown(unterschiede, value_format<span class="op">=</span><span class="st">"None"</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>(PRUEFUNG <span class="op">/</span> <span class="st">"vergleich.md"</span>).write_text(vergleich, encoding<span class="op">=</span><span class="st">"utf-8"</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># In der Seite nur einen Auszug anzeigen; der vollständige Bericht liegt lokal vor.</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>display(Markdown(vergleich[:<span class="dv">5000</span>]))</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<section id="schema-diff" class="level1 cell-output cell-output-display cell-output-markdown">
+<h1>Schema Diff</h1>
+<ul>
+<li><strong>Old:</strong> <code>C:\Users\schneids\code\peexcel\data\schemas\v1_12_7</code></li>
+<li><strong>New:</strong> <code>C:\Users\schneids\code\peexcel\notebooks\local_exports\tutorials\schema_pruefung\daten</code></li>
+<li><strong>Key:</strong> <code>None</code></li>
+</ul>
+<section id="dataset-files" class="level2">
+<h2 class="anchored" data-anchor-id="dataset-files">Dataset files</h2>
+<ul>
+<li>Old file count: 3</li>
+<li>New file count: 5</li>
+<li>Added: [‘CHART_metadata’, ‘CHART_types’]</li>
+<li>Removed: []</li>
+</ul>
+<section id="warnings" class="level3">
+<h3 class="anchored" data-anchor-id="warnings">Warnings</h3>
+<ul>
+<li>⚠ Tables added to schema: [‘CHART_metadata’, ‘CHART_types’]</li>
+</ul>
+</section>
+</section>
+<section id="in" class="level2">
+<h2 class="anchored" data-anchor-id="in">IN</h2>
+<section id="columns" class="level3">
+<h3 class="anchored" data-anchor-id="columns">Columns</h3>
+<ul>
+<li>Added: []</li>
+<li>Removed: []</li>
+<li>Common count: 13</li>
+</ul>
+</section>
+<section id="rows" class="level3">
+<h3 class="anchored" data-anchor-id="rows">Rows</h3>
+<p>Old count: 691 New count: 692 - <strong>New Error count: 6</strong> - Added/<del>Removed</del> var_name: - PV_roof_area_percentage</p>
+</section>
+<section id="potential-errors" class="level3">
+<h3 class="anchored" data-anchor-id="potential-errors">Potential Errors (#)</h3>
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>var_name</th>
+<th>column</th>
+<th>error</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>fGHG_grid_column</td>
+<td>Formel</td>
+<td>VERGLEICH(fGHG_grid_profile;fGHG[#Kopfzeilen];0)</td>
+</tr>
+<tr class="even">
+<td>fPE_grid_column</td>
+<td>Formel</td>
+<td>VERGLEICH(fPE_grid_profile;fPE[#Kopfzeilen];0)</td>
+</tr>
+<tr class="odd">
+<td>flex_Signals_selected_column</td>
+<td>Formel</td>
+<td>VERGLEICH(FLEX_signal_name;Signals[#Kopfzeilen];0)</td>
+</tr>
+<tr class="even">
+<td>rcp1_dh</td>
+<td>Formel</td>
+<td>WENNFEHLER(WENN(FINDEN(“rneuerbar”;SVERWEIS(heat_th2_carrier_type;cf_constant;7;FALSCH));rcp1_renewable;#NV);rcp1_fossil)</td>
+</tr>
+<tr class="odd">
+<td>rcp2_dh</td>
+<td>Formel</td>
+<td>WENNFEHLER(WENN(FINDEN(“rneuerbar”;SVERWEIS(heat_th2_carrier_type;cf_constant;7;FALSCH));rcp2_renewable;#NV);rcp2_fossil)</td>
+</tr>
+<tr class="even">
+<td>rcp3_dh</td>
+<td>Formel</td>
+<td>WENNFEHLER(WENN(FINDEN(“rneuerbar”;SVERWEIS(heat_th2_carrier_type;cf_constant;7;FALSCH));rcp3_renewable;#NV);rcp3_fossil)</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="out" class="level2">
+<h2 class="anchored" data-anchor-id="out">OUT</h2>
+<section id="columns-1" class="level3">
+<h3 class="anchored" data-anchor-id="columns-1">Columns</h3>
+<ul>
+<li>Added: []</li>
+<li>Removed: []</li>
+<li>Common count: 13</li>
+</ul>
+</section>
+<section id="rows-1" class="level3">
+<h3 class="anchored" data-anchor-id="rows-1">Rows</h3>
+<p>Old count: 452 New count: 512 - <strong>New Error count: 4</strong> - Added/<del>Removed</del> var_name: - EUIdhw_1el - EUIdhw_2el - EUIdhw_th_total - Ec_1el - Ec_3el - Eh_1el - Eh_3el - PEI_cf_density_neg - PEI_cf_density_pos - PEI_importexport_balance_test - PEI_virtual_balance_test - PEI_virtual_demand - PEI_virtual_supply - PV_peak_grid_feedin - PV_peak_grid_feedin_date - Qc_distr_losses - Qc_min_0fc - Qced_1el - Qced_2th - Qced_3el - Qdhw_1_distr_losses - Qdhw_1_drawoff - Qdhw_1_generation_losses - Qdhw_1_storage_losses - Qdhw_1_tap - Qdhw_1_total - Qdhw_2_distr_losses - Qdhw_2_drawoff - Qdhw_2_generation_losses - Qdhw_2_storage_losses - Qdhw_2_tap - Qdhw_2_total - Qdhw_distr_losses - Qdhw_drawoff - Qdhw_generation_losses - Qdhw_storage_charge - Qdhw_storage_losses - Qdhw_tap - Qenv_c - Qenv_c_1el - Qenv_c_3el - Qenv_dhw - Qenv_dhw_1 - Qenv_dhw_2 - Qenv_h - Qenv_h_1el - Qenv_h_3el - Qh_distr_losses - Qh_flex_wasteheat - Qh_min_wasteheat - Qh_wasteheat - Qheb_1el - Qheb_2th - Qheb_3el - Qheb_4th - Qloss_c_generation - Qloss_c_th2_generation - Qloss_h_generation - Qloss_h_th2_generation - Qloss_h_th4_generation - test_EUI_balance - test_GWP_sum - test_heat_balance_seasonal_mismatch - test_legacy_GWP_sum - <del>Edhw_1_th</del> - <del>Edhw_2_th</del> - <del>Edhw_th</del> - <del>PEI_cf_density</del></p>
+</section>
+<section id="potential-errors-1" class="level3">
+<h3 class="anchored" data-anchor-id="potential-errors-1">Potential Errors (#)</h3>
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>var_name</th>
+<th>column</th>
+<th>error</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>GWP_emInt_PV_feedin</td>
+<td>Formel</td>
+<td>WENNFEHLER(GWP_oe_grid_feedin * NFA_to_GFA_ratio/PV_to_Egrid * 1000;#NV)</td>
+</tr>
+<tr class="even">
+<td>GWP_emInt_batt_charge</td>
+<td>Formel</td>
+<td>WENNFEHLER(GWP_oe_battery_charge/Batt_total_charge_input * 1000 * NFA_to_GFA_ratio;#NV)</td>
+</tr>
+<tr class="odd">
+<td>GWP_emInt_ev_charge</td>
+<td>Formel</td>
+<td>WENNFEHLER(GWP_oe_mob_ev/EUIev_el_total * 1000 * NFA_to_GFA_ratio;#NV)</td>
+</tr>
+<tr class="even">
+<td>GWP_emInt_flex</td>
+<td>Formel</td>
+<td>WENNFEHLER(GWP_oe_flex_build * NFA_to_GFA_ratio/(VRGrid_to_flex-VRGrid_to_Eev_flex+VRGrid_to_min-VRGrid_to_Eev_min) * 1000;#NV)</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="sim" class="level2">
+<h2 class="anchored" data-anchor-id="sim">SIM</h2>
+<section id="columns-2" class="level3">
+<h3 class="anchored" data-anchor-id="columns-2">Columns</h3>
+<ul>
+<li>Added: []</li>
+<li>Removed: []</li>
+<li>Common count: 5</li>
+</ul>
+</section>
+<section id="rows-2" class="level3">
+<h3 class="anchored" data-anchor-id="rows-2">Rows</h3>
+<p>Old count: 394 New count: 401 - <strong>New Error count: 3</strong> - Added/<del>Removed</del> var_name: - DHW_1_tap_kW - DHW_2_tap_kW - Ec_1el - Ec_3el - Edhw_1_aux_el - Edhw_1el - Edhw_2_aux_el - Edhw_2el - Eh_1el - Eh_3el - Qenv_c_1el - Qenv_c_3el - Qenv_dhw_1 - Qenv_dhw_2 - Qenv_h_1el - Qenv_h_3el - Qh_distr_losses - Qhed_1el - Qhed_2th - Qhed_3el - Qhed_4th - Qhed_total - Spalte14 - Test - <del>Batt_max_energy_output</del> - <del>QH_distr_losses</del> - <del>Qh_u2</del> - <del>Qheb_1el</del> - <del>Qheb_2th</del> - <del>Qheb_3el</del> - <del>Qheb_4th</del> - <del>Qheb_total</del> - <del>Spalte192</del> - <del>Spalte20</del> - <del>Spalte21</del> - <del>Spalte80</del> - <del>Spalte81</del> - <del>Spalte82</del> - <del>Spalte83</del> - <del>Spalte84</del> - <del>Spalte85</del></p>
+</section>
+<section id="potential-errors-2" class="level3">
+<h3 class="anchored" data-anchor-id="potential-errors-2">Potential Errors (#)</h3>
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>var_name</th>
+<th>column</th>
+<th>error</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Signal</td>
+<td>Formula</td>
+<td>=INDEX(Signals,ROW()-ROW(Signals[#Headers]),flex_Signals_selected_column)</td>
+</tr>
+<tr class="even">
+<td>Ti0cooled</td>
+<td>Formula</td>
+<td>=IF(NFA_cooled/NFA_total&gt;0,Tsetheat_min,#N/A)</td>
+</tr>
+<tr class="odd">
+<td>Ti0uncooled</td>
+<td>Formula</td>
+<td>=IF(1-NFA_cooled/NFA_total&gt;0,Tsetheat_min,#N/A)</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="chart_metadata" class="level2">
+<h2 class="anchored" data-anchor-id="chart_metadata">CHART_metadata</h2>
+<ul>
+<li>Status: <strong>added</strong></li>
+<li>Rows: {‘count’: 73}</li>
+<li>Columns: [‘chart_name’, ‘label_de’, ‘var_name’, ‘role’, ‘order’, ‘color’, ‘pattern’]</li>
+</ul>
+</section>
+<section id="chart_types" class="level2">
+<h2 class="anchored" data-anchor-id="chart_types">CHART_types</h2>
+<ul>
+<li>Status: <strong>added</strong></li>
+<li>Rows: {‘count’: 7}</li>
+<li>Columns: [‘chart_name’, ‘tab_name’, ‘title’, ‘chart_type’]</li>
+</ul>
+</section>
+<section id="audit-summary" class="level2">
+<h2 class="anchored" data-anchor-id="audit-summary">Audit summary</h2>
+<ul>
+<li>Raw audit present (old): True</li>
+<li>Raw audit present (new): True</li>
+</ul>
+<section id="empty-var_name-exclusions-converter" class="level3">
+<h3 class="anchored" data-anchor-id="empty-var_name-exclusions-converter">Empty var_name exclusions (converter)</h3>
+<p><strong>Old:</strong> ```json {‘IN’: {‘empty_var_name_count’: 94}, ‘OUT’: {’empty_v</p>
+</section>
+</section>
+</section>
+</div>
+</section>
+<section id="aktivierung-bewusst-vornehmen" class="level2">
+<h2 class="anchored" data-anchor-id="aktivierung-bewusst-vornehmen">4. Aktivierung bewusst vornehmen</h2>
+<p><code>schema.create</code> validiert bereits den Import der erzeugten Module. Nach fachlicher Prüfung werden Dataset und generierte Module in die vorgesehenen Versionsverzeichnisse übernommen und die Importe in <code>src/pexl/schema/current.py</code> angepasst. Dies ist eine gesonderte Repository-Änderung, kein Nebeneffekt dieses Tutorials.</p>
+<p>Anschließend Kernel neu starten, repräsentative Projektexporte einlesen und im Repository <code>python -m pytest</code> ausführen. Dabei Importwarnungen, neue Variablen und Standardberichte kontrollieren. Bei reiner Reportpflege die bestehende Codegenerierung verwenden, keine zweite Berichtsregistry aufbauen.</p>
+</section>
+<section id="ergebnis" class="level2">
+<h2 class="anchored" data-anchor-id="ergebnis">Ergebnis</h2>
+<p>Du erhältst geprüfte Python-Module und einen Vergleichsbericht im lokalen Prüfbereich. Das aktive Schema bleibt unverändert, bis du die geprüfte Version ausdrücklich übernimmst.</p>
+</section>
+<section id="weiterarbeiten" class="level2">
+<h2 class="anchored" data-anchor-id="weiterarbeiten">Weiterarbeiten</h2>
+<p><a href="./python.html">Zur Tutorial-Übersicht</a>. Die ursprünglichen Arbeitsnotebooks bleiben erhalten: <a href="https://github.com/simonschaluppe/peexcel/blob/master/notebooks/howto_schema_transition.ipynb">howto_schema_transition</a>.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script>
+
+document.querySelectorAll('iframe[data-fit]').forEach(frame=>{
+
+  function bind(){
+
+    try{
+
+      const body=frame.contentDocument?.body;
+
+      if(!body)return;
+
+      const fit=()=>{frame.style.height=(Math.ceil(body.getBoundingClientRect().height)+16)+'px';};
+
+      fit();
+
+      if(frame.teachingObserver)frame.teachingObserver.disconnect();
+
+      frame.teachingObserver=new ResizeObserver(fit);
+
+      frame.teachingObserver.observe(body);
+
+    }catch(e){/* Standalone cross-origin hosting keeps the scrollable fallback. */}
+
+  }
+
+  frame.addEventListener('load',bind);bind();
+
+});
+
+</script>
+
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Kopiert");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Kopiert");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>PEExcel · FH Technikum Wien · klimaaktiv Plus-Energie-Quartiere</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="./about.html">
+<p>Kontakt &amp; Nutzung</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://github.com/simonschaluppe/peexcel">
+<p>GitHub</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

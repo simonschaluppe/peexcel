@@ -1,0 +1,1213 @@
+[
+  {
+    "objectID": "variants.html",
+    "href": "variants.html",
+    "title": "Managing variants",
+    "section": "",
+    "text": "Variants store model inputs for a project. Save a reference before applying presets or changing a set of assumptions.\nExcel location: 📁 Save Current Inputs / Variants; project export and import are available under klimaaktiv PEQ → Project Variants.\n\nVariant workflow\n\nSet up and calculate a documented reference case.\nSave the current inputs as a named variant.\nChange a defined set of inputs and recalculate.\nSave the changed state under a distinct name.\nCompare the variants using the comparison or Results.\n\n\nThe training material distinguishes the input store (IN), the hourly simulation (SIM2) and result store (OUT). A project export stores project data for transfer between tool versions; see Migration.\n\nCurrent variant manager screenshots required: the exact create, load and overwrite controls have not been confirmed against the current workbook. Confirm the displayed variant names before replacing saved inputs.\n\nSource: Training, slides 25 and 28–34.",
+    "crumbs": [
+      "Overview",
+      "Modelling",
+      "Managing variants"
+    ]
+  },
+  {
+    "objectID": "systems.html",
+    "href": "systems.html",
+    "title": "Storage and flexibility",
+    "section": "",
+    "text": "Excel location: 🔋 Flexibilität und Speicher worksheet.\nEnergy flexibility connects the timing of renewable energy with district operation. Local PV surplus and external flexibility signals can enable additional conditioning and storage charging. Minimum demand coverage and flexible overcoverage are separate quantities.",
+    "crumbs": [
+      "Overview",
+      "Modelling",
+      "Storage and flexibility"
+    ]
+  },
+  {
+    "objectID": "systems.html#flexibility-input",
+    "href": "systems.html#flexibility-input",
+    "title": "Storage and flexibility",
+    "section": "Enabling flexibility and selecting signals",
+    "text": "Enabling flexibility and selecting signals\n\nIn the Excel tool\nCheck PV surplus use and Use Signal independently. Select which applications may respond to the signal and define their power limits. Presets provide an initial selection; the active switches and parameters determine the actual configuration.\n\nConfigure PV generation on the dedicated PV input page. Track conventional grid import, flexible grid import and self-consumption separately.",
+    "crumbs": [
+      "Overview",
+      "Modelling",
+      "Storage and flexibility"
+    ]
+  },
+  {
+    "objectID": "systems.html#thermal-building-mass",
+    "href": "systems.html#thermal-building-mass",
+    "title": "Storage and flexibility",
+    "section": "Thermal building mass",
+    "text": "Thermal building mass\nAdditional electric heating or cooling can use building mass as storage. The selected system and allowable setpoint deviation determine pre-conditioning. Set construction type and effective thermal mass on the Building Physics worksheet.",
+    "crumbs": [
+      "Overview",
+      "Modelling",
+      "Storage and flexibility"
+    ]
+  },
+  {
+    "objectID": "systems.html#hot-water-storage",
+    "href": "systems.html#hot-water-storage",
+    "title": "Storage and flexibility",
+    "section": "Hot-water storage",
+    "text": "Hot-water storage\nFlexible heating temporarily raises the temperature of existing storage. Check activation and the upper temperature limit. Storage volume, base supply and losses belong to the hot-water configuration.",
+    "crumbs": [
+      "Overview",
+      "Modelling",
+      "Storage and flexibility"
+    ]
+  },
+  {
+    "objectID": "systems.html#electrical-battery",
+    "href": "systems.html#electrical-battery",
+    "title": "Storage and flexibility",
+    "section": "Electrical battery",
+    "text": "Electrical battery\nSet activation, capacity, charge/discharge power, efficiencies and self-discharge together. Capacity in kWh and power in kW are distinct quantities. Charging source and discharge use determine the effect on imports and exports.",
+    "crumbs": [
+      "Overview",
+      "Modelling",
+      "Storage and flexibility"
+    ]
+  },
+  {
+    "objectID": "systems.html#electric-vehicles",
+    "href": "systems.html#electric-vehicles",
+    "title": "Storage and flexibility",
+    "section": "Electric vehicles",
+    "text": "Electric vehicles\nFlexible charging and bidirectional use depend on parking times, charge power, capacity and minimum state of charge. Enter these on the Mobility worksheet.",
+    "crumbs": [
+      "Overview",
+      "Modelling",
+      "Storage and flexibility"
+    ]
+  },
+  {
+    "objectID": "systems.html#dynamic-assessment",
+    "href": "systems.html#dynamic-assessment",
+    "title": "Storage and flexibility",
+    "section": "Dynamic assessment",
+    "text": "Dynamic assessment\n\n\n\nMethod: imports, exports and time-dependent assessment of energy carriers. Training diagram supplied by the project owner.\n\n\nHourly conversion factors assess when energy is used. Physical savings, shifting energy in time and improving an assessed balance should therefore be reported separately.\n\nFor a declaration: use the prescribed flexibility settings, capacities and conversion factors. Alternative assumptions are possible in model variants but do not automatically establish declaration compliance.\n\nReview results: assess annual indicators together with hourly flows and storage states.\nSource: Training, slides 9, 15 and 21.",
+    "crumbs": [
+      "Overview",
+      "Modelling",
+      "Storage and flexibility"
+    ]
+  },
+  {
+    "objectID": "results.html",
+    "href": "results.html",
+    "title": "Results worksheet",
+    "section": "",
+    "text": "Excel location: 📊 Ergebnisse (Erg) worksheet.\nThis worksheet contains tables and charts for the currently calculated variant. The training distinguishes it from the internal result store OUT and the Excel Dashboard for time-resolved analysis.",
+    "crumbs": [
+      "Overview",
+      "Analyse and assess",
+      "Results worksheet"
+    ]
+  },
+  {
+    "objectID": "results.html#project-indicators",
+    "href": "results.html#project-indicators",
+    "title": "Results worksheet",
+    "section": "Project indicators",
+    "text": "Project indicators\nCheck project and variant names, areas, use mix, building density, and cooled and mechanically ventilated shares. Confirm whether each balance is referenced to net or gross floor area.",
+    "crumbs": [
+      "Overview",
+      "Analyse and assess",
+      "Results worksheet"
+    ]
+  },
+  {
+    "objectID": "results.html#heat-balance",
+    "href": "results.html#heat-balance",
+    "title": "Results worksheet",
+    "section": "Heat balance",
+    "text": "Heat balance\nThe charts compare transmission and ventilation losses, night ventilation, solar and internal gains, heating demand and cooling demand. Read the whole district, cooled and uncooled zones, and heating/cooling periods separately. Heating and cooling capacity are power values, not annual energy.",
+    "crumbs": [
+      "Overview",
+      "Analyse and assess",
+      "Results worksheet"
+    ]
+  },
+  {
+    "objectID": "results.html#final-energy-balance",
+    "href": "results.html#final-energy-balance",
+    "title": "Results worksheet",
+    "section": "Final-energy balance",
+    "text": "Final-energy balance\nThe demand-coverage matrix assigns plug loads, building services, hot water, storage charging and mobility to coverage sources. Read imports, local use, storage flows and export within their respective balance boundaries; do not add them indiscriminately.",
+    "crumbs": [
+      "Overview",
+      "Analyse and assess",
+      "Results worksheet"
+    ]
+  },
+  {
+    "objectID": "results.html#flexibility-and-battery",
+    "href": "results.html#flexibility-and-battery",
+    "title": "Results worksheet",
+    "section": "Flexibility and battery",
+    "text": "Flexibility and battery\nAvailability periods, flexible use, battery charging/discharging, losses and cycles describe the use of available flexibility. Annual values complement the hourly analysis in the Dashboard.",
+    "crumbs": [
+      "Overview",
+      "Analyse and assess",
+      "Results worksheet"
+    ]
+  },
+  {
+    "objectID": "results.html#primary-energy-balance",
+    "href": "results.html#primary-energy-balance",
+    "title": "Results worksheet",
+    "section": "Primary-energy balance",
+    "text": "Primary-energy balance\nDemand and coverage are assessed using conversion factors. Local renewables and flexible imports appear as substitution equivalents; context factors represent building density, refurbishment and mobility. The import/export view concerns exchange across the district boundary. Interpret both presentations using their own sign conventions and boundaries.",
+    "crumbs": [
+      "Overview",
+      "Analyse and assess",
+      "Results worksheet"
+    ]
+  },
+  {
+    "objectID": "results.html#ghg-balance",
+    "href": "results.html#ghg-balance",
+    "title": "Results worksheet",
+    "section": "GHG balance",
+    "text": "GHG balance\nEmbodied and operational contributions, including mobility, are presented cumulatively. Emissions, credits, budget and balance are distinct quantities. Check the assessment period and gross-floor-area basis; LCA inputs and declaration are documented separately.\n\nCurrent chart close-ups are still required: heat balance, final-energy matrix, primary energy and GHG. The supplied tool overview shows the output types but not readable detail. Python charts are not presented as Excel charts here.\n\nVariant comparison · Excel Dashboard · Example results\nSource: Training, slides 21–25; worksheet structure based on handbook pp. 74–82.",
+    "crumbs": [
+      "Overview",
+      "Analyse and assess",
+      "Results worksheet"
+    ]
+  },
+  {
+    "objectID": "python.html",
+    "href": "python.html",
+    "title": "Python workflows",
+    "section": "",
+    "text": "The pexl Python package supports structured access to PEExcel project data, validation and analysis. It complements the Excel application; it does not replace project-specific input checks or declaration quality assurance.",
+    "crumbs": [
+      "Overview",
+      "Documentation and references",
+      "Python workflows"
+    ]
+  },
+  {
+    "objectID": "python.html#available-notebooks",
+    "href": "python.html#available-notebooks",
+    "title": "Python workflows",
+    "section": "Available notebooks",
+    "text": "Available notebooks\n\nRead and inspect an Excel export\nAnalyse hourly electricity balances\nVisualise district projects\nBuild the component catalogue and section renderer\nBuild the Quarto site\n\nThe site embeds read-only notebook views. Download a notebook to execute it in the repository environment; published notebook views do not run code.",
+    "crumbs": [
+      "Overview",
+      "Documentation and references",
+      "Python workflows"
+    ]
+  },
+  {
+    "objectID": "python.html#example-render-a-result",
+    "href": "python.html#example-render-a-result",
+    "title": "Python workflows",
+    "section": "Example: render a result",
+    "text": "Example: render a result\nfrom pexl import Project, reporting\nfrom pexl.plot import plotly\nfrom pexl.plot.export import export_figure\n\nproject = Project.from_excel(\"data/exports/example.xlsx\")\nfigure = plotly.render(reporting.materialize(project.view, \"primary_energy_balance\"))\nexport_figure(figure, \"primary_energy_balance\", formats=(\"html\", \"svg\", \"png\"))\nUse the same pexl reporting and plotting functions as the publication workflow. Record source file, scenario, tool version and export provenance with results.",
+    "crumbs": [
+      "Overview",
+      "Documentation and references",
+      "Python workflows"
+    ]
+  },
+  {
+    "objectID": "presets.html",
+    "href": "presets.html",
+    "title": "Quick start with presets",
+    "section": "",
+    "text": "Most input categories provide formatted selection fields for defining typical configurations. A quick selection applies a parameter package; review and adjust the detailed inputs for the project afterwards.\nExcel location: ▶ Quick Start worksheet → Schnellauswahl; alternatively use the relevant subject worksheet or its menu in the klimaaktiv PEQ ribbon.",
+    "crumbs": [
+      "Overview",
+      "Tool use",
+      "Quick start with presets"
+    ]
+  },
+  {
+    "objectID": "presets.html#example-change-the-heating-system",
+    "href": "presets.html#example-change-the-heating-system",
+    "title": "Quick start with presets",
+    "section": "Example: change the heating system",
+    "text": "Example: change the heating system\n\nRibbon: klimaaktiv PEQ → Heizung → Auswahl Heizsystem\n\nChoose the „Fernwärme“ preset. On the 🔥 Heizung worksheet, review the energy source, maximum heating capacity and generation efficiency. After recalculation, compare the final-energy carrier breakdown and primary-energy balance. A preset does not replace system sizing.",
+    "crumbs": [
+      "Overview",
+      "Tool use",
+      "Quick start with presets"
+    ]
+  },
+  {
+    "objectID": "presets.html#quick-selections-by-input-group",
+    "href": "presets.html#quick-selections-by-input-group",
+    "title": "Quick start with presets",
+    "section": "Quick selections by input group",
+    "text": "Quick selections by input group\n\n\n\nGroup\nFurther input\n\n\n\n\nGeometry, new build / refurbishment\nDistrict\n\n\nEnvelope quality, airtightness, shading, construction\nBuilding physics\n\n\nHeating, distribution, cooling, hot water, ventilation\nHVAC\n\n\nPV\nRoof-area scaling or hourly profile\n\n\nFlexibility and storage\nEnabling flexibility and storage parameters\n\n\nMobility\nLocation, private transport and EVs\n\n\nLife-cycle assessment\nBuilding measures and building services\n\n\n\nThe preset name alone does not describe all active settings. The applied input values are authoritative.\n\nFor a declaration: replace sample values and estimates with project data. Parameters designated as declaration values are mandatory for the assessment; they can still be changed when exploring other model variants.\n\nSource: Training, slides 8, 29 and 34.",
+    "crumbs": [
+      "Overview",
+      "Tool use",
+      "Quick start with presets"
+    ]
+  },
+  {
+    "objectID": "mobility.html",
+    "href": "mobility.html",
+    "title": "Mobility",
+    "section": "",
+    "text": "The mobility model distinguishes journeys attributable to district uses from trips outside the defined assessment context. Define the mobility region and scenario before comparing results.\n\n\n\nMobility context: uses, target traffic and other traffic. Training diagram supplied by the project owner.\n\n\nExcel locations: 🚗 Mobilität and ☁ Treibhauspotential (THG) worksheets.\n\nIn the Excel tool\n\nSelect the mobility region and applicable travel context.\nReview the assumptions for private motorised transport by use and vehicle type.\nConfigure EV charging and, where applicable, bidirectional operation on the Flexibility and Storage worksheet.\nCheck vehicle manufacturing and operational contributions in the GHG inputs and the Results.\n\n\nThe assessment boundary determines which journeys and emissions are attributed to the district. Actual travel behaviour, modelled scenario traffic and declaration assumptions should be documented separately.\n\nFor a declaration: apply the mobility context and declaration values specified by the method. Alternative travel patterns may be modelled as scenarios.\n\nSource: Training, slides 17–20.",
+    "crumbs": [
+      "Overview",
+      "Modelling",
+      "Mobility"
+    ]
+  },
+  {
+    "objectID": "learn.html",
+    "href": "learn.html",
+    "title": "Documentation and learning resources",
+    "section": "",
+    "text": "This site combines tool navigation, modelling guidance, assessment results and executable workflows. Detailed Excel instructions remain in German because the tool interface is German.\nStart with tool use and presets. The modelling section covers the building model, building envelope, building services, PV, storage, mobility and life-cycle assessment.\nFor results, see the Results worksheet, Excel Dashboard, variant comparison and example exports. The declaration and quality assurance page describes the assessment context.",
+    "crumbs": [
+      "Overview",
+      "Documentation and references",
+      "Documentation and learning resources"
+    ]
+  },
+  {
+    "objectID": "learn.html#executable-workflows",
+    "href": "learn.html#executable-workflows",
+    "title": "Documentation and learning resources",
+    "section": "Executable workflows",
+    "text": "Executable workflows\nThe notebooks below use the same pexl functions as the package and publication scripts. Download them and run them from the repository environment.\n\nExcel export workflow\nElectricity balance analysis\nVisualising projects\nSection renderer teaching preview\n\nThe site is maintained in the PEExcel repository. See research and references or about the project.",
+    "crumbs": [
+      "Overview",
+      "Documentation and references",
+      "Documentation and learning resources"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Positive energy district assessment",
+    "section": "",
+    "text": "PEExcel is an Excel-based modelling and assessment tool developed by the Climate-fit Buildings and Districts research group at FH Technikum Wien. It supports professional competency partners, designers, consultants, researchers and students."
+  },
+  {
+    "objectID": "index.html#explore-the-tool",
+    "href": "index.html#explore-the-tool",
+    "title": "Positive energy district assessment",
+    "section": "Explore the tool",
+    "text": "Explore the tool\n\n\n🏙️\n\nModel\n\n\nConnect buildings, uses, envelope and building services. District modelling →\n\n\n\n🌞\n\nAnalyse energy\n\n\nReview heat, cooling, PV, storage and grid interaction. Energy flows →\n\n\n\n☁️\n\nAssess results\n\n\nCompare energy, mobility and life-cycle impacts. Example results →"
+  },
+  {
+    "objectID": "index.html#what-can-you-explore",
+    "href": "index.html#what-can-you-explore",
+    "title": "Positive energy district assessment",
+    "section": "What can you explore?",
+    "text": "What can you explore?\n\nHourly energy balances for heating, cooling, electricity, hot water, ventilation and auxiliary energy.\nPhotovoltaics, self-consumption, grid interaction, storage and flexibility.\nLocation-dependent mobility and life-cycle greenhouse gas emissions.\nScenario comparisons, structured input/output tables and Python analysis with pexl."
+  },
+  {
+    "objectID": "index.html#three-assessment-levels",
+    "href": "index.html#three-assessment-levels",
+    "title": "Positive energy district assessment",
+    "section": "Three assessment levels",
+    "text": "Three assessment levels\nThe klimaaktiv framework distinguishes a Positive Energy District, a Positive Energy District with mobility, and a climate-neutral Positive Energy District including life-cycle greenhouse gas emissions.\n\n\n\nThree levels of the standard; diagram in German\n\n\nThe Excel interface and detailed tutorials are in German. This English section provides translated guidance; workbook worksheet and ribbon names remain in German where needed to identify the controls.\nDownloads · Technical documentation · Research · About"
+  },
+  {
+    "objectID": "index.html#modelling-and-declaration",
+    "href": "index.html#modelling-and-declaration",
+    "title": "Positive energy district assessment",
+    "section": "Modelling and declaration",
+    "text": "Modelling and declaration\nThe model permits alternative assumptions. A klimaaktiv declaration must use the specified declaration values and assessment rules. PV life-cycle emissions can be modelled but are excluded from the current klimaaktiv assessment method. The distinction between modelling freedom and mandatory declaration inputs also applies to hourly conversion factors, plug loads and internal heat gains.\nThe building section illustrates model boundaries and qualitative heat flows. The three refurbishment variants provide annual heat, final-energy, primary-energy and GHG comparisons. Aspern F7 provides a separate hourly electrical-flow example; export completeness is stated explicitly."
+  },
+  {
+    "objectID": "glossary.html",
+    "href": "glossary.html",
+    "title": "Glossary",
+    "section": "",
+    "text": "Term\nMeaning\n\n\n\n\nBGF\nGross floor area (Bruttogrundfläche)\n\n\nNGF\nNet floor area (Nettogrundfläche)\n\n\nPEQ\nPositive Energy District (Plus-Energie-Quartier)\n\n\nGHG / THG\nGreenhouse gases / Treibhausgase\n\n\nLCA / Ökobilanz\nLife-cycle assessment of construction and operation\n\n\nPV\nPhotovoltaics\n\n\nSoC\nState of charge of a battery or electric vehicle\n\n\nSIM2\nHourly simulation export; keep distinct from annual results\n\n\nIN\nStored model inputs for variants\n\n\nOUT\nCalculated result store\n\n\nDeclaration value\nValue required for the applicable declaration method; other modelling assumptions may be explored outside that declaration\n\n\nFlexible grid use\nTime-dependent grid import associated with the flexibility method; not additional physical generation\n\n\nAssessment period\nPeriod over which emissions are accumulated; distinct from a policy target year",
+    "crumbs": [
+      "Overview",
+      "Documentation and references",
+      "Glossary"
+    ]
+  },
+  {
+    "objectID": "excel-dashboard.html",
+    "href": "excel-dashboard.html",
+    "title": "Excel Dashboard",
+    "section": "",
+    "text": "Excel location: 📈 Dashboard worksheet.\nThe Dashboard presents hourly energy flows and storage states. A common time window allows demand, coverage and storage response to be examined together. The Python scenario explorer is a separate application.",
+    "crumbs": [
+      "Overview",
+      "Analyse and assess",
+      "Excel Dashboard"
+    ]
+  },
+  {
+    "objectID": "excel-dashboard.html#selecting-a-time-window",
+    "href": "excel-dashboard.html#selecting-a-time-window",
+    "title": "Excel Dashboard",
+    "section": "Selecting a time window",
+    "text": "Selecting a time window\n\nIn the Excel tool\n\nSelect a period with Datum auswählen; use the timeline for a continuous range.\nChoose a manageable interval, such as one week, for detailed review.\nCheck that the chart axes show hourly timestamps over the selected days.\nAfter recalculation, use Aktualisieren to update the pivot charts.\n\n\n\n\n\nExcel operation: date selection and Refresh above the dynamic charts. The supplied view shows hourly timestamps in a January/February period, electricity demand and coverage, and storage states.",
+    "crumbs": [
+      "Overview",
+      "Analyse and assess",
+      "Excel Dashboard"
+    ]
+  },
+  {
+    "objectID": "excel-dashboard.html#electricity-demand-and-use",
+    "href": "excel-dashboard.html#electricity-demand-and-use",
+    "title": "Excel Dashboard",
+    "section": "Electricity demand and use",
+    "text": "Electricity demand and use\nThe upper chart includes plug loads, inflexible building-services loads, EV charging and additional flexible use. Read storage charging as a separate contribution. Compare peaks with flexibility schedules and storage states.",
+    "crumbs": [
+      "Overview",
+      "Analyse and assess",
+      "Excel Dashboard"
+    ]
+  },
+  {
+    "objectID": "excel-dashboard.html#electricity-coverage",
+    "href": "excel-dashboard.html#electricity-coverage",
+    "title": "Excel Dashboard",
+    "section": "Electricity coverage",
+    "text": "Electricity coverage\nThe second chart separates conventional and flexible grid imports, PV use, battery discharge, EV discharge and PV feed-in. Use the legend to identify overlapping contributions; respect sign conventions and the balance boundary.",
+    "crumbs": [
+      "Overview",
+      "Analyse and assess",
+      "Excel Dashboard"
+    ]
+  },
+  {
+    "objectID": "excel-dashboard.html#room-temperature-and-thermal-building-mass",
+    "href": "excel-dashboard.html#room-temperature-and-thermal-building-mass",
+    "title": "Excel Dashboard",
+    "section": "Room temperature and thermal building mass",
+    "text": "Room temperature and thermal building mass\nTemperatures in cooled and uncooled zones indicate the thermal response. Check pre-conditioning against setpoints and permissible temperature ranges. Temperature is a state indicator, not stored energy in kWh.",
+    "crumbs": [
+      "Overview",
+      "Analyse and assess",
+      "Excel Dashboard"
+    ]
+  },
+  {
+    "objectID": "excel-dashboard.html#hot-water-storage",
+    "href": "excel-dashboard.html#hot-water-storage",
+    "title": "Excel Dashboard",
+    "section": "Hot-water storage",
+    "text": "Hot-water storage\nThe states of hot-water systems 1 and 2 show charging and use in the selected period. Read percentages against the chart scale; they are not temperatures or absolute storage capacities.",
+    "crumbs": [
+      "Overview",
+      "Analyse and assess",
+      "Excel Dashboard"
+    ]
+  },
+  {
+    "objectID": "excel-dashboard.html#electric-vehicles-and-battery",
+    "href": "excel-dashboard.html#electric-vehicles-and-battery",
+    "title": "Excel Dashboard",
+    "section": "Electric vehicles and battery",
+    "text": "Electric vehicles and battery\nEV SoC shows vehicle state of charge by use; Battery SOC shows the stationary electrical store. Assess minimum state of charge, flexible charging and discharge together with the electricity flows.",
+    "crumbs": [
+      "Overview",
+      "Analyse and assess",
+      "Excel Dashboard"
+    ]
+  },
+  {
+    "objectID": "excel-dashboard.html#thermal-daily-averages",
+    "href": "excel-dashboard.html#thermal-daily-averages",
+    "title": "Excel Dashboard",
+    "section": "Thermal daily averages",
+    "text": "Thermal daily averages\nHeat gains and losses for the two thermally decoupled zones are also presented as daily averages. Daily averages and hourly power are different aggregations.\n\n\n\nModel and Dashboard: thermally decoupled zones, heat balance and daily averages of heat flows. Supplied training diagram; the lower charts explicitly show daily averages.\n\n\nStorage inputs · Results worksheet · Aspern F7 profiles\nWebsite profiles use exported channels. A channel missing from an export does not imply it is absent from the Excel Dashboard.\nSource: Training, slides 11 and 32.",
+    "crumbs": [
+      "Overview",
+      "Analyse and assess",
+      "Excel Dashboard"
+    ]
+  },
+  {
+    "objectID": "envelope.html",
+    "href": "envelope.html",
+    "title": "Thermal envelope and heat flows",
+    "section": "",
+    "text": "Scope: Keep construction, thermal boundary and heat flows distinct. Component assignment, the balance boundary and qualitative heat-flow overlays can be considered separately.\nExcel location: 🧱 Bauphysik worksheet.\n\n\n\n\n\n\n\n\n\nInput group\nAssignment\n\n\n\n\nOpaque thermal envelope\nExternal walls excluding windows, roof or top-floor ceiling, basement ceiling / ground-contact floor; areas and U-values\n\n\nTransparent elements\nWindow areas including frames by orientation, U- and g-values\n\n\nThermal bridges / airtightness\nAllowance and n50 assumption based on project information\n\n\nShading / movable solar protection\nReduction factors and control assumptions; distinguish defaults from adopted values\n\n\nThermally active mass\nConstruction type and effective heat capacity\n\n\n\nApply quick selections first, then check project-specific areas and properties. After recalculation, review the heat balance on the Results worksheet.\n\nThe section view locates the balance boundary in the building. Life-cycle assessment also includes constructions within that boundary, so thermal envelope area and LCA quantity are not interchangeable.\n\n\n\nThermal energy model with two thermally decoupled zones, heat flows and example balances. Training diagram supplied by the project owner.\n\n\n\nInteractive view available through the separate link below.\nOpen the section view separately · Executable notebook",
+    "crumbs": [
+      "Overview",
+      "Modelling",
+      "Thermal envelope and heat flows"
+    ]
+  },
+  {
+    "objectID": "envelope.html#building-physics-inputs",
+    "href": "envelope.html#building-physics-inputs",
+    "title": "Thermal envelope and heat flows",
+    "section": "",
+    "text": "Scope: Keep construction, thermal boundary and heat flows distinct. Component assignment, the balance boundary and qualitative heat-flow overlays can be considered separately.\nExcel location: 🧱 Bauphysik worksheet.\n\n\n\n\n\n\n\n\n\nInput group\nAssignment\n\n\n\n\nOpaque thermal envelope\nExternal walls excluding windows, roof or top-floor ceiling, basement ceiling / ground-contact floor; areas and U-values\n\n\nTransparent elements\nWindow areas including frames by orientation, U- and g-values\n\n\nThermal bridges / airtightness\nAllowance and n50 assumption based on project information\n\n\nShading / movable solar protection\nReduction factors and control assumptions; distinguish defaults from adopted values\n\n\nThermally active mass\nConstruction type and effective heat capacity\n\n\n\nApply quick selections first, then check project-specific areas and properties. After recalculation, review the heat balance on the Results worksheet.\n\nThe section view locates the balance boundary in the building. Life-cycle assessment also includes constructions within that boundary, so thermal envelope area and LCA quantity are not interchangeable.\n\n\n\nThermal energy model with two thermally decoupled zones, heat flows and example balances. Training diagram supplied by the project owner.\n\n\n\nInteractive view available through the separate link below.\nOpen the section view separately · Executable notebook",
+    "crumbs": [
+      "Overview",
+      "Modelling",
+      "Thermal envelope and heat flows"
+    ]
+  },
+  {
+    "objectID": "envelope.html#visual-style-and-technical-layers",
+    "href": "envelope.html#visual-style-and-technical-layers",
+    "title": "Thermal envelope and heat flows",
+    "section": "Visual style and technical layers",
+    "text": "Visual style and technical layers\nThe teaching style reduces surroundings and decoration while retaining the section renderer’s geometry. Component colours, thermal boundary, selection and heat flows are independent overlays. Existing styles remain available for other uses.",
+    "crumbs": [
+      "Overview",
+      "Modelling",
+      "Thermal envelope and heat flows"
+    ]
+  },
+  {
+    "objectID": "envelope.html#two-thermally-decoupled-zones",
+    "href": "envelope.html#two-thermally-decoupled-zones",
+    "title": "Thermal envelope and heat flows",
+    "section": "Two thermally decoupled zones",
+    "text": "Two thermally decoupled zones\nThe selector shows the cooled and uncooled zones individually; the two storeys do not represent these zones. Heating is possible in both, active cooling only in the cooled zone, and night ventilation in the illustrated reference model only in the uncooled zone.\nSolar gains enter through windows; internal gains arise within the space. Transmission and ventilation are shown as example heat removal, but their direction depends on operating conditions. Arrows are qualitative; their width does not encode heat flow magnitude.",
+    "crumbs": [
+      "Overview",
+      "Modelling",
+      "Thermal envelope and heat flows"
+    ]
+  },
+  {
+    "objectID": "envelope.html#boundary-of-internal-ceilings",
+    "href": "envelope.html#boundary-of-internal-ceilings",
+    "title": "Thermal envelope and heat flows",
+    "section": "Boundary of internal ceilings",
+    "text": "Boundary of internal ceilings\nThe thermal envelope and component assignment illustrate different boundaries.\n\n\nThermal boundary conditions\n\nAn internal floor slab between two heated storeys is within the thermal boundary. A slab above an unheated basement may form part of the thermal envelope. The thermal boundary condition matters, not only the geometric type “slab”. The second reference geometry illustrates this distinction.\n\n\n\n\n\n\n\nNoteFor a declaration\n\n\n\nInternal heat gains and plug loads can be varied in the model. Use the designated declaration values of the relevant tool version for the declaration.\n\n\nSource: Training, slides 11–14. The geometry is an explicitly assumed reference building, not a project result.",
+    "crumbs": [
+      "Overview",
+      "Modelling",
+      "Thermal envelope and heat flows"
+    ]
+  },
+  {
+    "objectID": "declaration.html",
+    "href": "declaration.html",
+    "title": "Declaration and quality assurance",
+    "section": "",
+    "text": "A declaration is based on the specified assessment method, declaration values and supporting project information. The model may permit additional assumptions; those do not automatically form part of the klimaaktiv declaration.",
+    "crumbs": [
+      "Overview",
+      "Analyse and assess",
+      "Declaration and quality assurance"
+    ]
+  },
+  {
+    "objectID": "declaration.html#assessment-levels",
+    "href": "declaration.html#assessment-levels",
+    "title": "Declaration and quality assurance",
+    "section": "Assessment levels",
+    "text": "Assessment levels\nThe standard distinguishes the Positive Energy District assessment, the mobility extension and the climate-neutral assessment including life-cycle GHG emissions. Check the applicable method and tool version before preparing evidence.\n\nDeclaration values: these are mandatory for the declaration, while the model can be varied for other analyses. This distinction also applies to hourly conversion factors, plug loads and internal gains. PV life-cycle emissions can be modelled but are not included in the current klimaaktiv assessment method.",
+    "crumbs": [
+      "Overview",
+      "Analyse and assess",
+      "Declaration and quality assurance"
+    ]
+  },
+  {
+    "objectID": "declaration.html#quality-assurance",
+    "href": "declaration.html#quality-assurance",
+    "title": "Declaration and quality assurance",
+    "section": "Quality assurance",
+    "text": "Quality assurance\nThe AUDIT worksheet identifies deviations from declaration assumptions for the current variant. Review every finding, trace it to its input and record the rationale and supporting evidence.\n\nReview checklist\n\nConfirm project, variant and tool version.\nCheck the declared reference areas and input data sources.\nReview the AUDIT deviations and distinguish intentional scenario choices from data errors.\nVerify recalculation status and the relevant Results.\nDocument unresolved deviations and the basis for any accepted interpretation.\n\n\nAn AUDIT deviation is a review item; its presence does not automatically establish that the model is erroneous or that an exception is acceptable. A current AUDIT worksheet view is still required for field-level instructions.",
+    "crumbs": [
+      "Overview",
+      "Analyse and assess",
+      "Declaration and quality assurance"
+    ]
+  },
+  {
+    "objectID": "declaration.html#evidence-and-traceability",
+    "href": "declaration.html#evidence-and-traceability",
+    "title": "Declaration and quality assurance",
+    "section": "Evidence and traceability",
+    "text": "Evidence and traceability\nRetain the source workbook, project exports, tool version, variant definitions, data sources, calculation state and relevant result tables. For migration, archive the original project export. For batch runs, record scenario selection and completion status.\n\nCurrent declaration output, AUDIT and evidence views are needed to document the exact report fields and acceptance workflow.\n\nResults · LCA and Eco2soft · Variant management\nSource: Training, slides 22, 25 and 35.",
+    "crumbs": [
+      "Overview",
+      "Analyse and assess",
+      "Declaration and quality assurance"
+    ]
+  },
+  {
+    "objectID": "components.html",
+    "href": "components.html",
+    "title": "Assigning building components",
+    "section": "",
+    "text": "Component assignment connects geometry, quantities and life-cycle assessment. A geometric area alone is not a complete LCA assignment. Construction, boundary condition and use must be traceable.\nThe original diagram adds cases beyond the simplified schematic sections. Click to enlarge. Source: docs/ComponentTypes.png; see also training slides 13–14.",
+    "crumbs": [
+      "Overview",
+      "Modelling",
+      "Assigning building components"
+    ]
+  },
+  {
+    "objectID": "components.html#project-workflow",
+    "href": "components.html#project-workflow",
+    "title": "Assigning building components",
+    "section": "Project workflow",
+    "text": "Project workflow\n\nAssign areas and components from the actual construction design.\nDistinguish external air, ground, heated spaces and unheated adjacent spaces.\nCheck quantities and units before importing LCA factors.\nDocument elements that are not shown separately, such as balconies, columns or window frames.\nReview assigned component values and the assessment boundary.\n\n\n\nTechnical interpretation\n\nIn the second reference model, the basement ceiling separates heated from unheated space and forms part of the thermal boundary. The internal floor slab is also a construction component included in the balance, but it is not an external thermal boundary there. Thermal and life-cycle balances describe different properties of the same component.\n\nFurther reading: Importing LCA data · Assessing embodied emissions.",
+    "crumbs": [
+      "Overview",
+      "Modelling",
+      "Assigning building components"
+    ]
+  },
+  {
+    "objectID": "components.html#excel-assignment",
+    "href": "components.html#excel-assignment",
+    "title": "Assigning building components",
+    "section": "Assignment in the Excel tool",
+    "text": "Assignment in the Excel tool\nThermal inputs: 🧱 Bauphysik worksheet → opaque and transparent components.\nLife-cycle assessment: ☁ Treibhauspotential (THG) worksheet → Baulich.\n\nAssign category, construction and quantity for external walls, windows, roofs, basement ceilings/foundations and intermediate floors. Check that additional building measures, grouped measures and a total LCA entry do not overlap. A component that is not needed to define the thermal envelope may still contribute to embodied emissions.\n\nLife-cycle assessment and Eco2soft",
+    "crumbs": [
+      "Overview",
+      "Modelling",
+      "Assigning building components"
+    ]
+  },
+  {
+    "objectID": "components.html#from-section-to-category",
+    "href": "components.html#from-section-to-category",
+    "title": "Assigning building components",
+    "section": "From section to category",
+    "text": "From section to category\nThe second schematic section has two heated storeys and an explicitly unheated basement. The selector switches between categories. The list also names categories absent from this geometry; do not reinterpret them as other components.\n\nInteractive view available through the separate link below.\nOpen the component catalogue separately",
+    "crumbs": [
+      "Overview",
+      "Modelling",
+      "Assigning building components"
+    ]
+  },
+  {
+    "objectID": "climate.html",
+    "href": "climate.html",
+    "title": "Life-cycle assessment",
+    "section": "",
+    "text": "Excel location: ☁ Treibhauspotential (THG) worksheet, also called “Global Warming Potential” in the handbook.\nThe climate-neutral PEQ assessment extends beyond operational energy. Embodied emissions from buildings and operational GHG emissions are assessed over the specified period.",
+    "crumbs": [
+      "Overview",
+      "Modelling",
+      "Life-cycle assessment"
+    ]
+  },
+  {
+    "objectID": "climate.html#distinguish-three-time-concepts",
+    "href": "climate.html#distinguish-three-time-concepts",
+    "title": "Life-cycle assessment",
+    "section": "Distinguish three time concepts",
+    "text": "Distinguish three time concepts\n\n\n\n\n\n\n\nTerm\nMeaning\n\n\n\n\nAssessment period\nBalance period: 50 years from 2025 to 2075\n\n\nTarget year\nA policy or method target, such as 2040 or 2050; it is not the end of the assessment period\n\n\nDecarbonisation pathway\nChange in energy-system emission factors over time; it affects future operational energy\n\n\n\nA cumulative chart integrates contributions over time. It is neither a single-year balance nor automatically evidence that a national climate target has been met. Emission pathways and budget rules are part of the selected method.",
+    "crumbs": [
+      "Overview",
+      "Modelling",
+      "Life-cycle assessment"
+    ]
+  },
+  {
+    "objectID": "climate.html#ghg-pathways-and-life-cycle",
+    "href": "climate.html#ghg-pathways-and-life-cycle",
+    "title": "Life-cycle assessment",
+    "section": "GHG pathways and life cycle",
+    "text": "GHG pathways and life cycle\n\n\n\nMethod: GHG decarbonisation pathways to 2050 for different energy carriers. Supplied training diagram.\n\n\nThe training material uses an assessment period of 2025–2075 and sectoral decarbonisation pathways to 2050. Fully decarbonised systems after 2050 are an assessment assumption. The 320 kg CO₂eq/m² gross-floor-area budget cited in the training is cumulative, not an annual emission rate.\n\n\n\nMethod: cumulative emissions from construction, operation and maintenance, and biogenic storage. Supplied training diagram.\n\n\nThe timing of emissions, maintenance and biogenic storage affects the life-cycle balance. The credits shown are method assumptions, not generally transferable material factors.\n\n\n\nOperational GHG boundary: imports, local PV use and feed-in. Supplied diagram with English labels.\n\n\nSource: Training, slides 22–23 and 31.",
+    "crumbs": [
+      "Overview",
+      "Modelling",
+      "Life-cycle assessment"
+    ]
+  },
+  {
+    "objectID": "climate.html#components-operation-and-budget",
+    "href": "climate.html#components-operation-and-budget",
+    "title": "Life-cycle assessment",
+    "section": "Components, operation and budget",
+    "text": "Components, operation and budget\nAssign constructions and quantities with traceable sources. Interpret embodied and operational contributions together with the assessment boundary, period and budget. The variant examples show exported life-cycle results, including negative contributions.\n\n\n\n\n\n\nImportantPV LCA: modelled, excluded from the klimaaktiv assessment\n\n\n\nPV life-cycle emissions can be modelled in the tool. The klimaaktiv assessment method does not include them. An input field or result does not automatically mean that the contribution enters the declaration. Do not generalise this statement to other technologies or assessment methods.",
+    "crumbs": [
+      "Overview",
+      "Modelling",
+      "Life-cycle assessment"
+    ]
+  },
+  {
+    "objectID": "climate.html#documenting-the-assessment",
+    "href": "climate.html#documenting-the-assessment",
+    "title": "Life-cycle assessment",
+    "section": "Documenting the assessment",
+    "text": "Documenting the assessment\nRecord tool version, data sources, assessment period, conversion factors, decarbonisation pathway and system boundary. Model variants can use different assumptions; the declaration must follow its specified requirements.\n\n\nTechnical interpretation\n\nWith time-varying emission factors, the same energy quantity produces different assessed emissions in different years. Energy quantity and its assessment are separate quantities.\n\nTraining, slides 22–23 · Method background · Declaration",
+    "crumbs": [
+      "Overview",
+      "Modelling",
+      "Life-cycle assessment"
+    ]
+  },
+  {
+    "objectID": "climate.html#lca-inputs",
+    "href": "climate.html#lca-inputs",
+    "title": "Life-cycle assessment",
+    "section": "Entering life-cycle data",
+    "text": "Entering life-cycle data\n\nIn the Excel tool\n\nUnder Baulich, select constructions or a preset and check quantities.\nAdd grouped measures or a total LCA entry without duplicating existing measures.\nAssign fossil and biogenic contributions and the service life until replacement.\nUnder Technische Gebäudeausstattung, record relevant systems and reference quantities; align vehicle manufacturing with the mobility configuration.\nRecalculate and review embodied and operational contributions together on Results.",
+    "crumbs": [
+      "Overview",
+      "Modelling",
+      "Life-cycle assessment"
+    ]
+  },
+  {
+    "objectID": "climate.html#eco2soft",
+    "href": "climate.html#eco2soft",
+    "title": "Life-cycle assessment",
+    "section": "Connection to Eco2soft",
+    "text": "Connection to Eco2soft\nThe training names baubook / Eco2soft, the matching system boundary “Aspern Klimafit”, and direct CSV import. The building LCA created there provides input for the GHG worksheet.\nCreate the relevant Eco2soft assessment and export a CSV. Before transfer, align system boundary, reference area, units, fossil/biogenic contributions and replacement assumptions. After import, check which components or grouped totals were transferred and identify duplicate entries.\n\nCurrent import dialog still required: the training confirms that CSV import is possible; field-level instructions will follow when a current screenshot is available.",
+    "crumbs": [
+      "Overview",
+      "Modelling",
+      "Life-cycle assessment"
+    ]
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About PEExcel",
+    "section": "",
+    "text": "PEExcel is an Excel-based tool for modelling and assessing positive-energy districts under the klimaaktiv framework. It is developed by the Climate-fit Buildings and Districts research group at FH Technikum Wien.\nThe tool is intended for professional energy and HVAC practitioners, competency partners, planners, researchers and students applying the PEQ standard to district models.",
+    "crumbs": [
+      "Overview",
+      "Documentation and references",
+      "About PEExcel"
+    ]
+  },
+  {
+    "objectID": "about.html#scope",
+    "href": "about.html#scope",
+    "title": "About PEExcel",
+    "section": "Scope",
+    "text": "Scope\nPEExcel combines hourly operational modelling, scenario comparison and assessment of building, energy and mobility contributions. Model flexibility and declaration requirements are distinct: use the designated values and method when preparing a declaration.\nThe Excel workbook and detailed tutorials are in German. This English section provides translated technical guidance; ribbon names and worksheet labels are retained in German where they refer to the workbook interface.\nRepository and issue tracking · Research",
+    "crumbs": [
+      "Overview",
+      "Documentation and references",
+      "About PEExcel"
+    ]
+  },
+  {
+    "objectID": "batch.html",
+    "href": "batch.html",
+    "title": "Automated batch simulation",
+    "section": "",
+    "text": "The Scen worksheet supports automated simulations across multiple variants. Prepare and verify the input variants before running a batch.\nExcel location: Scen worksheet.\n\nBatch workflow\n\nCreate and save the input variants in Variant Management.\nSelect the required scenarios in Scen.\nRun the batch calculation and wait for the simulation to complete.\nCheck completion status, scenario names and result coverage.\nCompare the outputs in Results or the variant comparison.\n\n\n\nCurrent Scen view required: column names, selection controls and execution status have not been verified against the current workbook. The training material confirms batch simulation but does not establish the present click sequence.\n\nDocument the tool version, scenario selection and any failed or incomplete runs. Batch outputs are only comparable when system boundaries and input assumptions are consistent.\nSource: Training, slide 33.",
+    "crumbs": [
+      "Overview",
+      "Analyse and assess",
+      "Automated batch simulation"
+    ]
+  },
+  {
+    "objectID": "comparison.html",
+    "href": "comparison.html",
+    "title": "Variant comparison",
+    "section": "",
+    "text": "Use the comparison to assess the effects of defined model changes. The comparison must use a consistent reference area, system boundary, time period and assessment method.\nExcel location: ▦ Variant Comparison worksheet.",
+    "crumbs": [
+      "Overview",
+      "Analyse and assess",
+      "Variant comparison"
+    ]
+  },
+  {
+    "objectID": "comparison.html#reading-the-comparison",
+    "href": "comparison.html#reading-the-comparison",
+    "title": "Variant comparison",
+    "section": "Reading the comparison",
+    "text": "Reading the comparison\nRead demand and coverage for each scenario together. Distinguish physical energy from substitutions and context factors used in the assessment. Negative or positive assessment differences do not, by themselves, represent a physical energy balance.\n\nIn the Excel tool\nSelect the variants to compare and check that they have been calculated with the same tool version and reference basis. Review the assessment indicators and any context contributions before interpreting the difference.\n\nThe training figure is a method illustration. It is not one of the exported Bsp_San_6G results. The three current example exports are evaluated separately, with their source variants identified.\nSource: Training, slide 30.",
+    "crumbs": [
+      "Overview",
+      "Analyse and assess",
+      "Variant comparison"
+    ]
+  },
+  {
+    "objectID": "dashboard.html",
+    "href": "dashboard.html",
+    "title": "Python scenario explorer",
+    "section": "",
+    "text": "The Python scenario explorer is a separate interface for inspecting project exports and comparing scenarios. It is not the Excel Dashboard worksheet.\nThe Excel Dashboard presents hourly profiles from the workbook. The Python application uses data available to its configured workflow; its outputs should not be presented as Excel results without checking the data source and calculation state.\nFor installation and executable examples, see Python workflows. For the Excel time-series view, see Excel Dashboard.",
+    "crumbs": [
+      "Overview",
+      "Documentation and references",
+      "Python scenario explorer"
+    ]
+  },
+  {
+    "objectID": "download.html",
+    "href": "download.html",
+    "title": "Downloads",
+    "section": "",
+    "text": "The Excel tool and reference documents are available below. The workbook interface and the detailed guides are currently in German.",
+    "crumbs": [
+      "Overview",
+      "Tool use",
+      "Downloads"
+    ]
+  },
+  {
+    "objectID": "download.html#excel-tool",
+    "href": "download.html#excel-tool",
+    "title": "Downloads",
+    "section": "Excel tool",
+    "text": "Excel tool\nDownload the current workbook from the PEExcel GitHub repository. Check the release or project notes for the applicable tool version before starting a project.",
+    "crumbs": [
+      "Overview",
+      "Tool use",
+      "Downloads"
+    ]
+  },
+  {
+    "objectID": "download.html#reference-documents",
+    "href": "download.html#reference-documents",
+    "title": "Downloads",
+    "section": "Reference documents",
+    "text": "Reference documents\n\nPEQ assessment handbook (German)\nPEQ tool training presentation (German)\nPEQ background guide (German)\nPEQ standard overview (German)\nPEQ brochure (German)\n\nThe workbook is macro-enabled and requires desktop Microsoft Excel / Office 365 for variant-management features.",
+    "crumbs": [
+      "Overview",
+      "Tool use",
+      "Downloads"
+    ]
+  },
+  {
+    "objectID": "examples.html",
+    "href": "examples.html",
+    "title": "Example results · Bsp San 6G",
+    "section": "",
+    "text": "The three exports use the same reference areas: 1,175.8 m² net floor area and 1,469.75 m² gross floor area, tool version 1.13.1_dev. The reference already includes PV. The variants differ in exported flexibility settings; they are not a simple “without/with PV” comparison.\nThe preset label and the exported activation switches are listed separately. Stored inputs and results determine the interpretation. Input differences as CSV.",
+    "crumbs": [
+      "Overview",
+      "Analyse and assess",
+      "Example results · Bsp San 6G"
+    ]
+  },
+  {
+    "objectID": "examples.html#heat-balance",
+    "href": "examples.html#heat-balance",
+    "title": "Example results · Bsp San 6G",
+    "section": "Heat balance",
+    "text": "Heat balance\nTransmission and ventilation losses, night ventilation and cooling demand are compared with solar and internal gains and heating demand. All contributions are annual energy per net floor area. The heat balance closes within numerical tolerance in all three exports.\n\n\n\n\nHeat balance for three variants\n\n\nHTML · SVG · PNG · Values CSV",
+    "crumbs": [
+      "Overview",
+      "Analyse and assess",
+      "Example results · Bsp San 6G"
+    ]
+  },
+  {
+    "objectID": "examples.html#final-energy-balance",
+    "href": "examples.html#final-energy-balance",
+    "title": "Example results · Bsp San 6G",
+    "section": "Final-energy balance",
+    "text": "Final-energy balance\nAll three variants are supplied entirely by electricity; exported contributions from district heating, natural gas, biomass and other carriers are zero. The chart shows final electricity for local use, including building services, plug loads, storage charging and EV charging in the district.\nDirect PV use, flexible PV use, conventional and signal-controlled grid imports, and available discharge flows make up the coverage side. Feed-in and external EV charging are outside this local-use balance. This allocation avoids treating them as local demand coverage; the balance closes for all three variants.\n\n\n\n\nElectrical final-energy balance for local use\n\n\nHTML · SVG · PNG · Values CSV",
+    "crumbs": [
+      "Overview",
+      "Analyse and assess",
+      "Example results · Bsp San 6G"
+    ]
+  },
+  {
+    "objectID": "examples.html#primary-energy-balance",
+    "href": "examples.html#primary-energy-balance",
+    "title": "Example results · Bsp San 6G",
+    "section": "Primary-energy balance",
+    "text": "Primary-energy balance\nThe primary-energy assessment accounts for demand, substitution equivalents and context factors. The difference between coverage and demand is an assessment result, not a failure of a physical energy balance to close. Flexibility contributions and context factors are not additional physical energy generation.\n\n\n\n\nPrimary-energy balance for three variants\n\n\nHTML · SVG · PNG · Values CSV",
+    "crumbs": [
+      "Overview",
+      "Analyse and assess",
+      "Example results · Bsp San 6G"
+    ]
+  },
+  {
+    "objectID": "examples.html#ghg-balance",
+    "href": "examples.html#ghg-balance",
+    "title": "Example results · Bsp San 6G",
+    "section": "GHG balance",
+    "text": "GHG balance\nThe chart includes exported life-cycle contributions for 2025–2075: construction, building services and vehicle manufacturing (EE), plus building operation and mobility (OE). Negative contributions, including grid feed-in and mobility boundary effects, retain their sign. The diamond marks the exported total, equal to the sum of the plotted components.\nThe reference is gross floor area, not net floor area. GWP100 describes the climate-impact assessment and is distinct from the 50-year assessment period. L1–L3 reference bands do not replace a compliance check. PV LCA can be modelled but is excluded from the klimaaktiv method; it is zero in these exports.\n\n\n\n\nLife-cycle GHG balance for three variants\n\n\nHTML · SVG · PNG · Values CSV",
+    "crumbs": [
+      "Overview",
+      "Analyse and assess",
+      "Example results · Bsp San 6G"
+    ]
+  },
+  {
+    "objectID": "examples.html#result-checks-and-provenance",
+    "href": "examples.html#result-checks-and-provenance",
+    "title": "Example results · Bsp San 6G",
+    "section": "Result checks and provenance",
+    "text": "Result checks and provenance\nResult tables and input comparison · Numerical balance checks CSV · Executable Python workflow\nThe charts use stored export results; no new Excel simulation is run. Source file, scenario, version and source checksum are shown in the charts. They do not establish a confirmed declaration status.\nHourly electrical flow profiles are shown separately for Aspern F7. Completeness of the hourly exports for the three refurbishment variants is still being assessed.",
+    "crumbs": [
+      "Overview",
+      "Analyse and assess",
+      "Example results · Bsp San 6G"
+    ]
+  },
+  {
+    "objectID": "examples.html#aspern-f7",
+    "href": "examples.html#aspern-f7",
+    "title": "Example results · Bsp San 6G",
+    "section": "Aspern F7: time-resolved electricity flows",
+    "text": "Aspern F7: time-resolved electricity flows\nThe Aspern PVCheck _ F7.xlsx export contains 8,760 hourly values for calendar year 2018. The charts show conventional grid import, direct PV use, flexible PV use (where non-zero) and PV feed-in. Grid import includes the conventional components grouped under E_grid in the schema.\nBoundary: these are selected electrical flow profiles, not a closed consumption balance. Consumption, storage and complete signal-controlled grid channels are not included in this export. Missing exported quantities are not treated as zero.\n\nSeasonal average daily profiles\nThe four seasons are derived from the exported calendar fields. Each hour shows the average of all hours in that season. Values are mean power in W/m² net floor area, calculated from hourly energy in Wh/m² net floor area using the verified one-hour time step. Seasonal averages are not actual daily profiles.\n\n\n\n\nAspern F7: seasonal electrical flow profiles\n\n\nLarge HTML view · SVG · PNG\n\n\nChronological hourly values\nJanuary and July weeks can be selected directly. Zoom, range selection and the legend support analysis of individual contributions. These weeks are reference windows, not statistically representative samples. Positive values indicate local PV use and conventional grid import; negative values indicate PV feed-in.\n\nInteractive view available through the separate link below.\nOpen hourly chart · Available channels CSV · Executable analysis workflow",
+    "crumbs": [
+      "Overview",
+      "Analyse and assess",
+      "Example results · Bsp San 6G"
+    ]
+  },
+  {
+    "objectID": "excel-navigation.html",
+    "href": "excel-navigation.html",
+    "title": "Finding your way around the Excel tool",
+    "section": "",
+    "text": "The workbook contains input worksheets, calculation data and result views. The worksheet tabs at the bottom and the klimaaktiv PEQ ribbon provide the main navigation paths.",
+    "crumbs": [
+      "Overview",
+      "Tool use",
+      "Finding your way around the Excel tool"
+    ]
+  },
+  {
+    "objectID": "excel-navigation.html#formatting-and-interaction",
+    "href": "excel-navigation.html#formatting-and-interaction",
+    "title": "Finding your way around the Excel tool",
+    "section": "Formatting and interaction",
+    "text": "Formatting and interaction\n\n\n\n\n\n\n\nWebsite marker\nMeaning in the workbook\n\n\n\n\nWorksheet name\nWorksheet tab or subject area\n\n\nSection\nGroup of related inputs\n\n\nGreen field\nEditable input field in the supplied training view\n\n\nButton / command\nAction or ribbon control\n\n\nPreset\nExample choice or selection\n\n\nAmber note\nDeclaration requirement or assessment boundary\n\n\n\nThese are documentation labels; they do not simulate Excel controls. Input formatting may differ by workbook version.",
+    "crumbs": [
+      "Overview",
+      "Tool use",
+      "Finding your way around the Excel tool"
+    ]
+  },
+  {
+    "objectID": "excel-navigation.html#inputs-and-results",
+    "href": "excel-navigation.html#inputs-and-results",
+    "title": "Finding your way around the Excel tool",
+    "section": "Inputs and results",
+    "text": "Inputs and results\nInput worksheets define the model. IN stores variant inputs, SIM2 contains hourly simulation data, and OUT stores calculated results. These internal names are distinct from the user-facing Results worksheet and Excel Dashboard.\nStart with Quick Start or presets. Use variant management to save model states, then review results, the dashboard or the comparison.\nSource: Training, slides 25 and 34.",
+    "crumbs": [
+      "Overview",
+      "Tool use",
+      "Finding your way around the Excel tool"
+    ]
+  },
+  {
+    "objectID": "hvac.html",
+    "href": "hvac.html",
+    "title": "Heating, cooling, hot water and ventilation",
+    "section": "",
+    "text": "Excel locations: 🔥 Heizung, ❄ Kühlung, 💧 Warmwasser and ☁ Lüftung worksheets.",
+    "crumbs": [
+      "Overview",
+      "Modelling",
+      "Heating, cooling, hot water and ventilation"
+    ]
+  },
+  {
+    "objectID": "hvac.html#heating",
+    "href": "hvac.html#heating",
+    "title": "Heating, cooling, hot water and ventilation",
+    "section": "Heating",
+    "text": "Heating\nSystems 1 and 3 represent electrically driven generators; systems 2 and 4 cover thermal generators. The number identifies the system model, not its priority. Check whether a system is active and how its annual share is defined before interpreting results. Do not infer a priority order from the worksheet labels.",
+    "crumbs": [
+      "Overview",
+      "Modelling",
+      "Heating, cooling, hot water and ventilation"
+    ]
+  },
+  {
+    "objectID": "hvac.html#cooling",
+    "href": "hvac.html#cooling",
+    "title": "Heating, cooling, hot water and ventilation",
+    "section": "Cooling",
+    "text": "Cooling\nIdentify which uses are cooled. Cooling is available only for the cooled model zone. Review the system, capacity and electricity demand together with the thermal envelope.",
+    "crumbs": [
+      "Overview",
+      "Modelling",
+      "Heating, cooling, hot water and ventilation"
+    ]
+  },
+  {
+    "objectID": "hvac.html#domestic-hot-water",
+    "href": "hvac.html#domestic-hot-water",
+    "title": "Heating, cooling, hot water and ventilation",
+    "section": "Domestic hot water",
+    "text": "Domestic hot water\nConfigure the system shares, generation, distribution and storage separately. Check that shares are consistent and do not double-count demand. Flexible storage operation is covered under storage and flexibility.",
+    "crumbs": [
+      "Overview",
+      "Modelling",
+      "Heating, cooling, hot water and ventilation"
+    ]
+  },
+  {
+    "objectID": "hvac.html#ventilation",
+    "href": "hvac.html#ventilation",
+    "title": "Heating, cooling, hot water and ventilation",
+    "section": "Ventilation",
+    "text": "Ventilation\nSeparate mechanical ventilation from window ventilation. Review the heat-recovery assumptions for heating and cooling periods, fan electricity and any night-ventilation assumptions. The schematic thermal model shows that night ventilation in the supplied reference case applies to the uncooled zone.\n\nFor a declaration: use the prescribed system configuration and declaration values. Alternative systems can be modelled for scenario analysis; this alone does not establish declaration compliance.\n\nSource: Training, slides 8–14.",
+    "crumbs": [
+      "Overview",
+      "Modelling",
+      "Heating, cooling, hot water and ventilation"
+    ]
+  },
+  {
+    "objectID": "interfaces.html",
+    "href": "interfaces.html",
+    "title": "Weather and data interfaces",
+    "section": "",
+    "text": "The Excel tool combines district inputs with weather data and optional external profiles. Confirm that each dataset matches the project location, model year and time basis.",
+    "crumbs": [
+      "Overview",
+      "Modelling",
+      "Weather and data interfaces"
+    ]
+  },
+  {
+    "objectID": "interfaces.html#weather",
+    "href": "interfaces.html#weather",
+    "title": "Weather and data interfaces",
+    "section": "Weather",
+    "text": "Weather\nExcel location: 🌦 Weather worksheet and the weather selection in District.\nSelect the dataset that corresponds to the project location. Review the weather year and hourly sequence before interpreting PV generation, heating and cooling demand. The sheet may be hidden in some workbook views.",
+    "crumbs": [
+      "Overview",
+      "Modelling",
+      "Weather and data interfaces"
+    ]
+  },
+  {
+    "objectID": "interfaces.html#external-profiles",
+    "href": "interfaces.html#external-profiles",
+    "title": "Weather and data interfaces",
+    "section": "External profiles",
+    "text": "External profiles\nThe PV-Import worksheet accepts a detailed generation profile. External electricity or flexibility data may use different units and timestamps; align time steps and units before import. Record the source and any processing applied.",
+    "crumbs": [
+      "Overview",
+      "Modelling",
+      "Weather and data interfaces"
+    ]
+  },
+  {
+    "objectID": "interfaces.html#python-workflows",
+    "href": "interfaces.html#python-workflows",
+    "title": "Weather and data interfaces",
+    "section": "Python workflows",
+    "text": "Python workflows\nThe Python package pexl supports structured import, validation and analysis of project exports. It complements the Excel workflow and does not itself confirm that a workbook has been correctly configured.\nPython workflows and tutorials · Tool and data overview",
+    "crumbs": [
+      "Overview",
+      "Modelling",
+      "Weather and data interfaces"
+    ]
+  },
+  {
+    "objectID": "migration.html",
+    "href": "migration.html",
+    "title": "Migrating to a new tool version",
+    "section": "",
+    "text": "Transfer an existing project by exporting its project data from the old workbook and importing that export in the new workbook. Keep the original workbook and export as an archive.\n\nMigration workflow\n\nIn the old tool, calculate and save the project state; record its tool version and variant names.\nUse klimaaktiv PEQ → Projekt-Varianten → Projekt-Datei exportieren to create a project export.\nOpen a copy of the new workbook and use klimaaktiv PEQ → Projekt-Varianten → Projekt-Datei importieren.\nSelect the project export and review the imported variants and inputs.\nRecalculate in the new tool version and compare key areas, systems and balances with the archived results.\nSave the migrated project as a new file and retain the export for traceability.\n\n\n\nDialog screenshots and compatibility details are still required. The ribbon labels above follow the training material. Confirm the current export/import dialog, supported source versions and treatment of changed input variables before documenting field-level details.\n\nAn import is not a substitute for version-specific verification. Recheck changed inputs, default values and calculation results before continuing the analysis or preparing a declaration.\nSource: Training, slides 28 and 33.",
+    "crumbs": [
+      "Overview",
+      "Tool use",
+      "Migrating to a new tool version"
+    ]
+  },
+  {
+    "objectID": "model.html",
+    "href": "model.html",
+    "title": "Modelling the district",
+    "section": "",
+    "text": "PEExcel combines a physical model with an assessment method. The system boundary, energy supply and use are defined separately from the rules used to assess results.",
+    "crumbs": [
+      "Overview",
+      "Modelling",
+      "Modelling the district"
+    ]
+  },
+  {
+    "objectID": "model.html#inputs-simulation-analysis",
+    "href": "model.html#inputs-simulation-analysis",
+    "title": "Modelling the district",
+    "section": "Inputs → simulation → analysis",
+    "text": "Inputs → simulation → analysis\n\n\n\nStep\nKey question\nStart here\n\n\n\n\nBuildings and uses\nWhich areas, envelope properties and use profiles belong to the project?\nBuilding envelope\n\n\nComponents\nWhich constructions and quantities enter the life-cycle assessment?\nComponent assignment\n\n\nSupply\nHow are heat, cooling and electricity provided?\nEnergy flows\n\n\nLocation and mobility\nWhich journeys are attributed to the project, and where does charging take place?\nMobility\n\n\nAssessment\nWhich factors, boundaries and budgets apply?\nDeclaration",
+    "crumbs": [
+      "Overview",
+      "Modelling",
+      "Modelling the district"
+    ]
+  },
+  {
+    "objectID": "model.html#what-the-simulation-combines",
+    "href": "model.html#what-the-simulation-combines",
+    "title": "Modelling the district",
+    "section": "What the simulation combines",
+    "text": "What the simulation combines\nThe tool models space heating and cooling, domestic hot water, ventilation, auxiliary energy and plug loads. PV, self-consumption, export, storage and flexibility measures change the hourly flows. A single measure can affect several result indicators.\nThermal modelling distinguishes a cooled and an uncooled, thermally decoupled zone. The schematic section shows a spatial assignment; it is not an additional thermal simulation or a geometrical compliance plan.",
+    "crumbs": [
+      "Overview",
+      "Modelling",
+      "Modelling the district"
+    ]
+  },
+  {
+    "objectID": "model.html#structuring-variants",
+    "href": "model.html#structuring-variants",
+    "title": "Modelling the district",
+    "section": "Structuring variants",
+    "text": "Structuring variants\nStart from a documented reference and vary individual parameters or packages of measures. Comparisons require consistent system boundaries, reference areas, time basis and assessment method. Record data provenance, tool version and calculation state with the results.\n\n\n\n\n\n\nNoteAssumptions and declaration requirements\n\n\n\nPlug-load and internal-gain assumptions can be varied in the model. The designated declaration values are mandatory for a klimaaktiv declaration. A freely modelled scenario does not automatically qualify as a declaration.\n\n\nTraining, slides 7–16 and 30 · Preparing data",
+    "crumbs": [
+      "Overview",
+      "Modelling",
+      "Modelling the district"
+    ]
+  },
+  {
+    "objectID": "model.html#entering-the-district",
+    "href": "model.html#entering-the-district",
+    "title": "Modelling the district",
+    "section": "Entering the district",
+    "text": "Entering the district\nExcel location: 🏙 Quartier worksheet.\n\nIn the Excel tool\n\n\n\n\n\n\n\nSection\nInputs and checks\n\n\n\n\nProject description\nProject, variant, description and status\n\n\nLocation / weather\nMunicipality and corresponding weather dataset\n\n\nDistrict\nGross floor area by use\n\n\nRoom heights and net floor area\nClear heights and net-to-gross floor area ratio\n\n\nDistrict area and density\nBuildable plot area and resulting floor-area ratio\n\n\nRefurbishment or new build\nRefurbishment share by use\n\n\n\nCheck areas and shares against project documents. Review calculated net areas, volumes and density, then configure the building envelope and building services.",
+    "crumbs": [
+      "Overview",
+      "Modelling",
+      "Modelling the district"
+    ]
+  },
+  {
+    "objectID": "model.html#operational-energy-model",
+    "href": "model.html#operational-energy-model",
+    "title": "Modelling the district",
+    "section": "Operational energy model",
+    "text": "Operational energy model\n\n\n\nOperational energy model: sources, conversion, storage and uses within the district boundary, including imports and exports. Training diagram supplied by the project owner.\n\n\nThe training material distinguishes sources, storage, sinks, uses and conversion. The balance links physical energy flows with primary-energy and GHG assessment. PV, storage and flexibility, mobility and life-cycle assessment have dedicated input pages. Manage variants at the end of the modelling workflow.",
+    "crumbs": [
+      "Overview",
+      "Modelling",
+      "Modelling the district"
+    ]
+  },
+  {
+    "objectID": "pv.html",
+    "href": "pv.html",
+    "title": "PV input",
+    "section": "",
+    "text": "Excel locations: ☀ PV and PV-Import worksheets.\nPV generation can be represented in two ways: an area-based roof scaling or a detailed hourly generation profile. Use one consistent basis and check that scaling and profile inputs are not applied twice.",
+    "crumbs": [
+      "Overview",
+      "Modelling",
+      "PV input"
+    ]
+  },
+  {
+    "objectID": "pv.html#roof-area-scaling",
+    "href": "pv.html#roof-area-scaling",
+    "title": "PV input",
+    "section": "Roof-area scaling",
+    "text": "Roof-area scaling\nSet the PV area or scaling in the PV worksheet. Review usable roof area, orientation, shading and the assumed specific yield. The annual generation and timing are derived from the tool’s profile assumptions. The detailed field labels and current worksheet view are awaiting a current screenshot.",
+    "crumbs": [
+      "Overview",
+      "Modelling",
+      "PV input"
+    ]
+  },
+  {
+    "objectID": "pv.html#hourly-profile",
+    "href": "pv.html#hourly-profile",
+    "title": "PV input",
+    "section": "Detailed hourly profile",
+    "text": "Detailed hourly profile\n\nIn the Excel tool\n\nPrepare a complete hourly PV generation series in the expected unit and time step.\nImport or paste it in the PV-Import worksheet.\nSelect the imported profile on the ☀ PV worksheet.\nCheck timestamps, units, annual energy, losses and weather-year consistency.\nRecalculate and review self-consumption, grid import and feed-in in the Excel Dashboard.\n\n\nThe exact column layout and profile-selection controls depend on the workbook version; a current screenshot is required before documenting cell-level instructions.\nPV use affects storage and flexibility. The tool permits modelling PV life-cycle impacts; the current klimaaktiv assessment method does not include them in the declaration. See life-cycle assessment.\n\nFor a declaration: apply the prescribed PV declaration inputs. Other PV profiles may be analysed as model variants.\n\nSource: Training, slides 9, 15 and 21.",
+    "crumbs": [
+      "Overview",
+      "Modelling",
+      "PV input"
+    ]
+  },
+  {
+    "objectID": "research.html",
+    "href": "research.html",
+    "title": "Research and references",
+    "section": "",
+    "text": "PEExcel is developed by the Climate-fit Buildings and Districts research group at FH Technikum Wien. The tool supports hourly modelling and the assessment of positive-energy districts, building services, mobility and life-cycle greenhouse gas emissions.",
+    "crumbs": [
+      "Overview",
+      "Documentation and references",
+      "Research and references"
+    ]
+  },
+  {
+    "objectID": "research.html#method-and-source-material",
+    "href": "research.html#method-and-source-material",
+    "title": "Research and references",
+    "section": "Method and source material",
+    "text": "Method and source material\nThe training presentation describes the workbook workflow and the PEQ assessment. The handbook and background guide provide further German-language context.\nThe example results are generated from the supplied project exports. Each chart identifies its data source; the example calculations are not a declaration review.",
+    "crumbs": [
+      "Overview",
+      "Documentation and references",
+      "Research and references"
+    ]
+  },
+  {
+    "objectID": "research.html#software-and-reproducibility",
+    "href": "research.html#software-and-reproducibility",
+    "title": "Research and references",
+    "section": "Software and reproducibility",
+    "text": "Software and reproducibility\nThe repository contains the Excel interface, the pexl Python package and executable analysis notebooks. Source, version and processing assumptions should be retained when reproducing a result.\nProject repository · Python workflows · About and contact",
+    "crumbs": [
+      "Overview",
+      "Documentation and references",
+      "Research and references"
+    ]
+  },
+  {
+    "objectID": "start.html",
+    "href": "start.html",
+    "title": "Using the tool",
+    "section": "",
+    "text": "PEExcel represents building operation, private motorised transport and life-cycle assessment in an hourly district model. The workflow follows the assessment loop: modelling → simulation → analysis. Python is not required to use the Excel tool.",
+    "crumbs": [
+      "Overview",
+      "Tool use",
+      "Using the tool"
+    ]
+  },
+  {
+    "objectID": "start.html#prepare-the-workbook",
+    "href": "start.html#prepare-the-workbook",
+    "title": "Using the tool",
+    "section": "Prepare the workbook",
+    "text": "Prepare the workbook\nSave the workbook locally and open it in Microsoft Excel / Office 365. Macros are required for variant management. Keep an unchanged copy of the original file.\n\nIn the Excel tool\nExcel location: ▶ Quick Start worksheet\n\nSet the project and geometry with the quick selections or load a saved variant.\nChoose presets, then review the project-specific detail inputs.\nRecalculate via Formulas → Calculation → Calculate Now (F9). In manual calculation mode, results are only updated after recalculation.\nReview the Results worksheet and the Excel Dashboard.\nSave the work as a clearly named variant.\n\n\n\n\n\nExcel interface: Quick Start and thematic input worksheets. The supplied screenshot shows version v1_12 dated 24 June 2026; its sample values are not project requirements.",
+    "crumbs": [
+      "Overview",
+      "Tool use",
+      "Using the tool"
+    ]
+  },
+  {
+    "objectID": "start.html#project-workflow",
+    "href": "start.html#project-workflow",
+    "title": "Using the tool",
+    "section": "Project workflow",
+    "text": "Project workflow\nExcel navigation explains worksheets, formatting and navigation paths. Modelling covers the input groups. Migration describes exporting a project from an older tool version and importing it into a newer version.\nQuality assurance for the declaration covers AUDIT, declaration values and documenting data sources.\nSource: Training, slides 3, 7–8 and 24–30.",
+    "crumbs": [
+      "Overview",
+      "Tool use",
+      "Using the tool"
+    ]
+  },
+  {
+    "objectID": "usage.html",
+    "href": "usage.html",
+    "title": "Use profiles and internal gains",
+    "section": "",
+    "text": "Use profiles affect energy demand, internal gains and hourly operation. The model allows scenario assumptions to be changed; the declaration uses its designated values.\nExcel location: 👤 Nutzungsparameter worksheet and the use-specific inputs in District.\n\nIn the Excel tool\nReview the assigned use types and areas first. Then check plug-load demand, occupancy and schedules, lighting and internal heat gains. Keep energy use and the associated heat gains consistent with the project scope.\n\nPlug loads are electricity demand; the associated portion of the electricity becomes internal heat gains according to the model assumptions. Do not add the same heat contribution again as a separate gain. Internal gains affect heating and cooling demand and may be varied for scenario analysis.\n\nFor a declaration: use the required declaration values and document project-specific evidence. Alternative schedules and gains remain useful for operational or sensitivity analysis.\n\nSource: Training, slides 8 and 11.",
+    "crumbs": [
+      "Overview",
+      "Modelling",
+      "Use profiles and internal gains"
+    ]
+  }
+]
