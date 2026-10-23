@@ -1,94 +1,70 @@
 ---
 title: "Python & Automatisierung"
+description: "Python-Tutorials für Datenimport, Automatisierung, Analyse und Visualisierung mit PEExcel."
 ---
 
-`pexl` ergänzt die Excel-Anwendung um Import und Export, Schema-Validierung,
-Ergebnisanalyse und Visualisierung. Installiere im Repository
-`python -m pip install -e ".[publication]"`. Für Excel-Formate ist die passende
-Leseengine erforderlich; `.xlsb` benötigt beispielsweise `pyxlsb`.
+Wähle ein Tutorial nach deiner Aufgabe. Jede Anleitung erklärt Voraussetzungen,
+Datenquelle und Arbeitsschritte und enthält einen Notebook-Download mit den
+gespeicherten Ergebnissen. Du kannst sie auf der Website lesen oder im geklonten
+Repository selbst ausführen.
 
-Die Excel-Anwendung berechnet die Varianten. Python liest gespeicherte Exporte, erstellt Berichte und automatisiert wiederkehrende Auswertungen. Der [Python-Szenarioexplorer](dashboard.qmd) läuft lokal; die veröffentlichten [Beispielgrafiken](examples.qmd) können direkt im Browser betrachtet werden.
+Die deutschen Tutorials sind redaktionelle Reinschriften. Die ursprünglichen
+[How-to-Arbeitsnotebooks](https://github.com/simonschaluppe/peexcel/tree/master/notebooks)
+bleiben erhalten, zum Teil auf Englisch und mit weiterführenden Versuchen.
 
-## Ausführbare Tutorials
+## Übersicht und Einstieg
 
-### Batchsimulation mit Python
+Diese Tutorials ergänzen die Excel-Anwendung um programmatische Arbeitsabläufe.
+Die Bedienung des Tools und die fachlichen Modellgrundlagen findest du unter
+[Starten](excel-overview.qmd), [Modellieren](model.qmd), [Analysieren](results.qmd)
+und [Deklarieren](projekte-nachweisen.qmd).
+[Begriffe, Parameter und Kennzahlen](glossary.qmd) erklärt die Fachbegriffe und erschließt den vollständigen OUT-Bestand.
 
-Szenarien über Excel-COM auswählen, mit der VBA-Batchsimulation berechnen und exportierte Stundenwerte prüfen und darstellen.
+## Python vorbereiten
 
-[Tutorial öffnen](batch-python.ipynb){.btn .btn-primary}
-[Notebook herunterladen](downloads/howto_batch_simulate.ipynb){.btn .btn-outline-primary}
+Im geklonten Repository einmalig installieren:
 
-
-### Bewertung verstehen und Projektvarianten vergleichen
-
-Der [Projekt-Varianten-Explorer](assessment-explained.qmd) erklärt die
-Primärenergie- und THG-Bewertung ohne technischen Begleittext. Eine gemeinsame
-Mehrfachauswahl filtert die vorhandenen Szenarien in beiden Grafiken.
-
-[Explorer öffnen](assessment-explained.qmd){.btn .btn-primary}
-[Notebook herunterladen](downloads/howto_assessment_explained.ipynb){.btn .btn-outline-primary}
-
-### Bewertung von Plus-Energie-Quartieren
-
-Das [Bewertungs-Tutorial](assessment.ipynb) zeigt den deutschen
-Arbeitsablauf mit Erklärungstexten, aufklappbarem Python-Code und direkt
-sichtbaren interaktiven Primärenergie- und THG-Diagrammen.
-
-[Tutorial öffnen](assessment.ipynb){.btn .btn-primary}
-[Notebook herunterladen](downloads/howto_assess.ipynb){.btn .btn-outline-primary}
-
-### Weitere Notebooks
-
-Die Einbettungen zeigen den Notebook-Inhalt ohne gespeicherte Ausgaben.
-Die heruntergeladenen Notebooks werden im geklonten Repository ausgeführt; dort sind auch
-die verwendeten Implementierungsfunktionen und Quelldaten verfügbar.
-
-<details><summary>Excel-Projekt importieren und analysieren</summary>
-<iframe class="notebook" src="tutorials/howto_excel.html" title="How-to: Excel und Python" loading="lazy"></iframe>
-<p><a href="downloads/howto_excel.ipynb">Notebook herunterladen</a></p>
-</details>
-
-<details><summary>Grafiken veröffentlichen und exportieren</summary>
-<iframe class="notebook" src="tutorials/howto_publication.html" title="How-to: Publikationsgrafiken" loading="lazy"></iframe>
-<p><a href="downloads/howto_publication.ipynb">Notebook herunterladen</a></p>
-</details>
-
-<details><summary>Interaktive schematische Schnitte erzeugen</summary>
-<iframe class="notebook" src="tutorials/howto_section_teaching_preview.html" title="How-to: Schematische Schnitte" loading="lazy"></iframe>
-<p><a href="downloads/howto_section_teaching_preview.ipynb">Notebook herunterladen</a></p>
-</details>
-
-<details><summary>Website und Dokumentation lokal bauen</summary>
-<iframe class="notebook" src="tutorials/howto_website.html" title="How-to: Website bauen" loading="lazy"></iframe>
-<p><a href="downloads/howto_website.ipynb">Notebook herunterladen</a></p>
-</details>
-
-[Strombilanz-Tutorial lesen](tutorials/howto_analyze_electricity_balance.html) ·
-[Gebäudeschnitte-Tutorial lesen](tutorials/howto_visualize_project.html)
-
-## Vom Export zur Grafik
-
-Das [ausführbare Publikations-How-to](https://github.com/simonschaluppe/peexcel/blob/master/notebooks/howto_publication.ipynb)
-zeigt den vollständigen Weg vom Projekt über den Bericht bis HTML, SVG und PNG.
-
-```python
-from pexl import Project, reporting
-from pexl.plot import plotly
-from pexl.plot.export import export_figure
-
-project = Project.from_excel("projektexport.xlsx")
-figure = plotly.render(reporting.materialize(project.view, "primary_energy_balance"))
-figure.show()
-# Herkunft des konkreten Projekts ausdrücklich angeben – siehe How-to.
+```bash
+python -m pip install -e ".[publication]"
 ```
 
-Weitere Einstiege:
+Die Tutorials verwenden die vorhandenen `pexl`-Funktionen. Python liest und
+analysiert gespeicherte Exporte; die Berechnung geänderter Eingaben erfolgt in
+Excel. Die Website zeigt gespeicherte Ausgaben und führt selbst keine Simulation aus.
 
-- [Excel-Import](https://github.com/simonschaluppe/peexcel/blob/master/notebooks/howto_excel.ipynb)
-- [Strombilanz](https://github.com/simonschaluppe/peexcel/blob/master/notebooks/howto_analyze_electricity_balance.ipynb)
-- [Schematische Gebäudeschnitte](https://github.com/simonschaluppe/peexcel/blob/master/notebooks/howto_visualize_project.ipynb)
-- [Export, Website-Build und methodische Grenzen](https://github.com/simonschaluppe/peexcel/blob/master/docs/development/publication.md)
+## Einstieg und Daten
 
-## Schematische Schnitte für die Lehre
+| Tutorial | Das lernst du | Voraussetzung |
+|---|---|---|
+| [Excel-Projekte bearbeiten](tutorial_excel.ipynb) | Laden, Variablen und Szenarien auswählen, Eingaben ändern und exportieren | Mitgeliefertes Entwicklungsbeispiel |
+| [Zeitreihenexporte verbinden](tutorial_zeitreihen.ipynb) | Einzeldateien zusammenführen und Stundenbestand prüfen | Mitgelieferter F7-Export; eigene Dateien optional |
+| [Baubook-Daten importieren](tutorial_baubook.ipynb) | Produkte, Kategorien und Referenzwerte abrufen | Eigener API-Zugang; keine gespeicherten API-Ergebnisse |
 
-Der Darstellungsstil `teaching` reduziert Umgebung und Dekoration. Bauteilfarben, Wärmebilanzgrenze und qualitative Wärmeflüsse lassen sich unabhängig auswählen. Die Geometrie und Darstellungsfunktionen sind im bestehenden [How-to zur Schnittdarstellung](tutorials/howto_section_teaching_preview.html) beschrieben.
+## Simulieren und analysieren
+
+| Tutorial | Das lernst du | Voraussetzung |
+|---|---|---|
+| [Batchsimulation mit Python](tutorial_batch.ipynb) | Excel-Szenarien berechnen und Exporte prüfen | Windows, Excel/VBA, pywin32; lokal auszuführen |
+| [Primärenergie und THG bewerten](tutorial_bewertung.ipynb) | Varianten vergleichen und einen Bewertungs-Explorer erzeugen | Mitgelieferter Projektexport |
+| [Elektrische Flussprofile](tutorial_stromprofile.ipynb) | Saisonale und chronologische Teilflüsse untersuchen | Mitgelieferter F7-Export |
+| [Netzbezug und PV-Einspeisung](tutorial_netzlast.ipynb) | Spitzen, Zeitmuster und Dauerlinien vergleichen | Mitgelieferter F7-Export |
+| [Sankey-Diagramme](tutorial_sankey.ipynb) | Warmwasser-, Heizungs- und Kühlungspfade lesen | Mitgeliefertes Entwicklungsbeispiel |
+
+Zum fachlichen Einstieg ohne Programmierung: [Quick-Check öffnen](assessment-explained.qmd).
+
+## Visualisieren und weitergeben
+
+| Tutorial | Das lernst du | Voraussetzung |
+|---|---|---|
+| [Gebäudeschnitte und Lehransichten](tutorial_gebaeudeschnitt.ipynb) | Schematische Geometrie und Overlays erklären | Mitgeliefertes Entwicklungsbeispiel |
+| [Grafiken exportieren](tutorial_grafikexport.ipynb) | Berichte mit Datenherkunft als HTML, optional SVG/PNG ausgeben | Für SVG/PNG zusätzlich Chrome/Kaleido |
+
+Der [lokale Szenarioexplorer](dashboard.qmd) ergänzt die Tutorials als Anwendung
+für wiederkehrende Auswertungen.
+
+## Entwicklung und Dokumentation
+
+| Tutorial | Das lernst du | Voraussetzung |
+|---|---|---|
+| [Schema prüfen](tutorial_schema.ipynb) | Bindings isoliert erzeugen und Versionsunterschiede untersuchen | Mitgelieferte Schemaexporte |
+| [Tutorials und Website pflegen](tutorial_website.ipynb) | Notebook aufnehmen, Quarto bauen, Vorschau prüfen | Quarto CLI; Build als bewusster separater Schritt |

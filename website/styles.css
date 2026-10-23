@@ -86,3 +86,35 @@ main img{max-width:100%}
 
 /* Reserve space for descriptive captions in enlarged research figures. */
 .glightbox-container .gslide-image img{max-height:65vh!important;width:auto!important;object-fit:contain}
+
+/* Schema-derived OUT catalogue: scoped controls, native disclosures and tables. */
+.schema-catalog [hidden]{display:none!important}
+.schema-catalog{margin-block:1.5rem}
+.schema-catalog .catalog-note{color:#536570;font-size:.9rem}
+.schema-catalog .catalog-controls{display:grid;grid-template-columns:2fr 1fr 1fr;gap:.8rem;padding:1rem;background:#f1f6f4;border:1px solid #cbded5;border-radius:.35rem}
+.schema-catalog label{display:block;font-weight:600;margin-bottom:.3rem}
+.schema-catalog input,.schema-catalog select{width:100%;min-width:0;padding:.5rem;border:1px solid #8c9ba2;border-radius:.25rem;background:white;color:#243746}
+.schema-catalog .catalog-actions,.schema-catalog .catalog-search-help{grid-column:1/-1;margin:0}
+.schema-catalog .catalog-actions{display:flex;gap:.5rem;flex-wrap:wrap}
+.schema-catalog button{border:1px solid #39765a;background:white;color:#24543e;padding:.35rem .7rem;border-radius:.25rem}
+.schema-catalog button:hover{background:#dfede6}
+.schema-catalog :focus-visible{outline:3px solid #c49b35;outline-offset:3px}
+.schema-catalog .catalog-search-help{font-size:.85rem}
+.schema-catalog .out-domain{margin:.6rem 0;border:1px solid #d5dfda;border-radius:.25rem}
+.schema-catalog .out-domain>summary{padding:.7rem;background:#f5f8f6;font-weight:600;cursor:pointer}
+.schema-catalog .out-domain>p{padding:.5rem .8rem;margin:0;font-size:.85rem}
+.schema-catalog .catalog-table{max-width:100%;overflow-x:auto;padding:0 .5rem}
+.schema-catalog table{width:100%;border-collapse:collapse;font-size:.88rem}
+.schema-catalog th,.schema-catalog td{padding:.6rem;vertical-align:top;border-bottom:1px solid #e2e8e4;text-align:left;overflow-wrap:anywhere}
+.schema-catalog th[scope=row]{font-weight:400;width:40%}
+.schema-catalog td:nth-child(2){width:20%}
+.schema-catalog code{white-space:normal;overflow-wrap:anywhere}
+.schema-catalog .out-meta summary{cursor:pointer;font-size:.85rem}
+.schema-catalog dl{margin:.5rem 0;font-size:.82rem}
+.schema-catalog dt{font-weight:600}
+.schema-catalog dd{margin:0 0 .45rem}
+.schema-catalog tr:target{background:#fff4ce;scroll-margin-top:6rem}
+.schema-catalog .out-domain:target{scroll-margin-top:6rem}
+@media(max-width:700px){.schema-catalog .catalog-controls{grid-template-columns:1fr}.schema-catalog table{min-width:600px}}
+
+.schema-catalog .catalog-icon{display:inline-block;margin-right:.25rem;font-size:1.1em}

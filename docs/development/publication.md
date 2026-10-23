@@ -1,5 +1,35 @@
 # Publikationsgrafiken und lokale Quarto-Website
 
+## Aktueller Tutorial-Publikationsweg (23.10.2026)
+
+Die deutschen Reinschriften liegen als gepflegte `website/tutorial_*.ipynb` vor.
+Quarto rendert diese Dateien direkt gemäß `website/_quarto.yml`, einschließlich
+vorher lokal erzeugter Ausgaben. `execute.enabled: false` verhindert eine erneute
+Ausführung beim Website-Build. Der Asset-Schritt kopiert die Tutorialdateien
+unverändert in `downloads/`; er erzeugt keine Notebook-Seitenkopien mehr.
+
+Die ursprünglichen `notebooks/howto_*` bleiben unverändert. Bestehende Downloads
+für die englischen Seiten bleiben verfügbar; alte HTML-Lesefassungsadressen
+führen zu den entsprechenden deutschen Tutorials. `prepare_assessment` bleibt
+für das bestehende Arbeitsnotebook aufrufbar, liefert jetzt aber die direkt
+gepflegte Tutorialquelle zurück. Die URLs `assessment.html` und
+`batch-python.html` werden über `output-file` im jeweiligen Notebook erhalten.
+
+Der vom Nutzer deaktivierte Pre-render-Hook bleibt deaktiviert. Für einen
+vollständigen lokalen Build zuerst `python scripts/website_assets.py`, danach
+`quarto render website` ausführen. Nach einer erneuten Notebook-Ausführung den
+Asset-Schritt wiederholen, damit die Downloads denselben Stand haben.
+`website/tutorial_website.ipynb` beschreibt diesen Ablauf ausführbar, mit bewusst
+getrenntem Build-Schalter. Die ältere Dokumentation unten ist Implementierungshistorie;
+bei Widersprüchen gilt dieser Abschnitt.
+
+Die zusätzliche redaktionelle Quelle pro Thema ist eine bewusste Nutzerentscheidung:
+Original-Arbeitsnotebooks erhalten, Website-Tutorials auf Deutsch und ohne doppelte
+Einstiege anbieten. Die Pflege betrifft Texte, API-Aufrufe und überprüfte Ausgaben;
+Berechnungen und Renderer werden wiederverwendet. Der präzisierte Umfang steht in
+[der Tutorial-Entscheidung](python_howto_quarto_proposal.md).
+
+
 ## Bestandsaufnahme und minimaler Implementierungsplan
 
 `reporting.materialize(view, chart_name)` liefert bereits Berichtsdictionaries;
@@ -183,3 +213,24 @@ Stundenexporte sind zurückgestellt; der synthetische Generator bleibt unveränd
 ## Python-Batchsimulation
 
 `notebooks/howto_batch_simulate.ipynb` ist die einzige editierbare Quelle des neuen Tutorials. Der bestehende Notebook-Seitenexport wird intern wiederverwendet und erzeugt `website/batch-python.ipynb` sowie einen Download. Das vermeidet eine zweite Code-Implementierung in einer QMD-Datei; die Simulation verwendet weiterhin `RunScenariosAutomated`. Die generierte Seite ist ignoriert, wird bei jedem Asset-Build aktualisiert und benötigt keine Migration oder neue öffentliche API. Pflege: Notebook-Inhalt und Navigation; Prüfung: Notebook-Validierung, Seitenexport und Quarto-Render. Der Website-Build führt keine Excel-Makros aus.
+
+### Abnahme der Tutorial-Reinschriften
+
+- Zwölf deutsche Tutorialquellen direkt in Quarto eingebunden; vier Themenbereiche
+  in Übersicht und Seitenleiste. Die Übersicht verlinkt zusätzlich vorhandene
+  Excel-Bedienanleitungen und kann um eigenständige Excel-Tutorials ergänzt werden.
+- Zehn Tutorials lokal von oben nach unten ausgeführt und mit Ausgaben gespeichert.
+  Beim Website-Tutorial bleibt der rekursive Build-Schalter deaktiviert; optionale
+  SVG-/PNG-Exporte sind nicht Teil dieses Ausführungslaufs.
+- Excel-COM und Baubook nicht live ausgeführt. Der Baubook-Ablauf ist zusätzlich
+  mit simulierten API-Antworten ohne Netzwerkzugriff getestet.
+- 21 Website-/Tutorialtests erfolgreich. Vollständiger deutscher Quarto-Build:
+  45 Seiten. Links, Assets und bytegleiche Notebook-Downloads aller zwölf Tutorials
+  geprüft; Downloadkopien sind vom Rendern und Suchindex ausgeschlossen.
+- Plotly-Ausgaben als eingebettetes HTML gespeichert, da reine Plotly-MIME-Ausgaben
+  in dieser statischen Quarto-Konfiguration nicht dargestellt wurden. Das erhöht
+  die Notebookgröße (eingebettete Plotly-Bibliothek), erhält aber die Diagramme
+  einschließlich JavaScript in den Downloads ohne separate Inhaltsdateien.
+- Interaktive Netzlast-Dauerlinie in der Browser-Vorschau geprüft. Alle 15
+  ursprünglichen How-to-Dateien per SHA-256 unverändert bestätigt.
+- Englisches Unterprojekt nicht neu gebaut; kein Push und kein Pages-Deployment.

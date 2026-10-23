@@ -1,28 +1,105 @@
 ---
-title: "Begriffe nachschlagen"
+title: "Begriffe, Parameter und Kennzahlen"
+description: "PEExcel-Begriffe verstehen und alle im aktiven Schema definierten IN- und OUT-Variablen durchsuchen."
 ---
 
-| Begriff | Bedeutung im Modell |
-|---|---|
-| PEQ | Plus-Energie-Quartier; Bewertung mit definierter Systemgrenze und Qualitätsstufe |
-| Variante / Szenario | Dokumentierter Satz von Annahmen und zugehörigen Ergebnissen |
-| Thermische Hülle | Grenze zwischen thermisch betrachteten Räumen und ihren Randbedingungen |
-| Thermische Zone | Im thermischen Modell zusammengefasster Bereich; hier gekühlt oder ungekühlt |
-| Nutzerstrom | Strombedarf der Nutzung; zur Deklaration gelten ausgewiesene Vorgaben |
-| Eigenverbrauch | Vor Ort erzeugte und im betrachteten System selbst genutzte Energie; als Anteil auf die Erzeugung bezogen |
-| Energie-Autonomie | Direkte und flexible lokale PV-Nutzung im Verhältnis zum elektrischen Bedarf des Modells |
-| SoC | State of Charge: Ladezustand eines Speichers, üblicherweise als Anteil seiner Kapazität |
-| C-Rate | Verhältnis von Lade-/Entladeleistung zur Kapazität; 0,5 h⁻¹ bei 20 kWh entspricht 10 kW |
-| Äquivalente Vollzyklen | Auf die Kapazität bezogener Energiedurchsatz gemäß der jeweiligen Speicherkennzahl |
-| Leistung / Energie | Leistung in kW beschreibt einen Energiefluss; Energie in kWh dessen Menge über einen Zeitraum |
-| Flexibilität | Zeitliche Verschiebung von Energieflüssen innerhalb technischer Grenzen |
-| Konversionsfaktor | Umrechnung physischer Energie in eine Bewertungsgröße |
-| Kontextfaktor | Methodischer Beitrag etwa zu Standort oder Dichte; keine physische Erzeugung |
-| LCA / graue Emissionen | Lebenszyklusbetrachtung bzw. Emissionsbeiträge der bilanzierten Konstruktionen |
-| Dekarbonisierungspfad | Zeitliche Veränderung der angesetzten Emissionsfaktoren |
-| Deklarationswert | Für die Deklaration verbindlicher Wert; abweichende Modellierung ist möglich |
-| IN / OUT | Eingabe- und Ergebnistabellen des Tools |
-| SIM2 | Stundenexportstruktur; getrennt von Jahresergebnissen behandeln |
-| AUDIT | Toolunterstützte Kontrolle von Eingaben und deklarationsrelevanten Abweichungen |
+Welche Eingaben verwendet PEExcel, welche Zahlen liefert das Tool – und wie sind sie zu lesen?
+Hier findest du die wichtigsten Begriffe sowie die **vollständigen IN- und OUT-Kataloge**
+mit Einheiten, Labels und Zuordnungen aus dem aktiven Schema.
 
-[Modellübersicht](model.qmd) · [Nachweisvorbereitung](declaration.qmd)
+[Begriffe](#begriffe) · [Input-Parameter](#parameterkatalog) · [Output-Kennzahlen](#kennzahlenkatalog)
+
+## Begriffe {#begriffe}
+
+### Flächen, Energie und Bilanzgrenzen
+
+| Begriff | Bedeutung und Bezugsgröße | Weiterführend |
+|---|---|---|
+| NGF / NFA | Nettogrundfläche; `NFA_total` bezeichnet die gesamte im Modell hinterlegte NGF. Eine spezifische Größe je m² NGF nicht mit einer BGF-bezogenen Größe vergleichen. | [Modell](model.qmd) |
+| BGF / GFA | Bruttogrundfläche; `GFA_total` bezeichnet die im Modell hinterlegte BGF. Welche Fläche gilt, steht in der jeweiligen Kennzahleneinheit. | [Modell](model.qmd) |
+| Energie / Leistung | Energie ist eine Menge, etwa kWh. Leistung ist ein Energiefluss, etwa kW. Ein Stundenwert in kWh entspricht bei genau einer Stunde der mittleren Leistung in kW, nicht der momentanen Spitze. | [Zeitliche Auflösung](results.qmd#konzeptplanung) |
+| Spezifischer Jahreswert | Beispielsweise kWh/(m² NGF·a): Jahresenergie bezogen auf die NGF. Das Schema schreibt dies häufig als `kWh/m²NGFa`. | [Ergebniskennzahlen](results.qmd#kennzahlen) |
+| Endenergie | Energie der eingesetzten Energieträger innerhalb der jeweiligen Bilanzgrenze, vor der Primärenergiebewertung. | [Jahresbilanzen](results.qmd) |
+| Primärenergie | Mit Konversionsfaktoren bewertete Energie. Kontextbeiträge gesondert beachten; kWh Endenergie und kWh Primärenergie sind nicht dieselbe Größe. | [Bewertung](research.qmd) |
+| Bedarf / Deckung | Beschreiben unterschiedliche Seiten einer Bilanz. Ihre Bedeutung hängt vom betrachteten System und dem Bericht ab. | [Ergebnisse lesen](results.qmd) |
+| Kontextfaktor | Methodischer Beitrag, etwa für Dichte, Mobilität oder Sanierung. Keine physische Energieerzeugung. | [Standard und Methodik](research.qmd) |
+
+### PV, Flexibilität und Speicher
+
+| Begriff | Bedeutung und Grenzen | Weiterführend |
+|---|---|---|
+| PV-Eigenverbrauch | Selbst genutzte PV-Energie; der Eigenverbrauchsanteil bezieht sich auf die PV-Erzeugung. Direkte und flexible Nutzung können getrennt ausgewiesen werden. | [PV](pv.qmd) |
+| Energie-Autonomie / Eigenversorgung | Lokale PV-Nutzung im Verhältnis zum modellierten elektrischen Bedarf. Nicht mit Eigenverbrauchsanteil oder Versorgungssicherheit gleichsetzen. | [Ergebniskennzahlen](results.qmd#kennzahlen) |
+| Flexibilität | Zeitliches Verschieben von Energieflüssen innerhalb der technischen und nutzungsbedingten Grenzen. | [Flexibilitätsanalyse](flexibility.qmd) |
+| Ladezustand / SoC | Gespeicherte Energiemenge beziehungsweise Anteil der verfügbaren Kapazität. Darstellung und Einheit der konkreten Variable prüfen. | [Systeme](systems.qmd) |
+| C-Rate | Verhältnis von Lade-/Entladeleistung zur Kapazität: 0,5 h⁻¹ bei 20 kWh entspricht 10 kW. | [Systeme](systems.qmd) |
+| Round-Trip-Effizienz / RTE | Verhältnis von abgegebener zu aufgenommener Energie über den betrachteten Speicherzyklus bzw. Auswertungszeitraum. Der Katalog zeigt die im Schema tatsächlich hinterlegte Einheit. | [Speicher und Flexibilität](flexibility.qmd) |
+| Äquivalente Vollzyklen | Energiedurchsatz bezogen auf die Kapazität nach der jeweiligen Kennzahlendefinition. Teilzyklen können zusammen einen Vollzyklus ergeben. | [Flexibilitätsanalyse](flexibility.qmd) |
+
+### Kosten und Klimawirkung
+
+Der Katalog enthält unter anderem Kosten für Netzbezug, flexiblen Bezug und
+Netzeinspeisung sowie eine Kostensumme. Die vorhandenen OUT-Definitionen sind
+**kein vollständiges Wirtschaftlichkeitsmodell**. Tarifannahmen, Vorzeichen,
+Bezugszeitraum und enthaltene Kostenbestandteile am konkreten Projekt prüfen.
+Fehlende Angaben im Schema werden unten ausdrücklich als solche angezeigt.
+
+| Begriff | Bedeutung und Bezugsgröße | Weiterführend |
+|---|---|---|
+| THG / GWP | Treibhausgaswirkung als CO₂-Äquivalente. Zeitraum und Flächenbezug gehören zur Kennzahl. | [Klimawirkung](climate.qmd) |
+| Betriebsemissionen / OE | Emissionen aus den bilanzierten betrieblichen Energieflüssen; abhängig von Faktoren und Dekarbonisierungspfaden. | [THG-Bilanz](results.qmd) |
+| Graue Emissionen / EE | Emissionen der bilanzierten Materialien, Konstruktionen und Anlagen. Welche Lebenszyklusbeiträge enthalten sind, folgt der Methode. | [Ökobilanz](climate.qmd) |
+| Lebenszyklus / LCA | Betrachtung über den festgelegten Lebenszykluszeitraum. Ein kumulierter Wert in kg CO₂e/m² ist nicht unmittelbar mit einem Jahreswert in kg CO₂e/(m²·a) vergleichbar. | [Methodik](research.qmd) |
+| Dekarbonisierungspfad | Zeitliche Veränderung der angesetzten Emissionsfaktoren. | [Klimawirkung](climate.qmd) |
+
+### Orientierung im Tool
+
+| Begriff | Bedeutung im PEExcel-Workflow |
+|---|---|
+| PEQ | Plus-Energie-Quartier mit definierter Systemgrenze und Qualitätsstufe. |
+| Variante / Szenario | Dokumentierter Satz von Annahmen und zugehörigen gespeicherten Ergebnissen. |
+| Thermische Hülle / Zone | Hülle: Grenze zum thermisch betrachteten Bereich. Zone: im thermischen Modell zusammengefasster Bereich. |
+| Nutzerstrom | Strombedarf aus der Nutzung; für Deklarationen gelten die ausgewiesenen Vorgaben. |
+| Deklarationswert / AUDIT | Verbindlicher Deklarationswert bzw. toolgestützte Prüfung deklarationsrelevanter Eingaben und Abweichungen. |
+| IN / OUT | Eingabe- und Ergebnistabellen. OUT enthält auch Hilfsgrößen und nicht nur fachlich eigenständige KPIs. |
+| SIM2 | Stundenexport; separat von den OUT-Ergebnissen betrachten. Die Kataloge zeigen keine SIM-Zeitreihenkanäle. |
+
+[Excel-Blätter finden](excel-navigation.qmd) · [Nachweis vorbereiten](declaration.qmd)
+
+## Input-Parameter {#parameterkatalog}
+
+Der IN-Katalog zeigt alle im aktiven Schema definierten Eingabevariablen. Öffne eine
+Domäne oder suche nach einem Begriff oder Variablennamen. Domäne und Entity Group
+grenzen die Treffer weiter ein. Die Filter beider Kataloge arbeiten unabhängig voneinander.
+
+Deutsche Labels, Einheiten, **Emojis aus dem Feld `icon`** und Metadaten werden
+unverändert aus dem Schema übernommen. Die Emojis stehen neben den Bezeichnungen
+und helfen bei der Zuordnung; fehlende Icons werden nicht ergänzt. Das gilt auch
+für den OUT-Katalog. Deutsche Domänenüberschriften dienen der Orientierung;
+der Originalschlüssel bleibt sichtbar.
+
+Unter „Metadaten anzeigen“ stehen Größentyp (`measure`), Entity Group, Entity Key,
+räumlicher und zeitlicher Bezug sowie die zusätzliche Beschreibung, soweit hinterlegt.
+Der Katalog enthält Definitionen, keine aktuellen Eingabewerte, Standardwerte oder
+Prüfung auf zulässige Werte. Über den Variablenlink lässt sich jeder Eintrag direkt teilen.
+
+{{< include assets/in-catalog.qmd >}}
+
+## Output-Kennzahlen {#kennzahlenkatalog}
+
+Öffne eine Domäne oder suche über alle Variablen. Die **deutschen Labels,
+Einheiten und Metadaten werden unverändert aus dem aktiven Python-Schema
+übernommen**; die Domänenüberschriften ergänzen deutsche Orientierungstitel.
+Ein Schemaeintrag belegt, dass die Variable definiert ist – nicht, dass sie in
+jeder Exportdatei vorhanden, ausgefüllt oder für jedes Szenario aussagekräftig ist.
+
+Unter „Metadaten anzeigen“ findest du Größentyp (`measure`), Entity Group,
+Entity Key, räumlichen und zeitlichen Bezug sowie die zusätzliche Beschreibung,
+sofern im Schema hinterlegt. Die Versionsangabe hilft beim Abgleich mit deinem
+Excel-Export. Über den Kennzahlenlink kannst du einen einzelnen Eintrag teilen.
+
+{{< include assets/out-catalog.qmd >}}
+
+```{=html}
+<script src="output-catalog.js"></script>
+```

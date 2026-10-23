@@ -100,4 +100,4 @@ Jänner- und Juliwoche sind direkt anwählbare Zeitfenster. Zoom, Zeitbereichsau
 
 Die interaktive Ansicht ist über den separaten Link unten verfügbar.
 
-[Stundenverlauf separat öffnen](assets/results/f7_hourly.html) · [Kanalbestand als CSV](assets/results/channels-Aspern%20PVCheck%20_%20F7.csv) · [Ausführbarer Auswertungsworkflow](tutorials/howto_analyze_electricity_balance.html)
+[Stundenverlauf separat öffnen](assets/results/f7_hourly.html) · [Kanalbestand als CSV](assets/results/channels-Aspern%20PVCheck%20_%20F7.csv) · [Ausführbarer Auswertungsworkflow](tutorial_stromprofile.ipynb)

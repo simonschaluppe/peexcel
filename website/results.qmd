@@ -22,6 +22,8 @@ Hier stehen die Tabellen und Diagramme der aktuell berechneten Variante. Die Sch
 
 ## Vorhandene Kennzahlen {#kennzahlen}
 
+[Alle OUT-Variablen durchsuchen](glossary.qmd#kennzahlenkatalog): Einheiten, Labels und Zuordnungen aus dem aktiven Schema – einschließlich Kosten, Flexibilität und Speicher.
+
 Die Jahresauswertung ergänzt die stündlichen Diagramme. Kennzahl, Bezugsfläche und Bilanzgrenze müssen beim Vergleich gleich bleiben.
 
 | Bereich | Kennzahlen | Interpretation |

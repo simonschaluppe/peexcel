@@ -21,4 +21,4 @@ Quelle: [Schulung, Folie 33: Simulieren (Batch)](downloads/schulung.pdf#page=33)
 
 ## Mit Python automatisieren
 
-[Batchsimulation mit Python](batch-python.ipynb) zeigt den vollständigen Ablauf von der Szenarienauswahl über `RunScenariosAutomated` bis zur Prüfung und Visualisierung der Zeitreihenexporte.
+[Batchsimulation mit Python](tutorial_batch.ipynb) zeigt den vollständigen Ablauf von der Szenarienauswahl über `RunScenariosAutomated` bis zur Prüfung und Visualisierung der Zeitreihenexporte.

@@ -3,14 +3,16 @@ project:
   output-dir: _site
   render:
     - "*.qmd"
-    - "assessment.ipynb"
-    - "batch-python.ipynb"
+    - "tutorial_*.ipynb"
+    - "!downloads/**"
+    - "!assets/**"
     - "!en/**"
-  pre-render:
-    - python ../scripts/website_assets.py
+  # pre-render:
+  # - python ../scripts/website_assets.py
   # post-render:
   #   - python ../scripts/render_english_site.py
   resources:
+    - output-catalog.js
     - illustrations/**
     - assets/**
     - media/**
@@ -28,7 +30,8 @@ website:
       - {href: model.qmd, text: Modellieren}
       - {href: results.qmd, text: Analysieren}
       - {href: projekte-nachweisen.qmd, text: Deklarieren}
-      - {href: research.qmd, text: Dokumentation}
+      - {href: glossary.qmd, text: Nachschlagen}
+      - {href: python.qmd, text: Python}
       - {href: assessment-explained.qmd, text: Quick-Check}
     right:
       - {href: download.qmd, text: Download, icon: download}
@@ -61,10 +64,22 @@ website:
           - assessment-explained.qmd
       - section: Deklarieren
         contents: [projekte-nachweisen.qmd, checklist.qmd,  declaration.qmd]
+      - {href: glossary.qmd, text: "Begriffe, Parameter und Kennzahlen"}
       - section: "Python & Automatisierung"
-        contents: [python.qmd, batch-python.ipynb, dashboard.qmd, assessment.ipynb]
-      - section: Dokumentation und Referenzen
-        contents: [glossary.qmd, research.qmd, about.qmd]
+        contents:
+          - {href: python.qmd, text: "Übersicht und Einstieg"}
+          - section: "Einstieg und Daten"
+            contents: [tutorial_excel.ipynb, tutorial_zeitreihen.ipynb, tutorial_baubook.ipynb]
+          - section: "Simulieren und analysieren"
+            contents: [tutorial_batch.ipynb, tutorial_bewertung.ipynb, tutorial_stromprofile.ipynb, tutorial_netzlast.ipynb, tutorial_sankey.ipynb]
+          - section: "Visualisieren und weitergeben"
+            contents: [tutorial_gebaeudeschnitt.ipynb, tutorial_grafikexport.ipynb, dashboard.qmd]
+          - section: "Entwicklung und Dokumentation"
+            contents: [tutorial_schema.ipynb, tutorial_website.ipynb]
+      - section: "Über das Projekt"
+        contents:
+          - research.qmd
+          - {href: about.qmd, text: "Projekt, Kontakt und Nutzung"}
   page-footer:
     left: "PEExcel · FH Technikum Wien · klimaaktiv Plus-Energie-Quartiere"
     right:

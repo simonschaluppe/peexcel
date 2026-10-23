@@ -67,20 +67,17 @@ def test_build_publishes_only_clean_notebook_copies(tmp_path):
         assert (tmp_path / "media/manual" / f"{name}.png").read_bytes() == (ROOT / "docs/website" / f"{name}.png").read_bytes()
 
 
-def test_assessment_page_keeps_outputs_without_modifying_source(tmp_path):
-    source = ROOT / "notebooks/howto_assess.ipynb"
+def test_assessment_compatibility_helper_returns_direct_tutorial(tmp_path):
+    source = ROOT / "website/tutorial_bewertung.ipynb"
     before = source.read_bytes()
-    original = nbformat.read(source, as_version=4)
-    page = nbformat.read(prepare_assessment(tmp_path), as_version=4)
+    assert prepare_assessment(tmp_path) == source
+    page = nbformat.read(source, as_version=4)
     assert source.read_bytes() == before
     assert page.cells[0].cell_type == "raw"
     assert "enabled: false" in page.cells[0].source
-    assert page.cells[3:] == original.cells[1:]
     assert any(c.get("outputs") for c in page.cells if c.cell_type == "code")
-    download = nbformat.read(tmp_path / "downloads/howto_assess.ipynb", as_version=4)
-    assert [c.source for c in download.cells] == [c.source for c in original.cells]
-    assert all(not c.outputs and c.execution_count is None
-               for c in download.cells if c.cell_type == "code")
+    assert (tmp_path / "downloads" / source.name).read_bytes() == before
+    assert not (tmp_path / "assessment.ipynb").exists()
 
 
 def test_explorer_uses_explicit_project_export(tmp_path):

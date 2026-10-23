@@ -7,8 +7,8 @@ page-layout: full
 Das Bewertungssystem anhand der Primärenergie- und Treibhausgasbilanz vorhandener Quartiersvarianten kennenlernen. Wähle Varianten aus und vergleiche ihre Beiträge in beiden Diagrammen. Der Explorer zeigt gespeicherte Ergebnisse; eigene Projekte werden im Excel-Tool modelliert und berechnet.
 
 [Explorer in voller Breite öffnen](assets/assessment-explained/index.html){.btn .btn-primary target="_blank"}
-[Notebook herunterladen](downloads/howto_assessment_explained.ipynb){.btn .btn-outline-primary}
-[Technisches Bewertungs-Tutorial](assessment.ipynb){.btn .btn-outline-primary}
+[Notebook herunterladen](downloads/tutorial_bewertung.ipynb){.btn .btn-outline-primary}
+[Technisches Bewertungs-Tutorial](tutorial_bewertung.ipynb){.btn .btn-outline-primary}
 
 <iframe src="assets/assessment-explained/index.html"
         title="Bewertungssystem und Projekt-Varianten-Explorer"

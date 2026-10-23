@@ -83,3 +83,6 @@ website/assessment.ipynb
 **/*.quarto_ipynb
 
 website/batch-python.ipynb
+
+# Temporary HTML files produced while Quarto renders the English subproject
+website/en/*.html
