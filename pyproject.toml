@@ -12,6 +12,10 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+batch = [
+  "pywin32; sys_platform == 'win32'",
+  "openpyxl",
+]
 publication = [
   "matplotlib",
   "plotly>=6.1.1,<7",

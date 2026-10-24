@@ -1,5 +1,15 @@
 # Publikationsgrafiken und lokale Quarto-Website
 
+## Batch-API (24.10.2026)
+
+Das Batch-How-to und die Quarto-Reinschrift verwenden jetzt `pexl.batch.run_batch`.
+Python liest IN/STAGE und OUT/Live nach jedem einzelnen VBA-Aufruf und sichert
+die Daten mit dem bestehenden Project-Excel-Writer. SCEN oder externe CSV-/Excel-
+Listen werden unterstützt, einschließlich Resume und optionaler SIM-CSV-Ausgabe.
+VBA erhält nur `reloadBase`, keinen Exportpfad. Details und Abnahmegrenzen stehen
+in [der Batch-API-Dokumentation](batch_api.md). Die älteren Batch-Beschreibungen
+weiter unten dokumentieren den abgelösten Workflow.
+
 ## Aktueller Tutorial-Publikationsweg (23.10.2026)
 
 Die deutschen Reinschriften liegen als gepflegte `website/tutorial_*.ipynb` vor.

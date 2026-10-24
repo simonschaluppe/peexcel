@@ -12,6 +12,31 @@ Die **[Anwenderwebsite](website/index.qmd)** enthält Einstieg, Downloads, Metho
 
 ## Python und lokaler Website-Build
 
+### Batchsimulation mit Excel oder CSV
+
+`pexl.batch.run_batch` berechnet Szenarien aus SCEN oder einer externen Liste und
+sichert Jahresergebnisse als normale `Project`-Dateien. Windows/Excel und eine
+Arbeitsmappe mit `RunScenariosAutomated(reloadBase)` sind erforderlich.
+Installation: `python -m pip install -e ".[batch]"`.
+
+```python
+from pexl.batch import run_batch
+
+result = run_batch(
+    workbook="ka_PEQ_Nachweistool_DEV_archetypes.xlsb",
+    scenarios="archetypes.csv",  # optional: sonst vorhandene SCEN-Tabelle
+    scenario_filter={"Base Scenario": "Default"},
+    batch_size=25,
+    output_dir="results/archetypes",
+    resume=True,
+)
+```
+
+Vollständiger Ablauf: [Batch-How-to](notebooks/howto_batch_simulate.ipynb).
+[API-Vertrag, Resume und Grenzen](docs/development/batch_api.md).
+
+### Website lokal bauen
+
 Im geklonten Repository:
 
 ```bash
