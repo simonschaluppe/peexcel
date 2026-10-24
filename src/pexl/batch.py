@@ -100,22 +100,80 @@ def run_batch(
     output_dir: str | Path = "results/batch",
     resume: bool = False,
 ) -> BatchResult:
-    """Run selected SCEN rows one at a time and capture results immediately.
+    """Run selected PEExcel scenarios sequentially and capture their results.
 
-    ``scenarios`` optionally supplies a CSV, Excel sheet or DataFrame with SCEN
-    headers. Its configuration temporarily replaces SCEN and is restored on exit.
-    ``scenario_filter`` applies exact equality to columns, preserving row order.
+    Each scenario is selected alone, passed to ``RunScenariosAutomated`` and
+    captured before the next scenario runs. Annual results use the existing
+    Project Excel format. Optional SIM time series are written as CSV files.
 
-    ``batch_size`` is the maximum number of scenarios per annual output file,
-    not the number selected in Excel. ``first_only`` reloads at session start
-    and whenever Base Scenario changes; use it only for complete independent
-    preset definitions. ``always`` prevents input carry-over and is the default.
+    Parameters
+    ----------
+    workbook : str or Path
+        PEExcel workbook to use. Requires Windows, Excel and the
+        ``peexcel[batch]`` extra.
+    scenarios : str, Path, DataFrame or None, default None
+        Optional scenario definitions from a CSV, Excel file or DataFrame.
+        Definitions temporarily replace the workbook's SCEN table and are
+        restored when the session ends. Required columns are ``Scenario Name``
+        and ``Base Scenario``; other columns must match SCEN headers. If None,
+        use the existing SCEN table.
+    scenario_filter : Mapping[str, object] or None, default None
+        Select rows whose values exactly match every supplied column/value pair.
+        Scenario order is preserved. With no filter, run all definitions.
+    batch_size : int, default 25
+        Maximum scenarios per annual Project export file; this does not control
+        how many scenarios are selected or run in Excel at once.
+    base_reload : {"always", "first_only"}, default "always"
+        Controls the ``reloadBase`` Boolean passed to VBA.
 
-    Resume verifies workbook/configuration/schema/options and hashes of all
-    committed files. It re-runs any interrupted, uncommitted chunk. Do not edit
-    the workbook, definitions or result directory concurrently. The first error
-    stops execution, returning ``status='failed'``; earlier successes are saved.
-    Setup/export errors and KeyboardInterrupt propagate. No workbook is saved.
+        ``"always"`` reloads the base before every scenario, preventing inputs
+        from carrying over between runs.
+
+        ``"first_only"`` reloads before the first pending scenario and whenever
+        ``Base Scenario`` changes. After resuming, the first pending scenario
+        also reloads its base. Use this only when presets fully define independent
+        scenarios; omitted inputs may otherwise carry over from the previous run.
+
+        Any other value raises ``ValueError``.
+    export_annual : bool, default True
+        Write annual IN and OUT results as Project Excel files.
+    export_timeseries : bool, default False
+        Capture the SIM table and write one CSV per scenario.
+    output_dir : str or Path, default "results/batch"
+        Directory for result files, the resume manifest and the exclusive run lock.
+    resume : bool, default False
+        Resume from verified annual chunks in ``batch.json``. Workbook contents,
+        selected definitions, schema, options and recorded file hashes must match.
+        Resume requires ``export_annual=True``.
+
+    Returns
+    -------
+    BatchResult
+        ``completed`` lists newly completed and resumed scenarios;
+        ``skipped`` lists scenarios loaded from earlier verified chunks;
+        ``failed`` maps the first failed scenario to its error;
+        ``exported_files`` lists result files; and ``status`` is ``"completed"``
+        or ``"failed"``.
+
+    Raises
+    ------
+    ValueError
+        If options, scenario definitions, filters or resume state are invalid.
+    FileExistsError
+        If the output directory already contains batch results without resume,
+        or another run holds its lock.
+    KeyboardInterrupt
+        Propagated after any fully captured scenarios are saved when possible.
+    Exception
+        Setup and export errors propagate. A VBA or result-capture error stops
+        the run and is reported in ``BatchResult.failed``.
+
+    Notes
+    -----
+    The workbook is not saved. Excel runs synchronously, and the workbook,
+    definitions and output directory must not be edited concurrently. A hard
+    process interruption may leave a stale ``.batch.lock``; remove it only after
+    confirming Excel is no longer running the batch.
     """
     if isinstance(batch_size, bool) or not isinstance(batch_size, int) or not 1 <= batch_size <= 1000:
         raise ValueError("batch_size must be an integer from 1 to 1000")
