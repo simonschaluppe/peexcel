@@ -27,6 +27,22 @@ from ._project_tables import (
     scenario_columns,
 )
 
+def _excel_safe_datetimes(df: pd.DataFrame) -> pd.DataFrame:
+    """Remove timezone information before Excel export."""
+    df = df.copy()
+
+    for col in df.columns:
+        if isinstance(df[col].dtype, pd.DatetimeTZDtype):
+            df[col] = df[col].dt.tz_localize(None)
+
+        elif df[col].dtype == "object":
+            df[col] = df[col].map(
+                lambda v: v.replace(tzinfo=None)
+                if isinstance(v, datetime) and v.tzinfo is not None
+                else v
+            )
+
+    return df
 
 def read_project(
     file_path: str | Path,
@@ -192,6 +208,11 @@ def write_project_excel(
         )
         if include_out else None
     )
+
+    df_in = _excel_safe_datetimes(df_in)
+
+    if df_out is not None:
+        df_out = _excel_safe_datetimes(df_out)
 
     with pd.ExcelWriter(path, engine="openpyxl") as writer:
         df_in.to_excel(writer, sheet_name="IN", index=False)

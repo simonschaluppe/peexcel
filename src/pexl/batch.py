@@ -298,8 +298,7 @@ def _run(workbook, scenarios, filters, batch_size, base_reload, annual, timeseri
         # iloc positions remain the actual SCEN row positions, even after filtering.
         positions = {name: i for i, name in enumerate(definitions["Scenario Name"])}
         try:
-            for _, row in pending.iterrows():
-                name, base = row["Scenario Name"], row["Base Scenario"]
+            for name, base in zip(pending["Scenario Name"], pending["Base Scenario"]):
                 one = Project()
                 try:
                     excel.run_scenario(positions[name], base_reload == "always" or last_base != base)
