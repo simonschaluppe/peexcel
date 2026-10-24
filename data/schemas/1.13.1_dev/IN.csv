@@ -242,22 +242,22 @@
 👤;usage;aux_el_demand;;;usage;retailother;aux_el_demand_retailother_kWhm2;2;Allgemeinstrom Handel sonstiger;kWh/m²NGFa;Input fehlt;👤!G14
 👤;usage;aux_el_demand;;;usage;other;aux_el_demand_other_kWhm2;2;Allgemeinstrom Sonstige Nutzung;kWh/m²NGFa;Input fehlt;👤!G15
 🔧;usage;preset;;;;;preset_recorded_plugloads;5;Vorauswahl Nutzerstrom;;;
-👤;usage;plugload_scale;;;usage;residential;Plugloads_scale_residential;0;Nutzerstrom-Profilskalierung Wohnen;ratio;;N778/O778
-👤;usage;plugload_scale;;;usage;office;Plugloads_scale_office;0;Nutzerstrom-Profilskalierung  Büro;ratio;;N779/O779
-👤;usage;plugload_scale;;;usage;schoolsec;Plugloads_scale_schoolsec;0;Nutzerstrom-Profilskalierung  Bildung sekundär;ratio;;N780/O780
-👤;usage;plugload_scale;;;usage;schoolprim;Plugloads_scale_schoolprim;0;Nutzerstrom-Profilskalierung  Bildung primär;ratio;;N781/O781
-👤;usage;plugload_scale;;;usage;retailfood;Plugloads_scale_retailfood;0;Nutzerstrom-Profilskalierung  Handel Lebensmittel;ratio;;N782/O782
-👤;usage;plugload_scale;;;usage;retailother;Plugloads_scale_retailother;0;Nutzerstrom-Profilskalierung  Handel sonstiger;ratio;;N783/O783
-👤;usage;plugload_scale;;;usage;other;Plugloads_scale_other;0;Nutzerstrom-Profilskalierung  Sonstige Nutzung;ratio;;N784/O784
+👤;usage;plugload_scale;;;usage;residential;Plugloads_scale_residential;0;Nutzerstrom-Profilskalierung Wohnen;ratio;;N789/O789
+👤;usage;plugload_scale;;;usage;office;Plugloads_scale_office;0;Nutzerstrom-Profilskalierung  Büro;ratio;;N790/O790
+👤;usage;plugload_scale;;;usage;schoolsec;Plugloads_scale_schoolsec;0;Nutzerstrom-Profilskalierung  Bildung sekundär;ratio;;N791/O791
+👤;usage;plugload_scale;;;usage;schoolprim;Plugloads_scale_schoolprim;0;Nutzerstrom-Profilskalierung  Bildung primär;ratio;;N792/O792
+👤;usage;plugload_scale;;;usage;retailfood;Plugloads_scale_retailfood;0;Nutzerstrom-Profilskalierung  Handel Lebensmittel;ratio;;N793/O793
+👤;usage;plugload_scale;;;usage;retailother;Plugloads_scale_retailother;0;Nutzerstrom-Profilskalierung  Handel sonstiger;ratio;;N794/O794
+👤;usage;plugload_scale;;;usage;other;Plugloads_scale_other;0;Nutzerstrom-Profilskalierung  Sonstige Nutzung;ratio;;N795/O795
 🚗;usage;occupancy;;;usage;residential;density_NFApPers_residential;1;Belegungsdichte Wohnen;m²NF/Pers;;
 🚗;usage;occupancy;;;usage;office;density_NFApPers_office;1;Belegungsdichte Büro;m²NF/Pers;;
 🚗;usage;occupancy;;;usage;schoolsec;density_NFApPers_schoolsec;1;Belegungsdichte Ausbildung Sekundär;m²NF/Pers;;
 🚗;usage;occupancy;;;usage;retailfood;density_NFApPers_retail;1;Belegungsdichte Handel Supermarkt;m²NF/Pers;;
 🚗;usage;occupancy;;;usage;schoolprim;density_NFApPers_schoolprim;1;Belegungsdichte Ausbildung Primär;m²NF/Pers;;
 🚗;usage;occupancy;;;usage;retailother;density_NFApPers_retail_other;1;Belegungsdichte Handel Sonstige;m²NF/Pers;;
-🚗;usage;concurrency_mobility;;;mobility;education;mob_simultaneity_edu;2;Gleichzeitigkeitsfaktorsfaktor Ausbildung;;1 statistische Nutzer ist x realer Nutzer zwecks Wege, die ins Quartier führen);🚗!D74
-🚗;usage;concurrency_mobility;;;mobility;retail;mob_simultaneity_retail;2;Gleichzeitigkeitsfaktorsfaktor Einkaufen;;wieviele Verkaufsflchen werden von mehreren Nutzern aufgesucht?;🚗!D75
-🚗;usage;concurrency_mobility;;;mobility;work;mob_simultaneity_office;1;Gleichzetigkeitsfaktor Arbeit;;;
+🚗;usage;concurrency_mobility;;;mobility;education;mob_simultaneity_edu;1;Gleichzeitigkeitsfaktorsfaktor Ausbildung;;1 statistische Nutzer ist x realer Nutzer zwecks Wege, die ins Quartier führen);🚗!D74
+🚗;usage;concurrency_mobility;;;mobility;retail;mob_simultaneity_retail;1;Gleichzeitigkeitsfaktorsfaktor Einkaufen;;wieviele Verkaufsflchen werden von mehreren Nutzern aufgesucht?;🚗!D75
+🚗;usage;concurrency_mobility;;;mobility;work;mob_simultaneity_office;1;Gleichzetigkeitsfaktor Arbeit;;;🚗!D76
 🚗;usage;;;;mobility;education;mob_motorization_perNFA_residential;1;Autos pro Nutzung Wohnen;1/100m²;just for battery size, not mileage;
 🚗;usage;;;;mobility;retail;mob_motorization_perNFA_work;1;Autos pro Nutzung Arbeit;1/100m²;just for battery size, not mileage;
 🚗;usage;;;;mobility;work;mob_motorization_perNFA_retail;2;Autos pro Nutzung Einkaufen;1/100m²;just for battery size, not mileage;🚗!D33
@@ -267,15 +267,15 @@
 💡;usage;lighting_power_max;;;usage;office;Plight_min_office;2;Beleuchtung minimal Büro;W/m²;;👤!F23
 💡;usage;lighting_power_max;;;usage;schoolsec;Plight_min_schoolsec;2;Beleuchtung minimal Ausbildung Sekundär;W/m²;;👤!F24
 💡;usage;lighting_power_max;;;usage;schoolprim;Plight_min_schoolprim;2;Beleuchtung minimal Ausbildung Primär;W/m²;;👤!F25
-💡;usage;lighting_scale;;;usage;office;lighting_factor_office;1;Beleuchtung Skalierung Büro;ratio;;
-💡;usage;lighting_scale;;;usage;schoolsec;lighting_factor_schoolsec;1;Beleuchtung Skalierung Ausbildung Sekundär;ratio;;
-💡;usage;lighting_scale;;;usage;schoolprim;lighting_factor_schoolprim;1;Beleuchtung Skalierung Ausbildung Primär;ratio;;
-💡;usage;lighting_scale;;;usage;retailfood;lighting_factor_retailfood;1;Beleuchtung Skalierung Handel Food;ratio;;
-💡;usage;lighting_scale;;;usage;retailother;lighting_factor_retailother;1;Beleuchtung Skalierung handel Non-Food;ratio;;
-💡;usage;lighting_scale;;;usage;other;lighting_factor_other;1;Beleuchtung Skalierung Sonstige Nutzung;ratio;;
-💡;usage;daylight_coefficient;;;usage;office;Daylightcoefficient_office;1;Tageslichtkoeffizient Büro;-;;👤!E23
-💡;usage;daylight_coefficient;;;usage;schoolsec;Daylightcoefficient_schoolsec;1;Tageslichtkoeffizient Ausbildung Sekundär;-;;👤!E24
-💡;usage;daylight_coefficient;;;usage;schoolprim;Daylightcoefficient_schoolprim;1;Tageslichtkoeffizient Ausbildung Primär;-;;👤!E25
+💡;usage;lighting_scale;;;usage;office;lighting_factor_office;1;Beleuchtung Skalierung Büro;ratio;;👤!J23
+💡;usage;lighting_scale;;;usage;schoolsec;lighting_factor_schoolsec;1;Beleuchtung Skalierung Ausbildung Sekundär;ratio;;👤!J24
+💡;usage;lighting_scale;;;usage;schoolprim;lighting_factor_schoolprim;1;Beleuchtung Skalierung Ausbildung Primär;ratio;;👤!J25
+💡;usage;lighting_scale;;;usage;retailfood;lighting_factor_retailfood;1;Beleuchtung Skalierung Handel Food;ratio;;👤!J26
+💡;usage;lighting_scale;;;usage;retailother;lighting_factor_retailother;1;Beleuchtung Skalierung handel Non-Food;ratio;;👤!J27
+💡;usage;lighting_scale;;;usage;other;lighting_factor_other;1;Beleuchtung Skalierung Sonstige Nutzung;ratio;;👤!J28
+💡;usage;daylight_coefficient;;;usage;office;Daylightcoefficient_office;1;Tageslichtkoeffizient Büro;-;;
+💡;usage;daylight_coefficient;;;usage;schoolsec;Daylightcoefficient_schoolsec;1;Tageslichtkoeffizient Ausbildung Sekundär;-;;
+💡;usage;daylight_coefficient;;;usage;schoolprim;Daylightcoefficient_schoolprim;1;Tageslichtkoeffizient Ausbildung Primär;-;;
 💡;usage;daylight_control_share;;;usage;office;daylightcontr_office;2;Anteil Tageslichtgesteuert Büro;ratio;;👤!E23
 💡;usage;daylight_control_share;;;usage;schoolsec;daylightcontr_schoolsec;2;Anteil Tageslichtgesteuert Ausbildung Sekundär;ratio;;👤!E24
 💡;usage;daylight_control_share;;;usage;schoolprim;daylightcontr_schoolprim;2;Anteil Tageslichtgesteuert Ausbildung Primär;ratio;;👤!E25
@@ -416,14 +416,20 @@
 💧;dhw;generation_power;;;;;DHW_thermal_power_pPerson;1;Warmwasser Ladeleistung Thermisch;W/Pers;;
 💧;dhw;generation_power;;;;;DHW_thermal_power_Wpl;0;Warmwasser Ladeleistung Thermisch pro Speicher;W/l;;DHW_thermal_power_pPerson/DHW_storage_liter_pPerson
 💧;dhw;ambient_temperature;;;;;DHW_storage_env_temp_default;1;Warmwasser Speicher Umgebungstemperatur;°C;;💧WW!D47
-🌞;PV;is_used;;;;;PV_is_used;2;PV Nutzung;bool;;
-🌞;PV;name;;;;;PV_profile_name;2;PV Profil Name;text;;🌞PV!D8
-🌞;PV;index;;;;;PV_id;0;PV Profil ID;int;;"VERGLEICH(PV_profile_name;pv_profile_names;0)"
-🌞;PV;pv_scale;;;;;PV_scale;2;PV Skalierungsfaktor Profil;ratio;;🌞PV!D17
-🌞;PV;efficiency;;;;;PV_efficiency;1;PV Gesamteffizienz;;;🌞PV!D12
-🌞;PV;area;;;;;PV_m2_per_kWp;2;Spezifische PV Fläche;m²/kWp;;🌞PV!D11
-🌞;PV;installed_power;;;;;PV_kWp;0;PV Installierte Leistung;kWp;;🌞PV!D14
-🌞;PV;area;;;;;PV_module_area;0;PV-Modulfläche;m²;;PV_roof_area_m2
+🔧;pv;preset;;;;;preset_recorded_PV_system;5;Vorauswahl PV im Quartier;;;
+🌞;pv;is_used;;;;;PV_is_used;2;PV Nutzung;bool;;
+🌞;pv;mode;;;;;PV_mode;2;PV Modus;;;🌞PV!D5
+🌞;pv;name;;;;;PV_simplified_name;2;PV Profil Name (vereinfacht);text;;🌞PV!D12
+🌞;pv;pv_roof_share;;;;;PV_roof_share;;PV-Anteil Dachfläche;ratio;;
+🌞;pv;area;;;;;PV_m2_per_kWp;1;Spezifische PV Fläche;m²/kWp;;
+🌞;pv;installed_power;;;;;PV_kWp;0;PV Installierte Leistung;kWp;;PV_module_area/PV_m2_per_kWp
+🌞;pv;area;;;;;PV_module_area;0;PV-Modulfläche;m²;;hull_roof_m2*PV_roof_share
+🌞;pv;pv_scale;;;;;PV_scale_simple;;PV Skalierung Vereinfacht;ratio;;
+🌞;pv;name;;;;;PV_profile_name;2;PV Profil Name (importiert);text;;🌞PV!D20
+🌞;pv;pv_scale;;;;;PV_scale;2;PV Skalierung detailliert (importiertes Ertragsprofil);ratio;;🌞PV!D21
+🌞;pv;index;;;;;PV_id;0;PV Profil ID;int;;"VERGLEICH(WENN(PV_mode=""Vereinfacht"";PV_simplified_name;PV_profile_name);pv_profile_names;0)"
+🌞;pv;pv_scale;;;;;PV_scale_sim;0;PV Skalierung Simulation;ratio;;"WENN(PV_mode=""Vereinfacht"";N483;PV_scale)"
+🌞;pv;efficiency;;;;;PV_efficiency;1;PV Gesamteffizienz;;;🌞PV!D28
 🔧;flexibility;preset;;;;;preset_recorded_flexibility_system;5;Vorauswahl Flexibilität im Quartier;;;
 🔋;flexibility;flexible_PV_use;;;;;FLEX_PV_is_used;2;Flex PV Nutzung;bool;;
 🔋;flexibility;flexible_grid_use;;;;;FLEX_is_used;2;Flex Signal Nutzung;bool;;
@@ -435,15 +441,15 @@
 🔋;flexibility;EV_min_use;;;;;FLEX_is_used_for_ev_min;1;Flex Netzbezug deckt EV Minimum;bool;muss jetzt nicht mehr automatisch Wahr sein;
 🔧;flexibility;preset;;;;;preset_recorded_flexibility_thermal;5;Vorauswahl BTA Flexibilität im Quartier;;;
 ♨️;flexibility;max_temperature_increase;;;;;flex_heat_dT;2;Flexibles Heizen über Solltemperatur;K;;🔋!D25
-♨️;flexibility;maximum_setpoint_temperature;;winter;;;Tsetheat_flex;0;Flexibles Heizen Maximale Raumtemperatur;°C;;Tsetheat_min+N492
+♨️;flexibility;maximum_setpoint_temperature;;winter;;;Tsetheat_flex;0;Flexibles Heizen Maximale Raumtemperatur;°C;;Tsetheat_min+N503
 ♨️;flexibility;heating_system_selection;;;;;FLEX_choice_heat_system;2;Flexibles Heizsystem;text;;🔋!D26
-♨️;flexibility;is_flexible;;;heating;system_1;FLEX_heat1_use;0;Flexibles Heizen mit Heizsystem 1;bool;;"WENN(N494=""System 1"";WAHR;FALSCH)"
-♨️;flexibility;is_flexible;;;heating;system_3;FLEX_heat3_use;0;Flexibles Heizen mit Heizsystem 3;bool;;"WENN(N494=""System 3"";WAHR;FALSCH)"
+♨️;flexibility;is_flexible;;;heating;system_1;FLEX_heat1_use;0;Flexibles Heizen mit Heizsystem 1;bool;;"WENN(N505=""System 1"";WAHR;FALSCH)"
+♨️;flexibility;is_flexible;;;heating;system_3;FLEX_heat3_use;0;Flexibles Heizen mit Heizsystem 3;bool;;"WENN(N505=""System 3"";WAHR;FALSCH)"
 ❄️;flexibility;max_temperature_decrease;;;;;flex_cool_dT;2;Flexibles Kühlen unter Solltemperatur;K;;🔋!D28
-❄️;flexibility;maximum_setpoint_temperature;;summer;;;Tsetcool_flex;0;Flexibles Kühlen Minimale Raumtemperatur;°C;;Tsetcool_max-N497
+❄️;flexibility;maximum_setpoint_temperature;;summer;;;Tsetcool_flex;0;Flexibles Kühlen Minimale Raumtemperatur;°C;;Tsetcool_max-N508
 ❄️;flexibility;cooling_system_selection;;;;;FLEX_choice_cool_system;2;Flexibles Kühlsystem;text;;🔋!D29
-❄️;flexibility;is_flexible;;;cooling;system_1;FLEX_cool1_use;0;Flexibles Kühlen mit Kühlsystem 1;bool;;"WENN(N499=""System 1"";WAHR;FALSCH)"
-❄️;flexibility;is_flexible;;;cooling;system_3;FLEX_cool3_use;0;Flexibles Kühlen mit Kühlsystem 3;bool;;"WENN(N499=""System 3"";WAHR;FALSCH)"
+❄️;flexibility;is_flexible;;;cooling;system_1;FLEX_cool1_use;0;Flexibles Kühlen mit Kühlsystem 1;bool;;"WENN(N510=""System 1"";WAHR;FALSCH)"
+❄️;flexibility;is_flexible;;;cooling;system_3;FLEX_cool3_use;0;Flexibles Kühlen mit Kühlsystem 3;bool;;"WENN(N510=""System 3"";WAHR;FALSCH)"
 🔧;flexibility;preset;;;;;preset_recorded_battery_system;5;Vorauswahl Batteriespeicher;;;
 🔋;battery;is_used;;;;;Batt_is_used;2;Batterie Nutzung;bool;;
 🔋;battery;capacity;;;;;Batt_cap_kWh;2;Batterie Kapazität;kWh;;🔋!D40
@@ -478,16 +484,16 @@
 🚗;mobility;mileage;;annual;;;pkm_tram_metro;0;Pkm Straßenbahn/U-Bahn;km;;"SVERWEIS(mobility_region; Regionstypen; 12;FALSCH)"
 🚗;mobility;mileage;;annual;;;pkm_train;0;Pkm Eisenbahn;km;;"SVERWEIS(mobility_region; Regionstypen; 13;FALSCH)"
 🚗;mobility;mileage;;annual;;;pkm_distancebus;0;Pkm Reisebus;km;;"SVERWEIS(mobility_region; Regionstypen; 14;FALSCH)"
-🚗;mobility;vehicles;;;;;mobility_vehicle_count;2;Fahrzeuge;-;;🚗!D77
+🚗;mobility;vehicles;;;;;mobility_vehicle_count;0;Fahrzeuge;-;;🚗!D77
 🚗;mobility;ev_share;;;;;EV_share;2;Anteil Ecars;ratio;Am Mobilitätsbedarf;🚗!D38
 🚗;mobility;demand;;;;;EV_demand_kWhpkm;2;Ecar Energieverbrauch;kWh/km;;🚗!D59
 🚗;mobility;capacity;;;;;EV_battsize_kWh;2;Ecar Speicher pro Fahrzeug;kWh/EV;;🚗!D55
-🚗;mobility;capacity;;;;;EV_storage_total_kWh;0;Ecar Speicher im Quartier;kWh;;N539*N536
+🚗;mobility;capacity;;;;;EV_storage_total_kWh;0;Ecar Speicher im Quartier;kWh;;N550*N547
 🚗;mobility;storage_losses;;;;;EV_self_discharge_per_week;2;Ecar Selbstentladung wöchentlich;1/week;;🚗!D56
-🚗;mobility;storage_losses;;;;;EV_selfdischarge_per_h;0;Ecar Selbstentladung stündlich;1/h;;N541/24/7
+🚗;mobility;storage_losses;;;;;EV_selfdischarge_per_h;0;Ecar Selbstentladung stündlich;1/h;;N552/24/7
 🚗;mobility;minimum_setpoint;;;mobility;residential;EV_soc_minimum;1;Ecar Mindest-Speicherstand;ratio;;
 🚗;mobility;charging_efficiency;;;;;EV_charging_efficiency;2;Ecar Batterie-Effizienz Beladung;ratio;;🚗!D57
-🚗;mobility;charging_efficiency_inverse;;;;;EV_charging_losses_surcharge_factor;0;Ecar Batterie-Effizienz Beladung Kehrwert;ratio;;"WENNFEHLER(1/N544;0)"
+🚗;mobility;charging_efficiency_inverse;;;;;EV_charging_losses_surcharge_factor;0;Ecar Batterie-Effizienz Beladung Kehrwert;ratio;;"WENNFEHLER(1/N555;0)"
 🚗;mobility;c_rate;;;;;EV_max_charging_power_ratio;1;Ecar Batterie Maximale Beladungsleistung;ratio;;
 🚗;mobility;minimum_setpoint;;;mobility;work;EV_soc_min_work;1;Ecar Mindestspeicherstand Arbeit;ratio;;
 🚗;mobility;minimum_setpoint;;;mobility;retail;EV_soc_min_retail;1;Ecar Mindestspeicherstand Handel;ratio;;
@@ -604,18 +610,18 @@
 ☁;construction;component_fu;;;component;;COMP_fu_energy_2;2;FU Energiesystem 2;FU;functional unit;THG!C55
 ☁;construction;component_fu;;;component;;COMP_fu_solarthermal;2;FU Solarthermie;m²ST;functional unit;THG!C56
 ☁;;;;;;;GWP_refratio_walls;0;Bezug pro BGF (Außenwand);m²AW/m²BGF;;
-☁;;;;;;;GWP_refratio_windows;0;Bezug pro BGF (Fenster);m²Fe/m²BGF;;N632/GFA_total
-☁;;;;;;;GWP_refratio_roof;0;Bezug pro BGF (Dach);m²Dach/m²BGF;;N633/GFA_total
-☁;;;;;;;GWP_refratio_fundament;0;Bezug pro BGF (Fundament);m²KB/m²BGF;;N635/GFA_total
-☁;;;;;;;GWP_refratio_ceilings;0;Bezug pro BGF (Zwischengeschoßdecken);m²Zwd/m²BGF;;N636/GFA_total
+☁;;;;;;;GWP_refratio_windows;0;Bezug pro BGF (Fenster);m²Fe/m²BGF;;N643/GFA_total
+☁;;;;;;;GWP_refratio_roof;0;Bezug pro BGF (Dach);m²Dach/m²BGF;;N644/GFA_total
+☁;;;;;;;GWP_refratio_fundament;0;Bezug pro BGF (Fundament);m²KB/m²BGF;;N646/GFA_total
+☁;;;;;;;GWP_refratio_ceilings;0;Bezug pro BGF (Zwischengeschoßdecken);m²Zwd/m²BGF;;N647/GFA_total
 ☁;lca;;;;;;GWP_refratio_pv;0;Bezug pro BGF (PV);m²PV/m²BGF;;PV_module_area/GFA_total
 ☁;;;;;;;GWP_refratio_boreholes;0;Bezug pro BGF (Erdsonden);StkErdsonden/m²BGF;;borehole_count/GFA_total
 ☁;;;;;;;GWP_direct_fossile;2;Direkteingabe GWP Fossil;;;☁THG'!D30
 ☁;;;;;;;GWP_direct_biogenic;2;Direkteingabe GWP Biogen;;;☁THG'!D31
 ☁;;;;;;;GWP_direct_biogenic_share;1;Direkteingabe Biogener Anteil;;;
 ☁;;;;;;;GWP_direct_life;1;Direkteingabe Lebensdauer;;;
-☁;lca;vehicle_count;;;;;GWP_miv_count_ev;0;GWP Herstellung E-Cars;Anzahl Fahrzeuge;;N691*EV_share
-☁;lca;vehicle_count;;;;;GWP_miv_count_fossile;0;GWP Herstellung Verbrenner;Anzahl Fahrzeuge;;N691-N692
+☁;lca;vehicle_count;;;;;GWP_miv_count_ev;0;GWP Herstellung E-Cars;Anzahl Fahrzeuge;;N702*EV_share
+☁;lca;vehicle_count;;;;;GWP_miv_count_fossile;0;GWP Herstellung Verbrenner;Anzahl Fahrzeuge;;N702-N703
 ☁;lca;;;;;;GWP_mobility_construction_fossil;1;GWP Verbrenner;t CO2/Fahrzeug;;☁THG'!D56
 ☁;lca;;;;;;GWP_mobility_construction_ev;1;GWP E-Car;t CO2/Fahrzeug;;
 ☁;lca;;;;;;GHG_LCA_timeframe_years;1;Betrachtungszeitraum Ökobilanz;;;
@@ -665,11 +671,11 @@
 ⚖;primary_energy;is_biomass;;;cooling;system_2;cool_th2_is_bio;0;PE Kühlen 2 ist Biomasse;bool;;"--ISTZAHL(FINDEN(""Biomasse"";cool_th2_carrier_type))"
 ⚖;primary_energy;is_biomass;;;dhw;system_1;dhw1_is_bio;0;PE WWWB 1 ist Biomasse;bool;;"--ISTZAHL(FINDEN(""Biomasse"";DHW_carriertype_1))"
 ⚖;primary_energy;is_biomass;;;dhw;system_2;dhw2_is_bio;0;PE WWWB 2 ist Biomasse;bool;;"--ISTZAHL(FINDEN(""Biomasse"";DHW_carriertype_2))"
-⚖;primary_energy;is_other;;;heating;system_2;heat_th2_is_other;0;PE Heizen 2 ist Sonstige;bool;;"--NICHT(ODER(N735;N740;N745))"
-⚖;primary_energy;is_other;;;heating;system_4;heat_th4_is_other;0;PE Heizen 4 ist Sonstige;bool;;"--NICHT(ODER(N736;N741;N746))"
-⚖;primary_energy;is_other;;;cooling;system_2;cool_th2_is_other;0;PE Kühlen 2 ist Sonstige;bool;;"--NICHT(ODER(N737;N742;N747))"
-⚖;primary_energy;is_other;;;dhw;system_1;dhw1_is_other;0;PE WWWB 1 ist Sonstige;bool;;"--UND(NICHT(ODER(N738;N743;N748)); DHW_1_is_used)"
-⚖;primary_energy;is_other;;;dhw;system_2;dhw2_is_other;0;PE WWWB 2 ist Sonstige;bool;;"--UND(NICHT(ODER(N739;N744;N749));DHW_2_is_used)"
+⚖;primary_energy;is_other;;;heating;system_2;heat_th2_is_other;0;PE Heizen 2 ist Sonstige;bool;;"--NICHT(ODER(N746;N751;N756))"
+⚖;primary_energy;is_other;;;heating;system_4;heat_th4_is_other;0;PE Heizen 4 ist Sonstige;bool;;"--NICHT(ODER(N747;N752;N757))"
+⚖;primary_energy;is_other;;;cooling;system_2;cool_th2_is_other;0;PE Kühlen 2 ist Sonstige;bool;;"--NICHT(ODER(N748;N753;N758))"
+⚖;primary_energy;is_other;;;dhw;system_1;dhw1_is_other;0;PE WWWB 1 ist Sonstige;bool;;"--UND(NICHT(ODER(N749;N754;N759)); DHW_1_is_used)"
+⚖;primary_energy;is_other;;;dhw;system_2;dhw2_is_other;0;PE WWWB 2 ist Sonstige;bool;;"--UND(NICHT(ODER(N750;N755;N760));DHW_2_is_used)"
 ⚖;primary_energy;flex_share;;;;;fPE_flex_factor;1;Flexibler Netzbezug Anteil PE-Faktor;;;
 ⚖;primary_energy;conversion_factor;;;;;pe_conversion_factor_gasoline;1;PE-Konversionsfaktor Kraftstoff;kWhPE/kWhEE;;
 ;;;;;;;ghg_conversion_factor_gasoline;;;;;
@@ -679,8 +685,9 @@
 🚗;mobility;statistical_persons;;;usage;schoolprim;StatPAX_schoolprim;0;Mobilitätsstatistische Nutzer Schule primär;-;;NFA_schoolprim/density_NFApPers_schoolprim
 🚗;mobility;statistical_persons;;;usage;retailfood;StatPAX_retail;0;Mobilitätsstatistische Nutzer Handel Supermarkt;-;;NFA_retailfood/density_NFApPers_retail
 🚗;mobility;statistical_persons;;;usage;retailother;StatPAX_retailother;0;Mobilitätsstatistische Nutzer Handel Sonstige;-;;NFA_retailother/density_NFApPers_retail_other
-🚗;mobility;charging_stations;;;;;EV_charging_stations;2;Anzahl Ladestationen;-;;🚗!D48
-🚗;mobility;charging_station_power;;;;;EV_charging_station_power;2;Leistung Ladestation;kW;;🚗!D49
+🚗;;charging_stations;;;;;EV_charging_station_density;1;Ladestationen pro 100 E-Cars;stations/100EVs;;🚗!D47
+🚗;mobility;charging_stations;;;;;EV_charging_stations;0;Anzahl Ladestationen;-;;"RUNDEN(SUMME(🚗!D41:D43)*EV_charging_station_density/100;0)"
+🚗;mobility;charging_station_power;;;;;EV_charging_station_power;1;Leistung Ladestation;kW;;🚗!D49
 🔧;tool;seasonal_interpolation;;;;;seasonal_interpolation;1;Interpolationsmethode Sommer Winter;text;;
 👤;usage;plugload;;;usage;residential;plugloads_residential;2;Nutzerstrom Wohnen;kWh/m²NFA;;👤!D9
 👤;usage;plugload;;;usage;office;plugloads_office;2;Nutzerstrom Büro;kWh/m²NFA;;👤!D10
@@ -690,4 +697,3 @@
 👤;usage;plugload;;;usage;retailother;plugloads_retailother;2;Nutzerstrom Handel sonstiger;kWh/m²NFA;;👤!D14
 👤;usage;plugload;;;usage;other;plugloads_other;2;Nutzerstrom Sonstige Nutzung;kWh/m²NFA;;👤!D15
 🔧;tool;hour_phase;;;;;seasonal_phase_h;1;Interpolation Sommer Winter Wellenphase;h;;
-🌞;PV;PV_roof_area_percentage;;;;;PV_roof_area_percentage;2;% Dachfläche für PV genützt;ratio;;🌞PV!D10

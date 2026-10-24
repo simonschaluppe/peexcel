@@ -169,12 +169,12 @@ Ec_min_1el;Strom Mindestbedarfe;Kühlen Minimum;Wh_el/m²;=$I$4*[@[Qc_min_1el]]*
 Ec_min_2th;Strom Mindestbedarfe;Kühlen Minimum;Wh_el/m²;=$I$4*[@[Qc_min_2th]]*(1+QC_distr_losses_2th)*(QC_aux_2th)
 Ec_min_3el;Strom Mindestbedarfe;Kühlen Minimum;Wh_el/m²;=$I$4*[@[Qc_min_3el]]*(1+QC_distr_losses_3el)*(QC_to_EC_3+QC_aux_3el)
 Ec_min;Strom Mindestbedarfe;Kühlen Minimum;Wh_el/m²;=SUM(sim[@[Ec_min_freecooling]:[Ec_min_3el]])
-Ev_residential;Strom Mindestbedarfe;Lüftung Minimum;Wh_el/m²;=Ev_scale_residential*Nutzung_Wohnen[@[Lüfterstrom_W_m2]]*NFA_residential*per_NFA
-Ev_office;Strom Mindestbedarfe;Lüftung Minimum;Wh_el/m²;=Ev_scale_office*Nutzung_Büro[@[Lüfterstrom_W_m2]]*NFA_office*per_NFA
-Ev_edusec;Strom Mindestbedarfe;Lüftung Minimum;Wh_el/m²;=Ev_scale_school_sec*Nutzung_Schule[@[Lüfterstrom_W_m2]]*NFA_schoolsec*per_NFA
-Ev_eduprim;Strom Mindestbedarfe;Lüftung Minimum;Wh_el/m²;=Ev_scale_school_prim*Nutzung_KIGA[@[Lüfterstrom_W_m2]]*NFA_schoolprim*per_NFA
-Ev_retfood;Strom Mindestbedarfe;Lüftung Minimum;Wh_el/m²;=Ev_scale_retail_food*Nutzung_Handel_Food[@[Lüfterstrom_W_m2]]*NFA_retailfood*per_NFA
-Ev_retail;Strom Mindestbedarfe;Lüftung Minimum;Wh_el/m²;=Ev_scale_retail_other*Nutzung_Handel_NonFood[@[Lüfterstrom_W_m2]]*NFA_retailother*per_NFA
+Ev_residential;Strom Mindestbedarfe;Lüftung Minimum;Wh_el/m²;=vent_share_mechanical_residential*Ev_scale_residential*Nutzung_Wohnen[@[Lüfterstrom_W_m2]]*NFA_residential*per_NFA
+Ev_office;Strom Mindestbedarfe;Lüftung Minimum;Wh_el/m²;=vent_share_mechanical_office*Ev_scale_office*Nutzung_Büro[@[Lüfterstrom_W_m2]]*NFA_office*per_NFA
+Ev_edusec;Strom Mindestbedarfe;Lüftung Minimum;Wh_el/m²;=vent_share_mechanical_schoolsec*Ev_scale_school_sec*Nutzung_Schule[@[Lüfterstrom_W_m2]]*NFA_schoolsec*per_NFA
+Ev_eduprim;Strom Mindestbedarfe;Lüftung Minimum;Wh_el/m²;=vent_share_mechanical_schoolprim*Ev_scale_school_prim*Nutzung_KIGA[@[Lüfterstrom_W_m2]]*NFA_schoolprim*per_NFA
+Ev_retfood;Strom Mindestbedarfe;Lüftung Minimum;Wh_el/m²;=vent_share_mechanical_retailfood*Ev_scale_retail_food*Nutzung_Handel_Food[@[Lüfterstrom_W_m2]]*NFA_retailfood*per_NFA
+Ev_retail;Strom Mindestbedarfe;Lüftung Minimum;Wh_el/m²;=vent_share_mechanical_retailother*Ev_scale_retail_other*Nutzung_Handel_NonFood[@[Lüfterstrom_W_m2]]*NFA_retailother*per_NFA
 Ev_otherusage;Strom Mindestbedarfe;Lüftung Minimum;Wh_el/m²;0
 Ev_min;Strom Mindestbedarfe;Lüftung Minimum;Wh_el/m²;=SUM(sim[@[Ev_residential]:[Ev_otherusage]])
 Eaux;Strom Mindestbedarfe;Aux;Wh_el/m²;=Nutzungsprofil[@[Aufzug, Regelung etc._W_m2]]
@@ -199,7 +199,7 @@ Eev_flex_potential;FLEX Speicher Potential;Strom Flexibel Maximal zusätzlich;Wh
 Ebatt_charge_potential;FLEX Speicher Potential;Strom Flexibel Maximal zusätzlich;Wh/m²;=IFERROR(Batt_is_used*MIN(Batt_max_power_specific,[@[Batt_max_energy_input]]/Batt_eff_factor_charge),0)
 Etotal_flex_potential;FLEX Speicher Potential;Strom Flexibel Maximal zusätzlich;;=SUM(sim[@[Eh_el1_flex_potential]:[Ebatt_charge_potential]])
 Space13;;;;
-PV_yield;PV Nutzung;Ertrag;Wh/m²;=PV_is_used*PV_scale*PV_efficiency*pv_profiles[@[Gewählte Variante]]*1000*per_NFA
+PV_yield;PV Nutzung;Ertrag;Wh/m²;=PV_is_used*PV_scale_sim*PV_efficiency*pv_profiles[@Selected]*1000*per_NFA
 PV_to_user;PV Nutzung;Direktnutzung;Wh/m²;=MIN([@[PV_yield]],[@[E_plugAuxLight]])
 PV_to_Eh_min;PV Nutzung;Direktnutzung;;=MIN([@[Eh_min]],[@[PV_yield]]-[@[PV_to_user]])
 PV_to_Ec_min;PV Nutzung;Direktnutzung;;=MIN([@[Ec_min]],[@[PV_yield]]-SUM(sim[@[PV_to_user]:[PV_to_Eh_min]]))
@@ -317,7 +317,7 @@ Qced_1el;Kühlenergie;Kühlenergiebedarf (inkl. Verteilverluste);Wh/m²cooled;=(
 Qced_2th;Kühlenergie;Kühlenergiebedarf (inkl. Verteilverluste);Wh/m²cooled;=[@[Qc_min_2th]]*(1+QC_distr_losses_2th)
 Qced_3el;Kühlenergie;Kühlenergiebedarf (inkl. Verteilverluste);Wh/m²cooled;=([@[Qc_min_3el]]-[@[Qc_flex_3el_final]])*(1+QC_distr_losses_3el)
 Qced_total;Kühlenergie;Kühlenergiebedarf (inkl. Verteilverluste);;=SUM(sim[@[Qced_1el]:[Qced_3el]])
-Qc_distr_losses;Kühlenergie;Kühlenergiebedarf (inkl. Verteilverluste);;=[@[Qced_total]]+[@[QC_total_final]]
+Qc_distr_losses;Kühlenergie;Kühlenergiebedarf (inkl. Verteilverluste);;=-([@[Qced_total]]+[@[QC_total_final]])
 Ec_aux;Kühlenergie;Kühlenergiebedarf (inkl. Verteilverluste);;=[@[Ec_min_freecooling]]+[@[Qced_1el]]*QC_aux_1el+[@[Qced_2th]]*QC_aux_2th+[@[Qced_3el]]*QC_aux_3el
 Qdhw_1_flex2;Warmwasser;Warmwasser-Wärmebedarf;Wh/m²;=IFERROR([@[Edhw1_flex_final]]*(1-DHW_1_el_aux)/(DHW_conversion_1*DHW_1_is_electric+DHW_1_el_aux),0)
 Qdhw_2_flex;Warmwasser;Warmwasser-Wärmebedarf;Wh/m²;=IFERROR([@[Edhw2_flex_final]]*(1-DHW_2_el_aux)/(DHW_conversion_2*DHW_2_is_electric+DHW_2_el_aux),0)

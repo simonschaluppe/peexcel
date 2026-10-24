@@ -200,8 +200,8 @@ O;electricity_end_use;total;;;;;EUI_el_total;3;Quartier;kWh/m²NGFa;;EUI_plugAux
 🔌;electricity_dispatch;grid_use;;static;energy_use;cooling_demand;Grid_to_Ec_min;3;Netzstrom → Kühlung;kWh/m²NGFa;;SUMME(sim[Grid_to_Ec_min])/1000
 🔌;electricity_dispatch;grid_use;;static;energy_use;dhw_demand;Grid_to_Edhw_min;3;Netzstrom → Warmwasser;kWh/m²NGFa;;SUMME(sim[Grid_to_Edhw_min])/1000
 🔌;electricity_dispatch;grid_use;;static;energy_use;vent_el_demand;Grid_to_Ev_min;3;Netzstrom → Lüftung;kWh/m²NGFa;;SUMME(sim[Grid_to_Ev_min])/1000
-🔌;electricity_dispatch;grid_use;;static;;;Grid_to_building_min;3;Netzstrom → E-Car Mindestladung;kWh/m²NGFa;;SUMME(sim[Grid_to_building_min])/1000
-🔌;electricity_dispatch;grid_use;;static;energy_use;ev_local_charge;Grid_to_Eev_min;3;Netzstrom;kWh/m²NGFa;;SUMME(sim[Grid_to_Eev_min])/1000
+🔌;electricity_dispatch;grid_use;;static;;;Grid_to_building_min;3;Netzstrom → Gebäude;kWh/m²NGFa;;SUMME(sim[Grid_to_building_min])/1000
+🔌;electricity_dispatch;grid_use;;static;energy_use;ev_local_charge;Grid_to_Eev_min;3;Netzstrom → E-Car Mindestladung;kWh/m²NGFa;;SUMME(sim[Grid_to_Eev_min])/1000
 🔌;electricity_dispatch;grid_use;;static;;;Grid_to_min;3;Netzstrom → Quartier;kWh/m²NGFa;;Grid_to_plugloads+Grid_to_Eh_min+Grid_to_Ec_min+Grid_to_Edhw_min+Grid_to_Ev_min+Grid_to_Eev_min
 🔌;final_energy_balance;ev_charge_ext;external;;;;Eev_ext_charge;3;E-Car Ladung Außerhalb des Quartiers;kWh/m²NGFa;;"EV_charging_losses_surcharge_factor*SUMME(sim[Eev_Cext_res];sim[Eev_Cext_work];sim[Eev_Cext_retail])/1000"
 ;energy_dispatch;district_heating_use;;static;energy_use;heating_demand;EUIh_district_heating;3;Fernwärme Heizung;kWh/m²NGFa;;0,001*(heat_th2_is_dh*SUMME(sim[EUIh_2th])+heat_th4_is_dh*SUMME(sim[EUIh_4th]))
@@ -253,7 +253,7 @@ O;electricity_end_use;total;;;;;EUI_el_total;3;Quartier;kWh/m²NGFa;;EUI_plugAux
 ;pe_import_export_balance;;;;;;PEI_saldo_project;3;PE-IE-Bilanz Projektwert;kWhPEges./m²NGFa;;PEI_export-PEI_import
 ;pe_import_export_balance;;;;;;PEI_saldo_target;3;PE-IE-Bilanz Zielwert;kWhPEges./m²NGFa;;-PEI_cf_density-PEI_cf_mobility-PEI_cf_renovation
 ;pe_import_export_balance;;;;;;PEI_importExport_balance;3;importExport Saldo Projektwert - Zielwert;kWhPEges./m²NGFa;;PEI_saldo_project-PEI_saldo_target
-☑;primary_energy_balance;test;district;;;;PEI_importexport_balance_test;3;PE-Bilanz Virtuell = Import/Export;False;;(PEI_balance)-(K253-K254)
+☑;primary_energy_balance;test;district;;;;PEI_importexport_balance_test;3;PE-Bilanz Virtuell = Import/Export;True;;(PEI_balance)-(K253-K254)
 ;;;;;;;fPE_grid;3;PE Faktor Netzstrom Statistisch;;;MITTELWERT(sim[cf_PEI_grid])
 ;;;;;;;fPE_eff;3;PE Faktor Netzstrom Effektiv;;;(K246+K247+K248)/(Grid_to_min+VRGrid_to_min+VRGrid_to_flex+Eev_ext_charge)
 ☁;GWP;embodied_emissions;district;2025-2075;component;;GWP_ee_wall;;THG LZ Außenwand;GWP 100A (kgCO2equiv/m²BGF);;THG!AC17

@@ -1391,7 +1391,7 @@ class TimeseriesMetaRegistry:
             domain='Strom Mindestbedarfe',
             measure='Lüftung Minimum',
             unit='Wh_el/m²',
-            formula='=Ev_scale_residential*Nutzung_Wohnen[@[Lüfterstrom_W_m2]]*NFA_residential*per_NFA',
+            formula='=vent_share_mechanical_residential*Ev_scale_residential*Nutzung_Wohnen[@[Lüfterstrom_W_m2]]*NFA_residential*per_NFA',
         )
         self.Ev_office = TimeseriesMeta(
             var_name='Ev_office',
@@ -1399,7 +1399,7 @@ class TimeseriesMetaRegistry:
             domain='Strom Mindestbedarfe',
             measure='Lüftung Minimum',
             unit='Wh_el/m²',
-            formula='=Ev_scale_office*Nutzung_Büro[@[Lüfterstrom_W_m2]]*NFA_office*per_NFA',
+            formula='=vent_share_mechanical_office*Ev_scale_office*Nutzung_Büro[@[Lüfterstrom_W_m2]]*NFA_office*per_NFA',
         )
         self.Ev_edusec = TimeseriesMeta(
             var_name='Ev_edusec',
@@ -1407,7 +1407,7 @@ class TimeseriesMetaRegistry:
             domain='Strom Mindestbedarfe',
             measure='Lüftung Minimum',
             unit='Wh_el/m²',
-            formula='=Ev_scale_school_sec*Nutzung_Schule[@[Lüfterstrom_W_m2]]*NFA_schoolsec*per_NFA',
+            formula='=vent_share_mechanical_schoolsec*Ev_scale_school_sec*Nutzung_Schule[@[Lüfterstrom_W_m2]]*NFA_schoolsec*per_NFA',
         )
         self.Ev_eduprim = TimeseriesMeta(
             var_name='Ev_eduprim',
@@ -1415,7 +1415,7 @@ class TimeseriesMetaRegistry:
             domain='Strom Mindestbedarfe',
             measure='Lüftung Minimum',
             unit='Wh_el/m²',
-            formula='=Ev_scale_school_prim*Nutzung_KIGA[@[Lüfterstrom_W_m2]]*NFA_schoolprim*per_NFA',
+            formula='=vent_share_mechanical_schoolprim*Ev_scale_school_prim*Nutzung_KIGA[@[Lüfterstrom_W_m2]]*NFA_schoolprim*per_NFA',
         )
         self.Ev_retfood = TimeseriesMeta(
             var_name='Ev_retfood',
@@ -1423,7 +1423,7 @@ class TimeseriesMetaRegistry:
             domain='Strom Mindestbedarfe',
             measure='Lüftung Minimum',
             unit='Wh_el/m²',
-            formula='=Ev_scale_retail_food*Nutzung_Handel_Food[@[Lüfterstrom_W_m2]]*NFA_retailfood*per_NFA',
+            formula='=vent_share_mechanical_retailfood*Ev_scale_retail_food*Nutzung_Handel_Food[@[Lüfterstrom_W_m2]]*NFA_retailfood*per_NFA',
         )
         self.Ev_retail = TimeseriesMeta(
             var_name='Ev_retail',
@@ -1431,7 +1431,7 @@ class TimeseriesMetaRegistry:
             domain='Strom Mindestbedarfe',
             measure='Lüftung Minimum',
             unit='Wh_el/m²',
-            formula='=Ev_scale_retail_other*Nutzung_Handel_NonFood[@[Lüfterstrom_W_m2]]*NFA_retailother*per_NFA',
+            formula='=vent_share_mechanical_retailother*Ev_scale_retail_other*Nutzung_Handel_NonFood[@[Lüfterstrom_W_m2]]*NFA_retailother*per_NFA',
         )
         self.Ev_otherusage = TimeseriesMeta(
             var_name='Ev_otherusage',
@@ -1631,7 +1631,7 @@ class TimeseriesMetaRegistry:
             domain='PV Nutzung',
             measure='Ertrag',
             unit='Wh/m²',
-            formula='=PV_is_used*PV_scale*PV_efficiency*pv_profiles[@[Gewählte Variante]]*1000*per_NFA',
+            formula='=PV_is_used*PV_scale_sim*PV_efficiency*pv_profiles[@Selected]*1000*per_NFA',
         )
         self.PV_to_user = TimeseriesMeta(
             var_name='PV_to_user',
@@ -2575,7 +2575,7 @@ class TimeseriesMetaRegistry:
             domain='Kühlenergie',
             measure='Kühlenergiebedarf (inkl. Verteilverluste)',
             unit=None,
-            formula='=[@[Qced_total]]+[@[QC_total_final]]',
+            formula='=-([@[Qced_total]]+[@[QC_total_final]])',
         )
         self.Ec_aux = TimeseriesMeta(
             var_name='Ec_aux',

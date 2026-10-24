@@ -462,14 +462,20 @@ class ExcelNamedVariables:
         self.DHW_thermal_power_pPerson: object | None = None
         self.DHW_thermal_power_Wpl: object | None = None
         self.DHW_storage_env_temp_default: object | None = None
+        self.preset_recorded_PV_system: object | None = None
         self.PV_is_used: object | None = None
-        self.PV_profile_name: object | None = None
-        self.PV_id: object | None = None
-        self.PV_scale: object | None = None
-        self.PV_efficiency: object | None = None
+        self.PV_mode: object | None = None
+        self.PV_simplified_name: object | None = None
+        self.PV_roof_share: object | None = None
         self.PV_m2_per_kWp: object | None = None
         self.PV_kWp: object | None = None
         self.PV_module_area: object | None = None
+        self.PV_scale_simple: object | None = None
+        self.PV_profile_name: object | None = None
+        self.PV_scale: object | None = None
+        self.PV_id: object | None = None
+        self.PV_scale_sim: object | None = None
+        self.PV_efficiency: object | None = None
         self.preset_recorded_flexibility_system: object | None = None
         self.FLEX_PV_is_used: object | None = None
         self.FLEX_is_used: object | None = None
@@ -725,6 +731,7 @@ class ExcelNamedVariables:
         self.StatPAX_schoolprim: object | None = None
         self.StatPAX_retail: object | None = None
         self.StatPAX_retailother: object | None = None
+        self.EV_charging_station_density: object | None = None
         self.EV_charging_stations: object | None = None
         self.EV_charging_station_power: object | None = None
         self.seasonal_interpolation: object | None = None
@@ -736,7 +743,6 @@ class ExcelNamedVariables:
         self.plugloads_retailother: object | None = None
         self.plugloads_other: object | None = None
         self.seasonal_phase_h: object | None = None
-        self.PV_roof_area_percentage: object | None = None
         self.Ta_annual_avg: object | None = None
         self.Ta_avg_heating_period: object | None = None
         self.Ta_avg_cooling_period: object | None = None
@@ -5398,7 +5404,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='residential',
-            formula='N778/O778',
+            formula='N789/O789',
         )
         self.Plugloads_scale_office = VariableMeta(
             var_name='Plugloads_scale_office',
@@ -5415,7 +5421,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='office',
-            formula='N779/O779',
+            formula='N790/O790',
         )
         self.Plugloads_scale_schoolsec = VariableMeta(
             var_name='Plugloads_scale_schoolsec',
@@ -5432,7 +5438,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolsec',
-            formula='N780/O780',
+            formula='N791/O791',
         )
         self.Plugloads_scale_schoolprim = VariableMeta(
             var_name='Plugloads_scale_schoolprim',
@@ -5449,7 +5455,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolprim',
-            formula='N781/O781',
+            formula='N792/O792',
         )
         self.Plugloads_scale_retailfood = VariableMeta(
             var_name='Plugloads_scale_retailfood',
@@ -5466,7 +5472,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailfood',
-            formula='N782/O782',
+            formula='N793/O793',
         )
         self.Plugloads_scale_retailother = VariableMeta(
             var_name='Plugloads_scale_retailother',
@@ -5483,7 +5489,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailother',
-            formula='N783/O783',
+            formula='N794/O794',
         )
         self.Plugloads_scale_other = VariableMeta(
             var_name='Plugloads_scale_other',
@@ -5500,7 +5506,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='other',
-            formula='N784/O784',
+            formula='N795/O795',
         )
         self.density_NFApPers_residential = VariableMeta(
             var_name='density_NFApPers_residential',
@@ -5612,7 +5618,7 @@ class Meta:
             unit=None,
             comment='1 statistische Nutzer ist x realer Nutzer zwecks Wege, die ins Quartier führen)',
             source='IN',
-            ka=2,
+            ka=1,
             domain='usage',
             measure='concurrency_mobility',
             spatial_scope=None,
@@ -5629,7 +5635,7 @@ class Meta:
             unit=None,
             comment='wieviele Verkaufsflchen werden von mehreren Nutzern aufgesucht?',
             source='IN',
-            ka=2,
+            ka=1,
             domain='usage',
             measure='concurrency_mobility',
             spatial_scope=None,
@@ -5653,7 +5659,7 @@ class Meta:
             temporal_scope=None,
             entity_group='mobility',
             entity_key='work',
-            formula=None,
+            formula='🚗!D76',
         )
         self.mob_motorization_perNFA_residential = VariableMeta(
             var_name='mob_motorization_perNFA_residential',
@@ -5823,7 +5829,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='office',
-            formula=None,
+            formula='👤!J23',
         )
         self.lighting_factor_schoolsec = VariableMeta(
             var_name='lighting_factor_schoolsec',
@@ -5840,7 +5846,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolsec',
-            formula=None,
+            formula='👤!J24',
         )
         self.lighting_factor_schoolprim = VariableMeta(
             var_name='lighting_factor_schoolprim',
@@ -5857,7 +5863,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolprim',
-            formula=None,
+            formula='👤!J25',
         )
         self.lighting_factor_retailfood = VariableMeta(
             var_name='lighting_factor_retailfood',
@@ -5874,7 +5880,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailfood',
-            formula=None,
+            formula='👤!J26',
         )
         self.lighting_factor_retailother = VariableMeta(
             var_name='lighting_factor_retailother',
@@ -5891,7 +5897,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='retailother',
-            formula=None,
+            formula='👤!J27',
         )
         self.lighting_factor_other = VariableMeta(
             var_name='lighting_factor_other',
@@ -5908,7 +5914,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='other',
-            formula=None,
+            formula='👤!J28',
         )
         self.Daylightcoefficient_office = VariableMeta(
             var_name='Daylightcoefficient_office',
@@ -5925,7 +5931,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='office',
-            formula='👤!E23',
+            formula=None,
         )
         self.Daylightcoefficient_schoolsec = VariableMeta(
             var_name='Daylightcoefficient_schoolsec',
@@ -5942,7 +5948,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolsec',
-            formula='👤!E24',
+            formula=None,
         )
         self.Daylightcoefficient_schoolprim = VariableMeta(
             var_name='Daylightcoefficient_schoolprim',
@@ -5959,7 +5965,7 @@ class Meta:
             temporal_scope=None,
             entity_group='usage',
             entity_key='schoolprim',
-            formula='👤!E25',
+            formula=None,
         )
         self.daylightcontr_office = VariableMeta(
             var_name='daylightcontr_office',
@@ -8341,6 +8347,23 @@ class Meta:
             entity_key=None,
             formula='💧WW!D47',
         )
+        self.preset_recorded_PV_system = VariableMeta(
+            var_name='preset_recorded_PV_system',
+            attr_name='preset_recorded_PV_system',
+            icon='🔧',
+            label_de='Vorauswahl PV im Quartier',
+            unit=None,
+            comment=None,
+            source='IN',
+            ka=5,
+            domain='pv',
+            measure='preset',
+            spatial_scope=None,
+            temporal_scope=None,
+            entity_group=None,
+            entity_key=None,
+            formula=None,
+        )
         self.PV_is_used = VariableMeta(
             var_name='PV_is_used',
             attr_name='PV_is_used',
@@ -8350,7 +8373,7 @@ class Meta:
             comment=None,
             source='IN',
             ka=2,
-            domain='PV',
+            domain='pv',
             measure='is_used',
             spatial_scope=None,
             temporal_scope=None,
@@ -8358,73 +8381,56 @@ class Meta:
             entity_key=None,
             formula=None,
         )
-        self.PV_profile_name = VariableMeta(
-            var_name='PV_profile_name',
-            attr_name='PV_profile_name',
+        self.PV_mode = VariableMeta(
+            var_name='PV_mode',
+            attr_name='PV_mode',
             icon='🌞',
-            label_de='PV Profil Name',
+            label_de='PV Modus',
+            unit=None,
+            comment=None,
+            source='IN',
+            ka=2,
+            domain='pv',
+            measure='mode',
+            spatial_scope=None,
+            temporal_scope=None,
+            entity_group=None,
+            entity_key=None,
+            formula='🌞PV!D5',
+        )
+        self.PV_simplified_name = VariableMeta(
+            var_name='PV_simplified_name',
+            attr_name='PV_simplified_name',
+            icon='🌞',
+            label_de='PV Profil Name (vereinfacht)',
             unit='text',
             comment=None,
             source='IN',
             ka=2,
-            domain='PV',
+            domain='pv',
             measure='name',
             spatial_scope=None,
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
-            formula='🌞PV!D8',
+            formula='🌞PV!D12',
         )
-        self.PV_id = VariableMeta(
-            var_name='PV_id',
-            attr_name='PV_id',
+        self.PV_roof_share = VariableMeta(
+            var_name='PV_roof_share',
+            attr_name='PV_roof_share',
             icon='🌞',
-            label_de='PV Profil ID',
-            unit='int',
-            comment=None,
-            source='IN',
-            ka=0,
-            domain='PV',
-            measure='index',
-            spatial_scope=None,
-            temporal_scope=None,
-            entity_group=None,
-            entity_key=None,
-            formula='VERGLEICH(PV_profile_name;pv_profile_names;0)',
-        )
-        self.PV_scale = VariableMeta(
-            var_name='PV_scale',
-            attr_name='PV_scale',
-            icon='🌞',
-            label_de='PV Skalierungsfaktor Profil',
+            label_de='PV-Anteil Dachfläche',
             unit='ratio',
             comment=None,
             source='IN',
-            ka=2,
-            domain='PV',
-            measure='pv_scale',
+            ka=None,
+            domain='pv',
+            measure='pv_roof_share',
             spatial_scope=None,
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
-            formula='🌞PV!D17',
-        )
-        self.PV_efficiency = VariableMeta(
-            var_name='PV_efficiency',
-            attr_name='PV_efficiency',
-            icon='🌞',
-            label_de='PV Gesamteffizienz',
-            unit=None,
-            comment=None,
-            source='IN',
-            ka=1,
-            domain='PV',
-            measure='efficiency',
-            spatial_scope=None,
-            temporal_scope=None,
-            entity_group=None,
-            entity_key=None,
-            formula='🌞PV!D12',
+            formula=None,
         )
         self.PV_m2_per_kWp = VariableMeta(
             var_name='PV_m2_per_kWp',
@@ -8434,14 +8440,14 @@ class Meta:
             unit='m²/kWp',
             comment=None,
             source='IN',
-            ka=2,
-            domain='PV',
+            ka=1,
+            domain='pv',
             measure='area',
             spatial_scope=None,
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
-            formula='🌞PV!D11',
+            formula=None,
         )
         self.PV_kWp = VariableMeta(
             var_name='PV_kWp',
@@ -8452,13 +8458,13 @@ class Meta:
             comment=None,
             source='IN',
             ka=0,
-            domain='PV',
+            domain='pv',
             measure='installed_power',
             spatial_scope=None,
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
-            formula='🌞PV!D14',
+            formula='PV_module_area/PV_m2_per_kWp',
         )
         self.PV_module_area = VariableMeta(
             var_name='PV_module_area',
@@ -8469,13 +8475,115 @@ class Meta:
             comment=None,
             source='IN',
             ka=0,
-            domain='PV',
+            domain='pv',
             measure='area',
             spatial_scope=None,
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
-            formula='PV_roof_area_m2',
+            formula='hull_roof_m2*PV_roof_share',
+        )
+        self.PV_scale_simple = VariableMeta(
+            var_name='PV_scale_simple',
+            attr_name='PV_scale_simple',
+            icon='🌞',
+            label_de='PV Skalierung Vereinfacht',
+            unit='ratio',
+            comment=None,
+            source='IN',
+            ka=None,
+            domain='pv',
+            measure='pv_scale',
+            spatial_scope=None,
+            temporal_scope=None,
+            entity_group=None,
+            entity_key=None,
+            formula=None,
+        )
+        self.PV_profile_name = VariableMeta(
+            var_name='PV_profile_name',
+            attr_name='PV_profile_name',
+            icon='🌞',
+            label_de='PV Profil Name (importiert)',
+            unit='text',
+            comment=None,
+            source='IN',
+            ka=2,
+            domain='pv',
+            measure='name',
+            spatial_scope=None,
+            temporal_scope=None,
+            entity_group=None,
+            entity_key=None,
+            formula='🌞PV!D20',
+        )
+        self.PV_scale = VariableMeta(
+            var_name='PV_scale',
+            attr_name='PV_scale',
+            icon='🌞',
+            label_de='PV Skalierung detailliert (importiertes Ertragsprofil)',
+            unit='ratio',
+            comment=None,
+            source='IN',
+            ka=2,
+            domain='pv',
+            measure='pv_scale',
+            spatial_scope=None,
+            temporal_scope=None,
+            entity_group=None,
+            entity_key=None,
+            formula='🌞PV!D21',
+        )
+        self.PV_id = VariableMeta(
+            var_name='PV_id',
+            attr_name='PV_id',
+            icon='🌞',
+            label_de='PV Profil ID',
+            unit='int',
+            comment=None,
+            source='IN',
+            ka=0,
+            domain='pv',
+            measure='index',
+            spatial_scope=None,
+            temporal_scope=None,
+            entity_group=None,
+            entity_key=None,
+            formula='VERGLEICH(WENN(PV_mode="Vereinfacht";PV_simplified_name;PV_profile_name);pv_profile_names;0)',
+        )
+        self.PV_scale_sim = VariableMeta(
+            var_name='PV_scale_sim',
+            attr_name='PV_scale_sim',
+            icon='🌞',
+            label_de='PV Skalierung Simulation',
+            unit='ratio',
+            comment=None,
+            source='IN',
+            ka=0,
+            domain='pv',
+            measure='pv_scale',
+            spatial_scope=None,
+            temporal_scope=None,
+            entity_group=None,
+            entity_key=None,
+            formula='WENN(PV_mode="Vereinfacht";N483;PV_scale)',
+        )
+        self.PV_efficiency = VariableMeta(
+            var_name='PV_efficiency',
+            attr_name='PV_efficiency',
+            icon='🌞',
+            label_de='PV Gesamteffizienz',
+            unit=None,
+            comment=None,
+            source='IN',
+            ka=1,
+            domain='pv',
+            measure='efficiency',
+            spatial_scope=None,
+            temporal_scope=None,
+            entity_group=None,
+            entity_key=None,
+            formula='🌞PV!D28',
         )
         self.preset_recorded_flexibility_system = VariableMeta(
             var_name='preset_recorded_flexibility_system',
@@ -8679,7 +8787,7 @@ class Meta:
             temporal_scope='winter',
             entity_group=None,
             entity_key=None,
-            formula='Tsetheat_min+N492',
+            formula='Tsetheat_min+N503',
         )
         self.FLEX_choice_heat_system = VariableMeta(
             var_name='FLEX_choice_heat_system',
@@ -8713,7 +8821,7 @@ class Meta:
             temporal_scope=None,
             entity_group='heating',
             entity_key='system_1',
-            formula='WENN(N494="System 1";WAHR;FALSCH)',
+            formula='WENN(N505="System 1";WAHR;FALSCH)',
         )
         self.FLEX_heat3_use = VariableMeta(
             var_name='FLEX_heat3_use',
@@ -8730,7 +8838,7 @@ class Meta:
             temporal_scope=None,
             entity_group='heating',
             entity_key='system_3',
-            formula='WENN(N494="System 3";WAHR;FALSCH)',
+            formula='WENN(N505="System 3";WAHR;FALSCH)',
         )
         self.flex_cool_dT = VariableMeta(
             var_name='flex_cool_dT',
@@ -8764,7 +8872,7 @@ class Meta:
             temporal_scope='summer',
             entity_group=None,
             entity_key=None,
-            formula='Tsetcool_max-N497',
+            formula='Tsetcool_max-N508',
         )
         self.FLEX_choice_cool_system = VariableMeta(
             var_name='FLEX_choice_cool_system',
@@ -8798,7 +8906,7 @@ class Meta:
             temporal_scope=None,
             entity_group='cooling',
             entity_key='system_1',
-            formula='WENN(N499="System 1";WAHR;FALSCH)',
+            formula='WENN(N510="System 1";WAHR;FALSCH)',
         )
         self.FLEX_cool3_use = VariableMeta(
             var_name='FLEX_cool3_use',
@@ -8815,7 +8923,7 @@ class Meta:
             temporal_scope=None,
             entity_group='cooling',
             entity_key='system_3',
-            formula='WENN(N499="System 3";WAHR;FALSCH)',
+            formula='WENN(N510="System 3";WAHR;FALSCH)',
         )
         self.preset_recorded_battery_system = VariableMeta(
             var_name='preset_recorded_battery_system',
@@ -9403,7 +9511,7 @@ class Meta:
             unit='-',
             comment=None,
             source='IN',
-            ka=2,
+            ka=0,
             domain='mobility',
             measure='vehicles',
             spatial_scope=None,
@@ -9478,7 +9586,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
-            formula='N539*N536',
+            formula='N550*N547',
         )
         self.EV_self_discharge_per_week = VariableMeta(
             var_name='EV_self_discharge_per_week',
@@ -9512,7 +9620,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
-            formula='N541/24/7',
+            formula='N552/24/7',
         )
         self.EV_soc_minimum = VariableMeta(
             var_name='EV_soc_minimum',
@@ -9563,7 +9671,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
-            formula='WENNFEHLER(1/N544;0)',
+            formula='WENNFEHLER(1/N555;0)',
         )
         self.EV_max_charging_power_ratio = VariableMeta(
             var_name='EV_max_charging_power_ratio',
@@ -11552,7 +11660,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
-            formula='N632/GFA_total',
+            formula='N643/GFA_total',
         )
         self.GWP_refratio_roof = VariableMeta(
             var_name='GWP_refratio_roof',
@@ -11569,7 +11677,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
-            formula='N633/GFA_total',
+            formula='N644/GFA_total',
         )
         self.GWP_refratio_fundament = VariableMeta(
             var_name='GWP_refratio_fundament',
@@ -11586,7 +11694,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
-            formula='N635/GFA_total',
+            formula='N646/GFA_total',
         )
         self.GWP_refratio_ceilings = VariableMeta(
             var_name='GWP_refratio_ceilings',
@@ -11603,7 +11711,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
-            formula='N636/GFA_total',
+            formula='N647/GFA_total',
         )
         self.GWP_refratio_pv = VariableMeta(
             var_name='GWP_refratio_pv',
@@ -11722,7 +11830,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
-            formula='N691*EV_share',
+            formula='N702*EV_share',
         )
         self.GWP_miv_count_fossile = VariableMeta(
             var_name='GWP_miv_count_fossile',
@@ -11739,7 +11847,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
-            formula='N691-N692',
+            formula='N702-N703',
         )
         self.GWP_mobility_construction_fossil = VariableMeta(
             var_name='GWP_mobility_construction_fossil',
@@ -12589,7 +12697,7 @@ class Meta:
             temporal_scope=None,
             entity_group='heating',
             entity_key='system_2',
-            formula='--NICHT(ODER(N735;N740;N745))',
+            formula='--NICHT(ODER(N746;N751;N756))',
         )
         self.heat_th4_is_other = VariableMeta(
             var_name='heat_th4_is_other',
@@ -12606,7 +12714,7 @@ class Meta:
             temporal_scope=None,
             entity_group='heating',
             entity_key='system_4',
-            formula='--NICHT(ODER(N736;N741;N746))',
+            formula='--NICHT(ODER(N747;N752;N757))',
         )
         self.cool_th2_is_other = VariableMeta(
             var_name='cool_th2_is_other',
@@ -12623,7 +12731,7 @@ class Meta:
             temporal_scope=None,
             entity_group='cooling',
             entity_key='system_2',
-            formula='--NICHT(ODER(N737;N742;N747))',
+            formula='--NICHT(ODER(N748;N753;N758))',
         )
         self.dhw1_is_other = VariableMeta(
             var_name='dhw1_is_other',
@@ -12640,7 +12748,7 @@ class Meta:
             temporal_scope=None,
             entity_group='dhw',
             entity_key='system_1',
-            formula='--UND(NICHT(ODER(N738;N743;N748)); DHW_1_is_used)',
+            formula='--UND(NICHT(ODER(N749;N754;N759)); DHW_1_is_used)',
         )
         self.dhw2_is_other = VariableMeta(
             var_name='dhw2_is_other',
@@ -12657,7 +12765,7 @@ class Meta:
             temporal_scope=None,
             entity_group='dhw',
             entity_key='system_2',
-            formula='--UND(NICHT(ODER(N739;N744;N749));DHW_2_is_used)',
+            formula='--UND(NICHT(ODER(N750;N755;N760));DHW_2_is_used)',
         )
         self.fPE_flex_factor = VariableMeta(
             var_name='fPE_flex_factor',
@@ -12812,6 +12920,23 @@ class Meta:
             entity_key='retailother',
             formula='NFA_retailother/density_NFApPers_retail_other',
         )
+        self.EV_charging_station_density = VariableMeta(
+            var_name='EV_charging_station_density',
+            attr_name='EV_charging_station_density',
+            icon='🚗',
+            label_de='Ladestationen pro 100 E-Cars',
+            unit='stations/100EVs',
+            comment=None,
+            source='IN',
+            ka=1,
+            domain=None,
+            measure='charging_stations',
+            spatial_scope=None,
+            temporal_scope=None,
+            entity_group=None,
+            entity_key=None,
+            formula='🚗!D47',
+        )
         self.EV_charging_stations = VariableMeta(
             var_name='EV_charging_stations',
             attr_name='EV_charging_stations',
@@ -12820,14 +12945,14 @@ class Meta:
             unit='-',
             comment=None,
             source='IN',
-            ka=2,
+            ka=0,
             domain='mobility',
             measure='charging_stations',
             spatial_scope=None,
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
-            formula='🚗!D48',
+            formula='RUNDEN(SUMME(🚗!D41:D43)*EV_charging_station_density/100;0)',
         )
         self.EV_charging_station_power = VariableMeta(
             var_name='EV_charging_station_power',
@@ -12837,7 +12962,7 @@ class Meta:
             unit='kW',
             comment=None,
             source='IN',
-            ka=2,
+            ka=1,
             domain='mobility',
             measure='charging_station_power',
             spatial_scope=None,
@@ -12998,23 +13123,6 @@ class Meta:
             entity_group=None,
             entity_key=None,
             formula=None,
-        )
-        self.PV_roof_area_percentage = VariableMeta(
-            var_name='PV_roof_area_percentage',
-            attr_name='PV_roof_area_percentage',
-            icon='🌞',
-            label_de='% Dachfläche für PV genützt',
-            unit='ratio',
-            comment=None,
-            source='IN',
-            ka=2,
-            domain='PV',
-            measure='PV_roof_area_percentage',
-            spatial_scope=None,
-            temporal_scope=None,
-            entity_group=None,
-            entity_key=None,
-            formula='🌞PV!D10',
         )
         self.Ta_annual_avg = VariableMeta(
             var_name='Ta_annual_avg',
@@ -16114,7 +16222,7 @@ class Meta:
             var_name='Grid_to_building_min',
             attr_name='Grid_to_building_min',
             icon='🔌',
-            label_de='Netzstrom → E-Car Mindestladung',
+            label_de='Netzstrom → Gebäude',
             unit='kWh/m²NGFa',
             comment=None,
             source='OUT',
@@ -16131,7 +16239,7 @@ class Meta:
             var_name='Grid_to_Eev_min',
             attr_name='Grid_to_Eev_min',
             icon='🔌',
-            label_de='Netzstrom',
+            label_de='Netzstrom → E-Car Mindestladung',
             unit='kWh/m²NGFa',
             comment=None,
             source='OUT',
@@ -17016,7 +17124,7 @@ class Meta:
             attr_name='PEI_importexport_balance_test',
             icon='☑',
             label_de='PE-Bilanz Virtuell = Import/Export',
-            unit='False',
+            unit='True',
             comment=None,
             source='OUT',
             ka=3,
@@ -22141,14 +22249,20 @@ ATTR_NAME_MAP: dict[str, str] = {
     'DHW_thermal_power_pPerson': 'DHW_thermal_power_pPerson',
     'DHW_thermal_power_Wpl': 'DHW_thermal_power_Wpl',
     'DHW_storage_env_temp_default': 'DHW_storage_env_temp_default',
+    'preset_recorded_PV_system': 'preset_recorded_PV_system',
     'PV_is_used': 'PV_is_used',
-    'PV_profile_name': 'PV_profile_name',
-    'PV_id': 'PV_id',
-    'PV_scale': 'PV_scale',
-    'PV_efficiency': 'PV_efficiency',
+    'PV_mode': 'PV_mode',
+    'PV_simplified_name': 'PV_simplified_name',
+    'PV_roof_share': 'PV_roof_share',
     'PV_m2_per_kWp': 'PV_m2_per_kWp',
     'PV_kWp': 'PV_kWp',
     'PV_module_area': 'PV_module_area',
+    'PV_scale_simple': 'PV_scale_simple',
+    'PV_profile_name': 'PV_profile_name',
+    'PV_scale': 'PV_scale',
+    'PV_id': 'PV_id',
+    'PV_scale_sim': 'PV_scale_sim',
+    'PV_efficiency': 'PV_efficiency',
     'preset_recorded_flexibility_system': 'preset_recorded_flexibility_system',
     'FLEX_PV_is_used': 'FLEX_PV_is_used',
     'FLEX_is_used': 'FLEX_is_used',
@@ -22404,6 +22518,7 @@ ATTR_NAME_MAP: dict[str, str] = {
     'StatPAX_schoolprim': 'StatPAX_schoolprim',
     'StatPAX_retail': 'StatPAX_retail',
     'StatPAX_retailother': 'StatPAX_retailother',
+    'EV_charging_station_density': 'EV_charging_station_density',
     'EV_charging_stations': 'EV_charging_stations',
     'EV_charging_station_power': 'EV_charging_station_power',
     'seasonal_interpolation': 'seasonal_interpolation',
@@ -22415,7 +22530,6 @@ ATTR_NAME_MAP: dict[str, str] = {
     'plugloads_retailother': 'plugloads_retailother',
     'plugloads_other': 'plugloads_other',
     'seasonal_phase_h': 'seasonal_phase_h',
-    'PV_roof_area_percentage': 'PV_roof_area_percentage',
     'Ta_annual_avg': 'Ta_annual_avg',
     'Ta_avg_heating_period': 'Ta_avg_heating_period',
     'Ta_avg_cooling_period': 'Ta_avg_cooling_period',

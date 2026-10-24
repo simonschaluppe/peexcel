@@ -3,10 +3,10 @@
   "source_xlsx": "data\\exports\\schema_1.13.1_dev.xlsx",
   "tables": {
     "IN": {
-      "original_rows": 786,
-      "kept_rows": 692,
+      "original_rows": 796,
+      "kept_rows": 698,
       "excluded_rows": {
-        "empty_var_name_count": 94,
+        "empty_var_name_count": 98,
         "empty_var_name_sample": [
           {
             "export_row": "3",
