@@ -120,3 +120,19 @@ eine Datei `howto_batch_simulation_with_python.ipynb` existiert im Repository ni
 `website/tutorial_batch.ipynb` bleibt die deutsche Quarto-Reinschrift unter der
 bisherigen URL `batch-python.html`. Beide verwenden ausschließlich die öffentliche
 Batch-API und bestehende Project-Analyse. Der Live-Aufruf ist explizit einschaltbar.
+
+
+## Fortschrittsanzeige
+
+`run_batch(..., progress_callback=callback)` ruft `callback(completed, total, scenario_name)`
+einmal nach der Resume-Prüfung (leerer Name) und nach jedem erfolgreich erfassten Szenario auf.
+Die Zähler enthalten bestätigte Resume-Szenarien; bei vollständig erledigten Aufträgen erfolgt
+nur die Startmeldung mit `completed == total`. Während synchroner VBA-Aufrufe gibt es keine
+Zwischenmeldung. Zwischenstände können noch ungesicherte Szenarien des aktuellen Chunks enthalten;
+die letzte erfolgreiche Meldung erfolgt nach dem finalen Export. Fehler zählen nicht als Erfolg.
+Callback-Fehler werden nach Sicherung bereits erfasster Ergebnisse weitergegeben.
+
+Die zusätzliche optionale Schnittstelle ermöglicht CLI- und Notebook-Anzeigen ohne neue
+persistierte Datenstruktur oder Paketabhängigkeit. Vorhandene Aufrufe bleiben still.
+Die How-to- und Quarto-Notebooks zeigen Textausgabe und optional `tqdm.auto` mit Kontextmanager.
+Pflege: Callback-Signatur und Zählsemantik; Tests für Resume, Chunk-Grenzen und Fehler.

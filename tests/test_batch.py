@@ -82,6 +82,48 @@ def test_chunked_results_roundtrip_and_resume_without_rerunning(setup):
     assert FakeExcel.closed
 
 
+def test_progress_tracks_capture_resume_and_committed_completion(setup, monkeypatch):
+    events = []
+
+    def progress(done, total, name):
+        events.append((done, total, name))
+        if done == total:
+            checkpoint = json.loads((setup['output_dir'] / 'batch.json').read_text())
+            assert sum(len(chunk['scenarios']) for chunk in checkpoint['chunks']) == total
+            assert all((setup['output_dir'] / chunk['annual']).is_file()
+                       for chunk in checkpoint['chunks'])
+
+    monkeypatch.setattr(FakeExcel, 'failure', 1)
+    first = batch.run_batch(**setup, progress_callback=progress)
+    assert first.status == 'failed'
+    assert events == [(0, 4, ''), (1, 4, 'Demo | A')]
+    events.clear()
+    monkeypatch.setattr(FakeExcel, 'failure', None)
+    batch.run_batch(**setup, resume=True, progress_callback=progress)
+    assert events == [(1, 4, ''), (2, 4, 'Demo | B'),
+                      (3, 4, 'Demo | C'), (4, 4, 'Demo | D')]
+    events.clear()
+    calls = len(FakeExcel.calls)
+    batch.run_batch(**setup, resume=True, progress_callback=progress)
+    assert events == [(4, 4, '')]
+    assert len(FakeExcel.calls) == calls
+
+
+def test_progress_error_saves_capture_and_releases_session(setup):
+    def progress(done, total, name):
+        if done:
+            raise RuntimeError('display failed')
+
+    with pytest.raises(RuntimeError, match='display failed'):
+        batch.run_batch(**setup, progress_callback=progress)
+    assert FakeExcel.closed
+    assert not (setup['output_dir'] / '.batch.lock').exists()
+    resumed = batch.run_batch(**setup, resume=True)
+    assert resumed.skipped == ['Demo | A']
+    assert len(resumed.completed) == 4
+    assert len(FakeExcel.calls) == 4
+
+
 def test_failure_flushes_successes_resume_reloads_first_pending(setup, monkeypatch):
     monkeypatch.setattr(FakeExcel, 'failure', 1)
     first = batch.run_batch(**setup, base_reload='first_only')

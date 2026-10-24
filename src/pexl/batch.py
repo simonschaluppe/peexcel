@@ -6,6 +6,7 @@ is batch-specific; no Excel automation objects escape this module.
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from collections.abc import Callable
 import hashlib
 import json
 from pathlib import Path
@@ -99,6 +100,7 @@ def run_batch(
     export_timeseries: bool = False,
     output_dir: str | Path = "results/batch",
     resume: bool = False,
+    progress_callback: Callable[[int, int, str], None] | None = None,
 ) -> BatchResult:
     """Run selected PEExcel scenarios sequentially and capture their results.
 
@@ -145,6 +147,13 @@ def run_batch(
         Resume from verified annual chunks in ``batch.json``. Workbook contents,
         selected definitions, schema, options and recorded file hashes must match.
         Resume requires ``export_annual=True``.
+    progress_callback : callable or None, default None
+        Optional ``callback(completed, total, scenario_name)`` called initially
+        with the verified resumed count and an empty scenario name, then after
+        each successfully captured scenario. Counts include resumed scenarios.
+        Updates occur between synchronous Excel calls. Intermediate counts may
+        include an unsaved chunk; the final successful update follows export.
+        Callback exceptions propagate after captured results are saved.
 
     Returns
     -------
@@ -183,6 +192,8 @@ def run_batch(
         raise ValueError("Enable at least one result export")
     if resume and not export_annual:
         raise ValueError("resume requires annual Project exports")
+    if progress_callback is not None and not callable(progress_callback):
+        raise TypeError("progress_callback must be callable or None")
     workbook = Path(workbook).resolve(strict=True)
     output_dir = Path(output_dir).resolve()
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -192,12 +203,13 @@ def run_batch(
         stream.write("Batch in progress; after a hard crash remove only after Excel has stopped.\n")
     try:
         return _run(workbook, scenarios, scenario_filter, batch_size, base_reload,
-                    export_annual, export_timeseries, output_dir, resume)
+                    export_annual, export_timeseries, output_dir, resume, progress_callback)
     finally:
         lock.unlink()
 
 
-def _run(workbook, scenarios, filters, batch_size, base_reload, annual, timeseries, directory, resume):
+def _run(workbook, scenarios, filters, batch_size, base_reload, annual, timeseries, directory, resume,
+         progress_callback=None):
     result = BatchResult()
     manifest_path = directory / "batch.json"
     if not resume and (manifest_path.exists() or list(directory.glob("annual-*.xlsx"))
@@ -253,6 +265,8 @@ def _run(workbook, scenarios, filters, batch_size, base_reload, annual, timeseri
         elif resume and (list(directory.glob("annual-*.xlsx")) or list(directory.glob("sim-*.csv"))):
             raise ValueError("Cannot resume files without batch.json")
         pending = selected.iloc[len(result.completed):]
+        if progress_callback is not None:
+            progress_callback(len(result.completed), len(selected), "")
         if pending.empty:
             return result
         manifest["failed"] = {}
@@ -306,8 +320,15 @@ def _run(workbook, scenarios, filters, batch_size, base_reload, annual, timeseri
                     scenario.set_timeseries(pd.DataFrame())
                 chunk_project.add_scenario(scenario)
                 last_base = base
-                if len(chunk_project) >= batch_size:
+                completed_count = len(result.completed) + len(chunk_project)
+                if len(chunk_project) >= batch_size or completed_count == len(selected):
                     flush()
+                if progress_callback is not None:
+                    try:
+                        progress_callback(completed_count, len(selected), name)
+                    except Exception:
+                        flush()
+                        raise
         except KeyboardInterrupt:
             flush()
             raise
