@@ -12,6 +12,7 @@ SCEN or introducing another Excel connection layer.
 from __future__ import annotations
 
 from pathlib import Path
+from datetime import datetime
 from functools import cached_property
 import logging
 import sys
@@ -121,6 +122,7 @@ class PEExcelAdapter:
                     self.book = None
                     raise ValueError("Batch workbook is already open; save and close it before running")
                 self.app = app
+                logger.info("Reusing open workbook %s; caller-owned Excel will remain open", self.path)
             else:
                 self.app = self._call("create Excel instance", lambda: win32.DispatchEx("Excel.Application"), safe=False)
                 self.own_app = True
@@ -211,7 +213,11 @@ class PEExcelAdapter:
         if any(not isinstance(h, str) or not h.strip() for h in headers) or len(set(headers)) != len(headers):
             raise ValueError(f"Invalid or duplicate headers in {table.Name}")
         values = table.DataBodyRange.Value if table.DataBodyRange is not None else []
-        return pd.DataFrame(list(values), columns=headers)
+        # Excel dates are wall-clock values. COM's timezone wrapper can break
+        # pandas conversion/CSV export; remove it before pandas infers a dtype.
+        rows = [tuple(value.replace(tzinfo=None) if isinstance(value, datetime) else value
+                      for value in row) for row in values]
+        return pd.DataFrame(rows, columns=headers)
 
     def read_scenarios(self) -> pd.DataFrame:
         """Read the workbook's scenario definitions as an ordinary DataFrame."""
@@ -349,7 +355,9 @@ class PEExcelAdapter:
         data = {}
         for name in ("var_name", value_column):
             values = table.ListColumns(name).DataBodyRange.Value
-            data[name] = [row[0] for row in values] if isinstance(values, tuple) else [values]
+            cells = [row[0] for row in values] if isinstance(values, tuple) else [values]
+            data[name] = [value.replace(tzinfo=None) if isinstance(value, datetime) else value
+                          for value in cells]
         frame = pd.DataFrame(data)
         if frame.empty:
             raise ValueError(f"Empty {value_column} result column")

@@ -24,8 +24,8 @@ inspect_batch(
 ) -> pd.DataFrame
 ```
 
-Ohne `output_dir` liest und validiert die Funktion die Auswahl in einer eigenen
-Excel-Sitzung ohne Simulation oder SCEN-Mutation. Mit einem bestehenden
+Ohne `output_dir` liest und validiert die Funktion die Auswahl ohne Simulation
+oder SCEN-Mutation; eine passende offene Arbeitsmappe wird wiederverwendet. Mit einem bestehenden
 Batchordner prüft sie Checkpoint, Workbook-Hash, Schema und Ergebnisdateien,
 aktualisiert `remaining_scenarios.csv` und liefert die verbleibenden Originalzeilen.
 Diese Wiederherstellung öffnet Excel nicht. Ein v2-Checkpoint enthält die
@@ -77,9 +77,11 @@ Die Option setzt sonst vollständige unabhängige Presets voraus.
 
 `PEExcelAdapter(workbook, *, reuse_existing=True)` bleibt allgemein verwendbar.
 Direkte Aufrufer können weiter eine passende offene Arbeitsmappe verwenden;
-Batch und frische Inspektion verwenden `reuse_existing=False`. Eine offene oder
-nur lesbar geöffnete Zielmappe wird abgewiesen. Gewünschten Stand vorher speichern
-und schließen. Keine automatische Speicherung oder Änderung der Makrosicherheit.
+Batch und frische Inspektion verwenden `reuse_existing=True`: eine passende
+offene Arbeitsmappe der aktiven Excel-Instanz wird wiederverwendet und bleibt
+anschließend offen. Andernfalls wird eine eigene Instanz geöffnet. Gewünschte
+Eingabeänderungen vorher speichern; der Checkpoint prüft den Dateistand, nicht
+ungespeicherte Änderungen in Excel. Keine automatische Speicherung oder Änderung der Makrosicherheit.
 
 Die private COM-Grenze wiederholt bekannte vorübergehende Ablehnungen nur für
 sicher wiederholbare Operationen: höchstens drei Wiederholungen mit 0,25/0,5/1 s
@@ -182,3 +184,11 @@ geschlossene Arbeitskopie und genau eine benannte Default-Typologie bewusst
 `python -m pytest tests/test_batch.py -k live_default_typology_pilot` ausführen.
 Dieser Test startet eine echte Simulation und prüft danach Resume. Ein RDP-
 Verbindungstest muss direkt auf dem Zielrechner erfolgen.
+
+## Debug-Neustart
+
+`run_batch(..., overwrite=True)` löscht nur die reservierten Batch-Ausgabedateien
+im Ausgabeordner, unter dem bestehenden exklusiven Lock. Andere Dateien und
+Unterordner bleiben erhalten. Nicht mit `resume=True` kombinierbar. Das optionale
+Argument ermöglicht wiederholte Prototyp-Läufe ohne manuelles Löschen; keine neue
+persistierte Struktur. Tests prüfen Neustart, Erhalt anderer Dateien und Locks.

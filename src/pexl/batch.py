@@ -11,6 +11,7 @@ from contextlib import contextmanager
 from copy import deepcopy
 import logging
 import math
+import re
 import sys
 from importlib.metadata import PackageNotFoundError, version
 from datetime import date, datetime
@@ -107,6 +108,7 @@ def run_batch(
     export_timeseries: bool = False,
     output_dir: str | Path = "results/batch",
     resume: bool = False,
+    overwrite: bool = False,
     progress_callback: Callable[[int, int, str], None] | None = None,
 ) -> BatchResult:
     """Run selected PEExcel scenarios sequentially and capture their results.
@@ -155,6 +157,10 @@ def run_batch(
         Resume from verified annual chunks in ``batch.json``. Workbook contents,
         selected definitions, schema, options and recorded file hashes must match.
         Resume requires ``export_annual=True``.
+    overwrite : bool, default False
+        Start fresh by deleting generated batch outputs in output_dir, including
+        checkpoints, logs and retry CSV. Other files and subdirectories are kept.
+        Cannot be combined with resume=True; an existing run lock is respected.
     progress_callback : callable or None, default None
         Optional ``callback(completed, total, scenario_name)`` called initially
         with the verified resumed count and an empty scenario name, then after
@@ -188,8 +194,10 @@ def run_batch(
 
     Notes
     -----
-    Progress is logged automatically, independently of the callback. A dedicated
-    owned Excel session requires the saved workbook to be closed before the run.
+    Progress is logged automatically, independently of the callback. A matching
+    open workbook is reused and left open. Otherwise an owned session is created.
+    Save input changes before running: the checkpoint fingerprints the disk file,
+    not unsaved Excel edits.
     The workbook is not saved. Excel runs synchronously, and the workbook,
     definitions and output directory must not be edited concurrently. A hard
     process interruption may leave a stale ``.batch.lock``; remove it only after
@@ -203,6 +211,8 @@ def run_batch(
         raise ValueError("base_reload must be 'always' or 'first_only'")
     if not export_annual and not export_timeseries:
         raise ValueError("Enable at least one result export")
+    if overwrite and resume:
+        raise ValueError("overwrite=True cannot be combined with resume=True")
     if resume and not export_annual:
         raise ValueError("resume requires annual Project exports")
     if progress_callback is not None and not callable(progress_callback):
@@ -210,9 +220,25 @@ def run_batch(
     workbook = Path(workbook).resolve(strict=True)
     output_dir = Path(output_dir).resolve()
     output_dir.mkdir(parents=True, exist_ok=True)
-    with _batch_lock(output_dir), _batch_logging(output_dir):
-        return _run(workbook, scenarios, scenario_filter, batch_size, base_reload,
-                    export_annual, export_timeseries, output_dir, resume, progress_callback)
+    with _batch_lock(output_dir):
+        if overwrite:
+            # Preserve input when a retry CSV inside this directory is the source.
+            if isinstance(scenarios, (str, Path)):
+                scenarios = _read_definitions(scenarios)
+            targets = [p for p in output_dir.iterdir() if p.name in {
+                "batch.json", "batch.tmp", "batch.log", "remaining_scenarios.csv",
+                "remaining_scenarios.tmp.csv",
+            } or re.fullmatch(r"(?:annual-\d{5,}(?:\.tmp)?\.xlsx|sim-\d{5,}(?:\.tmp)?\.csv)", p.name)]
+            for target in targets:
+                if target.resolve().parent != output_dir or target.resolve() == workbook or not target.is_file():
+                    raise ValueError(f"Refusing to overwrite unexpected batch output: {target}")
+            for target in targets:
+                target.unlink()
+        with _batch_logging(output_dir):
+            if overwrite:
+                logger.info("Overwrite enabled: starting a fresh batch")
+            return _run(workbook, scenarios, scenario_filter, batch_size, base_reload,
+                        export_annual, export_timeseries, output_dir, resume, progress_callback)
 
 
 logger = logging.getLogger(__name__)
@@ -352,7 +378,7 @@ def inspect_batch(
     Parameters
     ----------
     workbook : str or Path
-        Saved PEExcel workbook. Fresh inspection uses a dedicated Excel session.
+        PEExcel workbook. Fresh inspection reuses a matching open workbook.
     scenarios : str, Path, DataFrame or None
         Definitions in the same format as ``run_batch``. With a v2 checkpoint,
         None uses its original snapshot, so a lost source CSV is not required.
@@ -378,7 +404,7 @@ def inspect_batch(
     """
     workbook = Path(workbook).resolve(strict=True)
     if output_dir is None:
-        with PEExcelAdapter(workbook, reuse_existing=False) as excel:
+        with PEExcelAdapter(workbook, reuse_existing=True) as excel:
             native = excel.read_scenarios()
             definitions = native if scenarios is None else _read_definitions(scenarios)
             selected = _select(definitions, native.columns, scenario_filter)
@@ -423,7 +449,7 @@ def _run(workbook, scenarios, filters, batch_size, base_reload, annual, timeseri
     manifest_path = directory / "batch.json"
     if not resume and (manifest_path.exists() or list(directory.glob("annual-*.xlsx"))
                        or list(directory.glob("sim-*.csv"))):
-        raise FileExistsError("Batch outputs already exist; use resume=True or a new output directory")
+        raise FileExistsError("Batch outputs already exist; use resume=True, overwrite=True or a new output directory")
     if resume and not manifest_path.exists() and (list(directory.glob("annual-*.xlsx")) or list(directory.glob("sim-*.csv"))):
         raise ValueError("Cannot resume files without batch.json")
     started = monotonic()
@@ -436,7 +462,7 @@ def _run(workbook, scenarios, filters, batch_size, base_reload, annual, timeseri
     scenario_seconds = {}
     phase = "setup"
     current = None
-    excel = PEExcelAdapter(workbook, reuse_existing=False)
+    excel = PEExcelAdapter(workbook, reuse_existing=True)
 
     def checkpoint():
         nonlocal manifest
@@ -552,12 +578,24 @@ def _run(workbook, scenarios, filters, batch_size, base_reload, annual, timeseri
         logger.info("Batch: %d scenarios, %d completed (resume)", len(selected), len(result.completed))
         if progress_callback is not None:
             progress_callback(len(result.completed), len(selected), "")
+        configuration = definitions
+        replace = scenarios is not None
+        # A slice returned by inspect_batch is a selection of existing rows,
+        # not a replacement SCEN table. Keep the original Excel row positions.
+        if (replace and len(definitions) < len(native)
+                and definitions.columns.equals(native.columns)
+                and not native["Scenario Name"].duplicated().any()
+                and definitions["Scenario Name"].isin(native["Scenario Name"]).all()):
+            existing = native.set_index("Scenario Name", drop=False).loc[definitions["Scenario Name"]]
+            if definitions.reset_index(drop=True).equals(existing.reset_index(drop=True)):
+                configuration = native
+                replace = False
         if not pending.empty:
             logger.info("Validating workbook references and result schema...")
             excel._validate_scenarios(selected, timeseries=timeseries)
             logger.info("Configuring scenarios...")
-            excel.configure_scenarios(definitions, replace=scenarios is not None)
-        positions = {name: i for i, name in enumerate(definitions["Scenario Name"])}
+            excel.configure_scenarios(configuration, replace=replace)
+        positions = {name: i for i, name in enumerate(configuration["Scenario Name"])}
         indices = {name: i + 1 for i, name in enumerate(selected["Scenario Name"])}
         last_base = None
         for name, base in zip(pending["Scenario Name"], pending["Base Scenario"]):
@@ -580,7 +618,7 @@ def _run(workbook, scenarios, filters, batch_size, base_reload, annual, timeseri
                     logger.error("Excel connection/state could not be recovered; stopping")
                     break
                 logger.info("Configuring scenarios after recovery...")
-                excel.configure_scenarios(definitions, replace=scenarios is not None)
+                excel.configure_scenarios(configuration, replace=replace)
                 continue
             scenario_seconds[name] = monotonic() - scenario_started
             _plausibility(scenario)

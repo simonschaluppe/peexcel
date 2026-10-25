@@ -847,3 +847,40 @@ def test_com_uninitialize_failure_does_not_mask_interrupt(monkeypatch):
     adapter._initialized = True
     adapter.__exit__(KeyboardInterrupt, KeyboardInterrupt(), None)
     assert not adapter._initialized
+
+
+
+def test_existing_scenario_subset_does_not_replace_table(setup):
+    selected = batch.inspect_batch(setup['workbook']).iloc[[1, 3]]
+    result = batch.run_batch(**setup, scenarios=selected)
+    assert result.completed == ['Demo | B', 'Demo | D']
+    assert FakeExcel.calls == [(1, True), (3, True)]
+    assert FakeExcel.configurations[0][1] is False
+    pd.testing.assert_frame_equal(FakeExcel.configurations[0][0], FakeExcel.rows)
+
+
+
+def test_overwrite_restarts_batch_but_keeps_other_files(setup):
+    batch.run_batch(**setup, export_timeseries=True)
+    directory = setup['output_dir']
+    (directory / 'run.py').write_text('# keep')
+    (directory / 'notes.csv').write_text('keep')
+    result = batch.run_batch(**setup, scenarios=FakeExcel.rows.head(1), overwrite=True)
+    assert result.completed == ['Demo | A']
+    assert len(FakeExcel.calls) == 5
+    assert not list(directory.glob('sim-*.csv'))
+    assert len(list(directory.glob('annual-*.xlsx'))) == 1
+    assert (directory / 'run.py').read_text() == '# keep'
+    assert (directory / 'notes.csv').read_text() == 'keep'
+
+
+def test_overwrite_rejects_resume_and_respects_lock(setup):
+    with pytest.raises(ValueError, match='cannot be combined'):
+        batch.run_batch(**setup, resume=True, overwrite=True)
+    setup['output_dir'].mkdir()
+    (setup['output_dir'] / '.batch.lock').touch()
+    sentinel = setup['output_dir'] / 'batch.json'
+    sentinel.write_text('keep')
+    with pytest.raises(FileExistsError):
+        batch.run_batch(**setup, overwrite=True)
+    assert sentinel.read_text() == 'keep'
