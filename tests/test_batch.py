@@ -49,7 +49,7 @@ class FakeExcel:
 
     def run_scenario(self, row, reload):
         self.calls.append((row, reload))
-        if self.failure == row:
+        if self.failure == (self.active.index[row] if self.configurations[-1][1] else row):
             raise _ScenarioFailure('VBA returned False')
         self.last = row
 
@@ -143,7 +143,7 @@ def test_failure_flushes_successes_resume_reloads_first_pending(setup, monkeypat
 
 
 @pytest.mark.parametrize('kind', ['csv', 'xlsx', 'frame'])
-def test_external_definitions_filter_and_exact_row_position(setup, tmp_path, kind):
+def test_external_definitions_filter_and_first_row_reuse(setup, tmp_path, kind):
     frame = FakeExcel.rows.copy()
     source = frame
     if kind != 'frame':
@@ -152,10 +152,12 @@ def test_external_definitions_filter_and_exact_row_position(setup, tmp_path, kin
             frame.to_csv(source, index=False, sep=';')
         else:
             frame.to_excel(source, index=False, sheet_name='Scenarios')
-    result = batch.run_batch(**setup, scenarios=source, scenario_filter={'Base Scenario': 'Other'})
+    result = batch.run_batch(**setup, scenarios=source, scenario_filter={'Base Scenario': 'Other'},
+                             base_reload='first_only')
     assert result.completed == ['Demo | C', 'Demo | D']
-    assert FakeExcel.calls == [(2, True), (3, True)]
-    assert FakeExcel.configurations[0][1] is True
+    assert FakeExcel.calls == [(0, True), (0, False)]
+    assert all(replace and len(frame) == 1 for frame, replace in FakeExcel.configurations)
+    assert [frame.iloc[0]['Scenario Name'] for frame, _ in FakeExcel.configurations] == result.completed
 
 
 @pytest.mark.parametrize('change', ['workbook', 'definitions', 'chunk', 'options'])
@@ -282,36 +284,68 @@ def test_adapter_controls_and_sim_capture_restore_native_flags():
     assert all(f.Formula == ((True,), (False,)) for f in flags.values())
 
 
-def test_external_configuration_bulk_writes_and_restores_formulas():
+def test_external_configuration_reuses_first_row_and_restores_formulas():
     from unittest.mock import MagicMock
     adapter = PEExcelAdapter('dummy.xlsb')
     scen = MagicMock()
     adapter.scen = scen
     scen.ShowTotals = False
-    scen.ListRows.Count = 1
-    scen.ListColumns.Count = 3
+    scen.ListRows.Count = 3
     scen.HeaderRowRange.Value = (('Scenario Name', 'Base Scenario', 'Simulieren?'),)
+    first = scen.ListRows(1).Range
     original = (('old', '=SomeBase', False),)
-    scen.DataBodyRange.Formula = original
-    scen.HeaderRowRange.Offset.return_value.Resize.return_value.Formula = ((None, None, None),)
+    first.Formula = original
     columns = {name: MagicMock() for name in scen.HeaderRowRange.Value[0]}
     scen.ListColumns.side_effect = columns.__getitem__
-    definitions = pd.DataFrame({'Scenario Name': ['A', 'B'], 'Base Scenario': ['Default', 'Default']})
-    adapter.configure_scenarios(definitions, replace=True)
-    assert columns['Scenario Name'].DataBodyRange.Value == (('A',), ('B',))
-    assert columns['Base Scenario'].DataBodyRange.Value == (('Default',), ('Default',))
-    assert scen.DataBodyRange.ClearContents.call_count == 1
+    flags = ((False,), (True,), (False,))
+    columns['Simulieren?'].DataBodyRange.Formula = flags
+    definitions = pd.DataFrame({'Scenario Name': ['A', 'B'], 'Base Scenario': ['Default', 'Other']})
+    for i in range(2):
+        adapter.configure_scenarios(definitions.iloc[[i]], replace=True)
+        assert columns['Scenario Name'].DataBodyRange.Cells(1, 1).Value == definitions.iloc[i]['Scenario Name']
+        assert columns['Base Scenario'].DataBodyRange.Cells(1, 1).Value == definitions.iloc[i]['Base Scenario']
+    assert first.ClearContents.call_count == 2
     adapter.__exit__(RuntimeError, RuntimeError('calculation failed'), None)
-    assert scen.DataBodyRange.Formula == original
-    assert scen.DataBodyRange.ClearContents.call_count == 2
-    assert scen.HeaderRowRange.Resize.call_args.args == (2, 3)
-    # The same extension must fail before mutation if it would overwrite other data.
+    assert first.Formula == original
+    assert columns['Simulieren?'].DataBodyRange.Formula == flags
+    scen.DataBodyRange.ClearContents.assert_not_called()
+    scen.Resize.assert_not_called()
+    scen.HeaderRowRange.Offset.assert_not_called()
+    scen.ListRows.assert_called_with(1)
+
+
+def test_external_configuration_requires_existing_first_row():
+    from unittest.mock import MagicMock
     adapter = PEExcelAdapter('dummy.xlsb')
-    adapter.scen = scen
-    scen.HeaderRowRange.Offset.return_value.Resize.return_value.Formula = (('keep', None, None),)
-    with pytest.raises(ValueError, match='occupied'):
-        adapter.configure_scenarios(definitions, replace=True)
-    assert scen.DataBodyRange.ClearContents.call_count == 2
+    adapter.scen = MagicMock()
+    adapter.scen.ShowTotals = False
+    adapter.scen.ListRows.Count = 0
+    with pytest.raises(ValueError, match='existing first SCEN row'):
+        adapter.configure_scenarios(pd.DataFrame({'Scenario Name': ['A']}), replace=True)
+    adapter.scen.Resize.assert_not_called()
+
+
+def test_external_first_row_notebook_example(setup, monkeypatch):
+    from pathlib import Path
+    notebook = json.loads(Path('notebooks/howto_batch_simulate.ipynb').read_text(encoding='utf-8'))
+    cell = next(c for c in notebook['cells'] if c.get('id') == 'run-external-first-row')
+    run_batch = batch.run_batch
+
+    def run_example(workbook, **options):
+        assert options['scenarios'].name == 'scenarios_5400_SCEN.csv'
+        options.update(setup, scenarios=FakeExcel.rows)
+        return run_batch(**options)
+
+    monkeypatch.setattr(batch, 'run_batch', run_example)
+    source = ''.join(cell['source']).replace('RUN_EXTERNAL_BATCH = False', 'RUN_EXTERNAL_BATCH = True')
+    namespace = {}
+    exec(compile(source, 'howto_batch_simulate.ipynb', 'exec'), namespace)
+    assert namespace['external_result'].completed == FakeExcel.rows['Scenario Name'].tolist()
+    assert FakeExcel.calls == [(0, True), (0, False), (0, True), (0, False)]
+    assert all(replace and len(frame) == 1 for frame, replace in FakeExcel.configurations)
+    exec(compile(source, 'howto_batch_simulate.ipynb', 'exec'), namespace)
+    assert namespace['external_result'].skipped == FakeExcel.rows['Scenario Name'].tolist()
+    assert len(FakeExcel.calls) == len(FakeExcel.configurations) == 4
 
 
 def test_atomic_manifest_retries_transient_windows_lock_and_keeps_old_file(tmp_path, monkeypatch):
@@ -335,14 +369,12 @@ def test_atomic_manifest_retries_transient_windows_lock_and_keeps_old_file(tmp_p
 def test_adapter_restores_external_formulas_and_does_not_save_or_close_user_book():
     adapter = PEExcelAdapter('dummy.xlsb')
     body = SimpleNamespace(Formula=None, ClearContents=lambda: None)
-    adapter.scen = SimpleNamespace(DataBodyRange=body)
-    resized = []
-    adapter._resize = resized.append
-    adapter._restore = (2, (('=A1',), ('original',)), True)
+    adapter.scen = SimpleNamespace(ListRows=lambda i: SimpleNamespace(Range=body))
+    adapter._restore = (2, (('=A1', 'original'),), True)
     adapter.book = SimpleNamespace(Close=lambda **kwargs: pytest.fail('closed user workbook'))
     adapter.app = SimpleNamespace(Quit=lambda: pytest.fail('quit user Excel'))
     adapter.__exit__(RuntimeError, RuntimeError('failed run'), None)
-    assert resized == [2] and body.Formula == (('=A1',), ('original',))
+    assert body.Formula == (('=A1', 'original'),)
 
 
 @pytest.mark.parametrize('notebook', ['notebooks/howto_batch_simulate.ipynb', 'website/tutorial_batch.ipynb'])
@@ -850,13 +882,13 @@ def test_com_uninitialize_failure_does_not_mask_interrupt(monkeypatch):
 
 
 
-def test_existing_scenario_subset_does_not_replace_table(setup):
+def test_external_subset_uses_first_row_even_when_matching_native_scenarios(setup):
     selected = batch.inspect_batch(setup['workbook']).iloc[[1, 3]]
     result = batch.run_batch(**setup, scenarios=selected)
     assert result.completed == ['Demo | B', 'Demo | D']
-    assert FakeExcel.calls == [(1, True), (3, True)]
-    assert FakeExcel.configurations[0][1] is False
-    pd.testing.assert_frame_equal(FakeExcel.configurations[0][0], FakeExcel.rows)
+    assert FakeExcel.calls == [(0, True), (0, True)]
+    assert all(replace and len(frame) == 1 for frame, replace in FakeExcel.configurations)
+    pd.testing.assert_frame_equal(pd.concat([frame for frame, _ in FakeExcel.configurations]), selected)
 
 
 

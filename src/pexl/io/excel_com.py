@@ -267,7 +267,7 @@ class PEExcelAdapter:
         self._call("validate workbook", validate)
 
     def configure_scenarios(self, definitions: pd.DataFrame, *, replace: bool = False) -> None:
-        """Save formulas, then optionally load a temporary CSV/XLSX configuration."""
+        """Save formulas, then optionally write one external definition to row 1."""
         logger.info("Configuring SCEN (%d rows)...", len(definitions))
         self._call("configure SCEN", lambda: self._configure_scenarios(definitions, replace=replace), safe=False)
 
@@ -278,33 +278,26 @@ class PEExcelAdapter:
             "Simulieren?", "Skip base reload?", "SAVE as Scenario in Inputs?",
             "Export as single project file incl. Timeseries?",
         }
-        if replace and len(definitions) > self.scen.ListRows.Count:
-            extra = self.scen.HeaderRowRange.Offset(self.scen.ListRows.Count + 1, 0).Resize(
-                len(definitions) - self.scen.ListRows.Count, self.scen.ListColumns.Count)
-            if any(value is not None and value != "" for row in extra.Formula for value in row):
-                raise ValueError("Cannot expand Scenarios over occupied cells below the table")
-        original = self.scen.DataBodyRange
+        if replace and (len(definitions) != 1 or self.scen.ListRows.Count == 0):
+            raise ValueError("External configuration requires one definition and an existing first SCEN row")
+        original = self.scen.ListRows(1).Range if replace else self.scen.DataBodyRange
         if self._restore is None:
             self._restore = (self.scen.ListRows.Count,
                              original.Formula if original is not None else None,
                              replace)
-        if replace:
-            self._resize(len(definitions))
-            # Only supplied columns are writable; absent columns retain no stale values.
-            self.scen.DataBodyRange.ClearContents()
-            for column in definitions.columns:
-                values = tuple((None if pd.isna(v) else v,) for v in definitions[column])
-                self._call(f"write {column}", lambda: setattr(self.scen.ListColumns(column).DataBodyRange, "Value", values))
-        elif not hasattr(self, "_control_formulas"):
+        if not hasattr(self, "_control_formulas"):
             self._control_formulas = {
                 name: self.scen.ListColumns(name).DataBodyRange.Formula
                 for name in self._controls
             }
+        if replace:
+            # Reuse the first row; omitted columns must not retain previous presets.
+            original.ClearContents()
+            for column, value in definitions.iloc[0].items():
+                self.scen.ListColumns(column).DataBodyRange.Cells(1, 1).Value = (
+                    None if pd.isna(value) else value)
         for column in self._controls - {"Simulieren?", "Skip base reload?"}:
             self.scen.ListColumns(column).DataBodyRange.Value = False
-
-    def _resize(self, count):
-        self.scen.Resize(self.scen.HeaderRowRange.Resize(count + 1, self.scen.ListColumns.Count))
 
     def run_scenario(self, row: int, reload_base: bool) -> None:
         """Select one SCEN row and execute the existing VBA scenario operation."""
@@ -377,13 +370,10 @@ class PEExcelAdapter:
 
         def restore():
             if self._restore is not None:
-                count, formulas, replaced = self._restore
+                _, formulas, replaced = self._restore
                 if replaced:
-                    self.scen.DataBodyRange.ClearContents()
-                    self._resize(count)
-                    if formulas is not None:
-                        self.scen.DataBodyRange.Formula = formulas
-                elif hasattr(self, "_control_formulas"):
+                    self.scen.ListRows(1).Range.Formula = formulas
+                if hasattr(self, "_control_formulas"):
                     for name, values in self._control_formulas.items():
                         self.scen.ListColumns(name).DataBodyRange.Formula = values
 

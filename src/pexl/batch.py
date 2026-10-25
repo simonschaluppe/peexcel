@@ -124,8 +124,9 @@ def run_batch(
         ``peexcel[batch]`` extra.
     scenarios : str, Path, DataFrame or None, default None
         Optional scenario definitions from a CSV, Excel file or DataFrame.
-        Definitions temporarily replace the workbook's SCEN table and are
-        restored when the session ends. Required columns are ``Scenario Name``
+        Each definition temporarily replaces only the first existing SCEN row;
+        the table size stays fixed and original contents are restored when the
+        session ends. Required columns are ``Scenario Name``
         and ``Base Scenario``; other columns must match SCEN headers. If None,
         use the existing SCEN table.
     scenario_filter : Mapping[str, object] or None, default None
@@ -580,21 +581,12 @@ def _run(workbook, scenarios, filters, batch_size, base_reload, annual, timeseri
             progress_callback(len(result.completed), len(selected), "")
         configuration = definitions
         replace = scenarios is not None
-        # A slice returned by inspect_batch is a selection of existing rows,
-        # not a replacement SCEN table. Keep the original Excel row positions.
-        if (replace and len(definitions) < len(native)
-                and definitions.columns.equals(native.columns)
-                and not native["Scenario Name"].duplicated().any()
-                and definitions["Scenario Name"].isin(native["Scenario Name"]).all()):
-            existing = native.set_index("Scenario Name", drop=False).loc[definitions["Scenario Name"]]
-            if definitions.reset_index(drop=True).equals(existing.reset_index(drop=True)):
-                configuration = native
-                replace = False
         if not pending.empty:
             logger.info("Validating workbook references and result schema...")
             excel._validate_scenarios(selected, timeseries=timeseries)
-            logger.info("Configuring scenarios...")
-            excel.configure_scenarios(configuration, replace=replace)
+            if not replace:
+                logger.info("Configuring scenarios...")
+                excel.configure_scenarios(configuration, replace=False)
         positions = {name: i for i, name in enumerate(configuration["Scenario Name"])}
         indices = {name: i + 1 for i, name in enumerate(selected["Scenario Name"])}
         last_base = None
@@ -604,7 +596,11 @@ def _run(workbook, scenarios, filters, batch_size, base_reload, annual, timeseri
             logger.info("RUN [%03d/%d] %s (batch elapsed %.1fs)", indices[name], len(selected), name, monotonic() - started)
             phase = "simulation"
             try:
-                excel.run_scenario(positions[name], base_reload == "always" or last_base != base)
+                if replace:
+                    phase = "configuration"
+                    excel.configure_scenarios(configuration.iloc[[positions[name]]], replace=True)
+                phase = "simulation"
+                excel.run_scenario(0 if replace else positions[name], base_reload == "always" or last_base != base)
                 logger.info("Simulation finished: %s (%.1fs); capturing results...", name, monotonic() - scenario_started)
                 phase = "capture"
                 scenario = excel.capture_scenario(Project(), name, timeseries=timeseries)
@@ -617,8 +613,9 @@ def _run(workbook, scenarios, filters, batch_size, base_reload, annual, timeseri
                 if not excel._recover(exc):
                     logger.error("Excel connection/state could not be recovered; stopping")
                     break
-                logger.info("Configuring scenarios after recovery...")
-                excel.configure_scenarios(configuration, replace=replace)
+                if not replace:
+                    logger.info("Configuring scenarios after recovery...")
+                    excel.configure_scenarios(configuration, replace=False)
                 continue
             scenario_seconds[name] = monotonic() - scenario_started
             _plausibility(scenario)
