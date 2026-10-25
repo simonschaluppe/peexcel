@@ -8,7 +8,8 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from collections.abc import Callable
 from contextlib import contextmanager
-from copy import deepcopy
+from contextvars import ContextVar
+from copy import copy, deepcopy
 import logging
 import math
 import re
@@ -243,6 +244,24 @@ def run_batch(
 
 
 logger = logging.getLogger(__name__)
+_scenario_logging = ContextVar("pexl_scenario_logging", default=False)
+
+
+class _BatchFormatter(logging.Formatter):
+    def __init__(self, *, color=False):
+        super().__init__("%(asctime)s %(levelname)-7s %(message)s", "%Y-%m-%d %H:%M:%S")
+        self.color = color
+
+    def format(self, record):
+        record = copy(record)
+        if _scenario_logging.get():
+            record.msg = "    " + record.getMessage().replace("\n", "\n    ")
+            record.args = ()
+        text = super().format(record)
+        if self.color:
+            color = "32" if record.name == "pexl.io.excel_com" else "35"
+            return f"\033[{color}m{text}\033[0m"
+        return text
 
 
 @contextmanager
@@ -271,8 +290,8 @@ def _batch_logging(directory):
     try:
         handlers.append(logging.StreamHandler(sys.stderr))
         handlers.append(logging.FileHandler(directory / "batch.log", mode="a", encoding="utf-8"))
-        for handler in handlers:
-            handler.setFormatter(logging.Formatter("%(asctime)s %(levelname)-7s %(message)s", "%Y-%m-%d %H:%M:%S"))
+        handlers[0].setFormatter(_BatchFormatter(color=getattr(sys.stderr, "isatty", lambda: False)()))
+        handlers[1].setFormatter(_BatchFormatter())
         for log in targets:
             log.setLevel(logging.INFO)
             log.propagate = False
@@ -433,15 +452,15 @@ def inspect_batch(
 
 
 def _plausibility(scenario):
-    value = scenario.to_var_dict().get("PEI_balance")
+    value = scenario.to_var_dict().get("PEI_saldo_project")
     try:
         valid = not isinstance(value, bool) and value is not None and math.isfinite(float(value))
     except (TypeError, ValueError):
         valid = False
     if valid:
-        logger.info("%s: PEI_balance=%s %s", scenario.column_name, value, SCHEMA_META.PEI_balance.unit)
+        logger.info("Results plausible: PEI_saldo_project=%.2f %s", float(value), SCHEMA_META.PEI_saldo_project.unit)
     else:
-        logger.warning("%s: missing, nonnumeric or nonfinite PEI_balance: %r", scenario.column_name, value)
+        logger.warning("%s: missing, nonnumeric or nonfinite PEI_saldo_project: %r", scenario.column_name, value)
 
 
 def _run(workbook, scenarios, filters, batch_size, base_reload, annual, timeseries, directory, resume,
@@ -594,44 +613,49 @@ def _run(workbook, scenarios, filters, batch_size, base_reload, annual, timeseri
             current = name
             scenario_started = monotonic()
             logger.info("RUN [%03d/%d] %s (batch elapsed %.1fs)", indices[name], len(selected), name, monotonic() - started)
-            phase = "simulation"
+            log_token = _scenario_logging.set(True)
             try:
-                if replace:
-                    phase = "configuration"
-                    excel.configure_scenarios(configuration.iloc[[positions[name]]], replace=True)
                 phase = "simulation"
-                excel.run_scenario(0 if replace else positions[name], base_reload == "always" or last_base != base)
-                logger.info("Simulation finished: %s; capturing results...", name)
-                phase = "capture"
-                scenario = excel.capture_scenario(Project(), name, timeseries=timeseries)
-            except (_ScenarioFailure, _ExcelFailure) as exc:
-                result.failed[name] = f"{phase}: {type(exc).__name__}: {exc}"
-                logger.error("%s: %s", name, result.failed[name])
-                checkpoint()
-                _write_remaining(directory, selected, result.completed)
-                last_base = None
-                if not excel._recover(exc):
-                    logger.error("Excel connection/state could not be recovered; stopping")
-                    break
-                if not replace:
-                    logger.info("Configuring scenarios after recovery...")
-                    excel.configure_scenarios(configuration, replace=False)
-                continue
-            scenario_seconds[name] = monotonic() - scenario_started
-            _plausibility(scenario)
-            phase = "export"
-            chunk_project.add_scenario(scenario)
-            export_series()
-            last_base = base
-            durations.append(scenario_seconds[name])
-            completed_count = len(result.completed) + len(chunk_project)
-            if len(chunk_project) >= batch_size or name == pending.iloc[-1]["Scenario Name"]:
-                flush()
-            logger.info("Captured %s (%.1fs); %d captured, %d committed", name, durations[-1], completed_count, len(result.completed))
-            phase = "callback"
-            if progress_callback is not None:
-                progress_callback(completed_count, len(selected), name)
-            current = None
+                try:
+                    if replace:
+                        phase = "configuration"
+                        excel.configure_scenarios(configuration.iloc[[positions[name]]], replace=True)
+                    phase = "simulation"
+                    excel.run_scenario(0 if replace else positions[name], base_reload == "always" or last_base != base)
+                    phase = "capture"
+                    capture_started = monotonic()
+                    scenario = excel.capture_scenario(Project(), name, timeseries=timeseries)
+                    logger.info("Results captured (%.1fs)", monotonic() - capture_started)
+                except (_ScenarioFailure, _ExcelFailure) as exc:
+                    result.failed[name] = f"{phase}: {type(exc).__name__}: {exc}"
+                    logger.error("%s: %s", name, result.failed[name])
+                    checkpoint()
+                    _write_remaining(directory, selected, result.completed)
+                    last_base = None
+                    if not excel._recover(exc):
+                        logger.error("Excel connection/state could not be recovered; stopping")
+                        break
+                    if not replace:
+                        logger.info("Configuring scenarios after recovery...")
+                        excel.configure_scenarios(configuration, replace=False)
+                    continue
+                scenario_seconds[name] = monotonic() - scenario_started
+                _plausibility(scenario)
+                phase = "export"
+                chunk_project.add_scenario(scenario)
+                export_series()
+                last_base = base
+                durations.append(scenario_seconds[name])
+                completed_count = len(result.completed) + len(chunk_project)
+                if len(chunk_project) >= batch_size or name == pending.iloc[-1]["Scenario Name"]:
+                    flush()
+                logger.debug("Captured (%.1fs); %d captured, %d committed", durations[-1], completed_count, len(result.completed))
+                phase = "callback"
+                if progress_callback is not None:
+                    progress_callback(completed_count, len(selected), name)
+                current = None
+            finally:
+                _scenario_logging.reset(log_token)
         phase = "export"
         flush()
     except BaseException as exc:

@@ -121,6 +121,7 @@ def test_progress_error_saves_capture_and_releases_session(setup):
 
     with pytest.raises(RuntimeError, match='display failed'):
         batch.run_batch(**setup, progress_callback=progress)
+    assert batch._scenario_logging.get() is False
     assert FakeExcel.closed
     assert not (setup['output_dir'] / '.batch.lock').exists()
     resumed = batch.run_batch(**setup, resume=True)
@@ -332,6 +333,35 @@ def test_external_configuration_requires_existing_first_row():
     adapter.scen.Resize.assert_not_called()
 
 
+@pytest.mark.parametrize('stamp', [
+    pd.Timestamp('2026-10-25 18:53:19.123456'),
+    pd.Timestamp('2026-10-25 18:53:19.123456', tz='Europe/Berlin'),
+    pd.Timestamp('2026-10-25 18:53:19.123456').to_pydatetime(),
+    pd.NaT,
+])
+def test_external_configuration_converts_dates_before_com(stamp):
+    from datetime import datetime, timezone
+    from unittest.mock import MagicMock
+    adapter = PEExcelAdapter('dummy.xlsb')
+    adapter.scen = MagicMock()
+    adapter.scen.ShowTotals = False
+    adapter.scen.ListRows.Count = 1
+    adapter.scen.HeaderRowRange.Value = (('Scenario Name', 'Base Scenario', 'Zeitpunkt'),)
+    definitions = pd.DataFrame({'Scenario Name': ['A'], 'Base Scenario': ['Default'],
+                                'Zeitpunkt': [stamp]}, dtype=object)
+    adapter.configure_scenarios(definitions, replace=True)
+    row = adapter.scen.ListRows(1).Range.Value2[0]
+    assert row[:2] == ('A', 'Default')
+    if pd.isna(stamp):
+        assert row[2] is None
+    else:
+        assert type(row[2]) is datetime
+        assert row[2].tzinfo is timezone.utc
+        assert row[2].replace(tzinfo=None) == datetime(2026, 10, 25, 18, 53, 19, 123456)
+    adapter.scen.ListRows(1).Range.ClearContents.assert_not_called()
+    adapter.scen.Resize.assert_not_called()
+
+
 def test_external_first_row_notebook_example(setup, monkeypatch):
     from pathlib import Path
     notebook = json.loads(Path('notebooks/howto_batch_simulate.ipynb').read_text(encoding='utf-8'))
@@ -456,17 +486,54 @@ def test_default_logging_is_scoped_persistent_and_before_blocking_call(setup, mo
     def check(self, row, reload):
         text = (setup['output_dir'] / 'batch.log').read_text(encoding='utf-8')
         assert f'RUN [{row + 1:03d}/4]' in text
+        logging.getLogger('pexl.io.excel_com').info('COM scenario details')
         original(self, row, reload)
     monkeypatch.setattr(FakeExcel, 'run_scenario', check)
     batch.run_batch(**setup)
     text = capsys.readouterr().err
     assert 'Checkpoint saved' in text and 'Summary: 4 completed' in text
-    assert 'missing, nonnumeric or nonfinite PEI_balance' in text
+    assert 'INFO        COM scenario details' in text
+    assert 'INFO        Results captured (' in text
+    assert 'Simulation finished:' not in text and ' captured, ' not in text
+    assert 'INFO    RUN [001/4]' in text and 'INFO    RUN [004/4]' in text
+    assert 'INFO    Summary:' in text
+    assert 'Logging error' not in text and '\033[' not in text
+    assert batch._scenario_logging.get() is False
+    assert 'missing, nonnumeric or nonfinite PEI_saldo_project' in text
     assert (logging.getLogger().level, logging.getLogger().handlers) == root
     assert (batch.logger.level, batch.logger.handlers, batch.logger.propagate) == previous
     batch.run_batch(**setup, resume=True)
     text = (setup['output_dir'] / 'batch.log').read_text(encoding='utf-8')
     assert text.count('Summary:') == 2
+
+
+def test_log_colors_are_console_only_and_records_are_not_modified(tmp_path, monkeypatch):
+    import io
+    import logging
+    import sys
+    stream = io.StringIO()
+    stream.isatty = lambda: True
+    monkeypatch.setattr(sys, 'stderr', stream)
+    with batch._batch_logging(tmp_path):
+        batch.logger.info('RUN [001/1] A')
+        token = batch._scenario_logging.set(True)
+        try:
+            logging.getLogger('pexl.io.excel_com').info('Configuring %s', 'A')
+            batch.logger.info('Captured (%.1fs)', 1.2)
+            record = logging.makeLogRecord({'name': 'pexl.batch', 'msg': 'Value %s', 'args': ('A',)})
+            batch._BatchFormatter(color=True).format(record)
+            assert record.msg == 'Value %s' and record.args == ('A',)
+        finally:
+            batch._scenario_logging.reset(token)
+        batch.logger.info('Summary')
+    lines = stream.getvalue().splitlines()
+    assert lines[0].startswith('\033[35m') and 'INFO    RUN' in lines[0]
+    assert lines[1].startswith('\033[32m') and 'INFO        Configuring A' in lines[1]
+    assert lines[2].startswith('\033[35m') and 'INFO        Captured (1.2s)' in lines[2]
+    assert 'INFO    Summary' in lines[3]
+    assert all(line.endswith('\033[0m') for line in lines)
+    saved = (tmp_path / 'batch.log').read_text(encoding='utf-8')
+    assert '\033[' not in saved and 'INFO        Configuring A' in saved
 
 
 def test_retry_csv_preserves_selected_original_values_and_order(setup, monkeypatch):

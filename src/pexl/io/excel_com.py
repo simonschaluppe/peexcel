@@ -12,7 +12,7 @@ SCEN or introducing another Excel connection layer.
 from __future__ import annotations
 
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timezone
 from functools import cached_property
 import logging
 import sys
@@ -268,7 +268,7 @@ class PEExcelAdapter:
 
     def configure_scenarios(self, definitions: pd.DataFrame, *, replace: bool = False) -> None:
         """Save formulas, then optionally write one external definition to row 1."""
-        logger.info("Configuring SCEN (%d rows)...", len(definitions))
+        logger.debug("Configuring SCEN (%d rows)...", len(definitions))
         started = monotonic()
         self._call("configure SCEN", lambda: self._configure_scenarios(definitions, replace=replace), safe=False)
         logger.info("SCEN configuration finished (%.1fs)", monotonic() - started)
@@ -299,7 +299,18 @@ class PEExcelAdapter:
             values = definitions.iloc[0].reindex(headers).astype(object)
             for column in self._controls - {"Simulieren?", "Skip base reload?"}:
                 values[column] = False
-            original.Value2 = (tuple(None if pd.isna(value) else value for value in values),)
+            row = []
+            for value in values:
+                if pd.isna(value):
+                    value = None
+                elif isinstance(value, datetime):
+                    # Excel dates are wall-clock values. COM converts dates through
+                    # UTC; use a native datetime and preserve the displayed time.
+                    if isinstance(value, pd.Timestamp):
+                        value = value.to_pydatetime()
+                    value = value.replace(tzinfo=timezone.utc)
+                row.append(value)
+            original.Value2 = (tuple(row),)
         if initialize or not replace:
             for column in self._controls - {"Simulieren?", "Skip base reload?"}:
                 self.scen.ListColumns(column).DataBodyRange.Value = False
@@ -315,7 +326,7 @@ class PEExcelAdapter:
         self._call("select scenario", select)
         macro = self._call("resolve macro", lambda: "'" + self.book.Name.replace("'", "''") + "'!RunScenariosAutomated")
         logger.info("SCEN selection finished (%.1fs)", monotonic() - started)
-        logger.info("Starting VBA simulation (row %d, reload_base=%s)...", row + 1, reload_base)
+        logger.debug("Starting VBA simulation (row %d, reload_base=%s)...", row + 1, reload_base)
         started = monotonic()
         try:
             success = self._call("RunScenariosAutomated", lambda: self.app.Run(macro, bool(reload_base)), safe=False)
