@@ -16,7 +16,7 @@ from datetime import datetime
 from functools import cached_property
 import logging
 import sys
-from time import sleep
+from time import monotonic, sleep
 from typing import Callable, TypeVar
 
 from pexl.model.project import Project
@@ -269,12 +269,15 @@ class PEExcelAdapter:
     def configure_scenarios(self, definitions: pd.DataFrame, *, replace: bool = False) -> None:
         """Save formulas, then optionally write one external definition to row 1."""
         logger.info("Configuring SCEN (%d rows)...", len(definitions))
+        started = monotonic()
         self._call("configure SCEN", lambda: self._configure_scenarios(definitions, replace=replace), safe=False)
+        logger.info("SCEN configuration finished (%.1fs)", monotonic() - started)
 
     def _configure_scenarios(self, definitions, *, replace):
         if self.scen.ShowTotals:
             raise ValueError("Scenarios must not have a totals row")
-        self._controls = set(self.scen.HeaderRowRange.Value[0]) & {
+        headers = self.scen.HeaderRowRange.Value[0]
+        self._controls = set(headers) & {
             "Simulieren?", "Skip base reload?", "SAVE as Scenario in Inputs?",
             "Export as single project file incl. Timeseries?",
         }
@@ -285,22 +288,25 @@ class PEExcelAdapter:
             self._restore = (self.scen.ListRows.Count,
                              original.Formula if original is not None else None,
                              replace)
-        if not hasattr(self, "_control_formulas"):
+        initialize = not hasattr(self, "_control_formulas")
+        if initialize:
             self._control_formulas = {
                 name: self.scen.ListColumns(name).DataBodyRange.Formula
                 for name in self._controls
             }
         if replace:
-            # Reuse the first row; omitted columns must not retain previous presets.
-            original.ClearContents()
-            for column, value in definitions.iloc[0].items():
-                self.scen.ListColumns(column).DataBodyRange.Cells(1, 1).Value = (
-                    None if pd.isna(value) else value)
-        for column in self._controls - {"Simulieren?", "Skip base reload?"}:
-            self.scen.ListColumns(column).DataBodyRange.Value = False
+            # One Excel write, in workbook column order, including empty omitted fields.
+            values = definitions.iloc[0].reindex(headers).astype(object)
+            for column in self._controls - {"Simulieren?", "Skip base reload?"}:
+                values[column] = False
+            original.Value2 = (tuple(None if pd.isna(value) else value for value in values),)
+        if initialize or not replace:
+            for column in self._controls - {"Simulieren?", "Skip base reload?"}:
+                self.scen.ListColumns(column).DataBodyRange.Value = False
 
     def run_scenario(self, row: int, reload_base: bool) -> None:
         """Select one SCEN row and execute the existing VBA scenario operation."""
+        started = monotonic()
         def select():
             self.scen.ListColumns("Simulieren?").DataBodyRange.Value = tuple(
                 (i == row,) for i in range(self.scen.ListRows.Count))
@@ -308,7 +314,9 @@ class PEExcelAdapter:
                 self.scen.ListColumns("Skip base reload?").DataBodyRange.Value = not reload_base
         self._call("select scenario", select)
         macro = self._call("resolve macro", lambda: "'" + self.book.Name.replace("'", "''") + "'!RunScenariosAutomated")
+        logger.info("SCEN selection finished (%.1fs)", monotonic() - started)
         logger.info("Starting VBA simulation (row %d, reload_base=%s)...", row + 1, reload_base)
+        started = monotonic()
         try:
             success = self._call("RunScenariosAutomated", lambda: self.app.Run(macro, bool(reload_base)), safe=False)
         except _ExcelFailure as exc:
@@ -323,6 +331,7 @@ class PEExcelAdapter:
             raise
         if success is not True and success != -1:
             raise _ScenarioFailure("RunScenariosAutomated returned failure")
+        logger.info("VBA simulation finished (%.1fs)", monotonic() - started)
 
     def capture_scenario(self, project: Project, name: str, *, timeseries: bool = False) -> Scenario:
         """Capture current live values into Project, independently of SCEN execution."""

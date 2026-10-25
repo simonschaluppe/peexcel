@@ -285,26 +285,33 @@ def test_adapter_controls_and_sim_capture_restore_native_flags():
 
 
 def test_external_configuration_reuses_first_row_and_restores_formulas():
-    from unittest.mock import MagicMock
+    from unittest.mock import MagicMock, PropertyMock
     adapter = PEExcelAdapter('dummy.xlsb')
     scen = MagicMock()
     adapter.scen = scen
     scen.ShowTotals = False
     scen.ListRows.Count = 3
-    scen.HeaderRowRange.Value = (('Scenario Name', 'Base Scenario', 'Simulieren?'),)
+    scen.HeaderRowRange.Value = (('Scenario Name', 'Base Scenario', 'Simulieren?', 'Preset',
+                                 'SAVE as Scenario in Inputs?'),)
     first = scen.ListRows(1).Range
-    original = (('old', '=SomeBase', False),)
+    original = (('old', '=SomeBase', False, 'original preset', True),)
     first.Formula = original
     columns = {name: MagicMock() for name in scen.HeaderRowRange.Value[0]}
     scen.ListColumns.side_effect = columns.__getitem__
+    save_flag = PropertyMock()
+    type(columns['SAVE as Scenario in Inputs?'].DataBodyRange).Value = save_flag
     flags = ((False,), (True,), (False,))
     columns['Simulieren?'].DataBodyRange.Formula = flags
-    definitions = pd.DataFrame({'Scenario Name': ['A', 'B'], 'Base Scenario': ['Default', 'Other']})
+    definitions = pd.DataFrame({'Base Scenario': ['Default', 'Other'], 'Scenario Name': ['A', 'B'],
+                                'Preset': ['first', pd.NA], 'SAVE as Scenario in Inputs?': [True, True]})
     for i in range(2):
         adapter.configure_scenarios(definitions.iloc[[i]], replace=True)
-        assert columns['Scenario Name'].DataBodyRange.Cells(1, 1).Value == definitions.iloc[i]['Scenario Name']
-        assert columns['Base Scenario'].DataBodyRange.Cells(1, 1).Value == definitions.iloc[i]['Base Scenario']
-    assert first.ClearContents.call_count == 2
+        assert first.Value2 == ((definitions.iloc[i]['Scenario Name'], definitions.iloc[i]['Base Scenario'],
+                                 None, 'first' if i == 0 else None, False),)
+    first.ClearContents.assert_not_called()
+    save_flag.assert_called_once_with(False)
+    for column in columns.values():
+        column.DataBodyRange.Cells.assert_not_called()
     adapter.__exit__(RuntimeError, RuntimeError('calculation failed'), None)
     assert first.Formula == original
     assert columns['Simulieren?'].DataBodyRange.Formula == flags

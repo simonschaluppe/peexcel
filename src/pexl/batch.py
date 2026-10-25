@@ -601,7 +601,7 @@ def _run(workbook, scenarios, filters, batch_size, base_reload, annual, timeseri
                     excel.configure_scenarios(configuration.iloc[[positions[name]]], replace=True)
                 phase = "simulation"
                 excel.run_scenario(0 if replace else positions[name], base_reload == "always" or last_base != base)
-                logger.info("Simulation finished: %s (%.1fs); capturing results...", name, monotonic() - scenario_started)
+                logger.info("Simulation finished: %s; capturing results...", name)
                 phase = "capture"
                 scenario = excel.capture_scenario(Project(), name, timeseries=timeseries)
             except (_ScenarioFailure, _ExcelFailure) as exc:
