@@ -37,6 +37,54 @@ def darken_color(hex_color: str, factor: float = 0.7) -> str:
     return f"#{r:02x}{g:02x}{b:02x}"
 
 
+def _scenario_plot_frame(view, names):
+    from pexl.schema.current import ATTR_NAME_MAP, SCHEMA_META
+    names = list(dict.fromkeys(n for n in names if n))
+    frame = view.select(*names).to_frame().reset_index()
+    labels = {n: f"{getattr(SCHEMA_META, ATTR_NAME_MAP[n]).label_de or n} "
+                 f"[{getattr(SCHEMA_META, ATTR_NAME_MAP[n]).unit or '-'}]" for n in names}
+    labels['column_name'] = 'Szenario'
+    return frame, labels
+
+
+def scenario_scatter(view, x, y, *, color=None, symbol=None, size=None, hover_data=()):
+    """Scatter of stored scenario values with schema-derived labels and units."""
+    import plotly.express as px
+    frame, labels = _scenario_plot_frame(view, [x, y, color, symbol, size, *hover_data])
+    return px.scatter(frame, x=x, y=y, color=color, symbol=symbol, size=size,
+                      hover_name='column_name', hover_data=list(hover_data), labels=labels)
+
+
+def scenario_distribution(view, variable, *, by, color=None, kind='box'):
+    """Unweighted distribution of simulated variants (not a stock estimate)."""
+    import plotly.express as px
+    if kind not in ('box', 'violin'):
+        raise ValueError("kind must be 'box' or 'violin'")
+    frame, labels = _scenario_plot_frame(view, [variable, by, color])
+    return getattr(px, kind)(frame, x=by, y=variable, color=color, labels=labels,
+                             hover_name='column_name', points=False)
+
+
+def report_balance_scatter(view, chart_name, x, *, color=None):
+    """Scatter the displayed Deckung-minus-Bedarf balance of an existing report.
+
+    This uses the same absolute series totals as the paired-bar renderer. It is
+    a report balance, not an additional simulated energy-flow variable.
+    """
+    import plotly.express as px
+    from pexl import reporting
+    report = reporting.materialize(view, chart_name)
+    if report['chart_type'] != 'stacked_bar_comparison':
+        raise ValueError('Balance scatter requires a Bedarf/Deckung report')
+    frame, labels = _scenario_plot_frame(view, [x, color])
+    frame['report_balance'] = [s-d for s, d in zip(
+        _role_total(report, 'Deckung', absolute=True),
+        _role_total(report, 'Bedarf', absolute=True))]
+    labels['report_balance'] = f"{report['title']}: Deckung − Bedarf [{report.get('unit') or '-'}]"
+    return px.scatter(frame, x=x, y='report_balance', color=color,
+                      hover_name='column_name', labels=labels)
+
+
 def _marker(series: dict, *, replace_pattern: bool = False) -> dict:
     """Build a Plotly marker dictionary from materialized series metadata."""
     color = series.get("color") or "#cccccc"

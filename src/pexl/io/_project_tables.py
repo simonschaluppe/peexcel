@@ -192,8 +192,9 @@ def load_scenario_values(
     if column_name not in df.columns:
         return
 
-    for _, row in df.iterrows():
-        var_name = row.get("var_name")
+    # Reading Series pairs avoids constructing a Series for every cell column.
+    # This matters for annual projects with thousands of scenario columns.
+    for var_name, value in zip(df["var_name"], df[column_name]):
         if pd.isna(var_name) or not str(var_name).strip():
             continue
 
@@ -208,7 +209,7 @@ def load_scenario_values(
             )
             continue
 
-        setattr(scenario.v, attr_name, row[column_name])
+        setattr(scenario.v, attr_name, value)
 
 
 def build_project_table(
@@ -261,6 +262,7 @@ def build_project_table(
         dups = df.loc[df["var_name"].duplicated(), "var_name"].tolist()
         raise ValueError(f"Duplicate var_name values in schema: {dups}")
 
+    scenario_data = {}
     for scenario, col_name in _iter_scenario_columns(project):
         if strict:
             missing_attrs = [
@@ -274,12 +276,8 @@ def build_project_table(
                     f"{missing_attrs[:10]}"
                 )
 
-        values = {
-            meta.var_name: getattr(scenario.v, meta.attr_name)
-            for meta in metas
-        }
-        df[col_name] = df["var_name"].map(values)
+        scenario_data[col_name] = [getattr(scenario.v, meta.attr_name) for meta in metas]
 
-    return df
+    return pd.concat([df, pd.DataFrame(scenario_data, index=df.index)], axis=1)
 
 

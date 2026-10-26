@@ -30,7 +30,7 @@ def target(
     gfzscale=1.0,
 ) -> pd.DataFrame:
     curve = (fPE * (A / (dx + GFZ * gfzscale) - EUI)) * scale
-    return np.minimum(curve, cutoff * scale) if cutoff else curve
+    return np.minimum(curve, cutoff * scale) if cutoff is not None else curve
 
 
 def zq_synergy_gfa(GFZ):

@@ -84,9 +84,12 @@ def test_explorer_uses_explicit_project_export(tmp_path):
     import shutil
     from assessment_explained import build as build_explorer
     source = tmp_path / "Eigenes Projekt.xlsx"
-    shutil.copyfile(ROOT / "data/exports/Klimsta_Abschlussprojekt_Varianten_V3.xlsx", source)
+    shutil.copyfile(ROOT / "data/exports/typologies/building_sector/annual-00001.xlsx", source)
     page = build_explorer(tmp_path / "explorer.html", source=source)
     html = page.read_text(encoding="utf-8")
     assert "Eigenes Projekt.xlsx" in html
-    assert "Zweigeschoßiges EFH (Baujahr ab 2020)" in html
-    assert '"defaults": [5, 15, 25]' in html
+    assert "EFH_1G|vor1919|WP_Sole|PV30|noFlex" in html
+    import json
+    import re
+    payload = json.loads(re.search(r'id="assessment-data">(.*?)</script>', html, re.S).group(1))
+    assert payload['defaults'] == [0, 1, 2]

@@ -1,94 +1,260 @@
 <!doctype html>
 <html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Quartiere bewerten – Energie und Klimawirkung</title>
+<title>PEExcel Quick-Check – Gebäudetypologien vergleichen</title>
 <style>
-a.anchor-link{display:none}:root{font-family:system-ui,sans-serif;color:#203b43;background:#f6f7f3;line-height:1.65}*{box-sizing:border-box}body{margin:0}main{max-width:1440px;margin:auto;padding:30px clamp(16px,4vw,64px) 70px}header{max-width:850px;padding:32px 0}h1{font-size:clamp(30px,4vw,52px);line-height:1.15;letter-spacing:-1.5px}h2{font-size:28px;line-height:1.3}h3{font-size:19px}p{max-width:80ch}a{color:#246d60}section{margin:28px 0}.eyebrow{color:#59796e;font-weight:700;letter-spacing:2px;font-size:12px}.card{background:white;border:1px solid #dbe3dc;border-radius:18px;padding:clamp(16px,3vw,32px)}.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.intro-grid p{margin-bottom:0}.picker{display:grid;grid-template-columns:minmax(240px,380px) 1fr;gap:25px}input[type=search]{width:100%;font:inherit;padding:10px;border:1px solid #9eafa7;border-radius:7px}fieldset{border:0;padding:0;margin:12px 0}legend{font-weight:650}.choices{max-height:290px;overflow:auto;margin-top:10px}.choice{display:flex;align-items:flex-start;gap:10px;padding:9px 6px;border-bottom:1px solid #edf0eb;cursor:pointer;font-size:14px}.choice:has(input:checked){background:#edf5ee}.choice input{margin-top:6px;accent-color:#246d60}button{font:inherit;cursor:pointer;border:1px solid #a4b8ac;border-radius:7px;padding:8px 12px;background:white;color:#203b43}button:hover{background:#e5eee6}button:focus-visible,input:focus-visible{outline:3px solid #c79537;outline-offset:2px}.actions{display:flex;gap:8px;flex-wrap:wrap}.selected{margin:0;padding-left:24px;font-size:14px}.selected li{margin-bottom:8px}.note{background:#f3f5ec;border-left:4px solid #a4ae67;padding:14px 18px}.chart-wrap{width:100%;min-width:0}.chart{width:100%;min-width:0}.callout{border-left:4px solid #377d72;background:#f0f7f5;border-radius:8px;padding:18px 22px;margin:20px 0}.callout h3{margin-top:0}.card{min-width:0}.selected{list-style:none;padding-left:0}.caption{font-size:14px;color:#50676b}.empty{padding:36px;background:#f3f5ec;text-align:center;border-radius:12px}.muted{color:#607777;font-size:13px}footer{font-size:13px;color:#607777;border-top:1px solid #dbe3dc;padding-top:20px} [hidden]{display:none!important}@media(max-width:750px){.intro-grid,.picker{grid-template-columns:1fr}.card{border-radius:12px}main{padding-top:8px}header{padding:12px 0}h2{font-size:24px}}
-
-main{max-width:1920px;display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:28px;padding:24px 32px 60px}
-.page-content{min-width:0}.quick-panel{position:sticky;top:24px;align-self:start;max-height:calc(100vh - 48px);overflow:auto;margin:0;padding:20px}.quick-panel h2{font-size:23px}.quick-panel p{font-size:14px}.quick-panel .picker{display:block}.quick-panel .choices{max-height:40vh}.quick-panel details{font-size:13px}.quick-panel .selected{margin-top:10px}.quick-panel .muted{display:none}
-.legend-boxes{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:8px 0 18px}.legend-box{border:1px solid #dbe3dc;border-radius:10px;padding:12px;background:#f9fbf8}.legend-box h3{font-size:15px;margin:0 0 8px}.legend-items{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 10px}.legend-toggle{display:flex;gap:8px;align-items:flex-start;text-align:left;font-size:12px;line-height:1.4;padding:5px;border:0;background:transparent;min-width:0}.legend-toggle[aria-pressed=false]{opacity:.45;text-decoration:line-through}.legend-swatch{width:13px;height:13px;flex:0 0 13px;border:1px solid #bac5bf;margin-top:2px}#thg-legend{grid-template-columns:repeat(3,minmax(0,1fr))}.legend-reference .legend-items{grid-template-columns:1fr}.legend-reference .legend-toggle{font-size:11px}.legend-reference .legend-swatch{width:11px;height:11px;flex-basis:11px}
-@media(max-width:1250px){.legend-items{grid-template-columns:1fr}}
-@media(max-width:1000px){main{display:flex;flex-direction:column;padding:16px;gap:16px}.quick-panel{order:-1;position:static;max-height:none}.quick-panel .choices{max-height:220px}.quick-panel .picker{display:grid;grid-template-columns:1fr 1fr}.quick-panel .muted{display:block}}
-@media(max-width:600px){#thg-legend{grid-template-columns:1fr 1fr}.legend-reference{grid-column:1/-1}.legend-boxes{gap:8px}.legend-box{padding:8px}.legend-toggle{font-size:11px}.quick-panel .picker{display:block}}
-</style><script>{{PLOTLY}}</script></head><body><main><div class="page-content">
-<header><div class="eyebrow">PLUS-ENERGIE-QUARTIERE</div>{{intro}}</header>
-<div class="intro-grid"><article class="card">{{energy_summary}}</article><article class="card">{{carbon_summary}}</article></div>
-
-<div id="empty" class="empty" hidden>Wählen Sie mindestens ein Szenario aus, um beide Grafiken zu sehen.</div>
-<section class="card"><div>{{energy}}</div><aside class="callout">{{energy_reading}}</aside><div class="chart-wrap"><div id="pe" class="chart" role="img" aria-label="Primärenergie: Bedarf und Deckung der ausgewählten Szenarien"></div></div><div id="pe-legend" class="legend-boxes" aria-label="Legende"></div><p class="caption">Grün: Deckung größer als Bedarf. Rot: Deckung kleiner als Bedarf. Die Klammer verbindet die beiden Säulenhöhen.</p><aside class="callout">{{energy_note}}</aside><div>{{context}}</div></section>
-<section class="card"><div>{{carbon}}</div><aside class="callout">{{carbon_reading}}</aside><div class="chart-wrap"><div id="thg" class="chart" role="img" aria-label="Lebenszyklus-Treibhausgase und Referenzbudget der ausgewählten Szenarien"></div></div><div id="thg-legend" class="legend-boxes" aria-label="Legende"></div><p class="caption">Die Raute zeigt die Gesamtbilanz. Der Abstand zur roten Linie bezieht sich auf diesen Gesamtwert, nicht auf eine einzelne Säule.</p>{{bands}}</section>
-<section class="card">{{together}}</section><footer>{{source}}<p>Mit der Maus auf einen Beitrag zeigen, um seinen Wert zu lesen. Die Legende blendet Beiträge ein oder aus. Differenzmarkierungen und Budgetabstände beziehen sich immer auf die vollständige Bilanz. Die Gesamtbreite der Grafiken bleibt gleich; bei mehr Szenarien werden die Säulen schmaler.</p></footer>
-</div><aside class="card quick-panel" aria-labelledby="quick-title"><h2 id="quick-title">Quartiere vergleichen – Quick Check</h2><p>Wählen Sie vorhandene Szenarien aus. Beide Grafiken zeigen dieselbe Auswahl. Eine Auswahl ist für den Einstieg vorausgewählt.</p>
-<div class="picker"><div><label for="search">Szenarien suchen</label><input id="search" type="search" placeholder="Name oder Baualter eingeben"><fieldset><legend>Mehrfachauswahl</legend><div class="choices" id="choices"></div></fieldset><p id="no-results" hidden>Keine passenden Szenarien gefunden.</p><div class="actions"><button id="reset">Beispiele zurücksetzen</button><button id="clear">Auswahl leeren</button></div></div>
-<div><p id="status" role="status" aria-live="polite"></p><details><summary>Ausgewählte Szenarien</summary><ol class="selected" id="selected"></ol></details><p class="muted">Die ausgewählten Szenarien erscheinen mit ihren vollständigen Namen in beiden Grafiken.</p></div></div></aside></main><script type="application/json" id="assessment-data">{{DATA}}</script><script>
+:root{font-family:system-ui,sans-serif;color:#203b43;background:#f6f7f3;line-height:1.55}*{box-sizing:border-box}body{margin:0}main{max-width:1800px;margin:auto;padding:28px;display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:24px}h1{font-size:clamp(28px,4vw,46px);line-height:1.15}h2{font-size:25px}h3{font-size:16px}p{max-width:85ch}a{color:#246d60}.card{background:white;border:1px solid #dbe3dc;border-radius:14px;padding:24px;min-width:0;margin-bottom:20px}.quick-panel{position:sticky;top:16px;max-height:calc(100vh - 32px);overflow:auto;align-self:start;padding:18px}.quick-panel h2{font-size:22px}.choice{display:flex;gap:8px;font-size:13px;padding:6px;border-bottom:1px solid #edf0eb;overflow-wrap:anywhere}.choice input{flex:0 0 auto;accent-color:#246d60}input[type=search],input[type=number]{width:100%;padding:9px;font:inherit;border:1px solid #9eafa7;border-radius:6px}button{font:inherit;font-size:13px;background:white;border:1px solid #a4b8ac;border-radius:6px;padding:7px;cursor:pointer;color:#203b43}button:hover{background:#edf5ee}button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #c79537}button:disabled{opacity:.4;cursor:default}.actions{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}.choices{max-height:300px;overflow:auto}summary{cursor:pointer;font-weight:600;padding:7px 0}details{border-bottom:1px solid #edf0eb}details .choice{font-size:12px}label{font-size:14px}.caption{font-size:13px;color:#50676b}.notice{font-size:13px;color:#923d27}.empty{padding:30px;text-align:center}.chart-wrap{min-width:0;overflow:hidden}.legend-boxes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.legend-box{background:#f6f8f4;padding:10px;border-radius:8px}.legend-box h3{margin:0 0 8px}.legend-toggle{display:flex;text-align:left;gap:7px;align-items:start;border:0;background:transparent;font-size:12px}.legend-toggle[aria-pressed=false]{opacity:.4;text-decoration:line-through}.legend-swatch{width:12px;height:12px;flex:0 0 12px;margin-top:4px}.table-wrap{overflow:auto}table{border-collapse:collapse;width:100%;font-size:12px}th,td{text-align:right;padding:8px;border-bottom:1px solid #dbe3dc}th:first-child,td:first-child{text-align:left}footer{font-size:13px}.selected{list-style:none;padding:0;font-size:12px}.selected li{padding:6px 0;overflow-wrap:anywhere}.eyebrow{font-size:12px;letter-spacing:2px;font-weight:700;color:#59796e}.context-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}[hidden]{display:none!important}a.anchor-link{display:none}
+@media(max-width:1000px){main{display:flex;flex-direction:column;padding:14px}.quick-panel{order:-1;position:static;max-height:none}.card{padding:16px}.choices{max-height:200px}.legend-boxes{grid-template-columns:1fr 1fr}.context-grid{grid-template-columns:1fr}h1{margin-top:10px}}
+</style><script>{{PLOTLY}}</script></head><body>
+<main><div>
+<header><span class="eyebrow">PEEXCEL · GEBÄUDESEKTOR</span><h1>Gebäudetypologien vergleichen</h1><p>Gespeicherte Jahressimulationen im direkten Vergleich. Filtern und vergleichen Sie beliebig viele Varianten bis zum gesamten Bestand.</p></header>
+<section class="card"><h2>Quartierskontext</h2><p>Leere Eingaben erhalten die Originalbewertung. BGF und Grundstücksfläche bestimmen ausschließlich die GFZ für die Dichtebewertung. Der Sanierungsanteil ist der nutzflächengewichtete Anteil des Quartiers. Die simulierten Energieflüsse und THG-Werte bleiben unverändert.</p>
+<div class="context-grid"><label>BGF [m²]<input id="bgf" type="number" min="0" step="any" placeholder="Original"></label><label>Grundstücksfläche [m²]<input id="gf" type="number" min="0" step="any" placeholder="Original"></label><label>Sanierungsanteil [%]<input id="renovation" type="number" min="0" max="100" step="any" placeholder="Original"></label></div>
+<div class="actions"><button id="reset-context">Originalkontext wiederherstellen</button><button id="download">Auswahl und Kontext speichern</button></div><p id="context-status" role="status"></p><p id="context-error" class="notice" role="alert"></p></section>
+<div id="empty" class="empty" hidden>Wählen Sie mindestens ein Szenario aus.</div>
+<section class="card" id="analysis-section"><h2>Bestand untersuchen</h2><label for="analysis-kind">Analysediagramm</label> <select id="analysis-kind" style="font:inherit;max-width:100%;padding:8px"></select><p class="caption">Die Analyse zeigt alle aktuellen Filtertreffer oder Ihre gesamte Auswahl. Die Verteilungen sind ungewichtet; sie beschreiben die simulierten Varianten, keine Anteile am Gebäudebestand.</p><label for="analysis-scope">Datenbasis</label> <select id="analysis-scope" style="font:inherit;padding:8px"><option value="matches">Filtertreffer</option><option value="selection">Ausgewählte Szenarien</option></select><p id="analysis-count" role="status"></p><div class="chart-wrap"><div id="analysis" aria-label="Szenarioanalyse"></div></div><p class="caption">Scatter: Heizsystem als Farbe, Geometrie als Symbol und BGF als Markergröße im Bedarf-Deckungs-Vergleich. Kontextänderungen gelten auch für die Bewertungsdiagramme. Wärme- und Kühlbedarf sowie Endenergie bleiben unverändert. Virtuelle Exportsummen und der Saldo der Bilanzbeiträge können im vorliegenden Modellstand voneinander abweichen.</p></section>
+<p id="render-note" class="caption"></p>
+<section class="card"><h2>Primärenergie: Bedarf und Deckung</h2><p class="caption">Jahreswerte je m² NGF. Die Beiträge und ihre Zuordnung stammen aus dem PEExcel-Report.</p><div class="chart-wrap"><div id="pe" aria-label="Primärenergievergleich"></div></div><div id="pe-legend" class="legend-boxes"></div></section>
+<section class="card"><h2>Treibhausgase im Lebenszyklus</h2><p class="caption">EE: bauliche Emissionen · OE: betriebliche Emissionen · Raute: Gesamtbilanz. Die Referenzbänder gehören zur bestehenden Bewertungsdarstellung.</p><div class="chart-wrap"><div id="thg" aria-label="Treibhausgasvergleich"></div></div><div id="thg-legend" class="legend-boxes"></div></section>
+<section class="card"><h2>Original und Kontextbewertung</h2><p class="caption">PE-Saldo und Kontextbeiträge in kWh PE/(m² NGF·a). Der Export-Saldo wird separat fortgeschrieben; er kann im vorliegenden Modellstand vom Saldo der Diagrammbeiträge abweichen. Der Quick-Check ist ein Vergleichswerkzeug, kein neuer Konformitätsnachweis.</p><div class="actions"><button id="detail-previous">Vorherige Details</button><button id="detail-next">Weitere Details</button></div><p id="detail-count" class="caption"></p><div class="table-wrap"><table><thead><tr><th>Szenario</th><th>Originalsaldo</th><th>Kontextsaldo</th><th>Änderung</th><th>Dichte</th><th>Sanierung</th></tr></thead><tbody id="comparison"></tbody></table></div></section>
+<details class="card"><summary>Bewertungssystem erklärt</summary>{{energy_summary}}{{energy}}{{energy_reading}}{{energy_note}}{{context}}{{carbon_summary}}{{carbon}}{{carbon_reading}}{{bands}}{{together}}</details>
+<footer>{{source}}<p>Alle Berechnungen und Filter laufen lokal im Browser. Diese Datei enthält die Jahreskennwerte und Plotly; es wird kein Berechnungsdienst aufgerufen.</p></footer>
+</div><aside class="card quick-panel"><h2>Quick-Check</h2><label for="search">Szenarien suchen</label><input id="search" type="search" placeholder="Name durchsuchen">
+<p class="caption">Mehrere Werte je Filter: ODER. Zwischen Filtern: UND. Ohne Markierung sind alle Werte zugelassen. Filter verändern Ihre Auswahl nicht.</p><div id="filters"></div>
+<div class="actions"><button id="add">Treffer auswählen</button><button id="remove">Treffer abwählen</button><button id="reset-filters">Filter zurücksetzen</button></div>
+<p id="match-count" class="caption" aria-live="polite"></p><div id="choices" class="choices"></div><div class="actions"><button id="previous">Zurück</button><button id="next">Weiter</button></div>
+<p id="status" role="status" aria-live="polite"></p><p id="notice" class="notice" role="alert"></p><div class="actions"><button id="reset">Beispiele zurücksetzen</button><button id="clear">Auswahl leeren</button></div><details><summary>Ausgewählte Szenarien</summary><ol id="selected" class="selected"></ol></details></aside></main>
+<script type="application/json" id="assessment-data">{{DATA}}</script>
+<script id="quickcheck-code">const started=performance.now();
 const dataset=JSON.parse(document.getElementById('assessment-data').textContent);
-const scenarios=dataset.scenarios;
+const scenarios=dataset.scenarios, C=dataset.columns, PAGE=80;
 const selection=new Set(dataset.defaults);
-const choices=document.getElementById('choices');
-const hiddenSeries={pe:new Set(),thg:new Set()};
-scenarios.forEach(s=>{const label=document.createElement('label');label.className='choice';const box=document.createElement('input');box.type='checkbox';box.value=s.id;box.checked=selection.has(s.id);const text=document.createElement('span');text.textContent=s.name;label.append(box,text);choices.append(label);box.addEventListener('change',()=>{box.checked?selection.add(s.id):selection.delete(s.id);schedule();});});
-function wrapName(name,limit){
- const lines=[];let line='';
- for(const word of name.split(' ')){if(line && line.length+word.length+1>limit){lines.push(line);line=word;}else line+=(line?' ':'')+word;}
- if(line)lines.push(line);return lines.join('<br>');
+const filters={};
+let term='', page=0, detailPage=0, matches=scenarios, rendering=false, dirty=false;
+const el=id=>document.getElementById(id);
+const number=x=>Number.isFinite(x)?x.toLocaleString('de-DE',{maximumFractionDigits:2}):'—';
+const safe=s=>String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
+const val=(s,key)=>s.values[C[key]];
+function filtered(query=term, active=filters) {
+ return scenarios.filter(s=>s.name.toLocaleLowerCase('de').includes(query.toLocaleLowerCase('de')) &&
+  Object.entries(active).every(([key,values])=>!values.size||values.has(s.filters[key])));
 }
-function compose(key,selected,width){
- const layout=structuredClone(selected[0].plots[key].layout), data=[];
- layout.shapes=[];layout.annotations=[];
- selected.forEach((s,index)=>{const fig=s.plots[key];
-  fig.data.forEach(t=>{const trace=structuredClone(t);if(trace.x && Array.isArray(trace.x[0]))trace.x[0]=trace.x[0].map(name=>wrapName(name,Math.max(12,Math.floor((width-85)/selected.length/6))));if(index>0)trace.showlegend=false;data.push(trace);});
-  (fig.layout.shapes||[]).forEach(shape=>{const c=structuredClone(shape);if(c.xref==='x'){c.x0+=2*index;c.x1+=2*index;}else if(index>0)return;layout.shapes.push(c);});
-  (fig.layout.annotations||[]).forEach(a=>{const c=structuredClone(a);if(c.xref==='x')c.x+=2*index;else if(index>0)return;layout.annotations.push(c);});
- });
- if(key==='pe')layout.yaxis.range=[0,Math.max(...selected.map(s=>s.plots.pe.layout.yaxis.range[1]))];
- layout.width=width;layout.height=760;layout.paper_bgcolor='white';layout.plot_bgcolor='white';
- layout.margin={t:70,b:20,l:65,r:20};
- layout.showlegend=false;
- layout.xaxis={...layout.xaxis,tickangle:selected.length>3?-65:0,automargin:true,tickfont:{size:width<600?9:11}};
- layout.legend={orientation:'h',x:0,y:-0.65,xanchor:'left',yanchor:'top',font:{size:10},entrywidth:width<600?1:0.5,entrywidthmode:'fraction'};
- layout.annotations.forEach(a=>{
-   a.font={...a.font,size:width<600||selected.length>4?9:12};
-   if(a.xref==='x' && (width<700||selected.length>4)){
-     a.hovertext=a.text;
-     const number=a.text.match(/<b>(.*?)<\/b>/);
-     if(number)a.text=number[0];
-     if(key==='thg')a.text=a.text.replace(' kg CO₂e/m² BGF','');
+function contextValues(s, context={}) {
+ const values=s.values.slice(), get=k=>values[C[k]], put=(k,v)=>values[C[k]]=v;
+ const {bgf=null,gf=null,renovation=null}=context;
+ if(bgf!==null||gf!==null){
+  if(!Number.isFinite(bgf)||!Number.isFinite(gf)||bgf<=0||gf<=0)throw Error('BGF und Grundstücksfläche müssen beide größer als null sein.');
+  for(const k of ['cfd_fPE','cfd_A','cfd_dx','cfd_EUI','cfd_cutoff'])if(!Number.isFinite(get(k)))throw Error('Dichteparameter fehlen im Szenario.');
+  const fsi=bgf/gf;
+  if(fsi+get('cfd_dx')<=0)throw Error('Ungültiger Nenner der Dichteformel.');
+  const density=-Math.min(get('cfd_fPE')*(get('cfd_A')/(fsi+get('cfd_dx'))-get('cfd_EUI')),get('cfd_cutoff'));
+  put('FSI',fsi);put('context_factor_density',density);put('PEI_cf_density_pos',Math.max(density,0));put('PEI_cf_density_neg',Math.min(density,0));
+ }
+ if(renovation!==null){
+  if(!Number.isFinite(renovation)||renovation<0||renovation>100)throw Error('Sanierungsanteil: 0 bis 100 Prozent.');
+  if(!Number.isFinite(get('cfr_budget')))throw Error('Sanierungsbudget fehlt im Szenario.');
+  put('renovation_share',renovation/100);put('context_factor_renovation',get('cfr_budget')*renovation/100);put('PEI_cf_renovation',get('context_factor_renovation'));
+ }
+ if(bgf!==null||renovation!==null){
+  const dn=get('PEI_cf_density_neg')-val(s,'PEI_cf_density_neg'), dp=get('PEI_cf_density_pos')-val(s,'PEI_cf_density_pos'), dr=get('PEI_cf_renovation')-val(s,'PEI_cf_renovation');
+  for(const [key,delta] of [['PEI_virtual_demand',dn],['PEI_virtual_supply',dp+dr],['PEI_balance',dn+dp+dr]]){
+   if(!Number.isFinite(val(s,key)))throw Error('Bewertungskennwert fehlt im Szenario.');
+   put(key,val(s,key)+delta);
+  }
+ }
+ return {...s,values};
+}
+function readContext(){
+ const read=id=>el(id).value.trim()===''?null:Number(el(id).value);
+ return {bgf:read('bgf'),gf:read('gf'),renovation:read('renovation')};
+}
+function compose(key, selected, width){
+ if(selected.length>100)return composeLarge(key,selected,width);
+ const fig=structuredClone(dataset.templates[key]);
+ for(const trace of fig.data){
+  if(!trace.meta){trace.x=[[width<700?'1':safe(selected[0].name)],['EE']];continue;}
+  const {column,role}=trace.meta;
+  const slots=trace.x[1], count=slots.length;
+  trace.x=[[],[]];trace.y=[];trace.customdata=[];
+  for(const [index,s] of selected.entries()){
+   let v=s.values[column];
+   if(key==='pe' && v!==null)v=Math.abs(v);
+   for(const slot of slots){
+    trace.x[0].push(width<700?String(index+1):safe(s.name));trace.x[1].push(slot);
+    trace.customdata.push(safe(s.name));
+    trace.y.push(key==='thg'&&count===2?((role==='Baulich'&&slot==='EE'||role==='Betrieblich'&&slot==='OE')?v:0):v);
    }
-   if(a.xref==='paper'&&width<600)a.text=a.text.replace(' kg CO₂e/m² BGF','<br>kg CO₂e/m² BGF');
- });
- // Matching components across scenarios share a legend entry and visibility.
- data.forEach(t=>{t.legendgroup=t.name;delete t.legendgrouptitle;if(hiddenSeries[key].has(t.name))t.visible='legendonly';});
- layout.legend.groupclick='togglegroup';
+  }
+  trace.text=trace.y.map(x=>x===null?'':number(x));
+  trace.hovertemplate='%{customdata}<br>'+(trace.hovertemplate||'%{y:.2f}<extra>%{fullData.name}</extra>');
+  if(selected.length>5){trace.texttemplate='';if(trace.type==='scatter')trace.mode='markers';}
+ }
+ fig.layout.width=width;fig.layout.height=620;fig.layout.autosize=false;
+ fig.layout.margin={t:55,b:170,l:65,r:20};
+ fig.layout.legend={orientation:'h',y:-0.55,font:{size:10}};
+ fig.layout.showlegend=false;
+ fig.layout.xaxis={...fig.layout.xaxis,tickangle:selected.length>3?-65:0,automargin:true,tickfont:{size:10}};
+ fig.layout.yaxis={...fig.layout.yaxis,autorange:true};
+ delete fig.layout.yaxis.range;
+ if(width<700)(fig.layout.annotations||[]).forEach(a=>{if(a.xref==='paper')a.text='Referenzbudget: 320';});
+ fig.layout.paper_bgcolor='white';fig.layout.plot_bgcolor='white';
+ return fig;
+}
+function composeLarge(key, selected, width){
+ // Exact individual report contributions, stacked as WebGL line segments.
+ // No sampling or aggregation: zoom reveals every scenario and contribution.
+ const source=dataset.templates[key], data=[], bases={};
+ for(const template of source.data){
+  if(!template.meta)continue;
+  const {column,role}=template.meta, balance=template.type==='scatter';
+  const slot=key==='pe'?(role==='Deckung'?1:0):(role==='Betrieblich'?1:0);
+  const t={type:'scattergl',mode:balance?'markers':'lines',name:template.name,
+   legendgroup:template.legendgroup,x:[],y:[],customdata:[],connectgaps:false,
+   line:{color:template.marker.color,width:3},marker:{color:template.marker.color,size:5,symbol:balance?'diamond':'circle'},
+   hovertemplate:'%{customdata[0]}<br>%{customdata[1]}: %{customdata[2]:.2f}<extra>%{fullData.name}</extra>'};
+  selected.forEach((s,i)=>{
+   const raw=s.values[column], v=key==='pe'?Math.abs(raw):raw;
+   if(!Number.isFinite(raw))return;
+   const x=2*i+slot, info=[safe(s.name),role,v];
+   if(balance){t.x.push(x);t.y.push(v);t.customdata.push(info);return;}
+   const group=slot+':'+(v<0?'negative':'positive');
+   if(!bases[group])bases[group]=new Float64Array(selected.length);
+   const base=bases[group][i];bases[group][i]+=v;
+   t.x.push(x,x,null);t.y.push(base,base+v,null);t.customdata.push(info,info,info);
+  });data.push(t);
+ }
+ const layout=structuredClone(source.layout), step=Math.max(1,Math.ceil(selected.length/10));
+ layout.width=width;layout.height=620;layout.margin={t:55,b:70,l:65,r:20};layout.showlegend=false;
+ layout.xaxis={type:'linear',title:{text:'Szenarioindex · hineinzoomen für Einzelwerte'},tickvals:[],ticktext:[]};
+ for(let i=0;i<selected.length;i+=step){layout.xaxis.tickvals.push(2*i);layout.xaxis.ticktext.push(String(i+1));}
+ layout.yaxis={...layout.yaxis,autorange:true};delete layout.yaxis.range;
+ layout.paper_bgcolor='white';layout.plot_bgcolor='white';layout.dragmode='zoom';
  return {data,layout};
 }
-function renderLegend(key,selected){
- const root=document.getElementById(key+'-legend');root.replaceChildren();root.hidden=!selected.length;if(!selected.length)return;
- const groups=key==='pe'?[['Bedarfe','Bedarf'],['Deckung','Deckung']]:[['Betriebsemissionen','Betrieblich'],['Graue Emissionen','Baulich']];
- const traces=selected[0].plots[key].data;
- const buttonFor=t=>{const button=document.createElement('button');button.className='legend-toggle';button.type='button';button.setAttribute('aria-pressed',String(!hiddenSeries[key].has(t.name)));
- const swatch=document.createElement('span');swatch.className='legend-swatch';swatch.style.backgroundColor=t.marker?.color||'#607777';
- if(t.marker?.pattern?.shape)swatch.style.backgroundImage='repeating-linear-gradient(135deg,transparent 0 3px,rgba(0,0,0,.25) 3px 4px)';
- if(t.type==='scatter')swatch.style.transform='rotate(45deg)';
- const label=document.createElement('span');label.textContent=t.name;button.append(swatch,label);
- button.addEventListener('click',()=>{const hidden=hiddenSeries[key];hidden.has(t.name)?hidden.delete(t.name):hidden.add(t.name);schedule();});return button;};
- for(const [title,role] of groups){const box=document.createElement('section');box.className='legend-box';box.style.margin='0';const heading=document.createElement('h3');heading.textContent=title;const items=document.createElement('div');items.className='legend-items';traces.filter(t=>t.legendgroup===role).forEach(t=>items.append(buttonFor(t)));box.append(heading,items);root.append(box);}
- if(key==='thg'){const reference=document.createElement('section');reference.className='legend-box legend-reference';reference.style.margin='0';const heading=document.createElement('h3');heading.textContent='Gesamtbilanz';const items=document.createElement('div');items.className='legend-items';reference.append(heading,items);
- traces.filter(t=>t.legendgroup==='Orientierung').forEach(t=>{const item=document.createElement('span');item.className='legend-toggle';const swatch=document.createElement('span');swatch.className='legend-swatch';swatch.style.backgroundColor=t.marker.color;item.append(swatch,document.createTextNode(t.name==='L3'?'L3 – klimaneutral: maximales Budget':t.name));items.append(item);});
- traces.filter(t=>t.legendgroup==='Balance Variable').forEach(t=>items.append(buttonFor(t)));root.append(reference);}
+function composeAnalysis(key, selected, width){
+ const template=dataset.analysis[key], chosen=new Map(selected.map(s=>[s.id,s]));
+ const data=[];
+ for(const source of template.data){
+  const t=structuredClone(source), m=t.meta;t.x=[];t.y=[];t.hovertext=[];
+  if(m.size!==null)t.marker.size=[];
+  m.ids.forEach((id,index)=>{
+   const s=chosen.get(id);if(!s)return;
+   t.x.push(s.values[m.x]);t.y.push(m.y===null?m.derived_y[index]:s.values[m.y]);
+   t.hovertext.push(safe(s.name));if(m.size!==null)t.marker.size.push(s.values[m.size]);
+  });
+  if(t.x.length){if(t.type==='scatter')t.type='scattergl';data.push(t);}
+ }
+ const layout=structuredClone(template.layout);
+ layout.width=width;layout.height=650;layout.margin={t:35,b:120,l:75,r:20};
+ layout.legend={orientation:'h',y:-0.3,font:{size:10}};
+ layout.paper_bgcolor='white';layout.plot_bgcolor='white';
+ return {data,layout};
 }
-let pending=Promise.resolve();
-function schedule(){pending=pending.then(update).catch(()=>{document.getElementById('status').textContent='Die Darstellung konnte nicht geladen werden. Bitte die Seite neu öffnen.';});}
+function addMatches(){
+ const additions=matches.filter(s=>!selection.has(s.id));
+ additions.forEach(s=>selection.add(s.id));el('notice').textContent='';showChoices();schedule();return true;
+}
+function refreshFilters(){
+ matches=filtered();page=0;showChoices();schedule();
+}
+function showChoices(){
+ el('choices').replaceChildren();
+ matches.slice(page*PAGE,(page+1)*PAGE).forEach(s=>{
+  const label=document.createElement('label');label.className='choice';
+  const box=document.createElement('input');box.type='checkbox';box.checked=selection.has(s.id);box.setAttribute('aria-label',s.name);
+  box.onchange=()=>{
+   box.checked?selection.add(s.id):selection.delete(s.id);el('notice').textContent='';schedule();};
+  const span=document.createElement('span');span.textContent=s.name;label.append(box,span);el('choices').append(label);
+ });
+ el('match-count').textContent=matches.length+' Treffer von '+scenarios.length+' · Seite '+(page+1)+' / '+Math.max(1,Math.ceil(matches.length/PAGE));
+ el('previous').disabled=page===0;el('next').disabled=(page+1)*PAGE>=matches.length;
+}
+function legend(key,fig){
+ const root=el(key+'-legend');root.replaceChildren();
+ for(const role of [...new Set(fig.data.map(t=>t.legendgroup||'Orientierung'))]){
+  const box=document.createElement('section');box.className='legend-box';const title=document.createElement('h3');title.textContent=role;box.append(title);
+  fig.data.forEach((t,i)=>{if((t.legendgroup||'Orientierung')!==role)return;
+   const button=document.createElement('button');button.className='legend-toggle';button.setAttribute('aria-pressed','true');
+   const swatch=document.createElement('span');swatch.className='legend-swatch';swatch.style.backgroundColor=t.marker?.color||'#607777';
+   const label=document.createElement('span');label.textContent=t.name;button.append(swatch,label);
+   button.onclick=()=>{const on=button.getAttribute('aria-pressed')!=='true';button.setAttribute('aria-pressed',String(on));Plotly.restyle(el(key),{visible:on?true:'legendonly'},[i]);};box.append(button);
+  });root.append(box);
+ }
+}
 async function update(){
- const selected=scenarios.filter(s=>selection.has(s.id));
- document.getElementById('status').textContent=`${selected.length} von ${scenarios.length} Szenarien ausgewählt`;
- const list=document.getElementById('selected');list.replaceChildren();selected.forEach(s=>{const li=document.createElement('li');li.value=s.id+1;li.textContent=s.name;list.append(li);});
- document.getElementById('empty').hidden=selected.length>0;
- for(const key of ['pe','thg']){const el=document.getElementById(key);el.hidden=!selected.length;renderLegend(key,selected);if(!selected.length){Plotly.purge(el);continue;}const fig=compose(key,selected,Math.max(260,Math.floor(el.parentElement.clientWidth)));await Plotly.react(el,fig.data,fig.layout,{displaylogo:false,responsive:false,locale:'de',toImageButtonOptions:{filename:key==='pe'?'primaerenergie':'treibhausgase',format:'svg'}});}
+ const selected=[...selection].map(i=>scenarios[i]), context=readContext();
+ let adjusted,analysisValues;
+ try{adjusted=selected.map(s=>contextValues(s,context));analysisValues=el('analysis-scope').value==='matches'?matches.map(s=>contextValues(s,context)):adjusted;el('context-error').textContent='';}
+ catch(error){el('context-error').textContent=error.message+' Die Diagramme zeigen weiterhin den letzten gültigen Stand.';return;}
+ el('status').textContent=selected.length+' von '+scenarios.length+' Szenarien ausgewählt';
+ el('render-note').textContent=selected.length>100?'Alle '+selected.length+' ausgewählten Szenarien werden einzeln dargestellt. Große Vergleiche nutzen zoombare Liniensegmente für die gestapelten Beiträge; keine Werte werden zusammengefasst oder ausgelassen.':'';
+ el('context-status').textContent=context.bgf!==null&&context.gf!==null?'Kontextbewertung · GFZ '+number(context.bgf/context.gf):(context.renovation!==null?'Kontextbewertung · ursprüngliche GFZ':'Originalbewertung');
+ const list=el('selected');list.replaceChildren();
+ detailPage=Math.min(detailPage,Math.max(0,Math.ceil(selected.length/PAGE)-1));
+ const start=detailPage*PAGE;
+ selected.slice(start,start+PAGE).forEach(s=>{const li=document.createElement('li');const button=document.createElement('button');button.textContent='Entfernen';button.onclick=()=>{selection.delete(s.id);showChoices();schedule();};li.append(document.createTextNode(s.name+' '),button);list.append(li);});
+ el('detail-count').textContent='Detailzeilen '+(selected.length?start+1:0)+'–'+Math.min(start+PAGE,selected.length)+' von '+selected.length+' · alle ausgewählten Werte bleiben in den Diagrammen.';
+ el('detail-previous').disabled=detailPage===0;el('detail-next').disabled=start+PAGE>=selected.length;
+ el('empty').hidden=selected.length>0;
+ const tbody=el('comparison');tbody.replaceChildren();
+ adjusted.slice(start,start+PAGE).forEach((s,j)=>{
+  const i=start+j;
+  const row=document.createElement('tr');
+  const values=[(i+1)+' · '+s.name,number(val(selected[i],'PEI_balance')),number(val(s,'PEI_balance')),number(val(s,'PEI_balance')-val(selected[i],'PEI_balance')),number(val(s,'context_factor_density')),number(val(s,'PEI_cf_renovation'))];
+  values.forEach(text=>{const td=document.createElement('td');td.textContent=text;row.append(td);});tbody.append(row);
+ });
+ for(const key of ['pe','thg']){
+  el(key).hidden=!adjusted.length;
+  if(!adjusted.length){Plotly.purge(el(key));el(key+'-legend').replaceChildren();continue;}
+  const fig=compose(key,adjusted,Math.max(280,Math.floor(el(key).parentElement.clientWidth)));
+  await Plotly.react(el(key),fig.data,fig.layout,{displaylogo:false,responsive:true,toImageButtonOptions:{format:'svg',filename:key}});
+  legend(key,fig);
+ }
+ el('analysis-count').textContent=analysisValues.length+' Szenarien in der Analyse';
+ if(!analysisValues.length){Plotly.purge(el('analysis'));return;}
+ const fig=composeAnalysis(el('analysis-kind').value,analysisValues,Math.max(280,Math.floor(el('analysis').parentElement.clientWidth)));
+ await Plotly.react(el('analysis'),fig.data,fig.layout,{displaylogo:false,responsive:true});
 }
-document.getElementById('search').addEventListener('input',e=>{const term=e.target.value.toLocaleLowerCase('de');let count=0;Array.from(choices.children).forEach((label,i)=>{label.hidden=!scenarios[i].name.toLocaleLowerCase('de').includes(term);if(!label.hidden)count++;});document.getElementById('no-results').hidden=count>0;});
-function setSelection(ids){selection.clear();ids.forEach(i=>selection.add(i));choices.querySelectorAll('input').forEach(c=>c.checked=selection.has(Number(c.value)));schedule();}
-document.getElementById('reset').addEventListener('click',()=>{document.getElementById('search').value='';Array.from(choices.children).forEach(c=>c.hidden=false);document.getElementById('no-results').hidden=true;setSelection(dataset.defaults);});
-document.getElementById('clear').addEventListener('click',()=>setSelection([]));
-let resizeTimer;window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(schedule,150);});
-schedule();
+function schedule(){
+ dirty=true;
+ if(rendering)return;
+ rendering=true;
+ requestAnimationFrame(async()=>{
+  try{while(dirty){dirty=false;await update();}}
+  catch(error){el('notice').textContent='Darstellung fehlgeschlagen: '+error.message;}
+  finally{rendering=false;}
+ });
+}
+for(const f of dataset.filters){
+ const details=document.createElement('details'),summary=document.createElement('summary');summary.textContent=f.label;details.append(summary);
+ filters[f.key]=new Set();
+ const values=[...new Set(scenarios.map(s=>s.filters[f.key]))].sort((a,b)=>a.localeCompare(b,'de',{numeric:true}));
+ values.forEach(value=>{
+  const label=document.createElement('label');label.className='choice';const input=document.createElement('input');input.type='checkbox';input.dataset.filter=f.key;
+  input.onchange=()=>{input.checked?filters[f.key].add(value):filters[f.key].delete(value);refreshFilters();};
+  label.append(input,document.createTextNode(value));details.append(label);
+ });el('filters').append(details);
+}
+for(const [key,spec] of Object.entries(dataset.analysis)){
+ const option=document.createElement('option');option.value=key;option.textContent=spec.title;el('analysis-kind').append(option);
+}
+el('analysis-kind').onchange=schedule;el('analysis-scope').onchange=schedule;
+el('detail-previous').onclick=()=>{detailPage--;schedule();};el('detail-next').onclick=()=>{detailPage++;schedule();};
+el('search').oninput=()=>{term=el('search').value;refreshFilters();};
+el('add').onclick=addMatches;
+el('remove').onclick=()=>{matches.forEach(s=>selection.delete(s.id));showChoices();schedule();};
+el('reset-filters').onclick=()=>{term='';el('search').value='';Object.values(filters).forEach(s=>s.clear());el('filters').querySelectorAll('input').forEach(i=>i.checked=false);refreshFilters();};
+el('clear').onclick=()=>{selection.clear();showChoices();schedule();};
+el('reset').onclick=()=>{selection.clear();dataset.defaults.forEach(i=>selection.add(i));showChoices();schedule();};
+el('previous').onclick=()=>{page--;showChoices();};el('next').onclick=()=>{page++;showChoices();};
+for(const id of ['bgf','gf','renovation'])el(id).oninput=schedule;
+el('reset-context').onclick=()=>{for(const id of ['bgf','gf','renovation'])el(id).value='';schedule();};
+el('download').onclick=()=>{
+ const result={schema:dataset.schema,source:dataset.source,context:readContext(),selected:[...selection].map(i=>scenarios[i].name)};
+ const url=URL.createObjectURL(new Blob([JSON.stringify(result,null,2)],{type:'application/json'}));
+ const a=document.createElement('a');a.href=url;a.download='peexcel-quickcheck-auswahl.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+};
+async function whenIdle(){while(rendering||dirty)await new Promise(resolve=>setTimeout(resolve,20));}
+window.quickCheck={dataset,filtered,contextValues,compose,composeAnalysis,selection,filters,addMatches,refreshFilters,update,whenIdle};
+showChoices();
+window.quickCheck.ready=update().then(()=>{window.quickCheck.initializationMs=performance.now()-started;});
 </script></body></html>

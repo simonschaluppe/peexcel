@@ -32,13 +32,13 @@ python scripts/assessment_explained.py --source "C:\Projekte\Export.xlsx" --outp
 
 Das ausführbare Beispiel und der Ablauf für beide Bewertungsansichten stehen
 in `notebooks/howto_website.ipynb`. Der normale PEExcel-Website-Build erzeugt den
-Explorer automatisch mit dem Lehrprojektexport und bindet ihn unter
+Explorer automatisch mit dem konsolidierten Gebäudesektor-Projekt und bindet ihn unter
 `assessment-explained.html` ein. Das technische Tutorial bleibt unter
 `assessment.html` erreichbar. Beide sind auf der Python-Seite verlinkt.
 
 Alternativ die Codezelle des Notebooks ausführen. Die Ausgabe liegt unter
 `notebooks/local_exports/assessment_explained/index.html`. Die Datei enthält
-Texte, vorberechnete Diagramme, Auswahlsteuerung und Plotly vollständig und
+Texte, kompakte Jahreskennwerte, gemeinsame Diagrammvorlagen, Auswahlsteuerung und Plotly vollständig und
 benötigt keinen Python-Server. Sie ist ein ignoriertes Veröffentlichungsartefakt;
 es gibt keine separat zu pflegende Datendatei oder zusätzliche Reportstruktur.
 
@@ -106,3 +106,13 @@ lokaler Vorschau-Befehl. Das Zielrepository ist
 Bei späteren Änderungen: in PEExcel neu erzeugen, die HTML-Datei erneut kopieren,
 den Hintergrundbericht bauen, prüfen und veröffentlichen. Das erzeugte HTML
 nicht direkt bearbeiten.
+
+## Gebäudesektor-POC
+
+Vor dem Website-Build `python scripts/build_building_sector_results.py` ausführen.
+`notebooks/howto_building_sector_results.ipynb` dokumentiert Import, Roundtrip,
+explorative Auswertung und Browsererzeugung. Technische Abnahme, interne fachliche
+Notizen und Performancewerte stehen in [building_sector_quickcheck.md](building_sector_quickcheck.md).
+
+Die Browseransicht filtert alle 5.400 Szenarien, erlaubt deren vollständige Auswahl und
+erlaubt Dichte- und Sanierungskontextänderungen. Simulierte Energieflüsse bleiben erhalten.

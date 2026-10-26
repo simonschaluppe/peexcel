@@ -48,6 +48,16 @@ def materialize(view, chart_name: str) -> dict[str, Any]:
         ) from exc
 
     raw_series = list(_field(spec, "series", ()) or ())
+    # The 1_13_1_dev workbook omits the overview chart's series, while exporting
+    # its three authoritative lifecycle totals. Keep this compatibility bridge
+    # here (shared by Python plots and the static reader), never in JavaScript.
+    if chart_name == "gwp_ee" and not raw_series:
+        totals = [("GWP_lc_EE_total", "Baulich", "#9fd3a2"),
+                  ("GWP_lc_OE_total", "Betrieblich", "#f34673"),
+                  ("GWP_lc_total", "Balance Variable", "#7B8E1D")]
+        if all(key in ATTR_NAME_MAP for key, _, _ in totals):
+            raw_series = [dict(var_name=key, role=role, color=color, order=i)
+                          for i, (key, role, color) in enumerate(totals)]
     raw_series.sort(key=lambda s: _field(s, "order", 0) or 0)
 
     series: list[dict[str, Any]] = []

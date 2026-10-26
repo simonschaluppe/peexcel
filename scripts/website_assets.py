@@ -108,8 +108,9 @@ def build(output=None):
             if cell.cell_type == "code":
                 cell.outputs, cell.execution_count = [], None
         nbformat.write(notebook, output / "downloads" / f"{name}.ipynb")
-    from assessment_explained import build as build_explorer
-    build_explorer(output / "assets/assessment-explained/index.html")
+    from assessment_explained import build as build_explorer, publish_notebook, SECTOR
+    build_explorer(output / "assets/assessment-explained/index.html", source=SECTOR)
+    publish_notebook(output)
     explained = nbformat.read(ROOT / "notebooks/howto_assessment_explained.ipynb", as_version=4)
     for cell in explained.cells:
         if cell.cell_type == "code":
