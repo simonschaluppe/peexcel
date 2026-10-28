@@ -40,9 +40,12 @@ Die Blätter fassen Projektwert, Zielwert beziehungsweise Budget und Differenz f
 
 ## Qualitätssicherung {#qualitaetssicherung}
 
+Gleiche für den Nachweis die eingegebenen Flächen und Nutzungsanteile mit den Projektunterlagen ab. Kontrolliere auch die daraus berechneten Nettogrundflächen, Volumina und die Geschoßflächenzahl. Dokumentiere die verwendeten Grundlagen, damit sich Modell und eingereichter Projektstand nachvollziehbar zuordnen lassen.
+
+
 **Excel-Ort:** Blatt [AUDIT]{.excel-menu .red} ("Qualitätssicherung").
 
-Die Schulung bezeichnet AUDIT als **automatisierte Plausibilitätskontrolle**. Es zeigt für die aktuell eingegebene Variante Abweichungen von vordefinierten Deklarationswerten. Eine Abweichung muss kein Modellfehler sein; sie ist für die Nachweisführung zu prüfen und im Auditbericht zu begründen. Eine Begründung allein ersetzt keine fachliche Anerkennung einer Abweichung.
+AUDIT unterstützt die **automatisierte Plausibilitätskontrolle**. Es zeigt für die aktuell eingegebene Variante Abweichungen von vordefinierten Deklarationswerten. Eine Abweichung muss kein Modellfehler sein; sie ist für die Nachweisführung zu prüfen und im Auditbericht zu begründen. Eine Begründung allein ersetzt keine fachliche Anerkennung einer Abweichung.
 
 ::: {.excel-operation}
 ### Nachweisstand prüfen

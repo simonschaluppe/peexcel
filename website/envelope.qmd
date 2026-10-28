@@ -7,9 +7,9 @@ title: "Thermische Hülle und Wärmeflüsse"
 ::: {.lead} 
 Zwei thermisch entkoppelte Modellzonen
 :::
-Die thermische Modellierung unterscheidet eine **gekühlte und eine ungekühlte, thermisch entkoppelte Zone**.
+Die thermische Modellierung unterscheidet eine **aktiv gekühlte und eine nicht aktiv gekühlte, thermisch entkoppelte Zone**.[^rc-modell]
 
-Solare Gewinne kommen durch Fenster, interne Wärmegewinne entstehen im Raum. Transmission und Lüftung werden als beispielhafte Wärmeabfuhr gezeigt; ihre tatsächliche Richtung hängt vom Zustand ab. Die Pfeile sind **qualitativ**, ihre Dicke kodiert keine Leistung.
+Solare Gewinne kommen durch Fenster, interne Wärmegewinne entstehen im Raum. Transmission und Lüftung werden als beispielhafte Wärmeabfuhr gezeigt; ihre tatsächliche Richtung hängt vom Zustand ab.
 
 ![Thermisches Energiemodell mit zwei thermisch entkoppelten Zonen, Wärmeflüssen und beispielhaften Bilanzen.](illustrations/thermisches_modell.svg){.manual-figure}
 
@@ -17,21 +17,25 @@ Solare Gewinne kommen durch Fenster, interne Wärmegewinne entstehen im Raum. Tr
 <iframe class="peq-lesson" data-fit src="assets/teaching/index.html" title="Interaktive Schnittdarstellung: Bauteile, Hülle und Wärmeflüsse"></iframe>
 -->
 
-Eine interaktive Ansicht ist über den separaten Link unten verfügbar: 
-[Schnittdarstellung separat öffnen](assets/teaching/index.html) · [Ausführbares Notebook](tutorial_gebaeudeschnitt.ipynb)
-Die Schnittdarstellung ordnet die Bilanzgrenze räumlich zu. 
+::: {.callout-tip appearance="simple" title="Das Modell selbst erkunden"}
+In der interaktiven Schnittdarstellung kannst du Bauteile, Bilanzgrenze und Wärmeflüsse einzeln einblenden und ihre räumliche Zuordnung untersuchen.
 
-Im Unterschied zur thermischen Hülle, umfasst die [Ökobilanz](climate.qmd)  darüber hinaus Konstruktionen innerhalb und außerhalb dieser Grenze; thermische Hüllfläche und LCA-Menge sind daher nicht gleichzusetzen.
+[Schnittdarstellung öffnen](assets/teaching/index.html) · [Ausführbares Notebook](tutorial_gebaeudeschnitt.ipynb)
+:::
 
+::: {.callout-important title="Thermische Hülle und Ökobilanz unterscheiden"}
+Die [Ökobilanz](climate.qmd) umfasst auch Konstruktionen innerhalb und außerhalb der thermischen Bilanzgrenze. Thermische Hüllfläche und die für die Ökobilanz erfasste Bauteilmenge sind deshalb nicht gleichzusetzen.
+:::
 
 ## Bauphysik eingeben {#excel-bauphysik}
 
-Konstruktion, thermische Bilanzgrenze und Wärmeflüsse auseinanderhalten. Bauteilzuordnung, Bilanzgrenze und qualitative Wärmeflüsse sind separat schaltbar.
-
-**Excel-Ort:** Blatt [🧱]{.excel-menu .darkred} ("Bauphysik").
+Beschreibe die Flächen und Eigenschaften der Bauteile, die den Wärmeaustausch des Quartiers bestimmen. Die interaktive Darstellung oben hilft dir dabei, thermische Grenze und Bauteilzuordnung auseinanderzuhalten.
 
 ::: {.excel-operation}
-### Im Excel-Tool
+**Wo findest du die Eingaben?** Öffne das Blatt [🧱]{.excel-menu .darkred} **Bauphysik**.
+:::
+
+### Eingaben im Bauphysik-Blatt
 | Eingabegruppe | Zuordnung |
 |---|---|
 | Opake thermische Hülle | Außenwand ohne Fenster, Dach beziehungsweise oberste thermische Decke, Kellerdecke/erdberührter Fußboden; Flächen und U-Werte |
@@ -41,7 +45,6 @@ Konstruktion, thermische Bilanzgrenze und Wärmeflüsse auseinanderhalten. Baute
 | Thermisch wirksame Speichermasse | Bauweise und wirksame Wärmekapazität |
 
 [Schnellauswahlen](presets.qmd) zunächst übernehmen, anschließend projektspezifische Flächen und Kennwerte prüfen. Nach der Berechnung die Wärmebilanz im [Ergebnisblatt](results.qmd#waermebilanz) kontrollieren.
-:::
 
 
 
@@ -50,4 +53,6 @@ Konstruktion, thermische Bilanzgrenze und Wärmeflüsse auseinanderhalten. Baute
 Interne Wärmegewinne und Nutzerstrom können im Tool prinzipiell frei modelliert werden. Für die Deklaration gelten die ausgewiesenen Deklarationswerte der verwendeten Toolversion.
 :::
 
-Quelle: [Schulung, Folien 11–14](downloads/schulung.pdf). Die Geometrie ist ein ausdrücklich angenommenes Referenzgebäude, kein Projektergebnis.
+Die Schnittdarstellung verwendet ein schematisches Referenzgebäude.
+
+[^rc-modell]: Jede der beiden Modellzonen wird als vereinfachtes thermisches RC-Ersatzmodell mit einer Speichermasse beschrieben: Die Wärmekapazität C bildet die thermische Speicherung ab, die Widerstände R den Wärmeaustausch. Zwischen aktiv gekühlter und nicht aktiv gekühlter Zone wird kein Wärmeaustausch angesetzt. Das Modell dient der energetischen Konzeptbewertung und ist kein detailliertes Mehrzonen-Raummodell. Erläuterung des Projektteams; ergänzend [PEExcel-Schulung, Folien 11–14](downloads/schulung.pdf).

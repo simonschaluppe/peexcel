@@ -2,33 +2,40 @@
 title: "PV-Eingabe"
 ---
 
-Die lokale PV-Erzeugung wird stündlich mit Bedarf, Speicherladung und Netzeinspeisung verknüpft. Für den Einstieg kann die Anlage vereinfacht über die Dachfläche skaliert werden; für projektspezifische Erträge wird ein extern simuliertes Stundenprofil hinterlegt.
+Wie viel deiner lokalen PV-Erzeugung kann das Quartier selbst nutzen? PEExcel verknüpft das stündliche Erzeugungsprofil mit Strombedarf, Speicherladung und Netzeinspeisung. So lässt sich untersuchen, wie sich Anlagengröße und zeitlicher Verlauf auf die Versorgung auswirken. Für den Einstieg kannst du die PV vereinfacht über die Dachfläche dimensionieren. Für ein konkretes Anlagenkonzept verwendest du ein eigenes, extern simuliertes Erzeugungsprofil.
 
-**Excel-Orte:** Blatt [🌞 PV]{.excel-menu .darkred} ("Photovoltaik") und Blatt [PV-Import]{.excel-menu .darkred} ("PV-Import").
+::: {.excel-operation}
+**Wo findest du die Funktionen?** Im Blatt [🌞 PV]{.excel-menu .darkred} ("Photovoltaik") wählst und dimensionierst du die Anlage. Eigene Stundenprofile hinterlegst du im Blatt [PV-Import]{.excel-menu .darkred}. Die Schnellauswahl erreichst du auch über das Menüband **klimaaktiv PEQ**.
+:::
 
 ## Vereinfachte Eingabe: Dachflächen-Skalierung {#dachflaechen-skalierung}
 
-::: {.excel-operation}
-1. Die für PV angesetzte Dachfläche anhand der Projektgeometrie festlegen.
-2. Im Blatt [🌞 PV]{.excel-menu .darkred} ("Photovoltaik") die zugehörige vereinfachte Skalierung und das zugrunde liegende Profil prüfen.
-3. Installierte Leistung, angesetzte Modulfläche und Ertrag auf Plausibilität abgleichen. Dachfläche und Modulfläche sind nicht automatisch identisch.
-4. Neu berechnen und PV-Nutzung sowie Einspeisung im [Ergebnisblatt](results.qmd#endenergiebilanz) prüfen.
-:::
+Wähle im Feld [PV Modus]{.excel-field} die Einstellung **Vereinfacht**. Wähle anschließend das passende Erzeugungsprofil, beispielsweise eine Ost-West-Anlage. Die verfügbare Dachfläche und der für PV genutzte Anteil bestimmen die Dimensionierung. Kontrolliere danach die resultierende PV-Fläche, die Gesamtleistung und den Ertrag.
 
-Installierte Leistung und Modulfläche nach der Skalierung kontrollieren. Die [detaillierte Profileingabe](#profilimport) eignet sich für extern simulierte Erträge.
+![PV vereinfacht dimensionieren: 1 Modus, 2 Profil und Dimensionierung, 3 verfügbare Presets.](illustrations/pv/skalierung.svg){#fig-pv-skalierung fig-alt="Ausschnitt des PV-Blatts mit drei markierten Bereichen: PV-Simulation und Modus, Profilauswahl mit Flächen und Gesamtleistung sowie Liste der PV-Presets."}
+
+1. **Modus wählen:** Über die PV-Simulation und den Modus legst du fest, wie die Erzeugung angesetzt wird.
+2. **Dimensionierung prüfen:** Das gewählte Profil beschreibt den zeitlichen Verlauf. Der angesetzte Dachflächenanteil skaliert die Anlage; die Felder darunter zeigen die resultierende Fläche, Leistung und den Ertrag. Maßgeblich sind die aktuellen Eingabewerte. Eine zuvor gewählte Preset-Bezeichnung kann nach manuellen Änderungen vom eingestellten Anteil abweichen, wie im Screenshot zu sehen.
+3. **Schnell einsteigen:** Presets erleichtern den Vergleich verschiedener Dachflächenanteile. Du kannst mit einer Vorgabe starten und die Eingaben anschließend an dein Projekt anpassen.
+
+Berechne die Variante neu und prüfe im [Ergebnisblatt](results.qmd#endenergiebilanz), wie viel PV-Strom direkt genutzt, gespeichert oder eingespeist wird. Ein größerer Jahresertrag allein sagt noch nicht, ob die zusätzliche Erzeugung zeitlich zum Bedarf passt.
 
 ## Detaillierte Eingabe: stündliches Erzeugungsprofil {#profilimport}
 
-::: {.excel-operation}
-1. Den stündlichen PV-Ertrag extern simulieren und Standort, Ausrichtung, installierte Leistung sowie berücksichtigte Verluste dokumentieren.
-2. Im Blatt [PV-Import]{.excel-menu .darkred} ("PV-Import") das Profil mit eindeutiger Bezeichnung hinterlegen. Die Jahresreihe umfasst im dargestellten Workflow 8.760 Stunden.
-3. Einheit und Zeitbezug prüfen: kW als mittlere Stundenleistung entspricht bei genau einer Stunde der Energie in kWh je Intervall. Normierte und absolute Profile nicht verwechseln.
-4. Im Blatt [🌞 PV]{.excel-menu .darkred} ("Photovoltaik") das hinterlegte Profil auswählen und Skalierung sowie Verlustfaktoren prüfen. Bereits im Profil enthaltene Verluste nicht nochmals abziehen.
-5. Neu berechnen; Jahressumme und Tagesverlauf im [Excel-Dashboard](excel-dashboard.qmd) kontrollieren.
-:::
+Wenn die Anlage projektspezifisch simuliert wurde, kannst du ihr Stundenprofil übernehmen. Dokumentiere dazu Standort, Ausrichtung, installierte Leistung und bereits berücksichtigte Verluste. Im Blatt **PV-Import** stehen Standardprofile und ein eigener Bereich **Import User Profil PV** nebeneinander.
 
-Wetter- und PV-Zeitreihe müssen zeitlich zusammenpassen. Abweichende Kalender oder fehlende Stunden nicht stillschweigend kürzen beziehungsweise auffüllen.
+![Eigene PV-Profile eintragen: 1 vorhandene Standardprofile, 2 Spalten für eigene Profile, 3 zugehörige Stundenwerte.](illustrations/pv/profile.svg){#fig-pv-profile fig-alt="Ausschnitt von PV-Import. Links sind Standardprofile, rechts ist der orange Bereich Import User Profil PV mit Profilnamen und Stundenwerten markiert."}
+
+1. **Vorhandene Profile:** Die linke Gruppe enthält bereits hinterlegte Profile für unterschiedliche Ausrichtungen und Anlagenarten.
+2. **Eigene Profile benennen:** Verwende die Spalten im orange gekennzeichneten Bereich für deine eigenen Profile und gib ihnen eindeutige Namen.
+3. **Stundenwerte hinterlegen:** Übernimm die Jahresreihe mit 8.760 Stunden in die zugehörige Spalte. Der Ausschnitt zeigt nur die ersten Stunden. Prüfe Einheit und Zeitbezug: Eine mittlere Stundenleistung in kW entspricht bei genau einer Stunde numerisch der Energie in kWh dieses Intervalls. Normierte und absolute Profile müssen entsprechend ihrer Bezugsleistung behandelt werden.
+
+Wähle das hinterlegte Profil anschließend im PV-Blatt aus und kontrolliere Skalierung und Verlustfaktoren. Verluste, die bereits in der externen Simulation berücksichtigt wurden, dürfen nicht erneut abgezogen werden. Wetter- und PV-Zeitreihe müssen zeitlich zusammenpassen; fehlende Stunden oder abweichende Kalender müssen vor der Übernahme geklärt werden.
+
+Berechne die Variante neu. Vergleiche die Jahressumme und typische Tagesverläufe im [Excel-Dashboard](excel-dashboard.qmd) mit der externen PV-Simulation. Damit prüfst du sowohl die Größenordnung als auch die zeitliche Zuordnung der Erzeugung.
+
+Die Bedienansichten stammen aus einer bereitgestellten Entwicklungsfassung und zeigen Beispielwerte. Zum Vergrößern kannst du die Bilder anklicken.[^pv]
 
 [Wetterdaten](interfaces.qmd#wetter) · [Speicher und Flexibilität](systems.qmd) · [PV-LCA und Bewertungsgrenze](climate.qmd)
 
-Quelle: [Schulung, Folien 9, 15 und 31](downloads/schulung.pdf#page=31). Vereinfachte Skalierung und stündlicher Profilimport.
+[^pv]: Bedienansichten und Erläuterungen des Projektteams; ergänzend [PEExcel-Schulung, Folien 9, 15 und 31](downloads/schulung.pdf#page=31).

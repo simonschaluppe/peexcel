@@ -2,54 +2,55 @@
 title: "Das Quartier modellieren"
 ---
 
-PEExcel verbindet ein physisches Modell mit einer Bewertungsmethode. Systemgrenze, Energieversorgung und Nutzung werden getrennt von den Regeln der Ergebnisbewertung festgelegt.
+PEExcel verbindet die physische Simulation eines Quartiers mit der Bewertung seiner Energie- und Klimawirkung. Du beschreibst Gebäude, Nutzungen und Versorgung, berechnest ihre Wechselwirkungen und vergleichst anschließend die Ergebnisse. Besonders interessant ist das Zusammenspiel: Eine größere PV-Anlage, eine andere Wärmeversorgung oder eine veränderte Nutzung beeinflussen mehrere Energieflüsse gleichzeitig.
 
 ## Eingaben → Simulation → Analyse
 
-| Schritt | Leitfrage | Einstieg |
-|---|---|---|
-| Gebäude und Nutzungen | Welche Flächen, Hüllqualitäten und Nutzungsprofile gehören zum Projekt? | [Thermische Hülle](envelope.qmd) |
-| Bauteile | Welche Konstruktionen und Mengen gehören zur Lebenszyklusbetrachtung? | [Bauteilzuordnung](components.qmd) |
-| Versorgung | Wie werden Wärme, Kälte und Strom bereitgestellt? | [Energieflüsse](systems.qmd) |
-| Standort und Mobilität | Welche Fahrten werden verursacht, welche Ladung findet vor Ort statt? | [Mobilität](mobility.qmd) |
-| Bewertung | Welche Faktoren, Systemgrenzen und Budgets gelten? | [Deklaration](declaration.qmd) |
+Die folgende Übersicht zeigt dir, wo du im Excel-Tool beginnst und wo du die fachlichen Zusammenhänge nachlesen kannst.
+
+| Schritt | Leitfrage | Blätter im Excel-Tool | Einstieg |
+|---|---|---|---|
+| Gebäude und Nutzungen | Welche Flächen, Hüllqualitäten und Nutzungsprofile gehören zum Projekt? | [🏙]{.excel-menu .darkred} Quartier · [🧱]{.excel-menu .darkred} Bauphysik · [👤]{.excel-menu .darkred} Nutzung | [Thermische Hülle](envelope.qmd) |
+| Bauteile | Welche Konstruktionen und Mengen gehören zur Lebenszyklusbetrachtung? | [LCA_Komponenten]{.excel-menu .teal} · [☁ THG]{.excel-menu .teal} | [Bauteilzuordnung](components.qmd) |
+| Versorgung | Wie werden Wärme, Kälte und Strom bereitgestellt? | [🔥H]{.excel-menu .darkred} · [❄K]{.excel-menu .darkred} · [💧WW]{.excel-menu .darkred} · [💨L]{.excel-menu .darkred} · [🌞 PV]{.excel-menu .darkred} | [Haustechnik](hvac.qmd) · [Energieflüsse](systems.qmd) |
+| Standort und Mobilität | Welche Fahrten werden verursacht, welche Ladung findet vor Ort statt? | [🏙]{.excel-menu .darkred} Quartier · [🚗]{.excel-menu .orange} Mobilität | [Mobilität](mobility.qmd) |
+| Bewertung | Welche Systemgrenzen und Budgets gelten? | [PEQ]{.excel-menu .darkred} · [PEQ+M]{.excel-menu .orange} · [KN PEQ]{.excel-menu .teal} | [Deklaration](declaration.qmd) |
 
 ## Was die Simulation zusammenführt
 
-Das Tool betrachtet Raumwärme und -kälte, Warmwasser, Lüftung, Hilfsenergie und Nutzerstrom. PV, Eigenverbrauch, Einspeisung, Speicher und Flexibilitätsmaßnahmen verändern die stündlichen Flüsse. Eine Maßnahme kann mehrere Ergebnisgrößen gleichzeitig beeinflussen.
+### Energiemodell Betrieb {#simulationsmodell}
 
+Das Modell verbindet Quellen, Umwandlung, Speicher und Nutzungen innerhalb der Quartiersgrenze. Es betrachtet Raumwärme und -kälte, Warmwasser, Lüftung, Hilfsenergie und Nutzerstrom. Lokale PV-Erzeugung, Speicher und Flexibilitätsmaßnahmen verändern, wann Strom bezogen, genutzt oder eingespeist wird.[^modell]
 
-## Varianten sinnvoll aufbauen
+![Energiemodell des Quartiers: Quellen, Versorgungssysteme, Speicher und Nutzungen sind über ihre Energieflüsse verbunden.](media/manual/energy-model.png){.manual-figure fig-alt="Schematische Darstellung des Energiemodells mit Netzbezug, PV, Batteriespeichern, Wärmeversorgung, Gebäudemasse, Warmwasserspeicher und Nutzungen."}
 
-Ausgehend von einer dokumentierten Referenz werden einzelne Parameter oder Maßnahmenpakete variiert. Für den Vergleich müssen Systemgrenze, Bezugsfläche, Zeitbasis und Bewertungsmethode übereinstimmen. Herkunft, Toolversion und Rechenstand gehören zur Ergebnisdokumentation.
+Die Darstellung hilft dir, eine Maßnahme weiterzudenken: Eine Wärmepumpe verändert nicht nur die Wärmeversorgung, sondern auch den Strombedarf. Dessen zeitliche Verteilung beeinflusst wiederum die Nutzung der [PV-Erzeugung](pv.qmd) und der [Speicher und Flexibilität](systems.qmd). Auch [Elektromobilität](mobility.qmd) bringt Ladebedarf und verfügbare Speicherkapazität in das Modell ein.
 
-::: {.callout-note}
-## Annahme oder Vorgabe?
-Eigene Nutzerstrom- und Wärmegewinnannahmen lassen sich modellieren. Für die Deklaration sind die ausgewiesenen Deklarationswerte verbindlich. Ein frei gerechnetes Szenario wird dadurch nicht automatisch zum deklarationsfähigen Nachweis.
-:::
+### Ökobilanz über den Lebenszyklus
 
-[Schulung, Folien 7–16 und 30](downloads/schulung.pdf) · [Daten vorbereiten](interfaces.qmd)
+Die Ökobilanz erweitert den Blick vom laufenden Betrieb auf die Emissionen von Errichtung und Instandsetzung sowie die berücksichtigte biogene Speicherung. Betriebsenergie und bauliche Maßnahmen lassen sich damit gemeinsam über den Betrachtungszeitraum einordnen.
+
+![Lebenszyklusbetrachtung: Betriebsenergie, Errichtung, Instandsetzung und biogene Speicherung tragen zur zeitlichen Emissionsbilanz bei.](media/manual/lifecycle.png){.manual-figure fig-alt="Schematische Lebenszyklusbilanz mit kumulativen Emissionen, betrieblichen Beiträgen und Beiträgen von Errichtung, Instandsetzung und biogener Speicherung."}
+
+Die Bewertungsmethode legt fest, welche Beiträge und zeitlichen Entwicklungen berücksichtigt werden. Die [Ökobilanz-Seite](climate.qmd) erläutert Betrachtungszeitraum, Dekarbonisierung und Bilanzgrenzen. So kannst du beispielsweise eine betriebliche Einsparung zusammen mit dem baulichen Aufwand einer Maßnahme beurteilen.
 
 ## Quartier eingeben {#quartier-eingeben}
 
-**Excel-Ort:** Blatt [🏙]{.excel-menu .darkred} ("Quartier").
-
 ::: {.excel-operation}
-### Im Excel-Tool
-| Abschnitt | Eingaben und Kontrolle |
+**Wo beginnst du?** Öffne das Blatt [🏙]{.excel-menu .darkred} **Quartier**. Hier legst du Projekt, Standort und Nutzungsflächen fest. Die folgenden Fachblätter bauen auf diesen Angaben auf.
+:::
+
+| Abschnitt | Was du festlegst |
 |---|---|
 | Projektbeschreibung | Projektname, Variante, Beschreibung und Bearbeitungsstand |
 | Standort / Wetter | Gemeinde und zugehöriger Wetterdatensatz |
 | Quartier | Bruttogrundflächen nach Nutzung |
-| Raumhöhen und Nettogrundflächen | Nettoraumhöhen und Verhältnis NGF/BGF |
-| Quartiersfläche und bauliche Dichte | Bebaubare Grundstücksfläche und resultierende GFZ |
+| Raumhöhen und Nettogrundflächen | Nettoraumhöhen und Verhältnis von NGF zu BGF |
+| Quartiersfläche und bauliche Dichte | Bebaubare Grundstücksfläche als Grundlage der GFZ |
 | Sanierung oder Neubau | Sanierungsanteil je Nutzung |
 
-Flächen und Anteile mit den Projektunterlagen abgleichen. Berechnete NGF, Volumina und GFZ kontrollieren; anschließend die [thermische Hülle](envelope.qmd) und [Anlagen](hvac.qmd) parametrisieren.
-:::
+Aus deinen Flächen- und Höhenangaben ermittelt das Tool unter anderem Nettogrundflächen, Volumina und die Geschoßflächenzahl. Diese Größen bilden die Grundlage für die weitere Modellierung. Anschließend beschreibst du die [thermische Hülle](envelope.qmd) und die [Versorgungsanlagen](hvac.qmd).
 
-## Energiemodell Betrieb {#simulationsmodell}
+Wenn du verschiedene Maßnahmen untersuchen möchtest, speichere die Konfigurationen als [Varianten](variants.qmd). Für eine spätere Deklaration findest du den Abgleich mit Projektunterlagen unter [Qualitätssicherung](declaration.qmd#qualitaetssicherung).
 
-![Energiemodell Betrieb: Quellen, Umwandlung, Speicher und Nutzungen innerhalb der Quartiersgrenze sowie Bezug und Einspeisung. Vom Projektverantwortlichen Quelle: PEExcel-Schulung.](media/manual/energy-model.png){.manual-figure}
-
-Die Schulung unterscheidet Quellen, Speicher, Senken, Nutzungen und Umwandlung. Die Bilanzierung verbindet die physischen Energieflüsse mit Primärenergie- und THG-Bewertung. [PV](pv.qmd), [Speicher und Flexibilität](systems.qmd), [Mobilität](mobility.qmd) und [Ökobilanz](climate.qmd) besitzen eigene Eingabeseiten. Abschließend [Varianten verwalten](variants.qmd).
+[^modell]: Grafiken des Projektteams; ergänzende Unterlagen: [PEExcel-Schulung, Folien 7–16 und 30](downloads/schulung.pdf). Hinweise zur Datenübernahme unter [Daten vorbereiten](interfaces.qmd).
