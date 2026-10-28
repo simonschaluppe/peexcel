@@ -41,3 +41,25 @@ Reproduktion mit Poppler (PDF-Pfade auf die lokalen Originale setzen):
 pdftoppm -f 20 -singlefile -scale-to 3000 -x 583 -y 583 -W 1417 -H 817 -png $declarationPdf website/illustrations/flexibility-study
 pdftoppm -f 6 -singlefile -scale-to 3000 -x 150 -y 200 -W 1800 -H 1833 -png $mobilityPdf website/illustrations/mobility-results
 ```
+
+## Migration: Varianten exportieren und importieren
+
+`migration/varianten.png`, `migration/export.png`, `migration/import.png`,
+`migration/import-auswahl.png`, `migration/import-pv.png`,
+`migration/import-fertig.png` und `migration/simulation.png` sind
+unveränderte Screenshots, die der Projektverantwortliche im Chat bereitgestellt
+hat. Sie zeigen eine Entwicklungsfassung (`ka_PEQ_Nachweistool_DEV…`); eine genaue
+Versionsnummer ist in den Aufnahmen nicht sichtbar. Deshalb wird keine konkrete
+Versionsnummer behauptet. Die Reihenfolge und Bildunterschriften stehen in
+`website/migration.qmd`.
+
+Die sieben statischen Dateien ergänzen die bisher fehlenden Bedienansichten.
+Vorhandene Grafiken zeigen diese Auswahl- und Importbefehle nicht. Es entsteht
+kein neues Metadatenschema und keine zusätzliche Build-Abhängigkeit. Bei Änderungen
+der Oberfläche die Bilder ersetzen, die Anleitung abgleichen und die gerenderte
+Seite einschließlich Vergrößerung prüfen. Der lokale Prüfablauf steht im
+Notebook `notebooks/howto_migration_preview.ipynb`.
+
+Export und Import zeigen unterschiedliche Beispielprojekte. Die Abschlussmeldung
+nennt eine Quelldatei `ka_examples_v1.09.xlsx`; dies ist keine Versionsangabe
+der ausführenden Tool-Arbeitsmappe.

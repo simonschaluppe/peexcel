@@ -86,3 +86,5 @@ website/batch-python.ipynb
 
 # Temporary HTML files produced while Quarto renders the English subproject
 website/en/*.html
+# User-provided screenshots for the migration tutorial
+!website/illustrations/migration/*.png

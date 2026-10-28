@@ -2,30 +2,76 @@
 title: "Migration auf eine neue Toolversion"
 ---
 
-Ein bestehendes Projekt wird über eine **Projekt-Exportdatei** aus dem alten Tool in eine neue Arbeitsmappe übertragen. Alte und neue Toolversion bleiben getrennte Dateien.
+Wenn du ein bestehendes Projekt mit einer neueren PEExcel-Version weiterbearbeiten möchtest, überträgst du die gespeicherten Varianten über eine **Projekt-Exportdatei**. So kannst du deine bisherigen Eingaben weiterverwenden und von Verbesserungen und Fehlerkorrekturen der neuen Version profitieren. Ein Wechsel auf den aktuellen freigegebenen Stand ist deshalb oft sinnvoll, etwa bevor du eine neue Bearbeitungsphase beginnst. Auf der [Downloadseite](download.qmd) findest du die verfügbaren Versionen und ihre Versionshinweise.
+
+In dieser Anleitung exportierst du zunächst deine Varianten aus der bisherigen Arbeitsmappe und importierst sie anschließend in die neue Toolversion.[^migration] Bewahre die bisherige Arbeitsmappe auf: Sie enthält den bisherigen Bearbeitungs- und Rechenstand und hilft dir später beim Vergleich.
 
 ::: {.excel-operation}
-### Projekt exportieren und importieren
-1. Im alten Tool aktuelle Eingaben als Variante speichern; Projekt- und Variantennamen kontrollieren.
-2. Das Projekt mit den benötigten Varianten über die Projekt-Exportfunktion exportieren. Ausgangsdatei und Export aufbewahren.
-3. Die neue Toolversion als eigene Arbeitsdatei öffnen und vorbereiten.
-4. Über den folgenden Menübandbefehl die Projektdatei importieren.
-5. Übertragene Varianten laden, Importhinweise und neue beziehungsweise geänderte Parameter prüfen.
-6. Im neuen Tool neu berechnen und den neuen Rechenstand einschließlich Versionsnummer speichern.
+**Wo findest du die Funktionen?** Diese Anleitung führt dich durch den Export und Import im PEExcel-Menüband **klimaaktiv PEQ**, Gruppe **Projekt-Varianten**. Dort findest du [Aktuelle Eingabe speichern]{.excel-action}, [Varianten]{.excel-action} und [Projekt-Datei importieren]{.excel-action}. Die folgenden Schritte zeigen dir, wann du welchen Befehl verwendest.
 :::
 
-::: {.excel-path}
-**Menüband im neuen Tool:** klimaaktiv PEQ → Projekt-Varianten → [Projekt-Datei importieren]{.excel-action}
+## 1. Die Variantenverwaltung öffnen
+
+Öffne dein Projekt in der bisherigen Toolversion. Wenn du zuletzt Eingaben geändert hast, speichere sie zunächst mit [Aktuelle Eingabe speichern]{.excel-action} als Variante. Kontrolliere dabei den Projekt- und Variantennamen, damit du den gewünschten Stand anschließend wiedererkennst.
+
+Klicke im Menüband in der Gruppe **Projekt-Varianten** auf [Varianten]{.excel-action}. In diesem Fenster wählst du aus, welche gespeicherten Varianten du mitnehmen möchtest.
+
+![Über „Varianten“ öffnest du die Verwaltung deiner gespeicherten Projektstände. „Aktuelle Eingabe speichern“ sichert zuvor den aktuellen Eingabestand.](illustrations/migration/varianten.png){#fig-migration-varianten fig-alt="Excel-Menüband mit den Schaltflächen Varianten und Aktuelle Eingabe speichern in der Gruppe Projekt-Varianten."}
+
+## 2. Die gewünschten Varianten exportieren
+
+Setze im Fenster [Varianten]{.excel-action} ein Häkchen bei jeder Variante, die du übertragen möchtest. Im abgebildeten Beispiel sind zwei Varianten ausgewählt. Klicke anschließend auf [als .xlsx exportieren]{.excel-action}, um diese Auswahl zu exportieren. Wenn du sämtliche gespeicherten Varianten mitnehmen möchtest, steht dir stattdessen [Alle exportieren]{.excel-action} zur Verfügung.
+
+Speichere die Exportdatei an einem Ort, an dem du sie für den nächsten Schritt leicht wiederfindest. Ein Dateiname mit Projektname und Datum hilft dir, den exportierten Stand später zuzuordnen.
+
+![Wähle die Varianten über die Kontrollkästchen aus und klicke auf „als .xlsx exportieren“. Mit „Alle exportieren“ kannst du sämtliche Varianten exportieren.](illustrations/migration/export.png){#fig-migration-export fig-alt="Dialog Varianten: Zwei Varianten sind angehakt. Rechts stehen die Schaltflächen als .xlsx exportieren und Alle exportieren."}
+
+## 3. Die Projektdatei in die neue Version importieren
+
+Lade die gewünschte freigegebene Toolversion von der [Downloadseite](download.qmd) herunter und speichere sie als eigene Arbeitsdatei. Öffne diese neue Datei in Excel. Deine bisherige Arbeitsmappe und die neue Arbeitsdatei bleiben damit getrennt erhalten.
+
+Klicke in der neuen Arbeitsmappe in der Gruppe **Projekt-Varianten** auf [Projekt-Datei importieren]{.excel-action} und wähle die zuvor gespeicherte `.xlsx`-Exportdatei aus. Beachte die Hinweise, die das Tool während der Übernahme anzeigt.
+
+![In der neuen Arbeitsmappe startest du die Übernahme mit „Projekt-Datei importieren“.](illustrations/migration/import.png){#fig-migration-import fig-alt="Excel-Menüband mit hervorgehobener Schaltfläche Projekt-Datei importieren in der Gruppe Projekt-Varianten."}
+
+### Projektvarianten und PV-Profile auswählen
+
+Im Dialog **Projekt-Import: Varianten Wählen** entscheidest du, welche Varianten aus der Exportdatei übernommen werden sollen. Markiere die gewünschten Einträge und klicke auf [Nur ausgewählte Varianten importieren]{.excel-action}. Möchtest du den gesamten Inhalt der Variantenliste übernehmen, wähle [Alle importieren]{.excel-action}.
+
+Wenn der Dialog **PV-Import: Varianten wählen** erscheint, kannst du auch die angebotenen PV-Profile auswählen. Übernimm die Profile, die dein Projekt benötigt, oder verwende [Alle importieren]{.excel-action}, wenn du die gesamte angebotene Auswahl mitnehmen möchtest. Prüfe nach dem Import die Zuordnung der Profile zu deinen Projektvarianten.
+
+::: {layout-ncol=2}
+![Projektvarianten auswählen: Die markierten Einträge werden mit „Nur ausgewählte Varianten importieren“ übernommen.](illustrations/migration/import-auswahl.png){#fig-migration-import-auswahl fig-alt="Dialog Projekt-Import mit einer Variantenliste, zwei markierten Einträgen und den Schaltflächen Alle importieren sowie Nur ausgewählte Varianten importieren."}
+
+![PV-Profile übernehmen: Wähle die benötigten Einträge oder importiere alle angebotenen Profile.](illustrations/migration/import-pv.png){#fig-migration-import-pv fig-alt="Dialog PV-Import mit einer Liste von PV-Profilen und den Schaltflächen Alle importieren sowie Nur ausgewählte Varianten importieren."}
 :::
 
-Der Importbefehl ist im Repository-Ribbon dokumentiert. Die genaue Exportauswahl hängt vom alten Toolstand ab. Eigene Wetter-/PV-Profile und weitere projektspezifische Daten nach dem Import auf Verfügbarkeit und Zuordnung prüfen. Eine vollständige Übernahme aller Zusatzdaten ist nicht pauschal zugesichert.
+### Den Import abschließen
 
-Export- und Importdialog hängen vom jeweiligen Toolstand ab. Die Ausgangsdatei aufbewahren und das Ergebnis der Übernahme vor der Weiterbearbeitung prüfen.
+Die Meldung **Import abgeschlossen** bestätigt die Übernahme. Das Tool fragt anschließend, ob es die geöffnete Projekt-Exportdatei schließen soll. Mit [Ja]{.excel-action} schließt du diese Quelldatei; mit [Nein]{.excel-action} lässt du sie geöffnet, beispielsweise um noch etwas nachzusehen. Danach arbeitest du in der neuen Tool-Arbeitsmappe weiter.
 
-## Ergebnisse nach dem Versionswechsel
+![Der Import ist abgeschlossen. Die Frage bezieht sich auf das Schließen der eingelesenen Projektdatei.](illustrations/migration/import-fertig.png){#fig-migration-import-fertig fig-alt="Meldung Import abgeschlossen mit der Frage, ob die Projektdatei ka_examples_v1.09.xlsx geschlossen werden soll, und den Schaltflächen Ja und Nein." width=550}
 
-Änderungen an Berechnung, Defaults oder Methodik können Ergebnisse verändern. Eine Abweichung ist deshalb zunächst anhand von Eingaben, Version und Rechenstand einzuordnen. Alte Ergebnisse nicht als aktuellen Rechenstand übernehmen und keine Berechnungsblätter zwischen Toolversionen kopieren.
+### Die importierten Varianten simulieren
 
-[Varianten verwalten](variants.qmd) · [Qualitätssicherung für den Nachweis](declaration.qmd#qualitaetssicherung)
+Anschließend fragt das Tool: **Sollen die importierten Varianten jetzt simuliert werden?** Klicke auf [Ja]{.excel-action}, um die Berechnung zu starten. Die Simulation ist notwendig, damit die Ergebnisse angezeigt werden können. Mit [Nein]{.excel-action} verschiebst du die Berechnung auf später; führe sie dann über die Variantenverwaltung aus, bevor du die Ergebnisse auswertest.
 
-Grundlage: Projekt-Export der [Schulung, Folie 25](downloads/schulung.pdf#page=25); Projektübernahme in eine neue Arbeitsmappe.
+![Nach dem Import kannst du die übernommenen Varianten sofort simulieren lassen. Für die Ergebnisanzeige ist diese Berechnung erforderlich.](illustrations/migration/simulation.png){#fig-migration-simulation fig-alt="Dialog Import abgeschlossen: Sollen die importierten Varianten jetzt simuliert werden? Notwendig zur Ergebnisanzeige. Schaltflächen Ja und Nein." width=580}
+
+Die Abbildungen zeigen die vom Projektteam bereitgestellte Entwicklungsfassung und Beispieldialoge. Die Export- und Importansichten verwenden unterschiedliche Beispielprojekte. Je nach verwendeter Toolversion können Beschriftungen und Dialoge abweichen. Zum Vergrößern kannst du auf die Bilder klicken.
+
+## 4. Das übertragene Projekt prüfen und neu berechnen
+
+Lade nach dem Import eine übertragene Variante und kontrolliere ihre Eingaben. Achte besonders auf neue oder geänderte Parameter. Wenn du eigene Wetter- oder PV-Profile verwendest, prüfe auch, ob diese im neuen Tool verfügbar und richtig zugeordnet sind. So stellst du sicher, dass die nächste Berechnung auf dem beabsichtigten Projektstand aufbaut.
+
+Wenn du die Simulation im Abschlussdialog noch nicht gestartet hast oder Eingaben korrigiert hast, berechne die Variante jetzt mit der neuen Toolversion. Vergleiche die Ergebnisse anschließend mit deinem bisherigen Stand. Wiederhole diese Prüfung für die weiteren Varianten, die du weiterbearbeiten möchtest. Speichere die neue Arbeitsmappe und halte fest, mit welcher Toolversion du gerechnet hast.
+
+## Warum sich Ergebnisse nach dem Wechsel ändern können
+
+Eine neue Toolversion kann Fehlerkorrekturen, andere Vorgabewerte oder Änderungen an der Berechnung und Methodik enthalten. Deshalb können sich Ergebnisse auch dann ändern, wenn du dasselbe Projekt überträgst. Prüfe bei einer Abweichung zuerst, ob dieselben Eingaben und Profile verwendet werden, und ziehe anschließend die Versionshinweise heran.
+
+Für die weitere Bearbeitung verwendest du die Ergebnisse, die du mit der neuen Version berechnet hast. Die bisherigen Ergebnisse bleiben in der alten Arbeitsmappe als Vergleich erhalten. Kopiere keine Berechnungsblätter zwischen den Versionen: Die neue Arbeitsmappe soll mit ihren zusammengehörigen Formeln und Datenstrukturen rechnen.
+
+Wie du mehrere Projektstände organisierst, erfährst du unter [Varianten verwalten](variants.qmd). Für die anschließende Nachweisführung hilft dir die [Qualitätssicherung für den Nachweis](declaration.qmd#qualitaetssicherung).
+
+[^migration]: PEExcel-Schulung vom 14.10.2026, [Folie 25: Projekt-Export](downloads/schulung.pdf#page=25). Die Bedienansichten wurden vom Projektteam für diese Anleitung bereitgestellt.
