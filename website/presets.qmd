@@ -2,6 +2,9 @@
 title: "Schnellauswahl mit Presets"
 ---
 
+[Preset-Katalog: Standardfälle und konkrete Werte nachschlagen](preset-catalog.qmd)
+
+
 **Presets** erleichtern die Eingabe typischer Gebäudekonfigurationen und technischer Systeme. Statt zahlreiche Parameter einzeln festzulegen, wird mit einer Auswahl ein zusammengehöriges **Parameterpaket** übernommen.
 
 Das ermöglicht einen schnellen Modellaufbau und vereinfacht die Untersuchung unterschiedlicher Planungsvarianten. Die übernommenen Werte können anschließend projektspezifisch angepasst werden.

@@ -2,6 +2,9 @@
 title: "Nachweisführung"
 ---
 
+{{< include assets/preset-help-declaration.qmd >}}
+
+
 **Deklarationswerte sind verbindliche Vorgaben für die Deklaration, keine technischen Grenzen des Modells.** PEExcel kann abweichende Annahmen rechnen. Zu dokumentieren ist, ob eine Variante explorativ modelliert oder für einen klimaaktiv-Nachweis vorbereitet wurde.
 
 ## Was darf variieren, was gilt für den Nachweis?

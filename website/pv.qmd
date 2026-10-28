@@ -2,6 +2,9 @@
 title: "PV-Eingabe"
 ---
 
+{{< include assets/preset-help-pv.qmd >}}
+
+
 Wie viel deiner lokalen PV-Erzeugung kann das Quartier selbst nutzen? PEExcel verknüpft das stündliche Erzeugungsprofil mit Strombedarf, Speicherladung und Netzeinspeisung. So lässt sich untersuchen, wie sich Anlagengröße und zeitlicher Verlauf auf die Versorgung auswirken. Für den Einstieg kannst du die PV vereinfacht über die Dachfläche dimensionieren. Für ein konkretes Anlagenkonzept verwendest du ein eigenes, extern simuliertes Erzeugungsprofil.
 
 ::: {.excel-operation}

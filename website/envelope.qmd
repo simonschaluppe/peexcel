@@ -2,6 +2,9 @@
 title: "Thermische Hülle und Wärmeflüsse"
 ---
 
+{{< include assets/preset-help-envelope.qmd >}}
+
+
 
 
 ::: {.lead} 

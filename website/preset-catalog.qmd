@@ -1,0 +1,18 @@
+---
+title: "Preset-Katalog"
+description: "Verfügbare Standardfälle und ihre konkreten Werte aus PEExcel 1.13.1-Dev."
+---
+
+Presets setzen mehrere Eingaben gemeinsam. Hier kannst du die **konkreten Werte des aktuellen Excel-Exports** nachschlagen und passende Standardfälle finden. Die [Bedienanleitung](presets.qmd) erklärt die Auswahl im Tool.
+
+**So liest du die Tabellen:** Öffne eine Eingabegruppe und anschließend die Wertebelegung eines Presets. Leere Zellen bedeuten **nicht setzen**; bestehende Eingaben bleiben erhalten. Eine ausdrücklich eingetragene Null wird dagegen übernommen. Zahlen sind als gespeicherte Werte dargestellt: Ein Anteil von `0.3` entspricht 30 %, eine Effizienz von `4.5` entspricht 450 %.
+
+::: {.callout-warning title="Achtung"}
+Der Entwicklungsstand enthält auch DEFAULT-/Auswahlspalten, Testeinträge und noch nicht hinterlegte Standardfälle. Sie bleiben zur vollständigen Einsicht sichtbar. Ein Tabellenname oder eine Deklarationsbezeichnung ist keine Bestätigung fachlicher Eignung. Prüfe die Belegung und die Hinweise vor der Anwendung.
+:::
+
+{{< include assets/preset-catalog.qmd >}}
+
+```{=html}
+<script src="output-catalog.js"></script>
+```

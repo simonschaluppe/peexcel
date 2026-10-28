@@ -2,6 +2,7 @@
 title: "Heizung, Kühlung, Warmwasser und Lüftung"
 ---
 
+
 Mit PEExcel kannst du Versorgungskonzepte auf Quartiersebene vergleichen: Wie verändern Wärmepumpe, Fernwärme, FreeCooling oder Wärmerückgewinnung die Wärme- und Strombilanz? Die Eingaben beschreiben dafür nutzbare Leistungen, Effizienzen und Versorgungsanteile. Sie dienen der Konzeptbewertung; eine detaillierte Auslegung einzelner Anlagen oder ihrer Regelung ist damit nicht verbunden.
 
 ::: {.excel-operation}
@@ -28,6 +29,8 @@ Für dieses Konzept setzt du die Leistung von System 1 auf null. In System 2 wä
 
 Berechne die Variante und vergleiche Wärmebedarf, eingesetzte Energieträger und Strombedarf im [Ergebnisblatt](results.qmd). So wird sichtbar, wie sich deine Grundlast- und Spitzenlastannahmen auswirken.
 
+{{< include assets/preset-help-hvac-heizung.qmd >}}
+
 ## Kühlung {#kuehlung}
 
 Die aktiv gekühlten Flächenanteile werden je Nutzung zugeordnet. Das thermische Modell unterscheidet aktiv gekühlte und nicht aktiv gekühlte Bereiche ohne Wärmeaustausch zwischen diesen Modellzonen. FreeCooling und die nachfolgenden Kühlsysteme versorgen die **aktiv gekühlten Bereiche**.
@@ -50,11 +53,15 @@ Fenster-Nachtauskühlung wird für die **nicht aktiv gekühlten Bereiche** anges
 
 Nach der Berechnung wertest du die Wärmebilanz der aktiv gekühlten Zone und den Kühlstrom aus. Vergleiche dabei beispielsweise eine Variante mit und eine ohne verfügbares FreeCooling-Potenzial.
 
+{{< include assets/preset-help-hvac-kuehlung.qmd >}}
+
 ## Warmwasser {#warmwasser}
 
 Zwei Warmwassersysteme können über nutzungsbezogene Anteile zugeordnet werden. Beispielsweise kann **eine Wärmepumpe die Wohnungen versorgen, während Durchlauferhitzer den Warmwasserbedarf der Büros decken**. Ordne dazu den Nutzungen die entsprechenden Systemanteile zu und prüfe die zugehörigen Erzeugerparameter.
 
 Erzeugung, Verteilung und Speicherung sind getrennte Eingaben. Der Warmwasserwärmebedarf beschreibt die benötigte Wärme; der Endenergieeinsatz hängt zusätzlich von Effizienz und Verlusten ab. Kontrolliere deshalb Energieträger, Erzeugungseffizienz, Verteil- und Speicherverluste sowie Hilfsstrom für beide Systeme. Prüfe auch Speichergröße und Temperaturniveau. Die flexible Temperatursteigerung stellst du separat unter [Speicher und Flexibilität](systems.qmd#warmwasserspeicher) ein.
+
+{{< include assets/preset-help-hvac-warmwasser.qmd >}}
 
 ## Lüftung {#lueftung}
 
@@ -69,6 +76,8 @@ Beide Lüftungsarten setzen die im Nutzungsprofil hinterlegte Luftwechselrate mi
 3. **Fenster-Nachtauskühlung:** Stelle Fensterstellung und Luftwechsel für die dafür vorgesehenen Bereiche ein. Die Zuordnung der natürlichen Lüftung und die Trennung von aktiv gekühlten Bereichen müssen dabei zusammenpassen.
 
 Prüfe nach der Berechnung die Lüftungswärmeverluste, den Heiz- und Kühlbedarf sowie den elektrischen Lüftungsbedarf. Gerade beim Variantenvergleich wird sichtbar, dass eine andere Wärmerückgewinnung zugleich die Wärmebilanz und den Bedarf der Versorgungssysteme verändert.
+
+{{< include assets/preset-help-hvac-lueftung.qmd >}}
 
 Die markierten Bedienansichten zeigen vom Projektteam bereitgestellte Beispielkonfigurationen einer Entwicklungsfassung. Die Zahlen sind keine allgemeinen Auslegungsempfehlungen. Die Bilder lassen sich durch Anklicken vergrößern.[^hvac]
 

@@ -8,7 +8,7 @@ project:
     - "!assets/**"
     - "!en/**"
   # pre-render:
-  # - python ../scripts/website_assets.py
+  #  - python ../scripts/website_assets.py
   # post-render:
   #   - python ../scripts/render_english_site.py
   resources:
@@ -64,7 +64,10 @@ website:
           - assessment-explained.qmd
       - section: Deklarieren
         contents: [projekte-nachweisen.qmd, checklist.qmd,  declaration.qmd]
-      - {href: glossary.qmd, text: "Begriffe, Parameter und Kennzahlen"}
+      - section: "Nachschlagen"
+        contents:
+          - {href: glossary.qmd, text: "Begriffe, Parameter und Kennzahlen"}
+          - {href: preset-catalog.qmd, text: "Preset-Katalog"}
       - section: "Python & Automatisierung"
         contents:
           - {href: python.qmd, text: "Übersicht und Einstieg"}

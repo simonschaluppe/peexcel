@@ -1,6 +1,6 @@
 # Skizze: Preset-Katalog unter „Nachschlagen“ und spätere Nutzung in pexl
 
-Status: Architektur- und Anforderungsklärung im laufenden Chat, noch keine Implementierung freigegeben. Die folgenden Entscheidungen sind Vorschläge, soweit nicht ausdrücklich als Nutzeranforderung bezeichnet.
+Status: Website-Umsetzung am 28.10.2026 freigegeben. Maßgeblich ist die unten dokumentierte reduzierte Ausbaustufe; frühere weitergehende Vorschläge bleiben zurückgestellt. Die folgenden Entscheidungen sind Vorschläge, soweit nicht ausdrücklich als Nutzeranforderung bezeichnet.
 
 ## Ziel
 
@@ -306,3 +306,9 @@ Quelle einsehen sowie zu IN-Definitionen springen. Stabile Presetanker für Hypo
 vor Änderungen kommentierten Stand im Redaktionsprotokoll sichern. Historische Nachweise
 im Repository, keine öffentliche Versionsauswahl. Beim Release erneut aus der finalen
 Excel exportieren und prüfen, erst dann Website und Download auf denselben Stand setzen.
+
+## Freigegebene reduzierte Website-Ausbaustufe
+
+Nur ein explizit ausgewählter JSON-Snapshot in schema/generated; Website-Erzeugung und lesender Export im bestehenden scripts/output_catalog.py. Kein schema/presets.py, keine zusätzliche CLI, keine Szenarioanwendung und keine HVAC-Migration. Namen gelten innerhalb des Snapshots, nicht als unveränderliche IDs. Quellpfad tatsächlich data/exports/schemas/schema_1.13.1_dev.xlsx. Metadaten aus dessen IN-Blatt werden mit exportiert, damit ein späterer Wechsel von current.py die Snapshotanzeige nicht verändert.
+
+Redaktionelle Gruppentexte in website/_preset-notes.yml, daraus Katalog und Fachseitenhilfen. JSON erlaubt Build ohne Excel; generierte QMD-Fragmente unter assets sind wegwerfbar. Pflege: bewusster Neu-Export, Vergleich und Prüfung von Namen/Links/Notizen. Neuer oder fehlender Tabellenname bricht den Build zur redaktionellen Klärung ab. Ausführbare Abnahme: notebooks/howto_preset_catalog.ipynb.

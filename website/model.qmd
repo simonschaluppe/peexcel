@@ -2,6 +2,9 @@
 title: "Das Quartier modellieren"
 ---
 
+{{< include assets/preset-help-model.qmd >}}
+
+
 PEExcel verbindet die physische Simulation eines Quartiers mit der Bewertung seiner Energie- und Klimawirkung. Du beschreibst Gebäude, Nutzungen und Versorgung, berechnest ihre Wechselwirkungen und vergleichst anschließend die Ergebnisse. Besonders interessant ist das Zusammenspiel: Eine größere PV-Anlage, eine andere Wärmeversorgung oder eine veränderte Nutzung beeinflussen mehrere Energieflüsse gleichzeitig.
 
 ## Eingaben → Simulation → Analyse

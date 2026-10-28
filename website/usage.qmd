@@ -2,6 +2,9 @@
 title: "Nutzungsparameter"
 ---
 
+{{< include assets/preset-help-usage.qmd >}}
+
+
 **Excel-Ort:** Blatt [👤]{.excel-menu .darkred} ("Nutzungsparameter").
 
 Nutzungsdaten verknüpfen Flächen mit Nutzerstrom, Beleuchtung und internen Wärmegewinnen. Die nutzungsspezifischen Annahmen beeinflussen sowohl den elektrischen Bedarf als auch das thermische Modell.

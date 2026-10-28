@@ -1,0 +1,154 @@
+renovation:
+  title: Neubau und Sanierung
+  text: Wenn Neubau und Sanierung gemeinsam vorkommen, beginne mit dem passenden Sanierungsanteil.
+  pages:
+  - model
+  - envelope
+hulls:
+  title: Hüllqualität nach Baualter
+  text: Für eine erste Bestandsabschätzung wähle Gebäudetyp und Baualter; prüfe anschließend
+    die tatsächlichen Bauteile.
+  pages:
+  - envelope
+shading_geometry:
+  title: Geometrische Verschattung
+  text: Die hinterlegte ÖNORM-Auswahl bietet einen Ausgangspunkt; gleiche sie mit
+    der örtlichen Verschattung ab.
+  pages:
+  - envelope
+air_tightness:
+  title: Luftdichtheit
+  text: Wähle einen zum Gebäudestandard passenden Ansatz, etwa Altbau oder Neubau
+    mit mechanischer Lüftung.
+  pages:
+  - envelope
+building_mass:
+  title: Speichermasse
+  text: Ordne eine leichte, mittlere oder schwere Bauweise als erste thermische Annahme
+    zu.
+  pages:
+  - envelope
+mobile_shading:
+  title: Mobiler Sonnenschutz
+  text: Wähle die vorhandene Sonnenschutzart, beispielsweise einen innenliegenden
+    Rollo oder eine Außenjalousie.
+  pages:
+  - envelope
+heating_system:
+  title: Heizsystem
+  text: Bei einer geplanten Luft-Wasser-Wärmepumpe bietet das gleichnamige Preset
+    einen Einstieg. Prüfe Vorlauftemperatur, Leistung und Effizienz.
+  pages:
+  - hvac-heizung
+heating_period:
+  title: Heizperiode
+  text: Wähle eine zeitliche Begrenzung passend zum Betrieb; die Tabelle enthält auch
+    Keine und Immer.
+  pages:
+  - hvac-heizung
+emission_system:
+  title: Wärme- und Kälteabgabe
+  text: Wenn die Abgabe über eine Fußbodenheizung erfolgt, beginne mit diesem Standardfall
+    und prüfe die Leistungsgrenzen.
+  pages:
+  - hvac-heizung
+cooling_period:
+  title: Kühlperiode
+  text: Wähle die zum Nutzungskonzept passende Kühlperiode.
+  pages:
+  - hvac-kuehlung
+cooling_system:
+  title: Kühlsystem
+  text: Für eine reversible Wärmepumpe stehen mehrere Standardfälle bereit, darunter
+    eine Konfiguration mit FreeCooling-Anteil.
+  pages:
+  - hvac-kuehlung
+cooling_modes:
+  title: Gekühlte Nutzungen
+  text: Soll nur der Nichtwohnanteil gekühlt werden, prüfe den Standardfall Nichtwohnen.
+  pages:
+  - hvac-kuehlung
+dhw_demand:
+  title: Warmwasserbedarf
+  text: Für den Deklarationsfall gibt es eine eigene Belegung. Die OIB-Auswahlen sind
+    im Export ausdrücklich als noch nicht hinterlegt bezeichnet.
+  pages:
+  - hvac-warmwasser
+  - usage
+dhw_system:
+  title: Warmwassersystem
+  text: Wähle den passenden Erzeuger als Ausgangspunkt und prüfe die Belegung für
+    die einzelnen Nutzungen.
+  pages:
+  - hvac-warmwasser
+ventilation_system:
+  title: Mechanische Lüftung
+  text: Für eine Anlage mit Wärmerückgewinnung gibt es passende Standardfälle; kontrolliere
+    die Winter- und Sommerwerte.
+  pages:
+  - hvac-lueftung
+vent_modes:
+  title: Mechanisch belüftete Nutzungen
+  text: Wenn nur Nichtwohnflächen mechanisch belüftet werden, beginne mit Nichtwohnen.
+  pages:
+  - hvac-lueftung
+vent_night_modes:
+  title: Nachtauskühlung
+  text: Für Wohnen sind einseitige Lüftung und Querlüftung hinterlegt. Prüfe Öffnungen
+    und tatsächlich nutzbare Flächen.
+  pages:
+  - hvac-lueftung
+PV_system:
+  title: Photovoltaik
+  text: Für eine erste Flächenannahme kannst du etwa 30% der Dachfläche wählen. Das
+    ersetzt keine Prüfung der nutzbaren Dachfläche und des Ertragsprofils.
+  pages:
+  - pv
+battery_system:
+  title: Batteriespeicher
+  text: Für einen ersten Vergleich stehen Keine Batterie sowie zwei Speicheransätze
+    bereit. Prüfe Kapazität und Leistung.
+  pages:
+  - systems
+flexibility_system:
+  title: Flexibilitätssteuerung
+  text: Vergleiche Keine Flexibilität mit einer Steuerung nach PV oder nach PV und
+    externem Signal.
+  pages:
+  - systems
+flexibility_thermal:
+  title: Thermische Flexibilität
+  text: Beginne mit einer zum Komfortkonzept passenden Temperaturspanne und prüfe
+    die zulässigen Raumtemperaturen.
+  pages:
+  - systems
+plugloads:
+  title: Nutzerstrom
+  text: Für die Deklaration verwende die entsprechend benannte Belegung. Kein Nutzerstrom
+    ist für Studienzwecke bezeichnet; SIA2024 trägt den Auswahltext Veraltet.
+  pages:
+  - usage
+mobility:
+  title: Mobilität nach Standort
+  text: Wähle den Standorttyp, etwa Urban oder Ländlich mit Pendelverkehr, und gleiche
+    die Annahmen mit dem Quartier ab.
+  pages:
+  - mobility
+construction_type:
+  title: Konstruktion und Materialien
+  text: Für eine erste Materialbelegung stehen Neubau- und Sanierungsfälle bereit.
+    Die Tabelle enthält auch Testspalten; prüfe die konkrete Auswahl.
+  pages:
+  - climate
+geometry:
+  title: Gebäudegeometrie
+  text: Bei fehlenden Detaildaten können Gebäudetyp und Baualter als Einstieg dienen.
+    Passe die Geometrie an dein Quartier an.
+  pages:
+  - model
+declaration_type:
+  title: Deklarationsumfang
+  text: Wähle den vorgesehenen Nachweisumfang. Die hier gezeigte Wertebelegung allein
+    bestätigt keine vollständige Erfüllung der Deklarationsanforderungen.
+  pages:
+  - declaration
