@@ -42,9 +42,32 @@ def _read_inputs(scenario: Scenario, *, custom_layout: bool = False) -> dict:
     inconsistencies are returned as assumptions; invalid finite values fail early.
     """
     notes = []
+    inputs = {
+        "FSI": scenario.v.FSI,
+        "GFA_total": scenario.v.GFA_total,
+        "NFA_total": scenario.v.NFA_total,
+        "PV_is_used": scenario.v.PV_is_used,
+        "PV_kWp": scenario.v.PV_kWp,
+        "PV_m2_per_kWp": scenario.v.PV_m2_per_kWp,
+        "PV_module_area": scenario.v.PV_module_area,
+        "PV_roof_share": scenario.v.PV_roof_share,
+        "building_count": scenario.v.building_count,
+        "hull_ext_wall_wo_window_m2": scenario.v.hull_ext_wall_wo_window_m2,
+        "hull_fenestration_rate": scenario.v.hull_fenestration_rate,
+        "hull_fundament_m2": scenario.v.hull_fundament_m2,
+        "hull_roof_m2": scenario.v.hull_roof_m2,
+        "hull_transmittance_roof": scenario.v.hull_transmittance_roof,
+        "hull_transmittance_walls": scenario.v.hull_transmittance_walls,
+        "hull_window_m2": scenario.v.hull_window_m2,
+        "hull_windows_horizontal_m2": scenario.v.hull_windows_horizontal_m2,
+        "plot_area": scenario.v.plot_area,
+        "rh_avg": scenario.v.rh_avg,
+        "rh_ceiling": scenario.v.rh_ceiling,
+        "storey_count_avg": scenario.v.storey_count_avg,
+    }
 
     def read(name):
-        return _number(getattr(scenario.v, name), name)
+        return _number(inputs[name], name)
 
     def default(name, value, positive=True):
         supplied = read(name)
@@ -173,7 +196,7 @@ def _read_inputs(scenario: Scenario, *, custom_layout: bool = False) -> dict:
             "FSI",
             "hull_roof_m2",
             "hull_fundament_m2",
-            "PV_roof_area_percentage",
+            "PV_roof_share",
             "hull_fenestration_rate",
             "hull_window_m2",
             "hull_ext_wall_wo_window_m2",
@@ -230,9 +253,11 @@ def _read_inputs(scenario: Scenario, *, custom_layout: bool = False) -> dict:
         )
     context["section_glazing_ratio"] = glazing
     context["section_glazing_source"] = glazing_source
-    ratio = context["PV_roof_area_percentage"]
+    ratio = context["PV_roof_share"]
+    if ratio is None:
+        _note(notes, "unknown_pv_roof_share", "Missing PV_roof_share: roof-share comparison unavailable; placement follows available module area.")
     if ratio is not None and ratio > 1:
-        raise ValueError("PV_roof_area_percentage must be between 0 and 1")
+        raise ValueError("PV_roof_share must be between 0 and 1")
     if (
         ratio is not None
         and context["hull_roof_m2"] is not None

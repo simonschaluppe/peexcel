@@ -238,3 +238,27 @@ def test_writer_applies_metadata_options_to_both_sheets(workbook, tmp_path):
 def test_empty_project_annual_roundtrip(tmp_path):
     target = Project().to_excel(tmp_path / "empty.xlsx", include_out=True)
     assert len(Project.from_excel(target, unknown="raise")) == 0
+
+
+def test_legacy_values_are_inspectable_but_not_exported(workbook):
+    sheets = annual_sheets()
+    sheets["IN"].append(["PV_roof_area_percentage", "Old PV", 0.4, 0.6])
+    path = workbook(sheets=sheets)
+    project = Project.from_excel(path, unknown="ignore")
+    assert project[0].legacy == {"PV_roof_area_percentage": 0.4}
+    assert project[0].v.PV_roof_share is None
+    assert "PV_roof_area_percentage" not in project[0].to_var_dict()
+    assert len([w for w in project.warnings if "scenario.legacy" in w]) == 1
+    project[0].v.PV_roof_share = project[0].legacy["PV_roof_area_percentage"]
+    assert project[0].v.PV_roof_share == 0.4
+    assert Project.from_excel(path, unknown="ignore")[0].v.PV_roof_share is None
+    with pytest.raises(KeyError):
+        Project.from_excel(path, unknown="raise")
+
+
+def test_conflicting_legacy_values_fail(workbook):
+    sheets = annual_sheets()
+    sheets["IN"].append(["old_field", "Old", 1, 2])
+    sheets["OUT"].append(["old_field", 3, 4])
+    with pytest.raises(ValueError, match="Conflicting legacy"):
+        Project.from_excel(workbook(sheets=sheets), unknown="ignore")
