@@ -1,0 +1,11 @@
+::: {.callout-note collapse=true title="Noch keine eigenen Werte? Standardfälle nutzen"}
+
+- **[Batteriespeicher](preset-catalog.qmd#preset-battery_system):** Für einen ersten Vergleich stehen Keine Batterie sowie zwei Speicheransätze bereit. Prüfe Kapazität und Leistung.
+
+- **[Flexibilitätssteuerung](preset-catalog.qmd#preset-flexibility_system):** Vergleiche Keine Flexibilität mit einer Steuerung nach PV oder nach PV und externem Signal.
+
+- **[Thermische Flexibilität](preset-catalog.qmd#preset-flexibility_thermal):** Beginne mit einer zum Komfortkonzept passenden Temperaturspanne und prüfe die zulässigen Raumtemperaturen.
+
+Prüfe die übernommenen Werte für dein Projekt. [So wendest du Presets an](presets.qmd).
+
+:::

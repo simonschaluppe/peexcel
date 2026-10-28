@@ -810,7 +810,7 @@ Direkteingabe Lebensdauer</a><br><code>legacy_GWP_life_direct</code></th>
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>test</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>district</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
 <tr id="out-PEI_importexport_balance_test" data-entity="">
 <th scope="row"><span class="catalog-icon" aria-hidden="true">☑</span> <a href="#out-PEI_importexport_balance_test">PE-Bilanz Virtuell = Import/Export</a><br><code>PEI_importexport_balance_test</code></th>
-<td>False</td><td><span class="catalog-measure">test</span>
+<td>True</td><td><span class="catalog-measure">test</span>
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>test</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>district</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
 <tr id="out-PEI_virtual_supply" data-entity="">
 <th scope="row"><a href="#out-PEI_virtual_supply">PE-Deckung (inkl. Kontextfaktoren)</a><br><code>PEI_virtual_supply</code></th>
@@ -971,11 +971,11 @@ Direkteingabe Lebensdauer</a><br><code>legacy_GWP_life_direct</code></th>
 <td>kWh/m²NGFa</td><td><span class="catalog-measure">flexible_grid_use</span>
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>flexible_grid_use</dd><dt>Entity Group</dt><dd>energy_use</dd><dt>Entity Key</dt><dd>dhw_demand</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>flexible</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
 <tr id="out-Grid_to_Eev_min" data-entity="energy_use">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">🔌</span> <a href="#out-Grid_to_Eev_min">Netzstrom</a><br><code>Grid_to_Eev_min</code></th>
+<th scope="row"><span class="catalog-icon" aria-hidden="true">🔌</span> <a href="#out-Grid_to_Eev_min">Netzstrom → E-Car Mindestladung</a><br><code>Grid_to_Eev_min</code></th>
 <td>kWh/m²NGFa</td><td><span class="catalog-measure">grid_use</span>
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>grid_use</dd><dt>Entity Group</dt><dd>energy_use</dd><dt>Entity Key</dt><dd>ev_local_charge</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>static</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
 <tr id="out-Grid_to_building_min" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">🔌</span> <a href="#out-Grid_to_building_min">Netzstrom → E-Car Mindestladung</a><br><code>Grid_to_building_min</code></th>
+<th scope="row"><span class="catalog-icon" aria-hidden="true">🔌</span> <a href="#out-Grid_to_building_min">Netzstrom → Gebäude</a><br><code>Grid_to_building_min</code></th>
 <td>kWh/m²NGFa</td><td><span class="catalog-measure">grid_use</span>
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>grid_use</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>static</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
 <tr id="out-Grid_to_Eh_min" data-entity="energy_use">

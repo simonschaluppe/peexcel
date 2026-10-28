@@ -1,0 +1,7 @@
+::: {.callout-note collapse=true title="Noch keine eigenen Werte? Standardfälle nutzen"}
+
+- **[Mobilität nach Standort](preset-catalog.qmd#preset-mobility):** Wähle den Standorttyp, etwa Urban oder Ländlich mit Pendelverkehr, und gleiche die Annahmen mit dem Quartier ab.
+
+Prüfe die übernommenen Werte für dein Projekt. [So wendest du Presets an](presets.qmd).
+
+:::

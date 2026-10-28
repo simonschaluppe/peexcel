@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Szenarien auswählen, mit Excel berechnen und Zeitreihenexporte prüfen.">
+<meta name="description" content="PEExcel-Szenarien mit pexl.batch aus Excel oder CSV berechnen, sichern und fortsetzen.">
 
 <title>Batchsimulation mit Python – PEExcel</title>
 <style>
@@ -415,21 +415,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Nachschlagen</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./glossary.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Begriffe, Parameter und Kennzahlen</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./preset-catalog.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preset-Katalog</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
  <span class="menu-text">Python &amp; Automatisierung</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./python.html" class="sidebar-item-text sidebar-link">
@@ -438,13 +455,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
  <span class="menu-text">Einstieg und Daten</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tutorial_excel.html" class="sidebar-item-text sidebar-link">
@@ -467,13 +484,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
  <span class="menu-text">Simulieren und analysieren</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./batch-python.html" class="sidebar-item-text sidebar-link active">
@@ -508,13 +525,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
  <span class="menu-text">Visualisieren und weitergeben</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tutorial_gebaeudeschnitt.html" class="sidebar-item-text sidebar-link">
@@ -537,13 +554,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false">
  <span class="menu-text">Entwicklung und Dokumentation</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tutorial_schema.html" class="sidebar-item-text sidebar-link">
@@ -562,13 +579,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false">
  <span class="menu-text">Über das Projekt</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./research.html" class="sidebar-item-text sidebar-link">
@@ -593,17 +610,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#lernziel" id="toc-lernziel" class="nav-link active" data-scroll-target="#lernziel">Lernziel</a></li>
-  <li><a href="#ausführung-in-excel" id="toc-ausführung-in-excel" class="nav-link" data-scroll-target="#ausführung-in-excel">Ausführung in Excel</a></li>
-  <li><a href="#überblick" id="toc-überblick" class="nav-link" data-scroll-target="#überblick">Überblick</a></li>
-  <li><a href="#pfade-und-szenarien-konfigurieren" id="toc-pfade-und-szenarien-konfigurieren" class="nav-link" data-scroll-target="#pfade-und-szenarien-konfigurieren">1. Pfade und Szenarien konfigurieren</a></li>
-  <li><a href="#verbindung-mit-excel-herstellen" id="toc-verbindung-mit-excel-herstellen" class="nav-link" data-scroll-target="#verbindung-mit-excel-herstellen">2. Verbindung mit Excel herstellen</a></li>
-  <li><a href="#verfügbare-szenarien-anzeigen" id="toc-verfügbare-szenarien-anzeigen" class="nav-link" data-scroll-target="#verfügbare-szenarien-anzeigen">3. Verfügbare Szenarien anzeigen</a></li>
-  <li><a href="#szenarien-simulieren" id="toc-szenarien-simulieren" class="nav-link" data-scroll-target="#szenarien-simulieren">4. Szenarien simulieren</a></li>
-  <li><a href="#exportierte-zeitreihen-prüfen" id="toc-exportierte-zeitreihen-prüfen" class="nav-link" data-scroll-target="#exportierte-zeitreihen-prüfen">5. Exportierte Zeitreihen prüfen</a></li>
-  <li><a href="#zeitreihen-visualisieren" id="toc-zeitreihen-visualisieren" class="nav-link" data-scroll-target="#zeitreihen-visualisieren">6. Zeitreihen visualisieren</a></li>
-  <li><a href="#hinweise-für-größere-simulationsaufträge" id="toc-hinweise-für-größere-simulationsaufträge" class="nav-link" data-scroll-target="#hinweise-für-größere-simulationsaufträge">7. Hinweise für größere Simulationsaufträge</a></li>
-  <li><a href="#weiterarbeiten" id="toc-weiterarbeiten" class="nav-link" data-scroll-target="#weiterarbeiten">Weiterarbeiten</a></li>
+  <li><a href="#batchsimulation-mit-python" id="toc-batchsimulation-mit-python" class="nav-link active" data-scroll-target="#batchsimulation-mit-python">Batchsimulation mit Python</a>
+  <ul class="collapse">
+  <li><a href="#voraussetzungen" id="toc-voraussetzungen" class="nav-link" data-scroll-target="#voraussetzungen">Voraussetzungen</a>
+  <ul class="collapse">
+  <li><a href="#aufgabenteilung-in-pexl" id="toc-aufgabenteilung-in-pexl" class="nav-link" data-scroll-target="#aufgabenteilung-in-pexl">Aufgabenteilung in pexl</a></li>
+  </ul></li>
+  <li><a href="#szenarien-aus-excel-oder-einer-externen-liste" id="toc-szenarien-aus-excel-oder-einer-externen-liste" class="nav-link" data-scroll-target="#szenarien-aus-excel-oder-einer-externen-liste">1. Szenarien aus Excel oder einer externen Liste</a></li>
+  <li><a href="#gebäudetypologien-auf-basis-von-default-vorbereiten" id="toc-gebäudetypologien-auf-basis-von-default-vorbereiten" class="nav-link" data-scroll-target="#gebäudetypologien-auf-basis-von-default-vorbereiten">Gebäudetypologien auf Basis von <code>Default</code> vorbereiten</a></li>
+  <li><a href="#jahresergebnisse-berechnen-und-sichern" id="toc-jahresergebnisse-berechnen-und-sichern" class="nav-link" data-scroll-target="#jahresergebnisse-berechnen-und-sichern">2. Jahresergebnisse berechnen und sichern</a>
+  <ul class="collapse">
+  <li><a href="#fortschritt-in-cli-und-notebook" id="toc-fortschritt-in-cli-und-notebook" class="nav-link" data-scroll-target="#fortschritt-in-cli-und-notebook">Fortschritt in CLI und Notebook</a></li>
+  </ul></li>
+  <li><a href="#jahresdaten-als-project-konsolidieren" id="toc-jahresdaten-als-project-konsolidieren" class="nav-link" data-scroll-target="#jahresdaten-als-project-konsolidieren">3. Jahresdaten als Project konsolidieren</a></li>
+  <li><a href="#unterbrechen-und-fortsetzen" id="toc-unterbrechen-und-fortsetzen" class="nav-link" data-scroll-target="#unterbrechen-und-fortsetzen">4. Unterbrechen und fortsetzen</a></li>
+  <li><a href="#optionale-stundenwerte" id="toc-optionale-stundenwerte" class="nav-link" data-scroll-target="#optionale-stundenwerte">5. Optionale Stundenwerte</a></li>
+  <li><a href="#weiterarbeiten" id="toc-weiterarbeiten" class="nav-link" data-scroll-target="#weiterarbeiten">Weiterarbeiten</a>
+  <ul class="collapse">
+  <li><a href="#optional-fortschrittsbalken-mit-tqdm" id="toc-optional-fortschrittsbalken-mit-tqdm" class="nav-link" data-scroll-target="#optional-fortschrittsbalken-mit-tqdm">Optional: Fortschrittsbalken mit tqdm</a></li>
+  </ul></li>
+  <li><a href="#wiederaufnahme-und-portable-wiederholung" id="toc-wiederaufnahme-und-portable-wiederholung" class="nav-link" data-scroll-target="#wiederaufnahme-und-portable-wiederholung">Wiederaufnahme und portable Wiederholung</a></li>
+  <li><a href="#betrieb-auf-dem-windows-simulationsrechner" id="toc-betrieb-auf-dem-windows-simulationsrechner" class="nav-link" data-scroll-target="#betrieb-auf-dem-windows-simulationsrechner">Betrieb auf dem Windows-Simulationsrechner</a></li>
+  <li><a href="#weiterarbeiten-1" id="toc-weiterarbeiten-1" class="nav-link" data-scroll-target="#weiterarbeiten-1">Weiterarbeiten</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -617,7 +646,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div>
   <div class="description">
-    Szenarien auswählen, mit Excel berechnen und Zeitreihenexporte prüfen.
+    PEExcel-Szenarien mit pexl.batch aus Excel oder CSV berechnen, sichern und fortsetzen.
   </div>
 </div>
 
@@ -634,312 +663,246 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="lernziel" class="level2">
-<h2 class="anchored" data-anchor-id="lernziel">Lernziel</h2>
-<p>Szenarien auswählen, mit Excel berechnen und Zeitreihenexporte prüfen.</p>
-<p><strong>Voraussetzungen:</strong> Windows, Excel mit VBA und pywin32; vorbereitete Szenarien in SCEN.</p>
-<p>Einmalig im Repository installieren: <code>python -m pip install -e ".[publication]"</code>. Zum eigenen Ausführen das Notebook im geklonten Repository öffnen und die Zellen von oben nach unten ausführen. Die Website zeigt gespeicherte Ausgaben; sie führt keinen Python-Code im Browser aus.</p>
-<p><a href="downloads/tutorial_batch.ipynb">Tutorial-Notebook herunterladen</a> · <a href="./python.html">Alle Tutorials</a></p>
-</section>
-<section id="ausführung-in-excel" class="level2">
-<h2 class="anchored" data-anchor-id="ausführung-in-excel">Ausführung in Excel</h2>
-<p>Dieses Tutorial startet echte VBA-Simulationen und verändert die Szenarienauswahl in der Arbeitsmappe. Es enthält deshalb keine automatisch erzeugten Beispielresultate. Für die Website wurde keine Excel-Simulation ausgeführt. Für den ersten Versuch eine Arbeitskopie verwenden; Szenariennamen mit Buchstaben, Ziffern und Unterstrichen wählen, damit die Prüfung des Exportdateinamens eindeutig bleibt.</p>
-</section>
-<section id="überblick" class="level2">
-<h2 class="anchored" data-anchor-id="überblick">Überblick</h2>
-<p>Mit Python lassen sich Szenarien des PEQ-Nachweistools (PEExcel) automatisiert simulieren. Die vorhandene VBA-Batchsimulation übernimmt weiterhin die Berechnung. Python steuert die Szenarienauswahl, startet die Simulation und prüft die exportierten Ergebnisse.</p>
-<p><strong>Voraussetzungen</strong></p>
-<ul>
-<li>Windows mit Microsoft Excel</li>
-<li>PEExcel-Workbook (<code>.xlsb</code>) mit dem VBA-Einstiegspunkt <code>RunScenariosAutomated</code></li>
-<li>Python mit <code>pywin32</code>, <code>pandas</code>, <code>openpyxl</code> und <code>matplotlib</code></li>
-<li>Vorbereitete Szenarien in der Excel-Tabelle <code>Scenarios</code> auf dem Blatt <code>SCEN</code></li>
-</ul>
-<p>Die benötigten Python-Pakete installieren:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install pywin32 pandas numpy openpyxl matplotlib ipython</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="pfade-und-szenarien-konfigurieren" class="level2">
-<h2 class="anchored" data-anchor-id="pfade-und-szenarien-konfigurieren">1. Pfade und Szenarien konfigurieren</h2>
-<p>Alle Dateipfade werden von der erkannten Repository-Wurzel abgeleitet. Passe Arbeitsmappe und Szenarien an deinen Datenbestand an.</p>
-<div id="d1320aaa" class="cell">
+<section id="batchsimulation-mit-python" class="level1">
+<h1>Batchsimulation mit Python</h1>
+<section id="voraussetzungen" class="level2">
+<h2 class="anchored" data-anchor-id="voraussetzungen">Voraussetzungen</h2>
+<p>Windows mit Microsoft Excel, eine gespeicherte PEExcel-Arbeitskopie und vorbereitete Szenarien. Installiere im Repository <code>python -m pip install -e ".[batch]"</code>. Die Arbeitsmappe benötigt <code>RunScenariosAutomated(reloadBase As Boolean) As Boolean</code>: VBA lädt optional die Basis, wendet Presets an, berechnet und aktualisiert den Status. VBA speichert und exportiert dabei nicht. Python erfasst IN/STAGE und OUT/Live sofort. Für Stundenwerte wird zusätzlich die strukturierte Tabelle SIM gelesen.</p>
+<p>Dieses Tutorial verwendet <code>Project</code> und die öffentliche API <code>pexl.batch.run_batch</code>. Es benötigt keine direkten Excel-Automationsaufrufe. Die Berechnung ist zunächst ausgeschaltet; zum Ausführen Pfade prüfen und <code>RUN_EXCEL = True</code> setzen. Vorher die Arbeitskopie speichern und in Excel schließen. Der Batch öffnet eine eigene Excel-Instanz. Während des Laufs keine Eingaben in Excel ändern.</p>
+<section id="aufgabenteilung-in-pexl" class="level3">
+<h3 class="anchored" data-anchor-id="aufgabenteilung-in-pexl">Aufgabenteilung in pexl</h3>
+<p><code>pexl.batch.run_batch</code> organisiert den Batch-Auftrag: Szenarienauswahl und Reihenfolge, Ergebnisdateien, Fortschritt und Wiederaufnahme. <code>Project</code> und <code>Scenario</code> enthalten die Daten.</p>
+<p>Der allgemeine <code>pexl.io.excel_com.PEExcelAdapter</code> übernimmt die Verbindung zur Arbeitsmappe und den Zugriff auf Excel-Tabellen. Szenarien lesen, konfigurieren, ausführen und aktuelle Ergebnisse erfassen sind seine bisher implementierten Operationen. Die Verbindung selbst setzt keine SCEN-Tabelle voraus; Tabellen werden erst bei Bedarf angesprochen. So können künftige PEExcel-Funktionen dieselbe Adapter-Infrastruktur verwenden.</p>
+<p>Für dieses Tutorial genügt <code>run_batch</code>; ein direkter Adapter- oder COM-Aufruf ist nicht nötig.</p>
+<div id="feb439be" class="cell">
 <details class="code-fold">
 <summary>Python-Code anzeigen</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> display</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Im geklonten Repository ausführen, z. B. aus website/ oder notebooks/.</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>ROOT <span class="op">=</span> <span class="bu">next</span>((p <span class="cf">for</span> p <span class="kw">in</span> (Path.cwd(), <span class="op">*</span>Path.cwd().parents)</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>             <span class="cf">if</span> (p <span class="op">/</span> <span class="st">"src/pexl"</span>).is_dir() <span class="kw">and</span> (p <span class="op">/</span> <span class="st">"pyproject.toml"</span>).is_file()), <span class="va">None</span>)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> ROOT <span class="kw">is</span> <span class="va">None</span>:</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">raise</span> <span class="pp">FileNotFoundError</span>(<span class="st">"Bitte das Notebook innerhalb des peexcel-Repositorys öffnen."</span>)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>sys.path.insert(<span class="dv">0</span>, <span class="bu">str</span>(ROOT <span class="op">/</span> <span class="st">"src"</span>))</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>sys.path.insert(<span class="dv">0</span>, <span class="bu">str</span>(ROOT <span class="op">/</span> <span class="st">"scripts"</span>))</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>OUTPUT <span class="op">=</span> ROOT <span class="op">/</span> <span class="st">"notebooks/local_exports/tutorials"</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>OUTPUT.mkdir(parents<span class="op">=</span><span class="va">True</span>, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Diese Zellen verändern die Szenarienauswahl der geöffneten Arbeitsmappe.</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>workbook_path <span class="op">=</span> ROOT <span class="op">/</span> <span class="st">"excel/development/ka_PEQ_Nachweistool_DEV.xlsb"</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>export_path <span class="op">=</span> OUTPUT <span class="op">/</span> <span class="st">"batch"</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>scenarios <span class="op">=</span> [<span class="st">"t1"</span>, <span class="st">"t2"</span>]  <span class="co"># Durch tatsächlich vorhandene Szenarien ersetzen.</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> workbook_path.is_file(), workbook_path</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>export_path.mkdir(parents<span class="op">=</span><span class="va">True</span>, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">any</span>(export_path.iterdir()):</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">raise</span> <span class="pp">FileExistsError</span>(<span class="st">"Für diesen Lauf einen neuen, leeren Exportordner wählen."</span>)</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Workbook:"</span>, workbook_path.name)</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Szenarien:"</span>, scenarios)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pexl <span class="im">import</span> Project</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pexl.batch <span class="im">import</span> run_batch, inspect_batch</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>ROOT <span class="op">=</span> <span class="bu">next</span>(p <span class="cf">for</span> p <span class="kw">in</span> (Path.cwd(), <span class="op">*</span>Path.cwd().parents) <span class="cf">if</span> (p <span class="op">/</span> <span class="st">"src/pexl"</span>).is_dir())</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>workbook <span class="op">=</span> ROOT <span class="op">/</span> <span class="st">"excel/development/ka_PEQ_Nachweistool_DEV.xlsb"</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>output_dir <span class="op">=</span> ROOT <span class="op">/</span> <span class="st">"notebooks/local_exports/batch_api"</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>RUN_EXCEL <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>scenario_source <span class="op">=</span> <span class="va">None</span>  <span class="co"># None: vorhandene SCEN-Tabelle; alternativ Pfad zu CSV/XLSX</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>DEFAULT_BASE <span class="op">=</span> <span class="st">"Default"</span>  <span class="co"># exakter IN-Spaltenname in ka_PEQ_Nachweistool_DEV.xlsb</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>RUN_INSPECTION <span class="op">=</span> <span class="va">False</span>  <span class="co"># liest/validiert Excel; startet keine Simulation</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>RUN_RESUME <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>RUN_RETRY <span class="op">=</span> <span class="va">False</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hinweis
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><code>Path.cwd()</code> zeigt das aktuelle Arbeitsverzeichnis. Relative Pfade beziehen sich darauf, nicht zwingend auf den Speicherort des Notebooks.</p>
-<p>Der Exportordner sollte für einen ersten Test leer sein, damit vorhandene Dateien nicht mit neuen Simulationsergebnissen verwechselt werden.</p>
-</div>
-</div>
 </section>
-<section id="verbindung-mit-excel-herstellen" class="level2">
-<h2 class="anchored" data-anchor-id="verbindung-mit-excel-herstellen">2. Verbindung mit Excel herstellen</h2>
-<p>Python verbindet sich nach Möglichkeit mit einer bereits laufenden Excel-Instanz. Ist keine vorhanden, wird Excel gestartet.</p>
-<div id="8069d335" class="cell">
+</section>
+<section id="szenarien-aus-excel-oder-einer-externen-liste" class="level2">
+<h2 class="anchored" data-anchor-id="szenarien-aus-excel-oder-einer-externen-liste">1. Szenarien aus Excel oder einer externen Liste</h2>
+<p>Ohne <code>scenario_source</code> werden die Zeilen der vorhandenen Tabelle <code>Scenarios</code> auf SCEN verwendet. Die API wählt anhand des Filters aus; die bisherige Spalte <code>Simulieren?</code> begrenzt den Lauf nicht. Pro VBA-Aufruf wird genau ein Szenario ausgewählt.</p>
+<p>Alternativ eine CSV/XLSX mit denselben SCEN-Spaltennamen angeben. Pflichtfelder sind <code>Scenario Name</code> und <code>Base Scenario</code>, dazu kommen die gewünschten Preset-Spalten mit ihren exakten Namen aus der Arbeitsmappe. Unbekannte Spalten werden abgewiesen. Jede Zeile braucht einen eindeutigen Szenarionamen. Die API schreibt die Liste temporär nach SCEN und stellt anschließend die ursprüngliche Konfiguration einschließlich Formeln wieder her.</p>
+<p>Eine Excel-Liste verwendet das Blatt <code>Scenarios</code> oder <code>SCEN</code>, alternativ genau ein Blatt. CSV-Dateien besitzen eine Kopfzeile. Beispielkonfiguration (Pfad an eigene Liste anpassen):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>scenario_source <span class="op">=</span> ROOT <span class="op">/</span> <span class="st">"data/archetypes.csv"</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># oder: scenario_source = ROOT / "data/archetypes.xlsx"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># oder direkt: scenario_source = pd.DataFrame(...)</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Für den ersten Live-Test nur 2–5 Szenarien verwenden. Ein eigener Ausgabeordner je Workbook-/Konfigurationsstand verhindert die Vermischung unterschiedlicher Modellstände.</p>
+<p>Auswahl, Save-/Exportflags und <code>Skip base reload?</code> werden durch die API gesteuert; die entsprechenden Listeneinträge werden dafür vorübergehend überschrieben. <code>Zeitpunkt</code> und Statusfelder gehören nicht zur Resume-Eingabeidentität.</p>
+</section>
+<section id="gebäudetypologien-auf-basis-von-default-vorbereiten" class="level2">
+<h2 class="anchored" data-anchor-id="gebäudetypologien-auf-basis-von-default-vorbereiten">Gebäudetypologien auf Basis von <code>Default</code> vorbereiten</h2>
+<p>Die vorhandene Entwicklungsmappe <code>excel/development/ka_PEQ_Nachweistool_DEV.xlsb</code> besitzt die Basis <strong><code>Default</code></strong> in IN. Nicht <code>default</code>, <code>DEFAULT</code> oder den Anzeigenamen eines Ergebnisses verwenden. Vorhandene Typologiezeilen auf SCEN kombinieren diese Basis mit <code>Presets_geometry_table</code>, <code>Presets_hulls_table</code>, Heizsystem, PV und weiteren Presets. Ihre Namen enthalten beispielsweise <code>EFH_1G|1945-59|WP_Sole_fc|PV30|noFlex</code>.</p>
+<p><code>inspect_batch()</code> verwendet dieselben Lade-, Auswahl- und Validierungsfunktionen wie <code>run_batch()</code>. Es prüft Basis- und Presetreferenzen gegen die gespeicherte Arbeitsmappe. Die folgende Auswahl übernimmt vollständige SCEN-Zeilen einschließlich aller <code>Custom *</code>-Spalten. Keine Rekonstruktion aus Ergebnisnamen und kein eigenes Typologieschema.</p>
+<p><strong>Wichtig:</strong> <code>excel/development/Szenarien_5400.csv</code> ist eine vorgelagerte Typologieliste (<code>Szenario_ID</code>, <code>Quartier</code>, …), keine direkt verwendbare SCEN-Datei. Für diesen Ablauf die bereits vorbereiteten SCEN-Zeilen der Entwicklungsmappe oder einen Export mit den originalen SCEN-Spalten verwenden.</p>
+<p>Zunächst <code>RUN_INSPECTION = True</code> setzen und die Auswahl ansehen. <code>RUN_EXCEL</code> bleibt dabei False. Für neue Varianten eine bestehende vollständige Zeile kopieren, einen eindeutigen <code>Scenario Name</code> vergeben, <code>Base Scenario = "Default"</code> beibehalten und nur tatsächlich vorhandene Anzeigenamen aus der <code>dropdown_name</code>-Zeile der Preset-Tabellen ändern. <code>Custom *</code> enthält Namen aus der Tabelle <code>presets</code>, keine frei erfundenen <code>var=wert</code>-Ausdrücke; die Validierung ersetzt keine fachliche Prüfung.</p>
+<div id="b480ed60" class="cell">
 <details class="code-fold">
 <summary>Python-Code anzeigen</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> win32com.client <span class="im">as</span> win32</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    excel <span class="op">=</span> win32.GetActiveObject(<span class="st">"Excel.Application"</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span>:</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    excel <span class="op">=</span> win32.DispatchEx(<span class="st">"Excel.Application"</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>excel.Visible <span class="op">=</span> <span class="va">True</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Bereits geöffnetes Workbook suchen</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>wb <span class="op">=</span> <span class="bu">next</span>(</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    (</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        w <span class="cf">for</span> w <span class="kw">in</span> excel.Workbooks</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> Path(w.FullName).resolve() <span class="op">==</span> workbook_path</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="va">None</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> wb <span class="kw">is</span> <span class="va">None</span>:</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    wb <span class="op">=</span> excel.Workbooks.Open(<span class="bu">str</span>(workbook_path))</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Verbunden:"</span>, wb.Name)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> RUN_INSPECTION:</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    definitions <span class="op">=</span> inspect_batch(</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        workbook, scenarios<span class="op">=</span>scenario_source,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        scenario_filter<span class="op">=</span>{<span class="st">"Base Scenario"</span>: DEFAULT_BASE},</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    preset_columns <span class="op">=</span> [c <span class="cf">for</span> c <span class="kw">in</span> definitions <span class="cf">if</span> c.startswith(<span class="st">"Presets_"</span>)]</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    custom_columns <span class="op">=</span> [c <span class="cf">for</span> c <span class="kw">in</span> definitions <span class="cf">if</span> c.startswith(<span class="st">"Custom "</span>)]</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    display(definitions[[<span class="st">"Scenario Name"</span>, <span class="st">"Base Scenario"</span>, <span class="op">*</span>preset_columns, <span class="op">*</span>custom_columns]].head(<span class="dv">10</span>))</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> column <span class="kw">in</span> (<span class="st">"Presets_geometry_table"</span>, <span class="st">"Presets_hulls_table"</span>, <span class="st">"Presets_heating_system_table"</span>):</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> column <span class="kw">in</span> definitions:</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>            display(definitions[column].value_counts(dropna<span class="op">=</span><span class="va">False</span>).rename(column))</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>Bei mehreren gleichzeitig laufenden Excel-Instanzen kann <code>GetActiveObject</code> eine andere Instanz auswählen. In diesem Fall die gewünschte Arbeitsmappe gezielt öffnen beziehungsweise die Excel-Instanzen prüfen.</p>
-</section>
-<section id="verfügbare-szenarien-anzeigen" class="level2">
-<h2 class="anchored" data-anchor-id="verfügbare-szenarien-anzeigen">3. Verfügbare Szenarien anzeigen</h2>
-<p>Die Szenarien sind in der strukturierten Excel-Tabelle <code>Scenarios</code> hinterlegt.</p>
-<div id="6fc6215a" class="cell">
+<div id="ad0498c9" class="cell">
 <details class="code-fold">
 <summary>Python-Code anzeigen</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> wb.Worksheets(<span class="st">"SCEN"</span>).ListObjects(<span class="st">"Scenarios"</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>name_col <span class="op">=</span> table.ListColumns(<span class="st">"Scenario Name"</span>).DataBodyRange</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>sim_col <span class="op">=</span> table.ListColumns(<span class="st">"Simulieren?"</span>).DataBodyRange</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>export_col <span class="op">=</span> table.ListColumns(</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Export as single project file incl. Timeseries?"</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>).DataBodyRange</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>available <span class="op">=</span> [</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    name_col.Cells(i, <span class="dv">1</span>).Value</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, table.ListRows.Count <span class="op">+</span> <span class="dv">1</span>)</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="bu">len</span>(available)<span class="sc">}</span><span class="ss"> Szenarien verfügbar:"</span>)</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(available[:<span class="dv">20</span>])</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>missing <span class="op">=</span> <span class="bu">set</span>(scenarios) <span class="op">-</span> <span class="bu">set</span>(available)</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="kw">not</span> missing, <span class="ss">f"Unbekannte Szenarien: </span><span class="sc">{</span>missing<span class="sc">}</span><span class="ss">"</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>TYPOLOGY_PREFIX <span class="op">=</span> <span class="st">"EFH_1G|"</span>  <span class="co"># z. B. Einfamilienhaus; an vorhandene SCEN-Namen anpassen</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>PILOT_SIZE <span class="op">=</span> <span class="dv">3</span>  <span class="co"># erst kleine Auswahl prüfen; None für alle ausgewählten Typologien</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> RUN_INSPECTION:</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    typologies <span class="op">=</span> definitions.loc[</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        definitions[<span class="st">"Scenario Name"</span>].<span class="bu">str</span>.startswith(TYPOLOGY_PREFIX, na<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    ].copy()</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> typologies.empty:</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">"Keine passenden SCEN-Zeilen: Namen oben prüfen und TYPOLOGY_PREFIX anpassen."</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    selected_typologies <span class="op">=</span> typologies <span class="cf">if</span> PILOT_SIZE <span class="kw">is</span> <span class="va">None</span> <span class="cf">else</span> typologies.head(PILOT_SIZE).copy()</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    selected_typologies[<span class="st">"Base Scenario"</span>] <span class="op">=</span> DEFAULT_BASE</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Erneut validieren, insbesondere nach manuellen Preset-/Custom-Änderungen.</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    scenario_source <span class="op">=</span> inspect_batch(workbook, scenarios<span class="op">=</span>selected_typologies)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    display(scenario_source)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Ausgewählt: </span><span class="sc">{</span><span class="bu">len</span>(scenario_source)<span class="sc">}</span><span class="ss"> von </span><span class="sc">{</span><span class="bu">len</span>(typologies)<span class="sc">}</span><span class="ss"> Typologiezeilen"</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>Die Tabelle enthält neben den Szenarionamen die Basis-Szenarien und die anzuwendenden Presets. Diese werden von der VBA-Batchsimulation automatisch verarbeitet.</p>
+<p>Für den Pilotlauf jetzt <code>RUN_EXCEL = True</code> setzen und den folgenden Batch-Abschnitt ausführen. Für den großen Lauf anschließend <code>PILOT_SIZE = None</code> setzen, die Auswahl erneut prüfen und <strong>einen neuen <code>output_dir</code></strong> verwenden. <code>base_reload="always"</code> lädt <code>Default</code> für jede Variante neu; ausgelassene Presets übernehmen dadurch keine Eingaben der vorherigen Variante.</p>
+<p>Versionierung: gespeicherte Modellkopie und Auswahl während eines Laufs unverändert lassen. <code>batch.json</code> hält Workbook-SHA256, Schema, Optionen und die vollständigen ausgewählten SCEN-Werte fest. Bei veränderten Presets/Modellständen einen neuen Ergebnisordner verwenden. Eine SCEN-CSV enthält Referenzen auf die Basis/Presets, nicht die zugehörige Arbeitsmappe. Die Dateiversion muss deshalb zusammen mit dem CSV aufbewahrt werden.</p>
+<p><code>batch_size</code> steuert den Verlustbereich bei einem harten Absturz: noch nicht bestätigte Chunks können erneut gerechnet werden. Für teure Pilotläufe kann <code>batch_size=1</code> sinnvoll sein; größere Chunks sparen Exportaufwand. Die Option für gewöhnliches Resume unverändert lassen.</p>
 </section>
-<section id="szenarien-simulieren" class="level2">
-<h2 class="anchored" data-anchor-id="szenarien-simulieren">4. Szenarien simulieren</h2>
-<p>Python aktiviert jeweils ein Szenario, setzt den Zeitreihenexport auf <code>True</code> und startet die VBA-Simulation.</p>
-<p>Die Ergebnisse werden nach jedem Szenario kontrolliert. Bei einem Fehler wird die Schleife abgebrochen.</p>
-<div id="f26b9496" class="cell">
+<section id="jahresergebnisse-berechnen-und-sichern" class="level2">
+<h2 class="anchored" data-anchor-id="jahresergebnisse-berechnen-und-sichern">2. Jahresergebnisse berechnen und sichern</h2>
+<p><code>batch_size=25</code> bedeutet höchstens 25 Szenarien pro Jahresergebnisdatei, nicht 25 gleichzeitige Excel-Berechnungen. Für ungefähr 5.000 Typologien entstehen etwa 200 Jahresdateien. Stundenwerte bleiben für diesen Anwendungsfall ausgeschaltet.</p>
+<p><code>base_reload="always"</code> lädt die Basis vor jedem Szenario und verhindert übernommene Eingaben. <code>"first_only"</code> ist schneller, setzt aber vollständige, unabhängige Presets voraus: die Basis wird beim ersten ausgeführten Szenario und bei einem Wechsel der Basis geladen, auch nach Resume. Unvollständige Presets können sonst Werte aus dem vorherigen Szenario übernehmen.</p>
+<section id="fortschritt-in-cli-und-notebook" class="level3">
+<h3 class="anchored" data-anchor-id="fortschritt-in-cli-und-notebook">Fortschritt in CLI und Notebook</h3>
+<p>Der optionale Callback erhält <code>(completed, total, scenario_name)</code>: einmal vor dem Lauf mit bereits bestätigten Resume-Ergebnissen und leerem Namen, danach nach jedem erfolgreich erfassten Szenario. Ein laufender VBA-Aufruf liefert keine Zwischenmeldungen. Zwischenstände können noch nicht gespeicherte Szenarien enthalten; 100 % wird erst nach dem letzten Export gemeldet. Auch ohne Callback erscheinen Zeitstempel, Phasen, Szenarionamen und Laufzeiten automatisch in Notebook/Terminal und in <code>batch.log</code>. Der Callback ist nur eine zusätzliche Anzeige. „Captured“ kann noch ungesicherte Ergebnisse enthalten; „committed“ bedeutet erfolgreich exportiert und im Checkpoint bestätigt.</p>
+<div id="c88296ae" class="cell">
 <details class="code-fold">
 <summary>Python-Code anzeigen</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> time <span class="im">import</span> perf_counter</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> clear_output</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>start <span class="op">=</span> perf_counter()</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> []</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, scenario <span class="kw">in</span> <span class="bu">enumerate</span>(scenarios, <span class="dv">1</span>):</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Vorherige Auswahl zurücksetzen</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    sim_col.Value <span class="op">=</span> <span class="va">False</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Szenario auswählen</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> row <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, table.ListRows.Count <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> name_col.Cells(row, <span class="dv">1</span>).Value <span class="op">==</span> scenario:</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>            sim_col.Cells(row, <span class="dv">1</span>).Value <span class="op">=</span> <span class="va">True</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>            export_col.Cells(row, <span class="dv">1</span>).Value <span class="op">=</span> <span class="va">True</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># VBA-Batchsimulation starten</span></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    success <span class="op">=</span> excel.Run(</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>        <span class="ss">f"'</span><span class="sc">{</span>wb<span class="sc">.</span>Name<span class="sc">}</span><span class="ss">'!RunScenariosAutomated"</span>,</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>        <span class="bu">str</span>(export_path)</span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Technische Erfolgskontrolle</span></span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    output_file <span class="op">=</span> export_path <span class="op">/</span> <span class="ss">f"</span><span class="sc">{</span>scenario<span class="sc">}</span><span class="ss">.xlsx"</span></span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> success:</span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">RuntimeError</span>(<span class="ss">f"Simulation fehlgeschlagen: </span><span class="sc">{</span>scenario<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> output_file.is_file():</span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">FileNotFoundError</span>(</span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"Zeitreihenexport fehlt: </span><span class="sc">{</span>output_file<span class="sc">}</span><span class="ss">"</span></span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>    results.append({</span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>        <span class="st">"scenario"</span>: scenario,</span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>        <span class="st">"file"</span>: <span class="bu">str</span>(output_file),</span>
-<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>        <span class="st">"status"</span>: <span class="st">"completed"</span>,</span>
-<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>    clear_output(wait<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Abgeschlossen: </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">/</span><span class="sc">{</span><span class="bu">len</span>(scenarios)<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Szenario: </span><span class="sc">{</span>scenario<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Dauer gesamt: </span><span class="sc">{</span>perf_counter() <span class="op">-</span> start<span class="sc">:.1f}</span><span class="ss"> s"</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> report_progress(completed, total, scenario_name):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> scenario_name <span class="kw">or</span> <span class="st">"Start / Resume"</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>completed<span class="sc">}</span><span class="ss">/</span><span class="sc">{</span>total<span class="sc">}</span><span class="ss"> (</span><span class="sc">{</span>completed <span class="op">/</span> total<span class="sc">:.0%}</span><span class="ss">) – </span><span class="sc">{</span>label<span class="sc">}</span><span class="ss">"</span>, flush<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Wichtig
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Der VBA-Aufruf ist synchron: Python wartet, bis die Simulation beendet ist. Die Fortschrittsanzeige wird daher nach jedem Szenario aktualisiert.</p>
-<p>Die erzeugten Dateinamen entsprechen den durch VBA bereinigten Szenarionamen (<code>SanitizeFileName</code>). Bei Sonderzeichen im Szenarionamen muss der erwartete Dateiname entsprechend angepasst werden.</p>
-</div>
-</div>
-</section>
-<section id="exportierte-zeitreihen-prüfen" class="level2">
-<h2 class="anchored" data-anchor-id="exportierte-zeitreihen-prüfen">5. Exportierte Zeitreihen prüfen</h2>
-<p>Jeder Zeitreihenexport enthält unter anderem die Blätter <code>IN</code>, <code>OUT</code>, <code>SIM2</code> und <code>META</code>.</p>
-<p>Die folgende Prüfung kontrolliert, ob die Zeitreihe 8.760 Stundenwerte enthält und der Netzstrombezug <code>E_grid</code> gültige Werte aufweist.</p>
-<div id="6eee2941" class="cell">
+<div id="8210bea1" class="cell">
 <details class="code-fold">
 <summary>Python-Code anzeigen</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> validate_export(path):</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    sim <span class="op">=</span> pd.read_excel(path, sheet_name<span class="op">=</span><span class="st">"SIM2"</span>)</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(sim) <span class="op">==</span> <span class="dv">8760</span>, (</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        <span class="ss">f"Erwartet: 8760 Stunden, erhalten: </span><span class="sc">{</span><span class="bu">len</span>(sim)<span class="sc">}</span><span class="ss">"</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"E_grid"</span> <span class="kw">in</span> sim.columns, (</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">"E_grid fehlt im SIM-Export"</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> RUN_EXCEL:</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> run_batch(</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        workbook<span class="op">=</span>workbook,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        scenarios<span class="op">=</span>scenario_source,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        scenario_filter<span class="op">=</span>{<span class="st">"Base Scenario"</span>: DEFAULT_BASE},</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>        batch_size<span class="op">=</span><span class="dv">25</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        base_reload<span class="op">=</span><span class="st">"always"</span>,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        export_annual<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        export_timeseries<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        output_dir<span class="op">=</span>output_dir,</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        resume<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        progress_callback<span class="op">=</span><span class="va">None</span>,  <span class="co"># automatische Ausgabe funktioniert ohne Callback</span></span>
 <span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    grid <span class="op">=</span> pd.to_numeric(sim[<span class="st">"E_grid"</span>], errors<span class="op">=</span><span class="st">"coerce"</span>)</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> grid.notna().<span class="bu">all</span>(), <span class="st">"Ungültige Werte in E_grid"</span></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> np.isfinite(grid.to_numpy()).<span class="bu">all</span>(), <span class="st">"Nicht-endliche Werte"</span></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> (grid <span class="op">&gt;=</span> <span class="dv">0</span>).<span class="bu">all</span>(), <span class="st">"Negativer Netzstrombezug"</span></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {</span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>        <span class="st">"hours"</span>: <span class="bu">len</span>(sim),</span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>        <span class="st">"E_grid_sum"</span>: grid.<span class="bu">sum</span>(),</span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>        <span class="st">"E_grid_max"</span>: grid.<span class="bu">max</span>(),</span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>checks <span class="op">=</span> []</span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> result <span class="kw">in</span> results:</span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>    metrics <span class="op">=</span> validate_export(result[<span class="st">"file"</span>])</span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>    checks.append({</span>
-<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>        <span class="st">"scenario"</span>: result[<span class="st">"scenario"</span>],</span>
-<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>        <span class="op">**</span>metrics,</span>
-<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>pd.DataFrame(checks)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Status:"</span>, result.status)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Abgeschlossen:"</span>, <span class="bu">len</span>(result.completed), <span class="st">"bereits vorhanden:"</span>, <span class="bu">len</span>(result.skipped))</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Fehlgeschlagen:"</span>, result.failed)</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Dateien:"</span>, result.exported_files)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>Ein positiver Netzstrombezug ist bei vielen Gebäudeszenarien zu erwarten, aber nicht universell zwingend. Deshalb wird hier nicht generell <code>E_grid.sum() &gt; 0</code> verlangt.</p>
-<p>Für Referenzszenarien kann eine zusätzliche Mindestwertprüfung sinnvoll sein.</p>
 </section>
-<section id="zeitreihen-visualisieren" class="level2">
-<h2 class="anchored" data-anchor-id="zeitreihen-visualisieren">6. Zeitreihen visualisieren</h2>
-<p>Die exportierten SIM-Zeitreihen können unmittelbar mit Python analysiert werden. Im folgenden Beispiel wird der Netzstrombezug für eine ausgewählte Woche dargestellt.</p>
-<div id="98f377fb" class="cell">
+</section>
+<section id="jahresdaten-als-project-konsolidieren" class="level2">
+<h2 class="anchored" data-anchor-id="jahresdaten-als-project-konsolidieren">3. Jahresdaten als Project konsolidieren</h2>
+<p>Die Jahresdateien enthalten IN, OUT und META im bestehenden Projektformat. Es gibt keinen separaten Batch-Schema-Mapper. Für die Weiterverarbeitung im Gebäudesektormodell können die Dateien mit <code>Project.from_files</code> zusammengeführt werden. Nur bestätigte Dateien aus dem Ergebnis verwenden, nicht pauschal alle Dateien eines nach Abbruch verbliebenen Ordners.</p>
+<p>Für sehr große Aufträge lassen sich dieselben Dateien einzeln auswerten, um Speicher zu sparen.</p>
+<div id="f8bd40f3" class="cell">
 <details class="code-fold">
 <summary>Python-Code anzeigen</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>scenario <span class="op">=</span> scenarios[<span class="dv">0</span>]</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span> <span class="op">=</span> <span class="bu">next</span>(</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    r[<span class="st">"file"</span>] <span class="cf">for</span> r <span class="kw">in</span> results</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> r[<span class="st">"scenario"</span>] <span class="op">==</span> scenario</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>sim <span class="op">=</span> pd.read_excel(<span class="bu">file</span>, sheet_name<span class="op">=</span><span class="st">"SIM2"</span>)</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Beispiel: Stunden 1 bis 168</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>week <span class="op">=</span> sim.iloc[:<span class="dv">168</span>]</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">11</span>, <span class="fl">3.5</span>))</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>ax.plot(</span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">range</span>(<span class="bu">len</span>(week)),</span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    week[<span class="st">"E_grid"</span>],</span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    label<span class="op">=</span><span class="st">"Netzstrombezug"</span></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>ax.<span class="bu">set</span>(</span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="ss">f"Netzstrombezug – </span><span class="sc">{</span>scenario<span class="sc">}</span><span class="ss">"</span>,</span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    xlabel<span class="op">=</span><span class="st">"Stunde"</span>,</span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>    ylabel<span class="op">=</span><span class="st">"E_grid (SIM-Einheit)"</span>,</span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>ax.grid(alpha<span class="op">=</span><span class="fl">0.25</span>)</span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>annual_files <span class="op">=</span> []</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>project <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> result <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    annual_files <span class="op">=</span> [p <span class="cf">for</span> p <span class="kw">in</span> result.exported_files <span class="cf">if</span> p.suffix <span class="op">==</span> <span class="st">".xlsx"</span>]</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> annual_files:</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>        project <span class="op">=</span> Project.from_files(annual_files, unknown<span class="op">=</span><span class="st">"raise"</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> project.column_names() <span class="op">==</span> result.completed</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>        summary <span class="op">=</span> pd.DataFrame([</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>            {<span class="st">"scenario"</span>: s.column_name, <span class="st">"QH"</span>: s.to_var_dict().get(<span class="st">"QH"</span>)}</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> s <span class="kw">in</span> project</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>        ])</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>        display(summary.head())</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>Die Einheit ist aus dem SIM-Schema zu übernehmen. Für die Darstellung der vorhandenen elektrischen Teilflüsse siehe <a href="./tutorial_stromprofile.html">Strombilanz analysieren</a>.</p>
 </section>
-<section id="hinweise-für-größere-simulationsaufträge" class="level2">
-<h2 class="anchored" data-anchor-id="hinweise-für-größere-simulationsaufträge">7. Hinweise für größere Simulationsaufträge</h2>
-<p>Für mehrere hundert oder tausend Szenarien empfiehlt sich eine Aufteilung in kleinere Batches.</p>
-<ul>
-<li>Zunächst mit 2–5 Szenarien testen.</li>
-<li>Exportordner und Dateinamen eindeutig halten.</li>
-<li>Ergebnisse unmittelbar nach jeder Simulation prüfen.</li>
-<li>Fehlgeschlagene Szenarien protokollieren und gezielt wiederholen.</li>
-<li>Bei vielen Szenarien die vorhandene VBA-Option <code>Skip base reload?</code> berücksichtigen, um wiederholtes Laden derselben Basis zu vermeiden.</li>
-</ul>
-<p>Die gezeigte Python-Schleife führt jedes Szenario einzeln aus. Für größere Aufträge kann dieselbe VBA-Schnittstelle mehrere Szenarien pro Aufruf verarbeiten.</p>
-<p><strong>Weiterführend:</strong> <a href="https://simonschaluppe.github.io/peexcel/">PEExcel-Dokumentation</a> und <a href="./tutorial_stromprofile.html">Strombilanzanalyse</a>.</p>
+<section id="unterbrechen-und-fortsetzen" class="level2">
+<h2 class="anchored" data-anchor-id="unterbrechen-und-fortsetzen">4. Unterbrechen und fortsetzen</h2>
+<p>Ein explizit von VBA zurückgemeldeter Szenariofehler wird protokolliert und übersprungen, sofern Excel bereit ist. Vor dem nächsten Szenario wird die Basis neu geladen. Nicht wiederherstellbare COM-Probleme stoppen den Lauf; Struktur-/Schema- und Schreibfehler werden nach bestmöglicher Sicherung weitergegeben. <code>result.failed</code> enthält Fehler der nicht erfolgreich gespeicherten Szenarien.</p>
+<p>Die ausführbaren Resume- und Retry-Beispiele folgen unten. Fremde Excel-Instanzen werden nicht beendet und die Arbeitsmappe wird nicht gespeichert. Ein eigener, eindeutig beendeter Excel-Lauf wird ohne Speichern geschlossen. Ein unsicherer oder blockierter Makrostatus erfordert manuelle Prüfung der protokollierten PID. Der synchrone VBA-Aufruf hat keinen erzwungenen Timeout.</p>
+</section>
+<section id="optionale-stundenwerte" class="level2">
+<h2 class="anchored" data-anchor-id="optionale-stundenwerte">5. Optionale Stundenwerte</h2>
+<p>Für gezielte Kontrollszenarien <code>export_timeseries=True</code> und einen separaten Ausgabeordner setzen. Die API erfasst SIM über <code>ScenarioTimeseries</code> und schreibt pro Szenario eine CSV. Die Zuordnung steht im Manifest <code>batch.json</code>; numerische Dateinamen vermeiden Konflikte durch Sonderzeichen. Die Rohdaten behalten die SIM-Spaltennamen. Einheiten stehen im Zeitreihenschema.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Nach einem Lauf mit export_timeseries=True:</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>series_files <span class="op">=</span> [p <span class="cf">for</span> p <span class="kw">in</span> result.exported_files <span class="cf">if</span> p.suffix <span class="op">==</span> <span class="st">".csv"</span>]</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>series <span class="op">=</span> pd.read_csv(series_files[<span class="dv">0</span>])</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(series.shape, series.columns.tolist())</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Jahresergebnisse werden mit <code>read_project</code> bzw. <code>Project.from_files</code> gelesen. Die Stunden-CSV wird separat gelesen und kann bei Bedarf mit <code>scenario.set_timeseries(series)</code> angehängt werden. Eine Zahl von 8.760 Stunden ist keine universelle Validierung für jedes Kalenderjahr.</p>
 </section>
 <section id="weiterarbeiten" class="level2">
 <h2 class="anchored" data-anchor-id="weiterarbeiten">Weiterarbeiten</h2>
-<p><a href="./python.html">Zur Tutorial-Übersicht</a>. Die ursprünglichen Arbeitsnotebooks bleiben erhalten: <a href="https://github.com/simonschaluppe/peexcel/blob/master/notebooks/howto_batch_simulate.ipynb">howto_batch_simulate</a>.</p>
+<p>Das <a href="https://simonschaluppe.github.io/peexcel/python.html">Python-Angebot</a> zeigt Analysen und Visualisierungen mit bestehenden Project-Views. Der <a href="https://simonschaluppe.github.io/peexcel/glossary.html">Parameter- und Kennzahlenkatalog</a> erläutert die verfügbaren Variablen.</p>
+<p><a href="downloads/tutorial_batch.ipynb">Dieses Tutorial als Notebook herunterladen</a>.</p>
+<section id="optional-fortschrittsbalken-mit-tqdm" class="level3">
+<h3 class="anchored" data-anchor-id="optional-fortschrittsbalken-mit-tqdm">Optional: Fortschrittsbalken mit tqdm</h3>
+<p><code>tqdm.auto</code> wählt eine passende Anzeige für Terminal oder Notebook. Bei Bedarf <code>pip install tqdm</code> installieren. Mit einem Kontextmanager wird der Balken auch bei Fehlern oder Abbruch geschlossen:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tqdm.auto <span class="im">import</span> tqdm</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> tqdm(total<span class="op">=</span><span class="dv">0</span>, desc<span class="op">=</span><span class="st">"PEExcel"</span>, unit<span class="op">=</span><span class="st">"Szenario"</span>) <span class="im">as</span> bar:</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> show_progress(completed, total, scenario_name):</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>        bar.total <span class="op">=</span> total</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>        bar.update(completed <span class="op">-</span> bar.n)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>        bar.set_postfix_str(scenario_name <span class="kw">or</span> <span class="st">"Start / Resume"</span>, refresh<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> run_batch(</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>        workbook<span class="op">=</span>workbook,</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>        scenarios<span class="op">=</span>scenario_source,</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>        scenario_filter<span class="op">=</span>{<span class="st">"Base Scenario"</span>: <span class="st">"Default"</span>},</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>        output_dir<span class="op">=</span>output_dir,</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>        resume<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>        progress_callback<span class="op">=</span>show_progress,</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Die Anzeige zählt erfolgreich erfasste Szenarien. Fehler bleiben in <code>result.failed</code> sichtbar. Ein Fehler im eigenen Callback wird nach Sicherung erfasster Ergebnisse weitergegeben.</p>
+</section>
+</section>
+<section id="wiederaufnahme-und-portable-wiederholung" class="level2">
+<h2 class="anchored" data-anchor-id="wiederaufnahme-und-portable-wiederholung">Wiederaufnahme und portable Wiederholung</h2>
+<p><strong>Gewöhnliches Resume:</strong> Bei einem bereits bestehenden Batch <code>RUN_EXCEL = False</code> und <code>RUN_RESUME = True</code> setzen, damit kein neuer Erstlauf im selben Ordner gestartet wird. dieselbe Arbeitsmappe, dieselbe Auswahl und dieselben Exportoptionen verwenden. Bereits bestätigte Ergebnisse werden auch dann ausgelassen, wenn dazwischen Szenarien fehlgeschlagen sind. Jahres- und optionale Zeitreihendateien müssen unverändert vorhanden sein. <code>batch.json</code> ist maßgeblich, nicht die Excel-Statusspalte.</p>
+<p>Ein <code>KeyboardInterrupt</code> sichert vollständig erfasste Ergebnisse und aktualisiert Checkpoint/CSV, soweit Python weiterlaufen kann. Ein synchron blockierter VBA-Aufruf kann den Interrupt verzögern. Nach hartem Abbruch zuerst prüfen, ob Excel noch rechnet; erst danach einen verwaisten <code>.batch.lock</code> manuell entfernen. Niemals einen Lock eines laufenden Batches entfernen.</p>
+<div id="b7e7ccad" class="cell">
+<details class="code-fold">
+<summary>Python-Code anzeigen</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> RUN_RESUME:</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> run_batch(</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>        workbook, scenarios<span class="op">=</span>scenario_source,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>        scenario_filter<span class="op">=</span>{<span class="st">"Base Scenario"</span>: DEFAULT_BASE},</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>        batch_size<span class="op">=</span><span class="dv">25</span>, base_reload<span class="op">=</span><span class="st">"always"</span>, export_annual<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>        export_timeseries<span class="op">=</span><span class="va">False</span>, output_dir<span class="op">=</span>output_dir, resume<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p><strong>Portable Wiederholung:</strong> <code>RUN_EXCEL = False</code>, <code>RUN_RESUME = False</code> und <code>RUN_RETRY = True</code> setzen. Nach einem harten Absturz zunächst <code>inspect_batch(..., output_dir=...)</code> ausführen. Es prüft die gespeicherten Dateien und erstellt <code>remaining_scenarios.csv</code> neu, ohne Excel oder eine Simulation zu starten. JSON und CSV können nicht gemeinsam atomar ersetzt werden: die CSV kann direkt nach einem Absturz noch inzwischen abgeschlossene Zeilen enthalten. Daher vor dem portablen Retry abgleichen.</p>
+<p>Die CSV enthält alle Zeilen ohne bestätigte Ergebnisse, einschließlich fehlgeschlagener, unterbrochener und noch nicht gestarteter Varianten. Ein leerer Batch schreibt nur die Kopfzeile. Nicht zusätzlich gewöhnliches Resume und portable Wiederholung für dieselben verbleibenden Zeilen parallel starten.</p>
+<div id="d4b529c7" class="cell">
+<details class="code-fold">
+<summary>Python-Code anzeigen</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> RUN_RETRY:</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    remaining <span class="op">=</span> inspect_batch(workbook, output_dir<span class="op">=</span>output_dir)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    display(remaining)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> remaining.empty:</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>        retry_result <span class="op">=</span> run_batch(</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>            workbook, scenarios<span class="op">=</span>output_dir <span class="op">/</span> <span class="st">"remaining_scenarios.csv"</span>,</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>            output_dir<span class="op">=</span>output_dir.with_name(output_dir.name <span class="op">+</span> <span class="st">"_retry_01"</span>),</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>            base_reload<span class="op">=</span><span class="st">"always"</span>, export_annual<span class="op">=</span><span class="va">True</span>, export_timeseries<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Alle ausgewählten Szenarien sind bereits erfolgreich gespeichert."</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+<section id="betrieb-auf-dem-windows-simulationsrechner" class="level2">
+<h2 class="anchored" data-anchor-id="betrieb-auf-dem-windows-simulationsrechner">Betrieb auf dem Windows-Simulationsrechner</h2>
+<p>Python/Notebook-Kernel und Excel laufen lokal auf dem Simulationsrechner in derselben interaktiven Windows-Benutzersitzung. RDP dient zur Bedienung; ein Remote-API-Dienst ist nicht erforderlich. Vor dem großen Lauf den Pilot testen, einschließlich RDP-Verbindung trennen und wiederherstellen. Abmelden, Energiesparen und Neustart können den Lauf beenden; die konkreten Sitzungsrichtlinien prüfen.</p>
+<p><code>batch.log</code> zeigt den zuletzt begonnenen Vorgang auch während eines blockierenden Excel-Aufrufs. Unbekannter Makrostatus führt nicht zu einer automatischen Wiederholung. Nur nach nachgewiesenem Ende einer eigenen Excel-Instanz wird einmal neu verbunden. Fremde Instanzen werden nicht beendet; bei unklarem Zustand die protokollierte PID prüfen.</p>
+<p>Die Anzeige von <code>PEI_balance</code> übernimmt den bestehenden OUT-Wert samt Schemaeinheit. Fehlende/nichtnumerische/unendliche Werte werden gewarnt. Negative Werte sind nicht automatisch Fehler, und ein Saldo muss nicht Null sein. Die Kennzahl ist eine Plausibilitätshilfe und bleibt in den normalen OUT-Exporten erhalten.</p>
+</section>
+<section id="weiterarbeiten-1" class="level2">
+<h2 class="anchored" data-anchor-id="weiterarbeiten-1">Weiterarbeiten</h2>
+<p>Das <a href="https://simonschaluppe.github.io/peexcel/python.html">Python-Angebot</a> zeigt Analysen und Visualisierungen mit bestehenden Project-Views. Der <a href="https://simonschaluppe.github.io/peexcel/glossary.html">Parameter- und Kennzahlenkatalog</a> erläutert die verfügbaren Variablen.</p>
+<p><a href="downloads/tutorial_batch.ipynb">Dieses Tutorial als Notebook herunterladen</a>.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

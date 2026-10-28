@@ -1,0 +1,27 @@
+::: {.callout-note collapse=true title="Noch keine eigenen Werte? Standardfälle nutzen"}
+
+- **[Heizsystem](preset-catalog.qmd#preset-heating_system):** Bei einer geplanten Luft-Wasser-Wärmepumpe bietet das gleichnamige Preset einen Einstieg. Prüfe Vorlauftemperatur, Leistung und Effizienz.
+
+- **[Heizperiode](preset-catalog.qmd#preset-heating_period):** Wähle eine zeitliche Begrenzung passend zum Betrieb; die Tabelle enthält auch Keine und Immer.
+
+- **[Wärme- und Kälteabgabe](preset-catalog.qmd#preset-emission_system):** Wenn die Abgabe über eine Fußbodenheizung erfolgt, beginne mit diesem Standardfall und prüfe die Leistungsgrenzen.
+
+- **[Kühlperiode](preset-catalog.qmd#preset-cooling_period):** Wähle die zum Nutzungskonzept passende Kühlperiode.
+
+- **[Kühlsystem](preset-catalog.qmd#preset-cooling_system):** Für eine reversible Wärmepumpe stehen mehrere Standardfälle bereit, darunter eine Konfiguration mit FreeCooling-Anteil.
+
+- **[Gekühlte Nutzungen](preset-catalog.qmd#preset-cooling_modes):** Soll nur der Nichtwohnanteil gekühlt werden, prüfe den Standardfall Nichtwohnen.
+
+- **[Warmwasserbedarf](preset-catalog.qmd#preset-dhw_demand):** Für den Deklarationsfall gibt es eine eigene Belegung. Die OIB-Auswahlen sind im Export ausdrücklich als noch nicht hinterlegt bezeichnet.
+
+- **[Warmwassersystem](preset-catalog.qmd#preset-dhw_system):** Wähle den passenden Erzeuger als Ausgangspunkt und prüfe die Belegung für die einzelnen Nutzungen.
+
+- **[Mechanische Lüftung](preset-catalog.qmd#preset-ventilation_system):** Für eine Anlage mit Wärmerückgewinnung gibt es passende Standardfälle; kontrolliere die Winter- und Sommerwerte.
+
+- **[Mechanisch belüftete Nutzungen](preset-catalog.qmd#preset-vent_modes):** Wenn nur Nichtwohnflächen mechanisch belüftet werden, beginne mit Nichtwohnen.
+
+- **[Nachtauskühlung](preset-catalog.qmd#preset-vent_night_modes):** Für Wohnen sind einseitige Lüftung und Querlüftung hinterlegt. Prüfe Öffnungen und tatsächlich nutzbare Flächen.
+
+Prüfe die übernommenen Werte für dein Projekt. [So wendest du Presets an](presets.qmd).
+
+:::

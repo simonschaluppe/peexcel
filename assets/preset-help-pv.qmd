@@ -1,0 +1,7 @@
+::: {.callout-note collapse=true title="Noch keine eigenen Werte? Standardfälle nutzen"}
+
+- **[Photovoltaik](preset-catalog.qmd#preset-PV_system):** Für eine erste Flächenannahme kannst du etwa 30% der Dachfläche wählen. Das ersetzt keine Prüfung der nutzbaren Dachfläche und des Ertragsprofils.
+
+Prüfe die übernommenen Werte für dein Projekt. [So wendest du Presets an](presets.qmd).
+
+:::

@@ -1,0 +1,9 @@
+::: {.callout-note collapse=true title="Noch keine eigenen Werte? Standardfälle nutzen"}
+
+- **[Warmwasserbedarf](preset-catalog.qmd#preset-dhw_demand):** Für den Deklarationsfall gibt es eine eigene Belegung. Die OIB-Auswahlen sind im Export ausdrücklich als noch nicht hinterlegt bezeichnet.
+
+- **[Warmwassersystem](preset-catalog.qmd#preset-dhw_system):** Wähle den passenden Erzeuger als Ausgangspunkt und prüfe die Belegung für die einzelnen Nutzungen.
+
+Prüfe die übernommenen Werte für dein Projekt. [So wendest du Presets an](presets.qmd).
+
+:::

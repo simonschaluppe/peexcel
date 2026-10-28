@@ -1,0 +1,7 @@
+::: {.callout-note collapse=true title="Noch keine eigenen Werte? Standardfälle nutzen"}
+
+- **[Konstruktion und Materialien](preset-catalog.qmd#preset-construction_type):** Für eine erste Materialbelegung stehen Neubau- und Sanierungsfälle bereit. Die Tabelle enthält auch Testspalten; prüfe die konkrete Auswahl.
+
+Prüfe die übernommenen Werte für dein Projekt. [So wendest du Presets an](presets.qmd).
+
+:::

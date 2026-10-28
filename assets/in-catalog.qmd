@@ -1,10 +1,10 @@
 ```{=html}
 <section id="in-catalog" class="schema-catalog" data-source="IN" aria-label="IN-Katalog">
-<p><strong>692 IN-Variablen</strong> aus Schema <code>1_13_1_dev</code>.
+<p><strong>698 IN-Variablen</strong> aus Schema <code>1_13_1_dev</code>.
 Vollständiger Definitionsbestand, keine Projektwerte. Auch Hilfsgrößen sind enthalten.</p>
-<p class="catalog-note">Metadatenlücken: 12 ohne Domäne,
-114 ohne Einheit, 1 ohne deutsches Label und
-582 ohne zusätzliche Beschreibung. „Nicht hinterlegt“ bedeutet nicht „dimensionslos“.</p>
+<p class="catalog-note">Metadatenlücken: 13 ohne Domäne,
+116 ohne Einheit, 1 ohne deutsches Label und
+588 ohne zusätzliche Beschreibung. „Nicht hinterlegt“ bedeutet nicht „dimensionslos“.</p>
 <form class="catalog-controls" hidden>
 <div class="catalog-search"><label for="in-query">Parameter suchen</label>
 <input id="in-query" type="search" placeholder="z. B. PV, Batterie oder Variablenname" aria-describedby="in-search-help"></div>
@@ -23,9 +23,9 @@ Vollständiger Definitionsbestand, keine Projektwerte. Auch Hilfsgrößen sind e
 <option value="ventilation">Lüftung (64)</option>
 <option value="mobility">Mobilität (51)</option>
 <option value="usage">Nutzung (98)</option>
-<option value="PV">Photovoltaik (9)</option>
 <option value="primary_energy">Primärenergie (23)</option>
 <option value="project">Projekt (8)</option>
+<option value="pv">pv (14)</option>
 <option value="district">Quartier (13)</option>
 <option value="solar_gains">Solare Gewinne (40)</option>
 <option value="thermal_hull">Thermische Hülle (21)</option>
@@ -33,7 +33,7 @@ Vollständiger Definitionsbestand, keine Projektwerte. Auch Hilfsgrößen sind e
 <option value="dhw">Warmwasser (50)</option>
 <option value="tool">Werkzeug (4)</option>
 <option value="weather">Wetter (2)</option>
-<option value="">Ohne Domänenzuordnung (12)</option>
+<option value="">Ohne Domänenzuordnung (13)</option>
 </select></div><div><label for="in-entity">Entity Group</label><select id="in-entity"><option value="*">Alle Gruppen</option><option value="">Ohne Zuordnung</option>
 <option value="component">component</option>
 <option value="cooling">cooling</option>
@@ -2191,50 +2191,7 @@ Vollständiger Definitionsbestand, keine Projektwerte. Auch Hilfsgrößen sind e
 <td>kWh/m²NGFa</td><td><span class="catalog-measure">dhw_demand</span>
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>dhw_demand</dd><dt>Entity Group</dt><dd>usage</dd><dt>Entity Key</dt><dd>residential</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Input fehlt</dd></dl></details></td></tr>
 </tbody></table></div></details>
-<details class="out-domain" id="in-domain-14" data-domain="PV">
-<summary>Photovoltaik <span class="out-domain-count">(9)</span></summary>
-<p>Schema-Domäne: <code>PV</code></p>
-<div class="catalog-table" role="region" aria-label="Parameter: PV" tabindex="0">
-<table><thead><tr><th scope="col">Parameter / Variablenname</th><th scope="col">Einheit</th>
-<th scope="col">Zuordnung und Beschreibung</th></tr></thead><tbody>
-<tr id="in-PV_roof_area_percentage" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">🌞</span> <a href="#in-PV_roof_area_percentage">% Dachfläche für PV genützt</a><br><code>PV_roof_area_percentage</code></th>
-<td>ratio</td><td><span class="catalog-measure">PV_roof_area_percentage</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>PV_roof_area_percentage</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="in-PV_efficiency" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">🌞</span> <a href="#in-PV_efficiency">PV Gesamteffizienz</a><br><code>PV_efficiency</code></th>
-<td>Nicht hinterlegt</td><td><span class="catalog-measure">efficiency</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>efficiency</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="in-PV_kWp" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">🌞</span> <a href="#in-PV_kWp">PV Installierte Leistung</a><br><code>PV_kWp</code></th>
-<td>kWp</td><td><span class="catalog-measure">installed_power</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>installed_power</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="in-PV_is_used" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">🌞</span> <a href="#in-PV_is_used">PV Nutzung</a><br><code>PV_is_used</code></th>
-<td>bool</td><td><span class="catalog-measure">is_used</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>is_used</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="in-PV_id" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">🌞</span> <a href="#in-PV_id">PV Profil ID</a><br><code>PV_id</code></th>
-<td>int</td><td><span class="catalog-measure">index</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>index</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="in-PV_profile_name" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">🌞</span> <a href="#in-PV_profile_name">PV Profil Name</a><br><code>PV_profile_name</code></th>
-<td>text</td><td><span class="catalog-measure">name</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>name</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="in-PV_scale" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">🌞</span> <a href="#in-PV_scale">PV Skalierungsfaktor Profil</a><br><code>PV_scale</code></th>
-<td>ratio</td><td><span class="catalog-measure">pv_scale</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>pv_scale</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="in-PV_module_area" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">🌞</span> <a href="#in-PV_module_area">PV-Modulfläche</a><br><code>PV_module_area</code></th>
-<td>m²</td><td><span class="catalog-measure">area</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>area</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="in-PV_m2_per_kWp" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">🌞</span> <a href="#in-PV_m2_per_kWp">Spezifische PV Fläche</a><br><code>PV_m2_per_kWp</code></th>
-<td>m²/kWp</td><td><span class="catalog-measure">area</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>area</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-</tbody></table></div></details>
-<details class="out-domain" id="in-domain-15" data-domain="primary_energy">
+<details class="out-domain" id="in-domain-14" data-domain="primary_energy">
 <summary>Primärenergie <span class="out-domain-count">(23)</span></summary>
 <p>Schema-Domäne: <code>primary_energy</code></p>
 <div class="catalog-table" role="region" aria-label="Parameter: primary_energy" tabindex="0">
@@ -2333,7 +2290,7 @@ Vollständiger Definitionsbestand, keine Projektwerte. Auch Hilfsgrößen sind e
 <td>int</td><td><span class="catalog-measure">conversion_factor_index</span>
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>conversion_factor_index</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
 </tbody></table></div></details>
-<details class="out-domain" id="in-domain-16" data-domain="project">
+<details class="out-domain" id="in-domain-15" data-domain="project">
 <summary>Projekt <span class="out-domain-count">(8)</span></summary>
 <p>Schema-Domäne: <code>project</code></p>
 <div class="catalog-table" role="region" aria-label="Parameter: project" tabindex="0">
@@ -2371,6 +2328,69 @@ Vollständiger Definitionsbestand, keine Projektwerte. Auch Hilfsgrößen sind e
 <th scope="row"><span class="catalog-icon" aria-hidden="true">📝</span> <a href="#in-project_scenario_name">Variante / Scenario</a><br><code>project_scenario_name</code></th>
 <td>text</td><td><span class="catalog-measure">scenario_name</span>
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>scenario_name</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
+</tbody></table></div></details>
+<details class="out-domain" id="in-domain-16" data-domain="pv">
+<summary>pv <span class="out-domain-count">(14)</span></summary>
+<p>Schema-Domäne: <code>pv</code></p>
+<div class="catalog-table" role="region" aria-label="Parameter: pv" tabindex="0">
+<table><thead><tr><th scope="col">Parameter / Variablenname</th><th scope="col">Einheit</th>
+<th scope="col">Zuordnung und Beschreibung</th></tr></thead><tbody>
+<tr id="in-PV_efficiency" data-entity="">
+<th scope="row"><span class="catalog-icon" aria-hidden="true">🌞</span> <a href="#in-PV_efficiency">PV Gesamteffizienz</a><br><code>PV_efficiency</code></th>
+<td>Nicht hinterlegt</td><td><span class="catalog-measure">efficiency</span>
+<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>efficiency</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
+<tr id="in-PV_kWp" data-entity="">
+<th scope="row"><span class="catalog-icon" aria-hidden="true">🌞</span> <a href="#in-PV_kWp">PV Installierte Leistung</a><br><code>PV_kWp</code></th>
+<td>kWp</td><td><span class="catalog-measure">installed_power</span>
+<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>installed_power</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
+<tr id="in-PV_mode" data-entity="">
+<th scope="row"><span class="catalog-icon" aria-hidden="true">🌞</span> <a href="#in-PV_mode">PV Modus</a><br><code>PV_mode</code></th>
+<td>Nicht hinterlegt</td><td><span class="catalog-measure">mode</span>
+<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>mode</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
+<tr id="in-PV_is_used" data-entity="">
+<th scope="row"><span class="catalog-icon" aria-hidden="true">🌞</span> <a href="#in-PV_is_used">PV Nutzung</a><br><code>PV_is_used</code></th>
+<td>bool</td><td><span class="catalog-measure">is_used</span>
+<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>is_used</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
+<tr id="in-PV_id" data-entity="">
+<th scope="row"><span class="catalog-icon" aria-hidden="true">🌞</span> <a href="#in-PV_id">PV Profil ID</a><br><code>PV_id</code></th>
+<td>int</td><td><span class="catalog-measure">index</span>
+<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>index</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
+<tr id="in-PV_profile_name" data-entity="">
+<th scope="row"><span class="catalog-icon" aria-hidden="true">🌞</span> <a href="#in-PV_profile_name">PV Profil Name (importiert)</a><br><code>PV_profile_name</code></th>
+<td>text</td><td><span class="catalog-measure">name</span>
+<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>name</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
+<tr id="in-PV_simplified_name" data-entity="">
+<th scope="row"><span class="catalog-icon" aria-hidden="true">🌞</span> <a href="#in-PV_simplified_name">PV Profil Name (vereinfacht)</a><br><code>PV_simplified_name</code></th>
+<td>text</td><td><span class="catalog-measure">name</span>
+<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>name</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
+<tr id="in-PV_scale" data-entity="">
+<th scope="row"><span class="catalog-icon" aria-hidden="true">🌞</span> <a href="#in-PV_scale">PV Skalierung detailliert (importiertes Ertragsprofil)</a><br><code>PV_scale</code></th>
+<td>ratio</td><td><span class="catalog-measure">pv_scale</span>
+<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>pv_scale</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
+<tr id="in-PV_scale_sim" data-entity="">
+<th scope="row"><span class="catalog-icon" aria-hidden="true">🌞</span> <a href="#in-PV_scale_sim">PV Skalierung Simulation</a><br><code>PV_scale_sim</code></th>
+<td>ratio</td><td><span class="catalog-measure">pv_scale</span>
+<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>pv_scale</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
+<tr id="in-PV_scale_simple" data-entity="">
+<th scope="row"><span class="catalog-icon" aria-hidden="true">🌞</span> <a href="#in-PV_scale_simple">PV Skalierung Vereinfacht</a><br><code>PV_scale_simple</code></th>
+<td>ratio</td><td><span class="catalog-measure">pv_scale</span>
+<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>pv_scale</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
+<tr id="in-PV_roof_share" data-entity="">
+<th scope="row"><span class="catalog-icon" aria-hidden="true">🌞</span> <a href="#in-PV_roof_share">PV-Anteil Dachfläche</a><br><code>PV_roof_share</code></th>
+<td>ratio</td><td><span class="catalog-measure">pv_roof_share</span>
+<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>pv_roof_share</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
+<tr id="in-PV_module_area" data-entity="">
+<th scope="row"><span class="catalog-icon" aria-hidden="true">🌞</span> <a href="#in-PV_module_area">PV-Modulfläche</a><br><code>PV_module_area</code></th>
+<td>m²</td><td><span class="catalog-measure">area</span>
+<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>area</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
+<tr id="in-PV_m2_per_kWp" data-entity="">
+<th scope="row"><span class="catalog-icon" aria-hidden="true">🌞</span> <a href="#in-PV_m2_per_kWp">Spezifische PV Fläche</a><br><code>PV_m2_per_kWp</code></th>
+<td>m²/kWp</td><td><span class="catalog-measure">area</span>
+<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>area</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
+<tr id="in-preset_recorded_PV_system" data-entity="">
+<th scope="row"><span class="catalog-icon" aria-hidden="true">🔧</span> <a href="#in-preset_recorded_PV_system">Vorauswahl PV im Quartier</a><br><code>preset_recorded_PV_system</code></th>
+<td>Nicht hinterlegt</td><td><span class="catalog-measure">preset</span>
+<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>preset</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
 </tbody></table></div></details>
 <details class="out-domain" id="in-domain-17" data-domain="district">
 <summary>Quartier <span class="out-domain-count">(13)</span></summary>
@@ -2946,7 +2966,7 @@ Vollständiger Definitionsbestand, keine Projektwerte. Auch Hilfsgrößen sind e
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>index</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
 </tbody></table></div></details>
 <details class="out-domain" id="in-domain-24" data-domain="">
-<summary>Ohne Domänenzuordnung <span class="out-domain-count">(12)</span></summary>
+<summary>Ohne Domänenzuordnung <span class="out-domain-count">(13)</span></summary>
 <div class="catalog-table" role="region" aria-label="Parameter: Nicht hinterlegt" tabindex="0">
 <table><thead><tr><th scope="col">Parameter / Variablenname</th><th scope="col">Einheit</th>
 <th scope="col">Zuordnung und Beschreibung</th></tr></thead><tbody>
@@ -2994,6 +3014,10 @@ Vollständiger Definitionsbestand, keine Projektwerte. Auch Hilfsgrößen sind e
 <th scope="row"><a href="#in-ghg_conversion_factor_gasoline">Nicht hinterlegt</a><br><code>ghg_conversion_factor_gasoline</code></th>
 <td>Nicht hinterlegt</td><td><span class="catalog-measure">Nicht hinterlegt</span>
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>Nicht hinterlegt</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
+<tr id="in-EV_charging_station_density" data-entity="">
+<th scope="row"><span class="catalog-icon" aria-hidden="true">🚗</span> <a href="#in-EV_charging_station_density">Ladestationen pro 100 E-Cars</a><br><code>EV_charging_station_density</code></th>
+<td>stations/100EVs</td><td><span class="catalog-measure">charging_stations</span>
+<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>charging_stations</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
 <tr id="in-fPE_grid_profile" data-entity="">
 <th scope="row"><span class="catalog-icon" aria-hidden="true">⚖</span> <a href="#in-fPE_grid_profile">Strom Konversionsprofil PE</a><br><code>fPE_grid_profile</code></th>
 <td>Nicht hinterlegt</td><td><span class="catalog-measure">Nicht hinterlegt</span>

@@ -1,0 +1,11 @@
+::: {.callout-note collapse=true title="Noch keine eigenen Werte? Standardfälle nutzen"}
+
+- **[Heizsystem](preset-catalog.qmd#preset-heating_system):** Bei einer geplanten Luft-Wasser-Wärmepumpe bietet das gleichnamige Preset einen Einstieg. Prüfe Vorlauftemperatur, Leistung und Effizienz.
+
+- **[Heizperiode](preset-catalog.qmd#preset-heating_period):** Wähle eine zeitliche Begrenzung passend zum Betrieb; die Tabelle enthält auch Keine und Immer.
+
+- **[Wärme- und Kälteabgabe](preset-catalog.qmd#preset-emission_system):** Wenn die Abgabe über eine Fußbodenheizung erfolgt, beginne mit diesem Standardfall und prüfe die Leistungsgrenzen.
+
+Prüfe die übernommenen Werte für dein Projekt. [So wendest du Presets an](presets.qmd).
+
+:::

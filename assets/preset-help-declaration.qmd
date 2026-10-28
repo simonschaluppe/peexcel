@@ -1,0 +1,7 @@
+::: {.callout-note collapse=true title="Noch keine eigenen Werte? Standardfälle nutzen"}
+
+- **[Deklarationsumfang](preset-catalog.qmd#preset-declaration_type):** Wähle den vorgesehenen Nachweisumfang. Die hier gezeigte Wertebelegung allein bestätigt keine vollständige Erfüllung der Deklarationsanforderungen.
+
+Prüfe die übernommenen Werte für dein Projekt. [So wendest du Presets an](presets.qmd).
+
+:::
