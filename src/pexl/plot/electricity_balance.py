@@ -6,6 +6,9 @@ import pandas as pd
 import plotly.graph_objects as go
 
 from pexl.plot.styles import color_for
+from pexl.i18n import chart_text
+from pexl.analysis.temporal import numeric_frame
+import math
 
 
 
@@ -58,13 +61,22 @@ def electricity_balance(
     y_title: str | None = None,
     labels: dict[str, str] | None = None,
     colors: dict[str, str] | None = None,
-    omit_empty: bool = False
+    omit_empty: bool = False,
+    value_mode: str = "magnitude",
+    language: str = "de",
+    ranges: dict | None = None,
+    initial_range=None,
+    rangeslider: bool = False,
 ) -> go.Figure:
     """
     Plot a stacked positive/negative electricity balance.
 
     The dataframe must already contain the desired temporal aggregation.
     The function performs no grouping, resampling or unit conversion.
+    ``value_mode="magnitude"`` (legacy default) places absolute values on the
+    selected side. ``"signed"`` preserves every supplied sign and hover value.
+    Missing/non-finite values raise; inputs are never modified. Optional ranges
+    and slider are ordinary Plotly controls, equally usable in notebooks/HTML.
 
     Parameters
     ----------
@@ -92,10 +104,17 @@ def electricity_balance(
     colors:
         Optional color overrides keyed by var_name.
     """
+    chart_text('value', language)
+    if value_mode not in ('magnitude', 'signed'):
+        raise ValueError("value_mode must be 'magnitude' or 'signed'")
     positive = list(positive)
     negative = list(negative)
 
+    if len(set(positive + negative)) != len(positive + negative):
+        raise ValueError('Select each column once, on one side only')
     _require_columns(data, positive + negative)
+    data = data.copy()
+    data[positive + negative] = numeric_frame(data, positive + negative)
 
     if x is None:
         x_values = data.index
@@ -103,7 +122,7 @@ def electricity_balance(
         _require_columns(data, [x])
         x_values = data[x]
 
-    label_map = VAR_LABELS | (labels or {})
+    label_map = (VAR_LABELS if language == "de" else {}) | (labels or {})
     color_overrides = colors or {}  
 
     fig = go.Figure()
@@ -118,7 +137,7 @@ def electricity_balance(
         _add_balance_bar(
             fig,
             x=x_values,
-            values=data[var_name].abs(),
+            values=data[var_name].abs() if value_mode == "magnitude" else data[var_name],
             var_name=var_name,
             label=label_map.get(var_name, var_name),
             color=color_overrides.get(
@@ -136,7 +155,7 @@ def electricity_balance(
         _add_balance_bar(
             fig,
             x=x_values,
-            values=-data[var_name].abs(),
+            values=-data[var_name].abs() if value_mode == "magnitude" else data[var_name],
             var_name=var_name,
             label=label_map.get(var_name, var_name),
             color=color_overrides.get(
@@ -153,12 +172,31 @@ def electricity_balance(
     fig.update_layout(
         title=title,
         barmode="relative",
-        xaxis_title=x_title,
+        xaxis_title=x_title or chart_text("time", language),
         yaxis_title=y_title,
         legend_title=None,
         hovermode="x unified",
+        autosize=True,
+        height=650 if rangeslider else None,
+        legend=dict(orientation="h", x=0, y=-0.4 if rangeslider else -0.25, yanchor="top"),
+        margin=dict(l=55, r=20, t=100 if ranges else 55, b=180 if rangeslider else 120),
     )
-
+    if ranges:
+        buttons = [dict(label=label, method='relayout', args=[{
+            'xaxis.range': list(interval), 'xaxis.autorange': False}])
+            for label, interval in ranges.items()]
+        buttons.append(dict(label=chart_text('all', language), method='relayout',
+                            args=[{'xaxis.autorange': True}]))
+        active = next((i for i, interval in enumerate(ranges.values())
+                       if initial_range is not None and list(interval) == list(initial_range)), -1)
+        fig.update_layout(updatemenus=[dict(type='dropdown', x=0, xanchor='left', y=1.15,
+                                           active=active, buttons=buttons)])
+    if rangeslider or initial_range is not None:
+        fig.update_xaxes(rangeslider_visible=rangeslider, rangeslider_thickness=0.1,
+                         range=initial_range)
+    if isinstance(x_values, pd.DatetimeIndex) or pd.api.types.is_datetime64_any_dtype(x_values):
+        fig.update_xaxes(tickformat='%d.%m.' if language == 'de' else '%m-%d')
+    fig.update_layout(separators=',.' if language == 'de' else '.,')
     return fig
 
 
@@ -179,7 +217,7 @@ def _add_balance_bar(
         y=values,
         name=label,
         legendgroup=var_name,
-        customdata=values.abs(),
+        customdata=values,
         hovertemplate=(
             f"{label}: %{{customdata:.2f}}"
             "<extra></extra>"
@@ -204,10 +242,6 @@ def _require_columns(
             f"Missing electricity balance columns: {missing}"
         )
 
-    from collections.abc import Sequence
-
-import pandas as pd
-import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
 
@@ -225,30 +259,42 @@ def electricity_balance_facets(
     y_title: str | None = None,
     labels: dict[str, str] | None = None,
     colors: dict[str, str] | None = None,
-    omit_empty: bool = False
+    omit_empty: bool = False,
+    value_mode: str = "magnitude",
+    language: str = "de",
+    columns: int = 2,
 ) -> go.Figure:
 
+    if not isinstance(columns, int) or columns < 1:
+        raise ValueError("columns must be a positive integer")
+    _require_columns(data, [facet])
     facets = (
         list(facet_order)
         if facet_order is not None
         else list(data[facet].drop_duplicates())
     )
 
+    if not facets:
+        raise ValueError("At least one facet is required")
+    rows = math.ceil(len(facets) / columns)
+    columns = min(columns, len(facets))
     facet_labels = facet_labels or {}
 
     fig = make_subplots(
-        rows=1,
-        cols=len(facets),
+        rows=rows,
+        cols=columns,
         shared_yaxes=True,
         subplot_titles=[
             facet_labels.get(value, value)
             for value in facets
         ],
-        horizontal_spacing=0.02,
+        horizontal_spacing=0.10,
     )
 
     shown_legend = set()
-    for col, facet_value in enumerate(facets, start=1):
+    for i, facet_value in enumerate(facets):
+        row, col = divmod(i, columns)
+        row, col = row + 1, col + 1
         subset = data.loc[data[facet] == facet_value]
 
         part = electricity_balance(
@@ -258,20 +304,20 @@ def electricity_balance_facets(
             negative=negative,
             labels=labels,
             colors=colors,
-            omit_empty=omit_empty
+            omit_empty=omit_empty, value_mode=value_mode, language=language
         )
 
         for trace in part.data:
-            trace.showlegend = trace.name not in shown_legend
+            trace.showlegend = trace.legendgroup not in shown_legend
 
             if trace.showlegend:
-                shown_legend.add(trace.name)
+                shown_legend.add(trace.legendgroup)
 
-            fig.add_trace(trace, row=1, col=col)
+            fig.add_trace(trace, row=row, col=col)
 
         fig.add_hline(
             y=0,
-            row=1,
+            row=row,
             col=col,
             line_width=1,
         )
@@ -281,9 +327,12 @@ def electricity_balance_facets(
         barmode="relative",
         legend_title=None,
         hovermode="x unified",
+        autosize=True, height=300 * rows + 180,
+        legend=dict(orientation="h", x=0, y=-0.2, yanchor="top"),
+        margin=dict(l=55, r=20, t=70, b=120),
     )
 
-    fig.update_xaxes(title_text=x_title)
+    fig.update_xaxes(title_text=x_title or chart_text("hour", language))
     fig.update_yaxes(title_text=y_title, col=1)
 
     return fig

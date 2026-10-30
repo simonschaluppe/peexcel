@@ -10,7 +10,7 @@ import pytest
 
 from pexl import Project, reporting
 from pexl.model.scenario import Scenario
-from pexl.plot import plotly
+from pexl.plot import reports as plotly
 from pexl.analysis.targets import target
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -78,11 +78,15 @@ def test_zero_cutoff_matches_excel_min():
     assert target(0.1, cutoff=None) > 0
 
 
-def test_gwp_compatibility_uses_exported_totals(sample):
+def test_gwp_overview_uses_current_components_and_exported_net(sample):
     r = reporting.materialize(sample.view, 'gwp_ee')
-    assert {s['var_name'] for s in r['series']} == {'GWP_lc_EE_total','GWP_lc_OE_total','GWP_lc_total'}
-    assert (r['frame'].GWP_lc_EE_total+r['frame'].GWP_lc_OE_total-r['frame'].GWP_lc_total).abs().max() < 1e-8
-    assert len(plotly.render(r).data) == 6
+    assert {s['var_name'] for s in r['series']} == {
+        'GWP_ee_total_construction', 'GWP_ee_total_TES', 'GWP_ee_lc_mob',
+        'GWP_lc_OE_total', 'GWP_lc_total'}
+    parts = [s['var_name'] for s in r['series'] if s['role'] != 'Balance Variable']
+    assert (r['frame'][parts].sum(axis=1)-r['frame'].GWP_lc_total).abs().max() < 1e-8
+    assert all(source['family'] == 'current' for source in r['sources'].values())
+    assert len(plotly.render(r).data) == 8
 
 
 def test_generic_plots_use_schema_and_scenario_identity(sample):
@@ -113,12 +117,35 @@ def test_single_file_manifest_and_corruption(tmp_path, sample):
         inspect_sources(tmp_path,expected=25)
 
 
-def test_browser_context_matches_python_if_benchmark_available(sample):
-    path=ROOT/'notebooks/local_exports/building_sector/browser/browser-performance.json'
-    if not path.exists():
-        pytest.skip('Run quickcheck_browser.cjs for cross-language acceptance')
-    result=json.loads(path.read_text())['results'][0]['contextSample']
-    data=browser_data(sample)
-    expected=context_values({k:getattr(sample[0].v,k) for k in CONTEXT},bgf=2000,gf=1000,renovation=50)
+def test_browser_context_and_gwp_match_current_python(sample):
+    import shutil
+    import subprocess
+    node = shutil.which('node')
+    if node is None:
+        pytest.skip('Node.js is required for fresh JavaScript/Python parity checks')
+    data = browser_data(sample)
+    html = (ROOT/'scripts/assessment_explained.html').read_text(encoding='utf-8')
+    helpers = html[html.index('const number='):html.index('function filtered(')]
+    context = html[html.index('function contextValues('):html.index('function readContext(')]
+    compose = html[html.index('function compose('):html.index('function composeAnalysis(')]
+    script = ("const dataset=JSON.parse(require('fs').readFileSync(0,'utf8')); "
+              "const C=dataset.columns; " + helpers + context + compose +
+              "console.log(JSON.stringify({context:contextValues(dataset.scenarios[0],"
+              "{bgf:2000,gf:1000,renovation:50}),"
+              "small:compose('thg',dataset.scenarios.slice(0,2),900),"
+              "large:compose('thg',Array(101).fill(dataset.scenarios[0]),900)}));")
+    result = subprocess.run([node, '-e', script], input=json.dumps(data, allow_nan=False),
+                            text=True, encoding='utf-8', capture_output=True, check=True)
+    actual = json.loads(result.stdout)
+    expected = context_values({k:getattr(sample[0].v,k) for k in CONTEXT}, bgf=2000,gf=1000,renovation=50)
     for key in CONTEXT:
-        assert result[data['columns'][key]] == pytest.approx(expected[key])
+        assert actual['context']['values'][data['columns'][key]] == pytest.approx(expected[key])
+    report = reporting.gwp_ee(sample)
+    report['frame'] = report['frame'].iloc[:2].copy()
+    figure = plotly.render(report)
+    for browser_trace, native_trace in zip(actual['small']['data'], figure.data):
+        if browser_trace.get('meta'):
+            assert browser_trace['y'] == pytest.approx(list(native_trace.y))
+    assert len(actual['large']['data']) == 5
+    for trace in actual['large']['data']:
+        assert all(item[2] is not None for item in trace['customdata'] if item is not None)

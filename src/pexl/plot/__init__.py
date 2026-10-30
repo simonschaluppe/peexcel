@@ -10,7 +10,7 @@ from .typical_day import (
 )
 
 __all__ = [
-    "styles"
+    "styles",
     "heatmap",
     "sankey",
     "typical_day_balance",

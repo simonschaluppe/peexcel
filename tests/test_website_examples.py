@@ -26,12 +26,18 @@ def test_exported_balances_reconcile(reports):
 
 
 def test_ghg_retains_credits_and_export_total(reports):
-    from pexl.plot.plotly import render
+    from pexl.plot.reports import render
+    from pexl import reporting
     report = reports['gwp_ee']
     figure = render(report)
-    assert any(any(v is not None and v < 0 for v in trace.y) for trace in figure.data)
     total = next(t for t in figure.data if t.name == 'THG-Gesamtbilanz')
     assert list(total.y) == list(report['frame']['GWP_lc_total'])
+    # Negative components are visible in the detailed report, even when every
+    # aggregated district contribution is positive. Do not require a negative net.
+    detail = reporting.gwp_ee_detail(examples.load_examples())
+    assert any(any(v is not None and v < 0 for v in trace.y) for trace in render(detail).data)
+    parts = [s['var_name'] for s in detail['series'] if s['role'] != 'Balance Variable']
+    assert (detail['frame'][parts].sum(axis=1)-detail['frame']['GWP_ee_total']).abs().max() < 1e-8
 
 
 def test_no_missing_value_or_channel_fallback():
@@ -68,7 +74,7 @@ def test_aspern_profiles_and_channel_inventory():
     assert list(trace.y) == pytest.approx(winter_grid.tolist())
     hourly = figures['f7_hourly']
     assert len(hourly.data[0].x) == 8760
-    assert hourly.layout.updatemenus[0].buttons[2].label == 'Gesamtjahr'
+    assert hourly.layout.updatemenus[0].buttons[2].label == 'Gesamter Zeitraum'
     original = scenario.timeseries.to_frame()
     try:
         scenario.set_timeseries(original.iloc[[0,2,3]])

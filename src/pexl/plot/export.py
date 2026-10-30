@@ -44,6 +44,24 @@ def export_figure(
         raise ValueError("Publication export requires width >= 600, height >= 500")
 
     result = go.Figure(figure)
+    if suffix == '.html':
+        # Static export dimensions must not become minimum browser widths.
+        # Provenance is normal wrapping HTML, not a fixed-width chart annotation.
+        result.update_layout(width=None, autosize=True,
+                             meta={"original": figure.layout.meta,
+                                   "provenance": dict(provenance)})
+        plot = result.to_html(include_plotlyjs=True, full_html=False,
+                              default_width='100%', default_height=f'{height}px',
+                              config={'responsive': True})
+        details = ''.join(f'<dt>{escape(k)}</dt><dd>{escape(v)}</dd>'
+                          for k, v in provenance.items())
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text('<!doctype html><html><head><meta charset="utf-8">'
+                        '<meta name="viewport" content="width=device-width,initial-scale=1">'
+                        '<style>html{overflow-y:scroll}body{margin:0;font:14px system-ui}dl{padding:1rem;overflow-wrap:anywhere}'
+                        'dt{font-weight:bold}dd{margin:0 0 .5rem}</style></head><body>'
+                        + plot + '<dl>' + details + '</dl></body></html>', encoding='utf-8')
+        return path
     lines = []
     for key, value in provenance.items():
         lines.extend(wrap(f"{key}: {value}", width=max(35, (width - 100) // 7)))
@@ -63,9 +81,5 @@ def export_figure(
     result.update_layout(meta={"original": figure.layout.meta,
                                "provenance": dict(provenance)})
     path.parent.mkdir(parents=True, exist_ok=True)
-    if suffix == ".html":
-        result.write_html(path, include_plotlyjs=True, full_html=True,
-                          config={"responsive": True}, auto_open=False)
-    else:
-        result.write_image(path, format=suffix[1:], scale=2 if suffix == ".png" else 1)
+    result.write_image(path, format=suffix[1:], scale=2 if suffix == ".png" else 1)
     return path

@@ -4,6 +4,7 @@ import gzip
 import json
 import math
 import hashlib
+import numpy as np
 from html import escape
 
 import nbformat
@@ -12,7 +13,7 @@ from plotly.offline import get_plotlyjs
 from plotly.utils import PlotlyJSONEncoder
 
 from pexl import Project, reporting
-from pexl.plot import plotly
+from pexl.plot import reports as plotly
 from pexl.schema.current import SCHEMA_VERSION, SCHEMA_META
 from pexl.analysis.targets import target
 
@@ -74,6 +75,8 @@ def _analysis_templates(view, names, columns):
 
 
 def _clean(value):
+    if isinstance(value, np.generic):
+        value = value.item()
     if value is None or isinstance(value, float) and not math.isfinite(value):
         return None
     return value
@@ -128,8 +131,9 @@ def browser_data(project):
         sample['frame']['Variant'] = 'Szenario'
         figure = plotly.render(sample, **({'budget': 320} if key == 'thg' else {})).to_dict()
         labels = {s['label']: s for s in report['series']}
+        fields = {s['var_name']: s for s in report['series']}
         for trace in figure['data']:
-            series = labels.get(trace['name'])
+            series = fields.get((trace.get('meta') or {}).get('var_name')) or labels.get(trace['name'].replace('<br>', ' '))
             if series:
                 trace['meta'] = dict(column=columns[series['var_name']], role=series['role'])
                 trace['legendgroup'] = series['role']
@@ -145,8 +149,15 @@ def browser_data(project):
                 attrs[key] = (f'{100 * value:g} %' if key == 'pv' and value is not None else str(value)) if value is not None else 'Nicht aufgezeichnet'
         # Group from recorded IN label; retain detail verbatim, no preset list.
         attrs['family'] = attrs['heating'].split(' (', 1)[0]
-        values = [_clean(getattr(scenario.v, v, None)) for v in variables]
-        scenarios.append(dict(id=i, name=scenario.column_name, filters=attrs, values=values))
+        # Report resolution may select legacy fields. Never bypass its prepared
+        # values by re-reading canonical attributes from the original scenario.
+        resolved = {s['var_name']: r['frame'].iloc[i][s['var_name']]
+                    for r in reports.values() for s in r['series']}
+        values = [_clean(resolved[v] if v in resolved else getattr(scenario.v, v, None)) for v in variables]
+        sources = {key: r.get('sources', {}).get(scenario.column_name)
+                   for key, r in reports.items() if r.get('sources')}
+        scenarios.append(dict(id=i, name=scenario.column_name, filters=attrs, values=values,
+                              report_sources=sources))
     defaults = [i for i, name in enumerate(names) if '6-Stöckig' in name and
                 any(age in name for age in ('bis 1944', '1990-1999', 'ab 2020'))]
     return dict(scenarios=scenarios, defaults=defaults or list(range(min(3, len(names)))),

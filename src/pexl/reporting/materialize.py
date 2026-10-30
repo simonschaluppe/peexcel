@@ -31,13 +31,19 @@ def chart_names() -> tuple[str, ...]:
     return tuple(_chart_registry())
 
 
-def materialize(view, chart_name: str) -> dict[str, Any]:
+def materialize(view, chart_name: str, *, language="de", unit=None) -> dict[str, Any]:
     """Materialize one generated chart definition for the scenarios in a ProjectView.
 
     The returned dictionary is renderer-neutral. It contains chart metadata,
     ordered series metadata, and a DataFrame with one row per selected scenario.
     """
-    from pexl.schema.current import ATTR_NAME_MAP, SCHEMA_META
+    from pexl.schema.current import ATTR_NAME_MAP, SCHEMA_META, SCHEMA_VERSION
+    from pexl.i18n import PRIMARY_ENERGY_LABELS, chart_text
+    if language not in ('de', 'en'):
+        raise ValueError("language must be 'de' or 'en'")
+    from pexl.model.project import Project
+    if isinstance(view, Project):
+        view = view.view
 
     charts = _chart_registry()
     try:
@@ -47,17 +53,9 @@ def materialize(view, chart_name: str) -> dict[str, Any]:
             f"Unknown chart {chart_name!r}. Available: {', '.join(charts)}"
         ) from exc
 
+    from .gwp import resolve
+    spec, overrides, provenance = resolve(spec, view.scenarios)
     raw_series = list(_field(spec, "series", ()) or ())
-    # The 1_13_1_dev workbook omits the overview chart's series, while exporting
-    # its three authoritative lifecycle totals. Keep this compatibility bridge
-    # here (shared by Python plots and the static reader), never in JavaScript.
-    if chart_name == "gwp_ee" and not raw_series:
-        totals = [("GWP_lc_EE_total", "Baulich", "#9fd3a2"),
-                  ("GWP_lc_OE_total", "Betrieblich", "#f34673"),
-                  ("GWP_lc_total", "Balance Variable", "#7B8E1D")]
-        if all(key in ATTR_NAME_MAP for key, _, _ in totals):
-            raw_series = [dict(var_name=key, role=role, color=color, order=i)
-                          for i, (key, role, color) in enumerate(totals)]
     raw_series.sort(key=lambda s: _field(s, "order", 0) or 0)
 
     series: list[dict[str, Any]] = []
@@ -76,7 +74,11 @@ def materialize(view, chart_name: str) -> dict[str, Any]:
         series.append(
             {
                 "var_name": var_name,
-                "label": _field(item, "label_de") or variable_meta.label_de or var_name,
+                "label": (PRIMARY_ENERGY_LABELS[var_name].get(language)
+                          if var_name in PRIMARY_ENERGY_LABELS else
+                          _field(item, f"label_{language}") or
+                          getattr(variable_meta, f"label_{language}", None) or
+                          _field(item, "label_de") or variable_meta.label_de or var_name),
                 "role": _field(item, "role"),
                 "order": _field(item, "order", 0) or 0,
                 "color": _field(item, "color"),
@@ -87,16 +89,20 @@ def materialize(view, chart_name: str) -> dict[str, Any]:
 
     rows = []
     for scenario in view.scenarios:
+        version = getattr(scenario.v, 'tool_version', None)
+        if version is not None and str(version).replace('.', '_').replace('-', '_') != SCHEMA_VERSION:
+            raise ValueError(f'{scenario.column_name}: model version {version!r} does not match active schema {SCHEMA_VERSION!r}')
         row = {"Variant": scenario.column_name}
         for item in series:
             attr_name = ATTR_NAME_MAP[item["var_name"]]
-            row[item["var_name"]] = getattr(scenario.v, attr_name)
+            row[item["var_name"]] = overrides.get(scenario.column_name, {}).get(
+                item["var_name"], getattr(scenario.v, attr_name))
         rows.append(row)
 
     frame = pd.DataFrame(rows, columns=["Variant", *[s["var_name"] for s in series]])
     units = {s["unit"] for s in series if s["unit"] not in (None, "")}
 
-    return {
+    report = {
         "chart_name": _field(spec, "chart_name", chart_name) or chart_name,
         "tab_name": _field(spec, "tab_name"),
         "title": _field(spec, "title", chart_name) or chart_name,
@@ -104,4 +110,44 @@ def materialize(view, chart_name: str) -> dict[str, Any]:
         "unit": next(iter(units)) if len(units) == 1 else None,
         "series": series,
         "frame": frame,
+        "language": language,
+        "value_mode": "magnitude" if _field(spec, "chart_type") == "stacked_bar_comparison" else "signed",
     }
+    if provenance:
+        report['sources'] = provenance
+        # District overview components use the boundary of the lifecycle total.
+        # Embodied-only reports retain their separate A-unit metadata.
+        if chart_name in ('gwp_ee', 'district_gwp_ee'):
+            report['unit'] = getattr(SCHEMA_META, ATTR_NAME_MAP['GWP_lc_total']).unit
+    if chart_name == 'primary_energy_balance':
+        report['title'] = chart_text('primary_energy', language)
+    return convert_unit(report, unit) if unit is not None else report
+
+
+def convert_unit(report, unit):
+    """Copy a report, converting Wh/kWh/MWh prefixes with identical reference units.
+
+    No implicit area, time or primary-energy conversion. For those operations
+    prepare explicit values and metadata first. Every series must share a unit.
+    """
+    from copy import deepcopy
+    import re
+    source = report.get('unit')
+    pattern = r'^(MWh|kWh|Wh)(.*)$'
+    old, new = re.match(pattern, source or ''), re.match(pattern, unit or '')
+    if not old or not new or old.group(2) != new.group(2):
+        raise ValueError(f'Incompatible units: {source!r} -> {unit!r}; reference must remain unchanged')
+    result = deepcopy(report)
+    scales = {'Wh': 1, 'kWh': 1000, 'MWh': 1000000}
+    factor = scales[old.group(1)] / scales[new.group(1)]
+    converted = set()
+    for series in result['series']:
+        if series.get('unit') != source:
+            raise ValueError('All report series must have the same explicit unit')
+        key = series['var_name']
+        if key not in converted:
+            result['frame'][key] = pd.to_numeric(result['frame'][key], errors='raise') * factor
+            converted.add(key)
+        series['unit'] = unit
+    result['unit'] = unit
+    return result

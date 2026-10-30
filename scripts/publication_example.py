@@ -14,7 +14,7 @@ import plotly.graph_objects as go
 
 from pexl import Project, reporting
 from pexl.analysis.targets import Zielwert
-from pexl.plot import electricity_balance, plotly
+from pexl.plot import electricity_balance, reports as plotly
 from pexl.plot.export import export_figure
 from pexl.schema.current import ATTR_NAME_MAP, CHARTS, SCHEMA_VERSION
 
@@ -33,6 +33,9 @@ def example_project():
                 if "kompensation" in (series.role or "").lower():
                     value = -value
                 setattr(scenario.v, ATTR_NAME_MAP[series.var_name], value)
+        scenario.v.GWP_ee_total = sum(
+            getattr(scenario.v, ATTR_NAME_MAP[s.var_name])
+            for s in CHARTS['gwp_ee_detail'].series if s.role != 'Balance Variable')
     return project
 
 
@@ -85,10 +88,10 @@ def example_figures():
         fig = plotly.render(report)
         convention = ("Bedarf und Deckung als positive Beträge in getrennten Säulen; "
                       "Kontextfaktoren sind virtuelle Beiträge.") if name == CHART_NAMES[0] else (
-            "Vorzeichen wie im Report; negative Werte = Kompensation. "
-            "L1/L2/L3: bestehende Renderer-Bänder, keine neu berechneten Budgets. "
-            "Bewertung 2025–2075 (50 Jahre); nationales Zieljahr und "
-            "Dekarbonisierungspfad sind im synthetischen Datensatz nicht definiert.")
+            "Graue Emissionen von Baukonstruktion und technischen Systemen; "
+            "ohne Mobilität und Betrieb. Vorzeichen bleiben erhalten. "
+            "Der Gesamtmarker ist die Summe der synthetischen Komponenten; "
+            "keine Quartiers-Budgetbänder auf einer Teilbilanz.")
         figures[name] = fig, convention
     flows = pd.DataFrame({"Stunde": [0, 1, 2, 3], "E_grid": [2, 1, 0, 0],
                           "PV_to_Egrid": [0, 0, 2, 3]})

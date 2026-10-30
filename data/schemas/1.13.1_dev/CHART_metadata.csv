@@ -1,4 +1,4 @@
-﻿chart_name;label_de;var_name;role;order;color;pattern
+chart_name;label_de;var_name;role;order;color;pattern
 primary_energy_balance;Nutzerstrom;PEI_el_plugloads;Bedarf;1;#7e1141;
 primary_energy_balance;HKLS Strom;PEI_el_hvac;Bedarf;2;#f34673;
 primary_energy_balance;HKLS Fernwärme;PEI_district_heating;Bedarf;3;#a22110;
@@ -72,3 +72,19 @@ gwp_ee_detail;THG LZ E-Batterie;GWP_ee_BESS;Baulich;;#b87500;
 gwp_ee_detail;THG LZ Energiesystem 1;GWP_ee_energy_1;Baulich;;#ffc560;
 gwp_ee_detail;THG LZ Energiesystem 2;GWP_ee_energy_2;Baulich;;#418e46;
 gwp_ee_detail;THG LZ Solarthermie;GWP_ee_solarthermal;Baulich;;#418e46;
+gwp_ee;Baukonstruktion;GWP_ee_total_construction;Baulich;1;#9fd3a2;
+gwp_ee;Technische Systeme;GWP_ee_total_TES;Baulich;2;#e9b44c;
+gwp_ee;Mobilität (Herstellung);GWP_ee_lc_mob;Baulich;3;#88cfda;
+gwp_ee;Betrieb;GWP_lc_OE_total;Betrieblich;4;#f34673;
+gwp_ee;THG-Gesamtbilanz;GWP_lc_total;Balance Variable;5;#7B8E1D;
+district_gwp_ee;Baukonstruktion;GWP_ee_total_construction;Baukonstruktion;1;#9fd3a2;
+district_gwp_ee;Technische Systeme;GWP_ee_total_TES;Technische Systeme;2;#e9b44c;
+district_gwp_ee;Mobilität (Herstellung);GWP_ee_lc_mob;Mobilität (Herstellung);3;#88cfda;
+district_gwp_ee;Betrieb;GWP_lc_OE_total;Betrieb;4;#f34673;
+district_gwp_ee;THG-Gesamtbilanz;GWP_lc_total;Balance Variable;5;#7B8E1D;
+gwp_ee_detail;Herstellung: Gesamt;GWP_ee_total;Balance Variable;100;#333333;
+gwp_ee_fossil_biogenic;Baukonstruktion: fossil;GWP_ee_total_construction_fossil;Baulich;1;#9fd3a2;
+gwp_ee_fossil_biogenic;Technische Systeme: fossil;GWP_ee_total_TES_fossil;Baulich;2;#e9b44c;
+gwp_ee_fossil_biogenic;Baukonstruktion: biogen;GWP_ee_total_construction_biogenic;Baulich;3;#43894a;
+gwp_ee_fossil_biogenic;Technische Systeme: biogen;GWP_ee_total_TES_biogenic;Baulich;4;#986721;
+gwp_ee_fossil_biogenic;Herstellung: Gesamt;GWP_ee_total;Balance Variable;100;#333333;

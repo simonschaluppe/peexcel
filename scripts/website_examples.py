@@ -13,9 +13,9 @@ import pandas as pd
 import yaml
 
 from pexl import Project, reporting
-from pexl.analysis.temporal import add_season, SEASONS
+from pexl.analysis.temporal import SEASONS, numeric_frame, hourly_frame, channel_inventory, seasonal_hourly_mean
 from pexl.plot import electricity_balance, electricity_balance_facets
-from pexl.plot import plotly
+from pexl.plot import reports as plotly
 from pexl.plot.export import export_figure
 from pexl.schema.current import SCHEMA_VERSION, ATTR_NAME_MAP
 
@@ -79,31 +79,6 @@ def load_examples(config=None):
     return project
 
 
-def numeric_frame(frame, columns):
-    missing = set(columns) - set(frame.columns)
-    if missing:
-        raise ValueError(f'Missing exported channels: {sorted(missing)}')
-    values = frame[list(columns)].apply(pd.to_numeric, errors='raise')
-    if not np.isfinite(values.to_numpy(dtype=float)).all():
-        raise ValueError('Missing or non-finite result values; zero substitution is not permitted')
-    return values
-
-
-def hourly_frame(scenario):
-    frame = scenario.timeseries.to_frame().copy()
-    index = pd.DatetimeIndex(pd.to_datetime(frame['date']))
-    if index.hasnans or index.has_duplicates or not index.is_monotonic_increasing:
-        raise ValueError('Invalid hourly time axis')
-    if len(index) < 2 or not (index.to_series().diff().dropna() == pd.Timedelta(hours=1)).all():
-        raise ValueError('Expected a continuous one-hour timestep')
-    frame.index = index
-    if not (frame['Monat_nr'].to_numpy() == index.month).all():
-        raise ValueError('Month metadata differs from timestamps')
-    if not (frame['hour_of_the_day'].to_numpy() == index.hour).all():
-        raise ValueError('Hour metadata differs from timestamps')
-    return frame
-
-
 def annual_reports(project=None):
     project = project or load_examples()
     # These examples are all-electric. Do not silently mislabel future mixed systems.
@@ -156,16 +131,9 @@ def input_differences(project):
 
 
 def flow_inventory(scenario):
-    frame = hourly_frame(scenario)
-    rows = []
-    for group, keys in FLOW_GROUPS.items():
-        for key in keys:
-            present = key in frame
-            values = numeric_frame(frame, [key])[key] if present else None
-            rows.append({'Gruppe': group, 'Kanal': key, 'Exportiert': present,
-                         'Stunden ungleich null': int(values.ne(0).sum()) if present else None,
-                         'Summe Exportwerte': float(values.sum()) if present else None})
-    return pd.DataFrame(rows)
+    return channel_inventory(hourly_frame(scenario), FLOW_GROUPS).rename(columns={
+        'group': 'Gruppe', 'channel': 'Kanal', 'present': 'Exportiert',
+        'nonzero_count': 'Stunden ungleich null', 'sum': 'Summe Exportwerte'})
 
 
 def dynamic_figures(scenario):
@@ -175,28 +143,20 @@ def dynamic_figures(scenario):
     if (values < -1e-8).any().any():
         raise ValueError('Directional channels must be nonnegative before signed display')
     # Wh/m² per 1 h interval / 1 h = mean W/m², no energy/power shortcut for other steps.
-    prepared = add_season(frame)
-    seasonal = prepared.groupby(['season', 'hour_of_the_day'], observed=True)[columns].mean().reset_index()
+    seasonal = seasonal_hourly_mean(frame, columns)
     kwargs = dict(positive=FLOW_POSITIVE, negative=FLOW_NEGATIVE,
-                  labels=FLOW_LABELS, colors=FLOW_COLORS, omit_empty=True)
+                  labels=FLOW_LABELS, colors=FLOW_COLORS, omit_empty=True, value_mode="magnitude")
     facets = electricity_balance_facets(seasonal, facet='season',
         facet_order=[s[0] for s in SEASONS], facet_labels={s[0]:s[1].de for s in SEASONS},
         x='hour_of_the_day', title='Aspern F7 · Saisonale mittlere Tagesprofile',
         x_title='Tagesstunde', y_title='Mittlere Leistung [W/m² NGF]', **kwargs)
-    # The data remain hourly; presets only change the visible range.
-    hourly = electricity_balance(frame, x='date', title='Aspern F7 · Elektrische Flussprofile',
-        x_title='Exportierte Zeitachse', y_title='Mittlere Stundenleistung [W/m² NGF]', **kwargs)
+    # Example selection stays editorial; controls/rendering are native Plotly API.
     year = frame.index[0].year
-    hourly.update_layout(updatemenus=[{'type':'buttons', 'direction':'right', 'x':0, 'y':1.15,
-        'buttons':[{'label':label, 'method':'relayout', 'args':[{'xaxis.range':interval, 'xaxis.autorange':False}]}
-            for label, interval in [('Jännerwoche',[f'{year}-01-08', f'{year}-01-15']),
-                                    ('Juliwoche',[f'{year}-07-09', f'{year}-07-16'])]] +
-        [{'label':'Gesamtjahr','method':'relayout','args':[{'xaxis.autorange':True}]}]}])
-    hourly.update_xaxes(range=[f'{year}-07-09', f'{year}-07-16'], rangeslider_visible=True)
-    # Reserve independent space for title/presets and slider/provenance.
-    hourly.update_layout(margin=dict(l=90, r=260, t=160, b=240),
-                         title=dict(y=0.98, x=0.06),
-                         xaxis_rangeslider_thickness=0.10)
+    ranges = {'Jännerwoche': [f'{year}-01-08', f'{year}-01-15'],
+              'Juliwoche': [f'{year}-07-09', f'{year}-07-16']}
+    hourly = electricity_balance(frame, x='date', title='Aspern F7 · Elektrische Flussprofile',
+        x_title='Exportierte Zeitachse', y_title='Mittlere Stundenleistung [W/m² NGF]',
+        ranges=ranges, initial_range=ranges['Juliwoche'], rangeslider=True, **kwargs)
     return {'f7_seasons':facets, 'f7_hourly':hourly}
 
 
@@ -229,7 +189,7 @@ def build(output=None, formats=('html','svg','png')):
         fig = plotly.render(shown)
         convention = 'Jahreswerte; NGF-Bezug. Bedarf und Deckung in getrennten Säulen, positive Beträge.'
         if name == 'gwp_ee':
-            convention = 'Exportierte THG-Modellbilanz 2025–2075; kg CO₂eq/m² BGF; EE=Herstellung, OE=Betrieb; negative Beiträge bleiben erhalten. PV-LCA in diesen Exporten null.'
+            convention = 'Exportierte THG-Modellbilanz 2025–2075; kg CO₂eq/m² BGF. EE enthält Baukonstruktion, technische Systeme und Herstellung der Mobilität; OE enthält Betrieb. Aktuelle Bau-/Technikfelder haben Vorrang; Legacy-Fallback ist im Report dokumentiert. Negative Beiträge bleiben erhalten.'
         if name == 'final_energy_balance':
             convention += ' Elektrische lokale Nutzung; ohne Einspeisung und externe EV-Ladung. Übrige Energieträger in diesen Varianten null.'
         for fmt in formats:

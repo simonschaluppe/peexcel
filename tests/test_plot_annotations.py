@@ -4,7 +4,7 @@ from copy import deepcopy
 import pandas as pd
 import pytest
 
-from pexl.plot.plotly import render, chart
+from pexl.plot.reports import render, chart
 
 
 def report(kind="pe"):
@@ -66,7 +66,7 @@ def test_budget_uses_signed_net_total_and_preserves_bands():
 def test_chart_forwards_options(monkeypatch):
     import pexl.reporting
     data = report('gwp')
-    monkeypatch.setattr(pexl.reporting, 'materialize', lambda *args: data)
+    monkeypatch.setattr(pexl.reporting, 'materialize', lambda *args, **kwargs: data)
     assert chart(None, 'gwp_ee', annotate=True, budget=320).to_json() == render(data, annotate=True, budget=320).to_json()
 
 
