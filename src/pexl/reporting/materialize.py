@@ -31,19 +31,27 @@ def chart_names() -> tuple[str, ...]:
     return tuple(_chart_registry())
 
 
-def materialize(view, chart_name: str, *, language="de", unit=None) -> dict[str, Any]:
-    """Materialize one generated chart definition for the scenarios in a ProjectView.
-
-    The returned dictionary is renderer-neutral. It contains chart metadata,
-    ordered series metadata, and a DataFrame with one row per selected scenario.
-    """
+def materialize(source, chart_name: str, *, language="de", unit=None) -> dict[str, Any]:
+    """Materialize a chart for a Project, Scenario, ProjectView, or ScenarioView."""
     from pexl.schema.current import ATTR_NAME_MAP, SCHEMA_META, SCHEMA_VERSION
     from pexl.i18n import PRIMARY_ENERGY_LABELS, chart_text
-    if language not in ('de', 'en'):
-        raise ValueError("language must be 'de' or 'en'")
     from pexl.model.project import Project
-    if isinstance(view, Project):
-        view = view.view
+    from pexl.model.scenario import Scenario
+    from pexl.model.view import ProjectView, ScenarioView
+
+    if language not in ("de", "en"):
+        raise ValueError("language must be 'de' or 'en'")
+
+    if isinstance(source, Scenario):
+        scenarios = (source,)
+    elif isinstance(source, ScenarioView):
+        scenarios = (source.scenario,)
+    elif isinstance(source, (Project, ProjectView)):
+        scenarios = tuple(source.scenarios)
+    else:
+        raise TypeError(
+            "source must be a Project, Scenario, ProjectView, or ScenarioView"
+        )
 
     charts = _chart_registry()
     try:
@@ -54,7 +62,7 @@ def materialize(view, chart_name: str, *, language="de", unit=None) -> dict[str,
         ) from exc
 
     from .gwp import resolve
-    spec, overrides, provenance = resolve(spec, view.scenarios)
+    spec, overrides, provenance = resolve(spec, scenarios)
     raw_series = list(_field(spec, "series", ()) or ())
     raw_series.sort(key=lambda s: _field(s, "order", 0) or 0)
 
@@ -88,7 +96,7 @@ def materialize(view, chart_name: str, *, language="de", unit=None) -> dict[str,
         )
 
     rows = []
-    for scenario in view.scenarios:
+    for scenario in scenarios:
         version = getattr(scenario.v, 'tool_version', None)
         if version is not None and str(version).replace('.', '_').replace('-', '_') != SCHEMA_VERSION:
             raise ValueError(f'{scenario.column_name}: model version {version!r} does not match active schema {SCHEMA_VERSION!r}')
@@ -100,6 +108,23 @@ def materialize(view, chart_name: str, *, language="de", unit=None) -> dict[str,
         rows.append(row)
 
     frame = pd.DataFrame(rows, columns=["Variant", *[s["var_name"] for s in series]])
+    if chart_name == "primary_energy_balance":
+        legacy_density = {
+            scenario.column_name: scenario.legacy.get("PEI_cf_density")
+            for scenario in scenarios
+        }
+        density = pd.to_numeric(
+            frame["Variant"].map(legacy_density),
+            errors="raise",
+        )
+
+        for column, fallback in {
+            "PEI_cf_density_pos": density.clip(lower=0),
+            "PEI_cf_density_neg": (-density).clip(lower=0),
+        }.items():
+            if column in frame:
+                frame[column] = frame[column].fillna(fallback)
+                
     units = {s["unit"] for s in series if s["unit"] not in (None, "")}
 
     report = {

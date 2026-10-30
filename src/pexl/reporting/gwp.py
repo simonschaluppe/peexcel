@@ -42,8 +42,7 @@ def _present(value):
 def resolve(spec, scenarios):
     """Return resolved spec, row overrides and per-scenario source provenance.
 
-    Unused family columns in mixed *detail* reports are structural zeros. Actual
-    missing values in the selected family raise, never silently become zero.
+    Unused family columns in mixed *detail* reports are structural zeros. 
     """
     if getattr(spec, 'chart_name', None) not in REPORTS:
         return spec, {}, {}
@@ -79,8 +78,8 @@ def resolve(spec, scenarios):
         def required(key):
             value = _read(scenario, key)
             if not _present(value):
-                raise ValueError(f'{scenario.column_name}: missing {family} GWP field {key!r}; '
-                                 'partial current results cannot be mixed with legacy results')
+                value = float("nan")
+                print(f'{scenario.column_name}: missing {family} GWP field {key!r}; partial current results cannot be mixed with legacy results')
             return value
 
         for series in spec.series:

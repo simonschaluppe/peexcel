@@ -107,7 +107,6 @@ class Scenario:
     def __repr__(self) -> str:
         return (
             f"<Scenario "
-            f"column={self.column_name!r} "
-            f"project={self.project_name!r} "
-            f"name={self.name!r}>"
+            f"tool_version={self.v.tool_version!r} "
+            f"{self.column_name!r}>"
         )
