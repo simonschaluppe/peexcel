@@ -2,6 +2,9 @@
 title: "Speicher und Flexibilität"
 ---
 
+{{< include assets/preset-help-systems.qmd >}}
+
+
 **Excel-Ort:** Blatt [🔋]{.excel-menu .darkred} ("Flexibilität und Speicher").
 
 Energieflexibilität verknüpft die zeitliche Verfügbarkeit erneuerbarer Energie mit dem Betrieb des Quartiers. Lokale PV-Überschüsse und externe Flexibilitätssignale können für zusätzliche Konditionierung und Speicherladung genutzt werden. **Mindestbedarfsdeckung und flexible Überdeckung** bleiben getrennte Größen.

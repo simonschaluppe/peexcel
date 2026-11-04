@@ -1,5 +1,11 @@
 (() => {
   document.querySelectorAll('.schema-catalog').forEach(catalog => {
+    catalog.querySelectorAll('[data-in-var]').forEach(label => {
+      const link = document.createElement('a');
+      link.href = 'glossary.html#in-' + encodeURIComponent(label.dataset.inVar);
+      link.textContent = label.textContent;
+      label.replaceWith(link);
+    });
     const source = catalog.dataset.source;
     const prefix = source.toLowerCase();
     const form = catalog.querySelector('form');
@@ -30,7 +36,7 @@
         group.querySelector('.out-domain-count').textContent = `(${matches} / ${rows.length})`;
         count += matches;
       });
-      catalog.querySelector(`#${prefix}-count`).textContent = `${count} von ${total} ${source}-Variablen`;
+      catalog.querySelector(`#${prefix}-count`).textContent = `${count} von ${total} ${catalog.dataset.itemLabel || source + '-Variablen'}`;
       catalog.querySelector(`#${prefix}-empty`).hidden = count !== 0;
     }
     form.addEventListener('submit', event => event.preventDefault());

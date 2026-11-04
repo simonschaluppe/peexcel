@@ -2,11 +2,17 @@
 title: "Varianten verwalten"
 ---
 
-Ein Projekt kann mehrere Varianten beziehungsweise Szenarien enthalten. Varianten speichern Eingabekonfigurationen, die einzeln geladen, bearbeitet und erneut berechnet werden. Die Schulung beschreibt den Ablauf **Anlegen / Definieren → Speichern / Laden → Simulieren → Vergleichen**.
+Ein Projekt kann mehrere Varianten beziehungsweise Szenarien enthalten. Varianten speichern Eingabekonfigurationen, die einzeln geladen, bearbeitet und erneut berechnet werden. Der Ablauf ist **Anlegen / Definieren → Speichern / Laden → Simulieren → Vergleichen**.
 
 ::: {.excel-path}
 **Menüband:** klimaaktiv PEQ → Projekt-Varianten → [Aktuelle Eingabe speichern]{.excel-action} / [Varianten]{.excel-action}
 :::
+
+## Varianten gezielt vergleichen
+
+Speichere zuerst einen nachvollziehbaren Referenzstand. Lege davon ausgehend Varianten an, in denen du einzelne Parameter oder zusammengehörige Maßnahmen veränderst, etwa die PV-Dimensionierung oder die Wärmeversorgung. So kannst du erkennen, welche Änderung einen Unterschied verursacht.
+
+Für einen aussagekräftigen Vergleich müssen Systemgrenze, Bezugsfläche, Zeitbasis und Bewertungsmethode zusammenpassen. Halte außerdem fest, mit welcher Toolversion und welchem Rechenstand du arbeitest. Unter [Variantenvergleich](comparison.qmd) findest du die passende Auswertung.
 
 ## Variante anlegen und speichern
 

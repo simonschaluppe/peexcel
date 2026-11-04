@@ -41,3 +41,49 @@ Reproduktion mit Poppler (PDF-Pfade auf die lokalen Originale setzen):
 pdftoppm -f 20 -singlefile -scale-to 3000 -x 583 -y 583 -W 1417 -H 817 -png $declarationPdf website/illustrations/flexibility-study
 pdftoppm -f 6 -singlefile -scale-to 3000 -x 150 -y 200 -W 1800 -H 1833 -png $mobilityPdf website/illustrations/mobility-results
 ```
+
+## Migration: Varianten exportieren und importieren
+
+`migration/varianten.png`, `migration/export.png`, `migration/import.png`,
+`migration/import-auswahl.png`, `migration/import-pv.png`,
+`migration/import-fertig.png` und `migration/simulation.png` sind
+unveränderte Screenshots, die der Projektverantwortliche im Chat bereitgestellt
+hat. Sie zeigen eine Entwicklungsfassung (`ka_PEQ_Nachweistool_DEV…`); eine genaue
+Versionsnummer ist in den Aufnahmen nicht sichtbar. Deshalb wird keine konkrete
+Versionsnummer behauptet. Die Reihenfolge und Bildunterschriften stehen in
+`website/migration.qmd`.
+
+Die sieben statischen Dateien ergänzen die bisher fehlenden Bedienansichten.
+Vorhandene Grafiken zeigen diese Auswahl- und Importbefehle nicht. Es entsteht
+kein neues Metadatenschema und keine zusätzliche Build-Abhängigkeit. Bei Änderungen
+der Oberfläche die Bilder ersetzen, die Anleitung abgleichen und die gerenderte
+Seite einschließlich Vergrößerung prüfen. Der lokale Prüfablauf steht im
+Notebook `notebooks/howto_migration_preview.ipynb`.
+
+Export und Import zeigen unterschiedliche Beispielprojekte. Die Abschlussmeldung
+nennt eine Quelldatei `ka_examples_v1.09.xlsx`; dies ist keine Versionsangabe
+der ausführenden Tool-Arbeitsmappe.
+
+## Redaktionelle Bedienansichten: PV und Haustechnik
+
+Die unveränderten, vom Projektverantwortlichen bereitgestellten PNGs liegen unter
+`pv/*-original.png` und `hvac/*-original.png`. Die fünf gleichnamigen SVG-Dateien
+zeigen definierte Ausschnitte mit einer separaten Ebene aus Rahmen und nummerierten
+Markierungen. Die Original-Pixel werden unverändert eingebettet. Es werden weder
+Zellwerte retuschiert noch Bedienelemente erfunden. Die Erläuterungen zu 1–3 stehen
+auf der jeweiligen QMD-Seite; Alternativtexte beschreiben die markierten Bereiche.
+
+Erzeugung: `python scripts/website_editorial_figures.py`. Das Skript verwendet nur
+die Python-Standardbibliothek. Das Notebook `notebooks/howto_editorial_figures.ipynb`
+ruft dieselbe Funktion auf und rendert die betroffenen Seiten. Bei neuen Screenshots
+Originale ersetzen, Ausschnitt und Rahmenkoordinaten im Skript anpassen, SVGs neu
+bauen und zusammen mit Bildunterschriften visuell prüfen. Die SVGs werden versioniert,
+damit normale Quarto-Builds keine zusätzliche Bildaufbereitung benötigen. Die
+Originale sind für reproduzierbare Ausschnitte notwendig; bestehende Bilder zeigen
+diese konkreten Bedienfelder nicht. Es wird kein neues fachliches Datenschema erzeugt.
+
+Die Aufnahmen zeigen eine Entwicklungsfassung ohne ablesbare genaue Versionsnummer.
+Es sind unterschiedliche Beispielkonfigurationen; insbesondere ist die Heizungsaufnahme
+nicht das im Text erklärte Fernwärme-/Spitzenlastbeispiel. Die PV-Aufnahme zeigt einen
+manuell geänderten Dachflächenanteil, der von der sichtbaren Preset-Bezeichnung abweicht.
+Der PV-Import-Ausschnitt zeigt die Profilnamen und ersten Stunden, nicht alle 8.760 Werte.

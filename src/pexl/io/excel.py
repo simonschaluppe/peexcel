@@ -52,6 +52,9 @@ def read_project(
     """
     Read a PEExcel project/export workbook.
 
+    unknown="ignore" retains non-schema values in scenario.legacy for inspection;
+    it does not migrate them or include them in current-schema exports.
+
     Supported formats:
 
     1. Single-scenario timestep export
@@ -86,6 +89,22 @@ def read_project(
 
         df_in = pd.read_excel(xls, sheet_name="IN")
         df_out = pd.read_excel(xls, sheet_name="OUT")
+
+        if unknown not in ("ignore", "raise"):
+            raise ValueError(f"Unsupported unknown policy: {unknown!r}")
+        if unknown == "ignore":
+            from ..schema.current import ATTR_NAME_MAP
+            names = sorted({str(name) for frame in (df_in, df_out)
+                            for name in frame["var_name"]
+                            if pd.notna(name) and str(name).strip()
+                            and str(name) not in ATTR_NAME_MAP})
+            if names:
+                project.warnings.append(
+                    f"{len(names)} variables outside the current schema retained in "
+                    "scenario.legacy (not used automatically): "
+                    + ", ".join(names[:15])
+                    + (" ...; inspect scenario.legacy for all names" if len(names) > 15 else "")
+                )
 
         in_columns = scenario_columns(df_in, source="IN")
         out_columns = scenario_columns(df_out, source="OUT")

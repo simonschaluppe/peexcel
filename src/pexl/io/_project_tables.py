@@ -189,6 +189,8 @@ def load_scenario_values(
     unknown: str,
 ) -> None:
     """Copy one workbook column into existing scenario values, without coercion."""
+    if unknown not in ("ignore", "raise"):
+        raise ValueError(f"Unsupported unknown policy: {unknown!r}")
     if column_name not in df.columns:
         return
 
@@ -207,6 +209,13 @@ def load_scenario_values(
                 column_name=column_name,
                 unknown=unknown,
             )
+            if var_name in scenario.legacy:
+                previous = scenario.legacy[var_name]
+                if not pd.isna(previous) and not pd.isna(value) and previous != value:
+                    raise ValueError(f"Conflicting legacy values for {var_name!r} in {column_name!r}")
+                if pd.isna(value):
+                    continue
+            scenario.legacy[var_name] = value
             continue
 
         setattr(scenario.v, attr_name, value)

@@ -118,3 +118,6 @@ main img{max-width:100%}
 @media(max-width:700px){.schema-catalog .catalog-controls{grid-template-columns:1fr}.schema-catalog table{min-width:600px}}
 
 .schema-catalog .catalog-icon{display:inline-block;margin-right:.25rem;font-size:1.1em}
+.schema-catalog[data-source="PRESET"] th{width:30%;font-weight:400}
+.schema-catalog[data-source="PRESET"] td:nth-child(2){width:70%}
+@media(max-width:700px){.schema-catalog[data-source="PRESET"] table{min-width:0}}

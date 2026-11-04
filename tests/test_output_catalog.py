@@ -79,7 +79,8 @@ def test_navigation_separates_excel_python_and_project():
     start = next(s for s in sections if s.get('section') == 'Starten')
     assert all(x.get('href') != 'glossary.qmd' for x in start['contents'])
     assert {'href': 'glossary.qmd', 'text': 'Nachschlagen'} in navbar
-    glossary = next(i for i, s in enumerate(sections) if s.get('href') == 'glossary.qmd')
+    glossary = next(i for i, s in enumerate(sections) if s.get('section') == 'Nachschlagen')
+    assert {s['href'] for s in sections[glossary]['contents']} == {'glossary.qmd', 'preset-catalog.qmd'}
     assert sections[glossary - 1]['section'] == 'Deklarieren'
     assert sections[glossary + 1]['section'] == 'Python & Automatisierung'
     assert any(s.get('section') == 'Python & Automatisierung' for s in sections)

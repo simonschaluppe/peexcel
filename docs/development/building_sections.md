@@ -299,3 +299,55 @@ floors, basements, JSON normalization, geometry reuse, semantic IDs, SVG validit
 layer placement, style-independent geometry, palettes and all preset recipes.
 Execute the how-to in a fresh kernel to refresh its output. Inspect exported SVGs
 visually as well: XML validity alone does not establish legibility.
+
+
+## Schema compatibility (2026-10-28)
+
+Building sections use current-schema attributes directly. Updating a schema name
+requires maintaining its consumers; missing attributes are programming errors,
+not missing project data. The stale PV_roof_area_percentage access is now
+PV_roof_share. Missing values remain None/NaN and follow existing assumptions:
+module area can be derived from power and specific area, otherwise PV geometry
+is omitted. Missing roof share does not block available module-area geometry.
+Positive total or usage floor area is required; invalid numeric inputs still fail.
+
+Tolerant import (`unknown="ignore"`) retains export-only values in
+`Scenario.legacy`, a plain per-scenario dictionary. This is the only new public
+model field. It avoids reopening workbooks for expert inspection; current-schema
+selections and exports exclude it. It is populated on import, needs no registry,
+and is neither a full schema fingerprint nor a lossless workbook archive.
+Conflicting nonmissing legacy values across IN/OUT fail explicitly. Current and
+legacy names coexist without migration or precedence rules between them.
+Existing Project.warnings summarizes unknown names once per workbook.
+
+Experts may assign a justified value to scenario.v in their notebook and retry.
+There is no automatic unit conversion, name matching, schema generation change,
+or persistent migration mapping. No new maintenance scripts are introduced.
+The visualisation and schema-transition how-tos demonstrate inspection, manual
+completion and collection processing using the library. Only expected ValueError
+validation failures are skipped; programming errors are not suppressed.
+
+Validation: the six files under data/exports/examples load tolerantly. All five
+newer examples produce sections. ka_examples_v1.09.xlsx produces 13 sections;
+84 scenarios lack positive total/usage floor area. Version labels do not control
+this decision. Project.example() now uses the examples subdirectory.
+
+The schema workbooks inspected identify PV_roof_share with unit ratio. No matching
+old PV_roof_area_percentage definition was found in their IN/OUT tables, so semantic
+equivalence is not asserted and copying the old field remains an expert decision.
+The full visualisation notebook and website section tutorial execute successfully;
+the newly appended compatibility workflow in the schema-transition notebook also
+executes. Its pre-existing schema-generation cells were not run because they write
+and activate generated bindings outside the scope of this change.
+
+The website build-copy test was interrupted after several minutes without further
+progress; a successful complete website build is not claimed. Targeted rendering,
+import and website example checks are run separately from that build test.
+
+Additional integration fixes: website/_examples.yml uses the moved examples;
+the existing scripts/website_examples.py presents import diagnostics as warnings
+instead of rejecting all warned projects. Its exact scenario check remains strict.
+The separate regression run passed 163 checks before the website examples. Two
+website example assertions remain unresolved after path repair: energy-balance
+closure (maximum discrepancy about 31.57) and expected negative GHG contributions.
+No data or reporting formulas were changed to make these assertions pass.

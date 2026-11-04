@@ -2,6 +2,9 @@
 title: "Ökobilanz"
 ---
 
+{{< include assets/preset-help-climate.qmd >}}
+
+
 **Excel-Ort:** Blatt [☁ THG]{.excel-menu .teal} ("Graue Emissionen, Ökobilanz"), im Handbuch auch „Global Warming Potential“.
 
 Die klimaneutrale PEQ-Bewertung erweitert den Blick über die Betriebsenergie hinaus. Graue Emissionen der Gebäude und betriebliche Treibhausgasemissionen werden über den festgelegten Betrachtungszeitraum eingeordnet.

@@ -6,6 +6,7 @@ renderer; selected result tables/figures are disposable publication artifacts.
 from pathlib import Path
 from functools import lru_cache
 import hashlib
+import warnings
 
 import numpy as np
 import pandas as pd
@@ -64,7 +65,7 @@ def load_entry(entry):
     path = ROOT / entry['file']
     project = _read(str(path), path.stat().st_mtime_ns)
     if project.warnings:
-        raise ValueError(f'{path.name}: {project.warnings}')
+        warnings.warn(f'{path.name}: {project.warnings}', UserWarning, stacklevel=2)
     if project.column_names() != [entry['scenario']]:
         raise ValueError(f'Expected exactly {entry["scenario"]!r}; found {project.column_names()}')
     return project

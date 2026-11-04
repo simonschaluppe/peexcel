@@ -71,6 +71,8 @@ def build(output=None):
     from output_catalog import build as build_output_catalog
     for source in ("IN", "OUT"):
         build_output_catalog(output / f"assets/{source.lower()}-catalog.qmd", source=source)
+    from output_catalog import build_presets
+    build_presets(output / 'assets')
     for name in NOTEBOOKS:
         raw = json.loads((ROOT / "notebooks" / f"{name}.ipynb").read_text(encoding="utf-8"))
         for index, cell in enumerate(raw["cells"]):

@@ -3,6 +3,9 @@ title: "Begriffe, Parameter und Kennzahlen"
 description: "PEExcel-Begriffe verstehen und alle im aktiven Schema definierten IN- und OUT-Variablen durchsuchen."
 ---
 
+[Preset-Katalog: Standardfälle und konkrete Werte nachschlagen](preset-catalog.qmd)
+
+
 Welche Eingaben verwendet PEExcel, welche Zahlen liefert das Tool – und wie sind sie zu lesen?
 Hier findest du die wichtigsten Begriffe sowie die **vollständigen IN- und OUT-Kataloge**
 mit Einheiten, Labels und Zuordnungen aus dem aktiven Schema.

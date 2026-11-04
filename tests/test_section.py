@@ -80,7 +80,7 @@ def test_missing_counts_and_total():
 
 @pytest.mark.parametrize("values", [dict(NFA_total=1), dict(NFA_office=-1),
     dict(building_count=1.5), dict(storey_count_avg=0), dict(rh_avg=float("inf")),
-    dict(PV_roof_area_percentage=2)])
+    dict(PV_roof_share=2)])
 def test_invalid_input(values):
     with pytest.raises(ValueError):
         section_from_scenario(scenario(**values))
@@ -659,3 +659,18 @@ def test_legacy_normalization_preserves_area_allocation():
     old=section_from_scenario(scenario(),layout=legacy)
     new=section_from_scenario(scenario(),layout=normalize_layout(legacy))
     assert old['geometry_signature']==new['geometry_signature']
+
+
+def test_missing_pv_and_manual_completion():
+    source = scenario(PV_module_area=None)
+    section = section_layout_from_scenario(source)
+    assert "unknown_pv_area" in {n["code"] for n in section["assumptions"]}
+    source.v.PV_module_area = 40
+    section = section_layout_from_scenario(source)
+    assert "unknown_pv_area" not in {n["code"] for n in section["assumptions"]}
+    assert "unknown_pv_roof_share" in {n["code"] for n in section["assumptions"]}
+
+
+def test_no_available_floor_area():
+    with pytest.raises(ValueError, match="NFA_total"):
+        section_layout_from_scenario(Scenario("Empty"))

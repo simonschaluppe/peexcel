@@ -16,6 +16,10 @@ class Scenario:
     column_name:
         Exact Excel column header. Unique within a Project.
 
+    legacy:
+        Export-only names retained by tolerant import for manual inspection.
+        Excluded from current-schema selections and workbook exports.
+
     Scenario metadata
     -----------------
     project_name:
@@ -33,6 +37,8 @@ class Scenario:
 
         self.column_name = str(column_name)
 
+        # Export-only names: inspect manually; never used by schema selections or exports.
+        self.legacy: dict[str, object] = {}
         self.v = ExcelNamedVariables()
         self.meta = SCHEMA_META
 
