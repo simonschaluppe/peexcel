@@ -1,0 +1,765 @@
+# Schema Diff
+
+- **Old:** `C:\Users\schneids\code\peexcel\data\schemas\v1.06`
+- **New:** `C:\Users\schneids\code\peexcel\data\schemas\1.13.1_dev`
+- **Key:** `None`
+
+## Dataset files
+
+- Old file count: 4
+- New file count: 5
+- Added: ['CHART_metadata', 'CHART_types', 'SIM']
+- Removed: ['PV-Import', 'Wetter']
+
+### Warnings
+- ⚠ Tables added to schema: ['CHART_metadata', 'CHART_types', 'SIM']
+- ⚠ Tables removed from schema: ['PV-Import', 'Wetter']
+
+## IN
+
+### Columns
+- Added: ['Formel', 'comment', 'domain', 'entity_group', 'entity_key', 'icon', 'label_de', 'measure', 'spatial_scope', 'temporal_scope', 'unit']
+- Removed: ['Default', 'Einheit', 'Gründerzeit | Ausgangslage Gas', 'Gründerzeit | thermisch Saniert + Fernwärme', 'Gründerzeit | thermisch Saniert mit flexibler Wärmepumpe', 'Icon', 'Kommentar', 'Mischnutzung Neubau 7-stöckig | PEQ+M Deklaration', 'Name', 'Südtiroler Quartier | Alle 150%PV', 'Südtiroler Quartier | Alle Maßnahmen', 'Südtiroler Quartier | Flexible HKLS mit WP', 'Südtiroler Quartier | Mob. Opt.', 'Südtiroler Quartier | Ohne Tiefgarage', 'Südtiroler Quartier | PH', 'Südtiroler Quartier | PV x2', 'Südtiroler Quartier | Planung', 'Südtiroler Quartier | Planung v2', 'Südtiroler Quartier | STB Zwischendecken', 'Südtiroler Quartier | test', 'Type', 'Volksschule Neubau | Ökologisch', 'Wohnen Neubau 2.5 Geschosse | PEQ Deklaration', 'mg. Wohnbau 90er Sanierung | klimaneutrales PEQ Deklaration FW']
+- Common count: 2
+
+### Rows
+Old count: 999
+New count: 698
+- **New Error count: 0**
+- Added/~~Removed~~ var_name:
+   - ACH_night_m3
+  - COMP_area_balconies
+  - COMP_area_basement_ceiling
+  - COMP_area_basement_floor_unheated
+  - COMP_area_ceil_to_air
+  - COMP_area_ceiling_topfloor
+  - COMP_area_ceilings
+  - COMP_area_columns
+  - COMP_area_floor
+  - COMP_area_fundament
+  - COMP_area_garage_columns
+  - COMP_area_garage_horizontal
+  - COMP_area_internal_wall_load
+  - COMP_area_internal_wall_nonload
+  - COMP_area_internal_wall_unheated
+  - COMP_area_other_1
+  - COMP_area_other_2
+  - COMP_area_other_3
+  - COMP_area_roof_flat
+  - COMP_area_roof_pitched
+  - COMP_area_terrace
+  - COMP_area_unheated_horizontal
+  - COMP_area_wall
+  - COMP_area_wall_earth_contacted
+  - COMP_area_wall_ec_unheated
+  - COMP_area_windowframe
+  - COMP_area_windowglazing
+  - COMP_area_windows
+  - COMP_fu_BESS
+  - COMP_fu_PV
+  - COMP_fu_ahu_1
+  - COMP_fu_ahu_2
+  - COMP_fu_boreholes
+  - COMP_fu_buffer_storage
+  - COMP_fu_energy_1
+  - COMP_fu_energy_2
+  - COMP_fu_solarthermal
+  - COMP_name_BESS
+  - COMP_name_PV
+  - COMP_name_ahu_1
+  - COMP_name_ahu_2
+  - COMP_name_balconies
+  - COMP_name_basement_ceiling
+  - COMP_name_basement_floor_unheated
+  - COMP_name_boreholes
+  - COMP_name_buffer_storage
+  - COMP_name_ceil_to_air
+  - COMP_name_ceiling
+  - COMP_name_ceiling_topfloor
+  - COMP_name_columns
+  - COMP_name_energy_1
+  - COMP_name_energy_2
+  - COMP_name_floor
+  - COMP_name_fundament
+  - COMP_name_garage_columns
+  - COMP_name_garage_horizontal
+  - COMP_name_internal_wall_load
+  - COMP_name_internal_wall_nonload
+  - COMP_name_internal_wall_unheated
+  - COMP_name_other_1
+  - COMP_name_other_2
+  - COMP_name_other_3
+  - COMP_name_roof_flat
+  - COMP_name_roof_pitched
+  - COMP_name_solarthermal
+  - COMP_name_terrace
+  - COMP_name_unheated_horizontal
+  - COMP_name_wall
+  - COMP_name_wall_earth_contacted
+  - COMP_name_wall_ec_unheated
+  - COMP_name_windowframe
+  - COMP_name_windowglazing
+  - COMP_name_windows
+  - EV_charging_station_density
+  - EV_mileage_residential
+  - GWP_ceiling_name
+  - GWP_direct_biogenic
+  - GWP_direct_biogenic_share
+  - GWP_direct_fossile
+  - GWP_direct_life
+  - PV_mode
+  - PV_roof_share
+  - PV_scale_sim
+  - PV_scale_simple
+  - PV_simplified_name
+  - Plugloads_scale_residential
+  - QHmax_1el_m2
+  - QHmax_2th_m2
+  - QHmax_3el_m2
+  - QHmax_4th_m2
+  - QHmax_room_m2
+  - StatPAX_residential
+  - StatPAX_schoolprim
+  - StatPAX_schoolsec
+  - construction_description
+  - construction_name
+  - construction_quality
+  - construction_type
+  - density_NFApPers_schoolprim
+  - density_NFApPers_schoolsec
+  - fc_schoolprim
+  - fc_schoolsec
+  - heat_capacity_effective_m2
+  - hull_m2
+  - input_version_number
+  - location_name
+  - pkm_car
+  - plugloads_office
+  - plugloads_other
+  - plugloads_residential
+  - plugloads_retailfood
+  - plugloads_retailother
+  - plugloads_schoolprim
+  - plugloads_schoolsec
+  - preset_recorded_PV_system
+  - preset_recorded_air_tightness
+  - preset_recorded_battery_system
+  - preset_recorded_building_mass
+  - preset_recorded_construction_type
+  - preset_recorded_cooling_modes
+  - preset_recorded_cooling_period
+  - preset_recorded_cooling_system
+  - preset_recorded_dhw_system
+  - preset_recorded_flexibility_system
+  - preset_recorded_flexibility_thermal
+  - preset_recorded_geometry
+  - preset_recorded_heating_emission_system
+  - preset_recorded_heating_period
+  - preset_recorded_heating_system
+  - preset_recorded_hulls
+  - preset_recorded_mobile_shading
+  - preset_recorded_mobility
+  - preset_recorded_plugloads
+  - preset_recorded_renovation
+  - preset_recorded_shading_geometry
+  - preset_recorded_vent_modes
+  - preset_recorded_vent_night_modes
+  - preset_recorded_ventilation_system
+  - seasonal_interpolation
+  - seasonal_phase_h
+  - tool_version
+  - transmittance_Wm2
+  - transmittance_fundament_Wm2NFA
+  - transmittance_heatbridge_Wm2NFA
+  - transmittance_roof_Wm2NFA
+  - transmittance_walls_Wm2NFA
+  - transmittance_windows_Wm2NFA
+  - usage_concurrency_summer_residential
+  - usage_concurrency_summer_schoolprim
+  - usage_concurrency_summer_schoolsec
+  - usage_concurrency_winter_residential
+  - usage_concurrency_winter_schoolprim
+  - usage_concurrency_winter_schoolsec
+  - ~~ACH_night_m³~~
+  - ~~EV_mileage_res~~
+  - ~~GWP_ceilings_name~~
+  - ~~Plugloads_scale_res~~
+  - ~~QHmax_1el_m²~~
+  - ~~QHmax_2th_m²~~
+  - ~~QHmax_3el_m²~~
+  - ~~QHmax_4th_m²~~
+  - ~~QHmax_room_m²~~
+  - ~~StatPAX_eduprim~~
+  - ~~StatPAX_edusec~~
+  - ~~StatPAX_res~~
+  - ~~density_NFApPers_edu~~
+  - ~~density_NFApPers_edu_rpim~~
+  - ~~e_kWhm2a~~
+  - ~~fc_eduprim~~
+  - ~~fc_edusec~~
+  - ~~heat_capacity_effective_m²~~
+  - ~~municipality_name~~
+  - ~~nan~~
+  - ~~parking_spots_in_district~~
+  - ~~pkm_car_driver~~
+  - ~~transmittance_Wm²~~
+  - ~~usage_concurrency_summer_eduprim~~
+  - ~~usage_concurrency_summer_edusec~~
+  - ~~usage_concurrency_summer_res~~
+  - ~~usage_concurrency_winter_eduprim~~
+  - ~~usage_concurrency_winter_edusec~~
+  - ~~usage_concurrency_winter_res~~
+
+- ⚠ Duplicates (old): ['nan']
+
+### Potential Errors (#)
+- None
+
+### Value changes
+- Compared columns: ['ka']
+- Error count: 0
+- Change count: 79
+
+- **Batt_c_rate**
+  - `ka`: `1.0` → `2.0`
+- **Batt_eff_factor_charge**
+  - `ka`: `1.0` → `2.0`
+- **Batt_eff_factor_discharge**
+  - `ka`: `1.0` → `2.0`
+- **Batt_self_discharge_rate**
+  - `ka`: `1.0` → `2.0`
+- **DHW_concurrency_office**
+  - `ka`: `nan` → `2.0`
+- **DHW_concurrency_other**
+  - `ka`: `nan` → `2.0`
+- **DHW_concurrency_residential**
+  - `ka`: `nan` → `2.0`
+- **DHW_concurrency_retailfood**
+  - `ka`: `nan` → `2.0`
+- **DHW_concurrency_retailother**
+  - `ka`: `nan` → `2.0`
+- **DHW_concurrency_schoolprim**
+  - `ka`: `nan` → `2.0`
+- **DHW_concurrency_schoolsec**
+  - `ka`: `nan` → `2.0`
+- **DHW_occupancy_office**
+  - `ka`: `nan` → `2.0`
+- **DHW_occupancy_other**
+  - `ka`: `nan` → `2.0`
+- **DHW_occupancy_residential**
+  - `ka`: `nan` → `2.0`
+- **DHW_occupancy_retailfood**
+  - `ka`: `nan` → `2.0`
+- **DHW_occupancy_retailother**
+  - `ka`: `nan` → `2.0`
+- **DHW_occupancy_schoolprim**
+  - `ka`: `nan` → `2.0`
+- **DHW_occupancy_schoolsec**
+  - `ka`: `nan` → `2.0`
+- **DHW_storage_env_temp_default**
+  - `ka`: `nan` → `1.0`
+- **DHW_storage_liter_pPerson**
+  - `ka`: `nan` → `2.0`
+- **DHW_thermal_power_Wpl**
+  - `ka`: `nan` → `0.0`
+- **DHW_thermal_power_pPerson**
+  - `ka`: `nan` → `1.0`
+- **EV_battsize_kWh**
+  - `ka`: `1.0` → `2.0`
+- **EV_charging_station_power**
+  - `ka`: `2.0` → `1.0`
+- **EV_charging_stations**
+  - `ka`: `2.0` → `0.0`
+- **EV_demand_kWhpkm**
+  - `ka`: `1.0` → `2.0`
+- **EV_self_discharge_per_week**
+  - `ka`: `1.0` → `2.0`
+- **EV_soc_min_discharge**
+  - `ka`: `1.0` → `2.0`
+- **EV_soc_min_ext**
+  - `ka`: `1.0` → `2.0`
+- **FLEX_grid_maxpower_Wm2**
+  - `ka`: `1.0` → `2.0`
+- **GWP_ground_name**
+  - `ka`: `2.0` → `nan`
+- **GWP_mobility_car_gpPKm**
+  - `ka`: `0.0` → `1.0`
+- **GWP_mobility_moped_gpPKm**
+  - `ka`: `0.0` → `1.0`
+- **GWP_pv_name**
+  - `ka`: `2.0` → `nan`
+- **GWP_ref_area_ceilings**
+  - `ka`: `2.0` → `nan`
+- **GWP_ref_area_fundament**
+  - `ka`: `2.0` → `nan`
+- **GWP_ref_area_roof**
+  - `ka`: `2.0` → `nan`
+- **GWP_ref_area_walls**
+  - `ka`: `2.0` → `nan`
+- **GWP_ref_area_windows**
+  - `ka`: `2.0` → `nan`
+- **GWP_roof_name**
+  - `ka`: `2.0` → `nan`
+- **GWP_walls_name**
+  - `ka`: `2.0` → `nan`
+- **GWP_windows_name**
+  - `ka`: `2.0` → `nan`
+- **Plight_max_office**
+  - `ka`: `1.0` → `2.0`
+- **Plight_max_schoolprim**
+  - `ka`: `1.0` → `2.0`
+- **Plight_max_schoolsec**
+  - `ka`: `1.0` → `2.0`
+- **Plight_min_office**
+  - `ka`: `1.0` → `2.0`
+- **Plight_min_schoolprim**
+  - `ka`: `1.0` → `2.0`
+- **Plight_min_schoolsec**
+  - `ka`: `1.0` → `2.0`
+- **Plugloads_scale_office**
+  - `ka`: `1.0` → `0.0`
+- **Plugloads_scale_other**
+  - `ka`: `1.0` → `0.0`
+- **Plugloads_scale_retailfood**
+  - `ka`: `1.0` → `0.0`
+- **Plugloads_scale_retailother**
+  - `ka`: `1.0` → `0.0`
+- **Plugloads_scale_schoolprim**
+  - `ka`: `1.0` → `0.0`
+- **Plugloads_scale_schoolsec**
+  - `ka`: `1.0` → `0.0`
+- **aux_el_demand_office_kWhm2**
+  - `ka`: `1.0` → `2.0`
+- **aux_el_demand_other_kWhm2**
+  - `ka`: `1.0` → `2.0`
+- **aux_el_demand_residential_kWhm2**
+  - `ka`: `1.0` → `2.0`
+- **aux_el_demand_retailfood_kWhm2**
+  - `ka`: `1.0` → `2.0`
+- **aux_el_demand_retailother_kWhm2**
+  - `ka`: `1.0` → `2.0`
+- **aux_el_demand_schoolprim_kWhm2**
+  - `ka`: `1.0` → `2.0`
+- **aux_el_demand_schoolsec_kWhm2**
+  - `ka`: `1.0` → `2.0`
+- **building_count**
+  - `ka`: `2.0` → `1.0`
+- **daylightcontr_office**
+  - `ka`: `1.0` → `2.0`
+- **daylightcontr_schoolprim**
+  - `ka`: `1.0` → `2.0`
+- **daylightcontr_schoolsec**
+  - `ka`: `1.0` → `2.0`
+- **fPE_grid_profile**
+  - `ka`: `2.0` → `1.0`
+- **flex_dhw_use**
+  - `ka`: `0.0` → `1.0`
+- **ghg_conversion_factor_gasoline**
+  - `ka`: `0.0` → `nan`
+- **mob_motorization_perNFA_retail**
+  - `ka`: `1.0` → `2.0`
+- **mobility_vehicle_count**
+  - `ka`: `2.0` → `0.0`
+- **storey_count_avg**
+  - `ka`: `2.0` → `1.0`
+- **usage_concurrency_summer_office**
+  - `ka`: `1.0` → `2.0`
+- **usage_concurrency_summer_other**
+  - `ka`: `1.0` → `2.0`
+- **usage_concurrency_summer_retailfood**
+  - `ka`: `1.0` → `2.0`
+- **usage_concurrency_summer_retailother**
+  - `ka`: `1.0` → `2.0`
+- **usage_concurrency_winter_office**
+  - `ka`: `1.0` → `2.0`
+- **usage_concurrency_winter_other**
+  - `ka`: `1.0` → `2.0`
+- **usage_concurrency_winter_retailfood**
+  - `ka`: `1.0` → `2.0`
+- **usage_concurrency_winter_retailother**
+  - `ka`: `1.0` → `2.0`
+
+## OUT
+
+### Columns
+- Added: ['Formel', 'comment', 'domain', 'entity_group', 'entity_key', 'icon', 'ka', 'label_de', 'measure', 'spatial_scope', 'temporal_scope', 'unit']
+- Removed: ['Bereich', 'Default', 'Einheit', 'Gründerzeit | Ausgangslage Gas', 'Gründerzeit | thermisch Saniert + Fernwärme', 'Gründerzeit | thermisch Saniert mit flexibler Wärmepumpe', 'ID', 'Kategorie', 'Kommentar', 'Label', 'Mischnutzung Neubau 7-stöckig | PEQ+M Deklaration', 'Name', 'Südtiroler Quartier | Alle 150%PV', 'Südtiroler Quartier | Alle Maßnahmen', 'Südtiroler Quartier | Flexible HKLS mit WP', 'Südtiroler Quartier | Mob. Opt.', 'Südtiroler Quartier | Ohne Tiefgarage', 'Südtiroler Quartier | PH', 'Südtiroler Quartier | PV x2', 'Südtiroler Quartier | Planung', 'Südtiroler Quartier | Planung v2', 'Südtiroler Quartier | STB Zwischendecken', 'Südtiroler Quartier | test', 'Volksschule Neubau | Ökologisch', 'Wohnen Neubau 2.5 Geschosse | PEQ Deklaration', 'mg. Wohnbau 90er Sanierung | klimaneutrales PEQ Deklaration FW']
+- Common count: 1
+
+### Rows
+Old count: 508
+New count: 512
+- **New Error count: 0**
+- Added/~~Removed~~ var_name:
+   - Batt_charging_losses
+  - EUIdhw_1el
+  - EUIdhw_2el
+  - EUIdhw_th_total
+  - E_th_total
+  - Ec_1el
+  - Ec_3el
+  - Ec_th
+  - Eh_1el
+  - Eh_3el
+  - Eh_th
+  - GWP_ee_BESS
+  - GWP_ee_PV
+  - GWP_ee_ahu_1
+  - GWP_ee_ahu_2
+  - GWP_ee_balconies
+  - GWP_ee_basement_ceiling
+  - GWP_ee_basement_floor_unheated
+  - GWP_ee_boreholes
+  - GWP_ee_buffer_storage
+  - GWP_ee_ceil_to_air
+  - GWP_ee_ceiling
+  - GWP_ee_ceiling_topfloor
+  - GWP_ee_columns
+  - GWP_ee_energy_1
+  - GWP_ee_energy_2
+  - GWP_ee_floor
+  - GWP_ee_fundament
+  - GWP_ee_garage_columns
+  - GWP_ee_garage_horizontal
+  - GWP_ee_internal_wall_load
+  - GWP_ee_internal_wall_nonload
+  - GWP_ee_internal_wall_unheated
+  - GWP_ee_other_1
+  - GWP_ee_other_2
+  - GWP_ee_other_3
+  - GWP_ee_roof_flat
+  - GWP_ee_roof_pitched
+  - GWP_ee_solarthermal
+  - GWP_ee_terrace
+  - GWP_ee_total
+  - GWP_ee_total_TES
+  - GWP_ee_total_TES_biogenic
+  - GWP_ee_total_TES_fossil
+  - GWP_ee_total_biogenic
+  - GWP_ee_total_construction
+  - GWP_ee_total_construction_biogenic
+  - GWP_ee_total_construction_fossil
+  - GWP_ee_total_fossil
+  - GWP_ee_unheated_horizontal
+  - GWP_ee_wall
+  - GWP_ee_wall_earth_contacted
+  - GWP_ee_wall_ec_unheated
+  - GWP_ee_windowframe
+  - GWP_ee_windowglazing
+  - PEI_cf_density_neg
+  - PEI_cf_density_pos
+  - PEI_importexport_balance_test
+  - PEI_virtual_balance_test
+  - PEI_virtual_demand
+  - PEI_virtual_supply
+  - PV_peak_grid_feedin
+  - PV_peak_grid_feedin_date
+  - Qc_distr_losses
+  - Qc_min_0fc
+  - Qced_1el
+  - Qced_2th
+  - Qced_3el
+  - Qdhw_1_distr_losses
+  - Qdhw_1_drawoff
+  - Qdhw_1_generation_losses
+  - Qdhw_1_storage_losses
+  - Qdhw_1_tap
+  - Qdhw_1_total
+  - Qdhw_2_distr_losses
+  - Qdhw_2_drawoff
+  - Qdhw_2_generation_losses
+  - Qdhw_2_storage_losses
+  - Qdhw_2_tap
+  - Qdhw_2_total
+  - Qdhw_distr_losses
+  - Qdhw_drawoff
+  - Qdhw_generation_losses
+  - Qdhw_storage_charge
+  - Qdhw_storage_losses
+  - Qdhw_tap
+  - Qenv_c
+  - Qenv_c_1el
+  - Qenv_c_3el
+  - Qenv_dhw
+  - Qenv_dhw_1
+  - Qenv_dhw_2
+  - Qenv_h
+  - Qenv_h_1el
+  - Qenv_h_3el
+  - Qh_distr_losses
+  - Qh_flex_wasteheat
+  - Qh_min_wasteheat
+  - Qh_wasteheat
+  - Qheb_1el
+  - Qheb_2th
+  - Qheb_3el
+  - Qheb_4th
+  - Qloss_c_generation
+  - Qloss_c_th2_generation
+  - Qloss_h_generation
+  - Qloss_h_th2_generation
+  - Qloss_h_th4_generation
+  - Ta_annual_avg
+  - Ta_avg_cooling_period
+  - Ta_avg_heating_period
+  - Tc_avg_summer
+  - Tc_avg_winter
+  - Tu_avg_summer
+  - Tu_avg_winter
+  - dTc_summer
+  - dTc_winter
+  - dTu_summer
+  - dTu_winter
+  - legacy_GWP_ee_ceilings_biogenic
+  - legacy_GWP_ee_ceilings_fossile
+  - legacy_GWP_ee_con_build
+  - legacy_GWP_ee_con_tga
+  - legacy_GWP_ee_direct_biogenic
+  - legacy_GWP_ee_direct_fossile
+  - legacy_GWP_ee_general_bigonenic
+  - legacy_GWP_ee_general_fossile
+  - legacy_GWP_ee_ground_biogenic
+  - legacy_GWP_ee_ground_fossile
+  - legacy_GWP_ee_lc_battery
+  - legacy_GWP_ee_lc_biogenic
+  - legacy_GWP_ee_lc_boreholes
+  - legacy_GWP_ee_lc_ceil
+  - legacy_GWP_ee_lc_ceilings_biogenic
+  - legacy_GWP_ee_lc_ceilings_fossile
+  - legacy_GWP_ee_lc_construction
+  - legacy_GWP_ee_lc_direct
+  - legacy_GWP_ee_lc_direct_biogenic
+  - legacy_GWP_ee_lc_direct_fossile
+  - legacy_GWP_ee_lc_fossil
+  - legacy_GWP_ee_lc_general
+  - legacy_GWP_ee_lc_general_biogenic
+  - legacy_GWP_ee_lc_general_fossile
+  - legacy_GWP_ee_lc_ground
+  - legacy_GWP_ee_lc_ground_biogenic
+  - legacy_GWP_ee_lc_ground_fossile
+  - legacy_GWP_ee_lc_other
+  - legacy_GWP_ee_lc_other_biogenic
+  - legacy_GWP_ee_lc_other_fossile
+  - legacy_GWP_ee_lc_pv
+  - legacy_GWP_ee_lc_roof
+  - legacy_GWP_ee_lc_roof_biogenic
+  - legacy_GWP_ee_lc_roof_fossile
+  - legacy_GWP_ee_lc_solarthermal
+  - legacy_GWP_ee_lc_storage
+  - legacy_GWP_ee_lc_tga
+  - legacy_GWP_ee_lc_tga_general
+  - legacy_GWP_ee_lc_tga_other
+  - legacy_GWP_ee_lc_ventilation
+  - legacy_GWP_ee_lc_walls
+  - legacy_GWP_ee_lc_walls_biogenic
+  - legacy_GWP_ee_lc_walls_fossil
+  - legacy_GWP_ee_lc_windows
+  - legacy_GWP_ee_lc_windows_biogenic
+  - legacy_GWP_ee_lc_windows_fossile
+  - legacy_GWP_ee_other_biogenic
+  - legacy_GWP_ee_other_fossile
+  - legacy_GWP_ee_rep_build
+  - legacy_GWP_ee_rep_tga
+  - legacy_GWP_ee_roof_biogenic
+  - legacy_GWP_ee_roof_fossile
+  - legacy_GWP_ee_tga_battery_biogenic
+  - legacy_GWP_ee_tga_battery_fossile
+  - legacy_GWP_ee_tga_boreholes_biogenic
+  - legacy_GWP_ee_tga_boreholes_fossile
+  - legacy_GWP_ee_tga_general_biogenic
+  - legacy_GWP_ee_tga_general_fossile
+  - legacy_GWP_ee_tga_other_biogenic
+  - legacy_GWP_ee_tga_other_fossile
+  - legacy_GWP_ee_tga_pv_biogenic
+  - legacy_GWP_ee_tga_pv_fossile
+  - legacy_GWP_ee_tga_solarthermal_biogenic
+  - legacy_GWP_ee_tga_solarthermal_fossile
+  - legacy_GWP_ee_tga_storage_biogenic
+  - legacy_GWP_ee_tga_storage_fossile
+  - legacy_GWP_ee_tga_ventilation_biogenic
+  - legacy_GWP_ee_tga_ventilation_fossile
+  - legacy_GWP_ee_walls_biogenic
+  - legacy_GWP_ee_walls_fossile
+  - legacy_GWP_ee_windows_bigenic
+  - legacy_GWP_ee_windows_fossile
+  - legacy_GWP_lc_EE_total
+  - legacy_GWP_lc_OE_total
+  - legacy_GWP_lc_total
+  - legacy_GWP_life_battery
+  - legacy_GWP_life_ceilings
+  - legacy_GWP_life_direct
+  - legacy_GWP_life_general
+  - legacy_GWP_life_ground
+  - legacy_GWP_life_other
+  - legacy_GWP_life_roof
+  - legacy_GWP_life_solarthermal
+  - legacy_GWP_life_storage
+  - legacy_GWP_life_tga_boreholes
+  - legacy_GWP_life_tga_general
+  - legacy_GWP_life_tga_other
+  - legacy_GWP_life_tga_pv
+  - legacy_GWP_life_tga_ventilation
+  - legacy_GWP_life_walls
+  - legacy_GWP_life_windows
+  - test_EUI_balance
+  - test_GWP_sum
+  - test_heat_balance
+  - test_heat_balance_seasonal_mismatch
+  - test_heat_balance_summer
+  - test_heat_balance_winter
+  - test_legacy_GWP_sum
+  - ~~Edhw_1_th~~
+  - ~~Edhw_2_th~~
+  - ~~Edhw_th~~
+  - ~~GWP_ee_ceilings_biogenic~~
+  - ~~GWP_ee_ceilings_fossile~~
+  - ~~GWP_ee_con_build~~
+  - ~~GWP_ee_con_tga~~
+  - ~~GWP_ee_direct_biogenic~~
+  - ~~GWP_ee_direct_fossile~~
+  - ~~GWP_ee_general~~
+  - ~~GWP_ee_general_bigonenic~~
+  - ~~GWP_ee_general_fossile~~
+  - ~~GWP_ee_ground_biogenic~~
+  - ~~GWP_ee_ground_fossile~~
+  - ~~GWP_ee_lc_battery~~
+  - ~~GWP_ee_lc_biogenic~~
+  - ~~GWP_ee_lc_boreholes~~
+  - ~~GWP_ee_lc_ceil~~
+  - ~~GWP_ee_lc_ceilings_biogenic~~
+  - ~~GWP_ee_lc_ceilings_fossile~~
+  - ~~GWP_ee_lc_construction~~
+  - ~~GWP_ee_lc_direct~~
+  - ~~GWP_ee_lc_direct_biogenic~~
+  - ~~GWP_ee_lc_direct_fossile~~
+  - ~~GWP_ee_lc_fossil~~
+  - ~~GWP_ee_lc_general_biogenic~~
+  - ~~GWP_ee_lc_general_fossile~~
+  - ~~GWP_ee_lc_ground~~
+  - ~~GWP_ee_lc_ground_biogenic~~
+  - ~~GWP_ee_lc_ground_fossile~~
+  - ~~GWP_ee_lc_other~~
+  - ~~GWP_ee_lc_other_biogenic~~
+  - ~~GWP_ee_lc_other_fossile~~
+  - ~~GWP_ee_lc_pv~~
+  - ~~GWP_ee_lc_roof~~
+  - ~~GWP_ee_lc_roof_biogenic~~
+  - ~~GWP_ee_lc_roof_fossile~~
+  - ~~GWP_ee_lc_solarthermal~~
+  - ~~GWP_ee_lc_storage~~
+  - ~~GWP_ee_lc_tga~~
+  - ~~GWP_ee_lc_tga_general~~
+  - ~~GWP_ee_lc_tga_other~~
+  - ~~GWP_ee_lc_ventilation~~
+  - ~~GWP_ee_lc_walls~~
+  - ~~GWP_ee_lc_walls_biogenic~~
+  - ~~GWP_ee_lc_walls_fossil~~
+  - ~~GWP_ee_lc_windows~~
+  - ~~GWP_ee_lc_windows_biogenic~~
+  - ~~GWP_ee_lc_windows_fossile~~
+  - ~~GWP_ee_other_biogenic~~
+  - ~~GWP_ee_other_fossile~~
+  - ~~GWP_ee_rep_build~~
+  - ~~GWP_ee_rep_tga~~
+  - ~~GWP_ee_roof_biogenic~~
+  - ~~GWP_ee_roof_fossile~~
+  - ~~GWP_ee_tga_battery_biogenic~~
+  - ~~GWP_ee_tga_battery_fossile~~
+  - ~~GWP_ee_tga_boreholes_biogenic~~
+  - ~~GWP_ee_tga_boreholes_fossile~~
+  - ~~GWP_ee_tga_general_biogenic~~
+  - ~~GWP_ee_tga_general_fossile~~
+  - ~~GWP_ee_tga_other_biogenic~~
+  - ~~GWP_ee_tga_other_fossile~~
+  - ~~GWP_ee_tga_pv_biogenic~~
+  - ~~GWP_ee_tga_pv_fossile~~
+  - ~~GWP_ee_tga_solarthermal_biogenic~~
+  - ~~GWP_ee_tga_solarthermal_fossile~~
+  - ~~GWP_ee_tga_storage_biogenic~~
+  - ~~GWP_ee_tga_storage_fossile~~
+  - ~~GWP_ee_tga_ventilation_biogenic~~
+  - ~~GWP_ee_tga_ventilation_fossile~~
+  - ~~GWP_ee_walls_biogenic~~
+  - ~~GWP_ee_walls_fossile~~
+  - ~~GWP_ee_windows_bigenic~~
+  - ~~GWP_ee_windows_fossile~~
+  - ~~GWP_life_battery~~
+  - ~~GWP_life_ceilings~~
+  - ~~GWP_life_direct~~
+  - ~~GWP_life_general~~
+  - ~~GWP_life_ground~~
+  - ~~GWP_life_other~~
+  - ~~GWP_life_roof~~
+  - ~~GWP_life_solarthermal~~
+  - ~~GWP_life_storage~~
+  - ~~GWP_life_tga_boreholes~~
+  - ~~GWP_life_tga_general~~
+  - ~~GWP_life_tga_other~~
+  - ~~GWP_life_tga_pv~~
+  - ~~GWP_life_tga_ventilation~~
+  - ~~GWP_life_walls~~
+  - ~~GWP_life_windows~~
+  - ~~PEI_cf_density~~
+  - ~~dTc summer~~
+  - ~~dTc winter~~
+  - ~~dTu summer~~
+  - ~~dTu winter~~
+  - ~~nan~~
+
+- ⚠ Duplicates (old): ['nan']
+
+### Potential Errors (#)
+- None
+
+### Value changes
+- Compared columns: []
+- Error count: 0
+- Change count: 0
+
+_No value changes._
+
+## CHART_metadata
+
+- Status: **added**
+- Rows: {'count': 89}
+- Columns: ['chart_name', 'label_de', 'var_name', 'role', 'order', 'color', 'pattern']
+
+## CHART_types
+
+- Status: **added**
+- Rows: {'count': 8}
+- Columns: ['chart_name', 'tab_name', 'title', 'chart_type']
+
+## SIM
+
+- Status: **added**
+- Rows: {'count': 401}
+- Columns: ['var_name', 'Domain', 'Measure', 'Unit', 'Formula']
+
+## PV-Import
+
+- Status: **removed**
+- Rows: {'count': 8760}
+- Columns: ['Roof tilt: 15° (Vienna)', 'Azi80Tilt27Wp460', 'Gesamtquartier', 'Azi-100Tilt15Wp460', 'BICHL_100 kWp 90%', 'V1oPBlend_ges', 'Var_Planstand_Pilzgasse']
+
+## Wetter
+
+- Status: **removed**
+- Rows: {'count': 8760}
+- Columns: ['Horizontalstrahlung', 'Oststrahlung', 'Südstrahlung', 'Weststrahlung', 'Nordstrahlung', 'Außentemperatur', 'Rel. Feuchte']
+
+## Audit summary
+
+- Raw audit present (old): False
+- Raw audit present (new): True
+
+### Empty var_name exclusions (converter)
+
+**Old:**
+```json
+{}
+```
+**New:**
+```json
+{'IN': {'empty_var_name_count': 98}, 'OUT': {'empty_var_name_count': 103}, 'SIM': {'empty_var_name_count': None}, 'CHART_metadata': {'empty_var_name_count': None}, 'CHART_types': {'empty_var_name_count': None}}
+```

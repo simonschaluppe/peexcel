@@ -1,0 +1,2716 @@
+from,to,table,variable,column,old_value,new_value
+v1.07,v1.08,IN,ACH_night_m³,ka,0.0,0
+v1.07,v1.08,IN,ACH_night_m³,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,Batt_SOC_init,ka,1.0,1
+v1.07,v1.08,IN,Batt_SOC_init,Type,Zwischenrechnung,value
+v1.07,v1.08,IN,Batt_auto_discharge_factor,ka,0.0,0
+v1.07,v1.08,IN,Batt_auto_discharge_factor,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,Batt_c_rate,ka,1.0,2
+v1.07,v1.08,IN,Batt_c_rate,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,Batt_cap_Wh_per_NFA,ka,0.0,0
+v1.07,v1.08,IN,Batt_cap_Wh_per_NFA,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,Batt_cap_kWh,ka,2.0,2
+v1.07,v1.08,IN,Batt_cap_kWh,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,Batt_eff_factor_charge,ka,1.0,2
+v1.07,v1.08,IN,Batt_eff_factor_charge,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,Batt_eff_factor_discharge,ka,1.0,2
+v1.07,v1.08,IN,Batt_eff_factor_discharge,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,Batt_is_gridcharged,ka,2.0,2
+v1.07,v1.08,IN,Batt_is_gridcharged,Type,"Neu (default, nicht berechenbar)",ui_writeback
+v1.07,v1.08,IN,Batt_is_not_used_during_signals,ka,1.0,1
+v1.07,v1.08,IN,Batt_is_not_used_during_signals,Type,nan,value
+v1.07,v1.08,IN,Batt_is_used,ka,2.0,2
+v1.07,v1.08,IN,Batt_is_used,Type,Neu (aus alt Berechenbar),ui_writeback
+v1.07,v1.08,IN,Batt_is_used_for_EV,ka,1.0,1
+v1.07,v1.08,IN,Batt_is_used_for_EV,Type,"Neu (default, nicht berechenbar)",value
+v1.07,v1.08,IN,Batt_is_used_for_HVACminimum,ka,1.0,1
+v1.07,v1.08,IN,Batt_is_used_for_HVACminimum,Type,"Neu (default, nicht berechenbar)",value
+v1.07,v1.08,IN,Batt_is_used_for_plugloads,ka,1.0,1
+v1.07,v1.08,IN,Batt_is_used_for_plugloads,Type,"Neu (default, nicht berechenbar)",value
+v1.07,v1.08,IN,Batt_max_power_specific,ka,0.0,0
+v1.07,v1.08,IN,Batt_max_power_specific,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,Batt_self_discharge_rate,ka,1.0,2
+v1.07,v1.08,IN,Batt_self_discharge_rate,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,DHW_1_efficiency,ka,2.0,2
+v1.07,v1.08,IN,DHW_1_efficiency,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,DHW_1_el_aux,ka,1.0,1
+v1.07,v1.08,IN,DHW_1_el_aux,Type,nan,value
+v1.07,v1.08,IN,DHW_1_incl_distribution_factor,ka,0.0,0
+v1.07,v1.08,IN,DHW_1_incl_distribution_factor,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,DHW_1_is_electric,ka,0.0,0
+v1.07,v1.08,IN,DHW_1_is_electric,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,DHW_1_is_used,ka,0.0,0
+v1.07,v1.08,IN,DHW_1_is_used,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,DHW_1_share_office,ka,2.0,2
+v1.07,v1.08,IN,DHW_1_share_office,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,DHW_1_share_other,ka,2.0,2
+v1.07,v1.08,IN,DHW_1_share_other,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,DHW_1_share_residential,ka,2.0,2
+v1.07,v1.08,IN,DHW_1_share_residential,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,DHW_1_share_retailfood,ka,2.0,2
+v1.07,v1.08,IN,DHW_1_share_retailfood,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,DHW_1_share_retailother,ka,2.0,2
+v1.07,v1.08,IN,DHW_1_share_retailother,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,DHW_1_share_schoolprim,ka,2.0,2
+v1.07,v1.08,IN,DHW_1_share_schoolprim,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,DHW_1_share_schoolsec,ka,2.0,2
+v1.07,v1.08,IN,DHW_1_share_schoolsec,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,DHW_2_efficiency,ka,2.0,2
+v1.07,v1.08,IN,DHW_2_efficiency,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,DHW_2_el_aux,ka,1.0,2
+v1.07,v1.08,IN,DHW_2_el_aux,Type,nan,userinput
+v1.07,v1.08,IN,DHW_2_incl_distribution_factor,ka,0.0,0
+v1.07,v1.08,IN,DHW_2_incl_distribution_factor,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,DHW_2_is_electric,ka,0.0,0
+v1.07,v1.08,IN,DHW_2_is_electric,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,DHW_2_is_used,ka,0.0,0
+v1.07,v1.08,IN,DHW_2_is_used,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,DHW_Tmax,ka,0.0,0
+v1.07,v1.08,IN,DHW_Tmax,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,DHW_Tmax_input,ka,2.0,2
+v1.07,v1.08,IN,DHW_Tmax_input,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,DHW_Tmin,ka,2.0,2
+v1.07,v1.08,IN,DHW_Tmin,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,DHW_carriertype_1,ka,2.0,2
+v1.07,v1.08,IN,DHW_carriertype_1,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,DHW_carriertype_2,ka,2.0,2
+v1.07,v1.08,IN,DHW_carriertype_2,Type,nan,userinput
+v1.07,v1.08,IN,DHW_concurrency_office,ka,nan,2
+v1.07,v1.08,IN,DHW_concurrency_office,Type,nan,userinput
+v1.07,v1.08,IN,DHW_concurrency_other,ka,nan,2
+v1.07,v1.08,IN,DHW_concurrency_other,Type,nan,userinput
+v1.07,v1.08,IN,DHW_concurrency_residential,ka,nan,2
+v1.07,v1.08,IN,DHW_concurrency_residential,Type,nan,userinput
+v1.07,v1.08,IN,DHW_concurrency_retailfood,ka,nan,2
+v1.07,v1.08,IN,DHW_concurrency_retailfood,Type,nan,userinput
+v1.07,v1.08,IN,DHW_concurrency_retailother,ka,nan,2
+v1.07,v1.08,IN,DHW_concurrency_retailother,Type,nan,userinput
+v1.07,v1.08,IN,DHW_concurrency_schoolprim,ka,nan,2
+v1.07,v1.08,IN,DHW_concurrency_schoolprim,Type,nan,userinput
+v1.07,v1.08,IN,DHW_concurrency_schoolsec,ka,nan,2
+v1.07,v1.08,IN,DHW_concurrency_schoolsec,Type,nan,userinput
+v1.07,v1.08,IN,DHW_conversion_1,ka,0.0,0
+v1.07,v1.08,IN,DHW_conversion_1,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,DHW_conversion_2,ka,0.0,0
+v1.07,v1.08,IN,DHW_conversion_2,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,DHW_demand_office_kWhm2,ka,1.0,1
+v1.07,v1.08,IN,DHW_demand_office_kWhm2,Type,Neu (aus alt Berechenbar),value
+v1.07,v1.08,IN,DHW_demand_other_kWhm2,ka,1.0,1
+v1.07,v1.08,IN,DHW_demand_other_kWhm2,Type,"Neu (default, nicht berechenbar)",value
+v1.07,v1.08,IN,DHW_demand_residential_kWhm2,ka,1.0,1
+v1.07,v1.08,IN,DHW_demand_residential_kWhm2,Type,Neu (aus alt Berechenbar),value
+v1.07,v1.08,IN,DHW_demand_retailfood_kWhm2,ka,1.0,1
+v1.07,v1.08,IN,DHW_demand_retailfood_kWhm2,Type,Neu (aus alt Berechenbar),value
+v1.07,v1.08,IN,DHW_demand_retailother_kWhm2,ka,1.0,1
+v1.07,v1.08,IN,DHW_demand_retailother_kWhm2,Type,Neu (aus alt Berechenbar),value
+v1.07,v1.08,IN,DHW_demand_schoolprim_kWhm2,ka,1.0,1
+v1.07,v1.08,IN,DHW_demand_schoolprim_kWhm2,Type,Neu (aus alt Berechenbar),value
+v1.07,v1.08,IN,DHW_demand_schoolsec_kWhm2,ka,1.0,1
+v1.07,v1.08,IN,DHW_demand_schoolsec_kWhm2,Type,Neu (aus alt Berechenbar),value
+v1.07,v1.08,IN,DHW_efficiency_distribution_1,ka,2.0,2
+v1.07,v1.08,IN,DHW_efficiency_distribution_1,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,DHW_efficiency_distribution_2,ka,2.0,2
+v1.07,v1.08,IN,DHW_efficiency_distribution_2,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,DHW_losses_1,ka,2.0,2
+v1.07,v1.08,IN,DHW_losses_1,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,DHW_losses_2,ka,2.0,2
+v1.07,v1.08,IN,DHW_losses_2,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,DHW_occupancy_office,ka,nan,2
+v1.07,v1.08,IN,DHW_occupancy_office,Type,nan,userinput
+v1.07,v1.08,IN,DHW_occupancy_other,ka,nan,2
+v1.07,v1.08,IN,DHW_occupancy_other,Type,nan,userinput
+v1.07,v1.08,IN,DHW_occupancy_residential,ka,nan,2
+v1.07,v1.08,IN,DHW_occupancy_residential,Type,nan,userinput
+v1.07,v1.08,IN,DHW_occupancy_retailfood,ka,nan,2
+v1.07,v1.08,IN,DHW_occupancy_retailfood,Type,nan,userinput
+v1.07,v1.08,IN,DHW_occupancy_retailother,ka,nan,2
+v1.07,v1.08,IN,DHW_occupancy_retailother,Type,nan,userinput
+v1.07,v1.08,IN,DHW_occupancy_schoolprim,ka,nan,2
+v1.07,v1.08,IN,DHW_occupancy_schoolprim,Type,nan,userinput
+v1.07,v1.08,IN,DHW_occupancy_schoolsec,ka,nan,2
+v1.07,v1.08,IN,DHW_occupancy_schoolsec,Type,nan,userinput
+v1.07,v1.08,IN,DHW_storage_1_liter,ka,0.0,0
+v1.07,v1.08,IN,DHW_storage_1_liter,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,DHW_storage_2_liter,ka,0.0,0
+v1.07,v1.08,IN,DHW_storage_2_liter,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,DHW_storage_env_temp_default,ka,nan,2
+v1.07,v1.08,IN,DHW_storage_env_temp_default,Type,nan,userinput
+v1.07,v1.08,IN,DHW_storage_liter_pPerson,ka,nan,2
+v1.07,v1.08,IN,DHW_storage_liter_pPerson,Type,nan,userinput
+v1.07,v1.08,IN,DHW_thermal_power_1_kW,ka,0.0,0
+v1.07,v1.08,IN,DHW_thermal_power_1_kW,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,DHW_thermal_power_Wpl,ka,nan,0
+v1.07,v1.08,IN,DHW_thermal_power_Wpl,Type,nan,calculation
+v1.07,v1.08,IN,DHW_thermal_power_pPerson,ka,nan,1
+v1.07,v1.08,IN,DHW_thermal_power_pPerson,Type,nan,value
+v1.07,v1.08,IN,Daylightcoefficient_office,ka,1.0,2
+v1.07,v1.08,IN,Daylightcoefficient_office,Type,nan,userinput
+v1.07,v1.08,IN,Daylightcoefficient_schoolprim,ka,1.0,2
+v1.07,v1.08,IN,Daylightcoefficient_schoolprim,Type,nan,userinput
+v1.07,v1.08,IN,Daylightcoefficient_schoolsec,ka,1.0,2
+v1.07,v1.08,IN,Daylightcoefficient_schoolsec,Type,nan,userinput
+v1.07,v1.08,IN,EV_battsize_kWh,ka,1.0,2
+v1.07,v1.08,IN,EV_battsize_kWh,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,EV_charging_efficiency,ka,2.0,2
+v1.07,v1.08,IN,EV_charging_efficiency,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,EV_charging_losses_surcharge_factor,ka,0.0,0
+v1.07,v1.08,IN,EV_charging_losses_surcharge_factor,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,EV_charging_station_power,ka,2.0,2
+v1.07,v1.08,IN,EV_charging_station_power,Type,nan,userinput
+v1.07,v1.08,IN,EV_charging_stations,ka,2.0,2
+v1.07,v1.08,IN,EV_charging_stations,Type,nan,userinput
+v1.07,v1.08,IN,EV_count_residential,ka,0.0,0
+v1.07,v1.08,IN,EV_count_residential,Type,nan,calculation
+v1.07,v1.08,IN,EV_count_retail,ka,0.0,0
+v1.07,v1.08,IN,EV_count_retail,Type,nan,calculation
+v1.07,v1.08,IN,EV_count_work,ka,0.0,0
+v1.07,v1.08,IN,EV_count_work,Type,nan,calculation
+v1.07,v1.08,IN,EV_demand_kWhpkm,ka,1.0,2
+v1.07,v1.08,IN,EV_demand_kWhpkm,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,EV_experimental_calculation,ka,1.0,1
+v1.07,v1.08,IN,EV_experimental_calculation,Type,nan,value
+v1.07,v1.08,IN,EV_max_charging_power_ratio,ka,1.0,1
+v1.07,v1.08,IN,EV_max_charging_power_ratio,Type,"Neu (default, nicht berechenbar)",value
+v1.07,v1.08,IN,EV_mileage_res,ka,0.0,0
+v1.07,v1.08,IN,EV_mileage_res,Type,nan,calculation
+v1.07,v1.08,IN,EV_mileage_retail,ka,0.0,0
+v1.07,v1.08,IN,EV_mileage_retail,Type,nan,calculation
+v1.07,v1.08,IN,EV_mileage_work,ka,0.0,0
+v1.07,v1.08,IN,EV_mileage_work,Type,nan,calculation
+v1.07,v1.08,IN,EV_self_discharge_per_week,ka,1.0,2
+v1.07,v1.08,IN,EV_self_discharge_per_week,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,EV_selfdischarge_per_h,ka,0.0,0
+v1.07,v1.08,IN,EV_selfdischarge_per_h,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,EV_share,ka,2.0,2
+v1.07,v1.08,IN,EV_share,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,EV_share_constant_charging,ka,1.0,1
+v1.07,v1.08,IN,EV_share_constant_charging,Type,nan,value
+v1.07,v1.08,IN,EV_soc_min_discharge,ka,1.0,2
+v1.07,v1.08,IN,EV_soc_min_discharge,Type,nan,userinput
+v1.07,v1.08,IN,EV_soc_min_ext,ka,1.0,2
+v1.07,v1.08,IN,EV_soc_min_ext,Type,nan,userinput
+v1.07,v1.08,IN,EV_soc_min_retail,ka,1.0,1
+v1.07,v1.08,IN,EV_soc_min_retail,Type,nan,value
+v1.07,v1.08,IN,EV_soc_min_work,ka,1.0,1
+v1.07,v1.08,IN,EV_soc_min_work,Type,nan,value
+v1.07,v1.08,IN,EV_soc_minimum,ka,1.0,1
+v1.07,v1.08,IN,EV_soc_minimum,Type,Neu (aus alt Berechenbar),value
+v1.07,v1.08,IN,EV_storage_total_kWh,ka,0.0,0
+v1.07,v1.08,IN,EV_storage_total_kWh,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,Ev_scale_office,ka,2.0,2
+v1.07,v1.08,IN,Ev_scale_office,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,Ev_scale_other,ka,2.0,2
+v1.07,v1.08,IN,Ev_scale_other,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,Ev_scale_residential,ka,2.0,2
+v1.07,v1.08,IN,Ev_scale_residential,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,Ev_scale_retail_food,ka,2.0,2
+v1.07,v1.08,IN,Ev_scale_retail_food,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,Ev_scale_retail_other,ka,2.0,2
+v1.07,v1.08,IN,Ev_scale_retail_other,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,Ev_scale_school_prim,ka,2.0,2
+v1.07,v1.08,IN,Ev_scale_school_prim,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,Ev_scale_school_sec,ka,2.0,2
+v1.07,v1.08,IN,Ev_scale_school_sec,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,FLEX_PV_is_used,ka,2.0,2
+v1.07,v1.08,IN,FLEX_PV_is_used,Type,Neu (aus alt Berechenbar),ui_writeback
+v1.07,v1.08,IN,FLEX_choice_cool_system,ka,2.0,2
+v1.07,v1.08,IN,FLEX_choice_cool_system,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,FLEX_choice_heat_system,ka,2.0,2
+v1.07,v1.08,IN,FLEX_choice_heat_system,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,FLEX_cool1_use,ka,0.0,0
+v1.07,v1.08,IN,FLEX_cool1_use,Type,Neu (aus alt Berechenbar),calculation
+v1.07,v1.08,IN,FLEX_cool3_use,ka,0.0,0
+v1.07,v1.08,IN,FLEX_cool3_use,Type,"Neu (default, nicht berechenbar)",calculation
+v1.07,v1.08,IN,FLEX_grid_maxpower_Wm2,ka,1.0,1
+v1.07,v1.08,IN,FLEX_grid_maxpower_Wm2,Type,Neu (aus alt Berechenbar),value
+v1.07,v1.08,IN,FLEX_heat1_use,ka,0.0,0
+v1.07,v1.08,IN,FLEX_heat1_use,Type,Neu (aus alt Berechenbar),calculation
+v1.07,v1.08,IN,FLEX_heat3_use,ka,0.0,0
+v1.07,v1.08,IN,FLEX_heat3_use,Type,"Neu (default, nicht berechenbar)",calculation
+v1.07,v1.08,IN,FLEX_is_used,ka,2.0,2
+v1.07,v1.08,IN,FLEX_is_used,Type,Neu (aus alt Berechenbar),ui_writeback
+v1.07,v1.08,IN,FLEX_is_used_for_HVAC_min,ka,1.0,1
+v1.07,v1.08,IN,FLEX_is_used_for_HVAC_min,Type,"Neu (default, nicht berechenbar)",value
+v1.07,v1.08,IN,FLEX_is_used_for_ev_min,ka,1.0,1
+v1.07,v1.08,IN,FLEX_is_used_for_ev_min,Type,"Neu (default, nicht berechenbar)",value
+v1.07,v1.08,IN,FLEX_is_used_for_plugloads,ka,1.0,1
+v1.07,v1.08,IN,FLEX_is_used_for_plugloads,Type,"Neu (default, nicht berechenbar)",value
+v1.07,v1.08,IN,FLEX_signal_ID,ka,0.0,0
+v1.07,v1.08,IN,FLEX_signal_ID,Type,Abgelöst in Klimaaktiv,calculation
+v1.07,v1.08,IN,FLEX_signal_name,ka,2.0,2
+v1.07,v1.08,IN,FLEX_signal_name,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,FSI,ka,0.0,0
+v1.07,v1.08,IN,FSI,Type,nan,calculation
+v1.07,v1.08,IN,GFA_office,ka,2.0,2
+v1.07,v1.08,IN,GFA_office,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,GFA_other,ka,2.0,2
+v1.07,v1.08,IN,GFA_other,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,GFA_residential,ka,2.0,2
+v1.07,v1.08,IN,GFA_residential,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,GFA_retailfood,ka,2.0,2
+v1.07,v1.08,IN,GFA_retailfood,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,GFA_retailother,ka,2.0,2
+v1.07,v1.08,IN,GFA_retailother,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,GFA_schoolprim,ka,2.0,2
+v1.07,v1.08,IN,GFA_schoolprim,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,GFA_schoolsec,ka,2.0,2
+v1.07,v1.08,IN,GFA_schoolsec,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,GFA_total,ka,0.0,0
+v1.07,v1.08,IN,GFA_total,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,GFV,ka,0.0,0
+v1.07,v1.08,IN,GFV,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,GHG_LCA_timeframe_years,ka,1.0,1
+v1.07,v1.08,IN,GHG_LCA_timeframe_years,Type,nan,value
+v1.07,v1.08,IN,GWP_battery_name,ka,2.0,2
+v1.07,v1.08,IN,GWP_battery_name,Type,nan,userinput
+v1.07,v1.08,IN,GWP_boreholes_name,ka,2.0,2
+v1.07,v1.08,IN,GWP_boreholes_name,Type,nan,userinput
+v1.07,v1.08,IN,GWP_ceilings_name,ka,2.0,2
+v1.07,v1.08,IN,GWP_ceilings_name,Type,nan,userinput
+v1.07,v1.08,IN,GWP_general_name,ka,2.0,2
+v1.07,v1.08,IN,GWP_general_name,Type,nan,userinput
+v1.07,v1.08,IN,GWP_ground_name,ka,2.0,2
+v1.07,v1.08,IN,GWP_ground_name,Type,nan,userinput
+v1.07,v1.08,IN,GWP_miv_count_ev,ka,0.0,0
+v1.07,v1.08,IN,GWP_miv_count_ev,Type,nan,calculation
+v1.07,v1.08,IN,GWP_miv_count_fossile,ka,0.0,0
+v1.07,v1.08,IN,GWP_miv_count_fossile,Type,nan,calculation
+v1.07,v1.08,IN,GWP_mobility_car_gpPKm,ka,0.0,1
+v1.07,v1.08,IN,GWP_mobility_car_gpPKm,Type,nan,value
+v1.07,v1.08,IN,GWP_mobility_construction_ev,ka,1.0,1
+v1.07,v1.08,IN,GWP_mobility_construction_ev,Type,nan,value
+v1.07,v1.08,IN,GWP_mobility_construction_fossil,ka,1.0,2
+v1.07,v1.08,IN,GWP_mobility_construction_fossil,Type,nan,userinput
+v1.07,v1.08,IN,GWP_mobility_moped_gpPKm,ka,0.0,1
+v1.07,v1.08,IN,GWP_mobility_moped_gpPKm,Type,nan,value
+v1.07,v1.08,IN,GWP_other_name,ka,2.0,2
+v1.07,v1.08,IN,GWP_other_name,Type,nan,userinput
+v1.07,v1.08,IN,GWP_pv_name,ka,2.0,2
+v1.07,v1.08,IN,GWP_pv_name,Type,nan,userinput
+v1.07,v1.08,IN,GWP_rcpi_biomass,ka,0.0,0
+v1.07,v1.08,IN,GWP_rcpi_biomass,Type,nan,calculation
+v1.07,v1.08,IN,GWP_rcpi_district_heating,ka,0.0,0
+v1.07,v1.08,IN,GWP_rcpi_district_heating,Type,nan,calculation
+v1.07,v1.08,IN,GWP_rcpi_fossil,ka,0.0,0
+v1.07,v1.08,IN,GWP_rcpi_fossil,Type,nan,calculation
+v1.07,v1.08,IN,GWP_rcpi_grid,ka,0.0,0
+v1.07,v1.08,IN,GWP_rcpi_grid,Type,nan,calculation
+v1.07,v1.08,IN,GWP_rcpi_grid_substition,ka,0.0,0
+v1.07,v1.08,IN,GWP_rcpi_grid_substition,Type,nan,calculation
+v1.07,v1.08,IN,GWP_rcpi_mob_fossile,ka,0.0,0
+v1.07,v1.08,IN,GWP_rcpi_mob_fossile,Type,nan,calculation
+v1.07,v1.08,IN,GWP_rcpi_natural_gas,ka,0.0,0
+v1.07,v1.08,IN,GWP_rcpi_natural_gas,Type,nan,calculation
+v1.07,v1.08,IN,GWP_rcpi_renewable,ka,0.0,0
+v1.07,v1.08,IN,GWP_rcpi_renewable,Type,nan,calculation
+v1.07,v1.08,IN,GWP_ref_area_ceilings,ka,2.0,2
+v1.07,v1.08,IN,GWP_ref_area_ceilings,Type,nan,userinput
+v1.07,v1.08,IN,GWP_ref_area_fundament,ka,2.0,2
+v1.07,v1.08,IN,GWP_ref_area_fundament,Type,nan,userinput
+v1.07,v1.08,IN,GWP_ref_area_roof,ka,2.0,2
+v1.07,v1.08,IN,GWP_ref_area_roof,Type,nan,userinput
+v1.07,v1.08,IN,GWP_ref_area_walls,ka,2.0,2
+v1.07,v1.08,IN,GWP_ref_area_walls,Type,nan,userinput
+v1.07,v1.08,IN,GWP_ref_area_windows,ka,2.0,2
+v1.07,v1.08,IN,GWP_ref_area_windows,Type,nan,userinput
+v1.07,v1.08,IN,GWP_refratio_boreholes,ka,0.0,0
+v1.07,v1.08,IN,GWP_refratio_boreholes,Type,nan,calculation
+v1.07,v1.08,IN,GWP_refratio_ceilings,ka,0.0,0
+v1.07,v1.08,IN,GWP_refratio_ceilings,Type,nan,calculation
+v1.07,v1.08,IN,GWP_refratio_fundament,ka,0.0,0
+v1.07,v1.08,IN,GWP_refratio_fundament,Type,nan,calculation
+v1.07,v1.08,IN,GWP_refratio_pv,ka,0.0,0
+v1.07,v1.08,IN,GWP_refratio_pv,Type,nan,calculation
+v1.07,v1.08,IN,GWP_refratio_roof,ka,0.0,0
+v1.07,v1.08,IN,GWP_refratio_roof,Type,nan,calculation
+v1.07,v1.08,IN,GWP_refratio_walls,ka,0.0,0
+v1.07,v1.08,IN,GWP_refratio_walls,Type,nan,calculation
+v1.07,v1.08,IN,GWP_refratio_windows,ka,0.0,0
+v1.07,v1.08,IN,GWP_refratio_windows,Type,nan,calculation
+v1.07,v1.08,IN,GWP_roof_name,ka,2.0,2
+v1.07,v1.08,IN,GWP_roof_name,Type,nan,userinput
+v1.07,v1.08,IN,GWP_solarthermal_name,ka,2.0,2
+v1.07,v1.08,IN,GWP_solarthermal_name,Type,nan,userinput
+v1.07,v1.08,IN,GWP_storage_name,ka,2.0,2
+v1.07,v1.08,IN,GWP_storage_name,Type,nan,userinput
+v1.07,v1.08,IN,GWP_tga_general_name,ka,2.0,2
+v1.07,v1.08,IN,GWP_tga_general_name,Type,nan,userinput
+v1.07,v1.08,IN,GWP_tga_other_name,ka,2.0,2
+v1.07,v1.08,IN,GWP_tga_other_name,Type,nan,userinput
+v1.07,v1.08,IN,GWP_ventilation_name,ka,2.0,2
+v1.07,v1.08,IN,GWP_ventilation_name,Type,nan,userinput
+v1.07,v1.08,IN,GWP_walls_name,ka,2.0,2
+v1.07,v1.08,IN,GWP_walls_name,Type,nan,userinput
+v1.07,v1.08,IN,GWP_windows_name,ka,2.0,2
+v1.07,v1.08,IN,GWP_windows_name,Type,nan,userinput
+v1.07,v1.08,IN,NFA_cooled,ka,0.0,0
+v1.07,v1.08,IN,NFA_cooled,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,NFA_mechvent,ka,0.0,0
+v1.07,v1.08,IN,NFA_mechvent,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,NFA_office,ka,0.0,0
+v1.07,v1.08,IN,NFA_office,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,NFA_other,ka,0.0,0
+v1.07,v1.08,IN,NFA_other,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,NFA_residential,ka,0.0,0
+v1.07,v1.08,IN,NFA_residential,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,NFA_retailfood,ka,0.0,0
+v1.07,v1.08,IN,NFA_retailfood,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,NFA_retailother,ka,0.0,0
+v1.07,v1.08,IN,NFA_retailother,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,NFA_schoolprim,ka,0.0,0
+v1.07,v1.08,IN,NFA_schoolprim,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,NFA_schoolsec,ka,0.0,0
+v1.07,v1.08,IN,NFA_schoolsec,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,NFA_to_GFA_ratio,ka,0.0,0
+v1.07,v1.08,IN,NFA_to_GFA_ratio,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,NFA_to_GFA_ratio_office,ka,2.0,2
+v1.07,v1.08,IN,NFA_to_GFA_ratio_office,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,NFA_to_GFA_ratio_other,ka,2.0,2
+v1.07,v1.08,IN,NFA_to_GFA_ratio_other,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,NFA_to_GFA_ratio_residential,ka,2.0,2
+v1.07,v1.08,IN,NFA_to_GFA_ratio_residential,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,NFA_to_GFA_ratio_retailfood,ka,2.0,2
+v1.07,v1.08,IN,NFA_to_GFA_ratio_retailfood,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,NFA_to_GFA_ratio_retailother,ka,2.0,2
+v1.07,v1.08,IN,NFA_to_GFA_ratio_retailother,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,NFA_to_GFA_ratio_schoolprim,ka,2.0,2
+v1.07,v1.08,IN,NFA_to_GFA_ratio_schoolprim,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,NFA_to_GFA_ratio_schoolsec,ka,2.0,2
+v1.07,v1.08,IN,NFA_to_GFA_ratio_schoolsec,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,NFA_total,ka,0.0,0
+v1.07,v1.08,IN,NFA_total,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,NFA_windowvent,ka,0.0,0
+v1.07,v1.08,IN,NFA_windowvent,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,NFAfrac_c,ka,0.0,0
+v1.07,v1.08,IN,NFAfrac_c,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,NFAfrac_u,ka,0.0,0
+v1.07,v1.08,IN,NFAfrac_u,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,NFV_c,ka,0.0,0
+v1.07,v1.08,IN,NFV_c,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,NFV_mechvent,ka,0.0,0
+v1.07,v1.08,IN,NFV_mechvent,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,NFV_total,ka,0.0,0
+v1.07,v1.08,IN,NFV_total,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,NFV_u,ka,0.0,0
+v1.07,v1.08,IN,NFV_u,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,NFV_windowvent,ka,0.0,0
+v1.07,v1.08,IN,NFV_windowvent,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,PV_efficiency,ka,1.0,1
+v1.07,v1.08,IN,PV_efficiency,Type,Neu (aus alt Berechenbar),value
+v1.07,v1.08,IN,PV_id,ka,0.0,0
+v1.07,v1.08,IN,PV_id,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,PV_is_used,ka,2.0,2
+v1.07,v1.08,IN,PV_is_used,Type,Neu (aus alt Berechenbar),ui_writeback
+v1.07,v1.08,IN,PV_kWp,ka,0.0,0
+v1.07,v1.08,IN,PV_kWp,Type,nan,calculation
+v1.07,v1.08,IN,PV_m2_per_kWp,ka,1.0,2
+v1.07,v1.08,IN,PV_m2_per_kWp,Type,nan,userinput
+v1.07,v1.08,IN,PV_module_area,ka,0.0,0
+v1.07,v1.08,IN,PV_module_area,Type,nan,calculation
+v1.07,v1.08,IN,PV_profile_name,ka,2.0,2
+v1.07,v1.08,IN,PV_profile_name,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,PV_scale,ka,2.0,2
+v1.07,v1.08,IN,PV_scale,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,Plight_max_office,ka,1.0,2
+v1.07,v1.08,IN,Plight_max_office,Type,nan,userinput
+v1.07,v1.08,IN,Plight_max_schoolprim,ka,1.0,2
+v1.07,v1.08,IN,Plight_max_schoolprim,Type,nan,userinput
+v1.07,v1.08,IN,Plight_max_schoolsec,ka,1.0,2
+v1.07,v1.08,IN,Plight_max_schoolsec,Type,nan,userinput
+v1.07,v1.08,IN,Plight_min_office,ka,1.0,2
+v1.07,v1.08,IN,Plight_min_office,Type,nan,userinput
+v1.07,v1.08,IN,Plight_min_schoolprim,ka,1.0,2
+v1.07,v1.08,IN,Plight_min_schoolprim,Type,nan,userinput
+v1.07,v1.08,IN,Plight_min_schoolsec,ka,1.0,2
+v1.07,v1.08,IN,Plight_min_schoolsec,Type,nan,userinput
+v1.07,v1.08,IN,Plugloads_scale_office,ka,1.0,2
+v1.07,v1.08,IN,Plugloads_scale_office,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,Plugloads_scale_other,ka,1.0,2
+v1.07,v1.08,IN,Plugloads_scale_other,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,Plugloads_scale_res,ka,1.0,2
+v1.07,v1.08,IN,Plugloads_scale_res,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,Plugloads_scale_retailfood,ka,1.0,2
+v1.07,v1.08,IN,Plugloads_scale_retailfood,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,Plugloads_scale_retailother,ka,1.0,2
+v1.07,v1.08,IN,Plugloads_scale_retailother,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,Plugloads_scale_schoolprim,ka,1.0,2
+v1.07,v1.08,IN,Plugloads_scale_schoolprim,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,Plugloads_scale_schoolsec,ka,1.0,2
+v1.07,v1.08,IN,Plugloads_scale_schoolsec,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,QC_aux_1el,ka,2.0,2
+v1.07,v1.08,IN,QC_aux_1el,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,QC_aux_2th,ka,2.0,2
+v1.07,v1.08,IN,QC_aux_2th,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,QC_aux_3el,ka,2.0,2
+v1.07,v1.08,IN,QC_aux_3el,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,QC_aux_fc,ka,2.0,2
+v1.07,v1.08,IN,QC_aux_fc,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,QC_distr_losses_1el,ka,2.0,2
+v1.07,v1.08,IN,QC_distr_losses_1el,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,QC_distr_losses_2th,ka,2.0,2
+v1.07,v1.08,IN,QC_distr_losses_2th,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,QC_distr_losses_3el,ka,2.0,2
+v1.07,v1.08,IN,QC_distr_losses_3el,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,QC_generation_eff_2th,ka,0.0,0
+v1.07,v1.08,IN,QC_generation_eff_2th,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,QC_to_EC_1,ka,0.0,0
+v1.07,v1.08,IN,QC_to_EC_1,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,QC_to_EC_3,ka,0.0,0
+v1.07,v1.08,IN,QC_to_EC_3,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,QCmax_1el,ka,2.0,2
+v1.07,v1.08,IN,QCmax_1el,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,QCmax_2th,ka,2.0,2
+v1.07,v1.08,IN,QCmax_2th,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,QCmax_3el,ka,2.0,2
+v1.07,v1.08,IN,QCmax_3el,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,QCmax_freecooling,ka,2.0,2
+v1.07,v1.08,IN,QCmax_freecooling,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,QCmax_room_MW,ka,0.0,0
+v1.07,v1.08,IN,QCmax_room_MW,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,QCmax_room_m2,ka,2.0,2
+v1.07,v1.08,IN,QCmax_room_m2,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,QH_aux_el_to_th_1el,ka,2.0,2
+v1.07,v1.08,IN,QH_aux_el_to_th_1el,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,QH_aux_el_to_th_2th,ka,2.0,2
+v1.07,v1.08,IN,QH_aux_el_to_th_2th,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,QH_aux_el_to_th_3el,ka,2.0,2
+v1.07,v1.08,IN,QH_aux_el_to_th_3el,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,QH_aux_el_to_th_4th,ka,2.0,2
+v1.07,v1.08,IN,QH_aux_el_to_th_4th,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,QH_aux_wasteheat,ka,1.0,1
+v1.07,v1.08,IN,QH_aux_wasteheat,Type,"Neu (default, nicht berechenbar)",value
+v1.07,v1.08,IN,QH_distr_loss_1el,ka,2.0,2
+v1.07,v1.08,IN,QH_distr_loss_1el,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,QH_distr_loss_2th,ka,2.0,2
+v1.07,v1.08,IN,QH_distr_loss_2th,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,QH_distr_loss_3el,ka,2.0,2
+v1.07,v1.08,IN,QH_distr_loss_3el,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,QH_distr_loss_4th,ka,2.0,2
+v1.07,v1.08,IN,QH_distr_loss_4th,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,QH_generation_eff_1el,ka,0.0,0
+v1.07,v1.08,IN,QH_generation_eff_1el,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,QH_generation_eff_2th,ka,0.0,0
+v1.07,v1.08,IN,QH_generation_eff_2th,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,QH_generation_eff_3el,ka,0.0,0
+v1.07,v1.08,IN,QH_generation_eff_3el,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,QH_generation_eff_4th,ka,0.0,0
+v1.07,v1.08,IN,QH_generation_eff_4th,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,QHmax_1el_m²,ka,2.0,2
+v1.07,v1.08,IN,QHmax_1el_m²,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,QHmax_2th_m²,ka,2.0,2
+v1.07,v1.08,IN,QHmax_2th_m²,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,QHmax_3el_m²,ka,2.0,2
+v1.07,v1.08,IN,QHmax_3el_m²,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,QHmax_4th_m²,ka,2.0,2
+v1.07,v1.08,IN,QHmax_4th_m²,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,QHmax_room_MW,ka,0.0,0
+v1.07,v1.08,IN,QHmax_room_MW,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,QHmax_room_m²,ka,2.0,2
+v1.07,v1.08,IN,QHmax_room_m²,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,QS_max_shading_c,ka,0.0,0
+v1.07,v1.08,IN,QS_max_shading_c,Type,nan,calculation
+v1.07,v1.08,IN,QS_max_shading_u,ka,0.0,0
+v1.07,v1.08,IN,QS_max_shading_u,Type,nan,calculation
+v1.07,v1.08,IN,StatPAX_eduprim,ka,0.0,0
+v1.07,v1.08,IN,StatPAX_eduprim,Type,nan,calculation
+v1.07,v1.08,IN,StatPAX_edusec,ka,0.0,0
+v1.07,v1.08,IN,StatPAX_edusec,Type,nan,calculation
+v1.07,v1.08,IN,StatPAX_office,ka,0.0,0
+v1.07,v1.08,IN,StatPAX_office,Type,nan,calculation
+v1.07,v1.08,IN,StatPAX_res,ka,0.0,0
+v1.07,v1.08,IN,StatPAX_res,Type,nan,calculation
+v1.07,v1.08,IN,StatPAX_retail,ka,0.0,0
+v1.07,v1.08,IN,StatPAX_retail,Type,nan,calculation
+v1.07,v1.08,IN,StatPAX_retailother,ka,0.0,0
+v1.07,v1.08,IN,StatPAX_retailother,Type,nan,calculation
+v1.07,v1.08,IN,Tsetcool_flex,ka,0.0,0
+v1.07,v1.08,IN,Tsetcool_flex,Type,Neu (aus alt Berechenbar),calculation
+v1.07,v1.08,IN,Tsetcool_max,ka,2.0,2
+v1.07,v1.08,IN,Tsetcool_max,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,Tsetheat_flex,ka,0.0,0
+v1.07,v1.08,IN,Tsetheat_flex,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,Tsetheat_min,ka,2.0,2
+v1.07,v1.08,IN,Tsetheat_min,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,Vent_share_mech_cooled,ka,0.0,0
+v1.07,v1.08,IN,Vent_share_mech_cooled,Type,nan,calculation
+v1.07,v1.08,IN,Vent_share_mech_uncooled,ka,0.0,0
+v1.07,v1.08,IN,Vent_share_mech_uncooled,Type,nan,calculation
+v1.07,v1.08,IN,Vent_share_window_cooled,ka,0.0,0
+v1.07,v1.08,IN,Vent_share_window_cooled,Type,nan,calculation
+v1.07,v1.08,IN,Vent_share_window_uncooled,ka,0.0,0
+v1.07,v1.08,IN,Vent_share_window_uncooled,Type,nan,calculation
+v1.07,v1.08,IN,aux_el_demand_office_kWhm2,ka,1.0,2
+v1.07,v1.08,IN,aux_el_demand_office_kWhm2,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,aux_el_demand_other_kWhm2,ka,1.0,2
+v1.07,v1.08,IN,aux_el_demand_other_kWhm2,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,aux_el_demand_residential_kWhm2,ka,1.0,2
+v1.07,v1.08,IN,aux_el_demand_residential_kWhm2,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,aux_el_demand_retailfood_kWhm2,ka,1.0,2
+v1.07,v1.08,IN,aux_el_demand_retailfood_kWhm2,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,aux_el_demand_retailother_kWhm2,ka,1.0,2
+v1.07,v1.08,IN,aux_el_demand_retailother_kWhm2,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,aux_el_demand_schoolprim_kWhm2,ka,1.0,2
+v1.07,v1.08,IN,aux_el_demand_schoolprim_kWhm2,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,aux_el_demand_schoolsec_kWhm2,ka,1.0,2
+v1.07,v1.08,IN,aux_el_demand_schoolsec_kWhm2,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,borehole_count,ka,2.0,2
+v1.07,v1.08,IN,borehole_count,Type,nan,userinput
+v1.07,v1.08,IN,building_count,ka,2.0,1
+v1.07,v1.08,IN,building_count,Type,nan,value
+v1.07,v1.08,IN,cfd_A,ka,1.0,1
+v1.07,v1.08,IN,cfd_A,Type,nan,value
+v1.07,v1.08,IN,cfd_EUI,ka,1.0,1
+v1.07,v1.08,IN,cfd_EUI,Type,nan,value
+v1.07,v1.08,IN,cfd_cutoff,ka,1.0,1
+v1.07,v1.08,IN,cfd_cutoff,Type,nan,value
+v1.07,v1.08,IN,cfd_dx,ka,1.0,1
+v1.07,v1.08,IN,cfd_dx,Type,nan,value
+v1.07,v1.08,IN,cfd_fPE,ka,1.0,1
+v1.07,v1.08,IN,cfd_fPE,Type,nan,value
+v1.07,v1.08,IN,cfm_budget_office,ka,1.0,1
+v1.07,v1.08,IN,cfm_budget_office,Type,nan,value
+v1.07,v1.08,IN,cfm_budget_residential,ka,1.0,1
+v1.07,v1.08,IN,cfm_budget_residential,Type,nan,value
+v1.07,v1.08,IN,cfm_budget_retail,ka,1.0,1
+v1.07,v1.08,IN,cfm_budget_retail,Type,nan,value
+v1.07,v1.08,IN,cfm_budget_school,ka,1.0,1
+v1.07,v1.08,IN,cfm_budget_school,Type,nan,value
+v1.07,v1.08,IN,cfr_budget,ka,1.0,1
+v1.07,v1.08,IN,cfr_budget,Type,nan,value
+v1.07,v1.08,IN,cool_cop_1el,ka,2.0,2
+v1.07,v1.08,IN,cool_cop_1el,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,cool_cop_2th,ka,2.0,2
+v1.07,v1.08,IN,cool_cop_2th,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,cool_cop_3el,ka,2.0,2
+v1.07,v1.08,IN,cool_cop_3el,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,cool_share_office,ka,2.0,2
+v1.07,v1.08,IN,cool_share_office,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,cool_share_other,ka,2.0,2
+v1.07,v1.08,IN,cool_share_other,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,cool_share_residential,ka,2.0,2
+v1.07,v1.08,IN,cool_share_residential,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,cool_share_retailfood,ka,2.0,2
+v1.07,v1.08,IN,cool_share_retailfood,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,cool_share_retailother,ka,2.0,2
+v1.07,v1.08,IN,cool_share_retailother,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,cool_share_schoolprim,ka,2.0,2
+v1.07,v1.08,IN,cool_share_schoolprim,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,cool_share_schoolsec,ka,2.0,2
+v1.07,v1.08,IN,cool_share_schoolsec,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,cool_th2_carrier_type,ka,2.0,2
+v1.07,v1.08,IN,cool_th2_carrier_type,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,cool_th2_is_bio,ka,0.0,0
+v1.07,v1.08,IN,cool_th2_is_bio,Type,nan,calculation
+v1.07,v1.08,IN,cool_th2_is_dh,ka,0.0,0
+v1.07,v1.08,IN,cool_th2_is_dh,Type,nan,calculation
+v1.07,v1.08,IN,cool_th2_is_ng,ka,0.0,0
+v1.07,v1.08,IN,cool_th2_is_ng,Type,nan,calculation
+v1.07,v1.08,IN,cool_th2_is_other,ka,0.0,0
+v1.07,v1.08,IN,cool_th2_is_other,Type,nan,calculation
+v1.07,v1.08,IN,cooling_month1,ka,2.0,2
+v1.07,v1.08,IN,cooling_month1,Type,Neu (aus alt Berechenbar),ui_writeback
+v1.07,v1.08,IN,cooling_month10,ka,2.0,2
+v1.07,v1.08,IN,cooling_month10,Type,Neu (aus alt Berechenbar),ui_writeback
+v1.07,v1.08,IN,cooling_month11,ka,2.0,2
+v1.07,v1.08,IN,cooling_month11,Type,Neu (aus alt Berechenbar),ui_writeback
+v1.07,v1.08,IN,cooling_month12,ka,2.0,2
+v1.07,v1.08,IN,cooling_month12,Type,Neu (aus alt Berechenbar),ui_writeback
+v1.07,v1.08,IN,cooling_month2,ka,2.0,2
+v1.07,v1.08,IN,cooling_month2,Type,Neu (aus alt Berechenbar),ui_writeback
+v1.07,v1.08,IN,cooling_month3,ka,2.0,2
+v1.07,v1.08,IN,cooling_month3,Type,Neu (aus alt Berechenbar),ui_writeback
+v1.07,v1.08,IN,cooling_month4,ka,2.0,2
+v1.07,v1.08,IN,cooling_month4,Type,Neu (aus alt Berechenbar),ui_writeback
+v1.07,v1.08,IN,cooling_month5,ka,2.0,2
+v1.07,v1.08,IN,cooling_month5,Type,Neu (aus alt Berechenbar),ui_writeback
+v1.07,v1.08,IN,cooling_month6,ka,2.0,2
+v1.07,v1.08,IN,cooling_month6,Type,Neu (aus alt Berechenbar),ui_writeback
+v1.07,v1.08,IN,cooling_month7,ka,2.0,2
+v1.07,v1.08,IN,cooling_month7,Type,Neu (aus alt Berechenbar),ui_writeback
+v1.07,v1.08,IN,cooling_month8,ka,2.0,2
+v1.07,v1.08,IN,cooling_month8,Type,Neu (aus alt Berechenbar),ui_writeback
+v1.07,v1.08,IN,cooling_month9,ka,2.0,2
+v1.07,v1.08,IN,cooling_month9,Type,Neu (aus alt Berechenbar),ui_writeback
+v1.07,v1.08,IN,daylightcontr_office,ka,1.0,1
+v1.07,v1.08,IN,daylightcontr_office,Type,nan,value
+v1.07,v1.08,IN,daylightcontr_schoolprim,ka,1.0,1
+v1.07,v1.08,IN,daylightcontr_schoolprim,Type,nan,value
+v1.07,v1.08,IN,daylightcontr_schoolsec,ka,1.0,1
+v1.07,v1.08,IN,daylightcontr_schoolsec,Type,nan,value
+v1.07,v1.08,IN,density_NFApPers_edu,ka,1.0,1
+v1.07,v1.08,IN,density_NFApPers_edu,Type,Deklarationsparameter,value
+v1.07,v1.08,IN,density_NFApPers_edu_rpim,ka,1.0,1
+v1.07,v1.08,IN,density_NFApPers_edu_rpim,Type,Deklarationsparameter,value
+v1.07,v1.08,IN,density_NFApPers_office,ka,1.0,1
+v1.07,v1.08,IN,density_NFApPers_office,Type,Deklarationsparameter,value
+v1.07,v1.08,IN,density_NFApPers_residential,ka,1.0,1
+v1.07,v1.08,IN,density_NFApPers_residential,Type,Deklarationsparameter,value
+v1.07,v1.08,IN,density_NFApPers_retail,ka,1.0,1
+v1.07,v1.08,IN,density_NFApPers_retail,Type,Deklarationsparameter,value
+v1.07,v1.08,IN,density_NFApPers_retail_other,ka,1.0,1
+v1.07,v1.08,IN,density_NFApPers_retail_other,Type,Deklarationsparameter,value
+v1.07,v1.08,IN,dhw1_is_bio,ka,0.0,0
+v1.07,v1.08,IN,dhw1_is_bio,Type,nan,calculation
+v1.07,v1.08,IN,dhw1_is_dh,ka,0.0,0
+v1.07,v1.08,IN,dhw1_is_dh,Type,nan,calculation
+v1.07,v1.08,IN,dhw1_is_ng,ka,0.0,0
+v1.07,v1.08,IN,dhw1_is_ng,Type,nan,calculation
+v1.07,v1.08,IN,dhw1_is_other,ka,0.0,0
+v1.07,v1.08,IN,dhw1_is_other,Type,nan,calculation
+v1.07,v1.08,IN,dhw2_is_bio,ka,0.0,0
+v1.07,v1.08,IN,dhw2_is_bio,Type,nan,calculation
+v1.07,v1.08,IN,dhw2_is_dh,ka,0.0,0
+v1.07,v1.08,IN,dhw2_is_dh,Type,nan,calculation
+v1.07,v1.08,IN,dhw2_is_ng,ka,0.0,0
+v1.07,v1.08,IN,dhw2_is_ng,Type,nan,calculation
+v1.07,v1.08,IN,dhw2_is_other,ka,0.0,0
+v1.07,v1.08,IN,dhw2_is_other,Type,nan,calculation
+v1.07,v1.08,IN,district_heating_conversion_profile,ka,1.0,1
+v1.07,v1.08,IN,district_heating_conversion_profile,Type,nan,value
+v1.07,v1.08,IN,e_kWhm2a,ka,1.0,1
+v1.07,v1.08,IN,e_kWhm2a,Type,nan,value
+v1.07,v1.08,IN,ev_bidirectional_use,ka,2.0,2
+v1.07,v1.08,IN,ev_bidirectional_use,Type,nan,ui_writeback
+v1.07,v1.08,IN,fGHG_grid_column,ka,0.0,0
+v1.07,v1.08,IN,fGHG_grid_column,Type,nan,calculation
+v1.07,v1.08,IN,fGHG_grid_profile,ka,2.0,2
+v1.07,v1.08,IN,fGHG_grid_profile,Type,nan,userinput
+v1.07,v1.08,IN,fPE_flex_factor,ka,1.0,1
+v1.07,v1.08,IN,fPE_flex_factor,Type,nan,value
+v1.07,v1.08,IN,fPE_grid_column,ka,0.0,0
+v1.07,v1.08,IN,fPE_grid_column,Type,nan,calculation
+v1.07,v1.08,IN,fPE_grid_profile,ka,2.0,2
+v1.07,v1.08,IN,fPE_grid_profile,Type,nan,userinput
+v1.07,v1.08,IN,fc_c,ka,0.0,0
+v1.07,v1.08,IN,fc_c,Type,nan,calculation
+v1.07,v1.08,IN,fc_eduprim,ka,2.0,2
+v1.07,v1.08,IN,fc_eduprim,Type,nan,userinput
+v1.07,v1.08,IN,fc_edusec,ka,2.0,2
+v1.07,v1.08,IN,fc_edusec,Type,nan,userinput
+v1.07,v1.08,IN,fc_office,ka,2.0,2
+v1.07,v1.08,IN,fc_office,Type,nan,userinput
+v1.07,v1.08,IN,fc_other,ka,2.0,2
+v1.07,v1.08,IN,fc_other,Type,nan,userinput
+v1.07,v1.08,IN,fc_residential,ka,2.0,2
+v1.07,v1.08,IN,fc_residential,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,fc_retailfood,ka,2.0,2
+v1.07,v1.08,IN,fc_retailfood,Type,nan,userinput
+v1.07,v1.08,IN,fc_retailother,ka,2.0,2
+v1.07,v1.08,IN,fc_retailother,Type,nan,userinput
+v1.07,v1.08,IN,fc_u,ka,0.0,0
+v1.07,v1.08,IN,fc_u,Type,nan,calculation
+v1.07,v1.08,IN,flex_Signals_selected_column,ka,0.0,0
+v1.07,v1.08,IN,flex_Signals_selected_column,Type,nan,calculation
+v1.07,v1.08,IN,flex_cool_dT,ka,2.0,2
+v1.07,v1.08,IN,flex_cool_dT,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,flex_dhw_use,ka,0.0,1
+v1.07,v1.08,IN,flex_dhw_use,Type,nan,value
+v1.07,v1.08,IN,flex_heat_dT,ka,2.0,2
+v1.07,v1.08,IN,flex_heat_dT,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,fossile_demand_kWhpkm,ka,1.0,1
+v1.07,v1.08,IN,fossile_demand_kWhpkm,Type,nan,value
+v1.07,v1.08,IN,ghg_conversion_factor_gasoline,ka,0.0,0
+v1.07,v1.08,IN,ghg_conversion_factor_gasoline,Type,nan,obsolet
+v1.07,v1.08,IN,grid_rcp1,ka,1.0,1
+v1.07,v1.08,IN,grid_rcp1,Type,nan,value
+v1.07,v1.08,IN,grid_rcp2,ka,1.0,1
+v1.07,v1.08,IN,grid_rcp2,Type,nan,value
+v1.07,v1.08,IN,grid_rcp3,ka,1.0,1
+v1.07,v1.08,IN,grid_rcp3,Type,nan,value
+v1.07,v1.08,IN,heat_cap_eff_cooled_m2,ka,0.0,0
+v1.07,v1.08,IN,heat_cap_eff_cooled_m2,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,heat_cap_eff_uncooled_m2,ka,0.0,0
+v1.07,v1.08,IN,heat_cap_eff_uncooled_m2,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,heat_capacity_effective_m²,ka,2.0,2
+v1.07,v1.08,IN,heat_capacity_effective_m²,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,heat_cop_1el,ka,2.0,2
+v1.07,v1.08,IN,heat_cop_1el,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,heat_cop_2th,ka,2.0,2
+v1.07,v1.08,IN,heat_cop_2th,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,heat_cop_3el,ka,2.0,2
+v1.07,v1.08,IN,heat_cop_3el,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,heat_cop_4th,ka,2.0,2
+v1.07,v1.08,IN,heat_cop_4th,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,heat_th2_carrier_type,ka,2.0,2
+v1.07,v1.08,IN,heat_th2_carrier_type,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,heat_th2_is_bio,ka,0.0,0
+v1.07,v1.08,IN,heat_th2_is_bio,Type,nan,calculation
+v1.07,v1.08,IN,heat_th2_is_dh,ka,0.0,0
+v1.07,v1.08,IN,heat_th2_is_dh,Type,nan,calculation
+v1.07,v1.08,IN,heat_th2_is_ng,ka,0.0,0
+v1.07,v1.08,IN,heat_th2_is_ng,Type,nan,calculation
+v1.07,v1.08,IN,heat_th2_is_other,ka,0.0,0
+v1.07,v1.08,IN,heat_th2_is_other,Type,nan,calculation
+v1.07,v1.08,IN,heat_th4_carrier_type,ka,2.0,2
+v1.07,v1.08,IN,heat_th4_carrier_type,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,heat_th4_is_bio,ka,0.0,0
+v1.07,v1.08,IN,heat_th4_is_bio,Type,nan,calculation
+v1.07,v1.08,IN,heat_th4_is_dh,ka,0.0,0
+v1.07,v1.08,IN,heat_th4_is_dh,Type,nan,calculation
+v1.07,v1.08,IN,heat_th4_is_ng,ka,0.0,0
+v1.07,v1.08,IN,heat_th4_is_ng,Type,nan,calculation
+v1.07,v1.08,IN,heat_th4_is_other,ka,0.0,0
+v1.07,v1.08,IN,heat_th4_is_other,Type,nan,calculation
+v1.07,v1.08,IN,heating_month1,ka,2.0,2
+v1.07,v1.08,IN,heating_month1,Type,Neu (aus alt Berechenbar),ui_writeback
+v1.07,v1.08,IN,heating_month10,ka,2.0,2
+v1.07,v1.08,IN,heating_month10,Type,Neu (aus alt Berechenbar),ui_writeback
+v1.07,v1.08,IN,heating_month11,ka,2.0,2
+v1.07,v1.08,IN,heating_month11,Type,Neu (aus alt Berechenbar),ui_writeback
+v1.07,v1.08,IN,heating_month12,ka,2.0,2
+v1.07,v1.08,IN,heating_month12,Type,Neu (aus alt Berechenbar),ui_writeback
+v1.07,v1.08,IN,heating_month2,ka,2.0,2
+v1.07,v1.08,IN,heating_month2,Type,Neu (aus alt Berechenbar),ui_writeback
+v1.07,v1.08,IN,heating_month3,ka,2.0,2
+v1.07,v1.08,IN,heating_month3,Type,Neu (aus alt Berechenbar),ui_writeback
+v1.07,v1.08,IN,heating_month4,ka,2.0,2
+v1.07,v1.08,IN,heating_month4,Type,Neu (aus alt Berechenbar),ui_writeback
+v1.07,v1.08,IN,heating_month5,ka,2.0,2
+v1.07,v1.08,IN,heating_month5,Type,Neu (aus alt Berechenbar),ui_writeback
+v1.07,v1.08,IN,heating_month6,ka,2.0,2
+v1.07,v1.08,IN,heating_month6,Type,Neu (aus alt Berechenbar),ui_writeback
+v1.07,v1.08,IN,heating_month7,ka,2.0,2
+v1.07,v1.08,IN,heating_month7,Type,Neu (aus alt Berechenbar),ui_writeback
+v1.07,v1.08,IN,heating_month8,ka,2.0,2
+v1.07,v1.08,IN,heating_month8,Type,Neu (aus alt Berechenbar),ui_writeback
+v1.07,v1.08,IN,heating_month9,ka,2.0,2
+v1.07,v1.08,IN,heating_month9,Type,Neu (aus alt Berechenbar),ui_writeback
+v1.07,v1.08,IN,hull_ext_wall_wo_window_m2,ka,2.0,2
+v1.07,v1.08,IN,hull_ext_wall_wo_window_m2,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,hull_fenestration_rate,ka,0.0,0
+v1.07,v1.08,IN,hull_fenestration_rate,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,hull_fundament_m2,ka,2.0,2
+v1.07,v1.08,IN,hull_fundament_m2,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,hull_roof_m2,ka,2.0,2
+v1.07,v1.08,IN,hull_roof_m2,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,hull_transmittance_fundament,ka,2.0,2
+v1.07,v1.08,IN,hull_transmittance_fundament,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,hull_transmittance_heatbridge,ka,2.0,2
+v1.07,v1.08,IN,hull_transmittance_heatbridge,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,hull_transmittance_roof,ka,2.0,2
+v1.07,v1.08,IN,hull_transmittance_roof,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,hull_transmittance_walls,ka,2.0,2
+v1.07,v1.08,IN,hull_transmittance_walls,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,hull_transmittance_windows_east,ka,2.0,2
+v1.07,v1.08,IN,hull_transmittance_windows_east,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,hull_transmittance_windows_horizontal,ka,2.0,2
+v1.07,v1.08,IN,hull_transmittance_windows_horizontal,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,hull_transmittance_windows_north,ka,2.0,2
+v1.07,v1.08,IN,hull_transmittance_windows_north,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,hull_transmittance_windows_south,ka,2.0,2
+v1.07,v1.08,IN,hull_transmittance_windows_south,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,hull_transmittance_windows_west,ka,2.0,2
+v1.07,v1.08,IN,hull_transmittance_windows_west,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,hull_window_m2,ka,0.0,0
+v1.07,v1.08,IN,hull_window_m2,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,hull_windows_east_m2,ka,2.0,2
+v1.07,v1.08,IN,hull_windows_east_m2,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,hull_windows_horizontal_m2,ka,2.0,2
+v1.07,v1.08,IN,hull_windows_horizontal_m2,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,hull_windows_north_m2,ka,2.0,2
+v1.07,v1.08,IN,hull_windows_north_m2,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,hull_windows_south_m2,ka,2.0,2
+v1.07,v1.08,IN,hull_windows_south_m2,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,hull_windows_west_m2,ka,2.0,2
+v1.07,v1.08,IN,hull_windows_west_m2,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,illuminance_efficiency_dirt,ka,1.0,1
+v1.07,v1.08,IN,illuminance_efficiency_dirt,Type,nan,value
+v1.07,v1.08,IN,illuminance_efficiency_glazing_ratio,ka,2.0,2
+v1.07,v1.08,IN,illuminance_efficiency_glazing_ratio,Type,nan,userinput
+v1.07,v1.08,IN,illuminance_min_office,ka,2.0,2
+v1.07,v1.08,IN,illuminance_min_office,Type,nan,userinput
+v1.07,v1.08,IN,illuminance_min_other,ka,2.0,2
+v1.07,v1.08,IN,illuminance_min_other,Type,nan,userinput
+v1.07,v1.08,IN,illuminance_min_residential,ka,2.0,2
+v1.07,v1.08,IN,illuminance_min_residential,Type,nan,userinput
+v1.07,v1.08,IN,illuminance_min_retailfood,ka,2.0,2
+v1.07,v1.08,IN,illuminance_min_retailfood,Type,nan,userinput
+v1.07,v1.08,IN,illuminance_min_retailother,ka,2.0,2
+v1.07,v1.08,IN,illuminance_min_retailother,Type,nan,userinput
+v1.07,v1.08,IN,illuminance_min_schoolprim,ka,2.0,2
+v1.07,v1.08,IN,illuminance_min_schoolprim,Type,nan,userinput
+v1.07,v1.08,IN,illuminance_min_schoolsec,ka,2.0,2
+v1.07,v1.08,IN,illuminance_min_schoolsec,Type,nan,userinput
+v1.07,v1.08,IN,irradiation_opaque_surcharge,ka,1.0,1
+v1.07,v1.08,IN,irradiation_opaque_surcharge,Type,Neu (aus alt Berechenbar),value
+v1.07,v1.08,IN,lc,ka,0.0,0
+v1.07,v1.08,IN,lc,Type,nan,calculation
+v1.07,v1.08,IN,lighting_factor_office,ka,1.0,2
+v1.07,v1.08,IN,lighting_factor_office,Type,nan,userinput
+v1.07,v1.08,IN,lighting_factor_other,ka,1.0,2
+v1.07,v1.08,IN,lighting_factor_other,Type,nan,userinput
+v1.07,v1.08,IN,lighting_factor_retailfood,ka,1.0,2
+v1.07,v1.08,IN,lighting_factor_retailfood,Type,nan,userinput
+v1.07,v1.08,IN,lighting_factor_retailother,ka,1.0,2
+v1.07,v1.08,IN,lighting_factor_retailother,Type,nan,userinput
+v1.07,v1.08,IN,lighting_factor_schoolprim,ka,1.0,2
+v1.07,v1.08,IN,lighting_factor_schoolprim,Type,nan,userinput
+v1.07,v1.08,IN,lighting_factor_schoolsec,ka,1.0,2
+v1.07,v1.08,IN,lighting_factor_schoolsec,Type,nan,userinput
+v1.07,v1.08,IN,location_address,ka,2.0,2
+v1.07,v1.08,IN,location_address,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,location_postcode,ka,2.0,2
+v1.07,v1.08,IN,location_postcode,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,mob_motorization_perNFA_residential,ka,1.0,1
+v1.07,v1.08,IN,mob_motorization_perNFA_residential,Type,nan,value
+v1.07,v1.08,IN,mob_motorization_perNFA_retail,ka,1.0,2
+v1.07,v1.08,IN,mob_motorization_perNFA_retail,Type,nan,userinput
+v1.07,v1.08,IN,mob_motorization_perNFA_work,ka,1.0,1
+v1.07,v1.08,IN,mob_motorization_perNFA_work,Type,nan,value
+v1.07,v1.08,IN,mob_pkm_factor,ka,2.0,2
+v1.07,v1.08,IN,mob_pkm_factor,Type,nan,userinput
+v1.07,v1.08,IN,mob_shading_factor_c,ka,0.0,0
+v1.07,v1.08,IN,mob_shading_factor_c,Type,nan,calculation
+v1.07,v1.08,IN,mob_shading_factor_u,ka,0.0,0
+v1.07,v1.08,IN,mob_shading_factor_u,Type,nan,calculation
+v1.07,v1.08,IN,mob_simultaneity_edu,ka,1.0,2
+v1.07,v1.08,IN,mob_simultaneity_edu,Type,nan,userinput
+v1.07,v1.08,IN,mob_simultaneity_office,ka,1.0,1
+v1.07,v1.08,IN,mob_simultaneity_office,Type,nan,value
+v1.07,v1.08,IN,mob_simultaneity_retail,ka,1.0,2
+v1.07,v1.08,IN,mob_simultaneity_retail,Type,nan,userinput
+v1.07,v1.08,IN,mobility_is_included,ka,2.0,2
+v1.07,v1.08,IN,mobility_is_included,Type,Neu (aus alt Berechenbar),ui_writeback
+v1.07,v1.08,IN,mobility_mode,ka,1.0,1
+v1.07,v1.08,IN,mobility_mode,Type,nan,value
+v1.07,v1.08,IN,mobility_region,ka,0.0,0
+v1.07,v1.08,IN,mobility_region,Type,nan,calculation
+v1.07,v1.08,IN,mobility_vehicle_count,ka,2.0,2
+v1.07,v1.08,IN,mobility_vehicle_count,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,mobshare_office,ka,0.0,0
+v1.07,v1.08,IN,mobshare_office,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,mobshare_residential,ka,0.0,0
+v1.07,v1.08,IN,mobshare_residential,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,mobshare_retail,ka,0.0,0
+v1.07,v1.08,IN,mobshare_retail,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,mobshare_school,ka,0.0,0
+v1.07,v1.08,IN,mobshare_school,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,moped_factor,ka,1.0,1
+v1.07,v1.08,IN,moped_factor,Type,nan,value
+v1.07,v1.08,IN,municipality_name,ka,2.0,2
+v1.07,v1.08,IN,municipality_name,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,parking_spots_in_district,ka,2.0,2
+v1.07,v1.08,IN,parking_spots_in_district,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,pe_conversion_factor_gasoline,ka,1.0,1
+v1.07,v1.08,IN,pe_conversion_factor_gasoline,Type,nan,value
+v1.07,v1.08,IN,per_NFA,ka,0.0,0
+v1.07,v1.08,IN,per_NFA,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,pkm_bike,ka,0.0,0
+v1.07,v1.08,IN,pkm_bike,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,pkm_bus,ka,0.0,0
+v1.07,v1.08,IN,pkm_bus,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,pkm_car_driver,ka,0.0,0
+v1.07,v1.08,IN,pkm_car_driver,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,pkm_car_passenger,ka,0.0,0
+v1.07,v1.08,IN,pkm_car_passenger,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,pkm_distancebus,ka,0.0,0
+v1.07,v1.08,IN,pkm_distancebus,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,pkm_mofa,ka,0.0,0
+v1.07,v1.08,IN,pkm_mofa,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,pkm_pedestrian,ka,0.0,0
+v1.07,v1.08,IN,pkm_pedestrian,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,pkm_train,ka,0.0,0
+v1.07,v1.08,IN,pkm_train,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,pkm_tram_metro,ka,0.0,0
+v1.07,v1.08,IN,pkm_tram_metro,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,plot_area,ka,2.0,2
+v1.07,v1.08,IN,plot_area,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,project_creation_date,ka,2.0,2
+v1.07,v1.08,IN,project_creation_date,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,project_description,ka,2.0,2
+v1.07,v1.08,IN,project_description,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,project_name,ka,2.0,2
+v1.07,v1.08,IN,project_name,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,project_scenario_name,ka,2.0,2
+v1.07,v1.08,IN,project_scenario_name,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,project_url,ka,2.0,2
+v1.07,v1.08,IN,project_url,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,rcp1_dh,ka,0.0,0
+v1.07,v1.08,IN,rcp1_dh,Type,nan,calculation
+v1.07,v1.08,IN,rcp1_fossil,ka,1.0,1
+v1.07,v1.08,IN,rcp1_fossil,Type,nan,value
+v1.07,v1.08,IN,rcp1_renewable,ka,1.0,1
+v1.07,v1.08,IN,rcp1_renewable,Type,nan,value
+v1.07,v1.08,IN,rcp2_dh,ka,0.0,0
+v1.07,v1.08,IN,rcp2_dh,Type,nan,calculation
+v1.07,v1.08,IN,rcp2_fossil,ka,1.0,1
+v1.07,v1.08,IN,rcp2_fossil,Type,nan,value
+v1.07,v1.08,IN,rcp2_renewable,ka,1.0,1
+v1.07,v1.08,IN,rcp2_renewable,Type,nan,value
+v1.07,v1.08,IN,rcp3_dh,ka,0.0,0
+v1.07,v1.08,IN,rcp3_dh,Type,nan,calculation
+v1.07,v1.08,IN,rcp3_fossil,ka,1.0,1
+v1.07,v1.08,IN,rcp3_fossil,Type,nan,value
+v1.07,v1.08,IN,rcp3_renewable,ka,1.0,1
+v1.07,v1.08,IN,rcp3_renewable,Type,nan,value
+v1.07,v1.08,IN,renovation_ratio_office,ka,2.0,2
+v1.07,v1.08,IN,renovation_ratio_office,Type,nan,userinput
+v1.07,v1.08,IN,renovation_ratio_other,ka,2.0,2
+v1.07,v1.08,IN,renovation_ratio_other,Type,nan,userinput
+v1.07,v1.08,IN,renovation_ratio_residential,ka,2.0,2
+v1.07,v1.08,IN,renovation_ratio_residential,Type,nan,userinput
+v1.07,v1.08,IN,renovation_ratio_retailfood,ka,2.0,2
+v1.07,v1.08,IN,renovation_ratio_retailfood,Type,nan,userinput
+v1.07,v1.08,IN,renovation_ratio_retailother,ka,2.0,2
+v1.07,v1.08,IN,renovation_ratio_retailother,Type,nan,userinput
+v1.07,v1.08,IN,renovation_ratio_schoolprim,ka,2.0,2
+v1.07,v1.08,IN,renovation_ratio_schoolprim,Type,nan,userinput
+v1.07,v1.08,IN,renovation_ratio_schoolsec,ka,2.0,2
+v1.07,v1.08,IN,renovation_ratio_schoolsec,Type,nan,userinput
+v1.07,v1.08,IN,renovation_share,ka,0.0,0
+v1.07,v1.08,IN,renovation_share,Type,nan,calculation
+v1.07,v1.08,IN,rh_avg,ka,0.0,0
+v1.07,v1.08,IN,rh_avg,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,rh_ceiling,ka,1.0,1
+v1.07,v1.08,IN,rh_ceiling,Type,"Neu (default, nicht berechenbar)",value
+v1.07,v1.08,IN,rh_office,ka,2.0,2
+v1.07,v1.08,IN,rh_office,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,rh_other,ka,2.0,2
+v1.07,v1.08,IN,rh_other,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,rh_residential,ka,2.0,2
+v1.07,v1.08,IN,rh_residential,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,rh_retailfood,ka,2.0,2
+v1.07,v1.08,IN,rh_retailfood,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,rh_retailother,ka,2.0,2
+v1.07,v1.08,IN,rh_retailother,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,rh_schoolprim,ka,2.0,2
+v1.07,v1.08,IN,rh_schoolprim,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,rh_schoolsec,ka,2.0,2
+v1.07,v1.08,IN,rh_schoolsec,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,storey_count_avg,ka,2.0,1
+v1.07,v1.08,IN,storey_count_avg,Type,nan,value
+v1.07,v1.08,IN,test_NFV_shares,ka,0.0,0
+v1.07,v1.08,IN,test_NFV_shares,Type,nan,calculation
+v1.07,v1.08,IN,transmittance_MW,ka,0.0,0
+v1.07,v1.08,IN,transmittance_MW,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,transmittance_Wm²,ka,0.0,0
+v1.07,v1.08,IN,transmittance_Wm²,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,usage_concurrency_summer_eduprim,ka,1.0,2
+v1.07,v1.08,IN,usage_concurrency_summer_eduprim,Type,nan,userinput
+v1.07,v1.08,IN,usage_concurrency_summer_edusec,ka,1.0,2
+v1.07,v1.08,IN,usage_concurrency_summer_edusec,Type,nan,userinput
+v1.07,v1.08,IN,usage_concurrency_summer_office,ka,1.0,2
+v1.07,v1.08,IN,usage_concurrency_summer_office,Type,nan,userinput
+v1.07,v1.08,IN,usage_concurrency_summer_other,ka,1.0,2
+v1.07,v1.08,IN,usage_concurrency_summer_other,Type,nan,userinput
+v1.07,v1.08,IN,usage_concurrency_summer_res,ka,1.0,2
+v1.07,v1.08,IN,usage_concurrency_summer_res,Type,nan,userinput
+v1.07,v1.08,IN,usage_concurrency_summer_retailfood,ka,1.0,2
+v1.07,v1.08,IN,usage_concurrency_summer_retailfood,Type,nan,userinput
+v1.07,v1.08,IN,usage_concurrency_summer_retailother,ka,1.0,2
+v1.07,v1.08,IN,usage_concurrency_summer_retailother,Type,nan,userinput
+v1.07,v1.08,IN,usage_concurrency_winter_eduprim,ka,1.0,2
+v1.07,v1.08,IN,usage_concurrency_winter_eduprim,Type,nan,userinput
+v1.07,v1.08,IN,usage_concurrency_winter_edusec,ka,1.0,2
+v1.07,v1.08,IN,usage_concurrency_winter_edusec,Type,nan,userinput
+v1.07,v1.08,IN,usage_concurrency_winter_office,ka,1.0,2
+v1.07,v1.08,IN,usage_concurrency_winter_office,Type,nan,userinput
+v1.07,v1.08,IN,usage_concurrency_winter_other,ka,1.0,2
+v1.07,v1.08,IN,usage_concurrency_winter_other,Type,nan,userinput
+v1.07,v1.08,IN,usage_concurrency_winter_res,ka,1.0,2
+v1.07,v1.08,IN,usage_concurrency_winter_res,Type,nan,userinput
+v1.07,v1.08,IN,usage_concurrency_winter_retailfood,ka,1.0,2
+v1.07,v1.08,IN,usage_concurrency_winter_retailfood,Type,nan,userinput
+v1.07,v1.08,IN,usage_concurrency_winter_retailother,ka,1.0,2
+v1.07,v1.08,IN,usage_concurrency_winter_retailother,Type,nan,userinput
+v1.07,v1.08,IN,vent_ach_max_office,ka,2.0,2
+v1.07,v1.08,IN,vent_ach_max_office,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,vent_ach_max_other,ka,2.0,2
+v1.07,v1.08,IN,vent_ach_max_other,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,vent_ach_max_residential,ka,2.0,2
+v1.07,v1.08,IN,vent_ach_max_residential,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,vent_ach_max_retailfood,ka,2.0,2
+v1.07,v1.08,IN,vent_ach_max_retailfood,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,vent_ach_max_retailother,ka,2.0,2
+v1.07,v1.08,IN,vent_ach_max_retailother,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,vent_ach_max_schoolprim,ka,2.0,2
+v1.07,v1.08,IN,vent_ach_max_schoolprim,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,vent_ach_max_schoolsec,ka,2.0,2
+v1.07,v1.08,IN,vent_ach_max_schoolsec,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,vent_air_tightness,ka,2.0,2
+v1.07,v1.08,IN,vent_air_tightness,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,vent_heat_recovery_summer_office,ka,2.0,2
+v1.07,v1.08,IN,vent_heat_recovery_summer_office,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,vent_heat_recovery_summer_other,ka,2.0,2
+v1.07,v1.08,IN,vent_heat_recovery_summer_other,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,vent_heat_recovery_summer_residential,ka,2.0,2
+v1.07,v1.08,IN,vent_heat_recovery_summer_residential,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,vent_heat_recovery_summer_retailfood,ka,2.0,2
+v1.07,v1.08,IN,vent_heat_recovery_summer_retailfood,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,vent_heat_recovery_summer_retailother,ka,2.0,2
+v1.07,v1.08,IN,vent_heat_recovery_summer_retailother,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,vent_heat_recovery_summer_schoolprim,ka,2.0,2
+v1.07,v1.08,IN,vent_heat_recovery_summer_schoolprim,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,vent_heat_recovery_summer_schoolsec,ka,2.0,2
+v1.07,v1.08,IN,vent_heat_recovery_summer_schoolsec,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,vent_heat_recovery_winter_office,ka,2.0,2
+v1.07,v1.08,IN,vent_heat_recovery_winter_office,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,vent_heat_recovery_winter_other,ka,2.0,2
+v1.07,v1.08,IN,vent_heat_recovery_winter_other,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,vent_heat_recovery_winter_residential,ka,2.0,2
+v1.07,v1.08,IN,vent_heat_recovery_winter_residential,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,vent_heat_recovery_winter_retailfood,ka,2.0,2
+v1.07,v1.08,IN,vent_heat_recovery_winter_retailfood,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,vent_heat_recovery_winter_retailother,ka,2.0,2
+v1.07,v1.08,IN,vent_heat_recovery_winter_retailother,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,vent_heat_recovery_winter_schoolprim,ka,2.0,2
+v1.07,v1.08,IN,vent_heat_recovery_winter_schoolprim,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,vent_heat_recovery_winter_schoolsec,ka,2.0,2
+v1.07,v1.08,IN,vent_heat_recovery_winter_schoolsec,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,vent_infiltration_ACH,ka,0.0,0
+v1.07,v1.08,IN,vent_infiltration_ACH,Type,nan,calculation
+v1.07,v1.08,IN,vent_night_office,ka,2.0,2
+v1.07,v1.08,IN,vent_night_office,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,vent_night_other,ka,2.0,2
+v1.07,v1.08,IN,vent_night_other,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,vent_night_residential,ka,2.0,2
+v1.07,v1.08,IN,vent_night_residential,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,vent_night_retailfood,ka,2.0,2
+v1.07,v1.08,IN,vent_night_retailfood,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,vent_night_retailother,ka,2.0,2
+v1.07,v1.08,IN,vent_night_retailother,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,vent_night_schoolprim,ka,2.0,2
+v1.07,v1.08,IN,vent_night_schoolprim,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,vent_night_schoolsec,ka,2.0,2
+v1.07,v1.08,IN,vent_night_schoolsec,Type,"Neu (default, nicht berechenbar)",userinput
+v1.07,v1.08,IN,vent_scale_office,ka,0.0,0
+v1.07,v1.08,IN,vent_scale_office,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,vent_scale_other,ka,0.0,0
+v1.07,v1.08,IN,vent_scale_other,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,vent_scale_residential,ka,0.0,0
+v1.07,v1.08,IN,vent_scale_residential,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,vent_scale_retail,ka,0.0,0
+v1.07,v1.08,IN,vent_scale_retail,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,vent_scale_school_prim,ka,0.0,0
+v1.07,v1.08,IN,vent_scale_school_prim,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,vent_scale_school_sec,ka,0.0,0
+v1.07,v1.08,IN,vent_scale_school_sec,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,vent_scale_supermarket,ka,0.0,0
+v1.07,v1.08,IN,vent_scale_supermarket,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,vent_share_mechanical_office,ka,2.0,2
+v1.07,v1.08,IN,vent_share_mechanical_office,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,vent_share_mechanical_other,ka,2.0,2
+v1.07,v1.08,IN,vent_share_mechanical_other,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,vent_share_mechanical_residential,ka,2.0,2
+v1.07,v1.08,IN,vent_share_mechanical_residential,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,vent_share_mechanical_retailfood,ka,2.0,2
+v1.07,v1.08,IN,vent_share_mechanical_retailfood,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,vent_share_mechanical_retailother,ka,2.0,2
+v1.07,v1.08,IN,vent_share_mechanical_retailother,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,vent_share_mechanical_schoolprim,ka,2.0,2
+v1.07,v1.08,IN,vent_share_mechanical_schoolprim,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,vent_share_mechanical_schoolsec,ka,2.0,2
+v1.07,v1.08,IN,vent_share_mechanical_schoolsec,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,vent_tightness_ratio_blowerdoor_to_real,ka,1.0,1
+v1.07,v1.08,IN,vent_tightness_ratio_blowerdoor_to_real,Type,"Neu (default, nicht berechenbar)",value
+v1.07,v1.08,IN,weather_index,ka,0.0,0
+v1.07,v1.08,IN,weather_index,Type,Zwischenrechnung,calculation
+v1.07,v1.08,IN,weather_name,ka,2.0,2
+v1.07,v1.08,IN,weather_name,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,window_irradiation_factor_summer_east,ka,2.0,2
+v1.07,v1.08,IN,window_irradiation_factor_summer_east,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,window_irradiation_factor_summer_horizontal,ka,2.0,2
+v1.07,v1.08,IN,window_irradiation_factor_summer_horizontal,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,window_irradiation_factor_summer_north,ka,2.0,2
+v1.07,v1.08,IN,window_irradiation_factor_summer_north,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,window_irradiation_factor_summer_south,ka,2.0,2
+v1.07,v1.08,IN,window_irradiation_factor_summer_south,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,window_irradiation_factor_summer_west,ka,2.0,2
+v1.07,v1.08,IN,window_irradiation_factor_summer_west,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,window_irradiation_factor_winter_east,ka,2.0,2
+v1.07,v1.08,IN,window_irradiation_factor_winter_east,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,window_irradiation_factor_winter_horizontal,ka,2.0,2
+v1.07,v1.08,IN,window_irradiation_factor_winter_horizontal,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,window_irradiation_factor_winter_north,ka,2.0,2
+v1.07,v1.08,IN,window_irradiation_factor_winter_north,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,window_irradiation_factor_winter_south,ka,2.0,2
+v1.07,v1.08,IN,window_irradiation_factor_winter_south,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,window_irradiation_factor_winter_west,ka,2.0,2
+v1.07,v1.08,IN,window_irradiation_factor_winter_west,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,window_total_transmittance_east,ka,2.0,2
+v1.07,v1.08,IN,window_total_transmittance_east,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,window_total_transmittance_horizontal,ka,2.0,2
+v1.07,v1.08,IN,window_total_transmittance_horizontal,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,window_total_transmittance_north,ka,2.0,2
+v1.07,v1.08,IN,window_total_transmittance_north,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,window_total_transmittance_south,ka,2.0,2
+v1.07,v1.08,IN,window_total_transmittance_south,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,window_total_transmittance_west,ka,2.0,2
+v1.07,v1.08,IN,window_total_transmittance_west,Type,Neu (aus alt Berechenbar),userinput
+v1.07,v1.08,IN,year_rcp0,ka,1.0,1
+v1.07,v1.08,IN,year_rcp0,Type,nan,value
+v1.07,v1.08,IN,year_rcp1,ka,1.0,1
+v1.07,v1.08,IN,year_rcp1,Type,nan,value
+v1.07,v1.08,IN,year_rcp2,ka,1.0,1
+v1.07,v1.08,IN,year_rcp2,Type,nan,value
+v1.07,v1.08,IN,year_rcp3,ka,1.0,1
+v1.07,v1.08,IN,year_rcp3,Type,nan,value
+v1.08,v1.09,IN,ACH_night_m³,Formel,SUMMENPRODUKT(K416:K422;K269:K275;K243:K249;SVERWEIS(K428:K434;night_ventilation_types;2;FALSCH)),SUMMENPRODUKT(K183:K189;K65:K71;K44:K50;SVERWEIS(K194:K200;night_ventilation_types;2;FALSCH))
+v1.08,v1.09,IN,DHW_1_is_electric,Formel,"WENN(dhw1_energy_carrier=""Strom"";WAHR;FALSCH)","WENN(DHW_carriertype_1=""Strom"";WAHR;FALSCH)"
+v1.08,v1.09,IN,DHW_2_is_electric,Formel,"WENN(dhw2_energy_carrier=""Strom"";WAHR;FALSCH)","WENN(DHW_carriertype_2=""Strom"";WAHR;FALSCH)"
+v1.08,v1.09,IN,DHW_Tmax,Formel,MIN(K656;DHW_Tmax_constant),MIN(K393;DHW_Tmax_constant)
+v1.08,v1.09,IN,DHW_storage_1_liter,Formel,SUMMENPRODUKT(K658:K664;K665:K671),SUMMENPRODUKT(K395:K401;K402:K408)
+v1.08,v1.09,IN,DHW_storage_2_liter,Formel,SUMME(K665:K671)-DHW_storage_1_liter,SUMME(K402:K408)-DHW_storage_1_liter
+v1.08,v1.09,IN,EV_charging_losses_surcharge_factor,Formel,WENNFEHLER(1/K775;0),WENNFEHLER(1/K497;0)
+v1.08,v1.09,IN,EV_selfdischarge_per_h,Formel,K772/24/7,K494/24/7
+v1.08,v1.09,IN,EV_storage_total_kWh,Formel,K770*K767,K492*K489
+v1.08,v1.09,IN,FLEX_cool1_use,Formel,"WENN(K730=""System 1"";WAHR;FALSCH)","WENN(K454=""System 1"";WAHR;FALSCH)"
+v1.08,v1.09,IN,FLEX_cool3_use,Formel,"WENN(K730=""System 3"";WAHR;FALSCH)","WENN(K454=""System 3"";WAHR;FALSCH)"
+v1.08,v1.09,IN,FLEX_heat1_use,Formel,"WENN(K725=""System 1"";WAHR;FALSCH)","WENN(K449=""System 1"";WAHR;FALSCH)"
+v1.08,v1.09,IN,FLEX_heat3_use,Formel,"WENN(K725=""System 3"";WAHR;FALSCH)","WENN(K449=""System 3"";WAHR;FALSCH)"
+v1.08,v1.09,IN,FSI,Formel,GFA_total/K252,GFA_total/K53
+v1.08,v1.09,IN,GFA_total,Formel,SUMME(K227:K233),SUMME(K28:K34)
+v1.08,v1.09,IN,GFV,Formel,NFA_total*(rh_avg+K280),NFA_total*(rh_avg+K76)
+v1.08,v1.09,IN,GWP_ceilings_name,Name,Typ Zwischendecken,Bauweise Geschossdecke
+v1.08,v1.09,IN,GWP_ground_name,Name,Typ Decke gegen Erdreich,Bauweise Erdb. Fußboden beheizt
+v1.08,v1.09,IN,GWP_miv_count_ev,Formel,K830*EV_share,K579*EV_share
+v1.08,v1.09,IN,GWP_miv_count_fossile,Formel,K830-K831,K579-K580
+v1.08,v1.09,IN,GWP_mobility_construction_fossil,ka,2,1
+v1.08,v1.09,IN,GWP_mobility_construction_fossil,Type,userinput,value
+v1.08,v1.09,IN,GWP_ref_area_ceilings,Name,Bezugsfläche Zwischengeschoßdecken,FU Geschossdecke
+v1.08,v1.09,IN,GWP_ref_area_fundament,Name,Bezugsfläche Fundament,FU Erdb. Fußboden beheizt
+v1.08,v1.09,IN,GWP_ref_area_roof,Name,Bezugsfläche Dach,FU Dach
+v1.08,v1.09,IN,GWP_ref_area_walls,Name,Bezugsfläche Außenwand,FU Außenwand
+v1.08,v1.09,IN,GWP_ref_area_windows,Name,Bezugsfläche Fenster,FU Fenster
+v1.08,v1.09,IN,GWP_refratio_ceilings,Formel,K806/GFA_total,K540/GFA_total
+v1.08,v1.09,IN,GWP_refratio_fundament,Formel,K805/GFA_total,K539/GFA_total
+v1.08,v1.09,IN,GWP_refratio_roof,Formel,K804/GFA_total,K538/GFA_total
+v1.08,v1.09,IN,GWP_refratio_walls,Formel,K802/GFA_total,K536/GFA_total
+v1.08,v1.09,IN,GWP_refratio_windows,Formel,K803/GFA_total,K537/GFA_total
+v1.08,v1.09,IN,GWP_roof_name,Name,Typ Dach,Bauweise Dach
+v1.08,v1.09,IN,GWP_walls_name,Name,Typ Außenwand,Bauweise Außenwand
+v1.08,v1.09,IN,GWP_windows_name,Name,Typ Fenster,Bauweise Fenster
+v1.08,v1.09,IN,NFA_cooled,Formel,SUMMENPRODUKT(K612:K618;K243:K249),SUMMENPRODUKT(K353:K359;K44:K50)
+v1.08,v1.09,IN,NFA_mechvent,Formel,SUMMENPRODUKT(K$409:K$415;K243:K249),SUMMENPRODUKT(K$176:K$182;K44:K50)
+v1.08,v1.09,IN,NFA_office,Formel,K228*K236,K29*K37
+v1.08,v1.09,IN,NFA_other,Formel,K233*K241,K34*K42
+v1.08,v1.09,IN,NFA_residential,Formel,K227*K235,K28*K36
+v1.08,v1.09,IN,NFA_retailfood,Formel,K231*K239,K32*K40
+v1.08,v1.09,IN,NFA_retailother,Formel,K232*K240,K33*K41
+v1.08,v1.09,IN,NFA_schoolprim,Formel,K230*K238,K31*K39
+v1.08,v1.09,IN,NFA_schoolsec,Formel,K229*K237,K30*K38
+v1.08,v1.09,IN,NFA_total,Formel,SUMME(K243:K249),SUMME(K44:K50)
+v1.08,v1.09,IN,NFAfrac_u,Formel,1-K627,1-K368
+v1.08,v1.09,IN,NFV_c,Formel,SUMMENPRODUKT(K243:K249;K269:K275;cool_active_shares),SUMMENPRODUKT(K44:K50;K65:K71;cool_active_shares)
+v1.08,v1.09,IN,NFV_mechvent,Formel,SUMMENPRODUKT(K$409:K$415;K243:K249;K269:K275),SUMMENPRODUKT(K$176:K$182;K44:K50;K65:K71)
+v1.08,v1.09,IN,NFV_u,Formel,SUMMENPRODUKT(K243:K249;K269:K275;cool_passive_shares),SUMMENPRODUKT(K44:K50;K65:K71;cool_passive_shares)
+v1.08,v1.09,IN,NFV_windowvent,Formel,NFV_total-K426,NFV_total-K193
+v1.08,v1.09,IN,QC_generation_eff_2th,Formel,WENNFEHLER(1/K641;0),WENNFEHLER(1/K380;0)
+v1.08,v1.09,IN,QC_to_EC_1,Formel,WENNFEHLER(1/K640;0),WENNFEHLER(1/K379;0)
+v1.08,v1.09,IN,QC_to_EC_3,Formel,WENNFEHLER(1/K642;0),WENNFEHLER(1/K381;0)
+v1.08,v1.09,IN,QH_distr_loss_4th,Formel,🔥H!D49,🔥H!D48
+v1.08,v1.09,IN,QHmax_room_MW,Formel,K569*K250/1000000,K315*K51/1000000
+v1.08,v1.09,IN,Tsetcool_flex,Formel,Tsetcool_max-K728,Tsetcool_max-K452
+v1.08,v1.09,IN,Tsetheat_flex,Formel,Tsetheat_min+K723,Tsetheat_min+K447
+v1.08,v1.09,IN,Vent_share_mech_cooled,Formel,WENNFEHLER(SUMMENPRODUKT(K243:K249;cool_active_shares;MTRANS(vent_mech_shares);K269:K275)/NFV_total;0),WENNFEHLER(SUMMENPRODUKT(K44:K50;cool_active_shares;MTRANS(vent_mech_shares);K65:K71)/NFV_total;0)
+v1.08,v1.09,IN,Vent_share_mech_uncooled,Formel,WENNFEHLER(SUMMENPRODUKT(K243:K249;cool_passive_shares;MTRANS(vent_mech_shares);K269:K275)/NFV_total;0),WENNFEHLER(SUMMENPRODUKT(K44:K50;cool_passive_shares;MTRANS(vent_mech_shares);K65:K71)/NFV_total;0)
+v1.08,v1.09,IN,Vent_share_window_cooled,Formel,WENNFEHLER(SUMMENPRODUKT(K243:K249;cool_active_shares;MTRANS(vent_window_shares);K269:K275)/NFV_total;0),WENNFEHLER(SUMMENPRODUKT(K44:K50;cool_active_shares;MTRANS(vent_window_shares);K65:K71)/NFV_total;0)
+v1.08,v1.09,IN,Vent_share_window_uncooled,Formel,WENNFEHLER(SUMMENPRODUKT(K243:K249;cool_passive_shares;MTRANS(vent_window_shares);K269:K275)/NFV_total;0),WENNFEHLER(SUMMENPRODUKT(K44:K50;cool_passive_shares;MTRANS(vent_window_shares);K65:K71)/NFV_total;0)
+v1.08,v1.09,IN,cool_th2_is_other,Formel,--NICHT(ODER(K887;K892;K897)),--NICHT(ODER(K625;K630;K635))
+v1.08,v1.09,IN,dhw1_is_bio,Formel,"--ISTZAHL(FINDEN(""Biomasse"";dhw1_energy_carrier))","--ISTZAHL(FINDEN(""Biomasse"";DHW_carriertype_1))"
+v1.08,v1.09,IN,dhw1_is_dh,Formel,"--ISTZAHL(FINDEN(""Fernwärme"";dhw1_energy_carrier))","--ISTZAHL(FINDEN(""Fernwärme"";DHW_carriertype_1))"
+v1.08,v1.09,IN,dhw1_is_ng,Formel,"--ISTZAHL(FINDEN(""Erdgas"";dhw1_energy_carrier))","--ISTZAHL(FINDEN(""Erdgas"";DHW_carriertype_1))"
+v1.08,v1.09,IN,dhw1_is_other,Formel,--UND(NICHT(ODER(K888;K893;K898)); DHW_1_is_used),--UND(NICHT(ODER(K626;K631;K636)); DHW_1_is_used)
+v1.08,v1.09,IN,dhw2_is_bio,Formel,"--ISTZAHL(FINDEN(""Biomasse"";dhw2_energy_carrier))","--ISTZAHL(FINDEN(""Biomasse"";DHW_carriertype_2))"
+v1.08,v1.09,IN,dhw2_is_dh,Formel,"--ISTZAHL(FINDEN(""Fernwärme"";dhw2_energy_carrier))","--ISTZAHL(FINDEN(""Fernwärme"";DHW_carriertype_2))"
+v1.08,v1.09,IN,dhw2_is_ng,Formel,"--ISTZAHL(FINDEN(""Erdgas"";dhw2_energy_carrier))","--ISTZAHL(FINDEN(""Erdgas"";DHW_carriertype_2))"
+v1.08,v1.09,IN,dhw2_is_other,Formel,--UND(NICHT(ODER(K889;K894;K899));DHW_2_is_used),--UND(NICHT(ODER(K627;K632;K637));DHW_2_is_used)
+v1.08,v1.09,IN,fc_c,Formel,SUMMENPRODUKT(K376:K382;K243:K249;cool_active_shares)*per_NFA_cooled,SUMMENPRODUKT(K150:K156;K44:K50;cool_active_shares)*per_NFA_cooled
+v1.08,v1.09,IN,fc_u,Formel,SUMMENPRODUKT(K376:K382;K243:K249;cool_passive_shares)*per_NFA_uncooled,SUMMENPRODUKT(K150:K156;K44:K50;cool_passive_shares)*per_NFA_uncooled
+v1.08,v1.09,IN,ghg_conversion_factor_gasoline,Formel,[@Buffer],#BEZUG!
+v1.08,v1.09,IN,heat_th2_is_other,Formel,--NICHT(ODER(K885;K890;K895)),--NICHT(ODER(K623;K628;K633))
+v1.08,v1.09,IN,heat_th4_is_other,Formel,--NICHT(ODER(K886;K891;K896)),--NICHT(ODER(K624;K629;K634))
+v1.08,v1.09,IN,hull_fenestration_rate,Formel,K293/(K293+K285),hull_window_m2/(hull_window_m2+hull_ext_wall_wo_window_m2)
+v1.08,v1.09,IN,hull_window_m2,Formel,SUMME(K288:K291),SUMME(K81:K84)
+v1.08,v1.09,IN,lc,Formel,K281/(hull_ext_wall_wo_window_m2+hull_roof_m2+hull_fundament_m2+hull_window_m2),GFV/(hull_ext_wall_wo_window_m2+hull_roof_m2+hull_fundament_m2+hull_window_m2)
+v1.08,v1.09,IN,mobility_region,Formel,"WENNFEHLER(SVERWEIS(K206;gemeinden;3;FALSCH)&WENN(mobility_mode=""Vereinfacht"";"" optimiert"";""""); ""Keine Region ausgewählt."")","WENNFEHLER(SVERWEIS(K20;gemeinden;3;FALSCH)&WENN(mobility_mode=""Vereinfacht"";"" optimiert"";""""); ""Keine Region ausgewählt."")"
+v1.08,v1.09,IN,rh_avg,Formel,SUMMENPRODUKT(K269:K275;K243:K249)/NFA_total,SUMMENPRODUKT(K65:K71;K44:K50)/NFA_total
+v1.08,v1.09,IN,scenario_version,ka,2,1
+v1.08,v1.09,IN,scenario_version,Type,userinput,value
+v1.08,v1.09,IN,scenario_version,Formel,🏙️!F7,nan
+v1.08,v1.09,IN,transmittance_Wm²,Formel,SUMME(K315:K319),SUMME(K108:K112)
+v1.08,v1.09,IN,vent_infiltration_ACH,Formel,K403/K404,K173/K174
+v1.08,v1.09,IN,vent_scale_office,Formel,K437/MAX(Nutzung_Büro[Bedarf Luftwechsel]),K203/MAX(Nutzung_Büro[Bedarf Luftwechsel])
+v1.08,v1.09,IN,vent_scale_residential,Formel,K436/MAX(Nutzung_Wohnen[Bedarf Luftwechsel]),K202/MAX(Nutzung_Wohnen[Bedarf Luftwechsel])
+v1.08,v1.09,IN,vent_scale_retail,Formel,K441/MAX(Nutzung_Handel_NonFood[Bedarf Luftwechsel]),K207/MAX(Nutzung_Handel_NonFood[Bedarf Luftwechsel])
+v1.08,v1.09,IN,vent_scale_school_prim,Formel,K439/MAX(Nutzung_KIGA[Bedarf Luftwechsel]),K205/MAX(Nutzung_KIGA[Bedarf Luftwechsel])
+v1.08,v1.09,IN,vent_scale_school_sec,Formel,K438/MAX(Nutzung_Schule[Bedarf Luftwechsel]),K204/MAX(Nutzung_Schule[Bedarf Luftwechsel])
+v1.08,v1.09,IN,vent_scale_supermarket,Formel,K440/MAX(Nutzung_Handel_Food[Bedarf Luftwechsel]),K206/MAX(Nutzung_Handel_Food[Bedarf Luftwechsel])
+v1.08,v1.09,IN,weather_index,Formel,VERGLEICH(K219;list_weathers;0),VERGLEICH(K26;list_weathers;0)
+v1.08,v1.09,OUT,QS,Formel,QS_u  *NFAfrac_u + QS_c * NFAfrac_c,QS_u * NFAfrac_u + QS_c * NFAfrac_c
+v1.08,v1.09,OUT,QT_ground_c,Formel,QT_c*IN!K317/transmittance_Wm²,QT_c*IN!K110/transmittance_Wm²
+v1.08,v1.09,OUT,QT_ground_u,Formel,QT_u*IN!K317/transmittance_Wm²,QT_u*IN!K110/transmittance_Wm²
+v1.08,v1.09,OUT,QT_psi_c,Formel,QT_c*IN!K319/transmittance_Wm²,QT_c*IN!K112/transmittance_Wm²
+v1.08,v1.09,OUT,QT_psi_u,Formel,QT_u*IN!K319/transmittance_Wm²,QT_u*IN!K112/transmittance_Wm²
+v1.08,v1.09,OUT,QT_roof_c,Formel,QT_c*IN!K316/transmittance_Wm²,QT_c*IN!K109/transmittance_Wm²
+v1.08,v1.09,OUT,QT_roof_u,Formel,QT_u*IN!K316/transmittance_Wm²,QT_u*IN!K109/transmittance_Wm²
+v1.08,v1.09,OUT,QT_wall_c,Formel,QT_c*IN!K315/transmittance_Wm²,QT_c*IN!K108/transmittance_Wm²
+v1.08,v1.09,OUT,QT_wall_u,Formel,QT_u*IN!K315/transmittance_Wm²,QT_u*IN!K108/transmittance_Wm²
+v1.08,v1.09,OUT,QT_window_c,Formel,QT_c*IN!K318/transmittance_Wm²,QT_c*IN!K111/transmittance_Wm²
+v1.08,v1.09,OUT,QT_window_u,Formel,QT_u*IN!K318/transmittance_Wm²,QT_u*IN!K111/transmittance_Wm²
+v1.08,v1.09,SIM,Spalte12,Formula,=mobility_is_included*EV_storage_total_kWh*EV_soc_minimum*1000*per_NFA,nan
+v1.08,v1.09,SIM,Ti0cooled,Formula,"=IF(I4>0,I3,#N/A)","=IF(NFA_cooled/NFA_total>0,Tsetheat_min,#N/A)"
+v1.08,v1.09,SIM,Ti0uncooled,Formula,"=IF(H4>0,H3,#N/A)","=IF(1-NFA_cooled/NFA_total>0,Tsetheat_min,#N/A)"
+v1.09,v1.10_4,IN,ACH_night_m³,ka,0,0.0
+v1.09,v1.10_4,IN,ACH_night_m³,Formel,SUMMENPRODUKT(K183:K189;K65:K71;K44:K50;SVERWEIS(K194:K200;night_ventilation_types;2;FALSCH)),SUMMENPRODUKT(K185:K191;K67:K73;K46:K52;SVERWEIS(K196:K202;night_ventilation_types;2;FALSCH))
+v1.09,v1.10_4,IN,Batt_SOC_init,ka,1,1.0
+v1.09,v1.10_4,IN,Batt_auto_discharge_factor,ka,0,0.0
+v1.09,v1.10_4,IN,Batt_c_rate,ka,2,2.0
+v1.09,v1.10_4,IN,Batt_cap_Wh_per_NFA,ka,0,0.0
+v1.09,v1.10_4,IN,Batt_cap_kWh,ka,2,2.0
+v1.09,v1.10_4,IN,Batt_eff_factor_charge,ka,2,2.0
+v1.09,v1.10_4,IN,Batt_eff_factor_discharge,ka,2,2.0
+v1.09,v1.10_4,IN,Batt_is_gridcharged,ka,2,2.0
+v1.09,v1.10_4,IN,Batt_is_not_used_during_signals,ka,1,1.0
+v1.09,v1.10_4,IN,Batt_is_used,ka,2,2.0
+v1.09,v1.10_4,IN,Batt_is_used_for_EV,ka,1,1.0
+v1.09,v1.10_4,IN,Batt_is_used_for_HVACminimum,ka,1,1.0
+v1.09,v1.10_4,IN,Batt_is_used_for_plugloads,ka,1,1.0
+v1.09,v1.10_4,IN,Batt_max_power_specific,ka,0,0.0
+v1.09,v1.10_4,IN,Batt_self_discharge_rate,ka,2,2.0
+v1.09,v1.10_4,IN,DHW_1_efficiency,ka,2,2.0
+v1.09,v1.10_4,IN,DHW_1_el_aux,ka,1,1.0
+v1.09,v1.10_4,IN,DHW_1_incl_distribution_factor,ka,0,0.0
+v1.09,v1.10_4,IN,DHW_1_is_electric,ka,0,0.0
+v1.09,v1.10_4,IN,DHW_1_is_used,ka,0,0.0
+v1.09,v1.10_4,IN,DHW_1_share_office,ka,2,2.0
+v1.09,v1.10_4,IN,DHW_1_share_other,ka,2,2.0
+v1.09,v1.10_4,IN,DHW_1_share_residential,ka,2,2.0
+v1.09,v1.10_4,IN,DHW_1_share_retailfood,ka,2,2.0
+v1.09,v1.10_4,IN,DHW_1_share_retailother,ka,2,2.0
+v1.09,v1.10_4,IN,DHW_1_share_schoolprim,ka,2,2.0
+v1.09,v1.10_4,IN,DHW_1_share_schoolsec,ka,2,2.0
+v1.09,v1.10_4,IN,DHW_2_efficiency,ka,2,2.0
+v1.09,v1.10_4,IN,DHW_2_el_aux,ka,2,2.0
+v1.09,v1.10_4,IN,DHW_2_incl_distribution_factor,ka,0,0.0
+v1.09,v1.10_4,IN,DHW_2_is_electric,ka,0,0.0
+v1.09,v1.10_4,IN,DHW_2_is_used,ka,0,0.0
+v1.09,v1.10_4,IN,DHW_Tmax,ka,0,0.0
+v1.09,v1.10_4,IN,DHW_Tmax,Formel,MIN(K393;DHW_Tmax_constant),MIN(K401;DHW_Tmax_constant)
+v1.09,v1.10_4,IN,DHW_Tmax_input,ka,2,2.0
+v1.09,v1.10_4,IN,DHW_Tmin,ka,2,2.0
+v1.09,v1.10_4,IN,DHW_carriertype_1,ka,2,2.0
+v1.09,v1.10_4,IN,DHW_carriertype_2,ka,2,2.0
+v1.09,v1.10_4,IN,DHW_concurrency_office,ka,2,2.0
+v1.09,v1.10_4,IN,DHW_concurrency_other,ka,2,2.0
+v1.09,v1.10_4,IN,DHW_concurrency_residential,ka,2,2.0
+v1.09,v1.10_4,IN,DHW_concurrency_retailfood,ka,2,2.0
+v1.09,v1.10_4,IN,DHW_concurrency_retailother,ka,2,2.0
+v1.09,v1.10_4,IN,DHW_concurrency_schoolprim,ka,2,2.0
+v1.09,v1.10_4,IN,DHW_concurrency_schoolsec,ka,2,2.0
+v1.09,v1.10_4,IN,DHW_conversion_1,ka,0,0.0
+v1.09,v1.10_4,IN,DHW_conversion_2,ka,0,0.0
+v1.09,v1.10_4,IN,DHW_demand_office_kWhm2,ka,1,1.0
+v1.09,v1.10_4,IN,DHW_demand_other_kWhm2,ka,1,1.0
+v1.09,v1.10_4,IN,DHW_demand_residential_kWhm2,ka,1,1.0
+v1.09,v1.10_4,IN,DHW_demand_retailfood_kWhm2,ka,1,1.0
+v1.09,v1.10_4,IN,DHW_demand_retailother_kWhm2,ka,1,1.0
+v1.09,v1.10_4,IN,DHW_demand_schoolprim_kWhm2,ka,1,1.0
+v1.09,v1.10_4,IN,DHW_demand_schoolsec_kWhm2,ka,1,1.0
+v1.09,v1.10_4,IN,DHW_efficiency_distribution_1,ka,2,2.0
+v1.09,v1.10_4,IN,DHW_efficiency_distribution_2,ka,2,2.0
+v1.09,v1.10_4,IN,DHW_losses_1,ka,2,2.0
+v1.09,v1.10_4,IN,DHW_losses_2,ka,2,2.0
+v1.09,v1.10_4,IN,DHW_occupancy_office,ka,2,2.0
+v1.09,v1.10_4,IN,DHW_occupancy_other,ka,2,2.0
+v1.09,v1.10_4,IN,DHW_occupancy_residential,ka,2,2.0
+v1.09,v1.10_4,IN,DHW_occupancy_retailfood,ka,2,2.0
+v1.09,v1.10_4,IN,DHW_occupancy_retailother,ka,2,2.0
+v1.09,v1.10_4,IN,DHW_occupancy_schoolprim,ka,2,2.0
+v1.09,v1.10_4,IN,DHW_occupancy_schoolsec,ka,2,2.0
+v1.09,v1.10_4,IN,DHW_storage_1_liter,ka,0,0.0
+v1.09,v1.10_4,IN,DHW_storage_1_liter,Formel,SUMMENPRODUKT(K395:K401;K402:K408),SUMMENPRODUKT(K403:K409;K410:K416)
+v1.09,v1.10_4,IN,DHW_storage_2_liter,ka,0,0.0
+v1.09,v1.10_4,IN,DHW_storage_2_liter,Formel,SUMME(K402:K408)-DHW_storage_1_liter,SUMME(K410:K416)-DHW_storage_1_liter
+v1.09,v1.10_4,IN,DHW_storage_env_temp_default,ka,2,2.0
+v1.09,v1.10_4,IN,DHW_storage_liter_pPerson,ka,2,2.0
+v1.09,v1.10_4,IN,DHW_thermal_power_1_kW,ka,0,0.0
+v1.09,v1.10_4,IN,DHW_thermal_power_Wpl,ka,0,0.0
+v1.09,v1.10_4,IN,DHW_thermal_power_pPerson,ka,1,1.0
+v1.09,v1.10_4,IN,Daylightcoefficient_office,ka,2,2.0
+v1.09,v1.10_4,IN,Daylightcoefficient_schoolprim,ka,2,2.0
+v1.09,v1.10_4,IN,Daylightcoefficient_schoolsec,ka,2,2.0
+v1.09,v1.10_4,IN,EV_battsize_kWh,ka,2,2.0
+v1.09,v1.10_4,IN,EV_charging_efficiency,ka,2,2.0
+v1.09,v1.10_4,IN,EV_charging_losses_surcharge_factor,ka,0,0.0
+v1.09,v1.10_4,IN,EV_charging_losses_surcharge_factor,Formel,WENNFEHLER(1/K497;0),WENNFEHLER(1/K523;0)
+v1.09,v1.10_4,IN,EV_charging_station_power,ka,2,2.0
+v1.09,v1.10_4,IN,EV_charging_stations,ka,2,2.0
+v1.09,v1.10_4,IN,EV_count_residential,ka,0,0.0
+v1.09,v1.10_4,IN,EV_count_retail,ka,0,0.0
+v1.09,v1.10_4,IN,EV_count_work,ka,0,0.0
+v1.09,v1.10_4,IN,EV_demand_kWhpkm,ka,2,2.0
+v1.09,v1.10_4,IN,EV_experimental_calculation,ka,1,1.0
+v1.09,v1.10_4,IN,EV_max_charging_power_ratio,ka,1,1.0
+v1.09,v1.10_4,IN,EV_mileage_retail,ka,0,0.0
+v1.09,v1.10_4,IN,EV_mileage_work,ka,0,0.0
+v1.09,v1.10_4,IN,EV_mileage_work,Formel,mobility_is_included*(mob_pkm_factor*EV_share*pkm_car*(mob_simultaneity_office*StatPAX_office+mob_simultaneity_edu*(StatPAX_eduprim+StatPAX_edusec))),mobility_is_included*(mob_pkm_factor*EV_share*pkm_car*(mob_simultaneity_office*StatPAX_office+mob_simultaneity_edu*(StatPAX_schoolprim+StatPAX_schoolsec)))
+v1.09,v1.10_4,IN,EV_self_discharge_per_week,ka,2,2.0
+v1.09,v1.10_4,IN,EV_selfdischarge_per_h,ka,0,0.0
+v1.09,v1.10_4,IN,EV_selfdischarge_per_h,Formel,K494/24/7,K520/24/7
+v1.09,v1.10_4,IN,EV_share,ka,2,2.0
+v1.09,v1.10_4,IN,EV_share_constant_charging,ka,1,1.0
+v1.09,v1.10_4,IN,EV_soc_min_discharge,ka,2,2.0
+v1.09,v1.10_4,IN,EV_soc_min_ext,ka,2,2.0
+v1.09,v1.10_4,IN,EV_soc_min_retail,ka,1,1.0
+v1.09,v1.10_4,IN,EV_soc_min_work,ka,1,1.0
+v1.09,v1.10_4,IN,EV_soc_minimum,ka,1,1.0
+v1.09,v1.10_4,IN,EV_storage_total_kWh,ka,0,0.0
+v1.09,v1.10_4,IN,EV_storage_total_kWh,Formel,K492*K489,K518*K515
+v1.09,v1.10_4,IN,Ev_scale_office,ka,2,2.0
+v1.09,v1.10_4,IN,Ev_scale_other,ka,2,2.0
+v1.09,v1.10_4,IN,Ev_scale_residential,ka,2,2.0
+v1.09,v1.10_4,IN,Ev_scale_retail_food,ka,2,2.0
+v1.09,v1.10_4,IN,Ev_scale_retail_other,ka,2,2.0
+v1.09,v1.10_4,IN,Ev_scale_school_prim,ka,2,2.0
+v1.09,v1.10_4,IN,Ev_scale_school_sec,ka,2,2.0
+v1.09,v1.10_4,IN,FLEX_PV_is_used,ka,2,2.0
+v1.09,v1.10_4,IN,FLEX_choice_cool_system,ka,2,2.0
+v1.09,v1.10_4,IN,FLEX_choice_heat_system,ka,2,2.0
+v1.09,v1.10_4,IN,FLEX_cool1_use,ka,0,0.0
+v1.09,v1.10_4,IN,FLEX_cool1_use,Formel,"WENN(K454=""System 1"";WAHR;FALSCH)","WENN(K480=""System 1"";WAHR;FALSCH)"
+v1.09,v1.10_4,IN,FLEX_cool3_use,ka,0,0.0
+v1.09,v1.10_4,IN,FLEX_cool3_use,Formel,"WENN(K454=""System 3"";WAHR;FALSCH)","WENN(K480=""System 3"";WAHR;FALSCH)"
+v1.09,v1.10_4,IN,FLEX_grid_maxpower_Wm2,ka,1,1.0
+v1.09,v1.10_4,IN,FLEX_heat1_use,ka,0,0.0
+v1.09,v1.10_4,IN,FLEX_heat1_use,Formel,"WENN(K449=""System 1"";WAHR;FALSCH)","WENN(K475=""System 1"";WAHR;FALSCH)"
+v1.09,v1.10_4,IN,FLEX_heat3_use,ka,0,0.0
+v1.09,v1.10_4,IN,FLEX_heat3_use,Formel,"WENN(K449=""System 3"";WAHR;FALSCH)","WENN(K475=""System 3"";WAHR;FALSCH)"
+v1.09,v1.10_4,IN,FLEX_is_used,ka,2,2.0
+v1.09,v1.10_4,IN,FLEX_is_used_for_HVAC_min,ka,1,1.0
+v1.09,v1.10_4,IN,FLEX_is_used_for_ev_min,ka,1,1.0
+v1.09,v1.10_4,IN,FLEX_is_used_for_plugloads,ka,1,1.0
+v1.09,v1.10_4,IN,FLEX_signal_ID,ka,0,0.0
+v1.09,v1.10_4,IN,FLEX_signal_name,ka,2,2.0
+v1.09,v1.10_4,IN,FSI,ka,0,0.0
+v1.09,v1.10_4,IN,FSI,Formel,GFA_total/K53,GFA_total/K55
+v1.09,v1.10_4,IN,GFA_office,ka,2,2.0
+v1.09,v1.10_4,IN,GFA_other,ka,2,2.0
+v1.09,v1.10_4,IN,GFA_residential,ka,2,2.0
+v1.09,v1.10_4,IN,GFA_retailfood,ka,2,2.0
+v1.09,v1.10_4,IN,GFA_retailother,ka,2,2.0
+v1.09,v1.10_4,IN,GFA_schoolprim,ka,2,2.0
+v1.09,v1.10_4,IN,GFA_schoolsec,ka,2,2.0
+v1.09,v1.10_4,IN,GFA_total,ka,0,0.0
+v1.09,v1.10_4,IN,GFA_total,Formel,SUMME(K28:K34),SUMME(K30:K36)
+v1.09,v1.10_4,IN,GFV,ka,0,0.0
+v1.09,v1.10_4,IN,GFV,Formel,NFA_total*(rh_avg+K76),NFA_total*(rh_avg+K78)
+v1.09,v1.10_4,IN,GHG_LCA_timeframe_years,ka,1,1.0
+v1.09,v1.10_4,IN,GWP_battery_name,ka,2,2.0
+v1.09,v1.10_4,IN,GWP_boreholes_name,ka,2,2.0
+v1.09,v1.10_4,IN,GWP_direct_biogenic,ka,2,2.0
+v1.09,v1.10_4,IN,GWP_direct_biogenic_share,ka,1,1.0
+v1.09,v1.10_4,IN,GWP_direct_fossile,ka,2,2.0
+v1.09,v1.10_4,IN,GWP_direct_life,ka,1,1.0
+v1.09,v1.10_4,IN,GWP_general_name,ka,2,2.0
+v1.09,v1.10_4,IN,GWP_ground_name,ka,2,2.0
+v1.09,v1.10_4,IN,GWP_ground_name,Formel,☁THG'!D24,THG!F18
+v1.09,v1.10_4,IN,GWP_miv_count_ev,ka,0,0.0
+v1.09,v1.10_4,IN,GWP_miv_count_ev,Formel,K579*EV_share,K615*EV_share
+v1.09,v1.10_4,IN,GWP_miv_count_fossile,ka,0,0.0
+v1.09,v1.10_4,IN,GWP_miv_count_fossile,Formel,K579-K580,K615-K616
+v1.09,v1.10_4,IN,GWP_mobility_car_gpPKm,ka,1,1.0
+v1.09,v1.10_4,IN,GWP_mobility_construction_ev,ka,1,1.0
+v1.09,v1.10_4,IN,GWP_mobility_construction_fossil,ka,1,1.0
+v1.09,v1.10_4,IN,GWP_mobility_moped_gpPKm,ka,1,1.0
+v1.09,v1.10_4,IN,GWP_other_name,ka,2,2.0
+v1.09,v1.10_4,IN,GWP_pv_name,ka,2,2.0
+v1.09,v1.10_4,IN,GWP_rcpi_biomass,ka,0,0.0
+v1.09,v1.10_4,IN,GWP_rcpi_district_heating,ka,0,0.0
+v1.09,v1.10_4,IN,GWP_rcpi_fossil,ka,0,0.0
+v1.09,v1.10_4,IN,GWP_rcpi_grid,ka,0,0.0
+v1.09,v1.10_4,IN,GWP_rcpi_grid_substition,ka,0,0.0
+v1.09,v1.10_4,IN,GWP_rcpi_mob_fossile,ka,0,0.0
+v1.09,v1.10_4,IN,GWP_rcpi_natural_gas,ka,0,0.0
+v1.09,v1.10_4,IN,GWP_rcpi_renewable,ka,0,0.0
+v1.09,v1.10_4,IN,GWP_ref_area_ceilings,ka,2,2.0
+v1.09,v1.10_4,IN,GWP_ref_area_ceilings,Formel,☁THG'!F25,THG!C19
+v1.09,v1.10_4,IN,GWP_ref_area_fundament,ka,2,2.0
+v1.09,v1.10_4,IN,GWP_ref_area_fundament,Formel,☁THG'!F24,THG!C18
+v1.09,v1.10_4,IN,GWP_ref_area_roof,ka,2,2.0
+v1.09,v1.10_4,IN,GWP_ref_area_roof,Formel,☁THG'!F23,THG!C17
+v1.09,v1.10_4,IN,GWP_ref_area_walls,ka,2,2.0
+v1.09,v1.10_4,IN,GWP_ref_area_walls,Formel,☁THG'!F21,THG!C15
+v1.09,v1.10_4,IN,GWP_ref_area_windows,ka,2,2.0
+v1.09,v1.10_4,IN,GWP_ref_area_windows,Formel,☁THG'!F22,THG!C16
+v1.09,v1.10_4,IN,GWP_refratio_boreholes,ka,0,0.0
+v1.09,v1.10_4,IN,GWP_refratio_ceilings,ka,0,0.0
+v1.09,v1.10_4,IN,GWP_refratio_ceilings,Formel,K540/GFA_total,K572/GFA_total
+v1.09,v1.10_4,IN,GWP_refratio_fundament,ka,0,0.0
+v1.09,v1.10_4,IN,GWP_refratio_fundament,Formel,K539/GFA_total,K571/GFA_total
+v1.09,v1.10_4,IN,GWP_refratio_pv,ka,0,0.0
+v1.09,v1.10_4,IN,GWP_refratio_roof,ka,0,0.0
+v1.09,v1.10_4,IN,GWP_refratio_roof,Formel,K538/GFA_total,K570/GFA_total
+v1.09,v1.10_4,IN,GWP_refratio_walls,ka,0,0.0
+v1.09,v1.10_4,IN,GWP_refratio_walls,Formel,K536/GFA_total,K568/GFA_total
+v1.09,v1.10_4,IN,GWP_refratio_windows,ka,0,0.0
+v1.09,v1.10_4,IN,GWP_refratio_windows,Formel,K537/GFA_total,K569/GFA_total
+v1.09,v1.10_4,IN,GWP_roof_name,ka,2,2.0
+v1.09,v1.10_4,IN,GWP_roof_name,Formel,☁THG'!D23,THG!F17
+v1.09,v1.10_4,IN,GWP_solarthermal_name,ka,2,2.0
+v1.09,v1.10_4,IN,GWP_storage_name,ka,2,2.0
+v1.09,v1.10_4,IN,GWP_tga_general_name,ka,2,2.0
+v1.09,v1.10_4,IN,GWP_tga_other_name,ka,2,2.0
+v1.09,v1.10_4,IN,GWP_ventilation_name,ka,2,2.0
+v1.09,v1.10_4,IN,GWP_walls_name,ka,2,2.0
+v1.09,v1.10_4,IN,GWP_walls_name,Formel,☁THG'!D21,THG!F15
+v1.09,v1.10_4,IN,GWP_windows_name,ka,2,2.0
+v1.09,v1.10_4,IN,GWP_windows_name,Formel,☁THG'!D22,THG!F16
+v1.09,v1.10_4,IN,NFA_cooled,ka,0,0.0
+v1.09,v1.10_4,IN,NFA_cooled,Formel,SUMMENPRODUKT(K353:K359;K44:K50),SUMMENPRODUKT(K361:K367;K46:K52)
+v1.09,v1.10_4,IN,NFA_mechvent,ka,0,0.0
+v1.09,v1.10_4,IN,NFA_mechvent,Formel,SUMMENPRODUKT(K$176:K$182;K44:K50),SUMMENPRODUKT(K$178:K$184;K46:K52)
+v1.09,v1.10_4,IN,NFA_office,ka,0,0.0
+v1.09,v1.10_4,IN,NFA_office,Formel,K29*K37,K31*K39
+v1.09,v1.10_4,IN,NFA_other,ka,0,0.0
+v1.09,v1.10_4,IN,NFA_other,Formel,K34*K42,K36*K44
+v1.09,v1.10_4,IN,NFA_residential,ka,0,0.0
+v1.09,v1.10_4,IN,NFA_residential,Formel,K28*K36,K30*K38
+v1.09,v1.10_4,IN,NFA_retailfood,ka,0,0.0
+v1.09,v1.10_4,IN,NFA_retailfood,Formel,K32*K40,K34*K42
+v1.09,v1.10_4,IN,NFA_retailother,ka,0,0.0
+v1.09,v1.10_4,IN,NFA_retailother,Formel,K33*K41,K35*K43
+v1.09,v1.10_4,IN,NFA_schoolprim,ka,0,0.0
+v1.09,v1.10_4,IN,NFA_schoolprim,Formel,K31*K39,K33*K41
+v1.09,v1.10_4,IN,NFA_schoolsec,ka,0,0.0
+v1.09,v1.10_4,IN,NFA_schoolsec,Formel,K30*K38,K32*K40
+v1.09,v1.10_4,IN,NFA_to_GFA_ratio,ka,0,0.0
+v1.09,v1.10_4,IN,NFA_to_GFA_ratio_office,ka,2,2.0
+v1.09,v1.10_4,IN,NFA_to_GFA_ratio_other,ka,2,2.0
+v1.09,v1.10_4,IN,NFA_to_GFA_ratio_residential,ka,2,2.0
+v1.09,v1.10_4,IN,NFA_to_GFA_ratio_retailfood,ka,2,2.0
+v1.09,v1.10_4,IN,NFA_to_GFA_ratio_retailother,ka,2,2.0
+v1.09,v1.10_4,IN,NFA_to_GFA_ratio_schoolprim,ka,2,2.0
+v1.09,v1.10_4,IN,NFA_to_GFA_ratio_schoolsec,ka,2,2.0
+v1.09,v1.10_4,IN,NFA_total,ka,0,0.0
+v1.09,v1.10_4,IN,NFA_total,Formel,SUMME(K44:K50),SUMME(K46:K52)
+v1.09,v1.10_4,IN,NFA_windowvent,ka,0,0.0
+v1.09,v1.10_4,IN,NFAfrac_c,ka,0,0.0
+v1.09,v1.10_4,IN,NFAfrac_u,ka,0,0.0
+v1.09,v1.10_4,IN,NFAfrac_u,Formel,1-K368,1-K376
+v1.09,v1.10_4,IN,NFV_c,ka,0,0.0
+v1.09,v1.10_4,IN,NFV_c,Formel,SUMMENPRODUKT(K44:K50;K65:K71;cool_active_shares),SUMMENPRODUKT(K46:K52;K67:K73;cool_active_shares)
+v1.09,v1.10_4,IN,NFV_mechvent,ka,0,0.0
+v1.09,v1.10_4,IN,NFV_mechvent,Formel,SUMMENPRODUKT(K$176:K$182;K44:K50;K65:K71),SUMMENPRODUKT(K$178:K$184;K46:K52;K67:K73)
+v1.09,v1.10_4,IN,NFV_total,ka,0,0.0
+v1.09,v1.10_4,IN,NFV_u,ka,0,0.0
+v1.09,v1.10_4,IN,NFV_u,Formel,SUMMENPRODUKT(K44:K50;K65:K71;cool_passive_shares),SUMMENPRODUKT(K46:K52;K67:K73;cool_passive_shares)
+v1.09,v1.10_4,IN,NFV_windowvent,ka,0,0.0
+v1.09,v1.10_4,IN,NFV_windowvent,Formel,NFV_total-K193,NFV_total-K195
+v1.09,v1.10_4,IN,PV_efficiency,ka,1,1.0
+v1.09,v1.10_4,IN,PV_id,ka,0,0.0
+v1.09,v1.10_4,IN,PV_is_used,ka,2,2.0
+v1.09,v1.10_4,IN,PV_kWp,ka,0,0.0
+v1.09,v1.10_4,IN,PV_m2_per_kWp,ka,2,2.0
+v1.09,v1.10_4,IN,PV_module_area,ka,0,0.0
+v1.09,v1.10_4,IN,PV_profile_name,ka,2,2.0
+v1.09,v1.10_4,IN,PV_scale,ka,2,2.0
+v1.09,v1.10_4,IN,Plight_max_office,ka,2,2.0
+v1.09,v1.10_4,IN,Plight_max_schoolprim,ka,2,2.0
+v1.09,v1.10_4,IN,Plight_max_schoolsec,ka,2,2.0
+v1.09,v1.10_4,IN,Plight_min_office,ka,2,2.0
+v1.09,v1.10_4,IN,Plight_min_schoolprim,ka,2,2.0
+v1.09,v1.10_4,IN,Plight_min_schoolsec,ka,2,2.0
+v1.09,v1.10_4,IN,Plugloads_scale_office,ka,2,2.0
+v1.09,v1.10_4,IN,Plugloads_scale_other,ka,2,2.0
+v1.09,v1.10_4,IN,Plugloads_scale_retailfood,ka,2,2.0
+v1.09,v1.10_4,IN,Plugloads_scale_retailother,ka,2,2.0
+v1.09,v1.10_4,IN,Plugloads_scale_schoolprim,ka,2,2.0
+v1.09,v1.10_4,IN,Plugloads_scale_schoolsec,ka,2,2.0
+v1.09,v1.10_4,IN,QC_aux_1el,ka,2,2.0
+v1.09,v1.10_4,IN,QC_aux_2th,ka,2,2.0
+v1.09,v1.10_4,IN,QC_aux_3el,ka,2,2.0
+v1.09,v1.10_4,IN,QC_aux_fc,ka,2,2.0
+v1.09,v1.10_4,IN,QC_distr_losses_1el,ka,2,2.0
+v1.09,v1.10_4,IN,QC_distr_losses_2th,ka,2,2.0
+v1.09,v1.10_4,IN,QC_distr_losses_3el,ka,2,2.0
+v1.09,v1.10_4,IN,QC_generation_eff_2th,ka,0,0.0
+v1.09,v1.10_4,IN,QC_generation_eff_2th,Formel,WENNFEHLER(1/K380;0),WENNFEHLER(1/K388;0)
+v1.09,v1.10_4,IN,QC_to_EC_1,ka,0,0.0
+v1.09,v1.10_4,IN,QC_to_EC_1,Formel,WENNFEHLER(1/K379;0),WENNFEHLER(1/K387;0)
+v1.09,v1.10_4,IN,QC_to_EC_3,ka,0,0.0
+v1.09,v1.10_4,IN,QC_to_EC_3,Formel,WENNFEHLER(1/K381;0),WENNFEHLER(1/K389;0)
+v1.09,v1.10_4,IN,QCmax_1el,ka,2,2.0
+v1.09,v1.10_4,IN,QCmax_2th,ka,2,2.0
+v1.09,v1.10_4,IN,QCmax_3el,ka,2,2.0
+v1.09,v1.10_4,IN,QCmax_freecooling,ka,2,2.0
+v1.09,v1.10_4,IN,QCmax_room_MW,ka,0,0.0
+v1.09,v1.10_4,IN,QCmax_room_m2,ka,2,2.0
+v1.09,v1.10_4,IN,QH_aux_el_to_th_1el,ka,2,2.0
+v1.09,v1.10_4,IN,QH_aux_el_to_th_2th,ka,2,2.0
+v1.09,v1.10_4,IN,QH_aux_el_to_th_3el,ka,2,2.0
+v1.09,v1.10_4,IN,QH_aux_el_to_th_4th,ka,2,2.0
+v1.09,v1.10_4,IN,QH_aux_wasteheat,ka,1,1.0
+v1.09,v1.10_4,IN,QH_distr_loss_1el,ka,2,2.0
+v1.09,v1.10_4,IN,QH_distr_loss_2th,ka,2,2.0
+v1.09,v1.10_4,IN,QH_distr_loss_3el,ka,2,2.0
+v1.09,v1.10_4,IN,QH_distr_loss_4th,ka,2,2.0
+v1.09,v1.10_4,IN,QH_generation_eff_1el,ka,0,0.0
+v1.09,v1.10_4,IN,QH_generation_eff_2th,ka,0,0.0
+v1.09,v1.10_4,IN,QH_generation_eff_3el,ka,0,0.0
+v1.09,v1.10_4,IN,QH_generation_eff_4th,ka,0,0.0
+v1.09,v1.10_4,IN,QHmax_room_MW,ka,0,0.0
+v1.09,v1.10_4,IN,QHmax_room_MW,Formel,K315*K51/1000000,K323*K53/1000000
+v1.09,v1.10_4,IN,QHmax_room_m²,ka,2,2.0
+v1.09,v1.10_4,IN,QS_max_shading_c,ka,0,0.0
+v1.09,v1.10_4,IN,QS_max_shading_u,ka,0,0.0
+v1.09,v1.10_4,IN,StatPAX_office,ka,0,0.0
+v1.09,v1.10_4,IN,StatPAX_retail,ka,0,0.0
+v1.09,v1.10_4,IN,StatPAX_retailother,ka,0,0.0
+v1.09,v1.10_4,IN,Tsetcool_flex,ka,0,0.0
+v1.09,v1.10_4,IN,Tsetcool_flex,Formel,Tsetcool_max-K452,Tsetcool_max-K478
+v1.09,v1.10_4,IN,Tsetcool_max,ka,2,2.0
+v1.09,v1.10_4,IN,Tsetheat_flex,ka,0,0.0
+v1.09,v1.10_4,IN,Tsetheat_flex,Formel,Tsetheat_min+K447,Tsetheat_min+K473
+v1.09,v1.10_4,IN,Tsetheat_min,ka,2,2.0
+v1.09,v1.10_4,IN,Vent_share_mech_cooled,ka,0,0.0
+v1.09,v1.10_4,IN,Vent_share_mech_cooled,Formel,WENNFEHLER(SUMMENPRODUKT(K44:K50;cool_active_shares;MTRANS(vent_mech_shares);K65:K71)/NFV_total;0),WENNFEHLER(SUMMENPRODUKT(K46:K52;cool_active_shares;MTRANS(vent_mech_shares);K67:K73)/NFV_total;0)
+v1.09,v1.10_4,IN,Vent_share_mech_uncooled,ka,0,0.0
+v1.09,v1.10_4,IN,Vent_share_mech_uncooled,Formel,WENNFEHLER(SUMMENPRODUKT(K44:K50;cool_passive_shares;MTRANS(vent_mech_shares);K65:K71)/NFV_total;0),WENNFEHLER(SUMMENPRODUKT(K46:K52;cool_passive_shares;MTRANS(vent_mech_shares);K67:K73)/NFV_total;0)
+v1.09,v1.10_4,IN,Vent_share_window_cooled,ka,0,0.0
+v1.09,v1.10_4,IN,Vent_share_window_cooled,Formel,WENNFEHLER(SUMMENPRODUKT(K44:K50;cool_active_shares;MTRANS(vent_window_shares);K65:K71)/NFV_total;0),WENNFEHLER(SUMMENPRODUKT(K46:K52;cool_active_shares;MTRANS(vent_window_shares);K67:K73)/NFV_total;0)
+v1.09,v1.10_4,IN,Vent_share_window_uncooled,ka,0,0.0
+v1.09,v1.10_4,IN,Vent_share_window_uncooled,Formel,WENNFEHLER(SUMMENPRODUKT(K44:K50;cool_passive_shares;MTRANS(vent_window_shares);K65:K71)/NFV_total;0),WENNFEHLER(SUMMENPRODUKT(K46:K52;cool_passive_shares;MTRANS(vent_window_shares);K67:K73)/NFV_total;0)
+v1.09,v1.10_4,IN,aux_el_demand_office_kWhm2,ka,2,2.0
+v1.09,v1.10_4,IN,aux_el_demand_other_kWhm2,ka,2,2.0
+v1.09,v1.10_4,IN,aux_el_demand_residential_kWhm2,ka,2,2.0
+v1.09,v1.10_4,IN,aux_el_demand_retailfood_kWhm2,ka,2,2.0
+v1.09,v1.10_4,IN,aux_el_demand_retailother_kWhm2,ka,2,2.0
+v1.09,v1.10_4,IN,aux_el_demand_schoolprim_kWhm2,ka,2,2.0
+v1.09,v1.10_4,IN,aux_el_demand_schoolsec_kWhm2,ka,2,2.0
+v1.09,v1.10_4,IN,borehole_count,ka,2,2.0
+v1.09,v1.10_4,IN,building_count,ka,1,1.0
+v1.09,v1.10_4,IN,cfd_A,ka,1,1.0
+v1.09,v1.10_4,IN,cfd_EUI,ka,1,1.0
+v1.09,v1.10_4,IN,cfd_cutoff,ka,1,1.0
+v1.09,v1.10_4,IN,cfd_dx,ka,1,1.0
+v1.09,v1.10_4,IN,cfd_fPE,ka,1,1.0
+v1.09,v1.10_4,IN,cfm_budget_office,ka,1,1.0
+v1.09,v1.10_4,IN,cfm_budget_residential,ka,1,1.0
+v1.09,v1.10_4,IN,cfm_budget_retail,ka,1,1.0
+v1.09,v1.10_4,IN,cfm_budget_school,ka,1,1.0
+v1.09,v1.10_4,IN,cfr_budget,ka,1,1.0
+v1.09,v1.10_4,IN,cool_cop_1el,ka,2,2.0
+v1.09,v1.10_4,IN,cool_cop_2th,ka,2,2.0
+v1.09,v1.10_4,IN,cool_cop_3el,ka,2,2.0
+v1.09,v1.10_4,IN,cool_share_office,ka,2,2.0
+v1.09,v1.10_4,IN,cool_share_other,ka,2,2.0
+v1.09,v1.10_4,IN,cool_share_residential,ka,2,2.0
+v1.09,v1.10_4,IN,cool_share_retailfood,ka,2,2.0
+v1.09,v1.10_4,IN,cool_share_retailother,ka,2,2.0
+v1.09,v1.10_4,IN,cool_share_schoolprim,ka,2,2.0
+v1.09,v1.10_4,IN,cool_share_schoolsec,ka,2,2.0
+v1.09,v1.10_4,IN,cool_th2_carrier_type,ka,2,2.0
+v1.09,v1.10_4,IN,cool_th2_is_bio,ka,0,0.0
+v1.09,v1.10_4,IN,cool_th2_is_dh,ka,0,0.0
+v1.09,v1.10_4,IN,cool_th2_is_ng,ka,0,0.0
+v1.09,v1.10_4,IN,cool_th2_is_other,ka,0,0.0
+v1.09,v1.10_4,IN,cool_th2_is_other,Formel,--NICHT(ODER(K625;K630;K635)),--NICHT(ODER(K661;K666;K671))
+v1.09,v1.10_4,IN,cooling_month1,ka,2,2.0
+v1.09,v1.10_4,IN,cooling_month10,ka,2,2.0
+v1.09,v1.10_4,IN,cooling_month11,ka,2,2.0
+v1.09,v1.10_4,IN,cooling_month12,ka,2,2.0
+v1.09,v1.10_4,IN,cooling_month2,ka,2,2.0
+v1.09,v1.10_4,IN,cooling_month3,ka,2,2.0
+v1.09,v1.10_4,IN,cooling_month4,ka,2,2.0
+v1.09,v1.10_4,IN,cooling_month5,ka,2,2.0
+v1.09,v1.10_4,IN,cooling_month6,ka,2,2.0
+v1.09,v1.10_4,IN,cooling_month7,ka,2,2.0
+v1.09,v1.10_4,IN,cooling_month8,ka,2,2.0
+v1.09,v1.10_4,IN,cooling_month9,ka,2,2.0
+v1.09,v1.10_4,IN,daylightcontr_office,ka,1,1.0
+v1.09,v1.10_4,IN,daylightcontr_schoolprim,ka,1,1.0
+v1.09,v1.10_4,IN,daylightcontr_schoolsec,ka,1,1.0
+v1.09,v1.10_4,IN,density_NFApPers_office,ka,1,1.0
+v1.09,v1.10_4,IN,density_NFApPers_residential,ka,1,1.0
+v1.09,v1.10_4,IN,density_NFApPers_retail,ka,1,1.0
+v1.09,v1.10_4,IN,density_NFApPers_retail_other,ka,1,1.0
+v1.09,v1.10_4,IN,dhw1_is_bio,ka,0,0.0
+v1.09,v1.10_4,IN,dhw1_is_dh,ka,0,0.0
+v1.09,v1.10_4,IN,dhw1_is_ng,ka,0,0.0
+v1.09,v1.10_4,IN,dhw1_is_other,ka,0,0.0
+v1.09,v1.10_4,IN,dhw1_is_other,Formel,--UND(NICHT(ODER(K626;K631;K636)); DHW_1_is_used),--UND(NICHT(ODER(K662;K667;K672)); DHW_1_is_used)
+v1.09,v1.10_4,IN,dhw2_is_bio,ka,0,0.0
+v1.09,v1.10_4,IN,dhw2_is_dh,ka,0,0.0
+v1.09,v1.10_4,IN,dhw2_is_ng,ka,0,0.0
+v1.09,v1.10_4,IN,dhw2_is_other,ka,0,0.0
+v1.09,v1.10_4,IN,dhw2_is_other,Formel,--UND(NICHT(ODER(K627;K632;K637));DHW_2_is_used),--UND(NICHT(ODER(K663;K668;K673));DHW_2_is_used)
+v1.09,v1.10_4,IN,district_heating_conversion_profile,ka,1,1.0
+v1.09,v1.10_4,IN,e_kWhm2a,ka,1,1.0
+v1.09,v1.10_4,IN,ev_bidirectional_use,ka,2,2.0
+v1.09,v1.10_4,IN,fGHG_grid_column,ka,0,0.0
+v1.09,v1.10_4,IN,fGHG_grid_profile,ka,2,2.0
+v1.09,v1.10_4,IN,fPE_flex_factor,ka,1,1.0
+v1.09,v1.10_4,IN,fPE_grid_column,ka,0,0.0
+v1.09,v1.10_4,IN,fPE_grid_profile,ka,2,2.0
+v1.09,v1.10_4,IN,fc_c,ka,0,0.0
+v1.09,v1.10_4,IN,fc_c,Formel,SUMMENPRODUKT(K150:K156;K44:K50;cool_active_shares)*per_NFA_cooled,SUMMENPRODUKT(K152:K158;K46:K52;cool_active_shares)*per_NFA_cooled
+v1.09,v1.10_4,IN,fc_office,ka,2,2.0
+v1.09,v1.10_4,IN,fc_other,ka,2,2.0
+v1.09,v1.10_4,IN,fc_residential,ka,2,2.0
+v1.09,v1.10_4,IN,fc_retailfood,ka,2,2.0
+v1.09,v1.10_4,IN,fc_retailother,ka,2,2.0
+v1.09,v1.10_4,IN,fc_u,ka,0,0.0
+v1.09,v1.10_4,IN,fc_u,Formel,SUMMENPRODUKT(K150:K156;K44:K50;cool_passive_shares)*per_NFA_uncooled,SUMMENPRODUKT(K152:K158;K46:K52;cool_passive_shares)*per_NFA_uncooled
+v1.09,v1.10_4,IN,flex_Signals_selected_column,ka,0,0.0
+v1.09,v1.10_4,IN,flex_cool_dT,ka,2,2.0
+v1.09,v1.10_4,IN,flex_dhw_use,ka,1,1.0
+v1.09,v1.10_4,IN,flex_heat_dT,ka,2,2.0
+v1.09,v1.10_4,IN,fossile_demand_kWhpkm,ka,1,1.0
+v1.09,v1.10_4,IN,grid_rcp1,ka,1,1.0
+v1.09,v1.10_4,IN,grid_rcp2,ka,1,1.0
+v1.09,v1.10_4,IN,grid_rcp3,ka,1,1.0
+v1.09,v1.10_4,IN,heat_cap_eff_cooled_m2,ka,0,0.0
+v1.09,v1.10_4,IN,heat_cap_eff_cooled_m2,Formel,heat_capacity_effective_m²,heat_capacity_effective_m2
+v1.09,v1.10_4,IN,heat_cap_eff_uncooled_m2,ka,0,0.0
+v1.09,v1.10_4,IN,heat_cap_eff_uncooled_m2,Formel,heat_capacity_effective_m²,heat_capacity_effective_m2
+v1.09,v1.10_4,IN,heat_capacity_effective_m²,ka,2,2.0
+v1.09,v1.10_4,IN,heat_cop_1el,ka,2,2.0
+v1.09,v1.10_4,IN,heat_cop_2th,ka,2,2.0
+v1.09,v1.10_4,IN,heat_cop_3el,ka,2,2.0
+v1.09,v1.10_4,IN,heat_cop_4th,ka,2,2.0
+v1.09,v1.10_4,IN,heat_th2_carrier_type,ka,2,2.0
+v1.09,v1.10_4,IN,heat_th2_is_bio,ka,0,0.0
+v1.09,v1.10_4,IN,heat_th2_is_dh,ka,0,0.0
+v1.09,v1.10_4,IN,heat_th2_is_ng,ka,0,0.0
+v1.09,v1.10_4,IN,heat_th2_is_other,ka,0,0.0
+v1.09,v1.10_4,IN,heat_th2_is_other,Formel,--NICHT(ODER(K623;K628;K633)),--NICHT(ODER(K659;K664;K669))
+v1.09,v1.10_4,IN,heat_th4_carrier_type,ka,2,2.0
+v1.09,v1.10_4,IN,heat_th4_is_bio,ka,0,0.0
+v1.09,v1.10_4,IN,heat_th4_is_dh,ka,0,0.0
+v1.09,v1.10_4,IN,heat_th4_is_ng,ka,0,0.0
+v1.09,v1.10_4,IN,heat_th4_is_other,ka,0,0.0
+v1.09,v1.10_4,IN,heat_th4_is_other,Formel,--NICHT(ODER(K624;K629;K634)),--NICHT(ODER(K660;K665;K670))
+v1.09,v1.10_4,IN,heating_month1,ka,2,2.0
+v1.09,v1.10_4,IN,heating_month10,ka,2,2.0
+v1.09,v1.10_4,IN,heating_month11,ka,2,2.0
+v1.09,v1.10_4,IN,heating_month12,ka,2,2.0
+v1.09,v1.10_4,IN,heating_month2,ka,2,2.0
+v1.09,v1.10_4,IN,heating_month3,ka,2,2.0
+v1.09,v1.10_4,IN,heating_month4,ka,2,2.0
+v1.09,v1.10_4,IN,heating_month5,ka,2,2.0
+v1.09,v1.10_4,IN,heating_month6,ka,2,2.0
+v1.09,v1.10_4,IN,heating_month7,ka,2,2.0
+v1.09,v1.10_4,IN,heating_month8,ka,2,2.0
+v1.09,v1.10_4,IN,heating_month9,ka,2,2.0
+v1.09,v1.10_4,IN,hull_ext_wall_wo_window_m2,ka,2,2.0
+v1.09,v1.10_4,IN,hull_fenestration_rate,ka,0,0.0
+v1.09,v1.10_4,IN,hull_fundament_m2,ka,2,2.0
+v1.09,v1.10_4,IN,hull_m2,ka,0,0.0
+v1.09,v1.10_4,IN,hull_roof_m2,ka,2,2.0
+v1.09,v1.10_4,IN,hull_transmittance_fundament,ka,2,2.0
+v1.09,v1.10_4,IN,hull_transmittance_heatbridge,ka,2,2.0
+v1.09,v1.10_4,IN,hull_transmittance_roof,ka,2,2.0
+v1.09,v1.10_4,IN,hull_transmittance_walls,ka,2,2.0
+v1.09,v1.10_4,IN,hull_transmittance_windows_east,ka,2,2.0
+v1.09,v1.10_4,IN,hull_transmittance_windows_horizontal,ka,2,2.0
+v1.09,v1.10_4,IN,hull_transmittance_windows_north,ka,2,2.0
+v1.09,v1.10_4,IN,hull_transmittance_windows_south,ka,2,2.0
+v1.09,v1.10_4,IN,hull_transmittance_windows_west,ka,2,2.0
+v1.09,v1.10_4,IN,hull_window_m2,ka,0,0.0
+v1.09,v1.10_4,IN,hull_window_m2,Formel,SUMME(K81:K84),SUMME(K83:K86)
+v1.09,v1.10_4,IN,hull_windows_east_m2,ka,2,2.0
+v1.09,v1.10_4,IN,hull_windows_horizontal_m2,ka,2,2.0
+v1.09,v1.10_4,IN,hull_windows_north_m2,ka,2,2.0
+v1.09,v1.10_4,IN,hull_windows_south_m2,ka,2,2.0
+v1.09,v1.10_4,IN,hull_windows_west_m2,ka,2,2.0
+v1.09,v1.10_4,IN,illuminance_efficiency_dirt,ka,1,1.0
+v1.09,v1.10_4,IN,illuminance_efficiency_glazing_ratio,ka,2,2.0
+v1.09,v1.10_4,IN,illuminance_min_office,ka,2,2.0
+v1.09,v1.10_4,IN,illuminance_min_other,ka,2,2.0
+v1.09,v1.10_4,IN,illuminance_min_residential,ka,2,2.0
+v1.09,v1.10_4,IN,illuminance_min_retailfood,ka,2,2.0
+v1.09,v1.10_4,IN,illuminance_min_retailother,ka,2,2.0
+v1.09,v1.10_4,IN,illuminance_min_schoolprim,ka,2,2.0
+v1.09,v1.10_4,IN,illuminance_min_schoolsec,ka,2,2.0
+v1.09,v1.10_4,IN,input_version_number,ka,1,0.0
+v1.09,v1.10_4,IN,irradiation_opaque_surcharge,ka,1,1.0
+v1.09,v1.10_4,IN,lc,ka,0,0.0
+v1.09,v1.10_4,IN,lighting_factor_office,ka,2,2.0
+v1.09,v1.10_4,IN,lighting_factor_other,ka,2,2.0
+v1.09,v1.10_4,IN,lighting_factor_other,Name,Beleuchtung Skalierung Ausbildung Primär,Beleuchtung Skalierung Sonstige Nutzung
+v1.09,v1.10_4,IN,lighting_factor_retailfood,ka,2,2.0
+v1.09,v1.10_4,IN,lighting_factor_retailfood,Name,Beleuchtung Skalierung Büro,Beleuchtung Skalierung Handel Food
+v1.09,v1.10_4,IN,lighting_factor_retailother,ka,2,2.0
+v1.09,v1.10_4,IN,lighting_factor_retailother,Name,Beleuchtung Skalierung Ausbildung Sekundär,Beleuchtung Skalierung handel Non-Food
+v1.09,v1.10_4,IN,lighting_factor_schoolprim,ka,2,2.0
+v1.09,v1.10_4,IN,lighting_factor_schoolsec,ka,2,2.0
+v1.09,v1.10_4,IN,location_address,ka,2,2.0
+v1.09,v1.10_4,IN,location_postcode,ka,2,2.0
+v1.09,v1.10_4,IN,mob_motorization_perNFA_residential,ka,1,1.0
+v1.09,v1.10_4,IN,mob_motorization_perNFA_retail,ka,2,2.0
+v1.09,v1.10_4,IN,mob_motorization_perNFA_work,ka,1,1.0
+v1.09,v1.10_4,IN,mob_pkm_factor,ka,2,2.0
+v1.09,v1.10_4,IN,mob_shading_factor_c,ka,0,0.0
+v1.09,v1.10_4,IN,mob_shading_factor_u,ka,0,0.0
+v1.09,v1.10_4,IN,mob_simultaneity_edu,ka,2,2.0
+v1.09,v1.10_4,IN,mob_simultaneity_office,ka,1,1.0
+v1.09,v1.10_4,IN,mob_simultaneity_retail,ka,2,2.0
+v1.09,v1.10_4,IN,mobility_is_included,ka,2,2.0
+v1.09,v1.10_4,IN,mobility_mode,ka,1,1.0
+v1.09,v1.10_4,IN,mobility_region,ka,0,0.0
+v1.09,v1.10_4,IN,mobility_region,Formel,"WENNFEHLER(SVERWEIS(K20;gemeinden;3;FALSCH)&WENN(mobility_mode=""Vereinfacht"";"" optimiert"";""""); ""Keine Region ausgewählt."")","WENNFEHLER(SVERWEIS(K22;gemeinden;3;FALSCH)&WENN(mobility_mode=""Vereinfacht"";"" optimiert"";""""); ""Keine Region ausgewählt."")"
+v1.09,v1.10_4,IN,mobility_vehicle_count,ka,2,2.0
+v1.09,v1.10_4,IN,mobshare_office,ka,0,0.0
+v1.09,v1.10_4,IN,mobshare_residential,ka,0,0.0
+v1.09,v1.10_4,IN,mobshare_retail,ka,0,0.0
+v1.09,v1.10_4,IN,mobshare_school,ka,0,0.0
+v1.09,v1.10_4,IN,moped_factor,ka,1,1.0
+v1.09,v1.10_4,IN,municipality_name,ka,2,2.0
+v1.09,v1.10_4,IN,pe_conversion_factor_gasoline,ka,1,1.0
+v1.09,v1.10_4,IN,per_NFA,ka,0,0.0
+v1.09,v1.10_4,IN,pkm_bike,ka,0,0.0
+v1.09,v1.10_4,IN,pkm_bus,ka,0,0.0
+v1.09,v1.10_4,IN,pkm_car_driver,ka,0,0.0
+v1.09,v1.10_4,IN,pkm_car_passenger,ka,0,0.0
+v1.09,v1.10_4,IN,pkm_distancebus,ka,0,0.0
+v1.09,v1.10_4,IN,pkm_mofa,ka,0,0.0
+v1.09,v1.10_4,IN,pkm_pedestrian,ka,0,0.0
+v1.09,v1.10_4,IN,pkm_train,ka,0,0.0
+v1.09,v1.10_4,IN,pkm_tram_metro,ka,0,0.0
+v1.09,v1.10_4,IN,plot_area,ka,2,2.0
+v1.09,v1.10_4,IN,project_creation_date,ka,2,2.0
+v1.09,v1.10_4,IN,project_description,ka,2,2.0
+v1.09,v1.10_4,IN,project_name,ka,2,2.0
+v1.09,v1.10_4,IN,project_scenario_name,ka,2,2.0
+v1.09,v1.10_4,IN,project_url,ka,2,2.0
+v1.09,v1.10_4,IN,rcp1_dh,ka,0,0.0
+v1.09,v1.10_4,IN,rcp1_fossil,ka,1,1.0
+v1.09,v1.10_4,IN,rcp1_renewable,ka,1,1.0
+v1.09,v1.10_4,IN,rcp2_dh,ka,0,0.0
+v1.09,v1.10_4,IN,rcp2_fossil,ka,1,1.0
+v1.09,v1.10_4,IN,rcp2_renewable,ka,1,1.0
+v1.09,v1.10_4,IN,rcp3_dh,ka,0,0.0
+v1.09,v1.10_4,IN,rcp3_fossil,ka,1,1.0
+v1.09,v1.10_4,IN,rcp3_renewable,ka,1,1.0
+v1.09,v1.10_4,IN,renovation_ratio_office,ka,2,2.0
+v1.09,v1.10_4,IN,renovation_ratio_other,ka,2,2.0
+v1.09,v1.10_4,IN,renovation_ratio_residential,ka,2,2.0
+v1.09,v1.10_4,IN,renovation_ratio_retailfood,ka,2,2.0
+v1.09,v1.10_4,IN,renovation_ratio_retailother,ka,2,2.0
+v1.09,v1.10_4,IN,renovation_ratio_schoolprim,ka,2,2.0
+v1.09,v1.10_4,IN,renovation_ratio_schoolsec,ka,2,2.0
+v1.09,v1.10_4,IN,renovation_share,ka,0,0.0
+v1.09,v1.10_4,IN,rh_avg,ka,0,0.0
+v1.09,v1.10_4,IN,rh_avg,Formel,SUMMENPRODUKT(K65:K71;K44:K50)/NFA_total,SUMMENPRODUKT(K67:K73;K46:K52)/NFA_total
+v1.09,v1.10_4,IN,rh_ceiling,ka,1,1.0
+v1.09,v1.10_4,IN,rh_office,ka,2,2.0
+v1.09,v1.10_4,IN,rh_other,ka,2,2.0
+v1.09,v1.10_4,IN,rh_residential,ka,2,2.0
+v1.09,v1.10_4,IN,rh_retailfood,ka,2,2.0
+v1.09,v1.10_4,IN,rh_retailother,ka,2,2.0
+v1.09,v1.10_4,IN,rh_schoolprim,ka,2,2.0
+v1.09,v1.10_4,IN,rh_schoolsec,ka,2,2.0
+v1.09,v1.10_4,IN,scenario_version,ka,1,0.0
+v1.09,v1.10_4,IN,storey_count_avg,ka,1,1.0
+v1.09,v1.10_4,IN,test_NFV_shares,ka,0,0.0
+v1.09,v1.10_4,IN,transmittance_MW,ka,0,0.0
+v1.09,v1.10_4,IN,transmittance_MW,Formel,transmittance_Wm²*NFA_total/1000000,transmittance_Wm2*NFA_total/1000000
+v1.09,v1.10_4,IN,usage_concurrency_summer_office,ka,2,2.0
+v1.09,v1.10_4,IN,usage_concurrency_summer_other,ka,2,2.0
+v1.09,v1.10_4,IN,usage_concurrency_summer_retailfood,ka,2,2.0
+v1.09,v1.10_4,IN,usage_concurrency_summer_retailother,ka,2,2.0
+v1.09,v1.10_4,IN,usage_concurrency_winter_office,ka,2,2.0
+v1.09,v1.10_4,IN,usage_concurrency_winter_other,ka,2,2.0
+v1.09,v1.10_4,IN,usage_concurrency_winter_retailfood,ka,2,2.0
+v1.09,v1.10_4,IN,usage_concurrency_winter_retailother,ka,2,2.0
+v1.09,v1.10_4,IN,vent_ach_max_office,ka,2,2.0
+v1.09,v1.10_4,IN,vent_ach_max_other,ka,2,2.0
+v1.09,v1.10_4,IN,vent_ach_max_residential,ka,2,2.0
+v1.09,v1.10_4,IN,vent_ach_max_retailfood,ka,2,2.0
+v1.09,v1.10_4,IN,vent_ach_max_retailother,ka,2,2.0
+v1.09,v1.10_4,IN,vent_ach_max_schoolprim,ka,2,2.0
+v1.09,v1.10_4,IN,vent_ach_max_schoolsec,ka,2,2.0
+v1.09,v1.10_4,IN,vent_air_tightness,ka,2,2.0
+v1.09,v1.10_4,IN,vent_heat_recovery_summer_office,ka,2,2.0
+v1.09,v1.10_4,IN,vent_heat_recovery_summer_other,ka,2,2.0
+v1.09,v1.10_4,IN,vent_heat_recovery_summer_residential,ka,2,2.0
+v1.09,v1.10_4,IN,vent_heat_recovery_summer_retailfood,ka,2,2.0
+v1.09,v1.10_4,IN,vent_heat_recovery_summer_retailother,ka,2,2.0
+v1.09,v1.10_4,IN,vent_heat_recovery_summer_schoolprim,ka,2,2.0
+v1.09,v1.10_4,IN,vent_heat_recovery_summer_schoolsec,ka,2,2.0
+v1.09,v1.10_4,IN,vent_heat_recovery_winter_office,ka,2,2.0
+v1.09,v1.10_4,IN,vent_heat_recovery_winter_other,ka,2,2.0
+v1.09,v1.10_4,IN,vent_heat_recovery_winter_residential,ka,2,2.0
+v1.09,v1.10_4,IN,vent_heat_recovery_winter_retailfood,ka,2,2.0
+v1.09,v1.10_4,IN,vent_heat_recovery_winter_retailother,ka,2,2.0
+v1.09,v1.10_4,IN,vent_heat_recovery_winter_schoolprim,ka,2,2.0
+v1.09,v1.10_4,IN,vent_heat_recovery_winter_schoolsec,ka,2,2.0
+v1.09,v1.10_4,IN,vent_infiltration_ACH,ka,0,0.0
+v1.09,v1.10_4,IN,vent_infiltration_ACH,Formel,K173/K174,K175/K176
+v1.09,v1.10_4,IN,vent_night_office,ka,2,2.0
+v1.09,v1.10_4,IN,vent_night_other,ka,2,2.0
+v1.09,v1.10_4,IN,vent_night_residential,ka,2,2.0
+v1.09,v1.10_4,IN,vent_night_retailfood,ka,2,2.0
+v1.09,v1.10_4,IN,vent_night_retailother,ka,2,2.0
+v1.09,v1.10_4,IN,vent_night_schoolprim,ka,2,2.0
+v1.09,v1.10_4,IN,vent_night_schoolsec,ka,2,2.0
+v1.09,v1.10_4,IN,vent_scale_office,ka,0,0.0
+v1.09,v1.10_4,IN,vent_scale_office,Formel,K203/MAX(Nutzung_Büro[Bedarf Luftwechsel]),K205/MAX(Nutzung_Büro[Bedarf Luftwechsel])
+v1.09,v1.10_4,IN,vent_scale_other,ka,0,0.0
+v1.09,v1.10_4,IN,vent_scale_residential,ka,0,0.0
+v1.09,v1.10_4,IN,vent_scale_residential,Formel,K202/MAX(Nutzung_Wohnen[Bedarf Luftwechsel]),K204/MAX(Nutzung_Wohnen[Bedarf Luftwechsel])
+v1.09,v1.10_4,IN,vent_scale_retail,ka,0,0.0
+v1.09,v1.10_4,IN,vent_scale_retail,Formel,K207/MAX(Nutzung_Handel_NonFood[Bedarf Luftwechsel]),K209/MAX(Nutzung_Handel_NonFood[Bedarf Luftwechsel])
+v1.09,v1.10_4,IN,vent_scale_school_prim,ka,0,0.0
+v1.09,v1.10_4,IN,vent_scale_school_prim,Formel,K205/MAX(Nutzung_KIGA[Bedarf Luftwechsel]),K207/MAX(Nutzung_KIGA[Bedarf Luftwechsel])
+v1.09,v1.10_4,IN,vent_scale_school_sec,ka,0,0.0
+v1.09,v1.10_4,IN,vent_scale_school_sec,Formel,K204/MAX(Nutzung_Schule[Bedarf Luftwechsel]),K206/MAX(Nutzung_Schule[Bedarf Luftwechsel])
+v1.09,v1.10_4,IN,vent_scale_supermarket,ka,0,0.0
+v1.09,v1.10_4,IN,vent_scale_supermarket,Formel,K206/MAX(Nutzung_Handel_Food[Bedarf Luftwechsel]),K208/MAX(Nutzung_Handel_Food[Bedarf Luftwechsel])
+v1.09,v1.10_4,IN,vent_share_mechanical_office,ka,2,2.0
+v1.09,v1.10_4,IN,vent_share_mechanical_other,ka,2,2.0
+v1.09,v1.10_4,IN,vent_share_mechanical_residential,ka,2,2.0
+v1.09,v1.10_4,IN,vent_share_mechanical_retailfood,ka,2,2.0
+v1.09,v1.10_4,IN,vent_share_mechanical_retailother,ka,2,2.0
+v1.09,v1.10_4,IN,vent_share_mechanical_schoolprim,ka,2,2.0
+v1.09,v1.10_4,IN,vent_share_mechanical_schoolsec,ka,2,2.0
+v1.09,v1.10_4,IN,vent_tightness_ratio_blowerdoor_to_real,ka,1,1.0
+v1.09,v1.10_4,IN,weather_index,ka,0,0.0
+v1.09,v1.10_4,IN,weather_index,Formel,VERGLEICH(K26;list_weathers;0),VERGLEICH(K28;list_weathers;0)
+v1.09,v1.10_4,IN,weather_name,ka,2,2.0
+v1.09,v1.10_4,IN,window_irradiation_factor_summer_east,ka,2,2.0
+v1.09,v1.10_4,IN,window_irradiation_factor_summer_horizontal,ka,2,2.0
+v1.09,v1.10_4,IN,window_irradiation_factor_summer_north,ka,2,2.0
+v1.09,v1.10_4,IN,window_irradiation_factor_summer_south,ka,2,2.0
+v1.09,v1.10_4,IN,window_irradiation_factor_summer_west,ka,2,2.0
+v1.09,v1.10_4,IN,window_irradiation_factor_winter_east,ka,2,2.0
+v1.09,v1.10_4,IN,window_irradiation_factor_winter_horizontal,ka,2,2.0
+v1.09,v1.10_4,IN,window_irradiation_factor_winter_north,ka,2,2.0
+v1.09,v1.10_4,IN,window_irradiation_factor_winter_south,ka,2,2.0
+v1.09,v1.10_4,IN,window_irradiation_factor_winter_west,ka,2,2.0
+v1.09,v1.10_4,IN,window_total_transmittance_east,ka,2,2.0
+v1.09,v1.10_4,IN,window_total_transmittance_horizontal,ka,2,2.0
+v1.09,v1.10_4,IN,window_total_transmittance_north,ka,2,2.0
+v1.09,v1.10_4,IN,window_total_transmittance_south,ka,2,2.0
+v1.09,v1.10_4,IN,window_total_transmittance_west,ka,2,2.0
+v1.09,v1.10_4,IN,year_rcp0,ka,1,1.0
+v1.09,v1.10_4,IN,year_rcp1,ka,1,1.0
+v1.09,v1.10_4,IN,year_rcp2,ka,1,1.0
+v1.09,v1.10_4,IN,year_rcp3,ka,1,1.0
+v1.09,v1.10_4,OUT,GWP_ee_ceilings_biogenic,Formel,WENNNV(SVERWEIS(GWP_ceilings_name;GWP_Katalog;5;FALSCH)*MAX(SVERWEIS(GWP_ceilings_name;GWP_Katalog;7;FALSCH);55%)*SVERWEIS(SVERWEIS(GWP_ceilings_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0),WENNNV(SVERWEIS(COMP_name_ceiling;GWP_Katalog;5;FALSCH)*MAX(SVERWEIS(COMP_name_ceiling;GWP_Katalog;7;FALSCH);55%)*SVERWEIS(SVERWEIS(COMP_name_ceiling;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)
+v1.09,v1.10_4,OUT,GWP_ee_ceilings_fossile,Formel,WENNNV(SVERWEIS(GWP_ceilings_name;GWP_Katalog;4;FALSCH)*SVERWEIS(SVERWEIS(GWP_ceilings_name;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0),WENNNV(SVERWEIS(COMP_name_ceiling;GWP_Katalog;4;FALSCH)*SVERWEIS(SVERWEIS(COMP_name_ceiling;GWP_Katalog;3;FALSCH);refArea;2;FALSCH);0)
+v1.09,v1.10_4,OUT,GWP_life_ceilings,Formel,WENNNV(SVERWEIS(GWP_ceilings_name;GWP_Katalog;6;FALSCH);GHG_LCA_timeframe_years+1),WENNNV(SVERWEIS(COMP_name_ceiling;GWP_Katalog;6;FALSCH);GHG_LCA_timeframe_years+1)
+v1.09,v1.10_4,OUT,QT_ground_c,Formel,QT_c*IN!K110/transmittance_Wm²,QT_c*IN!K112/transmittance_Wm2
+v1.09,v1.10_4,OUT,QT_ground_summer,Formel,QT_summer * transmittance_fundament_Wm2NFA / transmittance_Wm²,QT_summer * transmittance_fundament_Wm2NFA / transmittance_Wm2
+v1.09,v1.10_4,OUT,QT_ground_u,Formel,QT_u*IN!K110/transmittance_Wm²,QT_u*IN!K112/transmittance_Wm2
+v1.09,v1.10_4,OUT,QT_ground_winter,Formel,QT_winter * transmittance_fundament_Wm2NFA / transmittance_Wm²,QT_winter * transmittance_fundament_Wm2NFA / transmittance_Wm2
+v1.09,v1.10_4,OUT,QT_psi_c,Formel,QT_c*IN!K112/transmittance_Wm²,QT_c*IN!K114/transmittance_Wm2
+v1.09,v1.10_4,OUT,QT_psi_summer,Formel,QT_summer * transmittance_heatbridge_Wm2NFA / transmittance_Wm²,QT_summer * transmittance_heatbridge_Wm2NFA / transmittance_Wm2
+v1.09,v1.10_4,OUT,QT_psi_u,Formel,QT_u*IN!K112/transmittance_Wm²,QT_u*IN!K114/transmittance_Wm2
+v1.09,v1.10_4,OUT,QT_psi_winter,Formel,QT_winter * transmittance_heatbridge_Wm2NFA / transmittance_Wm²,QT_winter * transmittance_heatbridge_Wm2NFA / transmittance_Wm2
+v1.09,v1.10_4,OUT,QT_roof_c,Formel,QT_c*IN!K109/transmittance_Wm²,QT_c*IN!K111/transmittance_Wm2
+v1.09,v1.10_4,OUT,QT_roof_summer,Formel,QT_summer * transmittance_roof_Wm2NFA / transmittance_Wm²,QT_summer * transmittance_roof_Wm2NFA / transmittance_Wm2
+v1.09,v1.10_4,OUT,QT_roof_u,Formel,QT_u*IN!K109/transmittance_Wm²,QT_u*IN!K111/transmittance_Wm2
+v1.09,v1.10_4,OUT,QT_roof_winter,Formel,QT_winter * transmittance_roof_Wm2NFA / transmittance_Wm²,QT_winter * transmittance_roof_Wm2NFA / transmittance_Wm2
+v1.09,v1.10_4,OUT,QT_wall_c,Formel,QT_c*IN!K108/transmittance_Wm²,QT_c*IN!K110/transmittance_Wm2
+v1.09,v1.10_4,OUT,QT_wall_summer,Formel,QT_summer * transmittance_walls_Wm2NFA / transmittance_Wm²,QT_summer * transmittance_walls_Wm2NFA / transmittance_Wm2
+v1.09,v1.10_4,OUT,QT_wall_u,Formel,QT_u*IN!K108/transmittance_Wm²,QT_u*IN!K110/transmittance_Wm2
+v1.09,v1.10_4,OUT,QT_wall_winter,Formel,QT_winter * transmittance_walls_Wm2NFA / transmittance_Wm²,QT_winter * transmittance_walls_Wm2NFA / transmittance_Wm2
+v1.09,v1.10_4,OUT,QT_window_c,Formel,QT_c*IN!K111/transmittance_Wm²,QT_c*IN!K113/transmittance_Wm2
+v1.09,v1.10_4,OUT,QT_window_summer,Formel,QT_summer * transmittance_windows_Wm2NFA / transmittance_Wm²,QT_summer * transmittance_windows_Wm2NFA / transmittance_Wm2
+v1.09,v1.10_4,OUT,QT_window_u,Formel,QT_u*IN!K111/transmittance_Wm²,QT_u*IN!K113/transmittance_Wm2
+v1.09,v1.10_4,OUT,QT_window_winter,Formel,QT_winter * transmittance_windows_Wm2NFA / transmittance_Wm²,QT_winter * transmittance_windows_Wm2NFA / transmittance_Wm2
+v1.09,v1.10_4,SIM,ACH_nightvent,Formula,"=[@[Night_use]]*IF(-[@[dT_uncooled]]>2,ACH_night_m³,0)","=[@[Night_use]]*IF(-[@[dT_uncooled]]>2,ACH_night_m3,0)"
+v1.09,v1.10_4,SIM,Eev_S_res,Formula,=-EV_mileage_res*EV_demand_kWhpkm*mob[@[Anteil JPkm]]*1000*per_NFA,=-EV_mileage_residential*EV_demand_kWhpkm*mob[@[Anteil JPkm]]*1000*per_NFA
+v1.09,v1.10_4,SIM,QI_eduprim,Formula,=(usage_concurrency_winter_eduprim*[@[percent_winter]]*Nutzung_KIGA[@[Innere Wärmen Min]]+usage_concurrency_summer_eduprim*(1-[@[percent_winter]])*Nutzung_KIGA[@[Innere Wärmen Max]]),=(usage_concurrency_winter_schoolprim*[@[percent_winter]]*Nutzung_KIGA[@[Innere Wärmen Min]]+usage_concurrency_summer_schoolprim*(1-[@[percent_winter]])*Nutzung_KIGA[@[Innere Wärmen Max]])
+v1.09,v1.10_4,SIM,QI_edusec,Formula,=(usage_concurrency_winter_edusec*[@[percent_winter]]*Nutzung_Schule[@[Innere Wärmen Min]]+usage_concurrency_summer_edusec*(1-[@[percent_winter]])*Nutzung_Schule[@[Innere Wärmen Max]]),=(usage_concurrency_winter_schoolsec*[@[percent_winter]]*Nutzung_Schule[@[Innere Wärmen Min]]+usage_concurrency_summer_schoolsec*(1-[@[percent_winter]])*Nutzung_Schule[@[Innere Wärmen Max]])
+v1.09,v1.10_4,SIM,QI_residential,Formula,=(usage_concurrency_winter_res*[@[percent_winter]]*Nutzung_Wohnen[@[Innere Wärmen Min]]+usage_concurrency_summer_res*(1-[@[percent_winter]])*Nutzung_Wohnen[@[Innere Wärmen Max]]),=(usage_concurrency_winter_residential*[@[percent_winter]]*Nutzung_Wohnen[@[Innere Wärmen Min]]+usage_concurrency_summer_residential*(1-[@[percent_winter]])*Nutzung_Wohnen[@[Innere Wärmen Max]])
+v1.09,v1.10_4,SIM,QT_c,Formula,=[@[dT_cooled]]*transmittance_Wm²,=[@[dT_cooled]]*transmittance_Wm2
+v1.09,v1.10_4,SIM,QT_u,Formula,=[@[dT_uncooled]]*transmittance_Wm²,=[@[dT_uncooled]]*transmittance_Wm2
+v1.09,v1.10_4,SIM,Qh_c,Formula,"=[@[Qh_to_room_cooled_min]]+IFERROR(SUM(sim[@[Qh_flex_1el_final]:[Qh_flex_3el_final]])*[@[Qh_to_room_flex_c]]/[@[Qh_to_room_flex]],0)","=IFERROR([@[Qh_min_excl_distr_losses]]*[@[Qh_to_room_cooled_min]]/[@[Qh_to_room_min]],0)+IFERROR(SUM(sim[@[Qh_flex_1el_final]:[Qh_flex_3el_final]])*[@[Qh_to_room_flex_c]]/[@[Qh_to_room_flex]],0)"
+v1.09,v1.10_4,SIM,Qh_flex_1el_potential,Formula,"=FLEX_heat1_use*MIN(QHmax_1el_m²-[@[Qh_min_1el]],MAX([@[Qh_to_room_flex]]-[@[Qh_wasteheat_flex]],0))","=FLEX_heat1_use*MIN(QHmax_1el_m2-[@[Qh_min_1el]],MAX([@[Qh_to_room_flex]]-[@[Qh_wasteheat_flex]],0))"
+v1.09,v1.10_4,SIM,Qh_flex_3el_potential,Formula,"=FLEX_heat3_use*MIN(QHmax_3el_m²-[@[Qh_min_3el]],[@[Qh_to_room_flex]]-[@[Qh_wasteheat_flex]])","=FLEX_heat3_use*MIN(QHmax_3el_m2-[@[Qh_min_3el]],[@[Qh_to_room_flex]]-[@[Qh_wasteheat_flex]])"
+v1.09,v1.10_4,SIM,Qh_min_1el,Formula,"=MIN([@[Qh_to_room_min]]-[@[Qh_min_wasteheat]],QHmax_1el_m²)","=MIN([@[Qh_to_room_min]]-[@[Qh_min_wasteheat]],QHmax_1el_m2)"
+v1.09,v1.10_4,SIM,Qh_min_2th,Formula,"=MIN([@[Qh_to_room_min]]-SUM(sim[@[Qh_min_wasteheat]:[Qh_min_1el]]),QHmax_2th_m²)","=MIN([@[Qh_to_room_min]]-SUM(sim[@[Qh_min_wasteheat]:[Qh_min_1el]]),QHmax_2th_m2)"
+v1.09,v1.10_4,SIM,Qh_min_3el,Formula,"=MIN([@[Qh_to_room_min]]-SUM(sim[@[Qh_min_wasteheat]:[Qh_min_2th]]),QHmax_3el_m²)","=MIN([@[Qh_to_room_min]]-SUM(sim[@[Qh_min_wasteheat]:[Qh_min_2th]]),QHmax_3el_m2)"
+v1.09,v1.10_4,SIM,Qh_min_4th,Formula,"=MIN([@[Qh_to_room_min]]-SUM(sim[@[Qh_min_wasteheat]:[Qh_min_3el]]),QHmax_4th_m²)","=MIN([@[Qh_to_room_min]]-SUM(sim[@[Qh_min_wasteheat]:[Qh_min_3el]]),QHmax_4th_m2)"
+v1.09,v1.10_4,SIM,Qh_to_room_cooled_max,Formula,"=MIN(QHmax_room_m²,AND([@[is_heating_period]],NOT([@[is_cooling_period]]))*([@[dT_heating_cooled_max]]*heat_cap_eff_cooled_m2))","=MIN(QHmax_room_m2,AND([@[is_heating_period]],NOT([@[is_cooling_period]]))*([@[dT_heating_cooled_max]]*heat_cap_eff_cooled_m2))"
+v1.09,v1.10_4,SIM,Qh_to_room_cooled_min,Formula,"=MIN(QHmax_room_m²,[@[is_heating_period]]*([@[dT_heating_cooled_min]]*heat_cap_eff_cooled_m2))","=MIN(QHmax_room_m2,[@[is_heating_period]]*([@[dT_heating_cooled_min]]*heat_cap_eff_cooled_m2))"
+v1.09,v1.10_4,SIM,Qh_to_room_uncooled_max,Formula,"=MIN(QHmax_room_m²,AND([@[is_heating_period]],NOT([@[is_cooling_period]]))*([@[dT_heating_uncooled_max]]*heat_cap_eff_uncooled_m2))","=MIN(QHmax_room_m2,AND([@[is_heating_period]],NOT([@[is_cooling_period]]))*([@[dT_heating_uncooled_max]]*heat_cap_eff_uncooled_m2))"
+v1.09,v1.10_4,SIM,Qh_to_room_uncooled_min,Formula,"=MIN(QHmax_room_m²,[@[is_heating_period]]*([@[dT_heating_uncooled_min]]*heat_cap_eff_uncooled_m2))","=MIN(QHmax_room_m2,[@[is_heating_period]]*([@[dT_heating_uncooled_min]]*heat_cap_eff_uncooled_m2))"
+v1.09,v1.10_4,SIM,Qh_u,Formula,"=[@[Qh_to_room_uncooled_min]]+IFERROR(SUM(sim[@[Qh_flex_1el_final]:[Qh_flex_3el_final]])*[@[Qh_to_room_flex_u]]/[@[Qh_to_room_flex]],0)","=IFERROR([@[Qh_min_excl_distr_losses]]*[@[Qh_to_room_uncooled_min]]/[@[Qh_to_room_min]],0)+IFERROR(SUM(sim[@[Qh_flex_1el_final]:[Qh_flex_3el_final]])*[@[Qh_to_room_flex_u]]/[@[Qh_to_room_flex]],0)"
+v1.09,v1.10_4,SIM,Qvinf_c,Formula,=[@[dT_cooled]]*NFV_c*vent_infiltration_ACH*cp_air*per_NFA,=[@[dT_cooled]]*NFV_c*vent_infiltration_ACH*cp_air*per_NFA_cooled
+v1.09,v1.10_4,SIM,Qvinf_u,Formula,=[@[dT_uncooled]]*NFV_u*vent_infiltration_ACH*cp_air*per_NFA,=[@[dT_uncooled]]*NFV_u*vent_infiltration_ACH*cp_air*per_NFA_uncooled
+v1.09,v1.10_4,SIM,Ti_passive_cooled,Formula,=[@Ti0cooled]+([@[Qvinf_c]]+[@[Qvmechvent_c]]+[@[Qvwindow_c]]+[@[QT_c]]+[@[QS_c]]+[@[QI_c]])/heat_capacity_effective_m²,=[@Ti0cooled]+([@[Qvinf_c]]+[@[Qvmechvent_c]]+[@[Qvwindow_c]]+[@[QT_c]]+[@[QS_c]]+[@[QI_c]])/heat_capacity_effective_m2
+v1.09,v1.10_4,SIM,Ti_passive_uncooled,Formula,=[@Ti0uncooled]+([@[Qvinf_u]]+[@[Qvmechvent_u]]+[@[Qvwindow_u]]+[@[QT_u]]+[@[QS_u]]+[@[QI_u]])/heat_capacity_effective_m²,=[@Ti0uncooled]+([@[Qvinf_u]]+[@[Qvmechvent_u]]+[@[Qvwindow_u]]+[@[QT_u]]+[@[QS_u]]+[@[QI_u]])/heat_capacity_effective_m2
+v1.10_4,v1_11_4,IN,ACH_night_m³,Formel,SUMMENPRODUKT(K185:K191;K67:K73;K46:K52;SVERWEIS(K196:K202;night_ventilation_types;2;FALSCH)),SUMMENPRODUKT(N185:N191;N67:N73;N46:N52;SVERWEIS(N196:N202;night_ventilation_types;2;FALSCH))
+v1.10_4,v1_11_4,IN,DHW_Tmax,Formel,MIN(K401;DHW_Tmax_constant),MIN(N401;DHW_Tmax_constant)
+v1.10_4,v1_11_4,IN,DHW_demand_office_kWhm2,Formel,nan,💧WW!D34
+v1.10_4,v1_11_4,IN,DHW_demand_other_kWhm2,Formel,nan,💧WW!D39
+v1.10_4,v1_11_4,IN,DHW_demand_residential_kWhm2,Formel,nan,💧WW!D33
+v1.10_4,v1_11_4,IN,DHW_demand_retailfood_kWhm2,Formel,nan,💧WW!D37
+v1.10_4,v1_11_4,IN,DHW_demand_retailother_kWhm2,Formel,nan,💧WW!D38
+v1.10_4,v1_11_4,IN,DHW_demand_schoolprim_kWhm2,Formel,nan,💧WW!D36
+v1.10_4,v1_11_4,IN,DHW_demand_schoolsec_kWhm2,Formel,nan,💧WW!D35
+v1.10_4,v1_11_4,IN,DHW_storage_1_liter,Formel,SUMMENPRODUKT(K403:K409;K410:K416),SUMMENPRODUKT(N403:N409;N410:N416)
+v1.10_4,v1_11_4,IN,DHW_storage_2_liter,Formel,SUMME(K410:K416)-DHW_storage_1_liter,SUMME(N410:N416)-DHW_storage_1_liter
+v1.10_4,v1_11_4,IN,EV_charging_losses_surcharge_factor,Formel,WENNFEHLER(1/K523;0),WENNFEHLER(1/N523;0)
+v1.10_4,v1_11_4,IN,EV_selfdischarge_per_h,Formel,K520/24/7,N520/24/7
+v1.10_4,v1_11_4,IN,EV_storage_total_kWh,Formel,K518*K515,N518*N515
+v1.10_4,v1_11_4,IN,FLEX_cool1_use,Formel,"WENN(K480=""System 1"";WAHR;FALSCH)","WENN(N480=""System 1"";WAHR;FALSCH)"
+v1.10_4,v1_11_4,IN,FLEX_cool3_use,Formel,"WENN(K480=""System 3"";WAHR;FALSCH)","WENN(N480=""System 3"";WAHR;FALSCH)"
+v1.10_4,v1_11_4,IN,FLEX_heat1_use,Formel,"WENN(K475=""System 1"";WAHR;FALSCH)","WENN(N475=""System 1"";WAHR;FALSCH)"
+v1.10_4,v1_11_4,IN,FLEX_heat3_use,Formel,"WENN(K475=""System 3"";WAHR;FALSCH)","WENN(N475=""System 3"";WAHR;FALSCH)"
+v1.10_4,v1_11_4,IN,FSI,Formel,GFA_total/K55,GFA_total/N55
+v1.10_4,v1_11_4,IN,GFA_total,Formel,SUMME(K30:K36),SUMME(N30:N36)
+v1.10_4,v1_11_4,IN,GFV,Formel,NFA_total*(rh_avg+K78),NFA_total*(rh_avg+N78)
+v1.10_4,v1_11_4,IN,GWP_miv_count_ev,Formel,K615*EV_share,N615*EV_share
+v1.10_4,v1_11_4,IN,GWP_miv_count_fossile,Formel,K615-K616,N615-N616
+v1.10_4,v1_11_4,IN,GWP_refratio_ceilings,Formel,K572/GFA_total,N572/GFA_total
+v1.10_4,v1_11_4,IN,GWP_refratio_fundament,Formel,K571/GFA_total,N571/GFA_total
+v1.10_4,v1_11_4,IN,GWP_refratio_roof,Formel,K570/GFA_total,N570/GFA_total
+v1.10_4,v1_11_4,IN,GWP_refratio_walls,Formel,K568/GFA_total,N568/GFA_total
+v1.10_4,v1_11_4,IN,GWP_refratio_windows,Formel,K569/GFA_total,N569/GFA_total
+v1.10_4,v1_11_4,IN,NFA_cooled,Formel,SUMMENPRODUKT(K361:K367;K46:K52),SUMMENPRODUKT(N361:N367;N46:N52)
+v1.10_4,v1_11_4,IN,NFA_mechvent,Formel,SUMMENPRODUKT(K$178:K$184;K46:K52),SUMMENPRODUKT(N$178:N$184;N46:N52)
+v1.10_4,v1_11_4,IN,NFA_office,Formel,K31*K39,N31*N39
+v1.10_4,v1_11_4,IN,NFA_other,Formel,K36*K44,N36*N44
+v1.10_4,v1_11_4,IN,NFA_residential,Formel,K30*K38,N30*N38
+v1.10_4,v1_11_4,IN,NFA_retailfood,Formel,K34*K42,N34*N42
+v1.10_4,v1_11_4,IN,NFA_retailother,Formel,K35*K43,N35*N43
+v1.10_4,v1_11_4,IN,NFA_schoolprim,Formel,K33*K41,N33*N41
+v1.10_4,v1_11_4,IN,NFA_schoolsec,Formel,K32*K40,N32*N40
+v1.10_4,v1_11_4,IN,NFA_total,Formel,SUMME(K46:K52),SUMME(N46:N52)
+v1.10_4,v1_11_4,IN,NFAfrac_u,Formel,1-K376,1-N376
+v1.10_4,v1_11_4,IN,NFV_c,Formel,SUMMENPRODUKT(K46:K52;K67:K73;cool_active_shares),SUMMENPRODUKT(N46:N52;N67:N73;cool_active_shares)
+v1.10_4,v1_11_4,IN,NFV_mechvent,Formel,SUMMENPRODUKT(K$178:K$184;K46:K52;K67:K73),SUMMENPRODUKT(N$178:N$184;N46:N52;N67:N73)
+v1.10_4,v1_11_4,IN,NFV_u,Formel,SUMMENPRODUKT(K46:K52;K67:K73;cool_passive_shares),SUMMENPRODUKT(N46:N52;N67:N73;cool_passive_shares)
+v1.10_4,v1_11_4,IN,NFV_windowvent,Formel,NFV_total-K195,NFV_total-N195
+v1.10_4,v1_11_4,IN,Plugloads_scale_office,ka,2.0,0.0
+v1.10_4,v1_11_4,IN,Plugloads_scale_office,Formel,👤!F10,N703/O703
+v1.10_4,v1_11_4,IN,Plugloads_scale_other,ka,2.0,0.0
+v1.10_4,v1_11_4,IN,Plugloads_scale_other,Formel,👤!F15,N708/O708
+v1.10_4,v1_11_4,IN,Plugloads_scale_residential,ka,2.0,0.0
+v1.10_4,v1_11_4,IN,Plugloads_scale_residential,Formel,👤!F9,N702/O702
+v1.10_4,v1_11_4,IN,Plugloads_scale_retailfood,ka,2.0,0.0
+v1.10_4,v1_11_4,IN,Plugloads_scale_retailfood,Formel,👤!F13,N706/O706
+v1.10_4,v1_11_4,IN,Plugloads_scale_retailother,ka,2.0,0.0
+v1.10_4,v1_11_4,IN,Plugloads_scale_retailother,Formel,👤!F14,N707/O707
+v1.10_4,v1_11_4,IN,Plugloads_scale_schoolprim,ka,2.0,0.0
+v1.10_4,v1_11_4,IN,Plugloads_scale_schoolprim,Formel,👤!F12,N705/O705
+v1.10_4,v1_11_4,IN,Plugloads_scale_schoolsec,ka,2.0,0.0
+v1.10_4,v1_11_4,IN,Plugloads_scale_schoolsec,Formel,👤!F11,N704/O704
+v1.10_4,v1_11_4,IN,QC_generation_eff_2th,Formel,WENNFEHLER(1/K388;0),WENNFEHLER(1/N388;0)
+v1.10_4,v1_11_4,IN,QC_to_EC_1,Formel,WENNFEHLER(1/K387;0),WENNFEHLER(1/N387;0)
+v1.10_4,v1_11_4,IN,QC_to_EC_3,Formel,WENNFEHLER(1/K389;0),WENNFEHLER(1/N389;0)
+v1.10_4,v1_11_4,IN,QH_generation_eff_1el,Formel,WENNFEHLER(1/🔥H!D26;0),WENNFEHLER(1/heat_cop_1el;0)
+v1.10_4,v1_11_4,IN,QH_generation_eff_2th,Formel,WENNFEHLER(1/🔥H!D33;0),WENNFEHLER(1/heat_cop_2th;0)
+v1.10_4,v1_11_4,IN,QH_generation_eff_3el,Formel,WENNFEHLER(1/🔥H!D40;0),WENNFEHLER(1/heat_cop_3el;0)
+v1.10_4,v1_11_4,IN,QH_generation_eff_4th,Formel,WENNFEHLER(1/🔥H!D47;0),WENNFEHLER(1/heat_cop_4th;0)
+v1.10_4,v1_11_4,IN,QHmax_room_MW,Formel,K323*K53/1000000,N323*N53/1000000
+v1.10_4,v1_11_4,IN,Tsetcool_flex,Formel,Tsetcool_max-K478,Tsetcool_max-N478
+v1.10_4,v1_11_4,IN,Tsetheat_flex,Formel,Tsetheat_min+K473,Tsetheat_min+N473
+v1.10_4,v1_11_4,IN,Vent_share_mech_cooled,Formel,WENNFEHLER(SUMMENPRODUKT(K46:K52;cool_active_shares;MTRANS(vent_mech_shares);K67:K73)/NFV_total;0),WENNFEHLER(SUMMENPRODUKT(N46:N52;cool_active_shares;MTRANS(vent_mech_shares);N67:N73)/NFV_total;0)
+v1.10_4,v1_11_4,IN,Vent_share_mech_uncooled,Formel,WENNFEHLER(SUMMENPRODUKT(K46:K52;cool_passive_shares;MTRANS(vent_mech_shares);K67:K73)/NFV_total;0),WENNFEHLER(SUMMENPRODUKT(N46:N52;cool_passive_shares;MTRANS(vent_mech_shares);N67:N73)/NFV_total;0)
+v1.10_4,v1_11_4,IN,Vent_share_window_cooled,Formel,WENNFEHLER(SUMMENPRODUKT(K46:K52;cool_active_shares;MTRANS(vent_window_shares);K67:K73)/NFV_total;0),WENNFEHLER(SUMMENPRODUKT(N46:N52;cool_active_shares;MTRANS(vent_window_shares);N67:N73)/NFV_total;0)
+v1.10_4,v1_11_4,IN,Vent_share_window_uncooled,Formel,WENNFEHLER(SUMMENPRODUKT(K46:K52;cool_passive_shares;MTRANS(vent_window_shares);K67:K73)/NFV_total;0),WENNFEHLER(SUMMENPRODUKT(N46:N52;cool_passive_shares;MTRANS(vent_window_shares);N67:N73)/NFV_total;0)
+v1.10_4,v1_11_4,IN,cool_th2_is_other,Formel,--NICHT(ODER(K661;K666;K671)),--NICHT(ODER(N661;N666;N671))
+v1.10_4,v1_11_4,IN,dhw1_is_other,Formel,--UND(NICHT(ODER(K662;K667;K672)); DHW_1_is_used),--UND(NICHT(ODER(N662;N667;N672)); DHW_1_is_used)
+v1.10_4,v1_11_4,IN,dhw2_is_other,Formel,--UND(NICHT(ODER(K663;K668;K673));DHW_2_is_used),--UND(NICHT(ODER(N663;N668;N673));DHW_2_is_used)
+v1.10_4,v1_11_4,IN,fPE_grid_profile,ka,2.0,1.0
+v1.10_4,v1_11_4,IN,fPE_grid_profile,Formel,🚦Signals!D2,nan
+v1.10_4,v1_11_4,IN,fc_c,Formel,SUMMENPRODUKT(K152:K158;K46:K52;cool_active_shares)*per_NFA_cooled,SUMMENPRODUKT(N152:N158;N46:N52;cool_active_shares)*per_NFA_cooled
+v1.10_4,v1_11_4,IN,fc_u,Formel,SUMMENPRODUKT(K152:K158;K46:K52;cool_passive_shares)*per_NFA_uncooled,SUMMENPRODUKT(N152:N158;N46:N52;cool_passive_shares)*per_NFA_uncooled
+v1.10_4,v1_11_4,IN,heat_th2_is_other,Formel,--NICHT(ODER(K659;K664;K669)),--NICHT(ODER(N659;N664;N669))
+v1.10_4,v1_11_4,IN,heat_th4_is_other,Formel,--NICHT(ODER(K660;K665;K670)),--NICHT(ODER(N660;N665;N670))
+v1.10_4,v1_11_4,IN,hull_window_m2,Formel,SUMME(K83:K86),SUMME(N83:N86)
+v1.10_4,v1_11_4,IN,input_version_number,ka,0.0,1.0
+v1.10_4,v1_11_4,IN,mobility_region,Formel,"WENNFEHLER(SVERWEIS(K22;gemeinden;3;FALSCH)&WENN(mobility_mode=""Vereinfacht"";"" optimiert"";""""); ""Keine Region ausgewählt."")","WENNFEHLER(SVERWEIS(N22;gemeinden;3;FALSCH)&WENN(mobility_mode=""Vereinfacht"";"" optimiert"";""""); ""Keine Region ausgewählt."")"
+v1.10_4,v1_11_4,IN,rh_avg,Formel,SUMMENPRODUKT(K67:K73;K46:K52)/NFA_total,SUMMENPRODUKT(N67:N73;N46:N52)/NFA_total
+v1.10_4,v1_11_4,IN,scenario_version,ka,0.0,1.0
+v1.10_4,v1_11_4,IN,transmittance_Wm2,Formel,SUMME(K110:K114),SUMME(N110:N114)
+v1.10_4,v1_11_4,IN,vent_infiltration_ACH,Formel,K175/K176,N175/N176
+v1.10_4,v1_11_4,IN,vent_scale_office,Formel,K205/MAX(Nutzung_Büro[Bedarf Luftwechsel]),N205/MAX(Nutzung_Büro[Bedarf Luftwechsel])
+v1.10_4,v1_11_4,IN,vent_scale_residential,Formel,K204/MAX(Nutzung_Wohnen[Bedarf Luftwechsel]),N204/MAX(Nutzung_Wohnen[Bedarf Luftwechsel])
+v1.10_4,v1_11_4,IN,vent_scale_retail,Formel,K209/MAX(Nutzung_Handel_NonFood[Bedarf Luftwechsel]),N209/MAX(Nutzung_Handel_NonFood[Bedarf Luftwechsel])
+v1.10_4,v1_11_4,IN,vent_scale_school_prim,Formel,K207/MAX(Nutzung_KIGA[Bedarf Luftwechsel]),N207/MAX(Nutzung_KIGA[Bedarf Luftwechsel])
+v1.10_4,v1_11_4,IN,vent_scale_school_sec,Formel,K206/MAX(Nutzung_Schule[Bedarf Luftwechsel]),N206/MAX(Nutzung_Schule[Bedarf Luftwechsel])
+v1.10_4,v1_11_4,IN,vent_scale_supermarket,Formel,K208/MAX(Nutzung_Handel_Food[Bedarf Luftwechsel]),N208/MAX(Nutzung_Handel_Food[Bedarf Luftwechsel])
+v1.10_4,v1_11_4,IN,weather_index,Formel,VERGLEICH(K28;list_weathers;0),VERGLEICH(N28;list_weathers;0)
+v1.10_4,v1_11_4,OUT,Batt_to_HVAC,Formel,SUMME(I169:I172),SUMME(K156:K159)
+v1.10_4,v1_11_4,OUT,EUI_auxiliary,Formel,SUMME(sim[Elight])/1000,SUMME(sim[Eaux])/1000
+v1.10_4,v1_11_4,OUT,EUI_lighting,Formel,SUMME(sim[Eaux])/1000,SUMME(sim[Elight])/1000
+v1.10_4,v1_11_4,OUT,EUI_mob_fossile,Formel,mobility_is_included*I474*fossile_demand_kWhpkm*per_NFA,mobility_is_included*K461*fossile_demand_kWhpkm*per_NFA
+v1.10_4,v1_11_4,OUT,EUI_plugloads,Formel,SUMME(sim[E_plugAuxLight])/1000-EUI_aixiliary-EUI_lighting,SUMME(sim[E_plugAuxLight])/1000-EUI_auxiliary-EUI_lighting
+v1.10_4,v1_11_4,OUT,EV_FEC,Formel,WENNFEHLER(SUMME(sim[Eev_Cmin];sim[Eev_flex_final])/I484;0),WENNFEHLER(SUMME(sim[Eev_Cmin];sim[Eev_flex_final])/K471;0)
+v1.10_4,v1_11_4,OUT,Eev_discharge_loss,Formel,SUMME(sim[Eev_discharge_total])/1000-I200,SUMME(sim[Eev_discharge_total])/1000-K187
+v1.10_4,v1_11_4,OUT,Eev_to_HVAC,Formel,SUMME(I195:I198),SUMME(K182:K185)
+v1.10_4,v1_11_4,OUT,GWP_ee_lc_direct_biogenic,Formel,(GWP_ee_direct_biogenic)*(1+ABRUNDEN(GHG_LCA_timeframe_years/I323; 0)),(GWP_ee_direct_biogenic)*(1+ABRUNDEN(GHG_LCA_timeframe_years/K310; 0))
+v1.10_4,v1_11_4,OUT,GWP_ee_lc_direct_fossile,Formel,(GWP_ee_direct_fossile)*(1+ABRUNDEN(GHG_LCA_timeframe_years/I323; 0)),(GWP_ee_direct_fossile)*(1+ABRUNDEN(GHG_LCA_timeframe_years/K310; 0))
+v1.10_4,v1_11_4,OUT,GWP_ee_rep_tga,Formel,I369-I367,K356-K354
+v1.10_4,v1_11_4,OUT,GWP_oe_building,Formel,SUMME(I392:I398),SUMME(K379:K385)
+v1.10_4,v1_11_4,OUT,GWP_oe_lc_building,Formel,SUMME(I409:I415),SUMME(K396:K402)
+v1.10_4,v1_11_4,OUT,GWP_oe_lc_emission,Formel,SUMME(I409:I414),SUMME(K396:K401)
+v1.10_4,v1_11_4,OUT,GWP_oe_mob_fossile,Formel,mobility_is_included*I474*GWP_mobility_car_gpPKm/1000/GFA_total,mobility_is_included*K461*GWP_mobility_car_gpPKm/1000/GFA_total
+v1.10_4,v1_11_4,OUT,QC_flexanteil,Formel,WENNFEHLER(QH_flex_c/QH_c;0),WENNFEHLER(QC_flex_c/QC_c;0)
+v1.10_4,v1_11_4,OUT,QH_flexanteil_c,Formel,WENNFEHLER(QC_flex_c/QC_c;0),WENNFEHLER(QH_flex_c/QH_c;0)
+v1.10_4,v1_11_4,OUT,QT_ground_c,Formel,QT_c*IN!K112/transmittance_Wm2,QT_c*IN!N112/transmittance_Wm2
+v1.10_4,v1_11_4,OUT,QT_ground_u,Formel,QT_u*IN!K112/transmittance_Wm2,QT_u*IN!N112/transmittance_Wm2
+v1.10_4,v1_11_4,OUT,QT_psi_c,Formel,QT_c*IN!K114/transmittance_Wm2,QT_c*IN!N114/transmittance_Wm2
+v1.10_4,v1_11_4,OUT,QT_psi_u,Formel,QT_u*IN!K114/transmittance_Wm2,QT_u*IN!N114/transmittance_Wm2
+v1.10_4,v1_11_4,OUT,QT_roof_c,Formel,QT_c*IN!K111/transmittance_Wm2,QT_c*IN!N111/transmittance_Wm2
+v1.10_4,v1_11_4,OUT,QT_roof_u,Formel,QT_u*IN!K111/transmittance_Wm2,QT_u*IN!N111/transmittance_Wm2
+v1.10_4,v1_11_4,OUT,QT_wall_c,Formel,QT_c*IN!K110/transmittance_Wm2,QT_c*IN!N110/transmittance_Wm2
+v1.10_4,v1_11_4,OUT,QT_wall_u,Formel,QT_u*IN!K110/transmittance_Wm2,QT_u*IN!N110/transmittance_Wm2
+v1.10_4,v1_11_4,OUT,QT_window_c,Formel,QT_c*IN!K113/transmittance_Wm2,QT_c*IN!N113/transmittance_Wm2
+v1.10_4,v1_11_4,OUT,QT_window_u,Formel,QT_u*IN!K113/transmittance_Wm2,QT_u*IN!N113/transmittance_Wm2
+v1.10_4,v1_11_4,OUT,StatPAX,Formel,I462+I458+I457,K449+K445+K444
+v1.10_4,v1_11_4,OUT,UED_mob_el_other,Formel,mobility_is_included*(I486-UED_mob_el_target),mobility_is_included*(K473-UED_mob_el_target)
+v1.10_4,v1_11_4,OUT,UED_mob_el_target,Formel,mobility_is_included*I473*EV_demand_kWhpkm*per_NFA,mobility_is_included*K460*EV_demand_kWhpkm*per_NFA
+v1.10_4,v1_11_4,OUT,UED_mob_el_total,Formel,mobility_is_included*I479*EV_share*EV_demand_kWhpkm*per_NFA,mobility_is_included*K466*EV_share*EV_demand_kWhpkm*per_NFA
+v1.10_4,v1_11_4,OUT,fPE_eff,Formel,(I262+I263+I264)/(Grid_to_min+VRGrid_to_min+VRGrid_to_flex+Eev_ext_charge),(K249+K250+K251)/(Grid_to_min+VRGrid_to_min+VRGrid_to_flex+Eev_ext_charge)
+v1.10_4,v1_11_4,OUT,flex_GSR,Formel,I439+I440,K426+K427
+v1.10_4,v1_11_4,OUT,mob_annual_milage_district,Formel,SUMME(I466:I469),SUMME(K453:K456)
+v1.10_4,v1_11_4,SIM,percent_winter,Formula,=[@[season_wave]],"=IF(seasonal_interpolation=""step"", [@[season_step]],[@[season_wave]])"
+v1.10_4,v1_11_4,SIM,season_wave,Formula,=COS(([@h]+$U$3)/8760*2*PI())/2+0.5,=COS(([@h]+seasonal_phase_h)/8760*2*PI())/2+0.5
+v1_11_4,v1_11_5,IN,DHW_Tmax,Formel,MIN(N401;DHW_Tmax_constant),MIN(N402;DHW_Tmax_constant)
+v1_11_4,v1_11_5,IN,DHW_storage_1_liter,Formel,SUMMENPRODUKT(N403:N409;N410:N416),SUMMENPRODUKT(N404:N410;N411:N417)
+v1_11_4,v1_11_5,IN,DHW_storage_2_liter,Formel,SUMME(N410:N416)-DHW_storage_1_liter,SUMME(N411:N417)-DHW_storage_1_liter
+v1_11_4,v1_11_5,IN,EV_charging_losses_surcharge_factor,Formel,WENNFEHLER(1/N523;0),WENNFEHLER(1/N524;0)
+v1_11_4,v1_11_5,IN,EV_selfdischarge_per_h,Formel,N520/24/7,N521/24/7
+v1_11_4,v1_11_5,IN,EV_storage_total_kWh,Formel,N518*N515,N519*N516
+v1_11_4,v1_11_5,IN,FLEX_cool1_use,Formel,"WENN(N480=""System 1"";WAHR;FALSCH)","WENN(N481=""System 1"";WAHR;FALSCH)"
+v1_11_4,v1_11_5,IN,FLEX_cool3_use,Formel,"WENN(N480=""System 3"";WAHR;FALSCH)","WENN(N481=""System 3"";WAHR;FALSCH)"
+v1_11_4,v1_11_5,IN,FLEX_heat1_use,Formel,"WENN(N475=""System 1"";WAHR;FALSCH)","WENN(N476=""System 1"";WAHR;FALSCH)"
+v1_11_4,v1_11_5,IN,FLEX_heat3_use,Formel,"WENN(N475=""System 3"";WAHR;FALSCH)","WENN(N476=""System 3"";WAHR;FALSCH)"
+v1_11_4,v1_11_5,IN,GWP_miv_count_ev,Formel,N615*EV_share,N620*EV_share
+v1_11_4,v1_11_5,IN,GWP_miv_count_fossile,Formel,N615-N616,N620-N621
+v1_11_4,v1_11_5,IN,GWP_refratio_ceilings,Formel,N572/GFA_total,N577/GFA_total
+v1_11_4,v1_11_5,IN,GWP_refratio_fundament,Formel,N571/GFA_total,N576/GFA_total
+v1_11_4,v1_11_5,IN,GWP_refratio_roof,Formel,N570/GFA_total,N575/GFA_total
+v1_11_4,v1_11_5,IN,GWP_refratio_walls,Formel,N568/GFA_total,N573/GFA_total
+v1_11_4,v1_11_5,IN,GWP_refratio_windows,Formel,N569/GFA_total,N574/GFA_total
+v1_11_4,v1_11_5,IN,NFA_cooled,Formel,SUMMENPRODUKT(N361:N367;N46:N52),SUMMENPRODUKT(N362:N368;N46:N52)
+v1_11_4,v1_11_5,IN,NFAfrac_u,Formel,1-N376,1-N377
+v1_11_4,v1_11_5,IN,Plugloads_scale_office,Formel,N703/O703,N708/O708
+v1_11_4,v1_11_5,IN,Plugloads_scale_other,Formel,N708/O708,N713/O713
+v1_11_4,v1_11_5,IN,Plugloads_scale_residential,Formel,N702/O702,N707/O707
+v1_11_4,v1_11_5,IN,Plugloads_scale_retailfood,Formel,N706/O706,N711/O711
+v1_11_4,v1_11_5,IN,Plugloads_scale_retailother,Formel,N707/O707,N712/O712
+v1_11_4,v1_11_5,IN,Plugloads_scale_schoolprim,Formel,N705/O705,N710/O710
+v1_11_4,v1_11_5,IN,Plugloads_scale_schoolsec,Formel,N704/O704,N709/O709
+v1_11_4,v1_11_5,IN,QC_generation_eff_2th,Formel,WENNFEHLER(1/N388;0),WENNFEHLER(1/N389;0)
+v1_11_4,v1_11_5,IN,QC_to_EC_1,Formel,WENNFEHLER(1/N387;0),WENNFEHLER(1/N388;0)
+v1_11_4,v1_11_5,IN,QC_to_EC_3,Formel,WENNFEHLER(1/N389;0),WENNFEHLER(1/N390;0)
+v1_11_4,v1_11_5,IN,QHmax_room_MW,Formel,N323*N53/1000000,N324*N53/1000000
+v1_11_4,v1_11_5,IN,QHmax_room_m²,Formel,🔥H!D11,🔥H!D54
+v1_11_4,v1_11_5,IN,Tsetcool_flex,Formel,Tsetcool_max-N478,Tsetcool_max-N479
+v1_11_4,v1_11_5,IN,Tsetheat_flex,Formel,Tsetheat_min+N473,Tsetheat_min+N474
+v1_11_4,v1_11_5,IN,Tsetheat_min,Formel,🔥H!D7,🔥H!D56
+v1_11_4,v1_11_5,IN,cool_th2_is_other,Formel,--NICHT(ODER(N661;N666;N671)),--NICHT(ODER(N666;N671;N676))
+v1_11_4,v1_11_5,IN,dhw1_is_other,Formel,--UND(NICHT(ODER(N662;N667;N672)); DHW_1_is_used),--UND(NICHT(ODER(N667;N672;N677)); DHW_1_is_used)
+v1_11_4,v1_11_5,IN,dhw2_is_other,Formel,--UND(NICHT(ODER(N663;N668;N673));DHW_2_is_used),--UND(NICHT(ODER(N668;N673;N678));DHW_2_is_used)
+v1_11_4,v1_11_5,IN,heat_th2_is_other,Formel,--NICHT(ODER(N659;N664;N669)),--NICHT(ODER(N664;N669;N674))
+v1_11_4,v1_11_5,IN,heat_th4_is_other,Formel,--NICHT(ODER(N660;N665;N670)),--NICHT(ODER(N665;N670;N675))
+v1_11_4,v1_11_5,IN,input_version_date,ka,nan,0.0
+v1_11_4,v1_11_5,IN,input_version_number,ka,1.0,0.0
+v1_11_4,v1_11_5,IN,project_scenario_name,Formel,🏙️!D9,ka_variantenname
+v1_11_4,v1_11_5,IN,scenario_version,ka,1.0,0.0
+v1_11_4,v1_11_5,OUT,QH_flex_summer,Formel,"(SUMMENPRODUKT(sim[is_cooling_period]; sim[Qh_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_cooling_period]; sim[Qh_c]) * NFAfrac_c) * 0,001 - QH_min_summer","(SUMMENPRODUKT(sim[is_cooling_period]; sim[Qh_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_cooling_period]; sim[Qh_c]) * NFAfrac_c) * 0,001 - QH_min_summer"
+v1_11_4,v1_11_5,OUT,QH_flex_winter,Formel,"(SUMMENPRODUKT(sim[is_heating_period]; sim[Qh_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_heating_period]; sim[Qh_c]) * NFAfrac_c) * 0,001 - QH_min_winter","(SUMMENPRODUKT(sim[is_heating_period]; sim[Qh_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_heating_period]; sim[Qh_c]) * NFAfrac_c) * 0,001 - QH_min_winter"
+v1_11_4,v1_11_5,OUT,QH_min_summer,Formel,"(SUMMENPRODUKT(sim[is_cooling_period]; sim[Qh_to_room_uncooled_min]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_cooling_period]; sim[Qh_to_room_cooled_min]) * NFAfrac_c) * 0,001","(SUMMENPRODUKT(sim[is_cooling_period]; sim[Qh_to_room_uncooled_min]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_cooling_period]; sim[Qh_to_room_cooled_min]) * NFAfrac_c) * 0,001"
+v1_11_4,v1_11_5,OUT,QH_min_winter,Formel,"(SUMMENPRODUKT(sim[is_heating_period]; sim[Qh_to_room_uncooled_min]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_heating_period]; sim[Qh_to_room_cooled_min]) * NFAfrac_c) * 0,001","(SUMMENPRODUKT(sim[is_heating_period]; sim[Qh_to_room_uncooled_min]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_heating_period]; sim[Qh_to_room_cooled_min]) * NFAfrac_c) * 0,001"
+v1_11_4,v1_11_5,OUT,QI_summer,Formel,"(SUMMENPRODUKT(sim[is_cooling_period]; sim[QI_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_cooling_period]; sim[QI_c]) * NFAfrac_c) * 0,001","(SUMMENPRODUKT(sim[is_cooling_period]; sim[QI_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_cooling_period]; sim[QI_c]) * NFAfrac_c) * 0,001"
+v1_11_4,v1_11_5,OUT,QI_winter,Formel,"(SUMMENPRODUKT(sim[is_heating_period]; sim[QI_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_heating_period]; sim[QI_c]) * NFAfrac_c) * 0,001","(SUMMENPRODUKT(sim[is_heating_period]; sim[QI_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_heating_period]; sim[QI_c]) * NFAfrac_c) * 0,001"
+v1_11_4,v1_11_5,OUT,QS_summer,Formel,"(SUMMENPRODUKT(sim[is_cooling_period]; sim[QS_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_cooling_period]; sim[QS_c]) * NFAfrac_c) * 0,001","(SUMMENPRODUKT(sim[is_cooling_period]; sim[QS_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_cooling_period]; sim[QS_c]) * NFAfrac_c) * 0,001"
+v1_11_4,v1_11_5,OUT,QS_winter,Formel,"(SUMMENPRODUKT(sim[is_heating_period]; sim[QS_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_heating_period]; sim[QS_c]) * NFAfrac_c) * 0,001","(SUMMENPRODUKT(sim[is_heating_period]; sim[QS_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_heating_period]; sim[QS_c]) * NFAfrac_c) * 0,001"
+v1_11_4,v1_11_5,OUT,QT_summer,Formel,"(SUMMENPRODUKT(sim[is_cooling_period]; sim[QT_u])*NFAfrac_u +
+  SUMMENPRODUKT(sim[is_cooling_period]; sim[QT_c])*NFAfrac_c  ) * -0,001","(SUMMENPRODUKT(sim[is_cooling_period]; sim[QT_u])*NFAfrac_u +
+  SUMMENPRODUKT(sim[is_cooling_period]; sim[QT_c])*NFAfrac_c  ) * -0,001"
+v1_11_4,v1_11_5,OUT,QT_winter,Formel,"(SUMMENPRODUKT(sim[is_heating_period]; sim[QT_u])*NFAfrac_u +
+  SUMMENPRODUKT(sim[is_heating_period]; sim[QT_c])*NFAfrac_c  ) * -0,001","(SUMMENPRODUKT(sim[is_heating_period]; sim[QT_u])*NFAfrac_u +
+  SUMMENPRODUKT(sim[is_heating_period]; sim[QT_c])*NFAfrac_c  ) * -0,001"
+v1_11_4,v1_11_5,OUT,QV_heatrecovery_summer,Formel,"SUMMENPRODUKT(sim[is_cooling_period]; sim[dT_uncooled]; sim[ACH_mechvent_u]-sim[ACH_mechvent_therm_u])*cp_air*per_NFA_uncooled * -0,001 * NFAfrac_u +
+ SUMMENPRODUKT(sim[is_cooling_period]; sim[dT_cooled];   sim[ACH_mechvent_c]-sim[ACH_mechvent_therm_c])*cp_air*per_NFA_cooled   * -0,001 * NFAfrac_c","SUMMENPRODUKT(sim[is_cooling_period]; sim[dT_uncooled]; sim[ACH_mechvent_u]-sim[ACH_mechvent_therm_u])*cp_air*per_NFA_uncooled * -0,001 * NFAfrac_u +
+ SUMMENPRODUKT(sim[is_cooling_period]; sim[dT_cooled];   sim[ACH_mechvent_c]-sim[ACH_mechvent_therm_c])*cp_air*per_NFA_cooled   * -0,001 * NFAfrac_c"
+v1_11_4,v1_11_5,OUT,QV_heatrecovery_winter,Formel,"SUMMENPRODUKT(sim[is_heating_period]; sim[dT_uncooled]; sim[ACH_mechvent_u]-sim[ACH_mechvent_therm_u])*cp_air*per_NFA_uncooled * -0,001 * NFAfrac_u +
+ SUMMENPRODUKT(sim[is_heating_period]; sim[dT_cooled];   sim[ACH_mechvent_c]-sim[ACH_mechvent_therm_c])*cp_air*per_NFA_cooled   * -0,001 * NFAfrac_c","SUMMENPRODUKT(sim[is_heating_period]; sim[dT_uncooled]; sim[ACH_mechvent_u]-sim[ACH_mechvent_therm_u])*cp_air*per_NFA_uncooled * -0,001 * NFAfrac_u +
+ SUMMENPRODUKT(sim[is_heating_period]; sim[dT_cooled];   sim[ACH_mechvent_c]-sim[ACH_mechvent_therm_c])*cp_air*per_NFA_cooled   * -0,001 * NFAfrac_c"
+v1_11_4,v1_11_5,OUT,QV_inf_summer,Formel,"(SUMMENPRODUKT(sim[is_cooling_period]; sim[Qvinf_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_cooling_period]; sim[Qvinf_c]) * NFAfrac_c ) * -0,001","(SUMMENPRODUKT(sim[is_cooling_period]; sim[Qvinf_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_cooling_period]; sim[Qvinf_c]) * NFAfrac_c ) * -0,001"
+v1_11_4,v1_11_5,OUT,QV_inf_winter,Formel,"(SUMMENPRODUKT(sim[is_heating_period]; sim[Qvinf_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_heating_period]; sim[Qvinf_c]) * NFAfrac_c ) * -0,001","(SUMMENPRODUKT(sim[is_heating_period]; sim[Qvinf_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_heating_period]; sim[Qvinf_c]) * NFAfrac_c ) * -0,001"
+v1_11_4,v1_11_5,OUT,QV_mechvent_summer,Formel,"(SUMMENPRODUKT(sim[is_cooling_period]; sim[Qvmechvent_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_cooling_period]; sim[Qvmechvent_c]) * NFAfrac_c) * -0,001","(SUMMENPRODUKT(sim[is_cooling_period]; sim[Qvmechvent_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_cooling_period]; sim[Qvmechvent_c]) * NFAfrac_c) * -0,001"
+v1_11_4,v1_11_5,OUT,QV_mechvent_winter,Formel,"(SUMMENPRODUKT(sim[is_heating_period]; sim[Qvmechvent_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_heating_period]; sim[Qvmechvent_c]) * NFAfrac_c) * -0,001","(SUMMENPRODUKT(sim[is_heating_period]; sim[Qvmechvent_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_heating_period]; sim[Qvmechvent_c]) * NFAfrac_c) * -0,001"
+v1_11_4,v1_11_5,OUT,QV_window_summer,Formel,"(SUMMENPRODUKT(sim[is_cooling_period]; sim[Qvwindow_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_cooling_period]; sim[Qvwindow_c]) * NFAfrac_c ) * -0,001","(SUMMENPRODUKT(sim[is_cooling_period]; sim[Qvwindow_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_cooling_period]; sim[Qvwindow_c]) * NFAfrac_c ) * -0,001"
+v1_11_4,v1_11_5,OUT,QV_window_winter,Formel,"(SUMMENPRODUKT(sim[is_heating_period]; sim[Qvwindow_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_heating_period]; sim[Qvwindow_c]) * NFAfrac_c ) * -0,001","(SUMMENPRODUKT(sim[is_heating_period]; sim[Qvwindow_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_heating_period]; sim[Qvwindow_c]) * NFAfrac_c ) * -0,001"
+v1_11_4,v1_11_5,SIM,cost_E_grid,Formula,=[@[E_grid]]*prices[@[Bezug '[€']]]/1000,=[@[E_grid]]*NFA_total*prices[@[Bezug '[€']]]/1000
+v1_11_5,v1_11_7,IN,Batt_c_rate,Formel,🔋!D35,🔋!D41
+v1_11_5,v1_11_7,IN,Batt_cap_kWh,Formel,🔋!D34,🔋!D40
+v1_11_5,v1_11_7,IN,Batt_eff_factor_charge,Formel,🔋!D36,🔋!D42
+v1_11_5,v1_11_7,IN,Batt_eff_factor_discharge,Formel,🔋!D37,🔋!D43
+v1_11_5,v1_11_7,IN,Batt_self_discharge_rate,Formel,🔋!D38,🔋!D44
+v1_11_5,v1_11_7,IN,COMP_area_balconies,Formel,THG!C33,THG!C34
+v1_11_5,v1_11_7,IN,COMP_area_basement_ceiling,Formel,THG!C21,THG!C22
+v1_11_5,v1_11_7,IN,COMP_area_basement_floor_unheated,Formel,THG!C29,THG!C30
+v1_11_5,v1_11_7,IN,COMP_area_ceil_to_air,Formel,THG!C23,THG!C24
+v1_11_5,v1_11_7,IN,COMP_area_ceiling_topfloor,Formel,THG!C27,THG!C28
+v1_11_5,v1_11_7,IN,COMP_area_columns,Formel,THG!C30,THG!C31
+v1_11_5,v1_11_7,IN,COMP_area_fundament,Formel,THG!C22,THG!C23
+v1_11_5,v1_11_7,IN,COMP_area_internal_wall_load,Formel,THG!C25,THG!C26
+v1_11_5,v1_11_7,IN,COMP_area_internal_wall_nonload,Formel,THG!C26,THG!C27
+v1_11_5,v1_11_7,IN,COMP_area_internal_wall_unheated,Formel,THG!C31,THG!C32
+v1_11_5,v1_11_7,IN,COMP_area_terrace,Formel,THG!C20,THG!C21
+v1_11_5,v1_11_7,IN,COMP_area_unheated_horizontal,Formel,THG!C32,THG!C33
+v1_11_5,v1_11_7,IN,COMP_area_wall_earth_contacted,Formel,THG!C24,THG!C25
+v1_11_5,v1_11_7,IN,COMP_area_wall_ec_unheated,Formel,THG!C28,THG!C29
+v1_11_5,v1_11_7,IN,COMP_area_windowframe,Formel,THG!C34,THG!C35
+v1_11_5,v1_11_7,IN,COMP_area_windowglazing,Formel,THG!C35,THG!C36
+v1_11_5,v1_11_7,IN,COMP_name_balconies,Formel,THG!F33,THG!F34
+v1_11_5,v1_11_7,IN,COMP_name_basement_ceiling,Formel,THG!F21,THG!F22
+v1_11_5,v1_11_7,IN,COMP_name_basement_floor_unheated,Formel,THG!F29,THG!F30
+v1_11_5,v1_11_7,IN,COMP_name_ceil_to_air,Formel,THG!F23,THG!F24
+v1_11_5,v1_11_7,IN,COMP_name_ceiling_topfloor,Formel,THG!F27,THG!F28
+v1_11_5,v1_11_7,IN,COMP_name_columns,Formel,THG!F30,THG!F31
+v1_11_5,v1_11_7,IN,COMP_name_fundament,Formel,THG!F22,THG!F23
+v1_11_5,v1_11_7,IN,COMP_name_internal_wall_load,Formel,THG!F25,THG!F26
+v1_11_5,v1_11_7,IN,COMP_name_internal_wall_nonload,Formel,THG!F26,THG!F27
+v1_11_5,v1_11_7,IN,COMP_name_internal_wall_unheated,Formel,THG!F31,THG!F32
+v1_11_5,v1_11_7,IN,COMP_name_terrace,Formel,THG!F20,THG!F21
+v1_11_5,v1_11_7,IN,COMP_name_unheated_horizontal,Formel,THG!F32,THG!F33
+v1_11_5,v1_11_7,IN,COMP_name_wall_earth_contacted,Formel,THG!F24,THG!F25
+v1_11_5,v1_11_7,IN,COMP_name_wall_ec_unheated,Formel,THG!F28,THG!F29
+v1_11_5,v1_11_7,IN,COMP_name_windowframe,Formel,THG!F34,THG!F35
+v1_11_5,v1_11_7,IN,COMP_name_windowglazing,Formel,THG!F35,THG!F36
+v1_11_5,v1_11_7,IN,DHW_Tmax_input,Formel,🔋!D43,🔋!D49
+v1_11_5,v1_11_7,IN,Ev_scale_office,Formel,💨L!D42,💨L!D34
+v1_11_5,v1_11_7,IN,Ev_scale_other,Formel,💨L!D47,💨L!D39
+v1_11_5,v1_11_7,IN,Ev_scale_residential,Formel,💨L!D41,💨L!D33
+v1_11_5,v1_11_7,IN,Ev_scale_retail_food,Formel,💨L!D45,💨L!D37
+v1_11_5,v1_11_7,IN,Ev_scale_retail_other,Formel,💨L!D46,💨L!D38
+v1_11_5,v1_11_7,IN,Ev_scale_school_prim,Formel,💨L!D44,💨L!D36
+v1_11_5,v1_11_7,IN,Ev_scale_school_sec,Formel,💨L!D43,💨L!D35
+v1_11_5,v1_11_7,IN,FLEX_choice_cool_system,Formel,🔋!D26,🔋!D29
+v1_11_5,v1_11_7,IN,FLEX_choice_heat_system,Formel,🔋!D23,🔋!D26
+v1_11_5,v1_11_7,IN,GWP_miv_count_ev,Formel,N620*EV_share,N648*EV_share
+v1_11_5,v1_11_7,IN,GWP_miv_count_fossile,Formel,N620-N621,N648-N649
+v1_11_5,v1_11_7,IN,GWP_refratio_ceilings,Formel,N577/GFA_total,N593/GFA_total
+v1_11_5,v1_11_7,IN,GWP_refratio_fundament,Formel,N576/GFA_total,N592/GFA_total
+v1_11_5,v1_11_7,IN,GWP_refratio_roof,Formel,N575/GFA_total,N590/GFA_total
+v1_11_5,v1_11_7,IN,GWP_refratio_walls,Formel,N573/GFA_total,N588/GFA_total
+v1_11_5,v1_11_7,IN,GWP_refratio_windows,Formel,N574/GFA_total,N589/GFA_total
+v1_11_5,v1_11_7,IN,Plugloads_scale_office,Formel,N708/O708,N736/O736
+v1_11_5,v1_11_7,IN,Plugloads_scale_other,Formel,N713/O713,N741/O741
+v1_11_5,v1_11_7,IN,Plugloads_scale_residential,Formel,N707/O707,N735/O735
+v1_11_5,v1_11_7,IN,Plugloads_scale_retailfood,Formel,N711/O711,N739/O739
+v1_11_5,v1_11_7,IN,Plugloads_scale_retailother,Formel,N712/O712,N740/O740
+v1_11_5,v1_11_7,IN,Plugloads_scale_schoolprim,Formel,N710/O710,N738/O738
+v1_11_5,v1_11_7,IN,Plugloads_scale_schoolsec,Formel,N709/O709,N737/O737
+v1_11_5,v1_11_7,IN,construction_quality,ka,nan,2.0
+v1_11_5,v1_11_7,IN,cool_th2_is_other,Formel,--NICHT(ODER(N666;N671;N676)),--NICHT(ODER(N694;N699;N704))
+v1_11_5,v1_11_7,IN,dhw1_is_other,Formel,--UND(NICHT(ODER(N667;N672;N677)); DHW_1_is_used),--UND(NICHT(ODER(N695;N700;N705)); DHW_1_is_used)
+v1_11_5,v1_11_7,IN,dhw2_is_other,Formel,--UND(NICHT(ODER(N668;N673;N678));DHW_2_is_used),--UND(NICHT(ODER(N696;N701;N706));DHW_2_is_used)
+v1_11_5,v1_11_7,IN,flex_cool_dT,Formel,🔋!D25,🔋!D28
+v1_11_5,v1_11_7,IN,flex_heat_dT,Formel,🔋!D22,🔋!D25
+v1_11_5,v1_11_7,IN,heat_th2_is_other,Formel,--NICHT(ODER(N664;N669;N674)),--NICHT(ODER(N692;N697;N702))
+v1_11_5,v1_11_7,IN,heat_th4_is_other,Formel,--NICHT(ODER(N665;N670;N675)),--NICHT(ODER(N693;N698;N703))
+v1_11_5,v1_11_7,IN,plugloads_office,Formel,👤!D10,👤!D34
+v1_11_5,v1_11_7,IN,plugloads_other,Formel,👤!D15,👤!D39
+v1_11_5,v1_11_7,IN,plugloads_residential,Formel,👤!D9,👤!D33
+v1_11_5,v1_11_7,IN,plugloads_retailfood,Formel,👤!D13,👤!D37
+v1_11_5,v1_11_7,IN,plugloads_retailother,Formel,👤!D14,👤!D38
+v1_11_5,v1_11_7,IN,plugloads_schoolprim,Formel,👤!D12,👤!D36
+v1_11_5,v1_11_7,IN,plugloads_schoolsec,Formel,👤!D11,👤!D35
+v1_11_5,v1_11_7,IN,vent_ach_max_office,Formel,💨L!D9,💨L!D60
+v1_11_5,v1_11_7,IN,vent_ach_max_other,Formel,💨L!D14,💨L!D65
+v1_11_5,v1_11_7,IN,vent_ach_max_residential,Formel,💨L!D8,💨L!D59
+v1_11_5,v1_11_7,IN,vent_ach_max_retailfood,Formel,💨L!D12,💨L!D63
+v1_11_5,v1_11_7,IN,vent_ach_max_retailother,Formel,💨L!D13,💨L!D64
+v1_11_5,v1_11_7,IN,vent_ach_max_schoolprim,Formel,💨L!D11,💨L!D62
+v1_11_5,v1_11_7,IN,vent_ach_max_schoolsec,Formel,💨L!D10,💨L!D61
+v1_11_5,v1_11_7,IN,vent_heat_recovery_summer_office,Formel,💨L!F31,💨L!F23
+v1_11_5,v1_11_7,IN,vent_heat_recovery_summer_other,Formel,💨L!F36,💨L!F28
+v1_11_5,v1_11_7,IN,vent_heat_recovery_summer_residential,Formel,💨L!F30,💨L!F22
+v1_11_5,v1_11_7,IN,vent_heat_recovery_summer_retailfood,Formel,💨L!F34,💨L!F26
+v1_11_5,v1_11_7,IN,vent_heat_recovery_summer_retailother,Formel,💨L!F35,💨L!F27
+v1_11_5,v1_11_7,IN,vent_heat_recovery_summer_schoolprim,Formel,💨L!F33,💨L!F25
+v1_11_5,v1_11_7,IN,vent_heat_recovery_summer_schoolsec,Formel,💨L!F32,💨L!F24
+v1_11_5,v1_11_7,IN,vent_heat_recovery_winter_office,Formel,💨L!D31,💨L!D23
+v1_11_5,v1_11_7,IN,vent_heat_recovery_winter_other,Formel,💨L!D36,💨L!D28
+v1_11_5,v1_11_7,IN,vent_heat_recovery_winter_residential,Formel,💨L!D30,💨L!D22
+v1_11_5,v1_11_7,IN,vent_heat_recovery_winter_retailfood,Formel,💨L!D34,💨L!D26
+v1_11_5,v1_11_7,IN,vent_heat_recovery_winter_retailother,Formel,💨L!D35,💨L!D27
+v1_11_5,v1_11_7,IN,vent_heat_recovery_winter_schoolprim,Formel,💨L!D33,💨L!D25
+v1_11_5,v1_11_7,IN,vent_heat_recovery_winter_schoolsec,Formel,💨L!D32,💨L!D24
+v1_11_5,v1_11_7,IN,vent_night_office,Formel,💨L!D55,💨L!D47
+v1_11_5,v1_11_7,IN,vent_night_other,Formel,💨L!D60,💨L!D52
+v1_11_5,v1_11_7,IN,vent_night_residential,Formel,💨L!D54,💨L!D46
+v1_11_5,v1_11_7,IN,vent_night_retailfood,Formel,💨L!D58,💨L!D50
+v1_11_5,v1_11_7,IN,vent_night_retailother,Formel,💨L!D59,💨L!D51
+v1_11_5,v1_11_7,IN,vent_night_schoolprim,Formel,💨L!D56,💨L!D48
+v1_11_5,v1_11_7,IN,vent_night_schoolsec,Formel,💨L!D57,💨L!D49
+v1_11_5,v1_11_7,IN,vent_share_mechanical_office,Formel,💨L!D20,💨L!D12
+v1_11_5,v1_11_7,IN,vent_share_mechanical_other,Formel,💨L!D25,💨L!D17
+v1_11_5,v1_11_7,IN,vent_share_mechanical_residential,Formel,💨L!D19,💨L!D11
+v1_11_5,v1_11_7,IN,vent_share_mechanical_retailfood,Formel,💨L!D23,💨L!D15
+v1_11_5,v1_11_7,IN,vent_share_mechanical_retailother,Formel,💨L!D24,💨L!D16
+v1_11_5,v1_11_7,IN,vent_share_mechanical_schoolprim,Formel,💨L!D22,💨L!D14
+v1_11_5,v1_11_7,IN,vent_share_mechanical_schoolsec,Formel,💨L!D21,💨L!D13
+v1_11_7,v1_12_7,IN,COMP_area_balconies,Formel,THG!C34,THG!C36
+v1_11_7,v1_12_7,IN,COMP_area_basement_ceiling,Formel,THG!C22,THG!C24
+v1_11_7,v1_12_7,IN,COMP_area_basement_floor_unheated,Formel,THG!C30,THG!C32
+v1_11_7,v1_12_7,IN,COMP_area_ceil_to_air,Formel,THG!C24,THG!C26
+v1_11_7,v1_12_7,IN,COMP_area_ceiling_topfloor,Formel,THG!C28,THG!C30
+v1_11_7,v1_12_7,IN,COMP_area_ceilings,Formel,THG!C20,THG!C22
+v1_11_7,v1_12_7,IN,COMP_area_columns,Formel,THG!C31,THG!C33
+v1_11_7,v1_12_7,IN,COMP_area_floor,Formel,THG!C19,THG!C21
+v1_11_7,v1_12_7,IN,COMP_area_fundament,Formel,THG!C23,THG!C25
+v1_11_7,v1_12_7,IN,COMP_area_garage_columns,Formel,THG!C38,THG!C40
+v1_11_7,v1_12_7,IN,COMP_area_garage_horizontal,Formel,THG!C37,THG!C39
+v1_11_7,v1_12_7,IN,COMP_area_internal_wall_load,Formel,THG!C26,THG!C28
+v1_11_7,v1_12_7,IN,COMP_area_internal_wall_nonload,Formel,THG!C27,THG!C29
+v1_11_7,v1_12_7,IN,COMP_area_internal_wall_unheated,Formel,THG!C32,THG!C34
+v1_11_7,v1_12_7,IN,COMP_area_other_1,Formel,THG!C39,THG!C41
+v1_11_7,v1_12_7,IN,COMP_area_other_2,Formel,THG!C40,THG!C42
+v1_11_7,v1_12_7,IN,COMP_area_other_3,Formel,THG!C41,THG!C43
+v1_11_7,v1_12_7,IN,COMP_area_roof_flat,Formel,THG!C17,THG!C19
+v1_11_7,v1_12_7,IN,COMP_area_roof_pitched,Formel,THG!C18,THG!C20
+v1_11_7,v1_12_7,IN,COMP_area_terrace,Formel,THG!C21,THG!C23
+v1_11_7,v1_12_7,IN,COMP_area_unheated_horizontal,Formel,THG!C33,THG!C35
+v1_11_7,v1_12_7,IN,COMP_area_wall,Formel,THG!C15,THG!C17
+v1_11_7,v1_12_7,IN,COMP_area_wall_earth_contacted,Formel,THG!C25,THG!C27
+v1_11_7,v1_12_7,IN,COMP_area_wall_ec_unheated,Formel,THG!C29,THG!C31
+v1_11_7,v1_12_7,IN,COMP_area_windowframe,Formel,THG!C35,THG!C37
+v1_11_7,v1_12_7,IN,COMP_area_windowglazing,Formel,THG!C36,THG!C38
+v1_11_7,v1_12_7,IN,COMP_area_windows,Formel,THG!C16,THG!C18
+v1_11_7,v1_12_7,IN,COMP_name_balconies,Formel,THG!F34,THG!F36
+v1_11_7,v1_12_7,IN,COMP_name_basement_ceiling,Formel,THG!F22,THG!F24
+v1_11_7,v1_12_7,IN,COMP_name_basement_floor_unheated,Formel,THG!F30,THG!F32
+v1_11_7,v1_12_7,IN,COMP_name_ceil_to_air,Formel,THG!F24,THG!F26
+v1_11_7,v1_12_7,IN,COMP_name_ceiling,Formel,THG!F20,THG!F22
+v1_11_7,v1_12_7,IN,COMP_name_ceiling_topfloor,Formel,THG!F28,THG!F30
+v1_11_7,v1_12_7,IN,COMP_name_columns,Formel,THG!F31,THG!F33
+v1_11_7,v1_12_7,IN,COMP_name_floor,Formel,THG!F19,THG!F21
+v1_11_7,v1_12_7,IN,COMP_name_fundament,Formel,THG!F23,THG!F25
+v1_11_7,v1_12_7,IN,COMP_name_garage_columns,Formel,THG!F38,THG!F40
+v1_11_7,v1_12_7,IN,COMP_name_garage_horizontal,Formel,THG!F37,THG!F39
+v1_11_7,v1_12_7,IN,COMP_name_internal_wall_load,Formel,THG!F26,THG!F28
+v1_11_7,v1_12_7,IN,COMP_name_internal_wall_nonload,Formel,THG!F27,THG!F29
+v1_11_7,v1_12_7,IN,COMP_name_internal_wall_unheated,Formel,THG!F32,THG!F34
+v1_11_7,v1_12_7,IN,COMP_name_other_1,Formel,THG!F39,THG!F41
+v1_11_7,v1_12_7,IN,COMP_name_other_2,Formel,THG!F40,THG!F42
+v1_11_7,v1_12_7,IN,COMP_name_other_3,Formel,THG!F41,THG!F43
+v1_11_7,v1_12_7,IN,COMP_name_roof_flat,Formel,THG!F17,THG!F19
+v1_11_7,v1_12_7,IN,COMP_name_roof_pitched,Formel,THG!F18,THG!F20
+v1_11_7,v1_12_7,IN,COMP_name_terrace,Formel,THG!F21,THG!F23
+v1_11_7,v1_12_7,IN,COMP_name_unheated_horizontal,Formel,THG!F33,THG!F35
+v1_11_7,v1_12_7,IN,COMP_name_wall,Formel,THG!F15,THG!F17
+v1_11_7,v1_12_7,IN,COMP_name_wall_earth_contacted,Formel,THG!F25,THG!F27
+v1_11_7,v1_12_7,IN,COMP_name_wall_ec_unheated,Formel,THG!F29,THG!F31
+v1_11_7,v1_12_7,IN,COMP_name_windowframe,Formel,THG!F35,THG!F37
+v1_11_7,v1_12_7,IN,COMP_name_windowglazing,Formel,THG!F36,THG!F38
+v1_11_7,v1_12_7,IN,COMP_name_windows,Formel,THG!F16,THG!F18
+v1_11_7,v1_12_7,IN,DHW_Tmax,Formel,MIN(N402;DHW_Tmax_constant),MIN(N417;DHW_Tmax_constant)
+v1_11_7,v1_12_7,IN,DHW_storage_1_liter,Formel,SUMMENPRODUKT(N404:N410;N411:N417),SUMMENPRODUKT(N420:N426;N427:N433)
+v1_11_7,v1_12_7,IN,DHW_storage_2_liter,Formel,SUMME(N411:N417)-DHW_storage_1_liter,SUMME(N427:N433)-DHW_storage_1_liter
+v1_11_7,v1_12_7,IN,Daylightcoefficient_office,ka,2.0,1.0
+v1_11_7,v1_12_7,IN,Daylightcoefficient_office,Formel,👤!R10,👤!E23
+v1_11_7,v1_12_7,IN,Daylightcoefficient_schoolprim,ka,2.0,1.0
+v1_11_7,v1_12_7,IN,Daylightcoefficient_schoolprim,Formel,👤!R12,👤!E25
+v1_11_7,v1_12_7,IN,Daylightcoefficient_schoolsec,ka,2.0,1.0
+v1_11_7,v1_12_7,IN,Daylightcoefficient_schoolsec,Formel,👤!R11,👤!E24
+v1_11_7,v1_12_7,IN,EV_charging_losses_surcharge_factor,Formel,WENNFEHLER(1/N524;0),WENNFEHLER(1/N544;0)
+v1_11_7,v1_12_7,IN,EV_selfdischarge_per_h,Formel,N521/24/7,N541/24/7
+v1_11_7,v1_12_7,IN,EV_storage_total_kWh,Formel,N519*N516,N539*N536
+v1_11_7,v1_12_7,IN,Ev_scale_office,Formel,💨L!D34,💨L!J20
+v1_11_7,v1_12_7,IN,Ev_scale_other,Formel,💨L!D39,💨L!J25
+v1_11_7,v1_12_7,IN,Ev_scale_residential,Formel,💨L!D33,💨L!J19
+v1_11_7,v1_12_7,IN,Ev_scale_retail_food,Formel,💨L!D37,💨L!J23
+v1_11_7,v1_12_7,IN,Ev_scale_retail_other,Formel,💨L!D38,💨L!J24
+v1_11_7,v1_12_7,IN,Ev_scale_school_prim,Formel,💨L!D36,💨L!J22
+v1_11_7,v1_12_7,IN,Ev_scale_school_sec,Formel,💨L!D35,💨L!J21
+v1_11_7,v1_12_7,IN,FLEX_cool1_use,Formel,"WENN(N481=""System 1"";WAHR;FALSCH)","WENN(N499=""System 1"";WAHR;FALSCH)"
+v1_11_7,v1_12_7,IN,FLEX_cool3_use,Formel,"WENN(N481=""System 3"";WAHR;FALSCH)","WENN(N499=""System 3"";WAHR;FALSCH)"
+v1_11_7,v1_12_7,IN,FLEX_grid_maxpower_Wm2,ka,1.0,2.0
+v1_11_7,v1_12_7,IN,FLEX_grid_maxpower_Wm2,Formel,nan,🔋!D15
+v1_11_7,v1_12_7,IN,FLEX_heat1_use,Formel,"WENN(N476=""System 1"";WAHR;FALSCH)","WENN(N494=""System 1"";WAHR;FALSCH)"
+v1_11_7,v1_12_7,IN,FLEX_heat3_use,Formel,"WENN(N476=""System 3"";WAHR;FALSCH)","WENN(N494=""System 3"";WAHR;FALSCH)"
+v1_11_7,v1_12_7,IN,GFV,Formel,NFA_total*(rh_avg+N78),NFA_total*(rh_avg+N79)
+v1_11_7,v1_12_7,IN,GWP_miv_count_ev,Formel,N648*EV_share,N691*EV_share
+v1_11_7,v1_12_7,IN,GWP_miv_count_fossile,Formel,N648-N649,N691-N692
+v1_11_7,v1_12_7,IN,GWP_pv_name,ka,2.0,nan
+v1_11_7,v1_12_7,IN,GWP_refratio_ceilings,Formel,N593/GFA_total,N636/GFA_total
+v1_11_7,v1_12_7,IN,GWP_refratio_fundament,Formel,N592/GFA_total,N635/GFA_total
+v1_11_7,v1_12_7,IN,GWP_refratio_roof,Formel,N590/GFA_total,N633/GFA_total
+v1_11_7,v1_12_7,IN,GWP_refratio_walls,Formel,N588/GFA_total,nan
+v1_11_7,v1_12_7,IN,GWP_refratio_windows,Formel,N589/GFA_total,N632/GFA_total
+v1_11_7,v1_12_7,IN,NFA_cooled,Formel,SUMMENPRODUKT(N362:N368;N46:N52),SUMMENPRODUKT(N376:N382;N46:N52)
+v1_11_7,v1_12_7,IN,NFA_mechvent,Formel,SUMMENPRODUKT(N$178:N$184;N46:N52),SUMMENPRODUKT(N$185:N$191;N46:N52)
+v1_11_7,v1_12_7,IN,NFA_to_GFA_ratio_office,Formel,🏙️!F43,🏙️!P29
+v1_11_7,v1_12_7,IN,NFA_to_GFA_ratio_other,Formel,🏙️!F48,🏙️!P34
+v1_11_7,v1_12_7,IN,NFA_to_GFA_ratio_residential,Formel,🏙️!F42,🏙️!P28
+v1_11_7,v1_12_7,IN,NFA_to_GFA_ratio_retailfood,Formel,🏙️!F46,🏙️!P32
+v1_11_7,v1_12_7,IN,NFA_to_GFA_ratio_retailother,Formel,🏙️!F47,🏙️!P33
+v1_11_7,v1_12_7,IN,NFA_to_GFA_ratio_schoolprim,Formel,🏙️!F45,🏙️!P31
+v1_11_7,v1_12_7,IN,NFA_to_GFA_ratio_schoolsec,Formel,🏙️!F44,🏙️!P30
+v1_11_7,v1_12_7,IN,NFAfrac_u,Formel,1-N377,1-N391
+v1_11_7,v1_12_7,IN,NFV_c,Formel,SUMMENPRODUKT(N46:N52;N67:N73;cool_active_shares),SUMMENPRODUKT(N46:N52;N68:N74;cool_active_shares)
+v1_11_7,v1_12_7,IN,NFV_mechvent,Formel,SUMMENPRODUKT(N$178:N$184;N46:N52;N67:N73),SUMMENPRODUKT(N$185:N$191;N46:N52;N68:N74)
+v1_11_7,v1_12_7,IN,NFV_u,Formel,SUMMENPRODUKT(N46:N52;N67:N73;cool_passive_shares),SUMMENPRODUKT(N46:N52;N68:N74;cool_passive_shares)
+v1_11_7,v1_12_7,IN,NFV_windowvent,Formel,NFV_total-N195,NFV_total-N202
+v1_11_7,v1_12_7,IN,Plight_max_office,Formel,👤!U10,👤!G23
+v1_11_7,v1_12_7,IN,Plight_max_schoolprim,Formel,👤!U12,👤!G25
+v1_11_7,v1_12_7,IN,Plight_max_schoolsec,Formel,👤!U11,👤!G24
+v1_11_7,v1_12_7,IN,Plight_min_office,Formel,👤!T10,👤!F23
+v1_11_7,v1_12_7,IN,Plight_min_schoolprim,Formel,👤!T12,👤!F25
+v1_11_7,v1_12_7,IN,Plight_min_schoolsec,Formel,👤!T11,👤!F24
+v1_11_7,v1_12_7,IN,Plugloads_scale_office,Formel,N736/O736,N779/O779
+v1_11_7,v1_12_7,IN,Plugloads_scale_other,Formel,N741/O741,N784/O784
+v1_11_7,v1_12_7,IN,Plugloads_scale_residential,Formel,N735/O735,N778/O778
+v1_11_7,v1_12_7,IN,Plugloads_scale_retailfood,Formel,N739/O739,N782/O782
+v1_11_7,v1_12_7,IN,Plugloads_scale_retailother,Formel,N740/O740,N783/O783
+v1_11_7,v1_12_7,IN,Plugloads_scale_schoolprim,Formel,N738/O738,N781/O781
+v1_11_7,v1_12_7,IN,Plugloads_scale_schoolsec,Formel,N737/O737,N780/O780
+v1_11_7,v1_12_7,IN,QC_aux_1el,Formel,❄️K'!D38,❄️K'!D25
+v1_11_7,v1_12_7,IN,QC_aux_2th,Formel,❄️K'!D46,❄️K'!D33
+v1_11_7,v1_12_7,IN,QC_aux_3el,Formel,❄️K'!D53,❄️K'!D40
+v1_11_7,v1_12_7,IN,QC_aux_fc,Formel,❄️K'!D30,❄️K'!D19
+v1_11_7,v1_12_7,IN,QC_distr_losses_1el,Formel,❄️K'!D37,❄️K'!D24
+v1_11_7,v1_12_7,IN,QC_distr_losses_2th,Formel,❄️K'!D45,❄️K'!D32
+v1_11_7,v1_12_7,IN,QC_distr_losses_3el,Formel,❄️K'!D52,❄️K'!D39
+v1_11_7,v1_12_7,IN,QC_generation_eff_2th,Formel,WENNFEHLER(1/N389;0),WENNFEHLER(1/N404;0)
+v1_11_7,v1_12_7,IN,QC_to_EC_1,Formel,WENNFEHLER(1/N388;0),WENNFEHLER(1/N403;0)
+v1_11_7,v1_12_7,IN,QC_to_EC_3,Formel,WENNFEHLER(1/N390;0),WENNFEHLER(1/N405;0)
+v1_11_7,v1_12_7,IN,QCmax_1el,Formel,❄️K'!D35,❄️K'!D22
+v1_11_7,v1_12_7,IN,QCmax_2th,Formel,❄️K'!D43,❄️K'!D30
+v1_11_7,v1_12_7,IN,QCmax_3el,Formel,❄️K'!D50,❄️K'!D37
+v1_11_7,v1_12_7,IN,QCmax_freecooling,Formel,❄️K'!D29,❄️K'!D18
+v1_11_7,v1_12_7,IN,QCmax_room_m2,Formel,❄️K'!D23,❄️K'!D47
+v1_11_7,v1_12_7,IN,QHmax_room_MW,Formel,N324*N53/1000000,N335*N53/1000000
+v1_11_7,v1_12_7,IN,Tsetcool_flex,Formel,Tsetcool_max-N479,Tsetcool_max-N497
+v1_11_7,v1_12_7,IN,Tsetcool_max,Formel,❄️K'!D7,❄️K'!D48
+v1_11_7,v1_12_7,IN,Tsetheat_flex,Formel,Tsetheat_min+N474,Tsetheat_min+N492
+v1_11_7,v1_12_7,IN,Vent_share_mech_cooled,Formel,WENNFEHLER(SUMMENPRODUKT(N46:N52;cool_active_shares;MTRANS(vent_mech_shares);N67:N73)/NFV_total;0),WENNFEHLER(SUMMENPRODUKT(N46:N52;cool_active_shares;MTRANS(vent_mech_shares);N68:N74)/NFV_total;0)
+v1_11_7,v1_12_7,IN,Vent_share_mech_uncooled,Formel,WENNFEHLER(SUMMENPRODUKT(N46:N52;cool_passive_shares;MTRANS(vent_mech_shares);N67:N73)/NFV_total;0),WENNFEHLER(SUMMENPRODUKT(N46:N52;cool_passive_shares;MTRANS(vent_mech_shares);N68:N74)/NFV_total;0)
+v1_11_7,v1_12_7,IN,Vent_share_window_cooled,Formel,WENNFEHLER(SUMMENPRODUKT(N46:N52;cool_active_shares;MTRANS(vent_window_shares);N67:N73)/NFV_total;0),WENNFEHLER(SUMMENPRODUKT(N46:N52;cool_active_shares;MTRANS(vent_window_shares);N68:N74)/NFV_total;0)
+v1_11_7,v1_12_7,IN,Vent_share_window_uncooled,Formel,WENNFEHLER(SUMMENPRODUKT(N46:N52;cool_passive_shares;MTRANS(vent_window_shares);N67:N73)/NFV_total;0),WENNFEHLER(SUMMENPRODUKT(N46:N52;cool_passive_shares;MTRANS(vent_window_shares);N68:N74)/NFV_total;0)
+v1_11_7,v1_12_7,IN,aux_el_demand_office_kWhm2,Formel,👤!L10,👤!G10
+v1_11_7,v1_12_7,IN,aux_el_demand_other_kWhm2,Formel,👤!L15,👤!G15
+v1_11_7,v1_12_7,IN,aux_el_demand_residential_kWhm2,Formel,👤!L9,👤!G9
+v1_11_7,v1_12_7,IN,aux_el_demand_retailfood_kWhm2,Formel,👤!L13,👤!G13
+v1_11_7,v1_12_7,IN,aux_el_demand_retailother_kWhm2,Formel,👤!L14,👤!G14
+v1_11_7,v1_12_7,IN,aux_el_demand_schoolprim_kWhm2,Formel,👤!L12,👤!G12
+v1_11_7,v1_12_7,IN,aux_el_demand_schoolsec_kWhm2,Formel,👤!L11,👤!G11
+v1_11_7,v1_12_7,IN,construction_quality,Formel,THG!F10,THG!F9
+v1_11_7,v1_12_7,IN,cool_cop_1el,Formel,❄️K'!D36,❄️K'!D23
+v1_11_7,v1_12_7,IN,cool_cop_2th,Formel,❄️K'!D44,❄️K'!D31
+v1_11_7,v1_12_7,IN,cool_cop_3el,Formel,❄️K'!D51,❄️K'!D38
+v1_11_7,v1_12_7,IN,cool_share_office,Formel,❄️K'!D11,❄️K'!D7
+v1_11_7,v1_12_7,IN,cool_share_other,Formel,❄️K'!D16,❄️K'!D12
+v1_11_7,v1_12_7,IN,cool_share_residential,Formel,❄️K'!D10,❄️K'!D6
+v1_11_7,v1_12_7,IN,cool_share_retailfood,Formel,❄️K'!D14,❄️K'!D10
+v1_11_7,v1_12_7,IN,cool_share_retailother,Formel,❄️K'!D15,❄️K'!D11
+v1_11_7,v1_12_7,IN,cool_share_schoolprim,Formel,❄️K'!D13,❄️K'!D9
+v1_11_7,v1_12_7,IN,cool_share_schoolsec,Formel,❄️K'!D12,❄️K'!D8
+v1_11_7,v1_12_7,IN,cool_th2_carrier_type,Formel,❄️K'!D42,❄️K'!D29
+v1_11_7,v1_12_7,IN,cool_th2_is_other,Formel,--NICHT(ODER(N694;N699;N704)),--NICHT(ODER(N737;N742;N747))
+v1_11_7,v1_12_7,IN,daylightcontr_office,ka,1.0,2.0
+v1_11_7,v1_12_7,IN,daylightcontr_office,Formel,nan,👤!E23
+v1_11_7,v1_12_7,IN,daylightcontr_schoolprim,ka,1.0,2.0
+v1_11_7,v1_12_7,IN,daylightcontr_schoolprim,Formel,nan,👤!E25
+v1_11_7,v1_12_7,IN,daylightcontr_schoolsec,ka,1.0,2.0
+v1_11_7,v1_12_7,IN,daylightcontr_schoolsec,Formel,nan,👤!E24
+v1_11_7,v1_12_7,IN,dhw1_is_other,Formel,--UND(NICHT(ODER(N695;N700;N705)); DHW_1_is_used),--UND(NICHT(ODER(N738;N743;N748)); DHW_1_is_used)
+v1_11_7,v1_12_7,IN,dhw2_is_other,Formel,--UND(NICHT(ODER(N696;N701;N706));DHW_2_is_used),--UND(NICHT(ODER(N739;N744;N749));DHW_2_is_used)
+v1_11_7,v1_12_7,IN,fc_c,Formel,SUMMENPRODUKT(N152:N158;N46:N52;cool_active_shares)*per_NFA_cooled,SUMMENPRODUKT(N157:N163;N46:N52;cool_active_shares)*per_NFA_cooled
+v1_11_7,v1_12_7,IN,fc_u,Formel,SUMMENPRODUKT(N152:N158;N46:N52;cool_passive_shares)*per_NFA_uncooled,SUMMENPRODUKT(N157:N163;N46:N52;cool_passive_shares)*per_NFA_uncooled
+v1_11_7,v1_12_7,IN,heat_th2_is_other,Formel,--NICHT(ODER(N692;N697;N702)),--NICHT(ODER(N735;N740;N745))
+v1_11_7,v1_12_7,IN,heat_th4_is_other,Formel,--NICHT(ODER(N693;N698;N703)),--NICHT(ODER(N736;N741;N746))
+v1_11_7,v1_12_7,IN,hull_window_m2,Formel,SUMME(N83:N86),SUMME(N84:N87)
+v1_11_7,v1_12_7,IN,input_version_number,Formel,nan,settings_input_version_number
+v1_11_7,v1_12_7,IN,lighting_factor_office,ka,2.0,1.0
+v1_11_7,v1_12_7,IN,lighting_factor_office,Formel,👤!V10,nan
+v1_11_7,v1_12_7,IN,lighting_factor_other,ka,2.0,1.0
+v1_11_7,v1_12_7,IN,lighting_factor_other,Formel,👤!V15,nan
+v1_11_7,v1_12_7,IN,lighting_factor_retailfood,ka,2.0,1.0
+v1_11_7,v1_12_7,IN,lighting_factor_retailfood,Formel,👤!V13,nan
+v1_11_7,v1_12_7,IN,lighting_factor_retailother,ka,2.0,1.0
+v1_11_7,v1_12_7,IN,lighting_factor_retailother,Formel,👤!V14,nan
+v1_11_7,v1_12_7,IN,lighting_factor_schoolprim,ka,2.0,1.0
+v1_11_7,v1_12_7,IN,lighting_factor_schoolprim,Formel,👤!V12,nan
+v1_11_7,v1_12_7,IN,lighting_factor_schoolsec,ka,2.0,1.0
+v1_11_7,v1_12_7,IN,lighting_factor_schoolsec,Formel,👤!V11,nan
+v1_11_7,v1_12_7,IN,plot_area,Formel,🏙️!D55,🏙️!D42
+v1_11_7,v1_12_7,IN,plugloads_office,Formel,👤!D34,👤!D10
+v1_11_7,v1_12_7,IN,plugloads_other,Formel,👤!D39,👤!D15
+v1_11_7,v1_12_7,IN,plugloads_residential,Formel,👤!D33,👤!D9
+v1_11_7,v1_12_7,IN,plugloads_retailfood,Formel,👤!D37,👤!D13
+v1_11_7,v1_12_7,IN,plugloads_retailother,Formel,👤!D38,👤!D14
+v1_11_7,v1_12_7,IN,plugloads_schoolprim,Formel,👤!D36,👤!D12
+v1_11_7,v1_12_7,IN,plugloads_schoolsec,Formel,👤!D35,👤!D11
+v1_11_7,v1_12_7,IN,renovation_ratio_office,Formel,🏙️!D62,🏙️!D49
+v1_11_7,v1_12_7,IN,renovation_ratio_other,Formel,🏙️!D67,🏙️!D54
+v1_11_7,v1_12_7,IN,renovation_ratio_residential,Formel,🏙️!D61,🏙️!D48
+v1_11_7,v1_12_7,IN,renovation_ratio_retailfood,Formel,🏙️!D65,🏙️!D52
+v1_11_7,v1_12_7,IN,renovation_ratio_retailother,Formel,🏙️!D66,🏙️!D53
+v1_11_7,v1_12_7,IN,renovation_ratio_schoolprim,Formel,🏙️!D64,🏙️!D51
+v1_11_7,v1_12_7,IN,renovation_ratio_schoolsec,Formel,🏙️!D63,🏙️!D50
+v1_11_7,v1_12_7,IN,rh_avg,Formel,SUMMENPRODUKT(N67:N73;N46:N52)/NFA_total,SUMMENPRODUKT(N68:N74;N46:N52)/NFA_total
+v1_11_7,v1_12_7,IN,rh_office,Formel,🏙️!D43,🏙️!N29
+v1_11_7,v1_12_7,IN,rh_other,Formel,🏙️!D48,🏙️!N34
+v1_11_7,v1_12_7,IN,rh_residential,Formel,🏙️!D42,🏙️!N28
+v1_11_7,v1_12_7,IN,rh_retailfood,Formel,🏙️!D46,🏙️!N32
+v1_11_7,v1_12_7,IN,rh_retailother,Formel,🏙️!D47,🏙️!N33
+v1_11_7,v1_12_7,IN,rh_schoolprim,Formel,🏙️!D45,🏙️!N31
+v1_11_7,v1_12_7,IN,rh_schoolsec,Formel,🏙️!D44,🏙️!N30
+v1_11_7,v1_12_7,IN,transmittance_Wm2,Formel,SUMME(N110:N114),SUMME(N112:N116)
+v1_11_7,v1_12_7,IN,transmittance_fundament_Wm2NFA,Formel,N82*N103*per_NFA,N83*N105*per_NFA
+v1_11_7,v1_12_7,IN,transmittance_heatbridge_Wm2NFA,Formel,SUMME(N110:N113)*N109,SUMME(N112:N115)*N111
+v1_11_7,v1_12_7,IN,transmittance_windows_Wm2NFA,Formel,SUMMENPRODUKT(N83:N87;N104:N108)*per_NFA,SUMMENPRODUKT(N84:N88;N106:N110)*per_NFA
+v1_11_7,v1_12_7,IN,usage_concurrency_summer_office,Formel,👤!I22,👤!E35
+v1_11_7,v1_12_7,IN,usage_concurrency_summer_other,Formel,👤!I27,👤!E40
+v1_11_7,v1_12_7,IN,usage_concurrency_summer_residential,Formel,👤!I21,👤!E34
+v1_11_7,v1_12_7,IN,usage_concurrency_summer_retailfood,Formel,👤!I25,👤!E38
+v1_11_7,v1_12_7,IN,usage_concurrency_summer_retailother,Formel,👤!I26,👤!E39
+v1_11_7,v1_12_7,IN,usage_concurrency_summer_schoolprim,Formel,👤!I24,👤!E37
+v1_11_7,v1_12_7,IN,usage_concurrency_summer_schoolsec,Formel,👤!I23,👤!E36
+v1_11_7,v1_12_7,IN,usage_concurrency_winter_office,Formel,👤!F22,👤!D35
+v1_11_7,v1_12_7,IN,usage_concurrency_winter_other,Formel,👤!F27,👤!D40
+v1_11_7,v1_12_7,IN,usage_concurrency_winter_residential,Formel,👤!F21,👤!D34
+v1_11_7,v1_12_7,IN,usage_concurrency_winter_retailfood,Formel,👤!F25,👤!D38
+v1_11_7,v1_12_7,IN,usage_concurrency_winter_retailother,Formel,👤!F26,👤!D39
+v1_11_7,v1_12_7,IN,usage_concurrency_winter_schoolprim,Formel,👤!F24,👤!D37
+v1_11_7,v1_12_7,IN,usage_concurrency_winter_schoolsec,Formel,👤!F23,👤!D36
+v1_11_7,v1_12_7,IN,vent_ach_max_office,Formel,💨L!D60,💨L!D45
+v1_11_7,v1_12_7,IN,vent_ach_max_other,Formel,💨L!D65,💨L!D50
+v1_11_7,v1_12_7,IN,vent_ach_max_residential,Formel,💨L!D59,💨L!D44
+v1_11_7,v1_12_7,IN,vent_ach_max_retailfood,Formel,💨L!D63,💨L!D48
+v1_11_7,v1_12_7,IN,vent_ach_max_retailother,Formel,💨L!D64,💨L!D49
+v1_11_7,v1_12_7,IN,vent_ach_max_schoolprim,Formel,💨L!D62,💨L!D47
+v1_11_7,v1_12_7,IN,vent_ach_max_schoolsec,Formel,💨L!D61,💨L!D46
+v1_11_7,v1_12_7,IN,vent_heat_recovery_summer_office,Formel,💨L!F23,💨L!F20
+v1_11_7,v1_12_7,IN,vent_heat_recovery_summer_other,Formel,💨L!F28,💨L!F25
+v1_11_7,v1_12_7,IN,vent_heat_recovery_summer_residential,Formel,💨L!F22,💨L!F19
+v1_11_7,v1_12_7,IN,vent_heat_recovery_summer_retailfood,Formel,💨L!F26,💨L!F23
+v1_11_7,v1_12_7,IN,vent_heat_recovery_summer_retailother,Formel,💨L!F27,💨L!F24
+v1_11_7,v1_12_7,IN,vent_heat_recovery_summer_schoolprim,Formel,💨L!F25,💨L!F22
+v1_11_7,v1_12_7,IN,vent_heat_recovery_summer_schoolsec,Formel,💨L!F24,💨L!F21
+v1_11_7,v1_12_7,IN,vent_heat_recovery_winter_office,Formel,💨L!D23,💨L!D20
+v1_11_7,v1_12_7,IN,vent_heat_recovery_winter_other,Formel,💨L!D28,💨L!D25
+v1_11_7,v1_12_7,IN,vent_heat_recovery_winter_residential,Formel,💨L!D22,💨L!D19
+v1_11_7,v1_12_7,IN,vent_heat_recovery_winter_retailfood,Formel,💨L!D26,💨L!D23
+v1_11_7,v1_12_7,IN,vent_heat_recovery_winter_retailother,Formel,💨L!D27,💨L!D24
+v1_11_7,v1_12_7,IN,vent_heat_recovery_winter_schoolprim,Formel,💨L!D25,💨L!D22
+v1_11_7,v1_12_7,IN,vent_heat_recovery_winter_schoolsec,Formel,💨L!D24,💨L!D21
+v1_11_7,v1_12_7,IN,vent_infiltration_ACH,Formel,N175/N176,N181/N182
+v1_11_7,v1_12_7,IN,vent_night_office,Formel,💨L!D47,💨L!D35
+v1_11_7,v1_12_7,IN,vent_night_other,Formel,💨L!D52,💨L!D40
+v1_11_7,v1_12_7,IN,vent_night_residential,Formel,💨L!D46,💨L!D34
+v1_11_7,v1_12_7,IN,vent_night_retailfood,Formel,💨L!D50,💨L!D38
+v1_11_7,v1_12_7,IN,vent_night_retailother,Formel,💨L!D51,💨L!D39
+v1_11_7,v1_12_7,IN,vent_night_schoolprim,Formel,💨L!D48,💨L!D36
+v1_11_7,v1_12_7,IN,vent_night_schoolsec,Formel,💨L!D49,💨L!D37
+v1_11_7,v1_12_7,IN,vent_scale_office,Formel,N205/MAX(Nutzung_Büro[Bedarf Luftwechsel]),N213/MAX(Nutzung_Büro[Bedarf Luftwechsel])
+v1_11_7,v1_12_7,IN,vent_scale_residential,Formel,N204/MAX(Nutzung_Wohnen[Bedarf Luftwechsel]),N212/MAX(Nutzung_Wohnen[Bedarf Luftwechsel])
+v1_11_7,v1_12_7,IN,vent_scale_retail,Formel,N209/MAX(Nutzung_Handel_NonFood[Bedarf Luftwechsel]),N217/MAX(Nutzung_Handel_NonFood[Bedarf Luftwechsel])
+v1_11_7,v1_12_7,IN,vent_scale_school_prim,Formel,N207/MAX(Nutzung_KIGA[Bedarf Luftwechsel]),N215/MAX(Nutzung_KIGA[Bedarf Luftwechsel])
+v1_11_7,v1_12_7,IN,vent_scale_school_sec,Formel,N206/MAX(Nutzung_Schule[Bedarf Luftwechsel]),N214/MAX(Nutzung_Schule[Bedarf Luftwechsel])
+v1_11_7,v1_12_7,IN,vent_scale_supermarket,Formel,N208/MAX(Nutzung_Handel_Food[Bedarf Luftwechsel]),N216/MAX(Nutzung_Handel_Food[Bedarf Luftwechsel])
+v1_11_7,v1_12_7,IN,vent_share_mechanical_office,Formel,💨L!D12,💨L!D8
+v1_11_7,v1_12_7,IN,vent_share_mechanical_other,Formel,💨L!D17,💨L!D13
+v1_11_7,v1_12_7,IN,vent_share_mechanical_residential,Formel,💨L!D11,💨L!D7
+v1_11_7,v1_12_7,IN,vent_share_mechanical_retailfood,Formel,💨L!D15,💨L!D11
+v1_11_7,v1_12_7,IN,vent_share_mechanical_retailother,Formel,💨L!D16,💨L!D12
+v1_11_7,v1_12_7,IN,vent_share_mechanical_schoolprim,Formel,💨L!D14,💨L!D10
+v1_11_7,v1_12_7,IN,vent_share_mechanical_schoolsec,Formel,💨L!D13,💨L!D9
+v1_11_7,v1_12_7,IN,weather_name,Formel,🏙️!$D$19,🏙️!D19
+v1_11_7,v1_12_7,OUT,EUI_mob_fossile,Formel,mobility_is_included*K461*fossile_demand_kWhpkm*per_NFA,mobility_is_included*K522*fossile_demand_kWhpkm*per_NFA
+v1_11_7,v1_12_7,OUT,EV_FEC,Formel,WENNFEHLER(SUMME(sim[Eev_Cmin];sim[Eev_flex_final])/K471;0),WENNFEHLER(SUMME(sim[Eev_Cmin];sim[Eev_flex_final])/K532;0)
+v1_11_7,v1_12_7,OUT,GWP_lc_EE_total,Formel,+GWP_ee_lc_mob+GWP_ee_lc_tga+GWP_ee_lc_construction,+GWP_ee_lc_mob+GWP_ee_total_construction+GWP_ee_total_TES
+v1_11_7,v1_12_7,OUT,GWP_lc_total,Formel,GWP_oe_lc_mob+GWP_oe_lc_building+GWP_ee_lc_mob+GWP_ee_lc_tga+GWP_ee_lc_construction,GWP_oe_lc_mob+GWP_oe_lc_building+GWP_ee_lc_mob+GWP_ee_total_construction+GWP_ee_total_TES
+v1_11_7,v1_12_7,OUT,GWP_oe_building,Formel,SUMME(K379:K385),SUMME(K434:K440)
+v1_11_7,v1_12_7,OUT,GWP_oe_lc_building,Formel,SUMME(K396:K402),SUMME(K451:K457)
+v1_11_7,v1_12_7,OUT,GWP_oe_lc_emission,Formel,SUMME(K396:K401),SUMME(K451:K456)
+v1_11_7,v1_12_7,OUT,GWP_oe_mob_fossile,Formel,mobility_is_included*K461*GWP_mobility_car_gpPKm/1000/GFA_total,mobility_is_included*K522*GWP_mobility_car_gpPKm/1000/GFA_total
+v1_11_7,v1_12_7,OUT,QH_flex_summer,Formel,"(SUMMENPRODUKT(sim[is_cooling_period]; sim[Qh_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_cooling_period]; sim[Qh_c]) * NFAfrac_c) * 0,001 - QH_min_summer","(SUMMENPRODUKT(sim[is_cooling_period]; sim[Qh_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_cooling_period]; sim[Qh_c]) * NFAfrac_c) * 0,001 - QH_min_summer"
+v1_11_7,v1_12_7,OUT,QH_flex_winter,Formel,"(SUMMENPRODUKT(sim[is_heating_period]; sim[Qh_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_heating_period]; sim[Qh_c]) * NFAfrac_c) * 0,001 - QH_min_winter","(SUMMENPRODUKT(sim[is_heating_period]; sim[Qh_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_heating_period]; sim[Qh_c]) * NFAfrac_c) * 0,001 - QH_min_winter"
+v1_11_7,v1_12_7,OUT,QH_min_summer,Formel,"(SUMMENPRODUKT(sim[is_cooling_period]; sim[Qh_to_room_uncooled_min]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_cooling_period]; sim[Qh_to_room_cooled_min]) * NFAfrac_c) * 0,001","(SUMMENPRODUKT(sim[is_cooling_period]; sim[Qh_to_room_uncooled_min]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_cooling_period]; sim[Qh_to_room_cooled_min]) * NFAfrac_c) * 0,001"
+v1_11_7,v1_12_7,OUT,QH_min_winter,Formel,"(SUMMENPRODUKT(sim[is_heating_period]; sim[Qh_to_room_uncooled_min]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_heating_period]; sim[Qh_to_room_cooled_min]) * NFAfrac_c) * 0,001","(SUMMENPRODUKT(sim[is_heating_period]; sim[Qh_to_room_uncooled_min]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_heating_period]; sim[Qh_to_room_cooled_min]) * NFAfrac_c) * 0,001"
+v1_11_7,v1_12_7,OUT,QI_summer,Formel,"(SUMMENPRODUKT(sim[is_cooling_period]; sim[QI_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_cooling_period]; sim[QI_c]) * NFAfrac_c) * 0,001","(SUMMENPRODUKT(sim[is_cooling_period]; sim[QI_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_cooling_period]; sim[QI_c]) * NFAfrac_c) * 0,001"
+v1_11_7,v1_12_7,OUT,QI_winter,Formel,"(SUMMENPRODUKT(sim[is_heating_period]; sim[QI_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_heating_period]; sim[QI_c]) * NFAfrac_c) * 0,001","(SUMMENPRODUKT(sim[is_heating_period]; sim[QI_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_heating_period]; sim[QI_c]) * NFAfrac_c) * 0,001"
+v1_11_7,v1_12_7,OUT,QS_summer,Formel,"(SUMMENPRODUKT(sim[is_cooling_period]; sim[QS_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_cooling_period]; sim[QS_c]) * NFAfrac_c) * 0,001","(SUMMENPRODUKT(sim[is_cooling_period]; sim[QS_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_cooling_period]; sim[QS_c]) * NFAfrac_c) * 0,001"
+v1_11_7,v1_12_7,OUT,QS_winter,Formel,"(SUMMENPRODUKT(sim[is_heating_period]; sim[QS_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_heating_period]; sim[QS_c]) * NFAfrac_c) * 0,001","(SUMMENPRODUKT(sim[is_heating_period]; sim[QS_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_heating_period]; sim[QS_c]) * NFAfrac_c) * 0,001"
+v1_11_7,v1_12_7,OUT,QT_ground_c,Formel,QT_c*IN!N112/transmittance_Wm2,QT_c*IN!N114/transmittance_Wm2
+v1_11_7,v1_12_7,OUT,QT_ground_u,Formel,QT_u*IN!N112/transmittance_Wm2,QT_u*IN!N114/transmittance_Wm2
+v1_11_7,v1_12_7,OUT,QT_psi_c,Formel,QT_c*IN!N114/transmittance_Wm2,QT_c*IN!N116/transmittance_Wm2
+v1_11_7,v1_12_7,OUT,QT_psi_u,Formel,QT_u*IN!N114/transmittance_Wm2,QT_u*IN!N116/transmittance_Wm2
+v1_11_7,v1_12_7,OUT,QT_roof_c,Formel,QT_c*IN!N111/transmittance_Wm2,QT_c*IN!N113/transmittance_Wm2
+v1_11_7,v1_12_7,OUT,QT_roof_u,Formel,QT_u*IN!N111/transmittance_Wm2,QT_u*IN!N113/transmittance_Wm2
+v1_11_7,v1_12_7,OUT,QT_summer,Formel,"(SUMMENPRODUKT(sim[is_cooling_period]; sim[QT_u])*NFAfrac_u +
+  SUMMENPRODUKT(sim[is_cooling_period]; sim[QT_c])*NFAfrac_c  ) * -0,001","(SUMMENPRODUKT(sim[is_cooling_period]; sim[QT_u])*NFAfrac_u +
+  SUMMENPRODUKT(sim[is_cooling_period]; sim[QT_c])*NFAfrac_c  ) * -0,001"
+v1_11_7,v1_12_7,OUT,QT_wall_c,Formel,QT_c*IN!N110/transmittance_Wm2,QT_c*IN!N112/transmittance_Wm2
+v1_11_7,v1_12_7,OUT,QT_wall_u,Formel,QT_u*IN!N110/transmittance_Wm2,QT_u*IN!N112/transmittance_Wm2
+v1_11_7,v1_12_7,OUT,QT_window_c,Formel,QT_c*IN!N113/transmittance_Wm2,QT_c*IN!N115/transmittance_Wm2
+v1_11_7,v1_12_7,OUT,QT_window_u,Formel,QT_u*IN!N113/transmittance_Wm2,QT_u*IN!N115/transmittance_Wm2
+v1_11_7,v1_12_7,OUT,QT_winter,Formel,"(SUMMENPRODUKT(sim[is_heating_period]; sim[QT_u])*NFAfrac_u +
+  SUMMENPRODUKT(sim[is_heating_period]; sim[QT_c])*NFAfrac_c  ) * -0,001","(SUMMENPRODUKT(sim[is_heating_period]; sim[QT_u])*NFAfrac_u +
+  SUMMENPRODUKT(sim[is_heating_period]; sim[QT_c])*NFAfrac_c  ) * -0,001"
+v1_11_7,v1_12_7,OUT,QV_heatrecovery_summer,Formel,"SUMMENPRODUKT(sim[is_cooling_period]; sim[dT_uncooled]; sim[ACH_mechvent_u]-sim[ACH_mechvent_therm_u])*cp_air*per_NFA_uncooled * -0,001 * NFAfrac_u +
+ SUMMENPRODUKT(sim[is_cooling_period]; sim[dT_cooled];   sim[ACH_mechvent_c]-sim[ACH_mechvent_therm_c])*cp_air*per_NFA_cooled   * -0,001 * NFAfrac_c","SUMMENPRODUKT(sim[is_cooling_period]; sim[dT_uncooled]; sim[ACH_mechvent_u]-sim[ACH_mechvent_therm_u])*cp_air*per_NFA_uncooled * -0,001 * NFAfrac_u +
+ SUMMENPRODUKT(sim[is_cooling_period]; sim[dT_cooled];   sim[ACH_mechvent_c]-sim[ACH_mechvent_therm_c])*cp_air*per_NFA_cooled   * -0,001 * NFAfrac_c"
+v1_11_7,v1_12_7,OUT,QV_heatrecovery_winter,Formel,"SUMMENPRODUKT(sim[is_heating_period]; sim[dT_uncooled]; sim[ACH_mechvent_u]-sim[ACH_mechvent_therm_u])*cp_air*per_NFA_uncooled * -0,001 * NFAfrac_u +
+ SUMMENPRODUKT(sim[is_heating_period]; sim[dT_cooled];   sim[ACH_mechvent_c]-sim[ACH_mechvent_therm_c])*cp_air*per_NFA_cooled   * -0,001 * NFAfrac_c","SUMMENPRODUKT(sim[is_heating_period]; sim[dT_uncooled]; sim[ACH_mechvent_u]-sim[ACH_mechvent_therm_u])*cp_air*per_NFA_uncooled * -0,001 * NFAfrac_u +
+ SUMMENPRODUKT(sim[is_heating_period]; sim[dT_cooled];   sim[ACH_mechvent_c]-sim[ACH_mechvent_therm_c])*cp_air*per_NFA_cooled   * -0,001 * NFAfrac_c"
+v1_11_7,v1_12_7,OUT,QV_inf_summer,Formel,"(SUMMENPRODUKT(sim[is_cooling_period]; sim[Qvinf_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_cooling_period]; sim[Qvinf_c]) * NFAfrac_c ) * -0,001","(SUMMENPRODUKT(sim[is_cooling_period]; sim[Qvinf_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_cooling_period]; sim[Qvinf_c]) * NFAfrac_c ) * -0,001"
+v1_11_7,v1_12_7,OUT,QV_inf_winter,Formel,"(SUMMENPRODUKT(sim[is_heating_period]; sim[Qvinf_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_heating_period]; sim[Qvinf_c]) * NFAfrac_c ) * -0,001","(SUMMENPRODUKT(sim[is_heating_period]; sim[Qvinf_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_heating_period]; sim[Qvinf_c]) * NFAfrac_c ) * -0,001"
+v1_11_7,v1_12_7,OUT,QV_mechvent_summer,Formel,"(SUMMENPRODUKT(sim[is_cooling_period]; sim[Qvmechvent_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_cooling_period]; sim[Qvmechvent_c]) * NFAfrac_c) * -0,001","(SUMMENPRODUKT(sim[is_cooling_period]; sim[Qvmechvent_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_cooling_period]; sim[Qvmechvent_c]) * NFAfrac_c) * -0,001"
+v1_11_7,v1_12_7,OUT,QV_mechvent_winter,Formel,"(SUMMENPRODUKT(sim[is_heating_period]; sim[Qvmechvent_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_heating_period]; sim[Qvmechvent_c]) * NFAfrac_c) * -0,001","(SUMMENPRODUKT(sim[is_heating_period]; sim[Qvmechvent_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_heating_period]; sim[Qvmechvent_c]) * NFAfrac_c) * -0,001"
+v1_11_7,v1_12_7,OUT,QV_window_summer,Formel,"(SUMMENPRODUKT(sim[is_cooling_period]; sim[Qvwindow_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_cooling_period]; sim[Qvwindow_c]) * NFAfrac_c ) * -0,001","(SUMMENPRODUKT(sim[is_cooling_period]; sim[Qvwindow_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_cooling_period]; sim[Qvwindow_c]) * NFAfrac_c ) * -0,001"
+v1_11_7,v1_12_7,OUT,QV_window_winter,Formel,"(SUMMENPRODUKT(sim[is_heating_period]; sim[Qvwindow_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_heating_period]; sim[Qvwindow_c]) * NFAfrac_c ) * -0,001","(SUMMENPRODUKT(sim[is_heating_period]; sim[Qvwindow_u]) * NFAfrac_u +
+  SUMMENPRODUKT(sim[is_heating_period]; sim[Qvwindow_c]) * NFAfrac_c ) * -0,001"
+v1_11_7,v1_12_7,OUT,StatPAX,Formel,K449+K445+K444,K510+K506+K505
+v1_11_7,v1_12_7,OUT,UED_mob_el_other,Formel,mobility_is_included*(K473-UED_mob_el_target),mobility_is_included*(K534-UED_mob_el_target)
+v1_11_7,v1_12_7,OUT,UED_mob_el_target,Formel,mobility_is_included*K460*EV_demand_kWhpkm*per_NFA,mobility_is_included*K521*EV_demand_kWhpkm*per_NFA
+v1_11_7,v1_12_7,OUT,UED_mob_el_total,Formel,mobility_is_included*K466*EV_share*EV_demand_kWhpkm*per_NFA,mobility_is_included*K527*EV_share*EV_demand_kWhpkm*per_NFA
+v1_11_7,v1_12_7,OUT,flex_GSR,Formel,K426+K427,K487+K488
+v1_11_7,v1_12_7,OUT,mob_annual_milage_district,Formel,SUMME(K453:K456),SUMME(K514:K517)
+v1_12_7,1.13.1_dev,IN,DHW_1_el_aux,Formel,nan,💧WW!D1
+v1_12_7,1.13.1_dev,IN,DHW_2_el_aux,ka,2.0,1.0
+v1_12_7,1.13.1_dev,IN,DHW_storage_env_temp_default,ka,2.0,1.0
+v1_12_7,1.13.1_dev,IN,Daylightcoefficient_office,Formel,👤!E23,nan
+v1_12_7,1.13.1_dev,IN,Daylightcoefficient_schoolprim,Formel,👤!E25,nan
+v1_12_7,1.13.1_dev,IN,Daylightcoefficient_schoolsec,Formel,👤!E24,nan
+v1_12_7,1.13.1_dev,IN,EV_charging_losses_surcharge_factor,Formel,WENNFEHLER(1/N544;0),WENNFEHLER(1/N555;0)
+v1_12_7,1.13.1_dev,IN,EV_charging_station_power,ka,2.0,1.0
+v1_12_7,1.13.1_dev,IN,EV_charging_stations,ka,2.0,0.0
+v1_12_7,1.13.1_dev,IN,EV_charging_stations,Formel,🚗!D48,RUNDEN(SUMME(🚗!D41:D43)*EV_charging_station_density/100;0)
+v1_12_7,1.13.1_dev,IN,EV_selfdischarge_per_h,Formel,N541/24/7,N552/24/7
+v1_12_7,1.13.1_dev,IN,EV_storage_total_kWh,Formel,N539*N536,N550*N547
+v1_12_7,1.13.1_dev,IN,FLEX_cool1_use,Formel,"WENN(N499=""System 1"";WAHR;FALSCH)","WENN(N510=""System 1"";WAHR;FALSCH)"
+v1_12_7,1.13.1_dev,IN,FLEX_cool3_use,Formel,"WENN(N499=""System 3"";WAHR;FALSCH)","WENN(N510=""System 3"";WAHR;FALSCH)"
+v1_12_7,1.13.1_dev,IN,FLEX_heat1_use,Formel,"WENN(N494=""System 1"";WAHR;FALSCH)","WENN(N505=""System 1"";WAHR;FALSCH)"
+v1_12_7,1.13.1_dev,IN,FLEX_heat3_use,Formel,"WENN(N494=""System 3"";WAHR;FALSCH)","WENN(N505=""System 3"";WAHR;FALSCH)"
+v1_12_7,1.13.1_dev,IN,GWP_miv_count_ev,Formel,N691*EV_share,N702*EV_share
+v1_12_7,1.13.1_dev,IN,GWP_miv_count_fossile,Formel,N691-N692,N702-N703
+v1_12_7,1.13.1_dev,IN,GWP_refratio_ceilings,Formel,N636/GFA_total,N647/GFA_total
+v1_12_7,1.13.1_dev,IN,GWP_refratio_fundament,Formel,N635/GFA_total,N646/GFA_total
+v1_12_7,1.13.1_dev,IN,GWP_refratio_roof,Formel,N633/GFA_total,N644/GFA_total
+v1_12_7,1.13.1_dev,IN,GWP_refratio_windows,Formel,N632/GFA_total,N643/GFA_total
+v1_12_7,1.13.1_dev,IN,PV_efficiency,Formel,nan,🌞PV!D28
+v1_12_7,1.13.1_dev,IN,PV_id,Formel,VERGLEICH(PV_profile_name;pv_profile_names;0),"VERGLEICH(WENN(PV_mode=""Vereinfacht"";PV_simplified_name;PV_profile_name);pv_profile_names;0)"
+v1_12_7,1.13.1_dev,IN,PV_kWp,Formel,PV_scale*INDEX('PV-Import'!$B$19:$AV$19;1;VERGLEICH(PV_profile_name;pv_profile_names;0)),PV_module_area/PV_m2_per_kWp
+v1_12_7,1.13.1_dev,IN,PV_m2_per_kWp,ka,2.0,1.0
+v1_12_7,1.13.1_dev,IN,PV_m2_per_kWp,Formel,🌞PV!D10,nan
+v1_12_7,1.13.1_dev,IN,PV_module_area,Formel,PV_kWp*PV_m2_per_kWp,hull_roof_m2*PV_roof_share
+v1_12_7,1.13.1_dev,IN,PV_profile_name,Formel,🌞PV!D8,🌞PV!D20
+v1_12_7,1.13.1_dev,IN,PV_scale,Formel,🌞PV!D9,🌞PV!D21
+v1_12_7,1.13.1_dev,IN,Plugloads_scale_office,Formel,N779/O779,N790/O790
+v1_12_7,1.13.1_dev,IN,Plugloads_scale_other,Formel,N784/O784,N795/O795
+v1_12_7,1.13.1_dev,IN,Plugloads_scale_residential,Formel,N778/O778,N789/O789
+v1_12_7,1.13.1_dev,IN,Plugloads_scale_retailfood,Formel,N782/O782,N793/O793
+v1_12_7,1.13.1_dev,IN,Plugloads_scale_retailother,Formel,N783/O783,N794/O794
+v1_12_7,1.13.1_dev,IN,Plugloads_scale_schoolprim,Formel,N781/O781,N792/O792
+v1_12_7,1.13.1_dev,IN,Plugloads_scale_schoolsec,Formel,N780/O780,N791/O791
+v1_12_7,1.13.1_dev,IN,Tsetcool_flex,Formel,Tsetcool_max-N497,Tsetcool_max-N508
+v1_12_7,1.13.1_dev,IN,Tsetheat_flex,Formel,Tsetheat_min+N492,Tsetheat_min+N503
+v1_12_7,1.13.1_dev,IN,cool_th2_is_other,Formel,--NICHT(ODER(N737;N742;N747)),--NICHT(ODER(N748;N753;N758))
+v1_12_7,1.13.1_dev,IN,dhw1_is_other,Formel,--UND(NICHT(ODER(N738;N743;N748)); DHW_1_is_used),--UND(NICHT(ODER(N749;N754;N759)); DHW_1_is_used)
+v1_12_7,1.13.1_dev,IN,dhw2_is_other,Formel,--UND(NICHT(ODER(N739;N744;N749));DHW_2_is_used),--UND(NICHT(ODER(N750;N755;N760));DHW_2_is_used)
+v1_12_7,1.13.1_dev,IN,heat_th2_is_other,Formel,--NICHT(ODER(N735;N740;N745)),--NICHT(ODER(N746;N751;N756))
+v1_12_7,1.13.1_dev,IN,heat_th4_is_other,Formel,--NICHT(ODER(N736;N741;N746)),--NICHT(ODER(N747;N752;N757))
+v1_12_7,1.13.1_dev,IN,lighting_factor_office,Formel,nan,👤!J23
+v1_12_7,1.13.1_dev,IN,lighting_factor_other,Formel,nan,👤!J28
+v1_12_7,1.13.1_dev,IN,lighting_factor_retailfood,Formel,nan,👤!J26
+v1_12_7,1.13.1_dev,IN,lighting_factor_retailother,Formel,nan,👤!J27
+v1_12_7,1.13.1_dev,IN,lighting_factor_schoolprim,Formel,nan,👤!J25
+v1_12_7,1.13.1_dev,IN,lighting_factor_schoolsec,Formel,nan,👤!J24
+v1_12_7,1.13.1_dev,IN,mob_simultaneity_edu,ka,2.0,1.0
+v1_12_7,1.13.1_dev,IN,mob_simultaneity_office,Formel,nan,🚗!D76
+v1_12_7,1.13.1_dev,IN,mob_simultaneity_retail,ka,2.0,1.0
+v1_12_7,1.13.1_dev,IN,mobility_vehicle_count,ka,2.0,0.0
+v1_12_7,1.13.1_dev,OUT,Batt_to_HVAC,Formel,SUMME(K156:K159),SUMME(K157:K160)
+v1_12_7,1.13.1_dev,OUT,EUI_mob_fossile,Formel,mobility_is_included*K522*fossile_demand_kWhpkm*per_NFA,mobility_is_included*K519*fossile_demand_kWhpkm*per_NFA
+v1_12_7,1.13.1_dev,OUT,EV_FEC,Formel,WENNFEHLER(SUMME(sim[Eev_Cmin];sim[Eev_flex_final])/K532;0),WENNFEHLER(SUMME(sim[Eev_Cmin];sim[Eev_flex_final])/K529;0)
+v1_12_7,1.13.1_dev,OUT,E_th_total,Formel,Edhw_th+Eh_th,Qdhw_storage_charge+Qheb_th
+v1_12_7,1.13.1_dev,OUT,Edhw_1_aux_el,Formel,Edhw_1_th * DHW_1_el_aux,Qdhw_1_total * DHW_1_el_aux
+v1_12_7,1.13.1_dev,OUT,Edhw_2_aux_el,Formel,Edhw_2_th * DHW_2_el_aux,Qdhw_2_total * DHW_2_el_aux
+v1_12_7,1.13.1_dev,OUT,Eev_discharge_loss,Formel,SUMME(sim[Eev_discharge_total])/1000-K187,SUMME(sim[Eev_discharge_total])/1000-K188
+v1_12_7,1.13.1_dev,OUT,Eev_to_HVAC,Formel,SUMME(K182:K185),SUMME(K183:K186)
+v1_12_7,1.13.1_dev,OUT,Eh_th,Formel,"SUMME(sim[Qheb_total]) * 0,001","SUMME(sim[Qhed_total]) * 0,001"
+v1_12_7,1.13.1_dev,OUT,GWP_emInt_PV_feedin,Formel,GWP_oe_grid_feedin*NFA_to_GFA_ratio/PV_to_Egrid*1000,WENNFEHLER(GWP_oe_grid_feedin*NFA_to_GFA_ratio/PV_to_Egrid*1000;#NV)
+v1_12_7,1.13.1_dev,OUT,GWP_emInt_batt_charge,Formel,GWP_oe_battery_charge/Batt_total_charge_input*1000*NFA_to_GFA_ratio,WENNFEHLER(GWP_oe_battery_charge/Batt_total_charge_input*1000*NFA_to_GFA_ratio;#NV)
+v1_12_7,1.13.1_dev,OUT,GWP_emInt_ev_charge,Formel,GWP_oe_mob_ev/EUIev_el_total*1000*NFA_to_GFA_ratio,WENNFEHLER(GWP_oe_mob_ev/EUIev_el_total*1000*NFA_to_GFA_ratio;#NV)
+v1_12_7,1.13.1_dev,OUT,GWP_emInt_flex,Formel,GWP_oe_flex_build*NFA_to_GFA_ratio/(VRGrid_to_flex-VRGrid_to_Eev_flex+VRGrid_to_min-VRGrid_to_Eev_min)*1000,WENNFEHLER(GWP_oe_flex_build*NFA_to_GFA_ratio/(VRGrid_to_flex-VRGrid_to_Eev_flex+VRGrid_to_min-VRGrid_to_Eev_min)*1000;#NV)
+v1_12_7,1.13.1_dev,OUT,GWP_oe_building,Formel,SUMME(K434:K440),SUMME(K431:K437)
+v1_12_7,1.13.1_dev,OUT,GWP_oe_lc_building,Formel,SUMME(K451:K457),SUMME(K448:K454)
+v1_12_7,1.13.1_dev,OUT,GWP_oe_lc_emission,Formel,SUMME(K451:K456),SUMME(K448:K453)
+v1_12_7,1.13.1_dev,OUT,GWP_oe_mob_fossile,Formel,mobility_is_included*K522*GWP_mobility_car_gpPKm/1000/GFA_total,mobility_is_included*K519*GWP_mobility_car_gpPKm/1000/GFA_total
+v1_12_7,1.13.1_dev,OUT,StatPAX,Formel,K510+K506+K505,K507+K503+K502
+v1_12_7,1.13.1_dev,OUT,UED_mob_el_other,Formel,mobility_is_included*(K534-UED_mob_el_target),mobility_is_included*(K531-UED_mob_el_target)
+v1_12_7,1.13.1_dev,OUT,UED_mob_el_target,Formel,mobility_is_included*K521*EV_demand_kWhpkm*per_NFA,mobility_is_included*K518*EV_demand_kWhpkm*per_NFA
+v1_12_7,1.13.1_dev,OUT,UED_mob_el_total,Formel,mobility_is_included*K527*EV_share*EV_demand_kWhpkm*per_NFA,mobility_is_included*K524*EV_share*EV_demand_kWhpkm*per_NFA
+v1_12_7,1.13.1_dev,OUT,fPE_eff,Formel,(K249+K250+K251)/(Grid_to_min+VRGrid_to_min+VRGrid_to_flex+Eev_ext_charge),(K246+K247+K248)/(Grid_to_min+VRGrid_to_min+VRGrid_to_flex+Eev_ext_charge)
+v1_12_7,1.13.1_dev,OUT,flex_GSR,Formel,K487+K488,K484+K485
+v1_12_7,1.13.1_dev,OUT,legacy_GWP_ee_lc_direct_biogenic,Formel,(legacy_GWP_ee_direct_biogenic)*(1+ABRUNDEN(GHG_LCA_timeframe_years/K367; 0)),(legacy_GWP_ee_direct_biogenic)*(1+ABRUNDEN(GHG_LCA_timeframe_years/K364; 0))
+v1_12_7,1.13.1_dev,OUT,legacy_GWP_ee_lc_direct_fossile,Formel,(legacy_GWP_ee_direct_fossile)*(1+ABRUNDEN(GHG_LCA_timeframe_years/K367; 0)),(legacy_GWP_ee_direct_fossile)*(1+ABRUNDEN(GHG_LCA_timeframe_years/K364; 0))
+v1_12_7,1.13.1_dev,OUT,legacy_GWP_ee_rep_tga,Formel,K413-K411,K410-K408
+v1_12_7,1.13.1_dev,OUT,mob_annual_milage_district,Formel,SUMME(K514:K517),SUMME(K511:K514)
+v1_12_7,1.13.1_dev,SIM,DHW_heat_demand_1_kW,Formula,"=DHW_1_is_used*([@[DHW_storage_losses_1]]+DHW_1_incl_distribution_factor*SUMPRODUCT(sim[@[DHW_residential_kW]:[DHW_other_kW]],DHW_system1_shares))",=DHW_1_is_used*([@[DHW_storage_losses_1]]+DHW_1_incl_distribution_factor*[@[DHW_1_tap_kW]])
+v1_12_7,1.13.1_dev,SIM,DHW_heat_demand_2_kW,Formula,"=DHW_2_is_used*([@[DHW_storage_losses_2]]+DHW_2_incl_distribution_factor*SUMPRODUCT(sim[@[DHW_residential_kW]:[DHW_other_kW]],1-(DHW_system1_shares)))",=DHW_2_is_used*([@[DHW_storage_losses_2]]+DHW_2_incl_distribution_factor*[@[DHW_2_tap_kW]])
+v1_12_7,1.13.1_dev,SIM,DHW_storage_losses_1,Formula,=DHW_losses_1*DHW_storage_1_liter*cp_water/1000,=([@[Tdhw1_0]]-DHW_storage_env_temp_default)*DHW_losses_1*DHW_storage_1_liter*cp_water/1000
+v1_12_7,1.13.1_dev,SIM,DHW_storage_losses_2,Formula,=DHW_losses_2*DHW_storage_2_liter*cp_water/1000,=([@[Tdhw2_0]]-DHW_storage_env_temp_default)*DHW_losses_2*DHW_storage_2_liter*cp_water/1000
+v1_12_7,1.13.1_dev,SIM,Eh_aux,Formula,=[@[Qheb_1el]]*QH_aux_el_to_th_1el+[@[Qheb_2th]]*QH_aux_el_to_th_2th+[@[Qheb_3el]]*QH_aux_el_to_th_3el+[@[Qheb_4th]]*QH_aux_el_to_th_4th,=[@[Qhed_1el]]*QH_aux_el_to_th_1el+[@[Qhed_2th]]*QH_aux_el_to_th_2th+[@[Qhed_3el]]*QH_aux_el_to_th_3el+[@[Qhed_4th]]*QH_aux_el_to_th_4th
+v1_12_7,1.13.1_dev,SIM,Ev_eduprim,Formula,=Ev_scale_school_prim*Nutzung_KIGA[@[Lüfterstrom_W_m2]]*NFA_schoolprim*per_NFA,=vent_share_mechanical_schoolprim*Ev_scale_school_prim*Nutzung_KIGA[@[Lüfterstrom_W_m2]]*NFA_schoolprim*per_NFA
+v1_12_7,1.13.1_dev,SIM,Ev_edusec,Formula,=Ev_scale_school_sec*Nutzung_Schule[@[Lüfterstrom_W_m2]]*NFA_schoolsec*per_NFA,=vent_share_mechanical_schoolsec*Ev_scale_school_sec*Nutzung_Schule[@[Lüfterstrom_W_m2]]*NFA_schoolsec*per_NFA
+v1_12_7,1.13.1_dev,SIM,Ev_office,Formula,=Ev_scale_office*Nutzung_Büro[@[Lüfterstrom_W_m2]]*NFA_office*per_NFA,=vent_share_mechanical_office*Ev_scale_office*Nutzung_Büro[@[Lüfterstrom_W_m2]]*NFA_office*per_NFA
+v1_12_7,1.13.1_dev,SIM,Ev_residential,Formula,=Ev_scale_residential*Nutzung_Wohnen[@[Lüfterstrom_W_m2]]*NFA_residential*per_NFA,=vent_share_mechanical_residential*Ev_scale_residential*Nutzung_Wohnen[@[Lüfterstrom_W_m2]]*NFA_residential*per_NFA
+v1_12_7,1.13.1_dev,SIM,Ev_retail,Formula,=Ev_scale_retail_other*Nutzung_Handel_NonFood[@[Lüfterstrom_W_m2]]*NFA_retailother*per_NFA,=vent_share_mechanical_retailother*Ev_scale_retail_other*Nutzung_Handel_NonFood[@[Lüfterstrom_W_m2]]*NFA_retailother*per_NFA
+v1_12_7,1.13.1_dev,SIM,Ev_retfood,Formula,=Ev_scale_retail_food*Nutzung_Handel_Food[@[Lüfterstrom_W_m2]]*NFA_retailfood*per_NFA,=vent_share_mechanical_retailfood*Ev_scale_retail_food*Nutzung_Handel_Food[@[Lüfterstrom_W_m2]]*NFA_retailfood*per_NFA
+v1_12_7,1.13.1_dev,SIM,PV_yield,Formula,=PV_is_used*PV_scale*PV_efficiency*pv_profiles[@[Gewählte Variante]]*1000*per_NFA,=PV_is_used*PV_scale_sim*PV_efficiency*pv_profiles[@Selected]*1000*per_NFA
+v1_12_7,1.13.1_dev,SIM,Qc_distr_losses,Formula,=[@[Qced_total]]+[@[QC_total_final]],=-([@[Qced_total]]+[@[QC_total_final]])
+v1_12_7,1.13.1_dev,SIM,Qdhw_2_flex,Formula,"=IFERROR([@[Edhw2_flex_final]]*(1-DHW_2_el_aux)/(DHW_conversion_1*DHW_1_is_electric+DHW_1_el_aux),0)","=IFERROR([@[Edhw2_flex_final]]*(1-DHW_2_el_aux)/(DHW_conversion_2*DHW_2_is_electric+DHW_2_el_aux),0)"
