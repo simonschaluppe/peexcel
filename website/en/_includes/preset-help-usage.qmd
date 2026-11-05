@@ -1,0 +1,9 @@
+::: {.callout-note collapse=true title="No project values yet? Start with standard cases"}
+
+- **[Hot-water demand](preset-catalog.qmd#preset-dhw_demand):** A dedicated declaration case is provided. OIB selections are explicitly marked as not yet populated.
+
+- **[User electricity](preset-catalog.qmd#preset-plugloads):** For declaration, use the corresponding values. Kein Nutzerstrom (no user electricity) is labelled for studies; SIA2024 is labelled Veraltet (outdated).
+
+Check the applied values for your project. [How to apply presets](presets.qmd).
+
+:::

@@ -1,48 +1,88 @@
 ---
 title: "Storage and flexibility"
-lang: en
 ---
-**Excel location:** [🔋 Flexibilität und Speicher]{.excel-menu .darkred} worksheet.
 
-Energy flexibility connects the timing of renewable energy with district operation. Local PV surplus and external flexibility signals can enable additional conditioning and storage charging. **Minimum demand coverage and flexible overcoverage** are separate quantities.
-
-![Electricity flows: dispatch order, minimum demand and flexible storage charging. Training diagram supplied by the project owner; active paths depend on the model configuration.](../media/manual/dispatch.png){.manual-figure}
-
-## Enabling flexibility and selecting signals {#flexibility-input}
+{{< include _includes/preset-help-systems.qmd >}}
 
 ::: {.excel-operation}
-### In the Excel tool
-Check PV surplus use and [Use Signal]{.excel-field} independently. Select which applications may respond to the signal and define their power limits. [Presets](presets.qmd) provide an initial selection; the active switches and parameters determine the actual configuration.
+**Where in PEExcel?** Sheet [🔋]{.excel-menu .darkred} (**Flexibilität und Speicher**).
 :::
 
-Configure PV generation on the dedicated [PV input](pv.qmd) page. Track conventional grid import, flexible grid import and self-consumption separately.
+Energy flexibility connects the timing of renewable energy availability with district operation. Local PV surpluses and external flexibility signals can enable additional conditioning and storage charging. **Minimum-demand coverage and flexible additional supply** remain separate quantities.
+
+![Electricity flows: dispatch order, minimum demands and flexible storage charging. Source: PEExcel training; active paths depend on the configuration.](../media/manual/dispatch.png){.manual-figure}
+
+## How storage options work together
+
+![Interaction of heat pumps, thermal building mass, stationary batteries and pooled electric mobility. When enabled, usable storage is charged; outside the enabled period it can meet demand. This illustrates the principle, not a universal operating schedule.](../illustrations/userflexmodel.svg){.manual-figure}
+
+Local PV surpluses and an external signal are separate triggers for flexible use. A signal enables applications within their limits. Actual uptake depends on available surplus or import, system capacity and storage state.
+
+| Flexibility option | What happens? | What limits use? | What shows the effect? |
+|---|---|---|---|
+| Thermal building mass | Heating or cooling temporarily increases | Effective thermal mass, comfort band and system capacity | Room temperature and subsequent heating/cooling demand |
+| Hot-water storage | Additional heating of the buffer/storage tank | Volume, upper temperature and charging capacity | Storage state, charging and losses |
+| Stationary battery | Electricity is stored and used later | Capacity, C-rate and efficiencies | SoC, charging, discharging and full cycles |
+| Electric vehicles | Flexible charging; district supply when enabled | Presence, charging points, power and minimum SoC | Charging flows and SoC by use |
+
+Minimum supply remains part of the simulation. Flexible charging uses additional available headroom. A high enabled-time share alone says little about the energy actually shifted.
+
+## Enable settings and sources {#excel-flexibilitaet}
+
+::: {.excel-operation}
+**Where in PEExcel?** Check PV-surplus use and [Signal verwenden]{.excel-field} (use signal) separately. Specify which applications may use the signal and their power limits. [Presets](presets.qmd) provide an initial selection; actual switches and parameters are decisive.
+:::
+
+Configure generation on the [PV page](pv.qmd). Track conventional grid import, flexible grid import and self-consumption separately in the results.
 
 ## Thermal building mass
 
-Additional electric heating or cooling can use building mass as storage. The selected system and allowable setpoint deviation determine pre-conditioning. Set construction type and effective thermal mass on the [Building Physics](envelope.qmd#building-physics-inputs) worksheet.
+Additional electric heating or cooling can use building mass as storage. The selected system and permitted departure from the temperature setpoint determine preconditioning. Set construction type or effective thermal mass on [🧱]{.excel-menu .darkred} **Bauphysik**; see [building physics](envelope.qmd#excel-bauphysik).
 
-## Hot-water storage {#hot-water-storage}
+### Comfort band and system selection
 
-Flexible heating temporarily raises the temperature of existing storage. Check activation and the upper temperature limit. Storage volume, base supply and losses belong to the [hot-water configuration](hvac.qmd#domestic-hot-water).
+These fields define the permissible departure from the room-temperature setpoint during flexible conditioning.
 
-## Electrical battery
+| Field | Training example | Meaning |
+|---|---|---|
+| [Heizfall]{.excel-field} | 3 K | A 22 °C heating setpoint permits preheating to 25 °C |
+| [Verwendetes Heiz-System]{.excel-field} | System 1 | Generator for flexible heating |
+| [Kühlfall]{.excel-field} | 2 K | A 25 °C cooling setpoint permits precooling to 23 °C |
+| [Verwendetes Kühl-System]{.excel-field} | System 1 | Generator for flexible cooling |
 
-Set activation, capacity, charge/discharge power, efficiencies and self-discharge together. Capacity in kWh and power in kW are distinct quantities. Charging source and discharge use determine the effect on imports and exports.
+These examples illustrate the principle, not general requirements. The band is a difference in kelvin; the resulting setpoint is a temperature in °C. System and emission capacities further limit actual conditioning.
+
+## Hot-water storage {#warmwasserspeicher}
+
+Flexible heating temporarily raises the temperature of existing storage. Check activation and upper temperature. Size, baseline supply and losses belong to the [hot-water configuration](hvac.qmd#warmwasser).
+
+| Field | Training example | Meaning |
+|---|---|---|
+| [Dynamische WW-Speicherung]{.excel-field} | Checkbox activation | Enable flexible storage charging |
+| [Maximale Speichertemperatur]{.excel-field} | 70 °C | Upper temperature in this example |
+
+A higher temperature creates additional headroom but may increase storage losses. Check the [Excel dashboard](excel-dashboard.qmd) to see whether the additional charge is effectively used.
+
+## Electric battery
+
+Define activation, energy capacity, charge/discharge power, efficiencies and self-discharge together. Capacity in kWh and power in kW are different quantities. The source of charging and use of discharge determine the effects on imports and feed-in. C-rate connects power and capacity: 20 kWh at 0.5 h⁻¹ corresponds to a maximum of 10 kW.
 
 ## Electric vehicles
 
-Flexible charging and bidirectional use depend on parking times, charge power, capacity and minimum state of charge. Enter these on the [Mobility](mobility.qmd) worksheet.
+Flexible charging and bidirectional use depend on parking periods, charging power, capacity and minimum state of charge (SoC). Enter these on [🚗]{.excel-menu .orange} **Mobilität**; see the [mobility model](mobility.qmd).
 
 ## Dynamic assessment
 
-![Method: imports, exports and time-dependent assessment of energy carriers. Training diagram supplied by the project owner.](../media/manual/dynamic-assessment.png){.manual-figure}
+![Method: imports, exports and time-dependent assessment of energy carriers. Source: PEExcel training.](../media/manual/dynamic-assessment.png){.manual-figure}
 
-Hourly conversion factors assess when energy is used. Physical savings, shifting energy in time and improving an assessed balance should therefore be reported separately.
+Hourly conversion factors assess energy use over time. Report physical savings, temporal shifts and improvements in an assessed balance separately.
 
 ::: {.declaration-note}
-**For a declaration:** use the prescribed flexibility settings, capacities and conversion factors. Alternative assumptions are possible in model variants but do not automatically establish declaration compliance.
+**Declaration:** Use the designated requirements for enable settings, capacities and conversion factors. Free modelling assumptions are possible but do not automatically establish compliance.
 :::
 
-**Review results:** assess [annual indicators](results.qmd) together with [hourly flows and storage states](excel-dashboard.qmd).
+[Analyse flexibility step by step](flexibility.qmd)
 
-Source: [Training, slides 9, 15 and 21](../downloads/schulung.pdf#page=15).
+**Result checks:** Evaluate [annual indicators](results.qmd) together with [hourly flows and storage states](excel-dashboard.qmd).
+
+Source: [Training, slides 9, 15 and 21](../downloads/schulung.pdf#page=15) (German). Comfort-band and hot-water examples come from the supplied KlimSta slide “Building as Battery, thermische Speicher Gebäude”.

@@ -1,43 +1,101 @@
 ---
-title: "Results worksheet"
-lang: en
+title: "Results and indicators"
 ---
-**Excel location:** [📊 Ergebnisse (Erg)]{.excel-menu .red} worksheet.
 
-This worksheet contains tables and charts for the currently calculated variant. The training distinguishes it from the internal result store **OUT** and the [Excel Dashboard](excel-dashboard.qmd) for time-resolved analysis.
+::: {.excel-operation}
+**Where in PEExcel?** [📊 Erg]{.excel-menu .red} (**Ergebnisse**).
+:::
+
+This sheet contains tables and charts for the currently calculated variant. It is distinct from the internal **OUT** results store and the [Excel dashboard](excel-dashboard.qmd) for time-resolved analysis.
 
 ::: {.excel-path}
-**Ribbon:** klimaaktiv PEQ → Ergebnisse → [Results]{.excel-action}
+**Ribbon:** klimaaktiv PEQ → Ergebnisse → [Ergebnisse]{.excel-action}
 :::
+
+## Choosing the right view
+
+| Question | View |
+|---|---|
+| How much energy is required and supplied over the year? | Annual balances on this page |
+| When do demand, surplus and storage charging occur? | [Excel dashboard](excel-dashboard.qmd) |
+| What do temperature bands, signals and storage change? | [Flexibility analysis](flexibility.qmd) |
+| How do parking periods and use affect charging? | [Mobility behaviour](mobility-analysis.qmd) |
+| Which combination of measures performs better? | [Variant comparison](comparison.qmd) |
+
+## Available indicators {#kennzahlen}
+
+[Browse all OUT variables](glossary.qmd#kennzahlenkatalog): units, labels and assignments from the active schema, including costs, flexibility and storage.
+
+Annual results complement hourly charts. Keep indicator, reference area and balance boundary consistent when comparing.
+
+| Area | Indicators | Interpretation |
+|---|---|---|
+| Buildings | Heating/cooling demand, heat gains and losses | Distinguish annual energy from power and temperature |
+| Electricity | Demand, grid import, PV use and feed-in | Read local supply separately from external mobility charging |
+| PV self-consumption | Direct, flexible and total shares | Share of PV generation assigned to the respective local uses |
+| Energy autonomy | Local direct and flexible PV use relative to electricity demand | A PV-related indicator, not supply security or islanding capability |
+| Grid feed-in | Peak PV export in kW and its timestamp | Maximum on an hourly basis; no statement about shorter peaks or grid voltages |
+| Stationary battery | Annual charge/discharge, losses, round-trip efficiency, equivalent full cycles | Assess use and losses together; full cycles alone do not determine service life |
+| Flexibility | Annual and summer/winter enabled-time shares, flexible grid and PV use | Enablement is an opportunity; actual use depends on demand and storage state |
+| Mobility | Distance travelled, electric/fossil destination-traffic demand, EV charging and full cycles | Generated traffic and physical charging have different boundaries |
+| Assessment | Primary energy, operational/embodied GHG contributions, total balance and distance to budget | Assessed quantities complement physical flows |
+
+### Self-consumption and energy autonomy
+
+The **PV self-consumption share** divides direct plus flexible local PV use by PV generation. **Energy autonomy** uses the same numerator but total electricity demand as denominator. Higher PV yield can affect these two shares differently.
+
+When comparing tools, align definitions, including mobility and storage charging. The same term, such as “self-sufficiency”, does not guarantee the same boundary.
 
 ## Project indicators
 
-Check project and variant names, areas, use mix, building density, and cooled and mechanically ventilated shares. Confirm whether each balance is referenced to net or gross floor area.
+Check project/variant name, areas, use mix, development density, and cooled and mechanically ventilated shares. Note whether each balance refers to net floor area (NGF) or gross floor area (BGF).
 
-## Heat balance {#heat-balance}
+## Heat balance {#waermebilanz}
 
-The charts compare transmission and ventilation losses, night ventilation, solar and internal gains, heating demand and cooling demand. Read the whole district, cooled and uncooled zones, and heating/cooling periods separately. Heating and cooling capacity are power values, not annual energy.
+Charts compare transmission and ventilation losses, night ventilation, solar and internal gains, and heating/cooling demand. Read the whole district, cooled and uncooled areas, and heating/cooling periods separately. Heating and cooling capacities are power quantities, not annual energy.
 
-## Final-energy balance {#final-energy-balance}
+## Final-energy balance {#endenergiebilanz}
 
-The demand-coverage matrix assigns plug loads, building services, hot water, storage charging and mobility to coverage sources. Read imports, local use, storage flows and export within their respective balance boundaries; do not add them indiscriminately.
+The demand–supply matrix assigns user electricity, building services, hot water, storage charging and mobility to supply sources. Row and column sums make energy use traceable. Read imports, local use, storage flows and feed-in within their boundaries; do not indiscriminately add them.
 
 ## Flexibility and battery
 
-Availability periods, flexible use, battery charging/discharging, losses and cycles describe the use of available flexibility. Annual values complement the hourly analysis in the Dashboard.
+Enabled periods, flexible use, battery charge/discharge, losses and cycles describe how available potential is used. Annual indicators complement the dashboard's time-resolved analysis.
 
 ## Primary-energy balance
 
-Demand and coverage are assessed using conversion factors. Local renewables and flexible imports appear as substitution equivalents; context factors represent building density, refurbishment and mobility. The import/export view concerns exchange across the district boundary. Interpret both presentations using their own sign conventions and boundaries.
+Demand and supply are assessed using conversion factors. Local renewables and flexible imports appear as substitution equivalents; context factors account for development density, refurbishment and mobility. The import/export presentation covers exchange across the district boundary. Read each presentation using its own signs and system boundary.
 
 ## GHG balance
 
-Embodied and operational contributions, including mobility, are presented cumulatively. Emissions, credits, budget and balance are distinct quantities. Check the assessment period and gross-floor-area basis; [LCA inputs](climate.qmd) and [declaration](declaration.qmd) are documented separately.
+Construction and operational contributions, including mobility, are shown cumulatively. Emissions, credits, budget and balance are separate quantities. Check assessment period and gross-floor-area reference. [LCA inputs](climate.qmd) and [verification](declaration.qmd) are documented separately.
 
-::: {.pending}
-**Current chart close-ups are still required:** heat balance, final-energy matrix, primary energy and GHG. The supplied tool overview shows the output types but not readable detail. Python charts are not presented as Excel charts here.
-:::
+[Variant comparison](comparison.qmd) · [Excel dashboard](excel-dashboard.qmd) · [Real website examples](examples.qmd)
 
-[Variant comparison](comparison.qmd) · [Excel Dashboard](excel-dashboard.qmd) · [Example results](examples.qmd)
+Source: [Training, slides 21–25](../downloads/schulung.pdf#page=25); interface structure follows manual pp. 74–82 (German).
 
-Source: [Training, slides 21–25](../downloads/schulung.pdf#page=25); worksheet structure based on handbook pp. 74–82.
+## Common concept-design questions {#konzeptplanung}
+
+### Are variant comparison and sensitivity studies already available?
+
+Yes. Save inputs as variants, calculate individually or by [batch](batch.qmd), and evaluate in [variant comparison](comparison.qmd). For example, compare storage sizes and C-rates with the same building and PV system. Variants are deliberately specified; this is not automatic optimisation.
+
+### What time resolution is available?
+
+The annual simulation uses **8,760 hours**. Daily, monthly and annual evaluations aggregate these results. A 15-minute model would require adapted input data and calculation methods; splitting an hourly value into four equal intervals adds no temporal information.
+
+### Can grid relief be assessed?
+
+Hourly import/export profiles and peak feed-in support comparison of district exchange. Transformer loading, voltage limits and individual feeders require an additional grid model. Lower annual imports alone do not demonstrate relief at the critical grid hour.
+
+### How are CO₂ savings determined?
+
+Compare a reference and a measure variant with the same assessment boundary. Distinguish operational and life-cycle balances, using the same factors, periods and areas. If factors or signals change, report their effects explicitly, as in the [flexibility example](flexibility.qmd).
+
+### Are economics, resilience and permitting covered?
+
+The results structure contains cost fields for grid import, flexible import and feed-in. This does not establish a complete investment or life-cycle cost analysis. Check tariff assumptions and output completeness for economic evaluation. Grid-outage resilience, fire safety and permitting require additional criteria and studies.
+
+### What data does a use case need?
+
+Start with location, areas and uses, envelope properties, supply, PV, storage and mobility assumptions. [Presets](presets.qmd) support initial concepts; replace key assumptions with project-specific data afterwards. Comparison with operation benefits from time-aligned measurements of consumption, generation, grid exchange and, ideally, storage states. [Data interfaces](interfaces.qmd#use-case-daten) distinguish concept and validation data.

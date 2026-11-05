@@ -1,0 +1,25 @@
+---
+title: "Quick Check"
+toc: false
+page-layout: full
+---
+
+Filter 5,400 simulated building typologies by geometry, envelope, PV share, flexibility and heating system, and compare without a fixed selection limit. Filters and charts run directly in the browser, without a Python backend.
+
+Gross floor area, plot area and the usable-area-weighted refurbishment share adjust contextual assessment. Original energy flows and GHG results remain unchanged. Original and adjusted assessments are shown separately. The Quick Check is a proof of concept for variant comparison, not a replacement for verification.
+
+[Open full-width explorer (German)](../assets/assessment-explained/index.html){.btn .btn-primary target="_blank"}
+[Read building-sector notebook with charts (German)](../tutorials/building_sector_results.html){.btn .btn-outline-primary}
+[Download building-sector notebook](../downloads/howto_building_sector_results.ipynb){.btn .btn-outline-primary}
+[Technical assessment tutorial (German)](../assessment.html){.btn .btn-outline-primary}
+
+The same generated HTML file can be embedded in other Quarto projects. It includes data and Plotly in full; no second calculation implementation is needed.
+
+**Bestand untersuchen** (explore the stock) offers primary-energy demand versus supply, heating/cooling-demand distributions and primary/final-energy balances versus floor-area ratio. Analyse all filter matches or selected scenarios. PE and GHG comparisons remain below. Above 100 selected scenarios, individual contributions use compact WebGL lines; the detail table is paginated.
+
+The existing interactive explorer is embedded unchanged below; controls and chart labels remain in German.
+
+<iframe src="../assets/assessment-explained/index.html"
+        title="Assessment system and project variant explorer (German)"
+        style="width:100%;height:1400px;border:0;"
+        loading="lazy"></iframe>

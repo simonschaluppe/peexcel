@@ -1,0 +1,9 @@
+::: {.callout-note collapse=true title="No project values yet? Start with standard cases"}
+
+- **[New construction and refurbishment](preset-catalog.qmd#preset-renovation):** If the project combines new construction and refurbishment, start with the appropriate refurbishment share.
+
+- **[Building geometry](preset-catalog.qmd#preset-geometry):** Without detailed data, building type and age can provide a starting point. Adapt geometry to your district.
+
+Check the applied values for your project. [How to apply presets](presets.qmd).
+
+:::

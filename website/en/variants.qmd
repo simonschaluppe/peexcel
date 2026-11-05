@@ -1,24 +1,36 @@
 ---
 title: "Managing variants"
-lang: en
 ---
-Variants store model inputs for a project. Save a reference before applying presets or changing a set of assumptions.
 
-**Excel location:** [📁 Save Current Inputs / Variants]{.excel-menu .darkred}; project export and import are available under **klimaaktiv PEQ → Project Variants**.
+A project can contain multiple variants or scenarios. Variants store input configurations that can be loaded, edited and recalculated individually. The workflow is **create/define → save/load → simulate → compare**.
+
+::: {.excel-path}
+**Ribbon:** klimaaktiv PEQ → Projekt-Varianten → [Aktuelle Eingabe speichern]{.excel-action} / [Varianten]{.excel-action}
+:::
+
+## Comparing variants deliberately
+
+First save a traceable reference. Create variants changing individual parameters or related measures, such as PV sizing or heat supply. This helps identify which change causes a difference.
+
+Meaningful comparison requires aligned boundaries, reference areas, time bases and methods. Record tool version and calculation state. See [variant comparison](comparison.qmd) for evaluation.
+
+## Creating and saving a variant
 
 ::: {.excel-operation}
-### Variant workflow
-1. Set up and calculate a documented reference case.
-2. Save the current inputs as a named variant.
-3. Change a defined set of inputs and recalculate.
-4. Save the changed state under a distinct name.
-5. Compare the variants using the [comparison](comparison.qmd) or [Results](results.qmd).
+**Where in PEExcel?**
+
+1. Set project and variant names, clearly distinguishing baseline and measure.
+2. Configure inputs on technical sheets and calculate.
+3. Invoke **Aktuelle Eingabe speichern** (save current inputs) and assign the intended project.
+4. Before confirming, check whether you are creating a new variant or overwriting an existing one.
 :::
 
-The training material distinguishes the input store (`IN`), the hourly simulation (`SIM2`) and result store (`OUT`). A project export stores project data for transfer between tool versions; see [Migration](migration.qmd).
+## Loading a saved variant
 
-::: {.pending}
-**Current variant manager screenshots required:** the exact create, load and overwrite controls have not been confirmed against the current workbook. Confirm the displayed variant names before replacing saved inputs.
-:::
+Select the project and variant in the manager and load it. Check names and loaded inputs; recalculate after changes or if results are out of date. Save unsaved changes before switching variants.
 
-Source: [Training, slides 25 and 28–34](../downloads/schulung.pdf).
+## Continuing work
+
+[Presets](presets.qmd) help configure inputs. [Migration](migration.qmd) transfers projects to new versions. Use [comparison](comparison.qmd) for analysis and [batch simulation](batch.qmd) for many variants.
+
+Source: [Training, slides 28 and 33](../downloads/schulung.pdf#page=33) (German).

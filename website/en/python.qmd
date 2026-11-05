@@ -1,29 +1,58 @@
 ---
-title: "Python workflows"
-lang: en
+title: "Python and automation"
+description: "Python tutorials for data import, automation, analysis and visualisation with PEExcel."
 ---
-The `pexl` Python package supports structured access to PEExcel project data, validation and analysis. It complements the Excel application; it does not replace project-specific input checks or declaration quality assurance.
 
-## Available notebooks
+Choose a tutorial for your task. Each guide explains requirements, data sources and steps, and includes a notebook download with saved results. Read it online or run it in a cloned repository.
 
-- [Read and inspect an Excel export](../downloads/howto_excel.ipynb)
-- [Analyse hourly electricity balances](../downloads/howto_analyze_electricity_balance.ipynb)
-- [Visualise district projects](../downloads/howto_visualize_project.ipynb)
-- [Build the component catalogue and section renderer](../downloads/howto_section_teaching_preview.ipynb)
-- [Build the Quarto site](../downloads/howto_website.ipynb)
+The German tutorials are edited versions. The original [working how-to notebooks](https://github.com/simonschaluppe/peexcel/tree/master/notebooks) remain available, partly in English and with further experiments. **Tutorial links below open the existing German pages; their saved outputs are reused.**
 
-The site embeds read-only notebook views. Download a notebook to execute it in the repository environment; published notebook views do not run code.
+## Overview and getting started
 
-## Example: render a result
+These tutorials add programmatic workflows to Excel. For operation and technical foundations, see [getting started](excel-overview.qmd), [modelling](model.qmd), [analysis](results.qmd) and [declaration](projekte-nachweisen.qmd). [Terms, parameters and indicators](glossary.qmd) explains terminology and the complete OUT catalogue.
 
-```python
-from pexl import Project, reporting
-from pexl.plot import plotly
-from pexl.plot.export import export_figure
+## Preparing Python
 
-project = Project.from_excel("data/exports/example.xlsx")
-figure = plotly.render(reporting.materialize(project.view, "primary_energy_balance"))
-export_figure(figure, "primary_energy_balance", formats=("html", "svg", "png"))
+Install once in the cloned repository:
+
+```bash
+python -m pip install -e ".[publication]"
 ```
 
-Use the same `pexl` reporting and plotting functions as the publication workflow. Record source file, scenario, tool version and export provenance with results.
+Tutorials use existing `pexl` functions. Python reads and analyses saved exports; changed inputs are calculated in Excel. The website displays saved outputs and runs no simulation.
+
+## Getting started and data
+
+| Tutorial | What you learn | Requirements |
+|---|---|---|
+| [Working with Excel projects](../tutorial_excel.html) | Load, select variables/scenarios, change inputs and export | Supplied development example |
+| [Combining time-series exports](../tutorial_zeitreihen.html) | Merge files and check hourly coverage | Supplied F7 export; own files optional |
+| [Importing Baubook data](../tutorial_baubook.html) | Retrieve products, categories and reference values | Own API access; no saved API results |
+
+## Simulation and analysis
+
+| Tutorial | What you learn | Requirements |
+|---|---|---|
+| [Batch simulation with Python](../batch-python.html) | Calculate Excel scenarios and check exports | Windows, Excel/VBA, pywin32; run locally |
+| [Assessing primary energy and GHG](../assessment.html) | Compare variants and create an assessment explorer | Supplied project export |
+| [Electrical flow profiles](../tutorial_stromprofile.html) | Investigate seasonal and chronological partial flows | Supplied F7 export |
+| [Grid import and PV feed-in](../tutorial_netzlast.html) | Compare peaks, patterns and duration curves | Supplied F7 export |
+| [Sankey diagrams](../tutorial_sankey.html) | Read hot-water, heating and cooling paths | Supplied development example |
+
+For a technical introduction without programming, open the [Quick Check](assessment-explained.qmd).
+
+## Visualisation and sharing
+
+| Tutorial | What you learn | Requirements |
+|---|---|---|
+| [Building sections and teaching views](../tutorial_gebaeudeschnitt.html) | Explain schematic geometry and overlays | Supplied development example |
+| [Exporting figures](../tutorial_grafikexport.html) | Produce reports with provenance as HTML, optionally SVG/PNG | Chrome/Kaleido for SVG/PNG |
+
+The [local scenario explorer](dashboard.qmd) complements the tutorials for recurring evaluations.
+
+## Development and documentation
+
+| Tutorial | What you learn | Requirements |
+|---|---|---|
+| [Checking the schema](../tutorial_schema.html) | Generate bindings in isolation and investigate version differences | Supplied schema exports |
+| [Maintaining tutorials and the website](../tutorial_website.html) | Add notebooks, build Quarto and check previews | Quarto CLI; build is a deliberate separate step |

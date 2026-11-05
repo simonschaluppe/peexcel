@@ -1,21 +1,42 @@
 ---
-title: "Weather and data interfaces"
-lang: en
+title: "Data and interfaces"
 ---
-The Excel tool combines district inputs with weather data and optional external profiles. Confirm that each dataset matches the project location, model year and time basis.
 
-## Weather
+Transfer inputs traceably. The tool provides interfaces for energy performance certificates, weather, hourly PV generation and component data. Exact import fields and units depend on the tool version.
 
-**Excel location:** [🌦 Weather]{.excel-menu .darkred} worksheet and the weather selection in [District](model.qmd#entering-the-district).
+## Energy performance certificate
 
-Select the dataset that corresponds to the project location. Review the weather year and hourly sequence before interpreting PV generation, heating and cooling demand. The sheet may be hidden in some workbook views.
+Transfer building and envelope properties from project documents. Align reference areas, uses, component areas and units with the certificate. Aggregating multiple buildings requires documented consolidation; sums and specific indicators are not interchangeable.
 
-## External profiles
+**Workflow:** Record source and version → align reference areas → transfer intended properties → check envelope and demand plausibility → save variant.
 
-The [PV-Import](pv.qmd#hourly-profile) worksheet accepts a detailed generation profile. External electricity or flexibility data may use different units and timestamps; align time steps and units before import. Record the source and any processing applied.
+## Weather {#wetter}
 
-## Python workflows
+The dataset must match the location and study objective. The training names Helios-PC as a data source; the repository contains additional weather files. In future-weather comparisons, document assessment requirements separately.
 
-The Python package `pexl` supports structured import, validation and analysis of project exports. It complements the Excel workflow and does not itself confirm that a workbook has been correctly configured.
+**Where in PEExcel?** [🌦]{.excel-menu .darkred} **Wetter** stores data; [🏙]{.excel-menu .darkred} **Quartier** selects the dataset.
 
-[Python workflows and tutorials](python.qmd) · [Tool and data overview](learn.qmd)
+**Workflow:** Record location and weather year → check hourly sequence and completeness → transfer into the intended weather area → check the calculation. Keep weather unchanged when isolating a system measure.
+
+## Other input routes
+
+[PV inputs](pv.qmd) explains roof-area scaling and detailed hourly profiles. [LCA](climate.qmd#eco2soft) explains the Eco2soft connection, including CSV import.
+
+## Excel ↔ Python
+
+`Project.from_excel` loads saved exports. Schema and export version must agree. Annual results and hourly exports are distinct data sources. The [Python tutorial](python.qmd) uses existing import and reporting functions.
+
+[Training, slide 31](../downloads/schulung.pdf) · [Manual with operation and field mapping](../downloads/handbuch.pdf) (German)
+
+## Data for concept comparison and validation {#use-case-daten}
+
+| Dataset | Required information | Purpose |
+|---|---|---|
+| District | Location, floor areas by use, geometry, new/refurbished shares | Model boundary and reference quantities |
+| Building and operation | Envelope, use profiles, temperature setpoints, heating, cooling, hot water and ventilation | Demand and thermal flexibility |
+| Generation and storage | PV capacity/profile, battery capacity/power, efficiencies, thermal storage | Supply and storage operation |
+| Mobility | Uses, travel assumptions, EV share, vehicles, charging points and power | Travel demand, presence and charging |
+| Validation time series | Measured consumption, generation, imports, exports and storage states; timestamps and units | Compare model with observed operation |
+| Additional grid study | Connection capacity, topology, transformer and line data | Transfer to an additional grid model |
+
+For each input, record source, period and status: measured, planned or assumed. Time series need a common calendar, an agreed time zone and documented gap treatment. Aggregate finer measurements for hourly comparison while preserving short-term peaks as separate information.

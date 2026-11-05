@@ -1,19 +1,85 @@
 ---
-title: "Glossary"
-lang: en
+title: "Terms, parameters and indicators"
+description: "Understand PEExcel terminology and browse all IN and OUT variables defined in the active schema."
 ---
-| Term | Meaning |
+
+[Preset catalogue: standard cases and actual values](preset-catalog.qmd)
+
+Which inputs does PEExcel use, which results does it provide, and how should you read them? Find key terms and the **complete IN and OUT catalogues**, with units, labels and assignments from the active schema.
+
+[Terms](#begriffe) · [Input parameters](#parameterkatalog) · [Output indicators](#kennzahlenkatalog)
+
+## Terms {#begriffe}
+
+### Areas, energy and boundaries
+
+| Term | Meaning and reference quantity | Further reading |
+|---|---|---|
+| NGF / NFA | Net floor area; `NFA_total` is total modelled NFA. Do not compare a value per m² NFA directly with one per m² GFA. | [Model](model.qmd) |
+| BGF / GFA | Gross floor area; `GFA_total` is modelled GFA. The indicator's unit identifies the applicable area. | [Model](model.qmd) |
+| Energy / power | Energy is a quantity, e.g. kWh; power is an energy flow, e.g. kW. An hourly kWh value over exactly one hour equals mean kW, not instantaneous peak power. | [Time resolution](results.qmd#konzeptplanung) |
+| Specific annual value | For example kWh/(m² NFA·a): annual energy per NFA. The schema often writes `kWh/m²NGFa`. | [Indicators](results.qmd#kennzahlen) |
+| Final energy | Energy of the carriers used within the relevant boundary, before primary-energy assessment. | [Annual balances](results.qmd) |
+| Primary energy | Energy assessed using conversion factors. Note context contributions separately; final-energy kWh and primary-energy kWh are different quantities. | [Assessment](research.qmd) |
+| Demand / supply | Different sides of a balance; meaning depends on system and report. | [Reading results](results.qmd) |
+| Context factor | Methodological contribution for density, mobility or refurbishment, not physical generation. | [Standard and method](research.qmd) |
+
+### PV, flexibility and storage
+
+| Term | Meaning and limits | Further reading |
+|---|---|---|
+| PV self-consumption | PV energy used locally; the share refers to PV generation. Direct and flexible use may be separate. | [PV](pv.qmd) |
+| Energy autonomy / self-supply | Local PV use relative to modelled electricity demand, distinct from self-consumption share or supply security. | [Indicators](results.qmd#kennzahlen) |
+| Flexibility | Shifting flows in time within technical and use-related limits. | [Analysis](flexibility.qmd) |
+| State of charge / SoC | Stored energy or share of available capacity. Check the variable's representation and unit. | [Systems](systems.qmd) |
+| C-rate | Charge/discharge power divided by capacity: 0.5 h⁻¹ at 20 kWh equals 10 kW. | [Systems](systems.qmd) |
+| Round-trip efficiency / RTE | Energy delivered divided by energy absorbed over a storage cycle or evaluation period. The catalogue shows the unit actually stored in the schema. | [Flexibility](flexibility.qmd) |
+| Equivalent full cycles | Energy throughput relative to capacity according to the indicator definition. Partial cycles may sum to one full cycle. | [Analysis](flexibility.qmd) |
+
+### Costs and climate impact
+
+The catalogue includes costs for grid import, flexible import and feed-in, plus a cost total. Existing OUT definitions are **not a complete economic model**. Check tariffs, signs, period and included cost components for each project. Missing schema information is explicitly identified below.
+
+| Term | Meaning and reference quantity | Further reading |
+|---|---|---|
+| THG / GWP | Greenhouse gas impact in CO₂ equivalents; period and area reference are part of the indicator. | [Climate impact](climate.qmd) |
+| Operational emissions / OE | Emissions from assessed operational flows, dependent on factors and decarbonisation pathways. | [GHG balance](results.qmd) |
+| Embodied emissions / EE | Emissions of assessed materials, constructions and systems; included life-cycle contributions follow the method. | [LCA](climate.qmd) |
+| Life cycle / LCA | Assessment over the defined period. Cumulative kg CO₂e/m² is not directly comparable with annual kg CO₂e/(m²·a). | [Method](research.qmd) |
+| Decarbonisation pathway | Change in assumed emission factors over time. | [Climate impact](climate.qmd) |
+
+### Finding your way around the tool
+
+| Term | Meaning in the workflow |
 |---|---|
-| BGF | Gross floor area (Bruttogrundfläche) |
-| NGF | Net floor area (Nettogrundfläche) |
-| PEQ | Positive Energy District (Plus-Energie-Quartier) |
-| GHG / THG | Greenhouse gases / Treibhausgase |
-| LCA / Ökobilanz | Life-cycle assessment of construction and operation |
-| PV | Photovoltaics |
-| SoC | State of charge of a battery or electric vehicle |
-| SIM2 | Hourly simulation export; keep distinct from annual results |
-| IN | Stored model inputs for variants |
-| OUT | Calculated result store |
-| Declaration value | Value required for the applicable declaration method; other modelling assumptions may be explored outside that declaration |
-| Flexible grid use | Time-dependent grid import associated with the flexibility method; not additional physical generation |
-| Assessment period | Period over which emissions are accumulated; distinct from a policy target year |
+| PEQ / PED | Positive energy district with a defined boundary and quality level. |
+| Variant / scenario | Documented assumptions and associated saved results. |
+| Thermal envelope / zone | Envelope: boundary of the thermally assessed space. Zone: area grouped in the thermal model. |
+| User electricity | Electricity demand arising from use; designated requirements apply to declarations. |
+| Declaration value / AUDIT | Mandatory declaration value, or tool-assisted checking of relevant inputs and deviations. |
+| IN / OUT | Input and result tables. OUT also contains auxiliary quantities, not only independent KPIs. |
+| SIM2 | Hourly export, separate from OUT results. The catalogues do not show SIM time-series channels. |
+
+[Find Excel sheets](excel-navigation.qmd) · [Prepare verification](declaration.qmd)
+
+## Input parameters {#parameterkatalog}
+
+The IN catalogue shows every input variable defined in the active schema. Open a domain or search by term or variable name. Domain and Entity Group further narrow results. The two catalogues filter independently.
+
+The interactive catalogues below are reused unchanged in **German**, including labels, units, **emojis from the `icon` field** and metadata. Emojis aid assignment; missing icons are not invented. Domain headings provide orientation while original keys remain visible.
+
+**Metadaten anzeigen** (show metadata) reveals measure type (`measure`), Entity Group, Entity Key, spatial/temporal reference and additional description where recorded. The catalogue contains definitions, not current input values, defaults or validation of permissible values. Each variable has a shareable link.
+
+{{< include ../assets/in-catalog.qmd >}}
+
+## Output indicators {#kennzahlenkatalog}
+
+Open a domain or search across variables. German labels, units and metadata are taken unchanged from the active Python schema. A schema entry establishes that a variable is defined, not that it exists, is populated or is meaningful in every export or scenario.
+
+**Metadaten anzeigen** shows measure type, Entity Group, Entity Key, spatial/temporal reference and additional description where available. Version information helps align with your Excel export. Indicator links can be shared individually.
+
+{{< include ../assets/out-catalog.qmd >}}
+
+```{=html}
+<script src="../output-catalog.js"></script>
+```

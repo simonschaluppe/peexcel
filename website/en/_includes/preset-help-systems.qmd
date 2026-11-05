@@ -1,0 +1,11 @@
+::: {.callout-note collapse=true title="No project values yet? Start with standard cases"}
+
+- **[Battery storage](preset-catalog.qmd#preset-battery_system):** Compare Keine Batterie (no battery) with the two storage options. Check capacity and power.
+
+- **[Flexibility control](preset-catalog.qmd#preset-flexibility_system):** Compare Keine Flexibilität (no flexibility) with control using PV or PV plus an external signal.
+
+- **[Thermal flexibility](preset-catalog.qmd#preset-flexibility_thermal):** Start with a temperature range matching the comfort concept and check permissible room temperatures.
+
+Check the applied values for your project. [How to apply presets](presets.qmd).
+
+:::

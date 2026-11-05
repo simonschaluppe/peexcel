@@ -1,0 +1,7 @@
+::: {.callout-note collapse=true title="No project values yet? Start with standard cases"}
+
+- **[Construction and materials](preset-catalog.qmd#preset-construction_type):** New-construction and refurbishment cases provide an initial material assignment. The table also contains test columns; check your selection.
+
+Check the applied values for your project. [How to apply presets](presets.qmd).
+
+:::

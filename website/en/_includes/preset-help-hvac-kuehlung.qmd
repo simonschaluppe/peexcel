@@ -1,0 +1,11 @@
+::: {.callout-note collapse=true title="No project values yet? Start with standard cases"}
+
+- **[Cooling period](preset-catalog.qmd#preset-cooling_period):** Choose a period matching the intended use.
+
+- **[Cooling system](preset-catalog.qmd#preset-cooling_system):** Several standard cases cover reversible heat pumps, including a configuration with a FreeCooling share.
+
+- **[Cooled uses](preset-catalog.qmd#preset-cooling_modes):** If only non-residential areas should be cooled, check Nichtwohnen (non-residential).
+
+Check the applied values for your project. [How to apply presets](presets.qmd).
+
+:::

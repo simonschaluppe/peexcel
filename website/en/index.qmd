@@ -1,37 +1,47 @@
 ---
-title: "Positive energy district assessment"
-lang: en
+title: "Designing districts for the future"
 toc: false
 title-block-style: none
+sidebar: false
+page-layout: full
 ---
 
-<div class="hero"><div><div class="eyebrow">PEExcel · Positive Energy Districts</div><h1>Turn district designs into transparent assessments.</h1><p class="lead">Hourly simulation and comparative assessment of buildings, energy supply and mobility for the klimaaktiv declaration.</p><div class="actions"><a href="start.qmd">Tool use</a><a class="secondary" href="../index.html">Deutsch</a></div></div><img src="https://github.com/simonschaluppe/peexcel/assets/22156735/2856e7d9-54d9-4ea9-a894-1128f435c139" alt="PEExcel"></div>
+<div class="hero"><div><div class="eyebrow">PEExcel · Positive energy districts</div><h1>Simulate a year. Understand the alternatives.</h1><p class="lead">Connect buildings, PV, storage and mobility across 8,760 hours. Assess energy flows, flexibility and climate impact together.</p><div class="actions"><a href="excel-overview.html">Start with Excel</a><a class="secondary" href="results.html">Understand results</a></div></div><img src="../media/logo.png" alt="PEExcel — positive energy districts"></div>
 
-PEExcel is an Excel-based modelling and assessment tool developed by the **Climate-fit Buildings and Districts** research group at [FH Technikum Wien](https://www.technikum-wien.at/). It supports professional competency partners, designers, consultants, researchers and students.
+For **professional competence partners**, designers, consultants, researchers and students: PEExcel combines Excel with hourly simulation, traceable assessment methods and a Python interface. Developed by the [Climate-fit Buildings and Districts](https://www.technikum-wien.at/forschungsschwerpunkt-renewable-energy-systems/) research group at UAS Technikum Wien.
 
-## Explore the tool
+## What you can investigate
 
-<div class="feature-grid"><div class="feature"><span class="icon" aria-hidden="true">🏙️</span><h3>Model</h3><p>Connect buildings, uses, envelope and building services. <a href="model.qmd">District modelling →</a></p></div><div class="feature"><span class="icon" aria-hidden="true">🌞</span><h3>Analyse energy</h3><p>Review heat, cooling, PV, storage and grid interaction. <a href="systems.qmd">Energy flows →</a></p></div><div class="feature"><span class="icon" aria-hidden="true">☁️</span><h3>Assess results</h3><p>Compare energy, mobility and life-cycle impacts. <a href="examples.qmd">Example results →</a></p></div></div>
+<div class="feature-grid">
+<div class="feature"><span class="icon" aria-hidden="true">📊</span><h3>Compare variants</h3><p>Assess individual measures and packages with consistent boundaries. <a href="comparison.html">Compare variants →</a></p></div>
+<div class="feature"><span class="icon" aria-hidden="true">🔋</span><h3>Use flexibility</h3><p>Investigate building mass, hot water, batteries and EVs hour by hour. <a href="flexibility.html">Analyse flexibility →</a></p></div>
+<div class="feature"><span class="icon" aria-hidden="true">🚗</span><h3>Include mobility</h3><p>Understand presence, charging and travel demand by use and season. <a href="mobility-analysis.html">Analyse mobility →</a></p></div>
+</div>
 
-## What can you explore?
+## Connecting annual balances and hourly profiles
 
-- Hourly energy balances for heating, cooling, electricity, hot water, ventilation and auxiliary energy.
-- Photovoltaics, self-consumption, grid interaction, storage and flexibility.
-- Location-dependent mobility and life-cycle greenhouse gas emissions.
-- Scenario comparisons, structured input/output tables and Python analysis with `pexl`.
+Annual balances show **how much** energy is needed and supplied. Hourly simulation shows **when** PV, demand and storage coincide. This lets you assess self-consumption, imports, storage losses and comfort together. Primary-energy and life-cycle GHG assessment complement physical flows.
 
-## Three assessment levels
+[Results and indicators](results.qmd#kennzahlen) · [Hourly Excel dashboard](excel-dashboard.qmd) · [Model and inputs](model.qmd)
 
-The klimaaktiv framework distinguishes a Positive Energy District, a Positive Energy District with mobility, and a climate-neutral Positive Energy District including life-cycle greenhouse gas emissions.
+## Three levels of the positive-energy standard
 
-![Three levels of the standard; diagram in German](../illustrations/peq-stufen.png)
+1. **Positive energy district:** building operational energy and district-related supply.
+2. **Positive energy district with mobility:** additionally, motorised private transport energy.
+3. **Climate-neutral positive energy district:** additionally, life-cycle GHG emissions, especially embodied building emissions.
 
-**The Excel interface and detailed tutorials are in German.** This English section provides translated guidance; workbook worksheet and ribbon names remain in German where needed to identify the controls.
+![Overview of the three assessment levels.](../illustrations/peq-stufen.png){.full-figure}
 
-[Downloads](download.qmd) · [Technical documentation](learn.qmd) · [Research](research.qmd) · [About](about.qmd)
+[Standard and background](research.qmd) · [What counts for a declaration?](declaration.qmd)
 
-## Modelling and declaration
+## Project comparison and time-resolved analysis
 
-The model permits alternative assumptions. A klimaaktiv declaration must use the specified declaration values and assessment rules. PV life-cycle emissions can be modelled but are excluded from the current klimaaktiv assessment method. The distinction between modelling freedom and mandatory declaration inputs also applies to hourly conversion factors, plug loads and internal heat gains.
+The [three refurbishment variants](examples.qmd) show heat, final-energy, primary-energy and GHG balances on a common data basis. **Aspern F7** adds [seasonal daily profiles and chronological hourly series](examples.qmd#aspern-f7).
 
-The [building section](envelope.qmd) illustrates model boundaries and qualitative heat flows. The [three refurbishment variants](examples.qmd) provide annual heat, final-energy, primary-energy and GHG comparisons. [Aspern F7](examples.qmd#aspern-f7) provides a separate hourly electrical-flow example; export completeness is stated explicitly.
+The [schematic building section](envelope.qmd) distinguishes component assignment, thermal boundaries and qualitative heat flows.
+
+[Methodology and research](research.qmd) · [Download Excel](download.qmd) · [Python interface](python.qmd) · [Python batch simulation (German)](../batch-python.html)
+
+::: {.declaration-note}
+**Declaration:** Custom assumptions can be modelled. A klimaaktiv declaration requires the **declaration values and assessment rules** of the relevant version. PV LCA can be modelled but is not included in the klimaaktiv assessment method.
+:::

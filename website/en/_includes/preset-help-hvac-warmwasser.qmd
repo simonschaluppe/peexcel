@@ -1,0 +1,9 @@
+::: {.callout-note collapse=true title="No project values yet? Start with standard cases"}
+
+- **[Hot-water demand](preset-catalog.qmd#preset-dhw_demand):** A dedicated set of values covers declaration use. The OIB selections are explicitly marked as not yet populated in the export.
+
+- **[Hot-water system](preset-catalog.qmd#preset-dhw_system):** Choose a suitable generator as a starting point and check assignments to individual uses.
+
+Check the applied values for your project. [How to apply presets](presets.qmd).
+
+:::

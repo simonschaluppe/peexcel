@@ -1,30 +1,60 @@
 ---
-title: "Finding your way around the Excel tool"
-lang: en
+title: "Finding your way around Excel"
 ---
-The workbook contains input worksheets, calculation data and result views. The worksheet tabs at the bottom and the **klimaaktiv PEQ** ribbon provide the main navigation paths.
 
-![Excel operation: overview of input worksheets, simulation, result views and project export. Supplied training slide 25.](../media/manual/tool-workflow.png){.manual-figure}
+PEExcel is organised into input groups, calculation and evaluation. Thematic technical sheets hold the main settings; additional sheets store variants, simulate and present results.
 
-![Excel interface: input groups, quick selections and worksheet tabs. Supplied workbook screenshot, version v1_12 dated 24 June 2026.](../media/manual/excel-overview.png){.manual-figure}
+![Tool overview: input sheets, IN variant store, SIM2 simulation, OUT results and output views. Training slide 25; quantities describe the version shown.](../media/manual/tool-workflow.png){.manual-figure}
 
-## Formatting and interaction
+## Main areas
 
-| Website marker | Meaning in the workbook |
+- **Inputs:** project, buildings, energy supply, mobility and LCA.
+- **Calculation and variants:** saved inputs, simulations and variant management.
+- **Analysis and verification:** results, dashboard, comparison, declaration and audit sheets.
+
+The overview below locates settings and links to their explanations. Original worksheet names remain visible to match the German workbook.
+
+## Sheet navigator
+
+| Excel sheet | Description and guide |
 |---|---|
-| [Worksheet name]{.excel-menu .darkred} | Worksheet tab or subject area |
-| [Section]{.excel-section} | Group of related inputs |
-| [Green field]{.excel-field} | Editable input field in the supplied training view |
-| [Button / command]{.excel-action} | Action or ribbon control |
-| [Preset]{.excel-value} | Example choice or selection |
-| Amber note | Declaration requirement or assessment boundary |
+| [▶]{.excel-menu .darkred} **Quick Start** | [Getting started](excel-overview.qmd) and [presets](presets.qmd) |
+| [🏙]{.excel-menu .darkred} **Quartier** | [Project, areas and location](model.qmd#quartier-eingeben) |
+| [🌦]{.excel-menu .darkred} **Wetter** | [Weather data](interfaces.qmd#wetter) |
+| [🧱]{.excel-menu .darkred} **Bauphysik** | [Envelope and thermal mass](envelope.qmd#excel-bauphysik) |
+| [🔥H]{.excel-menu .darkred} **Heizung** | [Heating](hvac.qmd#heizung) |
+| [❄K]{.excel-menu .darkred} **Kühlung** | [Cooling](hvac.qmd#kuehlung) |
+| [💧WW]{.excel-menu .darkred} **Warmwasser** | [Hot water](hvac.qmd#warmwasser) |
+| [💨L]{.excel-menu .darkred} **Lüftung** | [Ventilation](hvac.qmd#lueftung) |
+| [🌞 PV]{.excel-menu .darkred} **Photovoltaik** | [Photovoltaics](pv.qmd) |
+| [PV-Import]{.excel-menu .darkred} | [Importing hourly profiles](pv.qmd#profilimport) |
+| [🔋]{.excel-menu .darkred} **Flexibilität und Speicher** | [Configure storage](systems.qmd) and [analyse flexibility](flexibility.qmd) |
+| [🚗]{.excel-menu .orange} **Mobilität** | [Model mobility](mobility.qmd) and [analyse behaviour](mobility-analysis.qmd) |
+| [☁ THG]{.excel-menu .teal} **Graue Emissionen, Ökobilanz** | [LCA](climate.qmd) |
+| [👤]{.excel-menu .darkred} **Nutzungsparameter** | [User electricity and internal gains](usage.qmd) |
+| [📊 Erg]{.excel-menu .red} **Ergebnisse** | [Results and indicators](results.qmd) |
+| [📈]{.excel-menu .red} **Dashboard** | [Hourly charts](excel-dashboard.qmd) |
+| [🔎 var]{.excel-menu .red} **Variantenvergleich** | [Variant comparison](comparison.qmd) |
+| [Scen]{.excel-menu .red} | [Batch simulation](batch.qmd) |
+| [PEQ]{.excel-menu .darkred} | [Verify operational balance](declaration.qmd#excel-nachweise) |
+| [PEQ+M]{.excel-menu .orange} | [Include mobility](declaration.qmd#excel-nachweise) |
+| [KN PEQ]{.excel-menu .teal} | [Assess life cycle](declaration.qmd#excel-nachweise) |
+| [AUDIT]{.excel-menu .red} | [Quality assurance](declaration.qmd#qualitaetssicherung) |
 
-These are documentation labels; they do not simulate Excel controls. Input formatting may differ by workbook version.
+**IN**, **OUT** and **SIM2** are internal data areas for inputs, results and hourly simulations. Distinguish them from the visible **Erg** results sheet.
 
-## Inputs and results
+## How the guides are structured
 
-Input worksheets define the model. `IN` stores variant inputs, `SIM2` contains hourly simulation data, and `OUT` stores calculated results. These internal names are distinct from the user-facing [Results worksheet](results.qmd) and [Excel Dashboard](excel-dashboard.qmd).
+The website uses consistent notation for Excel locations, fields and actions.
 
-Start with [Quick Start](start.qmd) or [presets](presets.qmd). Use [variant management](variants.qmd) to save model states, then review [results](results.qmd), the [dashboard](excel-dashboard.qmd) or the [comparison](comparison.qmd).
+| Notation | Meaning |
+|---|---|
+| [🔥H]{.excel-menu .darkred} **Heizung** | Worksheet or menu |
+| [Maximale Heizleistung]{.excel-field} | Specific field: maximum heating capacity |
+| [Aktuelle Eingabe speichern]{.excel-action} | Action: save current inputs |
+| [“Fernwärme”]{.excel-value} | Selected preset: district heating |
+| [Heizsysteme]{.excel-section} | Thematic section: heating systems |
 
-Source: [Training, slides 25 and 34](../downloads/schulung.pdf).
+Operating instructions are highlighted as **Where in PEExcel?** Start with [getting started](excel-overview.qmd), then build a typical configuration using [presets](presets.qmd).
+
+Source: [PEExcel training, slides 25, 28 and 30](../downloads/schulung.pdf#page=25) (German).

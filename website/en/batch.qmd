@@ -1,24 +1,26 @@
 ---
-title: "Automated batch simulation"
-lang: en
+title: "Automatic batch simulation"
 ---
-The **Scen** worksheet supports automated simulations across multiple variants. Prepare and verify the input variants before running a batch.
-
-**Excel location:** [Scen]{.excel-menu .darkred} worksheet.
 
 ::: {.excel-operation}
-### Batch workflow
-1. Create and save the input variants in [Variant Management](variants.qmd).
-2. Select the required scenarios in Scen.
-3. Run the batch calculation and wait for the simulation to complete.
-4. Check completion status, scenario names and result coverage.
-5. Compare the outputs in [Results](results.qmd) or the [variant comparison](comparison.qmd).
+**Where in PEExcel?** [Scen]{.excel-menu .red} (batch simulation).
 :::
 
-::: {.pending}
-**Current Scen view required:** column names, selection controls and execution status have not been verified against the current workbook. The training material confirms batch simulation but does not establish the present click sequence.
-:::
+Batch simulation calculates many variants. It complements calculation of a single active variant and prepares joint analysis.
 
-Document the tool version, scenario selection and any failed or incomplete runs. Batch outputs are only comparable when system boundaries and input assumptions are consistent.
+## Workflow
 
-Source: [Training, slide 33](../downloads/schulung.pdf).
+1. [Create and save variants](variants.qmd) with clear names and documented questions.
+2. Assemble the batch variants on **Scen**.
+3. Invoke [Simulieren]{.excel-action}. The tool checks selections and estimates calculation time.
+4. Confirm successful checks and start, or cancel.
+5. Review calculation status and errors; associate results with variants.
+6. Evaluate calculated variants in [comparison](comparison.qmd) or [Python](python.qmd).
+
+Do not treat failed or uncalculated variants as a complete comparison group. Document inputs, tool version and calculation status together.
+
+Source: [Training, slide 33: batch simulation](../downloads/schulung.pdf#page=33) (German).
+
+## Automating with Python
+
+[Batch simulation with Python (German)](../batch-python.html) demonstrates `pexl.batch.run_batch`: select scenarios from SCEN or a CSV/Excel list, save annual results, resume jobs and optionally export hourly values.

@@ -1,17 +1,29 @@
 ---
-title: "Research and references"
-lang: en
+title: "Methodology and research"
 ---
-PEExcel is developed by the Climate-fit Buildings and Districts research group at FH Technikum Wien. The tool supports hourly modelling and the assessment of positive-energy districts, building services, mobility and life-cycle greenhouse gas emissions.
 
-## Method and source material
+PEExcel implements the **klimaaktiv standard for climate-neutral positive energy districts** in a calculation and verification tool. The standard defines quantitative primary-energy and greenhouse-gas requirements for buildings and districts. Scientific foundations, target derivation and accounting rules are detailed in the [online background report](https://simonschaluppe.github.io/peq-higrube/) (German).
 
-The [training presentation](../downloads/schulung.pdf) describes the workbook workflow and the PEQ assessment. The [handbook](../downloads/handbuch.pdf) and [background guide](../downloads/hintergrund.pdf) provide further German-language context.
+PEExcel combines building operation, hourly energy flows, renewable generation, location-specific mobility, life-cycle emissions and context factors in an integrated assessment model. It supports design variants, quantitative assessment of target achievement and traceable verification.
 
-The [example results](examples.qmd) are generated from the supplied project exports. Each chart identifies its data source; the example calculations are not a declaration review.
+## Foundations of the standard
 
-## Software and reproducibility
+- [**Online background report: climate-neutral positive energy districts**](https://simonschaluppe.github.io/peq-higrube/) — method, target derivation, boundaries and accounting rules.
+- [**klimaaktiv positive energy districts**](https://www.klimaaktiv.at/publikationen/plus-energie-quartiere) — accessible introduction.
+- [**Brochure**](../downloads/broschuere.pdf) — requirements and application overview.
+- [**Definition and operationalisation**](../downloads/hintergrund.pdf) — earlier methodological foundations.
 
-The repository contains the Excel interface, the `pexl` Python package and executable analysis notebooks. Source, version and processing assumptions should be retained when reproducing a result.
+These reference materials are in German.
 
-[Project repository](https://github.com/simonschaluppe/peexcel) · [Python workflows](python.qmd) · [About and contact](about.qmd)
+## Publications
+
+| Year | Publication | Focus |
+|---|---|---|
+| 2023 | Schneider et al. — [A Quantitative Positive Energy District Definition with Contextual Targets](https://www.mdpi.com/2075-5309/13/5/1210) | Definition and contextual targets by density and location |
+| 2024 | Schneider et al. — [PEExcel: A Fast One-Stop-Shop Assessment and Simulation Framework for Positive Energy Districts](https://doi.org/10.26868/29761662.2024.11) | Framework and application |
+| 2024 | Schneider et al. — [Can Urban Retrofitting Achieve a Positive Energy Balance?](https://doi.org/10.1109/i-COSTE63786.2024.11024809) | Existing urban districts |
+| 2025 | Bruckner et al. — [Lessons Learned from Four Real-Life Case Studies](https://doi.org/10.3390/en18030560) | Energy balances of real PED cases |
+| 2025 | Schneider & Baptista — [Annual Hourly E-Mobility Modelling and Assessment in Climate Neutral Positive Energy Districts](https://doi.org/10.1109/EEEIC/ICPSEurope64998.2025.11169136) | Hourly electric mobility |
+| 2025 | Schneider et al. — [Declaration-Ready Climate-Neutral PEDs](https://doi.org/10.3390/designs9060123) | Declaration-ready assessment and case studies |
+
+These papers explain methodological development. Specific verification uses the [documents for the tool version in use](download.qmd).

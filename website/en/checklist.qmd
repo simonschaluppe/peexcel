@@ -1,0 +1,45 @@
+---
+title: "Verification preparation checklist"
+---
+
+Technical documentation for modelling, result analysis and preparing a klimaaktiv declaration. These workflows address competence partners and declaration-standard users, energy/building/building-services designers, researchers and university teaching.
+
+## Model setup and data
+
+1. Define [project structure and system boundary](model.qmd).
+2. Check [input data and interfaces](interfaces.qmd).
+3. Document the [thermal boundary](envelope.qmd) and [component assignment](components.qmd).
+4. Configure [energy supply and operation](systems.qmd).
+5. Perform [calculation and variant management](excel-overview.qmd).
+
+## Analysis and verification preparation
+
+- [Heat, final-energy, primary-energy and GHG balances](examples.qmd) in variant comparison.
+- [Aspern F7 electrical flows](examples.qmd#aspern-f7): seasonal daily profiles and chronological hourly values.
+- [Mobility balance](mobility.qmd) and [life-cycle assessment](climate.qmd).
+- [Declaration values, AUDIT and verification documents](declaration.qmd).
+
+## Reproducible evaluations
+
+[Python documentation](python.qmd) provides executable notebooks for import, analysis, visualisation and publication. Website and notebooks use the same implementation functions. The existing notebooks remain in German.
+
+## Reference material
+
+| Topic | Training slides | Technical chapter |
+|---|---|---|
+| Context and model structure | 1–8 | [Project model](model.qmd) |
+| Energy and heat flows | 9–12, 15–16 | [Supply](systems.qmd), [thermal envelope](envelope.qmd) |
+| Components | 13–14 | [Component assignment](components.qmd) |
+| Mobility | 17–20 | [Mobility](mobility.qmd) |
+| Flexibility | 21 | [Supply](systems.qmd) |
+| GHG and climate targets | 22–23 | [Life cycle](climate.qmd) |
+| Operation and interfaces | 24–35 | [Workflow](excel-overview.qmd), [interfaces](interfaces.qmd), [declaration](declaration.qmd) |
+| Contact | 36 | [Contact](about.qmd) |
+
+[Training PDF (German)](../downloads/schulung.pdf) · [Glossary](glossary.qmd)
+
+## Excel tasks
+
+[Sheet navigator and notation](excel-navigation.qmd) · [Presets](presets.qmd) · [Migration](migration.qmd) · [Variants](variants.qmd) · [Results](results.qmd) · [Excel dashboard](excel-dashboard.qmd) · [Comparison](comparison.qmd) · [Batch simulation](batch.qmd)
+
+Screenshots and technical terminology follow PEExcel training. Additional research examples cite their sources on the relevant pages.

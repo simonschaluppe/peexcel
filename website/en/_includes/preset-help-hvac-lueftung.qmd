@@ -1,0 +1,11 @@
+::: {.callout-note collapse=true title="No project values yet? Start with standard cases"}
+
+- **[Mechanical ventilation](preset-catalog.qmd#preset-ventilation_system):** Standard cases include heat recovery; check winter and summer values.
+
+- **[Mechanically ventilated uses](preset-catalog.qmd#preset-vent_modes):** If only non-residential areas are mechanically ventilated, start with Nichtwohnen.
+
+- **[Night cooling](preset-catalog.qmd#preset-vent_night_modes):** Single-sided and cross ventilation are available for housing. Check openings and usable areas.
+
+Check the applied values for your project. [How to apply presets](presets.qmd).
+
+:::

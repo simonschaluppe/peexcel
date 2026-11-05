@@ -1,0 +1,20 @@
+---
+title: "Preset catalogue"
+description: "Available standard cases and actual values from PEExcel 1.13.1-Dev."
+---
+
+Presets set several inputs together. Look up **actual values from the current Excel export** and find suitable standard cases here. The [guide](presets.qmd) explains selection in the tool.
+
+**Reading the tables:** Open an input group, then a preset's values. Blank cells mean **do not set**; existing inputs remain. An explicit zero is applied. Numbers show stored values: a share of `0.3` means 30%, and an efficiency of `4.5` means 450%.
+
+::: {.callout-warning title="Caution"}
+The development version also contains DEFAULT/selection columns, test entries and standard cases without values. They remain visible for completeness. A table name or declaration label does not confirm technical suitability. Check values and notes before applying.
+:::
+
+The existing searchable catalogue below is shared unchanged with the German site. Preset names, input labels and controls remain in German so they match the workbook.
+
+{{< include ../assets/preset-catalog.qmd >}}
+
+```{=html}
+<script src="../output-catalog.js"></script>
+```

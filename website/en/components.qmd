@@ -1,45 +1,47 @@
 ---
-title: "Assigning building components"
-lang: en
+title: "Assigning components correctly"
 ---
-Component assignment connects geometry, quantities and life-cycle assessment. **A geometric area alone is not a complete LCA assignment.** Construction, boundary condition and use must be traceable.
 
-[![Component types: assignment in the building section](../media/components.png){.full-figure}](../media/components.png)
+Component assignment connects geometry, quantities and life-cycle balance. **A geometric area alone is not a complete LCA assignment.** Construction, boundary conditions and use must be traceable.
 
-The original diagram adds cases beyond the simplified schematic sections. Click to enlarge. Source: `docs/ComponentTypes.png`; see also [training slides 13–14](../downloads/schulung.pdf).
+[![Component types assigned in a building section.](../media/components.png){.full-figure}](../media/components.png)
+
+The original figure adds situations beyond the simplified sections. Click to enlarge. Source: `docs/ComponentTypes.png`; see [training, slides 13–14](../downloads/schulung.pdf) (German).
 
 ## Project workflow
 
-1. Assign areas and components from the actual construction design.
-2. Distinguish external air, ground, heated spaces and unheated adjacent spaces.
-3. Check quantities and units before importing LCA factors.
-4. Document elements that are not shown separately, such as balconies, columns or window frames.
-5. Review assigned component values and the assessment boundary.
+1. Assign areas and components according to actual construction.
+2. Distinguish outdoor air, ground, heated and unheated adjacent spaces.
+3. Check quantities and units before importing LCA properties.
+4. Document unshown elements such as balconies, columns and window frames separately.
+5. Check adopted component values and assessment boundary.
 
-<details><summary>Technical interpretation</summary>In the second reference model, the basement ceiling separates heated from unheated space and forms part of the thermal boundary. The internal floor slab is also a construction component included in the balance, but it is not an external thermal boundary there. Thermal and life-cycle balances describe different properties of the same component.</details>
+::: {.callout-note collapse=true title="Research / Expert"}
+In the second reference model, the basement ceiling separates heated from unheated space and forms the thermal boundary. The internal floor slab is also an assessed construction component but is not an external thermal boundary there. Thermal and life-cycle balances examine different properties of the same component.
+:::
 
 **Further reading:** [Importing LCA data](climate.qmd#eco2soft) · [Assessing embodied emissions](climate.qmd).
 
-## Assignment in the Excel tool {#excel-assignment}
+## Assignment in Excel {#excel-zuordnung}
 
-**Thermal inputs:** [🧱 Bauphysik]{.excel-menu .darkred} worksheet → opaque and transparent components.
+**Thermal inputs:** [🧱]{.excel-menu .darkred} **Bauphysik** → opaque and translucent components.
 
-**Life-cycle assessment:** [☁ Treibhauspotential (THG)]{.excel-menu .teal} worksheet → [Baulich]{.excel-section}.
+**LCA:** [☁ THG]{.excel-menu .teal} → [Baulich]{.excel-section} (construction).
 
 ::: {.excel-operation}
-Assign category, construction and quantity for external walls, windows, roofs, basement ceilings/foundations and intermediate floors. Check that additional building measures, grouped measures and a total LCA entry do not overlap. A component that is not needed to define the thermal envelope may still contribute to embodied emissions.
+**Where in PEExcel?** Assign category, construction and quantity for external walls, windows, roof, basement ceiling/foundation and intermediate floors. Check additional construction measures, grouped measures and overall LCA input for overlap. A component outside the thermal envelope can still have relevant manufacturing emissions.
 :::
 
-[Life-cycle assessment and Eco2soft](climate.qmd#eco2soft)
+[LCA and Eco2soft import](climate.qmd#eco2soft)
 
 ## From section to category
 
-The second schematic section has two heated storeys and an explicitly **unheated basement**. The selector switches between categories. The list also names categories absent from this geometry; do not reinterpret them as other components.
+The second schematic section has two heated upper storeys and an explicitly **unheated basement**. The selector switches between categories. The list also names categories absent from this geometry; they are not reassigned to other components.
 
 <!-- Interactive embed paused for page performance.
 <iframe class="peq-lesson" data-fit src="../assets/components/index.html" title="Component catalogue and schematic section with unheated basement"></iframe>
 -->
 
-Interactive view available through the separate link below.
+The interactive view remains available separately in German.
 
-[Open the component catalogue separately](../assets/components/index.html)
+[Open component catalogue](../assets/components/index.html)

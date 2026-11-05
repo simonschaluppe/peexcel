@@ -1,0 +1,8 @@
+<script>
+(() => {
+  const page = location.pathname.split("/").pop() || "index.html";
+  const aliases = {"start.html": "excel-overview.html", "learn.html": "checklist.html"};
+  const link = [...document.querySelectorAll(".navbar a")].find(a => a.textContent.trim() === "Deutsch");
+  if (link) link.setAttribute("href", "../" + (aliases[page] || page));
+})();
+</script>

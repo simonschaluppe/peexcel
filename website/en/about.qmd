@@ -1,15 +1,46 @@
 ---
-title: "About PEExcel"
-lang: en
+title: "Project, contact and use"
 ---
-PEExcel is an Excel-based tool for modelling and assessing positive-energy districts under the klimaaktiv framework. It is developed by the Climate-fit Buildings and Districts research group at FH Technikum Wien.
 
-The tool is intended for professional energy and HVAC practitioners, competency partners, planners, researchers and students applying the PEQ standard to district models.
+PEExcel was developed by the [Climate-fit Buildings and Districts](https://www.technikum-wien.at/forschungsschwerpunkt-renewable-energy-systems/) research group at [UAS Technikum Wien](https://www.technikum-wien.at/).
 
-## Scope
+## Project context and funding
 
-PEExcel combines hourly operational modelling, scenario comparison and assessment of building, energy and mobility contributions. Model flexibility and declaration requirements are distinct: use the designated values and method when preparing a declaration.
+PEExcel development took place, among other activities, within the **teaching competence team “KlimSta – Klimafitte Stadtsanierung”** (climate-fit urban refurbishment) and work on the **klimaaktiv quality standard for positive energy districts**.
 
-The Excel workbook and detailed tutorials are in German. This English section provides translated technical guidance; ribbon names and worksheet labels are retained in German where they refer to the workbook interface.
+KlimSta was funded by the **City of Vienna — Municipal Department 23 (Economic Affairs, Labour and Statistics)** under “Stiftungsprofessuren und Kompetenzteams für Lehre”, Call 35.
 
-[Repository and issue tracking](https://github.com/simonschaluppe/peexcel) · [Research](research.qmd)
+![City of Vienna](../illustrations/stadtwien.png){width=180px fig-alt="Funding body: City of Vienna"}
+
+## Contact and exchange
+
+**Simon Schneider · UAS Technikum Wien**
+Climate-fit Buildings and Districts research group
+
+Submit technical questions, bug reports and suggestions through [GitHub Issues](https://github.com/simonschaluppe/peexcel/issues). For technical questions about klimaaktiv declarations, use the official contacts in the documentation and the programme's information services.
+
+## Newsletter
+
+The **klimaaktiv PEQ Kompetenzpartner Newsletter** covers tool updates, events, training and declaration developments.
+
+[Subscribe to the newsletter](https://flow.cleverreach.com/fl/e24548f3-b4ae-4851-a0c2-bff4d05092ef/)
+
+## Repository and contributions
+
+| Area | Contents |
+|---|---|
+| `excel/tool`, `excel/development` | Stable and development files |
+| `src/pexl` | Import, export, validation, analysis and visualisation |
+| `notebooks` | Executable how-tos, analysis and validation |
+| `data/schemas`, `data/examples` | Schemas and example/test data |
+| `docs` | Reports, presentations and development documentation |
+| `website` | This Quarto user documentation |
+| `tests`, `pyproject.toml` | Checks and Python project configuration |
+
+[Repository](https://github.com/simonschaluppe/peexcel) · [Changelog](https://github.com/simonschaluppe/peexcel/blob/master/CHANGELOG.md) · [Project guidelines](https://github.com/simonschaluppe/peexcel/blob/master/AGENTS.md)
+
+## Licence and use
+
+The repository's licence and usage notices apply. Please cite the source when using the tool in projects, publications or teaching.
+
+![Funded by the City of Vienna under MA23 Call 35, “Stiftungsprofessuren und Kompetenzteams für Lehre”.](../illustrations/stadtwien.png)

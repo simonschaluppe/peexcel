@@ -1,46 +1,77 @@
 ---
-title: "Quick start with presets"
-lang: en
+title: "Quick selection with presets"
 ---
-Most input categories provide formatted selection fields for defining typical configurations. A quick selection applies a **parameter package**; review and adjust the detailed inputs for the project afterwards.
 
-**Excel location:** [▶ Quick Start]{.excel-menu .darkred} worksheet → [Schnellauswahl]{.excel-section}; alternatively use the relevant subject worksheet or its menu in the **klimaaktiv PEQ** ribbon.
+[Preset catalogue: look up standard cases and their values](preset-catalog.qmd)
 
-![Excel operation: preset selection and mapping to input variables. Presets_xx tables list presets in columns and the affected input variables in rows. Supplied training slide 34.](../media/manual/presets.png){.manual-figure}
+**Presets** simplify entering typical building configurations and technical systems. Instead of setting many parameters individually, select a related **parameter package**.
+
+This speeds up model creation and comparison of design variants. Adapt the applied values to your project afterwards.
 
 ::: {.excel-operation}
-### Apply a preset and review the results
-1. Save the current state as a [variant](variants.qmd). **Presets may overwrite existing inputs; do not rely on Excel Undo.**
-2. Select the required preset in Quick Selection.
-3. Check the applied parameters in the subject worksheet: capacities, system shares, setpoints, losses and activation switches.
-4. Recalculate and review the affected balances on the [Results](results.qmd) worksheet.
-5. Save a new variant and compare it in the [variant comparison](comparison.qmd).
+**Where in PEExcel?** [▶]{.excel-menu .darkred} **Quick Start** → [Schnellauswahl]{.excel-section} (quick selection).
+
+Alternatively, select presets on individual technical sheets or the **klimaaktiv PEQ** ribbon.
 :::
 
-## Example: change the heating system
+![Preset selection and assignment to input variables. Presets_xx tables contain presets in columns and targeted input variables in rows. Training slide 34.](../media/manual/presets.png){.manual-figure}
+
+## Applying a preset
+
+::: {.excel-operation}
+**Where in PEExcel?**
+
+1. **Save the baseline:** [Save the current inputs as a variant](variants.qmd).
+2. **Select a preset:** Choose the desired configuration in quick selection.
+3. **Check inputs:** Review applied values on the relevant technical sheet.
+4. **Recalculate:** Run calculation and assess the affected balances on the [results sheet](results.qmd).
+5. **Compare variants:** Save the new state and use [variant comparison](comparison.qmd).
+:::
+
+::: {.callout-warning appearance="simple" title="Caution"}
+Presets can overwrite existing inputs. Save the baseline first and do not rely on Excel's Undo function.
+:::
+
+## Example: changing the heating system
+
+This example investigates a variant with a different heat supply.
 
 ::: {.excel-path}
 **Ribbon:** klimaaktiv PEQ → Heizung → Auswahl Heizsystem
 :::
 
-Choose the [„Fernwärme“]{.excel-value} preset. On the [🔥 Heizung]{.excel-menu .darkred} worksheet, review the energy source, [maximum heating capacity]{.excel-field} and generation efficiency. After recalculation, compare the final-energy carrier breakdown and primary-energy balance. A preset does not replace system sizing.
+1. Select [“Fernwärme”]{.excel-value} (district heating).
+2. On [🔥H]{.excel-menu .darkred} **Heizung**, check the applied parameters, especially energy carrier, [Maximale Heizleistung]{.excel-field} (maximum heating capacity) and generation efficiency.
+3. Recalculate.
+4. Check final-energy carriers and primary-energy balance on the [results sheet](results.qmd).
+5. Save the result as a separate variant.
 
-## Quick selections by input group
+The comparison shows the effects of supply concepts within the model assumptions.
 
-| Group | Further input |
-|---|---|
-| Geometry, new build / refurbishment | [District](model.qmd#entering-the-district) |
-| Envelope quality, airtightness, shading, construction | [Building physics](envelope.qmd#building-physics-inputs) |
-| Heating, distribution, cooling, hot water, ventilation | [HVAC](hvac.qmd) |
-| PV | [Roof-area scaling or hourly profile](pv.qmd) |
-| Flexibility and storage | [Enabling flexibility and storage parameters](systems.qmd) |
-| Mobility | [Location, private transport and EVs](mobility.qmd) |
-| Life-cycle assessment | [Building measures and building services](climate.qmd) |
-
-The preset name alone does not describe all active settings. The applied input values are authoritative.
-
-::: {.declaration-note}
-**For a declaration:** replace sample values and estimates with project data. Parameters designated as declaration values are mandatory for the assessment; they can still be changed when exploring other model variants.
+::: {.callout-warning title="Caution"}
+A preset does not replace project-specific system sizing.
 :::
 
-Source: [Training, slides 8, 29 and 34](../downloads/schulung.pdf#page=34).
+## Available input groups
+
+| Input group | Further information |
+|---|---|
+| Geometry, new construction and refurbishment | [District and project parameters](model.qmd#quartier-eingeben) |
+| Envelope quality, airtightness, shading and construction type | [Building physics](envelope.qmd#excel-bauphysik) |
+| Heating, emission, cooling, hot water and ventilation | [Building services](hvac.qmd) |
+| Photovoltaics | [PV areas and generation profiles](pv.qmd) |
+| Flexibility and storage | [Storage and control](systems.qmd) |
+| Mobility | [Location, private transport and EVs](mobility.qmd) |
+| Life-cycle assessment | [Construction measures and building services](climate.qmd) |
+
+## Presets and project-specific inputs
+
+A preset is an **input aid, not project-specific evidence**. Its name does not describe every active setting. The actual parameter values applied are decisive.
+
+Check technical capacities, system shares, setpoints, losses and activation switches for plausibility and agreement with the project.
+
+::: {.declaration-note}
+**Declaration:** Replace examples and estimates with suitable project data. Parameters marked as declaration values are mandatory for verification, although free model variants may use different values.
+:::
+
+Source: [PEExcel training, slides 8, 29 and 34](../downloads/schulung.pdf#page=34) (German).

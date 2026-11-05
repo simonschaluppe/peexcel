@@ -1,20 +1,30 @@
 ---
-title: "Use profiles and internal gains"
-lang: en
+title: "Use parameters"
 ---
-Use profiles affect energy demand, internal gains and hourly operation. The model allows scenario assumptions to be changed; the declaration uses its designated values.
 
-**Excel location:** [👤 Nutzungsparameter]{.excel-menu .darkred} worksheet and the use-specific inputs in [District]{.excel-menu .darkred}.
+{{< include _includes/preset-help-usage.qmd >}}
 
 ::: {.excel-operation}
-### In the Excel tool
-Review the assigned use types and areas first. Then check plug-load demand, occupancy and schedules, lighting and internal heat gains. Keep energy use and the associated heat gains consistent with the project scope.
+**Where in PEExcel?** Sheet [👤]{.excel-menu .darkred} (**Nutzungsparameter**).
 :::
 
-Plug loads are electricity demand; the associated portion of the electricity becomes internal heat gains according to the model assumptions. Do not add the same heat contribution again as a separate gain. Internal gains affect heating and cooling demand and may be varied for scenario analysis.
+Use data connects floor areas with user electricity, lighting and internal heat gains. Use-specific assumptions affect both electricity demand and the thermal model.
+
+::: {.excel-operation}
+**Where in PEExcel?**
+
+| Input area | Editing and checking |
+|---|---|
+| User electricity | Check annual consumption or scaling by use; distinguish temporal profile from annual quantity |
+| Internal loads and heat gains | Check heating and cooling assumptions and their effect on heating/cooling demand |
+| Common-area electricity | Check assumptions for shared consumers |
+| Lighting and daylight control | Check use, scaling and control assumptions; avoid double counting with user electricity |
+
+Recalculate and compare user electricity and internal gains on the [results sheet](results.qmd). Set the underlying floor areas on [🏙]{.excel-menu .darkred} **Quartier**.
+:::
 
 ::: {.declaration-note}
-**For a declaration:** use the required declaration values and document project-specific evidence. Alternative schedules and gains remain useful for operational or sensitivity analysis.
+**Declaration:** User electricity and internal heat gains may be varied for modelling studies. Verification requires the designated declaration values. [AUDIT](declaration.qmd#qualitaetssicherung) helps identify deviations.
 :::
 
-Source: [Training, slides 8 and 11](../downloads/schulung.pdf).
+Technical context: [Training, slides 11, 30 and 35](../downloads/schulung.pdf#page=35). Field reference: manual pp. 72–73 (German).

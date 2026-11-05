@@ -1,55 +1,58 @@
 ---
-title: "Excel Dashboard"
-lang: en
+title: "Excel dashboard"
 ---
-**Excel location:** [📈 Dashboard]{.excel-menu .red} worksheet.
 
-The Dashboard presents **hourly energy flows** and storage states. A common time window allows demand, coverage and storage response to be examined together. The [Python scenario explorer](dashboard.qmd) is a separate application.
+::: {.excel-operation}
+**Where in PEExcel?** [📈]{.excel-menu .red} (**Dashboard**).
+:::
+
+The dashboard shows **hourly energy flows** and storage states. A common time window lets you examine demand, supply and storage response together. The [Python scenario explorer](dashboard.qmd) is a separate application.
 
 ::: {.excel-path}
 **Ribbon:** klimaaktiv PEQ → Ergebnisse → [Dashboard]{.excel-action}
 :::
 
-## Selecting a time window
+## Selecting a period and hourly profiles
 
 ::: {.excel-operation}
-### In the Excel tool
-1. Select a period with [Datum auswählen]{.excel-action}; use the timeline for a continuous range.
-2. Choose a manageable interval, such as one week, for detailed review.
-3. Check that the chart axes show hourly timestamps over the selected days.
-4. After recalculation, use [Aktualisieren]{.excel-action} to update the pivot charts.
+**Where in PEExcel?**
+
+1. Select a period under [Datum auswählen]{.excel-action}; use the timeline for contiguous ranges.
+2. Choose a manageable window, such as one week. **TAGE** in the screenshot sets the date window; it is not itself evidence of hourly aggregation.
+3. Check chart time axes: hourly profiles must show timestamps within days.
+4. After recalculation, use [Aktualisieren]{.excel-action} (refresh) so pivot views adopt the new results.
 :::
 
-![Excel operation: date selection and Refresh above the dynamic charts. The supplied view shows hourly timestamps in a January/February period, electricity demand and coverage, and storage states.](../media/manual/excel-dashboard.png){.manual-figure}
+![Period selection and refresh above the dynamic charts. Hourly timestamps in the January/February window accompany electricity demand, supply and storage states.](../media/manual/excel-dashboard.png){.manual-figure}
 
 ## Electricity demand and use
 
-The upper chart includes plug loads, inflexible building-services loads, EV charging and additional flexible use. Read storage charging as a separate contribution. Compare peaks with flexibility schedules and storage states.
+The top chart shows user electricity, inflexible building-services demand, EV charging and additional flexible use. Read storage charging as a separate contribution. Compare power-profile peaks with enabled periods and storage states.
 
-## Electricity coverage
+## Electricity supply
 
-The second chart separates conventional and flexible grid imports, PV use, battery discharge, EV discharge and PV feed-in. Use the legend to identify overlapping contributions; respect sign conventions and the balance boundary.
+The second chart distinguishes conventional and flexible imports, PV use, battery withdrawal, EV discharge and PV feed-in. Use each legend to identify simultaneous contributions; respect signs and boundaries.
 
 ## Room temperature and thermal building mass
 
-Temperatures in cooled and uncooled zones indicate the thermal response. Check pre-conditioning against setpoints and permissible temperature ranges. Temperature is a state indicator, not stored energy in kWh.
+Temperatures of cooled and uncooled areas show thermal response. Check flexible preconditioning against setpoints and permitted temperature bands. Temperature is a state indicator, not stored energy in kWh.
 
 ## Hot-water storage
 
-The states of hot-water systems 1 and 2 show charging and use in the selected period. Read percentages against the chart scale; they are not temperatures or absolute storage capacities.
+States of hot-water systems 1 and 2 show charging and use during the selected period. Read percentages according to the chart scale; do not interpret them as temperature or absolute storage capacity.
 
-## Electric vehicles and battery
+## EVs and battery
 
-**EV SoC** shows vehicle state of charge by use; **Battery SOC** shows the stationary electrical store. Assess minimum state of charge, flexible charging and discharge together with the electricity flows.
+**EV-SoC** shows charge levels by use; **Batterie-SoC** shows stationary storage. Assess minimum charge, flexible charging and discharging alongside electricity flows.
 
-## Thermal daily averages
+## Thermal daily averages and further views
 
-Heat gains and losses for the two thermally decoupled zones are also presented as daily averages. Daily averages and hourly power are different aggregations.
+Heat gains and losses of the two thermally decoupled zones are also evaluated as daily averages. Daily averages and hourly power are different aggregations.
 
-![Model and Dashboard: thermally decoupled zones, heat balance and daily averages of heat flows. Supplied training diagram; the lower charts explicitly show daily averages.](../media/manual/thermal-model.png){.manual-figure}
+![Model and dashboard: thermally decoupled zones, heat balance and daily-average heat flows. The lower chart explicitly shows daily means.](../media/manual/thermal-model.png){.manual-figure}
 
-[Storage inputs](systems.qmd) · [Results worksheet](results.qmd) · [Aspern F7 profiles](examples.qmd#aspern-f7)
+[Flexibility analysis](flexibility.qmd) · [Mobility behaviour](mobility-analysis.qmd) · [Storage parameters](systems.qmd) · [Results sheet](results.qmd) · [Aspern F7 website profiles](examples.qmd#aspern-f7)
 
-Website profiles use exported channels. A channel missing from an export does not imply it is absent from the Excel Dashboard.
+Website profiles use exported channels. A missing export channel does not mean the quantity is absent from the Excel dashboard.
 
-Source: [Training, slides 11 and 32](../downloads/schulung.pdf#page=32).
+Source: [Training, slides 11 and 32](../downloads/schulung.pdf#page=32) (German).

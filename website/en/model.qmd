@@ -1,56 +1,58 @@
 ---
 title: "Modelling the district"
-lang: en
 ---
-PEExcel combines a physical model with an assessment method. The system boundary, energy supply and use are defined separately from the rules used to assess results.
+
+{{< include _includes/preset-help-model.qmd >}}
+
+PEExcel connects the physical simulation of a district with assessment of its energy and climate impacts. Describe buildings, uses and supply, calculate their interactions and compare results. These interactions are particularly useful: a larger PV system, different heat supply or change in use affects several energy flows at once.
 
 ## Inputs → simulation → analysis
 
-| Step | Key question | Start here |
-|---|---|---|
-| Buildings and uses | Which areas, envelope properties and use profiles belong to the project? | [Building envelope](envelope.qmd) |
-| Components | Which constructions and quantities enter the life-cycle assessment? | [Component assignment](components.qmd) |
-| Supply | How are heat, cooling and electricity provided? | [Energy flows](systems.qmd) |
-| Location and mobility | Which journeys are attributed to the project, and where does charging take place? | [Mobility](mobility.qmd) |
-| Assessment | Which factors, boundaries and budgets apply? | [Declaration](declaration.qmd) |
+This overview shows where to start in Excel and where to read about the technical relationships.
 
-## What the simulation combines
+| Step | Key question | Excel sheets | Starting point |
+|---|---|---|---|
+| Buildings and uses | Which areas, envelope properties and use profiles belong to the project? | [🏙]{.excel-menu .darkred} Quartier · [🧱]{.excel-menu .darkred} Bauphysik · [👤]{.excel-menu .darkred} use parameters | [Thermal envelope](envelope.qmd) |
+| Components | Which constructions and quantities belong in LCA? | [LCA_Komponenten]{.excel-menu .teal} · [☁ THG]{.excel-menu .teal} | [Component assignment](components.qmd) |
+| Supply | How are heat, cooling and electricity supplied? | [🔥H]{.excel-menu .darkred} · [❄K]{.excel-menu .darkred} · [💧WW]{.excel-menu .darkred} · [💨L]{.excel-menu .darkred} · [🌞 PV]{.excel-menu .darkred} | [Building services](hvac.qmd) · [Energy flows](systems.qmd) |
+| Location and mobility | Which journeys are generated, and which charging takes place on site? | [🏙]{.excel-menu .darkred} Quartier · [🚗]{.excel-menu .orange} mobility | [Mobility](mobility.qmd) |
+| Assessment | Which boundaries and budgets apply? | [PEQ]{.excel-menu .darkred} · [PEQ+M]{.excel-menu .orange} · [KN PEQ]{.excel-menu .teal} | [Declaration](declaration.qmd) |
 
-The tool models space heating and cooling, domestic hot water, ventilation, auxiliary energy and plug loads. PV, self-consumption, export, storage and flexibility measures change the hourly flows. A single measure can affect several result indicators.
+## What the simulation brings together
 
-Thermal modelling distinguishes a **cooled and an uncooled, thermally decoupled zone**. The schematic section shows a spatial assignment; it is not an additional thermal simulation or a geometrical compliance plan.
+### Operational energy model {#simulationsmodell}
 
-## Structuring variants
+The model connects sources, conversion, storage and uses within the district boundary. It covers space heating and cooling, domestic hot water, ventilation, auxiliary energy and user electricity. Local PV generation, storage and flexibility measures change when electricity is imported, used or exported.[^modell]
 
-Start from a documented reference and vary individual parameters or packages of measures. Comparisons require consistent system boundaries, reference areas, time basis and assessment method. Record data provenance, tool version and calculation state with the results.
+![District energy model: sources, supply systems, storage and uses connected by energy flows.](../media/manual/energy-model.png){.manual-figure fig-alt="Energy model with grid import, PV, batteries, heat supply, building mass, hot-water storage and uses."}
 
-::: {.callout-note}
-## Assumptions and declaration requirements
-Plug-load and internal-gain assumptions can be varied in the model. The designated declaration values are mandatory for a klimaaktiv declaration. A freely modelled scenario does not automatically qualify as a declaration.
-:::
+The diagram helps trace a measure's implications. A heat pump changes both heat supply and electricity demand. Its timing in turn affects [PV generation](pv.qmd) and [storage and flexibility](systems.qmd). [Electric mobility](mobility.qmd) also adds charging demand and available storage capacity.
 
-[Training, slides 7–16 and 30](../downloads/schulung.pdf) · [Preparing data](interfaces.qmd)
+### Life-cycle assessment
 
-## Entering the district {#entering-the-district}
+LCA extends the view from ongoing operation to emissions from construction and refurbishment, and the biogenic storage considered. Operational energy and construction measures can thus be assessed together over the study period.
 
-**Excel location:** [🏙 Quartier]{.excel-menu .darkred} worksheet.
+![Life-cycle assessment: operational energy, construction, refurbishment and biogenic storage contribute to emissions over time.](../media/manual/lifecycle.png){.manual-figure fig-alt="Cumulative emissions with operational, construction, refurbishment and biogenic-storage contributions."}
+
+The method determines the contributions and changes over time included. The [LCA page](climate.qmd) explains the study period, decarbonisation and boundaries. For example, assess operational savings together with the construction effort required to achieve them.
+
+## Entering the district {#quartier-eingeben}
 
 ::: {.excel-operation}
-### In the Excel tool
-| Section | Inputs and checks |
-|---|---|
-| Project description | Project, variant, description and status |
-| Location / weather | Municipality and corresponding weather dataset |
-| District | Gross floor area by use |
-| Room heights and net floor area | Clear heights and net-to-gross floor area ratio |
-| District area and density | Buildable plot area and resulting floor-area ratio |
-| Refurbishment or new build | Refurbishment share by use |
-
-Check areas and shares against project documents. Review calculated net areas, volumes and density, then configure the [building envelope](envelope.qmd) and [building services](hvac.qmd).
+**Where in PEExcel?** Open [🏙]{.excel-menu .darkred} **Quartier**. Define project, location and floor areas by use. The subsequent sheets build on these inputs.
 :::
 
-## Operational energy model {#operational-energy-model}
+| Section | What you define |
+|---|---|
+| Project description | Project name, variant, description and revision status |
+| Location / weather | Municipality and corresponding weather dataset |
+| District | Gross floor areas by use |
+| Room heights and net floor areas | Clear room heights and net-to-gross floor-area ratio |
+| Site area and development density | Developable plot area as the basis for floor-area ratio |
+| Refurbishment or new construction | Refurbishment share for each use |
 
-![Operational energy model: sources, conversion, storage and uses within the district boundary, including imports and exports. Training diagram supplied by the project owner.](../media/manual/energy-model.png){.manual-figure}
+From area and height inputs, the tool derives net floor areas, volumes and floor-area ratio, among other quantities. These provide the basis for further modelling. Then describe the [thermal envelope](envelope.qmd) and [supply systems](hvac.qmd).
 
-The training material distinguishes sources, storage, sinks, uses and conversion. The balance links physical energy flows with primary-energy and GHG assessment. [PV](pv.qmd), [storage and flexibility](systems.qmd), [mobility](mobility.qmd) and [life-cycle assessment](climate.qmd) have dedicated input pages. [Manage variants](variants.qmd) at the end of the modelling workflow.
+Save configurations as [variants](variants.qmd) to investigate different measures. For a later declaration, see [quality assurance](declaration.qmd#qualitaetssicherung) for comparison with project documents.
+
+[^modell]: Figures by the project team; [PEExcel training, slides 7–16 and 30](../downloads/schulung.pdf) (German). See [preparing data](interfaces.qmd) for data transfer.

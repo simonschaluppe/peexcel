@@ -1,9 +1,18 @@
 ---
 title: "Python scenario explorer"
-lang: en
 ---
-The Python scenario explorer is a separate interface for inspecting project exports and comparing scenarios. It is not the Excel [Dashboard worksheet](excel-dashboard.qmd).
 
-The Excel Dashboard presents hourly profiles from the workbook. The Python application uses data available to its configured workflow; its outputs should not be presented as Excel results without checking the data source and calculation state.
+The [Excel dashboard](excel-dashboard.qmd) is available directly in the workbook.
 
-For installation and executable examples, see [Python workflows](python.qmd). For the Excel time-series view, see [Excel Dashboard](excel-dashboard.qmd).
+The scenario explorer runs locally using Streamlit. It opens PEExcel project exports, filters variants and displays available reports.
+
+From the repository directory:
+
+```bash
+python -m pip install -e ".[publication]" streamlit pyxlsb
+python -m streamlit run apps/dashboard/main.py
+```
+
+Select the project export in the dashboard. The Excel reading engine required depends on file format. The file dialog needs a local desktop session.
+
+The website's [example charts](examples.qmd) are static HTML files containing interactive Plotly figures. They do not require a running dashboard.

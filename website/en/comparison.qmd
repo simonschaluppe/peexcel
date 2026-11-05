@@ -1,22 +1,42 @@
 ---
-title: "Variant comparison"
-lang: en
+title: "Comparing variants"
 ---
-Use the comparison to assess the effects of defined model changes. The comparison must use a consistent reference area, system boundary, time period and assessment method.
-
-**Excel location:** [▦ Variant Comparison]{.excel-menu .red} worksheet.
-
-![Primary-energy comparison with demand, coverage and context factors across scenarios. Supplied training diagram.](../media/manual/variant-comparison.png){.manual-figure}
-
-## Reading the comparison
-
-Read demand and coverage for each scenario together. Distinguish physical energy from substitutions and context factors used in the assessment. Negative or positive assessment differences do not, by themselves, represent a physical energy balance.
 
 ::: {.excel-operation}
-### In the Excel tool
-Select the variants to compare and check that they have been calculated with the same tool version and reference basis. Review the assessment indicators and any context contributions before interpreting the difference.
+**Where in PEExcel?** [🔎 var]{.excel-menu .red} (**Variantenvergleich**).
 :::
 
-The training figure is a method illustration. It is not one of the exported `Bsp_San_6G` results. The [three current example exports](examples.qmd) are evaluated separately, with their source variants identified.
+Compare results of saved configurations, investigating individual measures and packages on the same accounting basis.
 
-Source: [Training, slide 30](../downloads/schulung.pdf).
+::: {.excel-path}
+**Ribbon:** klimaaktiv PEQ → Ergebnisse → [Vergleich]{.excel-action}
+:::
+
+::: {.excel-operation}
+**Setting up a comparison**
+
+1. Calculate and save the required variants individually or by [batch](batch.qmd).
+2. Select the comparison group on **Variantenvergleich**.
+3. Restrict chart ranges to the variants actually being assessed.
+4. Ensure consistent areas, boundaries, weather and assessment assumptions; document deliberate differences.
+:::
+
+![Primary-energy comparison of individual measures and combinations. This training figure does not show the website's three Bsp refurbishment variants.](../media/manual/variant-comparison.png){.manual-figure}
+
+## Interpreting balances together
+
+Envelope quality changes heat demand; PV changes generation and supply timing; flexible building services and storage shift imports. Mobility measures affect an additional boundary. Read combined effects from the calculated package, not by simply adding isolated improvements.
+
+Primary-energy charts also include context contributions. These are assessment quantities, not additional physical generation.
+
+[Real refurbishment examples: four balances](examples.qmd) · [Managing variants](variants.qmd)
+
+Source: [Training, slide 33](../downloads/schulung.pdf#page=33) (German).
+
+## Example: storage capacity and charging power
+
+Save a reference without a stationary battery and variants with 10 and 20 kWh. For each capacity, test C-rates of 0.5 and 1 h⁻¹. Keep PV, weather, uses and comfort band unchanged. Resulting powers are 5, 10, 10 and 20 kW.
+
+Compare self-consumption, autonomy, imports, peak feed-in, losses, full cycles and GHG balance. These numbers illustrate an experiment, not a sizing recommendation. [Hourly profiles](excel-dashboard.qmd) explain whether larger capacity is used or power is the main limitation.
+
+[Evaluate flexibility](flexibility.qmd) · [Indicators and definitions](results.qmd#kennzahlen)

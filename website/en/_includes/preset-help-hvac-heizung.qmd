@@ -1,0 +1,11 @@
+::: {.callout-note collapse=true title="No project values yet? Start with standard cases"}
+
+- **[Heating system](preset-catalog.qmd#preset-heating_system):** For a planned air-to-water heat pump, start with the corresponding preset. Check supply temperature, capacity and efficiency.
+
+- **[Heating period](preset-catalog.qmd#preset-heating_period):** Choose a time restriction matching operation; the table also includes Keine (none) and Immer (always).
+
+- **[Heating and cooling emission](preset-catalog.qmd#preset-emission_system):** For underfloor heating, start with that standard case and check capacity limits.
+
+Check the applied values for your project. [How to apply presets](presets.qmd).
+
+:::

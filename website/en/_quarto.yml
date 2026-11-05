@@ -4,17 +4,25 @@ project:
   render:
     - "*.qmd"
 
+# This one-off translation only formats prose and existing outputs.
+execute:
+  enabled: false
+
 website:
   title: PEExcel
-  description: Model and assess positive energy districts using the klimaaktiv standard.
+  description: Model districts and apply the klimaaktiv positive-energy standard.
   search: true
   navbar:
+    logo: ../media/logo.png
+    logo-alt: PEExcel logo
     left:
-      - {href: index.qmd, text: Overview}
-      - {href: start.qmd, text: Tool use}
+      - {href: excel-overview.qmd, text: Getting started}
       - {href: model.qmd, text: Modelling}
-      - {href: results.qmd, text: Analyse and assess}
-      - {href: learn.qmd, text: Documentation}
+      - {href: results.qmd, text: Analysis}
+      - {href: projekte-nachweisen.qmd, text: Declaration}
+      - {href: glossary.qmd, text: Reference}
+      - {href: python.qmd, text: Python}
+      - {href: assessment-explained.qmd, text: Quick Check}
     right:
       - {href: download.qmd, text: Downloads, icon: download}
       - {href: ../index.html, text: Deutsch}
@@ -22,18 +30,38 @@ website:
     style: docked
     collapse-level: 1
     contents:
-      - section: Tool use
-        contents: [start.qmd, presets.qmd, excel-navigation.qmd, migration.qmd, download.qmd]
+      - section: Getting started
+        contents: [excel-overview.qmd, download.qmd, excel-navigation.qmd, presets.qmd]
       - section: Modelling
-        contents: [model.qmd, envelope.qmd, components.qmd, hvac.qmd, pv.qmd, systems.qmd, usage.qmd, interfaces.qmd, mobility.qmd, climate.qmd, variants.qmd]
-      - section: Analyse and assess
-        contents: [results.qmd, excel-dashboard.qmd, comparison.qmd, batch.qmd, examples.qmd, declaration.qmd]
-      - section: Documentation and references
-        contents: [learn.qmd, python.qmd, dashboard.qmd, glossary.qmd, research.qmd, about.qmd]
+        contents: [model.qmd, envelope.qmd, hvac.qmd, pv.qmd, systems.qmd, usage.qmd, interfaces.qmd, mobility.qmd, climate.qmd, components.qmd, variants.qmd, migration.qmd]
+      - section: Analysis
+        contents: [results.qmd, excel-dashboard.qmd, flexibility.qmd, mobility-analysis.qmd, comparison.qmd, batch.qmd, examples.qmd, assessment-explained.qmd]
+      - section: Declaration
+        contents: [projekte-nachweisen.qmd, checklist.qmd, declaration.qmd]
+      - section: Reference
+        contents: [glossary.qmd, preset-catalog.qmd]
+      - section: Python and automation
+        contents:
+          - python.qmd
+          - {href: ../tutorial_excel.html, text: Excel projects (DE)}
+          - {href: ../tutorial_zeitreihen.html, text: Time-series exports (DE)}
+          - {href: ../tutorial_baubook.html, text: Baubook data (DE)}
+          - {href: ../batch-python.html, text: Batch simulation (DE)}
+          - {href: ../assessment.html, text: Energy and GHG assessment (DE)}
+          - {href: ../tutorial_stromprofile.html, text: Electrical profiles (DE)}
+          - {href: ../tutorial_netzlast.html, text: Grid exchange (DE)}
+          - {href: ../tutorial_sankey.html, text: Sankey diagrams (DE)}
+          - {href: ../tutorial_gebaeudeschnitt.html, text: Building sections (DE)}
+          - {href: ../tutorial_grafikexport.html, text: Exporting figures (DE)}
+          - dashboard.qmd
+          - {href: ../tutorial_schema.html, text: Schema checks (DE)}
+          - {href: ../tutorial_website.html, text: Website maintenance (DE)}
+      - section: About the project
+        contents: [research.qmd, about.qmd]
   page-footer:
-    left: "PEExcel · FH Technikum Wien · klimaaktiv Positive Energy Districts"
+    left: "PEExcel · UAS Technikum Wien · klimaaktiv Positive Energy Districts"
     right:
-      - {href: about.qmd, text: About}
+      - {href: about.qmd, text: Contact and use}
       - {href: https://github.com/simonschaluppe/peexcel, text: GitHub}
 
 format:
@@ -44,4 +72,7 @@ format:
     lightbox: true
     code-fold: true
     css: ../styles.css
-    include-after-body: ../_resize.html
+    include-before-body: _includes/translation-note.html
+    include-after-body:
+      - ../_resize.html
+      - _includes/language-link.html
