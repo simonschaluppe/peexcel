@@ -12,6 +12,15 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+analysis = [
+  "pyarrow",
+  "openpyxl",
+  "plotly>=6.1.1,<7",
+  "matplotlib",
+  "nbformat",
+  "nbclient",
+  "ipykernel",
+]
 batch = [
   "pywin32; sys_platform == 'win32'",
   "openpyxl",

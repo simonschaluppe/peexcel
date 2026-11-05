@@ -1,7 +1,6 @@
 """Internal PEExcel table mapping, independent of workbook file handling.
 
-Rows are schema variables; scenario identities are column headers. These
-serialization tables are distinct from the scenario-row analysis views.
+Rows are schema variables; scenario identities are column headers.
 """
 from __future__ import annotations
 

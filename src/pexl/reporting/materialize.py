@@ -3,7 +3,11 @@ from __future__ import annotations
 from collections.abc import Mapping
 from typing import Any
 
+import logging
+
 import pandas as pd
+
+logger = logging.getLogger(__name__)
 
 
 def _field(obj: object, name: str, default=None):
@@ -32,26 +36,42 @@ def chart_names() -> tuple[str, ...]:
 
 
 def materialize(source, chart_name: str, *, language="de", unit=None) -> dict[str, Any]:
-    """Materialize a chart for a Project, Scenario, ProjectView, or ScenarioView."""
+    """Prepare a named annual report from a DataFrame or model object.
+
+    Parameters
+    ----------
+    source : pandas.DataFrame, Project, Scenario, ProjectView or ScenarioView
+        Annual values with canonical ``var_name`` columns. DataFrames may carry
+        ``batch`` and ``scenario_name`` columns, a ``column_name`` column, or a
+        unique index. Only the report's dependencies are interpreted; additional
+        columns are allowed. Input values and row order are preserved.
+    chart_name : str
+        Name returned by :func:`chart_names`.
+    language : {"de", "en"}
+        Language of titles and series labels, with German/canonical fallbacks.
+    unit : str, optional
+        Compatible Wh/kWh/MWh unit including the same reference quantity.
+
+    Returns
+    -------
+    dict
+        Editable ``frame``, ``series``, title, unit and renderer metadata.
+        Missing columns are logged and represented by NaN, never by zero.
+        Renderers can reject incomplete numerical reports. Model-version
+        differences produce a warning; this function performs no migration.
+    """
     from pexl.schema.current import ATTR_NAME_MAP, SCHEMA_META, SCHEMA_VERSION
     from pexl.i18n import PRIMARY_ENERGY_LABELS, chart_text
-    from pexl.model.project import Project
-    from pexl.model.scenario import Scenario
-    from pexl.model.view import ProjectView, ScenarioView
+    from ._data import annual_frame, display_names
 
-    if language not in ("de", "en"):
-        raise ValueError("language must be 'de' or 'en'")
-
-    if isinstance(source, Scenario):
-        scenarios = (source,)
-    elif isinstance(source, ScenarioView):
-        scenarios = (source.scenario,)
-    elif isinstance(source, (Project, ProjectView)):
-        scenarios = tuple(source.scenarios)
-    else:
-        raise TypeError(
-            "source must be a Project, Scenario, ProjectView, or ScenarioView"
-        )
+    chart_text("value", language)
+    values = annual_frame(source)
+    if "tool_version" in values:
+        versions = values["tool_version"].dropna().astype(str).unique()
+        older = [v for v in versions if v.replace(".", "_").replace("-", "_") != SCHEMA_VERSION]
+        if older:
+            logger.warning("Report %s uses schema %s; source versions %s need interpretation with care",
+                           chart_name, SCHEMA_VERSION, older)
 
     charts = _chart_registry()
     try:
@@ -62,7 +82,7 @@ def materialize(source, chart_name: str, *, language="de", unit=None) -> dict[st
         ) from exc
 
     from .gwp import resolve
-    spec, overrides, provenance = resolve(spec, scenarios)
+    spec, overrides, provenance = resolve(spec, values)
     raw_series = list(_field(spec, "series", ()) or ())
     raw_series.sort(key=lambda s: _field(s, "order", 0) or 0)
 
@@ -95,42 +115,33 @@ def materialize(source, chart_name: str, *, language="de", unit=None) -> dict[st
             }
         )
 
-    rows = []
-    for scenario in scenarios:
-        version = getattr(scenario.v, 'tool_version', None)
-        if version is not None and str(version).replace('.', '_').replace('-', '_') != SCHEMA_VERSION:
-            raise ValueError(f'{scenario.column_name}: model version {version!r} does not match active schema {SCHEMA_VERSION!r}')
-        row = {"Variant": scenario.column_name}
-        for item in series:
-            attr_name = ATTR_NAME_MAP[item["var_name"]]
-            row[item["var_name"]] = overrides.get(scenario.column_name, {}).get(
-                item["var_name"], getattr(scenario.v, attr_name))
-        rows.append(row)
-
-    frame = pd.DataFrame(rows, columns=["Variant", *[s["var_name"] for s in series]])
+    names = list(dict.fromkeys(item["var_name"] for item in series))
+    missing = [name for name in names if name not in values]
+    if missing:
+        logger.warning("Report %s: missing columns represented as NaN: %s", chart_name, missing)
+    frame = values.reindex(columns=names).copy()
+    for identity, resolved in overrides.items():
+        for name, value in resolved.items():
+            frame.at[identity, name] = value
     if chart_name == "primary_energy_balance":
-        legacy_density = {
-            scenario.column_name: scenario.legacy.get("PEI_cf_density")
-            for scenario in scenarios
-        }
-        density = pd.to_numeric(
-            frame["Variant"].map(legacy_density),
-            errors="raise",
-        )
-
+        density = pd.to_numeric(values.get("PEI_cf_density", pd.Series(index=values.index, dtype=float)), errors="coerce")
         for column, fallback in {
             "PEI_cf_density_pos": density.clip(lower=0),
             "PEI_cf_density_neg": (-density).clip(lower=0),
         }.items():
             if column in frame:
                 frame[column] = frame[column].fillna(fallback)
-                
+    frame.insert(0, "Variant", display_names(values))
+    # Report renderers and existing consumers expect a positional frame.
+    frame = frame.reset_index(drop=True)
+
     units = {s["unit"] for s in series if s["unit"] not in (None, "")}
 
     report = {
         "chart_name": _field(spec, "chart_name", chart_name) or chart_name,
         "tab_name": _field(spec, "tab_name"),
-        "title": _field(spec, "title", chart_name) or chart_name,
+        "title": (_field(spec, f"title_{language}") or _field(spec, "title_de")
+                  or _field(spec, "title", chart_name) or chart_name),
         "chart_type": _field(spec, "chart_type"),
         "unit": next(iter(units)) if len(units) == 1 else None,
         "series": series,
@@ -139,7 +150,7 @@ def materialize(source, chart_name: str, *, language="de", unit=None) -> dict[st
         "value_mode": "magnitude" if _field(spec, "chart_type") == "stacked_bar_comparison" else "signed",
     }
     if provenance:
-        report['sources'] = provenance
+        report['sources'] = dict(zip(display_names(values), (provenance[key] for key in values.index)))
         # District overview components use the boundary of the lifecycle total.
         # Embodied-only reports retain their separate A-unit metadata.
         if chart_name in ('gwp_ee', 'district_gwp_ee'):

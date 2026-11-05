@@ -11,11 +11,14 @@ CHARTS: dict[str, ChartSpec] = {
         chart_name='primary_energy_balance',
         tab_name='Primärenergiebedarf',
         title='Primärenergiebedarf',
+        title_de='Primärenergiebedarf',
+        title_en='Primary energy demand',
         chart_type='stacked_bar_comparison',
         series=(
             SeriesSpec(
                 var_name='PEI_el_plugloads',
                 label_de='Nutzerstrom',
+                label_en='Plug loads',
                 role='Bedarf',
                 order=1,
                 color='#7e1141',
@@ -24,6 +27,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='PEI_sub_PV',
                 label_de='Lokale Erneuerbare (Netzstrom Substitutionsäquivalent)',
+                label_en='Local renewables (grid electricity substitution equivalent)',
                 role='Deckung',
                 order=1,
                 color='#5FB564',
@@ -32,6 +36,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='PEI_el_hvac',
                 label_de='HKLS Strom',
+                label_en='HVAC electricity',
                 role='Bedarf',
                 order=2,
                 color='#f34673',
@@ -40,6 +45,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='PEI_sub_flex',
                 label_de='Energieflexibilität (Netzstrom Substitutionsäquivalent)',
+                label_en='Energy flexibility (grid electricity substitution equivalent)',
                 role='Deckung',
                 order=2,
                 color='#e6f283',
@@ -48,6 +54,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='PEI_district_heating',
                 label_de='HKLS Fernwärme',
+                label_en='HVAC district heating',
                 role='Bedarf',
                 order=3,
                 color='#a22110',
@@ -56,6 +63,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='PEI_cf_density_pos',
                 label_de='Kontext bauliche Dichte positiv',
+                label_en='Density context positive',
                 role='Deckung',
                 order=3,
                 color='#F281BB',
@@ -64,6 +72,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='PEI_natural_gas',
                 label_de='HKLS Erdgas',
+                label_en='HVAC natural gas',
                 role='Bedarf',
                 order=4,
                 color='#227888',
@@ -72,6 +81,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='PEI_cf_mobility',
                 label_de='Kontext Mobilität',
+                label_en='Mobility context',
                 role='Deckung',
                 order=4,
                 color='#fbd89a',
@@ -80,6 +90,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='PEI_biomass',
                 label_de='HKLS Biomasse',
+                label_en='HVAC biomass',
                 role='Bedarf',
                 order=5,
                 color='#245826',
@@ -88,6 +99,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='PEI_cf_renovation',
                 label_de='Kontext Sanierung',
+                label_en='Renovation context',
                 role='Deckung',
                 order=5,
                 color='#d1eff2',
@@ -96,6 +108,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='PEI_other',
                 label_de='HKLS Sonstige',
+                label_en='HVAC other',
                 role='Bedarf',
                 order=6,
                 color='#1b3b4d',
@@ -104,6 +117,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='PEI_mob_fossile',
                 label_de='MIV Fossil',
+                label_en='Private motorised transport, fossil',
                 role='Bedarf',
                 order=7,
                 color='#da7c14',
@@ -112,6 +126,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='PEI_mob_el',
                 label_de='MIV Elektrisch',
+                label_en='Private motorised transport, electric',
                 role='Bedarf',
                 order=8,
                 color='#b8d223',
@@ -120,6 +135,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='PEI_cf_density_neg',
                 label_de='Kontext bauliche Dichte negativ',
+                label_en='Density context negative',
                 role='Bedarf',
                 order=9,
                 color='#F281BB',
@@ -131,11 +147,14 @@ CHARTS: dict[str, ChartSpec] = {
         chart_name='heat_balance',
         tab_name='Wärmebilanz',
         title='Wärmebilanz',
+        title_de='Wärmebilanz',
+        title_en='Heat balance',
         chart_type='stacked_bar_comparison',
         series=(
             SeriesSpec(
                 var_name='QT',
                 label_de='Transmissionswärmeverl.',
+                label_en='Transmission heat losses',
                 role='Bedarf',
                 order=150,
                 color='#F281BB',
@@ -144,6 +163,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='QV',
                 label_de='Lüftungswärmeverluste',
+                label_en='Ventilation heat losses',
                 role='Bedarf',
                 order=160,
                 color='#88CFDA',
@@ -152,6 +172,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='QVn',
                 label_de='Nachtlüftung',
+                label_en='Night ventilation',
                 role='Bedarf',
                 order=170,
                 color='#264350',
@@ -160,6 +181,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='QC',
                 label_de='Kühlbedarf (KB)',
+                label_en='Cooling demand',
                 role='Bedarf',
                 order=180,
                 color='#00B0F0',
@@ -168,6 +190,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='QS',
                 label_de='Solare Gewinne',
+                label_en='Solar gains',
                 role='Deckung',
                 order=190,
                 color='#FFC560',
@@ -176,6 +199,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='QI',
                 label_de='Innere Wärmen',
+                label_en='Internal heat gains',
                 role='Deckung',
                 order=200,
                 color='#EEFF49',
@@ -184,6 +208,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='QH',
                 label_de='Heizwärmebedarf',
+                label_en='Space heating demand',
                 role='Deckung',
                 order=210,
                 color='#E1320F',
@@ -195,11 +220,14 @@ CHARTS: dict[str, ChartSpec] = {
         chart_name='final_energy_balance',
         tab_name='Endenergiebedarf',
         title='Endenergiebedarf',
+        title_de='Endenergiebedarf',
+        title_en='Final energy demand',
         chart_type='stacked_bar_comparison',
         series=(
             SeriesSpec(
                 var_name='EUI_plugAuxLight',
                 label_de='Nutzerstrom, Beleuchtung und Allgemeinstrom',
+                label_en='Plug loads, lighting and auxiliary electricity',
                 role='Bedarf',
                 order=220,
                 color='#EC4298',
@@ -208,6 +236,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='EUIh_el',
                 label_de='Heizen',
+                label_en='Heating',
                 role='Bedarf',
                 order=230,
                 color='#F57F67',
@@ -216,6 +245,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='EUIc_el',
                 label_de='Kühlen',
+                label_en='Cooling',
                 role='Bedarf',
                 order=240,
                 color='#05b0ef',
@@ -224,6 +254,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='EUIv_el',
                 label_de='Lüftung',
+                label_en='Ventilation',
                 role='Bedarf',
                 order=250,
                 color='#3BACBE',
@@ -232,6 +263,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='EUIdhw_el',
                 label_de='Warmwasser',
+                label_en='Domestic hot water',
                 role='Bedarf',
                 order=260,
                 color='#E1320F',
@@ -240,6 +272,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='Batt_total_charge_input',
                 label_de='e-Speicher Beladung',
+                label_en='Battery charging',
                 role='Bedarf',
                 order=270,
                 color='#b6c718',
@@ -248,6 +281,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='EUIev_el',
                 label_de='EV Quartiersladung',
+                label_en='EV charging in district',
                 role='Bedarf',
                 order=280,
                 color='#FFC560',
@@ -256,6 +290,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='Batt_total_discharge',
                 label_de='Jährliche Entladung',
+                label_en='Annual battery discharge',
                 role='Deckung',
                 order=290,
                 color='#BCCF00',
@@ -264,6 +299,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='EUIdhwdirect_el',
                 label_de='WW E-Stab',
+                label_en='DHW electric heater',
                 role='Deckung',
                 order=300,
                 color='#ffffff',
@@ -272,6 +308,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='Grid_to_min',
                 label_de='Netzstrom → Quartier',
+                label_en='Grid electricity to district',
                 role='Deckung',
                 order=310,
                 color='#950F53',
@@ -280,6 +317,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='Eev_to_district',
                 label_de='E-Car Entladung',
+                label_en='EV discharge to district',
                 role='Deckung',
                 order=320,
                 color='#f9cf91',
@@ -288,6 +326,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='PV_total_direct',
                 label_de='3 static',
+                label_en='Direct PV supply',
                 role='Deckung',
                 order=330,
                 color='#5FB564',
@@ -296,6 +335,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='PV_total_flex',
                 label_de='3 flexible',
+                label_en='Flexible PV supply',
                 role='Deckung',
                 order=340,
                 color='#9FD3A2',
@@ -304,6 +344,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='PV_to_Egrid',
                 label_de='PV Netzeinspeisung',
+                label_en='PV export to grid',
                 role='Deckung',
                 order=350,
                 color='#c4e5cc',
@@ -312,6 +353,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='VRGrid_to_min',
                 label_de='Flexible Direktdeckung',
+                label_en='Flexible direct supply',
                 role='Deckung',
                 order=360,
                 color='#faf2bf',
@@ -320,6 +362,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='VRGrid_to_flex',
                 label_de='Flexible Überdeckung',
+                label_en='Flexible surplus supply',
                 role='Deckung',
                 order=370,
                 color='#ffffff',
@@ -328,6 +371,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='Eev_ext_charge',
                 label_de='E-Car Ladung Außerhalb des Quartiers',
+                label_en='EV charging outside district',
                 role='Deckung',
                 order=380,
                 color='#F281BB',
@@ -339,11 +383,14 @@ CHARTS: dict[str, ChartSpec] = {
         chart_name='gwp_ee',
         tab_name='Treibhausgasemissionen',
         title='Treibhausgasemissionen',
+        title_de='Treibhausgasemissionen',
+        title_en='Greenhouse gas emissions',
         chart_type='build_gwp_chart',
         series=(
             SeriesSpec(
                 var_name='GWP_ee_total_construction',
                 label_de='Baukonstruktion',
+                label_en='Construction',
                 role='Baulich',
                 order=1,
                 color='#9fd3a2',
@@ -352,6 +399,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_ee_total_TES',
                 label_de='Technische Systeme',
+                label_en='Technical systems',
                 role='Baulich',
                 order=2,
                 color='#e9b44c',
@@ -360,6 +408,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_ee_lc_mob',
                 label_de='Mobilität (Herstellung)',
+                label_en='Mobility (embodied)',
                 role='Baulich',
                 order=3,
                 color='#88cfda',
@@ -368,6 +417,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_lc_OE_total',
                 label_de='Betrieb',
+                label_en='Operation',
                 role='Betrieblich',
                 order=4,
                 color='#f34673',
@@ -376,6 +426,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_lc_total',
                 label_de='THG-Gesamtbilanz',
+                label_en='Total lifecycle GHG balance',
                 role='Balance Variable',
                 order=5,
                 color='#7B8E1D',
@@ -387,11 +438,14 @@ CHARTS: dict[str, ChartSpec] = {
         chart_name='gwp_ee_detail',
         tab_name='Treibhausgasemissionen Detail',
         title='Graue Emissionen: Bauteile und technische Systeme',
+        title_de='Graue Emissionen: Bauteile und technische Systeme',
+        title_en='Embodied emissions: building components and technical systems',
         chart_type='embodied_gwp',
         series=(
             SeriesSpec(
                 var_name='GWP_ee_total',
                 label_de='Herstellung: Gesamt',
+                label_en='Total embodied emissions',
                 role='Balance Variable',
                 order=100,
                 color='#333333',
@@ -400,6 +454,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_ee_wall',
                 label_de='THG LZ Außenwand',
+                label_en='External wall',
                 role='Baulich',
                 order=390,
                 color='#f9c0dd',
@@ -408,6 +463,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_ee_roof_flat',
                 label_de='THG LZ Flachdach',
+                label_en='Flat roof',
                 role='Baulich',
                 order=400,
                 color='#9fd3a2',
@@ -416,6 +472,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_ee_roof_pitched',
                 label_de='THG LZ Steildach',
+                label_en='Pitched roof',
                 role='Baulich',
                 order=410,
                 color='#9fd3a2',
@@ -424,6 +481,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_ee_floor',
                 label_de='THG LZ Erdb. Fußboden beheizt',
+                label_en='Heated ground-contact floor',
                 role='Baulich',
                 order=420,
                 color='#418e48',
@@ -432,6 +490,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_ee_ceiling',
                 label_de='THG LZ Geschossdecke',
+                label_en='Intermediate floor',
                 role='Baulich',
                 order=430,
                 color='#2c5e2f',
@@ -440,6 +499,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_ee_terrace',
                 label_de='THG LZ Terasse',
+                label_en='Terrace',
                 role='Baulich',
                 order=440,
                 color='#ffc560',
@@ -448,6 +508,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_ee_basement_ceiling',
                 label_de='THG LZ Kellerdecke',
+                label_en='Basement ceiling',
                 role='Baulich',
                 order=450,
                 color='#2c5e2f',
@@ -456,6 +517,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_ee_fundament',
                 label_de='THG LZ Bodenplatte',
+                label_en='Foundation slab',
                 role='Baulich',
                 order=460,
                 color='#418e48',
@@ -464,6 +526,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_ee_ceil_to_air',
                 label_de='THG LZ Außendecke gg. Außenluft',
+                label_en='Floor above outdoor air',
                 role='Baulich',
                 order=470,
                 color='#ffc560',
@@ -472,6 +535,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_ee_wall_earth_contacted',
                 label_de='THG LZ Erdb. Wand beheizt',
+                label_en='Heated ground-contact wall',
                 role='Baulich',
                 order=480,
                 color='#f281bb',
@@ -480,6 +544,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_ee_internal_wall_load',
                 label_de='THG LZ Innenwand tragend',
+                label_en='Load-bearing internal wall',
                 role='Baulich',
                 order=490,
                 color='#a6a6a6',
@@ -488,6 +553,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_ee_internal_wall_nonload',
                 label_de='THG LZ Innenwand nicht tragend',
+                label_en='Non-load-bearing internal wall',
                 role='Baulich',
                 order=500,
                 color='#d9d9d9',
@@ -496,6 +562,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_ee_ceiling_topfloor',
                 label_de='THG LZ Oberste Geschoßdecke',
+                label_en='Top floor ceiling',
                 role='Baulich',
                 order=510,
                 color='#3d5b38',
@@ -504,6 +571,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_ee_wall_ec_unheated',
                 label_de='THG LZ Erdb. Wand Keller',
+                label_en='Unheated ground-contact wall',
                 role='Baulich',
                 order=520,
                 color='#950f53',
@@ -512,6 +580,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_ee_basement_floor_unheated',
                 label_de='THG LZ Erdb. Fußboden unbeheizt',
+                label_en='Unheated basement floor',
                 role='Baulich',
                 order=530,
                 color='#418e46',
@@ -520,6 +589,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_ee_columns',
                 label_de='THG LZ Stützen',
+                label_en='Columns',
                 role='Baulich',
                 order=540,
                 color='#595959',
@@ -528,6 +598,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_ee_internal_wall_unheated',
                 label_de='THG LZ Innenwand unbeheizt',
+                label_en='Unheated internal wall',
                 role='Baulich',
                 order=550,
                 color='#bfbfbf',
@@ -536,6 +607,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_ee_unheated_horizontal',
                 label_de='THG LZ Zwischendecke unbeheizt / Keller / TG',
+                label_en='Unheated intermediate floors',
                 role='Baulich',
                 order=560,
                 color='#ffffff',
@@ -544,6 +616,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_ee_balconies',
                 label_de='THG LZ Balkone',
+                label_en='Balconies',
                 role='Baulich',
                 order=570,
                 color='#ffd895',
@@ -552,6 +625,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_ee_windowframe',
                 label_de='THG LZ Fensterrahmen',
+                label_en='Window frames',
                 role='Baulich',
                 order=580,
                 color='#000000',
@@ -560,6 +634,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_ee_windowglazing',
                 label_de='THG LZ Fensterglas',
+                label_en='Window glazing',
                 role='Baulich',
                 order=590,
                 color='#88cfda',
@@ -568,6 +643,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_ee_garage_horizontal',
                 label_de='THG LZ Garage Decken',
+                label_en='Garage floors',
                 role='Baulich',
                 order=600,
                 color='#418e46',
@@ -576,6 +652,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_ee_garage_columns',
                 label_de='THG LZ Garage Stützen',
+                label_en='Garage columns',
                 role='Baulich',
                 order=610,
                 color='#595959',
@@ -584,6 +661,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_ee_other_1',
                 label_de='THG LZ Sonstige 1',
+                label_en='Other components 1',
                 role='Baulich',
                 order=620,
                 color='#7f7f7f',
@@ -592,6 +670,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_ee_other_2',
                 label_de='THG LZ Sonstige 2',
+                label_en='Other components 2',
                 role='Baulich',
                 order=630,
                 color='#7f7f7f',
@@ -600,6 +679,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_ee_other_3',
                 label_de='THG LZ Sonstige 3',
+                label_en='Other components 3',
                 role='Baulich',
                 order=640,
                 color='#7f7f7f',
@@ -608,6 +688,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_ee_PV',
                 label_de='THG LZ PV-Anlage',
+                label_en='PV system',
                 role='Baulich',
                 order=650,
                 color='#e9ff0d',
@@ -616,6 +697,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_ee_boreholes',
                 label_de='THG LZ Erdwärmesonden',
+                label_en='Ground-source boreholes',
                 role='Baulich',
                 order=660,
                 color='#e1320f',
@@ -624,6 +706,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_ee_ahu_1',
                 label_de='THG LZ Lüftungsanlage 1',
+                label_en='Air handling unit 1',
                 role='Baulich',
                 order=670,
                 color='#88ced8',
@@ -632,6 +715,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_ee_ahu_2',
                 label_de='THG LZ Lüftungsanlage 2',
+                label_en='Air handling unit 2',
                 role='Baulich',
                 order=680,
                 color='#88ced8',
@@ -640,6 +724,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_ee_buffer_storage',
                 label_de='THG LZ Pufferspeicher',
+                label_en='Buffer storage',
                 role='Baulich',
                 order=690,
                 color='#c47d00',
@@ -648,6 +733,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_ee_BESS',
                 label_de='THG LZ E-Batterie',
+                label_en='Battery storage',
                 role='Baulich',
                 order=700,
                 color='#b87500',
@@ -656,6 +742,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_ee_energy_1',
                 label_de='THG LZ Energiesystem 1',
+                label_en='Energy system 1',
                 role='Baulich',
                 order=710,
                 color='#ffc560',
@@ -664,6 +751,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_ee_energy_2',
                 label_de='THG LZ Energiesystem 2',
+                label_en='Energy system 2',
                 role='Baulich',
                 order=720,
                 color='#418e46',
@@ -672,6 +760,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_ee_solarthermal',
                 label_de='THG LZ Solarthermie',
+                label_en='Solar thermal system',
                 role='Baulich',
                 order=730,
                 color='#418e46',
@@ -683,11 +772,14 @@ CHARTS: dict[str, ChartSpec] = {
         chart_name='district_gwp_ee',
         tab_name='District GWP Comparison',
         title='THG-Bilanz: Bau, Technik, Mobilität und Betrieb',
+        title_de='THG-Bilanz: Bau, Technik, Mobilität und Betrieb',
+        title_en='GHG balance: construction, systems, mobility and operation',
         chart_type='build_four_column_gwp_chart',
         series=(
             SeriesSpec(
                 var_name='GWP_ee_total_construction',
                 label_de='Baukonstruktion',
+                label_en='Construction',
                 role='Baukonstruktion',
                 order=1,
                 color='#9fd3a2',
@@ -696,6 +788,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_ee_total_TES',
                 label_de='Technische Systeme',
+                label_en='Technical systems',
                 role='Technische Systeme',
                 order=2,
                 color='#e9b44c',
@@ -704,6 +797,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_ee_lc_mob',
                 label_de='Mobilität (Herstellung)',
+                label_en='Mobility (embodied)',
                 role='Mobilität (Herstellung)',
                 order=3,
                 color='#88cfda',
@@ -712,6 +806,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_lc_OE_total',
                 label_de='Betrieb',
+                label_en='Operation',
                 role='Betrieb',
                 order=4,
                 color='#f34673',
@@ -720,6 +815,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_lc_total',
                 label_de='THG-Gesamtbilanz',
+                label_en='Total lifecycle GHG balance',
                 role='Balance Variable',
                 order=5,
                 color='#7B8E1D',
@@ -731,6 +827,8 @@ CHARTS: dict[str, ChartSpec] = {
         chart_name='multi_chart',
         tab_name='Multi-District Overview',
         title='District Comparision',
+        title_de='District Comparision',
+        title_en='District comparison',
         chart_type='build_multi_grid_chart',
         series=(
         ),
@@ -739,11 +837,14 @@ CHARTS: dict[str, ChartSpec] = {
         chart_name='gwp_ee_fossil_biogenic',
         tab_name='Graue Emissionen fossil/biogen',
         title='Graue Emissionen: fossil und biogen',
+        title_de='Graue Emissionen: fossil und biogen',
+        title_en='Embodied emissions: fossil and biogenic',
         chart_type='embodied_gwp',
         series=(
             SeriesSpec(
                 var_name='GWP_ee_total_construction_fossil',
                 label_de='Baukonstruktion: fossil',
+                label_en='Construction: fossil',
                 role='Baulich',
                 order=1,
                 color='#9fd3a2',
@@ -752,6 +853,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_ee_total_TES_fossil',
                 label_de='Technische Systeme: fossil',
+                label_en='Technical systems: fossil',
                 role='Baulich',
                 order=2,
                 color='#e9b44c',
@@ -760,6 +862,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_ee_total_construction_biogenic',
                 label_de='Baukonstruktion: biogen',
+                label_en='Construction: biogenic',
                 role='Baulich',
                 order=3,
                 color='#43894a',
@@ -768,6 +871,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_ee_total_TES_biogenic',
                 label_de='Technische Systeme: biogen',
+                label_en='Technical systems: biogenic',
                 role='Baulich',
                 order=4,
                 color='#986721',
@@ -776,6 +880,7 @@ CHARTS: dict[str, ChartSpec] = {
             SeriesSpec(
                 var_name='GWP_ee_total',
                 label_de='Herstellung: Gesamt',
+                label_en='Total embodied emissions',
                 role='Balance Variable',
                 order=100,
                 color='#333333',

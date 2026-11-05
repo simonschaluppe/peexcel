@@ -25,6 +25,7 @@ class SeriesSpec:
     order: int = 0
     color: str | None = None
     pattern: str | None = None
+    label_en: str | None = None
 
 
 @dataclass(frozen=True)
@@ -34,3 +35,5 @@ class ChartSpec:
     title: str
     chart_type: str
     series: tuple[SeriesSpec, ...]
+    title_de: str | None = None
+    title_en: str | None = None

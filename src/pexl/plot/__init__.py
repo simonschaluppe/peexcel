@@ -1,3 +1,4 @@
+from .scenarios import scatter, distribution, histogram
 from . import styles
 from ._heatmap import heatmap
 from ._duration_curve import duration_curve, seasonal_duration_curves
@@ -10,6 +11,7 @@ from .typical_day import (
 )
 
 __all__ = [
+    "scatter", "distribution", "histogram",
     "styles",
     "heatmap",
     "sankey",

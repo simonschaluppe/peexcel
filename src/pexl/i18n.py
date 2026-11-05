@@ -45,6 +45,21 @@ class LocalizedText:
 
 # Shared reference-chart vocabulary. Keys are semantic, never translated IDs.
 CHART_TEXT = {
+    "Baukonstruktion": LocalizedText("Baukonstruktion", "Construction"),
+    "Technische Systeme": LocalizedText("Technische Systeme", "Technical systems"),
+    "Mobilität (Herstellung)": LocalizedText("Mobilität (Herstellung)", "Mobility (embodied)"),
+    "Baulich": LocalizedText("Baulich", "Construction"),
+    "Betrieblich": LocalizedText("Betrieblich", "Operation"),
+    "Bau": LocalizedText("Bau", "Construction"),
+    "Technik": LocalizedText("Technik", "Technical systems"),
+    "Mobilität": LocalizedText("Mobilität", "Mobility"),
+    "Betrieb": LocalizedText("Betrieb", "Operation"),
+    "frequency": LocalizedText("Häufigkeit", "Frequency"),
+    "scenario": LocalizedText("Szenario", "Scenario"),
+    "reference_budget": LocalizedText("Referenzbudget", "Reference budget"),
+    "budget_below": LocalizedText("Budget unterschritten um", "Below budget by"),
+    "budget_above": LocalizedText("Budget überschritten um", "Above budget by"),
+    "budget_met": LocalizedText("Budget erreicht", "Budget reached"),
     "primary_energy": LocalizedText("Primärenergiebedarf", "Primary energy demand"),
     "demand": LocalizedText("Bedarf", "Demand"),
     "supply": LocalizedText("Deckung", "Supply"),

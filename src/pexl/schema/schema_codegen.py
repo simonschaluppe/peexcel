@@ -38,6 +38,7 @@ class VariableMetaRow:
     entity_group: str | None = None
     entity_key: str | None = None    
     formula: str | None = None
+    label_en: str | None = None
 
 
 def sanitize_identifier(name: str) -> str:
@@ -99,6 +100,7 @@ def create_row(
         attr_name=attr_name,
         icon=clean_cell(row.get("icon")),
         label_de=clean_cell(row.get("label_de")),
+        label_en=clean_cell(row.get("label_en")),
         unit=clean_cell(row.get("unit")),
         comment=clean_cell(row.get("comment")),
         source=source,
@@ -149,6 +151,7 @@ class VariableMeta:
     entity_group: str | None = None
     entity_key: str | None = None
     formula: str | None = None
+    label_en: str | None = None
 
     def __repr__(self) -> str:
         parts = []
@@ -179,12 +182,14 @@ def build_meta_class_code(meta_rows: list[VariableMetaRow]) -> str:
         return "\n".join(lines)
 
     for row in meta_rows:
+        english_label = f"            label_en={as_python_literal(row.label_en)},\n" if row.label_en else ""
         lines.append(
             f"        self.{row.attr_name} = VariableMeta(\n"
             f"            var_name={row.var_name!r},\n"
             f"            attr_name={row.attr_name!r},\n"
             f"            icon={as_python_literal(row.icon)},\n"
             f"            label_de={as_python_literal(row.label_de)},\n"
+            f"{english_label}"
             f"            unit={as_python_literal(row.unit)},\n"
             f"            comment={as_python_literal(row.comment)},\n"
             f"            source={as_python_literal(row.source)},\n"

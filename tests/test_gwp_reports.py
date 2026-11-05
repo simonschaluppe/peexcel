@@ -69,10 +69,11 @@ def test_current_zero_is_not_missing(current):
     assert r['sources'][current[0].column_name]['family'] == 'current'
 
 
-def test_partial_current_does_not_borrow_legacy(current):
+def test_partial_current_does_not_borrow_legacy(current, caplog):
     current[0].v.GWP_ee_total_TES = None
-    with pytest.raises(ValueError, match='partial current'):
-        reporting.gwp_ee(current)
+    report = reporting.gwp_ee(current)
+    assert pd.isna(report['frame']['GWP_ee_total_TES'][0])
+    assert 'partial current' in caplog.text
 
 
 def test_detail_and_fossil_biogenic_do_not_double_count(current):
@@ -103,7 +104,7 @@ def test_legacy_fallback_is_coarse_and_nonmutating(current):
         reporting.gwp_ee_fossil_biogenic(project)
 
 
-def test_mixed_detail_has_only_structural_zeroes(current):
+def test_mixed_detail_has_only_structural_zeroes(current, caplog):
     old = as_legacy(current)[0]
     current.add_scenario(old)
     r = reporting.gwp_ee_detail(current)
@@ -111,8 +112,9 @@ def test_mixed_detail_has_only_structural_zeroes(current):
     assert r['frame'].loc[1, 'GWP_ee_wall'] == 0
     assert r['frame'].loc[1, 'legacy_GWP_ee_lc_walls'] == old.v.legacy_GWP_ee_lc_walls
     old.v.legacy_GWP_ee_lc_walls = None
-    with pytest.raises(ValueError, match='missing legacy'):
-        reporting.gwp_ee_detail(current)
+    report = reporting.gwp_ee_detail(current)
+    assert pd.isna(report['frame'].loc[1, 'legacy_GWP_ee_lc_walls'])
+    assert 'missing legacy' in caplog.text
 
 
 def test_browser_payload_uses_resolved_legacy_values(current, monkeypatch):

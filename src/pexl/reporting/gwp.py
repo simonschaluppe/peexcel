@@ -6,6 +6,10 @@ coarser categories, retained as such rather than mapped to individual new parts.
 No project values are modified and no Excel formula is evaluated here.
 """
 from dataclasses import replace
+from collections import Counter
+import logging
+
+logger = logging.getLogger(__name__)
 
 import pandas as pd
 
@@ -27,19 +31,15 @@ LEGACY_TES = (
 )
 
 
-def _read(scenario, key):
-    from pexl.schema.current import ATTR_NAME_MAP
-    value = getattr(scenario.v, ATTR_NAME_MAP.get(key, key), None)
-    if value is None or pd.isna(value):
-        value = getattr(scenario, 'legacy', {}).get(key)
-    return value
+def _read(row, key):
+    return row.get(key)
 
 
 def _present(value):
     return value is not None and not pd.isna(value)
 
 
-def resolve(spec, scenarios):
+def resolve(spec, frame):
     """Return resolved spec, row overrides and per-scenario source provenance.
 
     Unused family columns in mixed *detail* reports are structural zeros. 
@@ -50,9 +50,15 @@ def resolve(spec, scenarios):
     current_components = tuple(s.var_name for s in CHARTS['gwp_ee_detail'].series
                                if s.role != 'Balance Variable')
     current_totals = tuple(k for k in ATTR_NAME_MAP if k.startswith('GWP_ee_total'))
-    families = {s.column_name: ('current' if any(_present(_read(s, k))
+    needed = set(current_components + current_totals + LEGACY_CONSTRUCTION + LEGACY_TES)
+    needed.update(series.var_name for series in spec.series)
+    needed.update(('legacy_GWP_ee_lc_construction', 'legacy_GWP_ee_lc_tga',
+                   'legacy_GWP_lc_total', 'legacy_GWP_lc_OE_total',
+                   'GWP_ee_lc_mob', 'GWP_lc_OE_total'))
+    rows = frame.loc[:, frame.columns.intersection(list(needed))].to_dict(orient='index')
+    families = {identity: ('current' if any(_present(_read(row, k))
                 for k in (*current_components, *current_totals)) else 'legacy')
-                for s in scenarios}
+                for identity, row in rows.items()}
     if spec.chart_name == 'gwp_ee_fossil_biogenic' and 'legacy' in families.values():
         raise ValueError('Legacy data have no equivalent complete fossil/biogenic TES lifecycle totals; '
                          'use gwp_ee or gwp_ee_detail instead of inferring a split')
@@ -61,6 +67,7 @@ def resolve(spec, scenarios):
     if detail and 'legacy' in families.values():
         legacy_series = tuple(SeriesSpec(
             var_name=key, label_de='Legacy: ' + (getattr(SCHEMA_META, ATTR_NAME_MAP[key]).label_de or key),
+            label_en='Legacy: ' + (getattr(getattr(SCHEMA_META, ATTR_NAME_MAP[key]), "label_en", None) or key),
             role='Baulich', order=i,
             color='#9fd3a2' if key in LEGACY_CONSTRUCTION else '#e9b44c')
             for i, key in enumerate((*LEGACY_CONSTRUCTION, *LEGACY_TES)))
@@ -68,18 +75,21 @@ def resolve(spec, scenarios):
                        if s.role == 'Balance Variable' or 'current' in families.values())
         spec = replace(spec, series=active + legacy_series)
     if 'legacy' in families.values():
-        spec = replace(spec, title=spec.title + ' [Legacy-Fallback enthalten]')
+        spec = replace(spec, title=spec.title + ' [Legacy-Fallback enthalten]',
+                       title_de=(spec.title_de or spec.title) + ' [Legacy-Fallback enthalten]',
+                       title_en=(spec.title_en or spec.title) + ' [legacy fallback included]')
 
     overrides, provenance = {}, {}
-    for scenario in scenarios:
-        family = families[scenario.column_name]
+    missing_fields = Counter()
+    for identity, scenario in rows.items():
+        family = families[identity]
         row, sources = {}, {}
 
         def required(key):
             value = _read(scenario, key)
             if not _present(value):
                 value = float("nan")
-                print(f'{scenario.column_name}: missing {family} GWP field {key!r}; partial current results cannot be mixed with legacy results')
+                missing_fields[(family, key)] += 1
             return value
 
         for series in spec.series:
@@ -111,6 +121,9 @@ def resolve(spec, scenarios):
                     sources[key] = 'sum(' + ', '.join(parts) + ')'
                     continue
             row[key], sources[key] = required(source), source
-        overrides[scenario.column_name] = row
-        provenance[scenario.column_name] = dict(family=family, fields=sources)
+        overrides[identity] = row
+        provenance[identity] = dict(family=family, fields=sources)
+    for (family, key), count in missing_fields.items():
+        logger.warning('missing %s GWP field %r in %d scenario(s); partial current results cannot be mixed with legacy results',
+                       family, key, count)
     return spec, overrides, provenance

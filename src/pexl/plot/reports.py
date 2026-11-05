@@ -41,51 +41,41 @@ def darken_color(hex_color: str, factor: float = 0.7) -> str:
 
 
 def _scenario_plot_frame(view, names):
-    from pexl.schema.current import ATTR_NAME_MAP, SCHEMA_META
-    names = list(dict.fromkeys(n for n in names if n))
-    frame = view.select(*names).to_frame().reset_index()
-    labels = {n: f"{getattr(SCHEMA_META, ATTR_NAME_MAP[n]).label_de or n} "
-                 f"[{getattr(SCHEMA_META, ATTR_NAME_MAP[n]).unit or '-'}]" for n in names}
-    labels['column_name'] = 'Szenario'
-    return frame, labels
+    from pexl.reporting import variables
+    from pexl.reporting._data import display_names
+    data = variables(view, *dict.fromkeys(n for n in names if n))
+    frame = data["frame"]
+    frame["column_name"] = display_names(frame)
+    return frame.reset_index(drop=True), data["labels"]
 
 
 def scenario_scatter(view, x, y, *, color=None, symbol=None, size=None, hover_data=()):
-    """Scatter of stored scenario values with schema-derived labels and units."""
-    import plotly.express as px
+    """Compatibility entry point; prepare labels then call plot.scatter."""
+    from .scenarios import scatter
     frame, labels = _scenario_plot_frame(view, [x, y, color, symbol, size, *hover_data])
-    return px.scatter(frame, x=x, y=y, color=color, symbol=symbol, size=size,
-                      hover_name='column_name', hover_data=list(hover_data), labels=labels)
+    return scatter(frame, x, y, color=color, symbol=symbol, size=size,
+                   hover_name="column_name", hover_data=hover_data, labels=labels)
 
 
 def scenario_distribution(view, variable, *, by, color=None, kind='box'):
-    """Unweighted distribution of simulated variants (not a stock estimate)."""
-    import plotly.express as px
-    if kind not in ('box', 'violin'):
-        raise ValueError("kind must be 'box' or 'violin'")
+    """Compatibility entry point for schema-labelled box and violin plots."""
+    from .scenarios import distribution
     frame, labels = _scenario_plot_frame(view, [variable, by, color])
-    return getattr(px, kind)(frame, x=by, y=variable, color=color, labels=labels,
-                             hover_name='column_name', points=False)
+    return distribution(frame, variable, by=by, color=color, kind=kind,
+                        hover_name="column_name", labels=labels)
 
 
 def report_balance_scatter(view, chart_name, x, *, color=None):
-    """Scatter the displayed Deckung-minus-Bedarf balance of an existing report.
-
-    This uses the same absolute series totals as the paired-bar renderer. It is
-    a report balance, not an additional simulated energy-flow variable.
-    """
-    import plotly.express as px
-    from pexl import reporting
-    report = reporting.materialize(view, chart_name)
-    if report['chart_type'] != 'stacked_bar_comparison':
-        raise ValueError('Balance scatter requires a Bedarf/Deckung report')
-    frame, labels = _scenario_plot_frame(view, [x, color])
-    frame['report_balance'] = [s-d for s, d in zip(
-        _role_total(report, 'Deckung', absolute=report.get("value_mode", "magnitude") == "magnitude"),
-        _role_total(report, 'Bedarf', absolute=report.get("value_mode", "magnitude") == "magnitude"))]
-    labels['report_balance'] = f"{report['title']}: Deckung − Bedarf [{report.get('unit') or '-'}]"
-    return px.scatter(frame, x=x, y='report_balance', color=color,
-                      hover_name='column_name', labels=labels)
+    """Compatibility entry point using the shared reporting balance calculation."""
+    from pexl.reporting import balance
+    from pexl.reporting._data import display_names
+    from .scenarios import scatter
+    data = balance(view, chart_name, include=tuple(n for n in (x, color) if n))
+    # Preserve the historical column name used by the static browser generator.
+    data["frame"] = data["frame"].rename(columns={"balance": "report_balance"})
+    data["labels"]["report_balance"] = data["labels"].pop("balance")
+    data["frame"]["column_name"] = display_names(data["frame"])
+    return scatter(**data, x=x, y="report_balance", color=color, hover_name="column_name")
 
 
 def _marker(series: dict, *, replace_pattern: bool = False) -> dict:
@@ -241,6 +231,7 @@ def render(report: dict, *,
         legend=legend_layout,
         margin_autoexpand=True,
     )
+    fig.update_layout(separators=",." if report["language"] == "de" else ".,")
     return fig
 
 
@@ -252,10 +243,8 @@ def _number(value: float, *, signed: bool = False, language="de") -> str:
 
 
 def _role_total(report: dict, role: str, *, absolute: bool = False) -> list[float]:
-    totals = [0.0] * len(report["frame"])
-    for series in _series_for_role(report, role):
-        totals = [a + b for a, b in zip(totals, _values(report, series, absolute=absolute))]
-    return totals
+    from pexl.reporting.analysis import role_total
+    return role_total(report, role, absolute=absolute).tolist()
 
 
 def _difference_bracket(fig: go.Figure, x: float, start: float, end: float, color: str) -> None:
@@ -290,11 +279,12 @@ def _annotate_pe(fig: go.Figure, report: dict) -> None:
 
 
 def _annotate_gwp_budget(fig: go.Figure, report: dict, budget: float, *, annotate: bool=True) -> None:
+    language = report.get("language", "de")
     unit = report.get("unit") or "kg CO₂e/m² BGF"
     fig.add_hline(y=budget, line_color="#ba3030", line_width=2, line_dash="dash")
     fig.add_annotation(
         x=1, xref="paper", y=budget, yref="y", xanchor="right", yanchor="top", yshift=-6,
-        text=f"<b>Referenzbudget: {_number(budget)} {unit}</b>",
+        text=f"<b>{chart_text('reference_budget', language)}: {_number(budget, language=language)} {unit}</b>",
         showarrow=False, font={"color": "#ba3030", "size": 12},
         bgcolor="rgba(255,255,255,0.95)", borderpad=3,
     )
@@ -305,12 +295,12 @@ def _annotate_gwp_budget(fig: go.Figure, report: dict, budget: float, *, annotat
             remaining = budget - total
             color = "#237a45" if remaining >= 0.05 else "#ba3030" if remaining <= -0.05 else "#59636e"
             status = "unterschritten um" if remaining >= 0.05 else "überschritten um" if remaining <= -0.05 else "erreicht"
-            distance = f"{_number(abs(remaining))} {unit}" if abs(remaining) >= 0.05 else ""
+            distance = f"{_number(abs(remaining), language=language)} {unit}" if abs(remaining) >= 0.05 else ""
             x = 2 * i + 0.5
             _difference_bracket(fig, x, total, budget, color)
             fig.add_annotation(
                 x=x, y=max(total, budget), xref="x", yref="y", yshift=8, yanchor="bottom",
-                text=f"Budget {status}<br><b>{distance}</b>" if distance else "Budget erreicht",
+                text=f"{status}<br><b>{distance}</b>" if distance else chart_text("budget_met", language),
                 showarrow=False,
                 font={"color": color, "size": 11}, bgcolor="rgba(255,255,255,0.95)", borderpad=3,
             )
@@ -532,9 +522,12 @@ def _gwp_four_column(report: dict) -> go.Figure:
     if len(labels) != 4:
         raise ValueError('Four-column report requires exactly four explicit component roles')
 
+    from pexl.i18n import CHART_TEXT
+    display_labels = [CHART_TEXT[label].get(report['language']) if label in CHART_TEXT else label
+                      for label in labels]
     x_axis = [
         [variant for variant in variants for _ in range(4)],
-        labels * len(variants),
+        display_labels * len(variants),
     ]
 
     for column_index, role in enumerate(labels):
@@ -566,7 +559,7 @@ def _gwp_four_column(report: dict) -> go.Figure:
         fig.add_trace(
             go.Scatter(
                 name=series["label"],
-                x=[variants, [labels[-1]] * len(variants)],
+                x=[variants, [display_labels[-1]] * len(variants)],
                 y=values,
                 mode="markers+text",
                 marker={

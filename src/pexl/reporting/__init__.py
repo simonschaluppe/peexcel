@@ -3,7 +3,7 @@
 from .materialize import chart_names, materialize, convert_unit
 
 def primary_energy_balance(source, *, language="de", unit=None):
-    """Prepare the primary-energy report for a Project or selected ProjectView.
+    """Prepare primary-energy contributions from a DataFrame or model object.
 
     Uses stored results, preserves scenario order and never runs a simulation.
     ``unit`` may change the energy prefix, but not area/time/energy reference.
@@ -38,3 +38,12 @@ def gwp_ee_fossil_biogenic(source, *, language="de"):
 
 __all__ = ["chart_names", "materialize", "convert_unit", "primary_energy_balance",
            "gwp_ee", "gwp_ee_detail", "gwp_ee_fossil_biogenic"]
+
+from .analysis import variables, balance
+from .shortcuts import (primary_energy_scatter_plot, density_balance_scatter_plot,
+    heat_balance_plot, final_energy_balance_plot, primary_energy_balance_plot,
+    gwp_ee_plot, gwp_ee_detail_plot, gwp_ee_fossil_biogenic_plot, district_gwp_ee_plot)
+
+__all__ += ["variables", "balance", "primary_energy_scatter_plot", "density_balance_scatter_plot",
+    "heat_balance_plot", "final_energy_balance_plot", "primary_energy_balance_plot",
+    "gwp_ee_plot", "gwp_ee_detail_plot", "gwp_ee_fossil_biogenic_plot", "district_gwp_ee_plot"]

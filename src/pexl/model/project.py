@@ -205,27 +205,47 @@ class Project:
         """
         Load multiple PEExcel files into one Project.
 
-        All scenarios from all source files are combined in file order.
-        Scenario column names must be unique across the files.
+        Paths may contain individual files or directories.
+        Directories are searched recursively for .xlsx files.
+
+        All scenarios are combined in file order.
+        Scenario column names must be unique across files.
         """
         project = cls()
 
+        # Accept a single path or an iterable of paths
+        if isinstance(paths, (str, Path)):
+            paths = [paths]
+
         for path in paths:
-            source = cls.from_excel(path, unknown=unknown)
+            path = Path(path)
 
-            for scenario in source.scenarios:
-                if scenario.column_name in project._scenario_dict:
-                    raise ValueError(
-                        f"Duplicate scenario: {scenario.column_name!r}"
-                    )
+            if path.is_dir():
+                files = sorted(path.glob("*.xlsx"))
+            else:
+                files = [path]
 
-                project.scenarios.append(scenario)
-                project._scenario_dict[scenario.column_name] = scenario
+            for file in files:
+                # Skip temporary Excel lock files
+                if file.name.startswith("~$"):
+                    continue
 
-            project.warnings.extend(
-                f"{Path(path).name}: {warning}"
-                for warning in source.warnings
-            )
+                source = cls.from_excel(file, unknown=unknown)
+
+                for scenario in source.scenarios:
+                    if scenario.column_name in project._scenario_dict:
+                        raise ValueError(
+                            f"Duplicate scenario: {scenario.column_name!r} "
+                            f"in {file}"
+                        )
+
+                    project.scenarios.append(scenario)
+                    project._scenario_dict[scenario.column_name] = scenario
+
+                project.warnings.extend(
+                    f"{file.name}: {warning}"
+                    for warning in source.warnings
+                )
 
         return project
 

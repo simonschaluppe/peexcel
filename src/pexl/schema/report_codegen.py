@@ -36,6 +36,8 @@ class ChartRow:
     title: str | None
     chart_type: str
     source_order: int
+    title_de: str | None = None
+    title_en: str | None = None
 
 
 @dataclass(frozen=True)
@@ -47,6 +49,7 @@ class SeriesRow:
     order: int
     color: str | None
     pattern: str | None
+    label_en: str | None = None
 
 
 def _renamed_copy(
@@ -68,6 +71,8 @@ def normalize_chart_types(df: pd.DataFrame) -> pd.DataFrame:
 
     Canonical columns:
         chart_name, tab_name, title, chart_type
+
+    Optional title_de/title_en override the legacy title for localized reports.
 
     Legacy compatibility:
         chart -> chart_name
@@ -105,6 +110,8 @@ def normalize_chart_metadata(df: pd.DataFrame) -> pd.DataFrame:
 
     Canonical columns:
         chart_name, label_de, var_name, role, order, color, pattern
+
+    Optional label_en supplies a report-specific English series label.
 
     Legacy compatibility:
         chart -> chart_name
@@ -163,6 +170,8 @@ def collect_chart_rows(df: pd.DataFrame) -> list[ChartRow]:
                 title=clean_cell(row.get("title")),
                 chart_type=str(chart_type),
                 source_order=source_order,
+                title_de=clean_cell(row.get("title_de")),
+                title_en=clean_cell(row.get("title_en")),
             )
         )
 
@@ -201,6 +210,7 @@ def collect_series_rows(df: pd.DataFrame) -> list[SeriesRow]:
                 order=order,
                 color=clean_cell(row.get("color")),
                 pattern=clean_cell(row.get("pattern")),
+                label_en=clean_cell(row.get("label_en")),
             )
         )
 
@@ -283,6 +293,7 @@ def _series_code(row: SeriesRow, indent: str = "            ") -> str:
         f"{indent}SeriesSpec(\n"
         f"{indent}    var_name={row.var_name!r},\n"
         f"{indent}    label_de={row.label_de!r},\n"
+        f"{indent}    label_en={row.label_en!r},\n"
         f"{indent}    role={row.role!r},\n"
         f"{indent}    order={row.order!r},\n"
         f"{indent}    color={row.color!r},\n"
@@ -338,6 +349,8 @@ def generate_report_module_text(
                 f"        chart_name={chart.chart_name!r},",
                 f"        tab_name={chart.tab_name!r},",
                 f"        title={chart.title!r},",
+                f"        title_de={chart.title_de!r},",
+                f"        title_en={chart.title_en!r},",
                 f"        chart_type={chart.chart_type!r},",
                 "        series=(",
             ]
