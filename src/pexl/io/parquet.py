@@ -304,3 +304,139 @@ def export_annual_batch(source_dir, output_dir, *, batch_id=None,
         raise
     logger.info("Parquet fertig: %s (%.1f s)", target, perf_counter() - started)
     return target
+
+
+def combine_annual_batches(parquet_paths, output_dir, *, rows_per_batch=2048,
+                           compression="zstd"):
+    """Combine annual run files into one reproducible scenarios.parquet catalog.
+
+    Parameters
+    ----------
+    parquet_paths : iterable of path-like
+        Explicit input files, normally produced by export_annual_batch. Their
+        order and the order of scenarios within each file are retained. Existing
+        prototype exports without embedded metadata are also supported.
+    output_dir : path-like
+        Catalog directory. A completed build atomically replaces scenarios.parquet.
+        The destination must differ from every input file.
+    rows_per_batch : int
+        Maximum number of rows buffered while writing (default 2048).
+    compression : str
+        Parquet codec, default zstd.
+
+    Returns
+    -------
+    pathlib.Path
+        The combined catalog, readable with pandas.read_parquet. Original batch,
+        scenario_name and source_file columns are preserved. The embedded
+        pexl.catalog JSON records source files, hashes, row counts, available
+        batch metadata and observed tool versions.
+
+    Notes
+    -----
+    Missing columns are filled with null and logged. Numeric types are promoted
+    to a common type. Entirely null columns can adopt the other run's type,
+    including null-only string columns from older converters. Incompatible
+    non-null types raise instead of silently converting numeric results to text.
+    Different tool/schema versions produce a warning and require interpretation
+    by the analyst; no scientific schema migration is performed.
+
+    A preliminary read of identity/version columns rejects duplicate or missing
+    (batch, scenario_name) keys. The identity set uses memory proportional to the
+    scenario count, while the full value matrix is streamed. Rebuilding always
+    uses the supplied files exactly once, rather than appending to an old catalog.
+    Errors leave a previously published catalog intact. Configure progress logging
+    in the notebook or application; the library installs no handlers.
+    """
+    if not isinstance(rows_per_batch, int) or rows_per_batch < 1:
+        raise ValueError("rows_per_batch must be a positive integer")
+    paths = [Path(path).resolve() for path in parquet_paths]
+    target = Path(output_dir).resolve() / "scenarios.parquet"
+    if not paths or len(set(paths)) != len(paths):
+        raise ValueError("Supply at least one input file and no repeated paths")
+    if target in paths:
+        raise ValueError("Catalog destination must differ from input files")
+    started = perf_counter()
+    schemas, sources, snapshots = [], [], {}
+    identities, versions, model_schemas = set(), set(), set()
+    expected = 0
+    for path in paths:
+        snapshots[path] = (path.stat().st_size, path.stat().st_mtime_ns)
+        with pq.ParquetFile(path) as file:
+            schema = file.schema_arrow
+            if len(set(schema.names)) != len(schema.names):
+                raise ValueError(f"Duplicate column names: {path}")
+            if not set(ID_COLUMNS).issubset(schema.names):
+                raise ValueError(f"Missing identity/provenance columns: {path}")
+            fields = []
+            for column, field in enumerate(schema):
+                stats = [file.metadata.row_group(group).column(column).statistics
+                         for group in range(file.num_row_groups)]
+                all_null = all(stat is not None and stat.has_null_count
+                               and stat.null_count == file.metadata.row_group(group).num_rows
+                               for group, stat in enumerate(stats))
+                fields.append(pa.field(field.name, pa.null() if all_null else field.type))
+            schemas.append(pa.schema(fields))
+            projected = ["batch", "scenario_name"]
+            if "tool_version" in schema.names:
+                projected.append("tool_version")
+            run_versions = set()
+            for chunk in file.iter_batches(batch_size=rows_per_batch, columns=projected):
+                data = chunk.to_pydict()
+                for key in zip(data["batch"], data["scenario_name"]):
+                    if any(value is None or not str(value).strip() for value in key):
+                        raise ValueError(f"Missing scenario identity in {path}")
+                    if key in identities:
+                        raise ValueError(f"Duplicate (batch, scenario_name): {key!r}")
+                    identities.add(key)
+                run_versions.update(str(v) for v in data.get("tool_version", []) if v is not None)
+            embedded = (schema.metadata or {}).get(b"pexl.batch")
+            batch_metadata = json.loads(embedded) if embedded else None
+            if batch_metadata and batch_metadata.get("schema"):
+                model_schemas.add(batch_metadata["schema"])
+            if not embedded:
+                logger.warning("%s: keine eingebetteten Batch-Metadaten; Herkunft über Datei-Hash und tool_version", path)
+            versions.update(run_versions)
+            sources.append(dict(path=str(path), sha256=_sha256(path),
+                                rows=file.metadata.num_rows, batch_metadata=batch_metadata,
+                                tool_versions=sorted(run_versions)))
+            expected += file.metadata.num_rows
+            logger.info("Katalogquelle: %s (%d Szenarien)", path, file.metadata.num_rows)
+    if len(versions) > 1 or len(model_schemas) > 1:
+        logger.warning("Unterschiedliche Modellstände im Katalog: tool_version=%s, schema=%s",
+                       sorted(versions), sorted(model_schemas))
+    schema = pa.unify_schemas(schemas, promote_options="permissive")
+    for path, source_schema in zip(paths, schemas):
+        missing = set(schema.names) - set(source_schema.names)
+        if missing:
+            logger.warning("%s: %d fehlende Spalten werden null: %s", path, len(missing), sorted(missing))
+    schema = schema.with_metadata({b"pexl.catalog": json.dumps(
+        dict(sources=sources, scenario_count=expected), ensure_ascii=False).encode("utf8")})
+    target.parent.mkdir(parents=True, exist_ok=True)
+    pending = target.with_name(f".{uuid4().hex}.pending.parquet")
+    try:
+        with pq.ParquetWriter(pending, schema, compression=compression) as writer:
+            for path, effective_schema in zip(paths, schemas):
+                with pq.ParquetFile(path) as file:
+                    for chunk in file.iter_batches(batch_size=rows_per_batch):
+                        table = pa.Table.from_batches([chunk])
+                        arrays = []
+                        for field in schema:
+                            if field.name not in table.column_names or pa.types.is_null(effective_schema.field(field.name).type):
+                                arrays.append(pa.nulls(table.num_rows, type=field.type))
+                            else:
+                                arrays.append(table[field.name].cast(field.type, safe=True))
+                        writer.write_table(pa.Table.from_arrays(arrays, schema=schema))
+                logger.info("Katalog geschrieben: %s", path.name + " aus " + path.parent.name)
+        with pq.ParquetFile(pending) as file:
+            if file.metadata.num_rows != expected:
+                raise ValueError("Catalog row count differs from its sources")
+        if any(snapshots[path] != (path.stat().st_size, path.stat().st_mtime_ns) for path in paths):
+            raise ValueError("Input Parquet changed during catalog build; retry")
+        pending.replace(target)
+    except Exception:
+        logger.exception("Katalogaufbau fehlgeschlagen: %s", target)
+        pending.unlink(missing_ok=True)
+        raise
+    logger.info("Katalog fertig: %s, %d Szenarien (%.1f s)", target, expected, perf_counter() - started)
+    return target
