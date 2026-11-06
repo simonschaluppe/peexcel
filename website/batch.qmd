@@ -15,7 +15,7 @@ Die automatische Batch-Simulation dient der Berechnung einer großen Anzahl von 
 5. Rechenstatus und etwaige Fehler prüfen; Ergebnisse den Varianten zuordnen.
 6. Berechnete Varianten im [Variantenvergleich](comparison.qmd) oder in [Python](python.qmd) auswerten.
 
-Fehlgeschlagene oder noch nicht berechnete Varianten nicht als vollständige Vergleichsgruppe interpretieren. Eingabestand, Toolversion und Rechenstatus gemeinsam dokumentieren.
+Eingabestand, Toolversion und Rechenstatus gemeinsam dokumentieren.
 
 Quelle: [Schulung, Folie 33: Simulieren (Batch)](downloads/schulung.pdf#page=33); Batch-Ablauf mit gespeicherten Varianten.
 

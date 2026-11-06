@@ -4,7 +4,7 @@ title: "Erste Schritte mit PEExcel"
 
 PEExcel ist das Berechnungs- und Nachweiswerkzeug für den klimaaktiv Standard für Plus-Energie-Quartiere. Es verbindet Gebäudebetrieb, Energieversorgung, motorisierte Individualmobilität und Lebenszyklusemissionen in einem stündlichen Bewertungsmodell.
 
-Mit dem Excel-Tool können Projektvarianten untersucht, berechnet und anhand ihrer Energie- und Treibhausgasbilanzen verglichen werden.
+Mit dem Excel-Tool können Projektvarianten untersucht, berechnet und anhand ihrer Energie- und Treibhausgasbilanzen verglichen sowie die Nachweise für eine [Deklaration](projekte-nachweisen.qmd) erstellt werden.
 
 ## Der Arbeitsablauf im Überblick 
 

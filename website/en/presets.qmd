@@ -40,7 +40,7 @@ This example investigates a variant with a different heat supply.
 **Ribbon:** klimaaktiv PEQ → Heizung → Auswahl Heizsystem
 :::
 
-1. Select [“Fernwärme”]{.excel-value} (district heating).
+1. Select [“Fernwärme Wien”]{.excel-value} (district heating).
 2. On [🔥H]{.excel-menu .darkred} **Heizung**, check the applied parameters, especially energy carrier, [Maximale Heizleistung]{.excel-field} (maximum heating capacity) and generation efficiency.
 3. Recalculate.
 4. Check final-energy carriers and primary-energy balance on the [results sheet](results.qmd).

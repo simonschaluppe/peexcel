@@ -2,7 +2,7 @@
 
 - **[Mechanical ventilation](preset-catalog.qmd#preset-ventilation_system):** Standard cases include heat recovery; check winter and summer values.
 
-- **[Mechanically ventilated uses](preset-catalog.qmd#preset-vent_modes):** If only non-residential areas are mechanically ventilated, start with Nichtwohnen.
+- **[Mechanically ventilated uses](preset-catalog.qmd#preset-vent_modes):** If only non-residential areas are mechanically ventilated, start with [Mechanische Lüftung in Nicht-Wohn-Nutzungen]{.excel-value} (mechanical ventilation in non-residential uses).
 
 - **[Night cooling](preset-catalog.qmd#preset-vent_night_modes):** Single-sided and cross ventilation are available for housing. Check openings and usable areas.
 

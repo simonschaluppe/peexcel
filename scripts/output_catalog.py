@@ -4,6 +4,7 @@ from html import escape
 from pathlib import Path
 import hashlib
 import json
+import re
 
 from pexl.schema import current
 
@@ -102,7 +103,8 @@ def build_presets(output=None, snapshot=PRESET_SNAPSHOT):
     help_by_page = {}
     for name, note in notes.items():
         table = tables[name]
-        parts.append(f'<details class="out-domain" data-domain="{esc(name)}" id="{preset_anchor(name)}"><summary>{esc(note["title"])} <span class="out-domain-count"></span></summary><p>{esc(note["text"])}</p><p>Excel-Tabelle: <code>{esc(name)}</code></p><div class="catalog-table"><table><thead><tr><th>Preset / Auswahlname</th><th>Belegung und Herkunft</th></tr></thead><tbody>')
+        note_html = re.sub(r'\[([^\]]+)\]\{\.excel-value\}', r'<span class="excel-value">\1</span>', esc(note['text']))
+        parts.append(f'<details class="out-domain" data-domain="{esc(name)}" id="{preset_anchor(name)}"><summary>{esc(note["title"])} <span class="out-domain-count"></span></summary><p>{note_html}</p><p>Excel-Tabelle: <code>{esc(name)}</code></p><div class="catalog-table"><table><thead><tr><th>Preset / Auswahlname</th><th>Belegung und Herkunft</th></tr></thead><tbody>')
         for preset in table['presets']:
             name_p = preset['name']
             title = preset['display_name'] if preset['display_name'] is not None else name_p

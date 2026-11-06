@@ -4,13 +4,13 @@
 
 - **[Envelope quality by building age](preset-catalog.qmd#preset-hulls):** For an initial existing-building estimate, choose building type and age, then check actual components.
 
-- **[Geometric shading](preset-catalog.qmd#preset-shading_geometry):** The stored ÖNORM selection provides a starting point; compare it with local shading.
+- **[Geometric shading](preset-catalog.qmd#preset-shading_geometry):** The stored [ÖNORM 8110:6 (57% exkl. Rahmenanteil)]{.excel-value} selection provides a starting point; compare it with local shading.
 
 - **[Airtightness](preset-catalog.qmd#preset-air_tightness):** Choose an assumption matching the building standard, such as an older building or new construction with mechanical ventilation.
 
-- **[Thermal mass](preset-catalog.qmd#preset-building_mass):** Assign lightweight, medium or heavy construction as an initial thermal assumption.
+- **[Thermal mass](preset-catalog.qmd#preset-building_mass):** For an initial thermal assumption, select for example [Leicht (z.B. Holzbau, 60 Wh/m²K)]{.excel-value} (lightweight construction) and check the effective thermal mass.
 
-- **[Movable solar protection](preset-catalog.qmd#preset-mobile_shading):** Choose the installed type, such as an internal roller blind or external venetian blind.
+- **[Movable solar protection](preset-catalog.qmd#preset-mobile_shading):** Choose the installed type, such as [Heller Rollo/Vorhang innen]{.excel-value} (light-coloured internal blind/curtain) or [Außenraffstore / -jalousie]{.excel-value} (external venetian blind).
 
 Check the applied values for your project. [How to apply presets](presets.qmd).
 

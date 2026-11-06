@@ -41,7 +41,7 @@ Im folgenden Beispiel wird eine Variante mit einer anderen Wärmeversorgung unte
 **Menüband:** klimaaktiv PEQ → Heizung → Auswahl Heizsystem
 :::
 
-1. Das Preset [„Fernwärme“]{.excel-value} auswählen.
+1. Das Preset [„Fernwärme Wien“]{.excel-value} auswählen.
 2. Im Blatt [🔥H]{.excel-menu .darkred} ("Heizung") die übernommenen Parameter kontrollieren, insbesondere den Energieträger, die [Maximale Heizleistung]{.excel-field} und die Erzeugungseffizienz.
 3. Neu berechnen.
 4. Im [Ergebnisblatt](results.qmd) die Verteilung der Endenergieträger und die Primärenergiebilanz prüfen.

@@ -4,7 +4,7 @@
 
 - **[Cooling system](preset-catalog.qmd#preset-cooling_system):** Several standard cases cover reversible heat pumps, including a configuration with a FreeCooling share.
 
-- **[Cooled uses](preset-catalog.qmd#preset-cooling_modes):** If only non-residential areas should be cooled, check Nichtwohnen (non-residential).
+- **[Cooled uses](preset-catalog.qmd#preset-cooling_modes):** If only non-residential areas should be cooled, check [Kühlung in Nicht-Wohn-Nutzungen]{.excel-value} (cooling in non-residential uses).
 
 Check the applied values for your project. [How to apply presets](presets.qmd).
 

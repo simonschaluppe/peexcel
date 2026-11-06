@@ -1,6 +1,6 @@
 ::: {.callout-note collapse=true title="No project values yet? Start with standard cases"}
 
-- **[Mobility by location](preset-catalog.qmd#preset-mobility):** Choose a location type, such as Urban or Ländlich mit Pendelverkehr (rural with commuting), and compare assumptions with the district.
+- **[Mobility by location](preset-catalog.qmd#preset-mobility):** Choose a location type, such as [Urban]{.excel-value} or [Ländlich mit Pendelverkehr]{.excel-value} (rural with commuting), and compare assumptions with the district.
 
 Check the applied values for your project. [How to apply presets](presets.qmd).
 

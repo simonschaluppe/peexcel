@@ -17,7 +17,7 @@ Batch simulation calculates many variants. It complements calculation of a singl
 5. Review calculation status and errors; associate results with variants.
 6. Evaluate calculated variants in [comparison](comparison.qmd) or [Python](python.qmd).
 
-Do not treat failed or uncalculated variants as a complete comparison group. Document inputs, tool version and calculation status together.
+Document inputs, tool version and calculation status together.
 
 Source: [Training, slide 33: batch simulation](../downloads/schulung.pdf#page=33) (German).
 

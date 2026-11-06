@@ -7,17 +7,24 @@ title: "Speicher und Flexibilität"
 
 **Excel-Ort:** Blatt [🔋]{.excel-menu .darkred} ("Flexibilität und Speicher").
 
-Energieflexibilität verknüpft die zeitliche Verfügbarkeit erneuerbarer Energie mit dem Betrieb des Quartiers. Lokale PV-Überschüsse und externe Flexibilitätssignale können für zusätzliche Konditionierung und Speicherladung genutzt werden. **Mindestbedarfsdeckung und flexible Überdeckung** bleiben getrennte Größen.
-
-![Stromflüsse: Deckungsreihenfolge, Mindestbedarfe und flexible Speicherladung. Quelle: PEExcel-Schulung; die tatsächlich aktiven Pfade hängen von der Modellkonfiguration ab.](media/manual/dispatch.png){.manual-figure}
+Energieflexibilität verknüpft die zeitliche Verfügbarkeit erneuerbarer Energie mit dem Betrieb des Quartiers. Lokale PV-Überschüsse und externe Flexibilitätssignale können für zusätzliche Konditionierung und Speicherladung genutzt werden. Diese **flexible Überdeckung** bleibt dabei eine von der **Deckung der Mindestbedarfe** getrennte Größe.
 
 ## Wie die Speicher zusammenwirken
 
 ![Zusammenspiel von Wärmepumpen, thermischer Gebäudemasse, stationärer Batterie und gepoolter E-Mobilität. Bei einem Freigabesignal werden nutzbare Speicher beladen; außerhalb der Freigabe können sie Bedarfe decken. Die Grafik zeigt das Prinzip, keinen für jedes Quartier identischen Fahrplan.](illustrations/userflexmodel.svg){.manual-figure}
 
-Lokale PV-Überschüsse und ein externes Signal sind getrennte Anlässe für flexible Nutzung. Ein Signal gibt Anwendungen innerhalb ihrer Grenzen frei. Ob tatsächlich Energie aufgenommen wird, hängt von verfügbarem Überschuss beziehungsweise Bezug, Anlagenleistung und Speicherzustand ab.
+Das Modell unterscheidet zwei Signaltypen für die flexible Nutzung:
 
-| Flexibilitätsoption | Was wird getan? | Was begrenzt die Nutzung? | Was zeigt die Wirkung? |
+- **Lokale PV-Überschüsse** zeigen an, dass vor Ort erzeugter PV-Strom für zusätzliche Anwendungen verfügbar ist.
+- **Ein externes Freigabesignal** erlaubt flexible Nutzung auf Grundlage einer externen Zeitreihe. Das im Tool hinterlegte Signal basiert auf Windkraftüberschüssen in Österreich. Für eigene Untersuchungen können externe Freigaben auch aus anderen Quellen abgeleitet werden, etwa aus stündlichen CO₂-Intensitäten.
+
+Die **Flexibilitätspotenziale** des Quartiers bestimmen, wie eine Freigabe genutzt werden kann. Ob tatsächlich Energie aufgenommen wird, hängt von verfügbarem Überschuss beziehungsweise Bezug, Anlagenleistung und Speicherzustand ab.
+
+
+![Stromflüsse: Deckungsreihenfolge, Mindestbedarfe und flexible Speicherladung. Quelle: PEExcel-Schulung; die tatsächlich aktiven Pfade hängen von der Modellkonfiguration ab.](media/manual/dispatch.png){.manual-figure}
+
+
+| Flexibilitätspotenzial | Was wird getan? | Was begrenzt die Nutzung? | Was zeigt die Wirkung? |
 |---|---|---|---|
 | Thermische Gebäudemasse | Heizen oder Kühlen wird temporär erhöht | Wirksame Speichermasse, Komfortband und Anlagenleistung | Raumtemperatur und späterer Heiz-/Kühlbedarf |
 | Warmwasserspeicher | Zusätzliche Erwärmung des (Puffer-)Speichers | Speichervolumen, obere Temperatur und Ladeleistung | Speicherzustand, Beladung und Verluste |
@@ -25,6 +32,7 @@ Lokale PV-Überschüsse und ein externes Signal sind getrennte Anlässe für fle
 | Elektrofahrzeuge | Flexible Ladung; bei Freigabe auch Versorgung des Quartiers | Anwesenheit, Ladepunkte, Leistung und Mindest-SoC | Ladeflüsse und SoC nach Nutzung |
 
 Die Mindestversorgung bleibt Bestandteil der Simulation. Flexible Beladung nutzt den darüber hinaus verfügbaren Spielraum. Ein hoher Freigabeanteil allein sagt deshalb wenig über die tatsächlich verschobene Energiemenge aus.
+
 ## Freigaben und Quellen {#excel-flexibilitaet}
 
 ::: {.excel-operation}

@@ -10,15 +10,18 @@ title: "Storage and flexibility"
 
 Energy flexibility connects the timing of renewable energy availability with district operation. Local PV surpluses and external flexibility signals can enable additional conditioning and storage charging. **Minimum-demand coverage and flexible additional supply** remain separate quantities.
 
-![Electricity flows: dispatch order, minimum demands and flexible storage charging. Source: PEExcel training; active paths depend on the configuration.](../media/manual/dispatch.png){.manual-figure}
-
 ## How storage options work together
 
 ![Interaction of heat pumps, thermal building mass, stationary batteries and pooled electric mobility. When enabled, usable storage is charged; outside the enabled period it can meet demand. This illustrates the principle, not a universal operating schedule.](../illustrations/userflexmodel.svg){.manual-figure}
 
-Local PV surpluses and an external signal are separate triggers for flexible use. A signal enables applications within their limits. Actual uptake depends on available surplus or import, system capacity and storage state.
+The model distinguishes two signal types for flexible operation:
 
-| Flexibility option | What happens? | What limits use? | What shows the effect? |
+- **Local PV surpluses** indicate that locally generated PV electricity is available for additional applications.
+- **An external enable signal** permits flexible operation based on an external time series. The signal supplied with the tool is based on wind-power surpluses in Austria. For your own investigations, external enable signals can also be derived from other sources, such as hourly CO₂ intensities.
+
+The district’s **flexibility potentials** determine how an enable signal can be used. Actual energy uptake depends on available surplus or import, system capacity and storage state.
+![Electricity flows: dispatch order, minimum demands and flexible storage charging. Source: PEExcel training; active paths depend on the configuration.](../media/manual/dispatch.png){.manual-figure}
+| Flexibility potential | What happens? | What limits use? | What shows the effect? |
 |---|---|---|---|
 | Thermal building mass | Heating or cooling temporarily increases | Effective thermal mass, comfort band and system capacity | Room temperature and subsequent heating/cooling demand |
 | Hot-water storage | Additional heating of the buffer/storage tank | Volume, upper temperature and charging capacity | Storage state, charging and losses |

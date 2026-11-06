@@ -52,7 +52,7 @@ The website uses consistent notation for Excel locations, fields and actions.
 | [🔥H]{.excel-menu .darkred} **Heizung** | Worksheet or menu |
 | [Maximale Heizleistung]{.excel-field} | Specific field: maximum heating capacity |
 | [Aktuelle Eingabe speichern]{.excel-action} | Action: save current inputs |
-| [“Fernwärme”]{.excel-value} | Selected preset: district heating |
+| [“Fernwärme Wien”]{.excel-value} | Selected preset: district heating |
 | [Heizsysteme]{.excel-section} | Thematic section: heating systems |
 
 Operating instructions are highlighted as **Where in PEExcel?** Start with [getting started](excel-overview.qmd), then build a typical configuration using [presets](presets.qmd).

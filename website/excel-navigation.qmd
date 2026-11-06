@@ -54,7 +54,7 @@ Die Website verwendet eine einheitliche Kennzeichnung von Excel-Orten, Eingabefe
 | Blatt [🔥H]{.excel-menu .darkred} ("Heizung") | Arbeitsblatt oder Menü im Excel-Tool |
 | Feld [Maximale Heizleistung]{.excel-field} | Konkretes Eingabefeld |
 | Befehl [Aktuelle Eingabe speichern]{.excel-action} | Auszuführende Aktion |
-| Preset [„Fernwärme“]{.excel-value} | Ausgewähltes Parameterpaket |
+| Preset [„Fernwärme Wien“]{.excel-value} | Ausgewähltes Parameterpaket |
 | Abschnitt [Heizsysteme]{.excel-section} | Thematischer Bereich eines Blatts |
 
 Bedienanweisungen sind zusätzlich als **„Im Excel-Tool“** hervorgehoben.

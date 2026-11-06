@@ -4,7 +4,7 @@ title: "Getting started with PEExcel"
 
 PEExcel is the calculation and verification tool for the klimaaktiv standard for positive energy districts. It connects building operation, energy supply, motorised private mobility and life-cycle emissions in an hourly assessment model.
 
-Use Excel to investigate and calculate project variants and compare their energy and greenhouse gas balances.
+Use Excel to investigate and calculate project variants, compare their energy and greenhouse gas balances, and prepare the evidence for a [declaration](projekte-nachweisen.qmd).
 
 ## The workflow at a glance
 
