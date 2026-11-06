@@ -629,6 +629,24 @@ document.querySelectorAll('iframe[data-fit]').forEach(frame=>{
 
 (() => {
 
+  const link = [...document.querySelectorAll(".navbar a")].find(a => a.textContent.trim() === "English");
+
+  if (!link) return;
+
+  const page = location.pathname.split("/").pop() || "index.html";
+
+  const tutorial = page.startsWith("tutorial_") || ["assessment.html", "batch-python.html"].includes(page);
+
+  link.setAttribute("href", "en/" + (tutorial ? "python.html" : page));
+
+})();
+
+</script>
+
+<script>
+
+(() => {
+
   const page = location.pathname.split("/").pop() || "index.html";
 
   const aliases = {"start.html": "excel-overview.html", "learn.html": "checklist.html"};

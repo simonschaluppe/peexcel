@@ -724,6 +724,24 @@ document.querySelectorAll('iframe[data-fit]').forEach(frame=>{
 
 </script>
 
+<script>
+
+(() => {
+
+  const link = [...document.querySelectorAll(".navbar a")].find(a => a.textContent.trim() === "English");
+
+  if (!link) return;
+
+  const page = location.pathname.split("/").pop() || "index.html";
+
+  const tutorial = page.startsWith("tutorial_") || ["assessment.html", "batch-python.html"].includes(page);
+
+  link.setAttribute("href", "en/" + (tutorial ? "python.html" : page));
+
+})();
+
+</script>
+
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

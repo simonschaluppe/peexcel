@@ -746,6 +746,24 @@ English translation · 5 November 2026. Original screenshots, interactive tools,
 </figure>
 </div>
 <p>Hourly conversion factors assess energy use over time. Report physical savings, temporal shifts and improvements in an assessed balance separately.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Research / Expert">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Research / Expert
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Set hourly conversion factors on sheet <strong>⚖️</strong> and enter the corresponding enable signals on <strong>🚦 Signale</strong> (signals). On <strong>🔋 Flexibilität und Speicher</strong> (storage and flexibility), specify which applications may use the signal and their power limits.</p>
+<p>To investigate CO₂-dependent control, derive an enable signal from an hourly CO₂-intensity series, for example by enabling hours below a chosen threshold, and enter that signal. Document the data source, unit, time reference and threshold. Conversion factors and enable signals must refer to the same hours.</p>
+<p>The enable signal permits flexible operation within the configured limits. Conversion factors assess the resulting energy use. Compare a reference and the signal-controlled variant using energy imports, storage states and assessed emissions. Apply the separate requirements for a declaration.</p>
+</div>
+</div>
+</div>
 <div class="declaration-note">
 <p><strong>Declaration:</strong> Use the designated requirements for enable settings, capacities and conversion factors. Free modelling assumptions are possible but do not automatically establish compliance.</p>
 </div>
@@ -786,6 +804,24 @@ document.querySelectorAll('iframe[data-fit]').forEach(frame=>{
   frame.addEventListener('load',bind);bind();
 
 });
+
+</script>
+
+<script>
+
+(() => {
+
+  const link = [...document.querySelectorAll(".navbar a")].find(a => a.textContent.trim() === "English");
+
+  if (!link) return;
+
+  const page = location.pathname.split("/").pop() || "index.html";
+
+  const tutorial = page.startsWith("tutorial_") || ["assessment.html", "batch-python.html"].includes(page);
+
+  link.setAttribute("href", "en/" + (tutorial ? "python.html" : page));
+
+})();
 
 </script>
 
