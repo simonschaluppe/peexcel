@@ -76,6 +76,14 @@ Flexible Ladung und bidirektionale Nutzung hängen von Standzeiten, Ladeleistung
 
 Stündliche Konversionsfaktoren bewerten den zeitlichen Energieeinsatz. Physische Einsparung, zeitliche Verschiebung und Verbesserung einer bewerteten Bilanz sind deshalb getrennt auszuweisen.
 
+::: {.callout-note collapse=true title="Forschung / Experte"}
+Stündliche Konversionsfaktoren kannst du im Blatt **⚖️** festlegen. Die zugehörigen Freigabesignale hinterlegst du im Blatt **🚦 Signale**. Im Blatt **🔋 Flexibilität und Speicher** legst du fest, welche Anwendungen das Signal verwenden dürfen und welche Leistungsgrenzen gelten.
+
+Für eine Untersuchung der CO₂-abhängigen Steuerung kannst du aus einer stündlichen CO₂-Intensitätsreihe ein Freigabesignal für Stunden unter einem gewählten Schwellenwert ableiten und hinterlegen. Dokumentiere Datenquelle, Einheit, Zeitbezug und Schwellenwert. Konversionsfaktoren und Freigabesignal müssen denselben Stunden zugeordnet sein.
+
+Das Freigabesignal erlaubt den flexiblen Betrieb innerhalb der eingestellten Grenzen. Die Konversionsfaktoren bewerten den resultierenden Energieeinsatz. Vergleiche eine Referenz und die signalgesteuerte Variante anhand von Energiebezug, Speicherzuständen und bewerteten Emissionen. Die Vorgaben für eine Deklaration sind gesondert zu beachten.
+:::
+
 ::: {.declaration-note}
 **Für die Deklaration:** ausgewiesene Vorgaben für Freigaben, Leistungen und Konversionsfaktoren verwenden. Freie Modellannahmen sind möglich, begründen aber keinen automatischen Nachweisstatus.
 :::

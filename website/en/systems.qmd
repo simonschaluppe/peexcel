@@ -77,6 +77,14 @@ Flexible charging and bidirectional use depend on parking periods, charging powe
 
 Hourly conversion factors assess energy use over time. Report physical savings, temporal shifts and improvements in an assessed balance separately.
 
+::: {.callout-note collapse=true title="Research / Expert"}
+Set hourly conversion factors on sheet **⚖️** and enter the corresponding enable signals on **🚦 Signale** (signals). On **🔋 Flexibilität und Speicher** (storage and flexibility), specify which applications may use the signal and their power limits.
+
+To investigate CO₂-dependent control, derive an enable signal from an hourly CO₂-intensity series, for example by enabling hours below a chosen threshold, and enter that signal. Document the data source, unit, time reference and threshold. Conversion factors and enable signals must refer to the same hours.
+
+The enable signal permits flexible operation within the configured limits. Conversion factors assess the resulting energy use. Compare a reference and the signal-controlled variant using energy imports, storage states and assessed emissions. Apply the separate requirements for a declaration.
+:::
+
 ::: {.declaration-note}
 **Declaration:** Use the designated requirements for enable settings, capacities and conversion factors. Free modelling assumptions are possible but do not automatically establish compliance.
 :::
