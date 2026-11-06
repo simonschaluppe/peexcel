@@ -577,7 +577,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#wie-die-speicher-zusammenwirken" id="toc-wie-die-speicher-zusammenwirken" class="nav-link active" data-scroll-target="#wie-die-speicher-zusammenwirken">Wie die Speicher zusammenwirken</a>
+  <li><a href="#wie-die-speicher-zusammenwirken" id="toc-wie-die-speicher-zusammenwirken" class="nav-link active" data-scroll-target="#wie-die-speicher-zusammenwirken">Wie die Speicher zusammenwirken</a></li>
+  <li><a href="#excel-flexibilitaet" id="toc-excel-flexibilitaet" class="nav-link" data-scroll-target="#excel-flexibilitaet">Freigaben und Quellen</a>
   <ul class="collapse">
   <li><a href="#im-excel-tool" id="toc-im-excel-tool" class="nav-link" data-scroll-target="#im-excel-tool">Im Excel-Tool</a></li>
   </ul></li>
@@ -627,8 +628,8 @@ ul.task-list li input[type="checkbox"] {
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
-<li><p><strong><a href="./preset-catalog.html#preset-battery_system">Batteriespeicher</a>:</strong> Für einen ersten Vergleich stehen Keine Batterie sowie zwei Speicheransätze bereit. Prüfe Kapazität und Leistung.</p></li>
-<li><p><strong><a href="./preset-catalog.html#preset-flexibility_system">Flexibilitätssteuerung</a>:</strong> Vergleiche Keine Flexibilität mit einer Steuerung nach PV oder nach PV und externem Signal.</p></li>
+<li><p><strong><a href="./preset-catalog.html#preset-battery_system">Batteriespeicher</a>:</strong> Für einen ersten Vergleich stehen <span class="excel-value">Keine Batterie</span> sowie zwei Speicheransätze bereit. Prüfe Kapazität und Leistung.</p></li>
+<li><p><strong><a href="./preset-catalog.html#preset-flexibility_system">Flexibilitätssteuerung</a>:</strong> Vergleiche <span class="excel-value">Keine Flexibilität</span> mit <span class="excel-value">Nur PV</span> oder <span class="excel-value">PV und Externes Signal</span>.</p></li>
 <li><p><strong><a href="./preset-catalog.html#preset-flexibility_thermal">Thermische Flexibilität</a>:</strong> Beginne mit einer zum Komfortkonzept passenden Temperaturspanne und prüfe die zulässigen Raumtemperaturen.</p></li>
 </ul>
 <p>Prüfe die übernommenen Werte für dein Projekt. <a href="./presets.html">So wendest du Presets an</a>.</p>
@@ -636,22 +637,27 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <p><strong>Excel-Ort:</strong> Blatt <span class="excel-menu darkred">🔋</span> (“Flexibilität und Speicher”).</p>
-<p>Energieflexibilität verknüpft die zeitliche Verfügbarkeit erneuerbarer Energie mit dem Betrieb des Quartiers. Lokale PV-Überschüsse und externe Flexibilitätssignale können für zusätzliche Konditionierung und Speicherladung genutzt werden. <strong>Mindestbedarfsdeckung und flexible Überdeckung</strong> bleiben getrennte Größen.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="media/manual/dispatch.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Stromflüsse: Deckungsreihenfolge, Mindestbedarfe und flexible Speicherladung. Quelle: PEExcel-Schulung; die tatsächlich aktiven Pfade hängen von der Modellkonfiguration ab."><img src="media/manual/dispatch.png" class="manual-figure img-fluid figure-img" alt="Stromflüsse: Deckungsreihenfolge, Mindestbedarfe und flexible Speicherladung. Quelle: PEExcel-Schulung; die tatsächlich aktiven Pfade hängen von der Modellkonfiguration ab."></a></p>
-<figcaption>Stromflüsse: Deckungsreihenfolge, Mindestbedarfe und flexible Speicherladung. Quelle: PEExcel-Schulung; die tatsächlich aktiven Pfade hängen von der Modellkonfiguration ab.</figcaption>
-</figure>
-</div>
+<p>Energieflexibilität verknüpft die zeitliche Verfügbarkeit erneuerbarer Energie mit dem Betrieb des Quartiers. Lokale PV-Überschüsse und externe Flexibilitätssignale können für zusätzliche Konditionierung und Speicherladung genutzt werden. Diese <strong>flexible Überdeckung</strong> bleibt dabei eine von der <strong>Deckung der Mindestbedarfe</strong> getrennte Größe.</p>
 <section id="wie-die-speicher-zusammenwirken" class="level2">
 <h2 class="anchored" data-anchor-id="wie-die-speicher-zusammenwirken">Wie die Speicher zusammenwirken</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="illustrations/userflexmodel.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Zusammenspiel von Wärmepumpen, thermischer Gebäudemasse, stationärer Batterie und gepoolter E-Mobilität. Bei einem Freigabesignal werden nutzbare Speicher beladen; außerhalb der Freigabe können sie Bedarfe decken. Die Grafik zeigt das Prinzip, keinen für jedes Quartier identischen Fahrplan."><img src="illustrations/userflexmodel.svg" class="manual-figure img-fluid figure-img" alt="Zusammenspiel von Wärmepumpen, thermischer Gebäudemasse, stationärer Batterie und gepoolter E-Mobilität. Bei einem Freigabesignal werden nutzbare Speicher beladen; außerhalb der Freigabe können sie Bedarfe decken. Die Grafik zeigt das Prinzip, keinen für jedes Quartier identischen Fahrplan."></a></p>
+<p><a href="illustrations/userflexmodel.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Zusammenspiel von Wärmepumpen, thermischer Gebäudemasse, stationärer Batterie und gepoolter E-Mobilität. Bei einem Freigabesignal werden nutzbare Speicher beladen; außerhalb der Freigabe können sie Bedarfe decken. Die Grafik zeigt das Prinzip, keinen für jedes Quartier identischen Fahrplan."><img src="illustrations/userflexmodel.svg" class="manual-figure img-fluid figure-img" alt="Zusammenspiel von Wärmepumpen, thermischer Gebäudemasse, stationärer Batterie und gepoolter E-Mobilität. Bei einem Freigabesignal werden nutzbare Speicher beladen; außerhalb der Freigabe können sie Bedarfe decken. Die Grafik zeigt das Prinzip, keinen für jedes Quartier identischen Fahrplan."></a></p>
 <figcaption>Zusammenspiel von Wärmepumpen, thermischer Gebäudemasse, stationärer Batterie und gepoolter E-Mobilität. Bei einem Freigabesignal werden nutzbare Speicher beladen; außerhalb der Freigabe können sie Bedarfe decken. Die Grafik zeigt das Prinzip, keinen für jedes Quartier identischen Fahrplan.</figcaption>
 </figure>
 </div>
-<p>Lokale PV-Überschüsse und ein externes Signal sind getrennte Anlässe für flexible Nutzung. Ein Signal gibt Anwendungen innerhalb ihrer Grenzen frei. Ob tatsächlich Energie aufgenommen wird, hängt von verfügbarem Überschuss beziehungsweise Bezug, Anlagenleistung und Speicherzustand ab.</p>
+<p>Das Modell unterscheidet zwei Signaltypen für die flexible Nutzung:</p>
+<ul>
+<li><strong>Lokale PV-Überschüsse</strong> zeigen an, dass vor Ort erzeugter PV-Strom für zusätzliche Anwendungen verfügbar ist.</li>
+<li><strong>Ein externes Freigabesignal</strong> erlaubt flexible Nutzung auf Grundlage einer externen Zeitreihe. Das im Tool hinterlegte Signal basiert auf Windkraftüberschüssen in Österreich. Für eigene Untersuchungen können externe Freigaben auch aus anderen Quellen abgeleitet werden, etwa aus stündlichen CO₂-Intensitäten.</li>
+</ul>
+<p>Die <strong>Flexibilitätspotenziale</strong> des Quartiers bestimmen, wie eine Freigabe genutzt werden kann. Ob tatsächlich Energie aufgenommen wird, hängt von verfügbarem Überschuss beziehungsweise Bezug, Anlagenleistung und Speicherzustand ab.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="media/manual/dispatch.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Stromflüsse: Deckungsreihenfolge, Mindestbedarfe und flexible Speicherladung. Quelle: PEExcel-Schulung; die tatsächlich aktiven Pfade hängen von der Modellkonfiguration ab."><img src="media/manual/dispatch.png" class="manual-figure img-fluid figure-img" alt="Stromflüsse: Deckungsreihenfolge, Mindestbedarfe und flexible Speicherladung. Quelle: PEExcel-Schulung; die tatsächlich aktiven Pfade hängen von der Modellkonfiguration ab."></a></p>
+<figcaption>Stromflüsse: Deckungsreihenfolge, Mindestbedarfe und flexible Speicherladung. Quelle: PEExcel-Schulung; die tatsächlich aktiven Pfade hängen von der Modellkonfiguration ab.</figcaption>
+</figure>
+</div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
@@ -661,7 +667,7 @@ ul.task-list li input[type="checkbox"] {
 </colgroup>
 <thead>
 <tr class="header">
-<th>Flexibilitätsoption</th>
+<th>Flexibilitätspotenzial</th>
 <th>Was wird getan?</th>
 <th>Was begrenzt die Nutzung?</th>
 <th>Was zeigt die Wirkung?</th>
@@ -694,7 +700,10 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<p>Die Mindestversorgung bleibt Bestandteil der Simulation. Flexible Beladung nutzt den darüber hinaus verfügbaren Spielraum. Ein hoher Freigabeanteil allein sagt deshalb wenig über die tatsächlich verschobene Energiemenge aus. ## Freigaben und Quellen {#excel-flexibilitaet}</p>
+<p>Die Mindestversorgung bleibt Bestandteil der Simulation. Flexible Beladung nutzt den darüber hinaus verfügbaren Spielraum. Ein hoher Freigabeanteil allein sagt deshalb wenig über die tatsächlich verschobene Energiemenge aus.</p>
+</section>
+<section id="excel-flexibilitaet" class="level2">
+<h2 class="anchored" data-anchor-id="excel-flexibilitaet">Freigaben und Quellen</h2>
 <section id="im-excel-tool" class="level3 excel-operation">
 <h3 class="anchored" data-anchor-id="im-excel-tool">Im Excel-Tool</h3>
 <p>PV-Überschussnutzung und <span class="excel-field">Signal verwenden</span> getrennt prüfen. Festlegen, welche Anwendungen das Signal nutzen dürfen und welche Leistungsgrenzen gelten. <a href="./presets.html">Presets</a> dienen der Vorauswahl; entscheidend sind die tatsächlichen Schalter und Parameter.</p>

@@ -2,7 +2,7 @@
 
 - **[Mechanische Lüftung](preset-catalog.qmd#preset-ventilation_system):** Für eine Anlage mit Wärmerückgewinnung gibt es passende Standardfälle; kontrolliere die Winter- und Sommerwerte.
 
-- **[Mechanisch belüftete Nutzungen](preset-catalog.qmd#preset-vent_modes):** Wenn nur Nichtwohnflächen mechanisch belüftet werden, beginne mit Nichtwohnen.
+- **[Mechanisch belüftete Nutzungen](preset-catalog.qmd#preset-vent_modes):** Wenn nur Nichtwohnflächen mechanisch belüftet werden, beginne mit [Mechanische Lüftung in Nicht-Wohn-Nutzungen]{.excel-value}.
 
 - **[Nachtauskühlung](preset-catalog.qmd#preset-vent_night_modes):** Für Wohnen sind einseitige Lüftung und Querlüftung hinterlegt. Prüfe Öffnungen und tatsächlich nutzbare Flächen.
 

@@ -4,7 +4,7 @@
 
 - **[Kühlsystem](preset-catalog.qmd#preset-cooling_system):** Für eine reversible Wärmepumpe stehen mehrere Standardfälle bereit, darunter eine Konfiguration mit FreeCooling-Anteil.
 
-- **[Gekühlte Nutzungen](preset-catalog.qmd#preset-cooling_modes):** Soll nur der Nichtwohnanteil gekühlt werden, prüfe den Standardfall Nichtwohnen.
+- **[Gekühlte Nutzungen](preset-catalog.qmd#preset-cooling_modes):** Soll nur der Nichtwohnanteil gekühlt werden, prüfe [Kühlung in Nicht-Wohn-Nutzungen]{.excel-value}.
 
 Prüfe die übernommenen Werte für dein Projekt. [So wendest du Presets an](presets.qmd).
 

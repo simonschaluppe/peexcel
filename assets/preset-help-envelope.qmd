@@ -4,13 +4,13 @@
 
 - **[Hüllqualität nach Baualter](preset-catalog.qmd#preset-hulls):** Für eine erste Bestandsabschätzung wähle Gebäudetyp und Baualter; prüfe anschließend die tatsächlichen Bauteile.
 
-- **[Geometrische Verschattung](preset-catalog.qmd#preset-shading_geometry):** Die hinterlegte ÖNORM-Auswahl bietet einen Ausgangspunkt; gleiche sie mit der örtlichen Verschattung ab.
+- **[Geometrische Verschattung](preset-catalog.qmd#preset-shading_geometry):** Die Auswahl [ÖNORM 8110:6 (57% exkl. Rahmenanteil)]{.excel-value} bietet einen Ausgangspunkt; gleiche sie mit der örtlichen Verschattung ab.
 
 - **[Luftdichtheit](preset-catalog.qmd#preset-air_tightness):** Wähle einen zum Gebäudestandard passenden Ansatz, etwa Altbau oder Neubau mit mechanischer Lüftung.
 
-- **[Speichermasse](preset-catalog.qmd#preset-building_mass):** Ordne eine leichte, mittlere oder schwere Bauweise als erste thermische Annahme zu.
+- **[Speichermasse](preset-catalog.qmd#preset-building_mass):** Wähle für eine erste thermische Annahme beispielsweise [Leicht (z.B. Holzbau, 60 Wh/m²K)]{.excel-value} und prüfe die wirksame Speichermasse.
 
-- **[Mobiler Sonnenschutz](preset-catalog.qmd#preset-mobile_shading):** Wähle die vorhandene Sonnenschutzart, beispielsweise einen innenliegenden Rollo oder eine Außenjalousie.
+- **[Mobiler Sonnenschutz](preset-catalog.qmd#preset-mobile_shading):** Wähle die vorhandene Sonnenschutzart, beispielsweise [Heller Rollo/Vorhang innen]{.excel-value} oder [Außenraffstore / -jalousie]{.excel-value}.
 
 Prüfe die übernommenen Werte für dein Projekt. [So wendest du Presets an](presets.qmd).
 

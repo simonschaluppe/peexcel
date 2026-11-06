@@ -1,8 +1,8 @@
 ::: {.callout-note collapse=true title="Noch keine eigenen Werte? Standardfälle nutzen"}
 
-- **[Warmwasserbedarf](preset-catalog.qmd#preset-dhw_demand):** Für den Deklarationsfall gibt es eine eigene Belegung. Die OIB-Auswahlen sind im Export ausdrücklich als noch nicht hinterlegt bezeichnet.
+- **[Warmwasserbedarf](preset-catalog.qmd#preset-dhw_demand):** Für den Deklarationsfall gibt es [klimaaktiv Deklaration]{.excel-value}. Die OIB-Auswahlen sind im Export ausdrücklich als noch nicht hinterlegt bezeichnet.
 
-- **[Nutzerstrom](preset-catalog.qmd#preset-plugloads):** Für die Deklaration verwende die entsprechend benannte Belegung. Kein Nutzerstrom ist für Studienzwecke bezeichnet; SIA2024 trägt den Auswahltext Veraltet.
+- **[Nutzerstrom](preset-catalog.qmd#preset-plugloads):** Für die Deklaration verwende [Deklaration]{.excel-value}. [Kein Nutzerstrom]{.excel-value} ist für Studienzwecke bezeichnet; SIA2024 trägt den Auswahltext [Veraltet]{.excel-value}.
 
 Prüfe die übernommenen Werte für dein Projekt. [So wendest du Presets an](presets.qmd).
 
