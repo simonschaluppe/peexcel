@@ -9,8 +9,8 @@ project:
     - "!en/**"
   # pre-render:
   #  - python ../scripts/website_assets.py
-  # post-render:
-  #   - python ../scripts/render_english_site.py
+  post-render:
+    - python ../scripts/render_english_site.py
   resources:
     - output-catalog.js
     - illustrations/**
