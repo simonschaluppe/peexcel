@@ -2,10 +2,10 @@
 title: "Heating, cooling, hot water and ventilation"
 ---
 
-Use PEExcel to compare supply concepts at district scale: how do heat pumps, district heating, FreeCooling or heat recovery change heat and electricity balances? Inputs describe usable capacities, efficiencies and supply shares. They support concept assessment, rather than detailed design of individual systems or their controls.
+Use PEXL to compare supply concepts at district scale: how do heat pumps, district heating, FreeCooling or heat recovery change heat and electricity balances? Inputs describe usable capacities, efficiencies and supply shares. They support concept assessment, rather than detailed design of individual systems or their controls.
 
 ::: {.excel-operation}
-**Where in PEExcel?** Use [🔥H]{.excel-menu .darkred} **Heizung** (heating), [❄K]{.excel-menu .darkred} **Kühlung** (cooling), [💧WW]{.excel-menu .darkred} **Warmwasser** (hot water) and [💨L]{.excel-menu .darkred} **Lüftung** (ventilation). Start with a typical configuration through quick selection on the **klimaaktiv PEQ** ribbon or the relevant sheet, then adapt it.
+**Where in PEXL?** Use [🔥H]{.excel-menu .darkred} **Heizung** (heating), [❄K]{.excel-menu .darkred} **Kühlung** (cooling), [💧WW]{.excel-menu .darkred} **Warmwasser** (hot water) and [💨L]{.excel-menu .darkred} **Lüftung** (ventilation). Start with a typical configuration through quick selection on the **klimaaktiv PEQ** ribbon or the relevant sheet, then adapt it.
 :::
 
 ## Heating {#heizung}
@@ -80,4 +80,4 @@ After calculation, check ventilation heat losses, heating and cooling demand, an
 
 The annotated screenshots show example configurations from a development version supplied by the project team. Their values are not general design recommendations. Click images to enlarge.[^hvac]
 
-[^hvac]: Screenshots and technical explanations by the project team; [PEExcel training, slides 9, 11 and 15](../downloads/schulung.pdf#page=11) and manual pp. 49–60 (German).
+[^hvac]: Screenshots and technical explanations by the project team; [PEXL training, slides 9, 11 and 15](../downloads/schulung.pdf#page=11) and manual pp. 49–60 (German).

@@ -4,7 +4,7 @@ title: "Verification and declaration"
 
 {{< include _includes/preset-help-declaration.qmd >}}
 
-**Declaration values are mandatory requirements for a declaration, not technical model limits.** PEExcel can calculate different assumptions. Document whether a variant is exploratory or prepared for klimaaktiv verification.
+**Declaration values are mandatory requirements for a declaration, not technical model limits.** PEXL can calculate different assumptions. Document whether a variant is exploratory or prepared for klimaaktiv verification.
 
 ## What may vary, and what applies to verification?
 
@@ -32,7 +32,7 @@ AUDIT supports quality assurance. This website performs no separate eligibility 
 
 ## Verification sheets {#excel-nachweise}
 
-**Where in PEExcel?** [PEQ]{.excel-menu .darkred} (positive energy district), [PEQ+M]{.excel-menu .orange} (PED with mobility) and [KN PEQ]{.excel-menu .teal} (climate-neutral PED).
+**Where in PEXL?** [PEQ]{.excel-menu .darkred} (positive energy district), [PEQ+M]{.excel-menu .orange} (PED with mobility) and [KN PEQ]{.excel-menu .teal} (climate-neutral PED).
 
 ::: {.excel-path}
 **Ribbon:** klimaaktiv PEQ → Nachweise → PEQ im Betrieb / PEQ mit Mobilität / Klimaneutrales PEQ
@@ -44,12 +44,12 @@ The sheets summarise project value, target or budget, and difference for each bo
 
 For verification, align entered areas and use shares with project documents. Also check calculated net floor areas, volumes and floor-area ratio. Document the sources so model and submitted project version can be traced.
 
-**Where in PEExcel?** [AUDIT]{.excel-menu .red} (quality assurance).
+**Where in PEXL?** [AUDIT]{.excel-menu .red} (quality assurance).
 
 AUDIT supports **automated plausibility checks**, showing deviations from predefined declaration values for the current variant. A deviation need not be a modelling error; review it for verification and justify it in the audit report. Justification alone does not replace professional acceptance of a deviation.
 
 ::: {.excel-operation}
-**Where in PEExcel?** Save project/variant name, tool version and calculation state. Check data sources and boundaries; address AUDIT notices individually. Apply mandatory requirements or clarify deviations professionally. File results and export with verification documentation.
+**Where in PEXL?** Save project/variant name, tool version and calculation state. Check data sources and boundaries; address AUDIT notices individually. Apply mandatory requirements or clarify deviations professionally. File results and export with verification documentation.
 :::
 
 Source: [Training, slides 4 and 35](../downloads/schulung.pdf#page=35) (German).

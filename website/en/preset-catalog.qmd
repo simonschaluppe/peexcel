@@ -1,6 +1,6 @@
 ---
 title: "Preset catalogue"
-description: "Available standard cases and actual values from PEExcel 1.13.1-Dev."
+description: "Available standard cases and actual values from PEXL 1.13.1-Dev."
 ---
 
 Presets set several inputs together. Look up **actual values from the current Excel export** and find suitable standard cases here. The [guide](presets.qmd) explains selection in the tool.

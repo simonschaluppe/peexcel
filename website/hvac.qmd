@@ -3,7 +3,7 @@ title: "Heizung, Kühlung, Warmwasser und Lüftung"
 ---
 
 
-Mit PEExcel kannst du Versorgungskonzepte auf Quartiersebene vergleichen: Wie verändern Wärmepumpe, Fernwärme, FreeCooling oder Wärmerückgewinnung die Wärme- und Strombilanz? Die Eingaben beschreiben dafür nutzbare Leistungen, Effizienzen und Versorgungsanteile. Sie dienen der Konzeptbewertung; eine detaillierte Auslegung einzelner Anlagen oder ihrer Regelung ist damit nicht verbunden.
+Mit PEXL kannst du Versorgungskonzepte auf Quartiersebene vergleichen: Wie verändern Wärmepumpe, Fernwärme, FreeCooling oder Wärmerückgewinnung die Wärme- und Strombilanz? Die Eingaben beschreiben dafür nutzbare Leistungen, Effizienzen und Versorgungsanteile. Sie dienen der Konzeptbewertung; eine detaillierte Auslegung einzelner Anlagen oder ihrer Regelung ist damit nicht verbunden.
 
 ::: {.excel-operation}
 **Wo findest du die Funktionen?** Verwende die Blätter [🔥H]{.excel-menu .darkred} **Heizung**, [❄K]{.excel-menu .darkred} **Kühlung**, [💧WW]{.excel-menu .darkred} **Warmwasser** und [💨L]{.excel-menu .darkred} **Lüftung**. Über die Schnellauswahl im Menüband **klimaaktiv PEQ** oder im jeweiligen Blatt kannst du mit einer typischen Konfiguration beginnen und sie anschließend anpassen.
@@ -81,4 +81,4 @@ Prüfe nach der Berechnung die Lüftungswärmeverluste, den Heiz- und Kühlbedar
 
 Die markierten Bedienansichten zeigen vom Projektteam bereitgestellte Beispielkonfigurationen einer Entwicklungsfassung. Die Zahlen sind keine allgemeinen Auslegungsempfehlungen. Die Bilder lassen sich durch Anklicken vergrößern.[^hvac]
 
-[^hvac]: Bedienansichten und fachliche Erläuterungen des Projektteams; ergänzend [PEExcel-Schulung, Folien 9, 11 und 15](downloads/schulung.pdf#page=11) und Handbuch S. 49–60.
+[^hvac]: Bedienansichten und fachliche Erläuterungen des Projektteams; ergänzend [PEXL-Schulung, Folien 9, 11 und 15](downloads/schulung.pdf#page=11) und Handbuch S. 49–60.

@@ -4,7 +4,7 @@ title: "Modelling the district"
 
 {{< include _includes/preset-help-model.qmd >}}
 
-PEExcel connects the physical simulation of a district with assessment of its energy and climate impacts. Describe buildings, uses and supply, calculate their interactions and compare results. These interactions are particularly useful: a larger PV system, different heat supply or change in use affects several energy flows at once.
+PEXL connects the physical simulation of a district with assessment of its energy and climate impacts. Describe buildings, uses and supply, calculate their interactions and compare results. PV sizing, heat supply and use affect the timing of grid electricity imports. Together with the conversion factors applied, this changes operational primary-energy and greenhouse gas balances.
 
 ## Inputs → simulation → analysis
 
@@ -26,20 +26,20 @@ The model connects sources, conversion, storage and uses within the district bou
 
 ![District energy model: sources, supply systems, storage and uses connected by energy flows.](../media/manual/energy-model.png){.manual-figure fig-alt="Energy model with grid import, PV, batteries, heat supply, building mass, hot-water storage and uses."}
 
-The diagram helps trace a measure's implications. A heat pump changes both heat supply and electricity demand. Its timing in turn affects [PV generation](pv.qmd) and [storage and flexibility](systems.qmd). [Electric mobility](mobility.qmd) also adds charging demand and available storage capacity.
+A heat pump couples heat supply and electricity demand; [PV generation](pv.qmd), storage and [electric mobility](mobility.qmd) change the remaining grid flows. [External enable signals](systems.qmd#excel-flexibilitaet) model when flexible applications may take up additional energy. Variant comparisons show the effects on grid imports, primary energy and greenhouse gas emissions under the selected assessment assumptions.
 
 ### Life-cycle assessment
 
-LCA extends the view from ongoing operation to emissions from construction and refurbishment, and the biogenic storage considered. Operational energy and construction measures can thus be assessed together over the study period.
+Assessing climate neutrality requires embodied emissions as well as operation. PEXL provides a simplified life-cycle balance covering construction, operation, refurbishment and the biogenic storage considered. New construction and refurbishment differ in the interventions required and remaining energy-saving potential: assess additional material-related emissions together with operational savings.
 
 ![Life-cycle assessment: operational energy, construction, refurbishment and biogenic storage contribute to emissions over time.](../media/manual/lifecycle.png){.manual-figure fig-alt="Cumulative emissions with operational, construction, refurbishment and biogenic-storage contributions."}
 
-The method determines the contributions and changes over time included. The [LCA page](climate.qmd) explains the study period, decarbonisation and boundaries. For example, assess operational savings together with the construction effort required to achieve them.
+Contributions are **accumulated over the study period**, rather than assessed as an annual indicator in kg CO₂e/m²/year. Changing emission factors affect the total. The budget is derived from a remaining climate budget; the [background report (German)](https://simonschaluppe.github.io/peq-higrube/Kapitel/03-zielwert-thg.html) explains the climate target and allocation assumptions. The [LCA page](climate.qmd) explains the period, decarbonisation and accounting rules applicable to new construction and refurbishment.
 
 ## Entering the district {#quartier-eingeben}
 
 ::: {.excel-operation}
-**Where in PEExcel?** Open [🏙]{.excel-menu .darkred} **Quartier**. Define project, location and floor areas by use. The subsequent sheets build on these inputs.
+**Where in PEXL?** Open [🏙]{.excel-menu .darkred} **Quartier**. Define project, location and floor areas by use. The subsequent sheets build on these inputs.
 :::
 
 | Section | What you define |
@@ -55,4 +55,4 @@ From area and height inputs, the tool derives net floor areas, volumes and floor
 
 Save configurations as [variants](variants.qmd) to investigate different measures. For a later declaration, see [quality assurance](declaration.qmd#qualitaetssicherung) for comparison with project documents.
 
-[^modell]: Figures by the project team; [PEExcel training, slides 7–16 and 30](../downloads/schulung.pdf) (German). See [preparing data](interfaces.qmd) for data transfer.
+[^modell]: Figures by the project team; [PEXL training, slides 7–16 and 30](../downloads/schulung.pdf) (German). See [preparing data](interfaces.qmd) for data transfer.

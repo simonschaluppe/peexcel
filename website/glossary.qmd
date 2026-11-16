@@ -1,12 +1,12 @@
 ---
 title: "Begriffe, Parameter und Kennzahlen"
-description: "PEExcel-Begriffe verstehen und alle im aktiven Schema definierten IN- und OUT-Variablen durchsuchen."
+description: "PEXL-Begriffe verstehen und alle im aktiven Schema definierten IN- und OUT-Variablen durchsuchen."
 ---
 
 [Preset-Katalog: Standardfälle und konkrete Werte nachschlagen](preset-catalog.qmd)
 
 
-Welche Eingaben verwendet PEExcel, welche Zahlen liefert das Tool – und wie sind sie zu lesen?
+Welche Eingaben verwendet PEXL, welche Zahlen liefert das Tool – und wie sind sie zu lesen?
 Hier findest du die wichtigsten Begriffe sowie die **vollständigen IN- und OUT-Kataloge**
 mit Einheiten, Labels und Zuordnungen aus dem aktiven Schema.
 
@@ -57,7 +57,7 @@ Fehlende Angaben im Schema werden unten ausdrücklich als solche angezeigt.
 
 ### Orientierung im Tool
 
-| Begriff | Bedeutung im PEExcel-Workflow |
+| Begriff | Bedeutung im PEXL-Workflow |
 |---|---|
 | PEQ | Plus-Energie-Quartier mit definierter Systemgrenze und Qualitätsstufe. |
 | Variante / Szenario | Dokumentierter Satz von Annahmen und zugehörigen gespeicherten Ergebnissen. |

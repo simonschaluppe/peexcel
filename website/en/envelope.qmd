@@ -10,19 +10,9 @@ Two thermally decoupled model zones
 
 The model distinguishes an **actively cooled zone and a zone without active cooling, thermally decoupled from one another**.[^rc-modell]
 
-Solar gains enter through windows; internal heat gains arise inside the room. Transmission and ventilation are shown as examples of heat removal; their actual direction depends on conditions.
+Solar gains enter through windows; internal heat gains arise inside the room.
 
 ![Thermal energy model with two thermally decoupled zones, heat flows and example balances.](../illustrations/thermisches_modell.svg){.manual-figure}
-
-<!-- Interactive embed paused for page performance.
-<iframe class="peq-lesson" data-fit src="../assets/teaching/index.html" title="Interactive section: components, envelope and heat flows"></iframe>
--->
-
-::: {.callout-tip appearance="simple" title="Explore the model yourself"}
-Display components, the balance boundary and heat flows separately and explore their spatial relationships in the interactive section. Its interface is in German.
-
-[Open section view](../assets/teaching/index.html) · [Executable notebook (German)](../tutorial_gebaeudeschnitt.html)
-:::
 
 ::: {.callout-warning title="Caution"}
 [LCA](climate.qmd) also includes constructions inside and outside the thermal boundary. Thermal envelope area and component quantities recorded for LCA are not interchangeable.
@@ -30,10 +20,10 @@ Display components, the balance boundary and heat flows separately and explore t
 
 ## Entering building-physics inputs {#excel-bauphysik}
 
-Describe the areas and properties of components that determine the district's heat exchange. The interactive view helps distinguish the thermal boundary from component assignment.
+Describe the areas and properties of components that determine the district's heat exchange.
 
 ::: {.excel-operation}
-**Where in PEExcel?** Open [🧱]{.excel-menu .darkred} **Bauphysik** (building physics).
+**Where in PEXL?** Open [🧱]{.excel-menu .darkred} **Bauphysik** (building physics).
 :::
 
 ### Inputs on the building-physics sheet
@@ -52,6 +42,12 @@ Apply [presets](presets.qmd), then check project-specific areas and properties. 
 **Declaration:** Internal heat gains and user electricity can in principle be modelled freely. For a declaration, use the designated values of the tool version in use.
 :::
 
-The section view uses a schematic reference building.
+::: {.callout-note collapse=true title="Research / Expert"}
+**Combining different component areas:** Inputs are aggregated by component group and orientation. Add only areas with the same boundary condition. For U-values, use $U_\mathrm{eq}=\sum_i A_i U_i/\sum_i A_i$, preserving the transmission conductance $\sum_i A_i U_i$.
 
-[^rc-modell]: Each zone uses a simplified thermal RC model with one thermal mass: heat capacity C represents storage, and resistances R represent heat exchange. No heat exchange is assumed between the two zones. The model supports energy concept assessment; it is not a detailed multi-zone room model. Explanation by the project team; [PEExcel training, slides 11–14](../downloads/schulung.pdf) (German).
+Worked example: 100 m² of wall at 0.20 W/(m² K) and 50 m² at 0.40 W/(m² K) give 150 m² at approximately 0.267 W/(m² K). Treat windows and opaque walls separately.
+
+Window U-values refer to the whole window including the frame; g-values refer to glazing. Weight g-values by glazing area and account for frame fractions and shading separately. Do not combine orientations. This simplification assumes comparable solar exposure and boundary conditions; document component areas and assumptions.
+:::
+
+[^rc-modell]: According to the project team, the thermal calculation follows the simplified dynamic approach of ÖNORM B 8110-6. This identifies the methodological basis, not a claim of full compliance with the standard. Each zone uses a simplified thermal RC model with one thermal mass: heat capacity C represents storage, and resistances R represent heat exchange. No heat exchange is assumed between the two zones. The model supports energy concept assessment; it is not a detailed multi-zone room model. Explanation by the project team; [PEXL training, slides 11–14](../downloads/schulung.pdf) (German).

@@ -4,10 +4,12 @@ title: "PV inputs"
 
 {{< include _includes/preset-help-pv.qmd >}}
 
-How much of your local PV generation can the district use itself? PEExcel connects hourly generation with electricity demand, storage charging and grid feed-in. Investigate how system size and timing affect supply. For an initial model, size PV using roof area. For a specific system design, use your own externally simulated generation profile.
+How much of your local PV generation can the district use itself? PEXL connects hourly generation with electricity demand, storage charging and grid feed-in. Investigate how system size and timing affect supply. For an initial model, size PV using roof area. For a specific system design, use your own externally simulated generation profile.
+
+The [Seestadt Aspern example](examples.qmd#aspern-f7) and its [executable analysis notebook (German)](../tutorial_stromprofile.html) show seasonal profiles and hourly PV use, grid imports and exports. They help identify the timing of surpluses and questions for further investigation; the selected export channels do not constitute a complete connection-capacity or grid-capacity assessment.
 
 ::: {.excel-operation}
-**Where in PEExcel?** Select and size the system on [🌞 PV]{.excel-menu .darkred} (**Photovoltaik**). Enter hourly profiles on **PV-Import**. Quick selection is also available on the **klimaaktiv PEQ** ribbon.
+**Where in PEXL?** Select and size the system on [🌞 PV]{.excel-menu .darkred} (**Photovoltaik**). Enter hourly profiles on **PV-Import**. Quick selection is also available on the **klimaaktiv PEQ** ribbon.
 :::
 
 ## Simplified inputs: roof-area scaling {#dachflaechen-skalierung}
@@ -40,4 +42,4 @@ The screenshots come from a supplied development version and show example values
 
 [Weather data](interfaces.qmd#wetter) · [Storage and flexibility](systems.qmd) · [PV LCA and assessment boundary](climate.qmd)
 
-[^pv]: Screenshots and explanations by the project team; [PEExcel training, slides 9, 15 and 31](../downloads/schulung.pdf#page=31) (German).
+[^pv]: Screenshots and explanations by the project team; [PEXL training, slides 9, 15 and 31](../downloads/schulung.pdf#page=31) (German).

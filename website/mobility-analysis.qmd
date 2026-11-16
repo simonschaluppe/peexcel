@@ -2,7 +2,7 @@
 title: "Mobilitätsverhalten analysieren"
 ---
 
-**Standzeiten bestimmen, wann Elektrofahrzeuge Energie aufnehmen und abgeben können.** PEExcel verknüpft stündliche Anwesenheit und Fahrbedarf mit PV, Ladeinfrastruktur und dem übrigen Quartiersbedarf. Der Vergleich von Nutzungen und Jahreszeiten zeigt, wo flexible Ladung wirksam wird.
+**Standzeiten bestimmen, wann Elektrofahrzeuge Energie aufnehmen und abgeben können.** PEXL verknüpft stündliche Anwesenheit und Fahrbedarf mit PV, Ladeinfrastruktur und dem übrigen Quartiersbedarf. Der Vergleich von Nutzungen und Jahreszeiten zeigt, wo flexible Ladung wirksam wird.
 
 [Mobilitätsmodell und Eingaben](mobility.qmd) · [Excel-Dashboard](excel-dashboard.qmd) · [Flexibilität](flexibility.qmd)
 

@@ -3,7 +3,7 @@ title: "Comparing variants"
 ---
 
 ::: {.excel-operation}
-**Where in PEExcel?** [🔎 var]{.excel-menu .red} (**Variantenvergleich**).
+**Where in PEXL?** [🔎 var]{.excel-menu .red} (**Variantenvergleich**).
 :::
 
 Compare results of saved configurations, investigating individual measures and packages on the same accounting basis.

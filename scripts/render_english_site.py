@@ -40,9 +40,24 @@ def build():
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(source, target)
     shutil.copy2(website / "output-catalog.js", output / "output-catalog.js")
+    _write_tutorial_redirects(output)
     print("English preview ready: quarto preview website --no-render --no-execute --no-watch-inputs")
     print("Open /en/ in the preview. Existing German tutorial pages are reused.")
     return output / "en" / "index.html"
+
+
+def _write_tutorial_redirects(output):
+    """Keep two existing URLs pointing at the maintained tutorial pages."""
+    for legacy, current in (("assessment.html", "tutorial_bewertung.html"),
+                            ("batch-python.html", "tutorial_batch.html")):
+        (output / legacy).write_text(
+            '<!doctype html><html lang="de"><meta charset="utf-8">'
+            '<meta name="viewport" content="width=device-width,initial-scale=1">'
+            '<title>PEXL Tutorial</title>'
+            f'<meta http-equiv="refresh" content="0;url={current}">'
+            f'<p><a href="{current}">Zum PEXL-Tutorial / Open tutorial</a></p></html>',
+            encoding="utf-8",
+        )
 
 
 if __name__ == "__main__":

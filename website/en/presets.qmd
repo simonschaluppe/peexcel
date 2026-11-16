@@ -9,7 +9,7 @@ title: "Quick selection with presets"
 This speeds up model creation and comparison of design variants. Adapt the applied values to your project afterwards.
 
 ::: {.excel-operation}
-**Where in PEExcel?** [▶]{.excel-menu .darkred} **Quick Start** → [Schnellauswahl]{.excel-section} (quick selection).
+**Where in PEXL?** [▶]{.excel-menu .darkred} **Quick Start** → [Schnellauswahl]{.excel-section} (quick selection).
 
 Alternatively, select presets on individual technical sheets or the **klimaaktiv PEQ** ribbon.
 :::
@@ -19,7 +19,7 @@ Alternatively, select presets on individual technical sheets or the **klimaaktiv
 ## Applying a preset
 
 ::: {.excel-operation}
-**Where in PEExcel?**
+**Where in PEXL?**
 
 1. **Save the baseline:** [Save the current inputs as a variant](variants.qmd).
 2. **Select a preset:** Choose the desired configuration in quick selection.
@@ -74,4 +74,4 @@ Check technical capacities, system shares, setpoints, losses and activation swit
 **Declaration:** Replace examples and estimates with suitable project data. Parameters marked as declaration values are mandatory for verification, although free model variants may use different values.
 :::
 
-Source: [PEExcel training, slides 8, 29 and 34](../downloads/schulung.pdf#page=34) (German).
+Source: [PEXL training, slides 8, 29 and 34](../downloads/schulung.pdf#page=34) (German).

@@ -5,7 +5,7 @@ title: "PV-Eingabe"
 {{< include assets/preset-help-pv.qmd >}}
 
 
-Wie viel deiner lokalen PV-Erzeugung kann das Quartier selbst nutzen? PEExcel verknüpft das stündliche Erzeugungsprofil mit Strombedarf, Speicherladung und Netzeinspeisung. So lässt sich untersuchen, wie sich Anlagengröße und zeitlicher Verlauf auf die Versorgung auswirken. Für den Einstieg kannst du die PV vereinfacht über die Dachfläche dimensionieren. Für ein konkretes Anlagenkonzept verwendest du ein eigenes, extern simuliertes Erzeugungsprofil.
+Wie viel deiner lokalen PV-Erzeugung kann das Quartier selbst nutzen? PEXL verknüpft das stündliche Erzeugungsprofil mit Strombedarf, Speicherladung und Netzeinspeisung. So lässt sich untersuchen, wie sich Anlagengröße und zeitlicher Verlauf auf die Versorgung auswirken. Das [Praxisbeispiel aus der Seestadt Aspern](examples.qmd#aspern-f7) und das zugehörige [ausführbare Auswertungsnotebook](tutorial_stromprofile.ipynb) zeigen saisonale Profile und Stundenverläufe von PV-Nutzung, Netzbezug und Einspeisung. Damit lassen sich zeitliche Überschüsse und Bedarf an näherer Untersuchung erkennen; die ausgewählten Exportkanäle ersetzen keinen vollständigen Anschlussleistungs- oder Netzkapazitätsnachweis. Für den Einstieg kannst du die PV vereinfacht über die Dachfläche dimensionieren. Für ein konkretes Anlagenkonzept verwendest du ein eigenes, extern simuliertes Erzeugungsprofil.
 
 ::: {.excel-operation}
 **Wo findest du die Funktionen?** Im Blatt [🌞 PV]{.excel-menu .darkred} ("Photovoltaik") wählst und dimensionierst du die Anlage. Eigene Stundenprofile hinterlegst du im Blatt [PV-Import]{.excel-menu .darkred}. Die Schnellauswahl erreichst du auch über das Menüband **klimaaktiv PEQ**.
@@ -41,4 +41,4 @@ Die Bedienansichten stammen aus einer bereitgestellten Entwicklungsfassung und z
 
 [Wetterdaten](interfaces.qmd#wetter) · [Speicher und Flexibilität](systems.qmd) · [PV-LCA und Bewertungsgrenze](climate.qmd)
 
-[^pv]: Bedienansichten und Erläuterungen des Projektteams; ergänzend [PEExcel-Schulung, Folien 9, 15 und 31](downloads/schulung.pdf#page=31).
+[^pv]: Bedienansichten und Erläuterungen des Projektteams; ergänzend [PEXL-Schulung, Folien 9, 15 und 31](downloads/schulung.pdf#page=31).

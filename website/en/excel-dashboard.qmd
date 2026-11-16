@@ -3,7 +3,7 @@ title: "Excel dashboard"
 ---
 
 ::: {.excel-operation}
-**Where in PEExcel?** [📈]{.excel-menu .red} (**Dashboard**).
+**Where in PEXL?** [📈]{.excel-menu .red} (**Dashboard**).
 :::
 
 The dashboard shows **hourly energy flows** and storage states. A common time window lets you examine demand, supply and storage response together. The [Python scenario explorer](dashboard.qmd) is a separate application.
@@ -15,7 +15,7 @@ The dashboard shows **hourly energy flows** and storage states. A common time wi
 ## Selecting a period and hourly profiles
 
 ::: {.excel-operation}
-**Where in PEExcel?**
+**Where in PEXL?**
 
 1. Select a period under [Datum auswählen]{.excel-action}; use the timeline for contiguous ranges.
 2. Choose a manageable window, such as one week. **TAGE** in the screenshot sets the date window; it is not itself evidence of hourly aggregation.

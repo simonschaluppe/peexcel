@@ -3,7 +3,7 @@ title: "Results and indicators"
 ---
 
 ::: {.excel-operation}
-**Where in PEExcel?** [📊 Erg]{.excel-menu .red} (**Ergebnisse**).
+**Where in PEXL?** [📊 Erg]{.excel-menu .red} (**Ergebnisse**).
 :::
 
 This sheet contains tables and charts for the currently calculated variant. It is distinct from the internal **OUT** results store and the [Excel dashboard](excel-dashboard.qmd) for time-resolved analysis.

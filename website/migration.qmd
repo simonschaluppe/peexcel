@@ -2,12 +2,12 @@
 title: "Migration auf eine neue Toolversion"
 ---
 
-Wenn du ein bestehendes Projekt mit einer neueren PEExcel-Version weiterbearbeiten möchtest, überträgst du die gespeicherten Varianten über eine **Projekt-Exportdatei**. So kannst du deine bisherigen Eingaben weiterverwenden und von Verbesserungen und Fehlerkorrekturen der neuen Version profitieren. Ein Wechsel auf den aktuellen freigegebenen Stand ist deshalb oft sinnvoll, etwa bevor du eine neue Bearbeitungsphase beginnst. Auf der [Downloadseite](download.qmd) findest du die verfügbaren Versionen und ihre Versionshinweise.
+Wenn du ein bestehendes Projekt mit einer neueren PEXL-Version weiterbearbeiten möchtest, überträgst du die gespeicherten Varianten über eine **Projekt-Exportdatei**. So kannst du deine bisherigen Eingaben weiterverwenden und von Verbesserungen und Fehlerkorrekturen der neuen Version profitieren. Ein Wechsel auf den aktuellen freigegebenen Stand ist deshalb oft sinnvoll, etwa bevor du eine neue Bearbeitungsphase beginnst. Auf der [Downloadseite](download.qmd) findest du die verfügbaren Versionen und ihre Versionshinweise.
 
 In dieser Anleitung exportierst du zunächst deine Varianten aus der bisherigen Arbeitsmappe und importierst sie anschließend in die neue Toolversion.[^migration] Bewahre die bisherige Arbeitsmappe auf: Sie enthält den bisherigen Bearbeitungs- und Rechenstand und hilft dir später beim Vergleich.
 
 ::: {.excel-operation}
-**Wo findest du die Funktionen?** Diese Anleitung führt dich durch den Export und Import im PEExcel-Menüband **klimaaktiv PEQ**, Gruppe **Projekt-Varianten**. Dort findest du [Aktuelle Eingabe speichern]{.excel-action}, [Varianten]{.excel-action} und [Projekt-Datei importieren]{.excel-action}. Die folgenden Schritte zeigen dir, wann du welchen Befehl verwendest.
+**Wo findest du die Funktionen?** Diese Anleitung führt dich durch den Export und Import im PEXL-Menüband **klimaaktiv PEQ**, Gruppe **Projekt-Varianten**. Dort findest du [Aktuelle Eingabe speichern]{.excel-action}, [Varianten]{.excel-action} und [Projekt-Datei importieren]{.excel-action}. Die folgenden Schritte zeigen dir, wann du welchen Befehl verwendest.
 :::
 
 ## 1. Die Variantenverwaltung öffnen
@@ -74,4 +74,4 @@ Für die weitere Bearbeitung verwendest du die Ergebnisse, die du mit der neuen 
 
 Wie du mehrere Projektstände organisierst, erfährst du unter [Varianten verwalten](variants.qmd). Für die anschließende Nachweisführung hilft dir die [Qualitätssicherung für den Nachweis](declaration.qmd#qualitaetssicherung).
 
-[^migration]: PEExcel-Schulung vom 14.10.2026, [Folie 25: Projekt-Export](downloads/schulung.pdf#page=25). Die Bedienansichten wurden vom Projektteam für diese Anleitung bereitgestellt.
+[^migration]: PEXL-Schulung vom 14.10.2026, [Folie 25: Projekt-Export](downloads/schulung.pdf#page=25). Die Bedienansichten wurden vom Projektteam für diese Anleitung bereitgestellt.

@@ -2,7 +2,7 @@
 title: "Analysing mobility behaviour"
 ---
 
-**Parking periods determine when EVs can absorb and supply energy.** PEExcel connects hourly presence and travel demand with PV, charging infrastructure and other district demand. Comparing uses and seasons shows where flexible charging is effective.
+**Parking periods determine when EVs can absorb and supply energy.** PEXL connects hourly presence and travel demand with PV, charging infrastructure and other district demand. Comparing uses and seasons shows where flexible charging is effective.
 
 [Mobility model and inputs](mobility.qmd) · [Excel dashboard](excel-dashboard.qmd) · [Flexibility](flexibility.qmd)
 
@@ -47,7 +47,7 @@ Source: Schneider and Baptista (2025), results, p. 5. Residential vehicles can s
 ## Evaluating your own mobility variant
 
 ::: {.excel-operation}
-**Where in PEExcel?**
+**Where in PEXL?**
 
 1. Save a reference with unchanged building, weather and PV.
 2. On [🚗]{.excel-menu .orange} **Mobilität**, change one assumption, such as EV share, charging power or bidirectional use. Document minimum charge levels and vehicle capacities.

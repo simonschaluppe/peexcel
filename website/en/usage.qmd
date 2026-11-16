@@ -5,13 +5,13 @@ title: "Use parameters"
 {{< include _includes/preset-help-usage.qmd >}}
 
 ::: {.excel-operation}
-**Where in PEExcel?** Sheet [👤]{.excel-menu .darkred} (**Nutzungsparameter**).
+**Where in PEXL?** Sheet [👤]{.excel-menu .darkred} (**Nutzungsparameter**).
 :::
 
 Use data connects floor areas with user electricity, lighting and internal heat gains. Use-specific assumptions affect both electricity demand and the thermal model.
 
 ::: {.excel-operation}
-**Where in PEExcel?**
+**Where in PEXL?**
 
 | Input area | Editing and checking |
 |---|---|

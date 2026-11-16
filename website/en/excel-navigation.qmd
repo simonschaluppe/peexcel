@@ -2,7 +2,7 @@
 title: "Finding your way around Excel"
 ---
 
-PEExcel is organised into input groups, calculation and evaluation. Thematic technical sheets hold the main settings; additional sheets store variants, simulate and present results.
+PEXL is organised into input groups, calculation and evaluation. Thematic technical sheets hold the main settings; additional sheets store variants, simulate and present results.
 
 ![Tool overview: input sheets, IN variant store, SIM2 simulation, OUT results and output views. Training slide 25; quantities describe the version shown.](../media/manual/tool-workflow.png){.manual-figure}
 
@@ -55,6 +55,6 @@ The website uses consistent notation for Excel locations, fields and actions.
 | [“Fernwärme Wien”]{.excel-value} | Selected preset: district heating |
 | [Heizsysteme]{.excel-section} | Thematic section: heating systems |
 
-Operating instructions are highlighted as **Where in PEExcel?** Start with [getting started](excel-overview.qmd), then build a typical configuration using [presets](presets.qmd).
+Operating instructions are highlighted as **Where in PEXL?** Start with [getting started](excel-overview.qmd), then build a typical configuration using [presets](presets.qmd).
 
-Source: [PEExcel training, slides 25, 28 and 30](../downloads/schulung.pdf#page=25) (German).
+Source: [PEXL training, slides 25, 28 and 30](../downloads/schulung.pdf#page=25) (German).

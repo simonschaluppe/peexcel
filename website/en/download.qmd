@@ -2,7 +2,7 @@
 title: "Downloads and requirements"
 ---
 
-Download the PEExcel verification tool and key application and verification documents.
+Download the PEXL verification tool and key application and verification documents.
 
 ## Excel tool
 
@@ -40,7 +40,7 @@ The existing files below remain in German.
 | Document | Contents |
 |---|---|
 | [**Verification manual**](../downloads/handbuch.pdf) | Operation, Quick Start and verification workflow |
-| [**PEExcel training, 14 October 2026**](../downloads/schulung.pdf) · [PowerPoint](../downloads/schulung.pptx) | Model, balances and tool functions |
+| [**PEXL training, 14 October 2026**](../downloads/schulung.pdf) · [PowerPoint](../downloads/schulung.pptx) | Model, balances and tool functions |
 | [**klimaaktiv brochure**](../downloads/broschuere.pdf) | Standard and quality levels |
 | [**Positive-energy standard overview**](../downloads/standard.pdf) | Assessment framework |
 | [**Definition and operationalisation, June 2023**](../downloads/hintergrund.pdf) | Earlier methodological foundations |

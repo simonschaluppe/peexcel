@@ -2,7 +2,7 @@
 title: "Download und Voraussetzungen"
 ---
 
-Hier stehen das PEExcel-Nachweistool und die wichtigsten Unterlagen für die Anwendung und Nachweisführung zur Verfügung.
+Hier stehen das PEXL-Nachweistool und die wichtigsten Unterlagen für die Anwendung und Nachweisführung zur Verfügung.
 
 ## Excel-Nachweistool herunterladen
 
@@ -29,7 +29,7 @@ Für die Excel-Anwendung wird **Microsoft Excel mit Unterstützung für VBA-Makr
 4. Für die vorgesehenen Bedienfunktionen Makros aktivieren.
 5. Eine unveränderte Kopie als Ausgangsdatei aufbewahren.
 
-Anschließend kannst du mit [Erste Schritte mit PEExcel](excel-overview.qmd) beginnen.
+Anschließend kannst du mit [Erste Schritte mit PEXL](excel-overview.qmd) beginnen.
 :::
 
 ## Handbuch und Schulungsunterlagen
@@ -37,7 +37,7 @@ Anschließend kannst du mit [Erste Schritte mit PEExcel](excel-overview.qmd) beg
 | Unterlage | Inhalt |
 |---|---|
 | [**Handbuch zur Nachweisführung**](downloads/handbuch.pdf) | Bedienung, Quick-Start und Nachweisablauf |
-| [**PEExcel-Schulung vom 14.10.2026**](downloads/schulung.pdf) · [PowerPoint](downloads/schulung.pptx) | Modell, Bilanzierung und Toolfunktionen |
+| [**PEXL-Schulung vom 14.10.2026**](downloads/schulung.pdf) · [PowerPoint](downloads/schulung.pptx) | Modell, Bilanzierung und Toolfunktionen |
 | [**klimaaktiv Broschüre**](downloads/broschuere.pdf) | Einführung in den Standard und die Qualitätsstufen |
 | [**Plus-Energie-Standard im Überblick**](downloads/standard.pdf) | Einordnung des Bewertungsrahmens |
 | [**Definition und Operationalisierung, Juni 2023**](downloads/hintergrund.pdf) | Frühere methodische Grundlagen |

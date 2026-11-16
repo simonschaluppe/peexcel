@@ -2,9 +2,9 @@
 title: "Methodology and research"
 ---
 
-PEExcel implements the **klimaaktiv standard for climate-neutral positive energy districts** in a calculation and verification tool. The standard defines quantitative primary-energy and greenhouse-gas requirements for buildings and districts. Scientific foundations, target derivation and accounting rules are detailed in the [online background report](https://simonschaluppe.github.io/peq-higrube/) (German).
+PEXL implements the **klimaaktiv standard for climate-neutral positive energy districts** in a calculation and verification tool. The standard defines quantitative primary-energy and greenhouse-gas requirements for buildings and districts. Scientific foundations, target derivation and accounting rules are detailed in the [online background report](https://simonschaluppe.github.io/peq-higrube/) (German).
 
-PEExcel combines building operation, hourly energy flows, renewable generation, location-specific mobility, life-cycle emissions and context factors in an integrated assessment model. It supports design variants, quantitative assessment of target achievement and traceable verification.
+PEXL combines building operation, hourly energy flows, renewable generation, location-specific mobility, life-cycle emissions and context factors in an integrated assessment model. It supports design variants, quantitative assessment of target achievement and traceable verification.
 
 ## Foundations of the standard
 
@@ -20,7 +20,7 @@ These reference materials are in German.
 | Year | Publication | Focus |
 |---|---|---|
 | 2023 | Schneider et al. — [A Quantitative Positive Energy District Definition with Contextual Targets](https://www.mdpi.com/2075-5309/13/5/1210) | Definition and contextual targets by density and location |
-| 2024 | Schneider et al. — [PEExcel: A Fast One-Stop-Shop Assessment and Simulation Framework for Positive Energy Districts](https://doi.org/10.26868/29761662.2024.11) | Framework and application |
+| 2024 | Schneider et al. — [PEXL: A Fast One-Stop-Shop Assessment and Simulation Framework for Positive Energy Districts](https://doi.org/10.26868/29761662.2024.11) | Framework and application |
 | 2024 | Schneider et al. — [Can Urban Retrofitting Achieve a Positive Energy Balance?](https://doi.org/10.1109/i-COSTE63786.2024.11024809) | Existing urban districts |
 | 2025 | Bruckner et al. — [Lessons Learned from Four Real-Life Case Studies](https://doi.org/10.3390/en18030560) | Energy balances of real PED cases |
 | 2025 | Schneider & Baptista — [Annual Hourly E-Mobility Modelling and Assessment in Climate Neutral Positive Energy Districts](https://doi.org/10.1109/EEEIC/ICPSEurope64998.2025.11169136) | Hourly electric mobility |

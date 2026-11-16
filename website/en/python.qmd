@@ -1,6 +1,6 @@
 ---
 title: "Python and automation"
-description: "Python tutorials for data import, automation, analysis and visualisation with PEExcel."
+description: "Python tutorials for data import, automation, analysis and visualisation with PEXL."
 ---
 
 Choose a tutorial for your task. Each guide explains requirements, data sources and steps, and includes a notebook download with saved results. Read it online or run it in a cloned repository.

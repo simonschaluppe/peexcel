@@ -10,7 +10,7 @@ Distinguish physical charging flows from causation-based assessment. Both matter
 
 The method considers responsibility for generated mobility. Destination traffic and an allocated national budget reference belong to this perspective. On-site charging energy is therefore not automatically identical to total attributed mobility energy.
 
-![Mobility balance: destination traffic and other traffic by use. Source: PEExcel training.](../media/manual/mobility-boundary.png){.manual-figure}
+![Mobility balance: destination traffic and other traffic by use. Source: PEXL training.](../media/manual/mobility-boundary.png){.manual-figure}
 
 [![Mobility model and balance relationships.](../media/mobility.png){.full-figure}](../media/mobility.png)
 
@@ -53,7 +53,7 @@ Charging location alone does not determine causation-based allocation. Physical 
 ## Mobility in Excel {#excel-mobilitaet}
 
 ::: {.excel-operation}
-**Where in PEExcel?** [🚗]{.excel-menu .orange} **Mobilität**.
+**Where in PEXL?** [🚗]{.excel-menu .orange} **Mobilität**.
 :::
 
 The training distinguishes **actual potential use** from **causation-based responsibility**. Storage and load-flow simulation considers EVs travelling in the district and their charging. The assessment allocates generated destination traffic, both electric and fossil.

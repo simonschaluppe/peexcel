@@ -12,6 +12,13 @@ iframe.pexl-chart{width:100%;height:1250px;border:1px solid #dce5e0}.notebook{wi
 button:focus-visible,a:focus-visible,select:focus-visible{outline:3px solid #cb901a;outline-offset:3px}
 @media(max-width:800px){.hero{grid-template-columns:1fr}.hero img{max-height:130px}.feature-grid,.flow-model{grid-template-columns:1fr}.hero .lead{font-size:18px}.peq-lesson{height:2100px}}
 @media print{.actions,.flow-controls{display:none}iframe{display:none}.hero,.feature{break-inside:avoid}a{color:inherit}}
+/* Keep long translated page titles readable on narrow screens. */
+@media(max-width:600px){
+  nav.page-navigation{gap:1rem}
+  nav.page-navigation .nav-page{min-width:0;flex:1}
+  nav.page-navigation .pagination-link{min-width:0;min-height:44px}
+  nav.page-navigation .nav-page-text{min-width:0;overflow-wrap:anywhere}
+}
 
 .excel-menu {
   display: inline-block;

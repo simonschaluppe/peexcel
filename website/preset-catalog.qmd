@@ -1,6 +1,6 @@
 ---
 title: "Preset-Katalog"
-description: "Verfügbare Standardfälle und ihre konkreten Werte aus PEExcel 1.13.1-Dev."
+description: "Verfügbare Standardfälle und ihre konkreten Werte aus PEXL 1.13.1-Dev."
 ---
 
 Presets setzen mehrere Eingaben gemeinsam. Hier kannst du die **konkreten Werte des aktuellen Excel-Exports** nachschlagen und passende Standardfälle finden. Die [Bedienanleitung](presets.qmd) erklärt die Auswahl im Tool.

@@ -42,4 +42,4 @@ Die [Python-Dokumentation](python.qmd) enthält ausführbare Notebooks für Impo
 
 [Blattnavigator und Formatierung](excel-navigation.qmd) · [Presets](presets.qmd) · [Migration](migration.qmd) · [Varianten verwalten](variants.qmd) · [Ergebnisblatt](results.qmd) · [Excel-Dashboard](excel-dashboard.qmd) · [Variantenvergleich](comparison.qmd) · [Batch-Simulation](batch.qmd)
 
-Die Bedienabbildungen und fachlichen Begriffe folgen der PEExcel-Schulung. Ergänzende Forschungsbeispiele sind auf den jeweiligen Seiten mit ihrer Quelle gekennzeichnet.
+Die Bedienabbildungen und fachlichen Begriffe folgen der PEXL-Schulung. Ergänzende Forschungsbeispiele sind auf den jeweiligen Seiten mit ihrer Quelle gekennzeichnet.

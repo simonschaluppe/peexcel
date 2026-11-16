@@ -12,30 +12,20 @@ Zwei thermisch entkoppelte Modellzonen
 :::
 Die thermische Modellierung unterscheidet eine **aktiv gekühlte und eine nicht aktiv gekühlte, thermisch entkoppelte Zone**.[^rc-modell]
 
-Solare Gewinne kommen durch Fenster, interne Wärmegewinne entstehen im Raum. Transmission und Lüftung werden als beispielhafte Wärmeabfuhr gezeigt; ihre tatsächliche Richtung hängt vom Zustand ab.
+Solare Gewinne kommen durch Fenster, interne Wärmegewinne entstehen im Raum.
 
 ![Thermisches Energiemodell mit zwei thermisch entkoppelten Zonen, Wärmeflüssen und beispielhaften Bilanzen.](illustrations/thermisches_modell.svg){.manual-figure}
 
-<!-- Interactive embed paused for page performance.
-<iframe class="peq-lesson" data-fit src="assets/teaching/index.html" title="Interaktive Schnittdarstellung: Bauteile, Hülle und Wärmeflüsse"></iframe>
--->
-
-::: {.callout-tip appearance="simple" title="Das Modell selbst erkunden"}
-In der interaktiven Schnittdarstellung kannst du Bauteile, Bilanzgrenze und Wärmeflüsse einzeln einblenden und ihre räumliche Zuordnung untersuchen.
-
-[Schnittdarstellung öffnen](assets/teaching/index.html) · [Ausführbares Notebook](tutorial_gebaeudeschnitt.ipynb)
-:::
-
-::: {.callout-important title="Thermische Hülle und Ökobilanz unterscheiden"}
+::: {.callout-warning title="Achtung"}
 Die [Ökobilanz](climate.qmd) umfasst auch Konstruktionen innerhalb und außerhalb der thermischen Bilanzgrenze. Thermische Hüllfläche und die für die Ökobilanz erfasste Bauteilmenge sind deshalb nicht gleichzusetzen.
 :::
 
 ## Bauphysik eingeben {#excel-bauphysik}
 
-Beschreibe die Flächen und Eigenschaften der Bauteile, die den Wärmeaustausch des Quartiers bestimmen. Die interaktive Darstellung oben hilft dir dabei, thermische Grenze und Bauteilzuordnung auseinanderzuhalten.
+Beschreibe die Flächen und Eigenschaften der Bauteile, die den Wärmeaustausch des Quartiers bestimmen.
 
 ::: {.excel-operation}
-**Wo findest du die Eingaben?** Öffne das Blatt [🧱]{.excel-menu .darkred} **Bauphysik**.
+**Wo im PEXL?** Öffne das Blatt [🧱]{.excel-menu .darkred} **Bauphysik**.
 :::
 
 ### Eingaben im Bauphysik-Blatt
@@ -56,6 +46,12 @@ Beschreibe die Flächen und Eigenschaften der Bauteile, die den Wärmeaustausch 
 Interne Wärmegewinne und Nutzerstrom können im Tool prinzipiell frei modelliert werden. Für die Deklaration gelten die ausgewiesenen Deklarationswerte der verwendeten Toolversion.
 :::
 
-Die Schnittdarstellung verwendet ein schematisches Referenzgebäude.
+::: {.callout-note collapse=true title="Forschung / Experte"}
+**Unterschiedliche Teilflächen zusammenfassen:** Pro Bauteilgruppe und Orientierung stehen zusammengefasste Eingaben zur Verfügung. Addiere nur Flächen mit gleicher Randbedingung. Für den U-Wert gilt $U_\mathrm{eq}=\sum_i A_i U_i/\sum_i A_i$; damit bleibt der Transmissionsleitwert $\sum_i A_i U_i$ erhalten.
 
-[^rc-modell]: Jede der beiden Modellzonen wird als vereinfachtes thermisches RC-Ersatzmodell mit einer Speichermasse beschrieben: Die Wärmekapazität C bildet die thermische Speicherung ab, die Widerstände R den Wärmeaustausch. Zwischen aktiv gekühlter und nicht aktiv gekühlter Zone wird kein Wärmeaustausch angesetzt. Das Modell dient der energetischen Konzeptbewertung und ist kein detailliertes Mehrzonen-Raummodell. Erläuterung des Projektteams; ergänzend [PEExcel-Schulung, Folien 11–14](downloads/schulung.pdf).
+Rechenbeispiel: 100 m² Wand mit 0,20 W/(m² K) und 50 m² mit 0,40 W/(m² K) ergeben 150 m² mit rund 0,267 W/(m² K). Fenster und opake Wandflächen getrennt behandeln.
+
+Bei Fenstern bezieht sich der U-Wert auf das gesamte Fenster einschließlich Rahmen, der g-Wert auf die Verglasung. g-Werte daher nach Glasfläche gewichten; Rahmenanteile und Verschattung separat berücksichtigen. Unterschiedliche Orientierungen nicht zusammenfassen. Die Vereinfachung setzt vergleichbare Besonnung und Randbedingungen voraus; dokumentiere die Teilflächen und Annahmen.
+:::
+
+[^rc-modell]: Nach fachlicher Einordnung des Projektteams orientiert sich die thermische Berechnung am vereinfachten dynamischen Verfahren der ÖNORM B 8110-6. Dies beschreibt den methodischen Bezug, keinen vollständigen Normkonformitätsnachweis. Jede der beiden Modellzonen wird als vereinfachtes thermisches RC-Ersatzmodell mit einer Speichermasse beschrieben: Die Wärmekapazität C bildet die thermische Speicherung ab, die Widerstände R den Wärmeaustausch. Zwischen aktiv gekühlter und nicht aktiv gekühlter Zone wird kein Wärmeaustausch angesetzt. Das Modell dient der energetischen Konzeptbewertung und ist kein detailliertes Mehrzonen-Raummodell. Erläuterung des Projektteams; ergänzend [PEXL-Schulung, Folien 11–14](downloads/schulung.pdf).

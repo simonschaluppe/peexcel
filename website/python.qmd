@@ -1,6 +1,6 @@
 ---
 title: "Python & Automatisierung"
-description: "Python-Tutorials für Datenimport, Automatisierung, Analyse und Visualisierung mit PEExcel."
+description: "Python-Tutorials für Datenimport, Automatisierung, Analyse und Visualisierung mit PEXL."
 ---
 
 Wähle ein Tutorial nach deiner Aufgabe. Jede Anleitung erklärt Voraussetzungen,

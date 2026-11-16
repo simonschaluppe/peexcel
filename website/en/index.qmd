@@ -6,9 +6,9 @@ sidebar: false
 page-layout: full
 ---
 
-<div class="hero"><div><div class="eyebrow">PEExcel · Positive energy districts</div><h1>Simulate a year. Understand the alternatives.</h1><p class="lead">Connect buildings, PV, storage and mobility across 8,760 hours. Assess energy flows, flexibility and climate impact together.</p><div class="actions"><a href="excel-overview.html">Start with Excel</a><a class="secondary" href="results.html">Understand results</a></div></div><img src="../media/logo.png" alt="PEExcel — positive energy districts"></div>
+<div class="hero"><div><div class="eyebrow">PEXL · Positive energy districts</div><h1>Simulate a year. Understand the alternatives.</h1><p class="lead">Connect buildings, PV, storage and mobility across 8,760 hours. Assess energy flows, flexibility and climate impact together.</p><div class="actions"><a href="excel-overview.html">Start with Excel</a><a class="secondary" href="results.html">Understand results</a></div></div><img src="../media/logo.png" alt="PEXL — positive energy districts"></div>
 
-For **professional competence partners**, designers, consultants, researchers and students: PEExcel combines Excel with hourly simulation, traceable assessment methods and a Python interface. Developed by the [Climate-fit Buildings and Districts](https://www.technikum-wien.at/forschungsschwerpunkt-renewable-energy-systems/) research group at UAS Technikum Wien.
+For **professional competence partners**, designers, consultants, researchers and students: PEXL combines Excel with hourly simulation, traceable assessment methods and a Python interface. Developed by the [Climate-fit Buildings and Districts](https://www.technikum-wien.at/forschungsschwerpunkt-renewable-energy-systems/) research group at UAS Technikum Wien.
 
 ## What you can investigate
 
@@ -34,14 +34,12 @@ Annual balances show **how much** energy is needed and supplied. Hourly simulati
 
 [Standard and background](research.qmd) · [What counts for a declaration?](declaration.qmd)
 
-## Project comparison and time-resolved analysis
+## Application examples
 
-The [three refurbishment variants](examples.qmd) show heat, final-energy, primary-energy and GHG balances on a common data basis. **Aspern F7** adds [seasonal daily profiles and chronological hourly series](examples.qmd#aspern-f7).
+Explore the questions PEXL can help investigate: [compare refurbishment variants](examples.qmd) using heat, final-energy, primary-energy and GHG balances, and [analyse hourly PV use, grid imports and exports](examples.qmd#aspern-f7).
 
-The [schematic building section](envelope.qmd) distinguishes component assignment, thermal boundaries and qualitative heat flows.
-
-[Methodology and research](research.qmd) · [Download Excel](download.qmd) · [Python interface](python.qmd) · [Python batch simulation (German)](../batch-python.html)
+[Methodology and research](research.qmd) · [Download Excel](download.qmd)
 
 ::: {.declaration-note}
-**Declaration:** Custom assumptions can be modelled. A klimaaktiv declaration requires the **declaration values and assessment rules** of the relevant version. PV LCA can be modelled but is not included in the klimaaktiv assessment method.
+**Declaration:** PEXL includes default values for declaration. Input parameters can be adapted for research and project-specific investigations. A klimaaktiv declaration still requires the **declaration values and assessment rules** of the relevant version; custom assumptions must be checked separately. [Distinguish modelling from verification](declaration.qmd).
 :::

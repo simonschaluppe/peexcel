@@ -9,7 +9,7 @@ title: "Analysing flexibility"
 ## Setting up a comparison
 
 ::: {.excel-operation}
-**Where in PEExcel?**
+**Where in PEXL?**
 
 1. Save a reference variant with documented storage and flexibility settings.
 2. On [🔋]{.excel-menu .darkred} **Flexibilität und Speicher**, initially change **one** measure: temperature band, battery capacity or C-rate. EV settings are on [🚗]{.excel-menu .orange} **Mobilität**.

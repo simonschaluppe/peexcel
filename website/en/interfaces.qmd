@@ -14,7 +14,7 @@ Transfer building and envelope properties from project documents. Align referenc
 
 The dataset must match the location and study objective. The training names Helios-PC as a data source; the repository contains additional weather files. In future-weather comparisons, document assessment requirements separately.
 
-**Where in PEExcel?** [🌦]{.excel-menu .darkred} **Wetter** stores data; [🏙]{.excel-menu .darkred} **Quartier** selects the dataset.
+**Where in PEXL?** [🌦]{.excel-menu .darkred} **Wetter** stores data; [🏙]{.excel-menu .darkred} **Quartier** selects the dataset.
 
 **Workflow:** Record location and weather year → check hourly sequence and completeness → transfer into the intended weather area → check the calculation. Keep weather unchanged when isolating a system measure.
 

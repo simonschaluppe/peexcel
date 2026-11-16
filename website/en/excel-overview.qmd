@@ -1,8 +1,8 @@
 ---
-title: "Getting started with PEExcel"
+title: "Getting started with PEXL"
 ---
 
-PEExcel is the calculation and verification tool for the klimaaktiv standard for positive energy districts. It connects building operation, energy supply, motorised private mobility and life-cycle emissions in an hourly assessment model.
+PEXL is the calculation and verification tool for the klimaaktiv standard for positive energy districts. It connects building operation, energy supply, motorised private mobility and life-cycle emissions in an hourly assessment model.
 
 Use Excel to investigate and calculate project variants, compare their energy and greenhouse gas balances, and prepare the evidence for a [declaration](projekte-nachweisen.qmd).
 
@@ -23,7 +23,7 @@ Download the current [Excel tool](download.qmd), save it locally and open it in 
 ### 2. Define the project and baseline variant
 
 ::: {.excel-operation}
-**Where in PEExcel?** Sheet [▶]{.excel-menu .darkred} (**Quick Start**).
+**Where in PEXL?** Sheet [▶]{.excel-menu .darkred} (**Quick Start**).
 
 Select the basic project and geometry parameters. Alternatively, [load a saved variant](variants.qmd).
 :::
@@ -34,12 +34,18 @@ Select the basic project and geometry parameters. Alternatively, [load a saved v
 
 ### 3. Set the configuration
 
-Choose suitable [presets](presets.qmd), for example for the envelope, heating system or PV. Presets apply several related parameters together. Check whether the resulting inputs suit your project. Make project-specific changes on the relevant technical sheets.
+Choose suitable [presets](presets.qmd) in the corresponding **red drop-down fields**, for example for the envelope, heating system or PV. The Quick Start screenshot above shows the selection fields.
+
+::: {.callout-note collapse=true title="Research / Expert"}
+Presets apply several related parameters together. Check whether the resulting inputs suit your project.
+:::
+
+Make project-specific changes on the relevant technical sheets.
 
 ### 4. Calculate and check results
 
 ::: {.excel-operation}
-**Where in PEExcel?**
+**Where in PEXL?**
 
 1. Trigger calculation with <kbd>F9</kbd>.
 2. Open [📊 Erg]{.excel-menu .red} (**Ergebnisse**) and check [annual balances](results.qmd).
@@ -47,7 +53,9 @@ Choose suitable [presets](presets.qmd), for example for the envelope, heating sy
 4. If needed, use [📈]{.excel-menu .red} (**Dashboard**) for [hourly evaluations](excel-dashboard.qmd).
 :::
 
-In manual calculation mode, results are only up to date after recalculation.
+::: {.callout-warning collapse=true title="Caution"}
+**Excel performance:** Select **Formulas → Calculation Options → Manual** to avoid automatic recalculation after each edit. Press <kbd>F9</kbd> after editing and before evaluating results or exporting a variant. Until then, displayed results may be out of date. This setting applies to all open workbooks. Select **Automatic** in the same menu to restore automatic calculation.[^excel-calculation]
+:::
 
 ### 5. Save and compare the variant
 
@@ -61,4 +69,6 @@ Save the project state as a clearly named [variant](variants.qmd). Change indivi
 
 For existing projects, [migration](migration.qmd) describes transferring inputs between versions.
 
-Source: [PEExcel training, especially slides 3, 7–8 and 24–30](../downloads/schulung.pdf#page=7) (German).
+Source: [PEXL training, especially slides 3, 7–8 and 24–30](../downloads/schulung.pdf#page=7) (German).
+
+[^excel-calculation]: [Microsoft: Excel calculation performance](https://learn.microsoft.com/en-us/office/vba/excel/concepts/excel-performance/excel-improving-calculation-performance).

@@ -3,7 +3,7 @@ title: "Automatic batch simulation"
 ---
 
 ::: {.excel-operation}
-**Where in PEExcel?** [Scen]{.excel-menu .red} (batch simulation).
+**Where in PEXL?** [Scen]{.excel-menu .red} (batch simulation).
 :::
 
 Batch simulation calculates many variants. It complements calculation of a single active variant and prepares joint analysis.

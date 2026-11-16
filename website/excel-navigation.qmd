@@ -2,7 +2,7 @@
 title: "Orientierung im Excel-Tool"
 ---
 
-Das PEExcel-Nachweistool ist nach Eingabegruppen, Berechnung und Auswertung gegliedert. Die wichtigsten Einstellungen werden über thematische Fachblätter vorgenommen; zusätzliche Blätter dienen der Speicherung von Varianten, der Simulation und der Ergebnisdarstellung.
+Das PEXL-Nachweistool ist nach Eingabegruppen, Berechnung und Auswertung gegliedert. Die wichtigsten Einstellungen werden über thematische Fachblätter vorgenommen; zusätzliche Blätter dienen der Speicherung von Varianten, der Simulation und der Ergebnisdarstellung.
 
 ![Toolübersicht: Eingabeblätter, Variantenspeicher IN, Simulation SIM2, Ergebnisse OUT und Ausgabeansichten. Schulungsfolie 25; die angegebenen Größenordnungen beschreiben den gezeigten Toolstand.](media/manual/tool-workflow.png){.manual-figure}
 
@@ -61,4 +61,4 @@ Bedienanweisungen sind zusätzlich als **„Im Excel-Tool“** hervorgehoben.
 
 Für die erste praktische Anwendung empfiehlt sich der [Schnellstart](excel-overview.qmd). Eine typische Konfiguration lässt sich anschließend mit [Presets](presets.qmd) aufbauen.
 
-Quelle: [PEExcel-Schulung, Folien 25, 28 und 30](downloads/schulung.pdf#page=25).
+Quelle: [PEXL-Schulung, Folien 25, 28 und 30](downloads/schulung.pdf#page=25).

@@ -9,12 +9,13 @@ execute:
   enabled: false
 
 website:
-  title: PEExcel
+  title: PEXL
   description: Model districts and apply the klimaaktiv positive-energy standard.
   search: true
+  page-navigation: true
   navbar:
     logo: ../media/logo.png
-    logo-alt: PEExcel logo
+    logo-alt: PEXL logo
     left:
       - {href: excel-overview.qmd, text: Getting started}
       - {href: model.qmd, text: Modelling}
@@ -59,7 +60,7 @@ website:
       - section: About the project
         contents: [research.qmd, about.qmd]
   page-footer:
-    left: "PEExcel · UAS Technikum Wien · klimaaktiv Positive Energy Districts"
+    left: "PEXL · UAS Technikum Wien · klimaaktiv Positive Energy Districts"
     right:
       - {href: about.qmd, text: Contact and use}
       - {href: https://github.com/simonschaluppe/peexcel, text: GitHub}

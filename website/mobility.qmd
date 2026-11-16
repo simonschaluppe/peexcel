@@ -11,7 +11,7 @@ Physische Ladeflüsse von der verursacherbezogenen Bewertung unterscheiden. Beid
 
 Die Bewertungsmethode betrachtet die Verantwortung für verursachte Mobilität. Zielverkehr und ein zugeteilter nationaler Budgetbezug gehören zu dieser Perspektive. Ladeenergie am Standort ist deshalb nicht automatisch mit der gesamten zugerechneten Mobilitätsenergie identisch.
 
-![Mobilitätsbilanz: Zielverkehr und anderer Verkehr nach Nutzungen; Quelle: PEExcel-Schulung.](media/manual/mobility-boundary.png){.manual-figure}
+![Mobilitätsbilanz: Zielverkehr und anderer Verkehr nach Nutzungen; Quelle: PEXL-Schulung.](media/manual/mobility-boundary.png){.manual-figure}
 
 [![Mobilitätsmodell und Bilanzzusammenhänge](media/mobility.png){.full-figure}](media/mobility.png)
 

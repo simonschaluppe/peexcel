@@ -4,7 +4,7 @@ title: "Python scenario explorer"
 
 The [Excel dashboard](excel-dashboard.qmd) is available directly in the workbook.
 
-The scenario explorer runs locally using Streamlit. It opens PEExcel project exports, filters variants and displays available reports.
+The scenario explorer runs locally using Streamlit. It opens PEXL project exports, filters variants and displays available reports.
 
 From the repository directory:
 

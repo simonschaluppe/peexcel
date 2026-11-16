@@ -1,11 +1,11 @@
 ---
 title: "Terms, parameters and indicators"
-description: "Understand PEExcel terminology and browse all IN and OUT variables defined in the active schema."
+description: "Understand PEXL terminology and browse all IN and OUT variables defined in the active schema."
 ---
 
 [Preset catalogue: standard cases and actual values](preset-catalog.qmd)
 
-Which inputs does PEExcel use, which results does it provide, and how should you read them? Find key terms and the **complete IN and OUT catalogues**, with units, labels and assignments from the active schema.
+Which inputs does PEXL use, which results does it provide, and how should you read them? Find key terms and the **complete IN and OUT catalogues**, with units, labels and assignments from the active schema.
 
 [Terms](#begriffe) · [Input parameters](#parameterkatalog) · [Output indicators](#kennzahlenkatalog)
 

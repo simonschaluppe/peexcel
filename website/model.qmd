@@ -5,7 +5,7 @@ title: "Das Quartier modellieren"
 {{< include assets/preset-help-model.qmd >}}
 
 
-PEExcel verbindet die physische Simulation eines Quartiers mit der Bewertung seiner Energie- und Klimawirkung. Du beschreibst Gebäude, Nutzungen und Versorgung, berechnest ihre Wechselwirkungen und vergleichst anschließend die Ergebnisse. Besonders interessant ist das Zusammenspiel: Eine größere PV-Anlage, eine andere Wärmeversorgung oder eine veränderte Nutzung beeinflussen mehrere Energieflüsse gleichzeitig.
+PEXL verbindet die physische Simulation eines Quartiers mit der Bewertung seiner Energie- und Klimawirkung. Du beschreibst Gebäude, Nutzungen und Versorgung, berechnest ihre Wechselwirkungen und vergleichst anschließend die Ergebnisse. PV-Dimensionierung, Wärmeversorgung und Nutzung verändern den zeitlichen Netzstrombezug. Zusammen mit den angesetzten Konversionsfaktoren beeinflusst dies die Primärenergie- und Treibhausgasbilanz des Betriebs.
 
 ## Eingaben → Simulation → Analyse
 
@@ -27,15 +27,15 @@ Das Modell verbindet Quellen, Umwandlung, Speicher und Nutzungen innerhalb der Q
 
 ![Energiemodell des Quartiers: Quellen, Versorgungssysteme, Speicher und Nutzungen sind über ihre Energieflüsse verbunden.](media/manual/energy-model.png){.manual-figure fig-alt="Schematische Darstellung des Energiemodells mit Netzbezug, PV, Batteriespeichern, Wärmeversorgung, Gebäudemasse, Warmwasserspeicher und Nutzungen."}
 
-Die Darstellung hilft dir, eine Maßnahme weiterzudenken: Eine Wärmepumpe verändert nicht nur die Wärmeversorgung, sondern auch den Strombedarf. Dessen zeitliche Verteilung beeinflusst wiederum die Nutzung der [PV-Erzeugung](pv.qmd) und der [Speicher und Flexibilität](systems.qmd). Auch [Elektromobilität](mobility.qmd) bringt Ladebedarf und verfügbare Speicherkapazität in das Modell ein.
+Eine Wärmepumpe koppelt Wärmeversorgung und Strombedarf; [PV-Erzeugung](pv.qmd), Speicher und [Elektromobilität](mobility.qmd) verändern die verbleibenden Netzflüsse. Über [externe Freigabesignale](systems.qmd#excel-flexibilitaet) lässt sich modellieren, wann flexible Anwendungen zusätzliche Energie aufnehmen dürfen. Der Variantenvergleich zeigt die Auswirkungen auf Netzbezug, Primärenergie und Treibhausgasemissionen unter den gewählten Bewertungsannahmen.
 
 ### Ökobilanz über den Lebenszyklus
 
-Die Ökobilanz erweitert den Blick vom laufenden Betrieb auf die Emissionen von Errichtung und Instandsetzung sowie die berücksichtigte biogene Speicherung. Betriebsenergie und bauliche Maßnahmen lassen sich damit gemeinsam über den Betrachtungszeitraum einordnen.
+Eine Bewertung der Klimaneutralität muss neben dem Betrieb auch die grauen Emissionen berücksichtigen. PEXL ermöglicht eine vereinfachte Lebenszyklusbilanz aus Errichtung, Betrieb, Instandsetzung und berücksichtigter biogener Speicherung. Neubau und Sanierung unterscheiden sich hinsichtlich baulicher Eingriffe und verbleibender Einsparpotenziale: Der zusätzliche Materialaufwand ist gemeinsam mit den betrieblichen Einsparungen zu beurteilen.
 
 ![Lebenszyklusbetrachtung: Betriebsenergie, Errichtung, Instandsetzung und biogene Speicherung tragen zur zeitlichen Emissionsbilanz bei.](media/manual/lifecycle.png){.manual-figure fig-alt="Schematische Lebenszyklusbilanz mit kumulativen Emissionen, betrieblichen Beiträgen und Beiträgen von Errichtung, Instandsetzung und biogener Speicherung."}
 
-Die Bewertungsmethode legt fest, welche Beiträge und zeitlichen Entwicklungen berücksichtigt werden. Die [Ökobilanz-Seite](climate.qmd) erläutert Betrachtungszeitraum, Dekarbonisierung und Bilanzgrenzen. So kannst du beispielsweise eine betriebliche Einsparung zusammen mit dem baulichen Aufwand einer Maßnahme beurteilen.
+Die Beiträge werden über den Betrachtungszeitraum **kumuliert**, nicht als jährliche Kennzahl in kg CO₂e/m²/a bewertet. Änderungen der Emissionsfaktoren im Zeitverlauf beeinflussen die Summe. Das Budget wird aus einem verbleibenden Klimabudget abgeleitet; die [Herleitung im Hintergrundbericht](https://simonschaluppe.github.io/peq-higrube/Kapitel/03-zielwert-thg.html) erläutert Klimaziel und Zuteilungsannahmen. Die [Ökobilanz-Seite](climate.qmd) ordnet Zeitraum, Dekarbonisierung sowie die für Neubau und Sanierung anzuwendenden Bilanzregeln ein.
 
 ## Quartier eingeben {#quartier-eingeben}
 
@@ -56,4 +56,4 @@ Aus deinen Flächen- und Höhenangaben ermittelt das Tool unter anderem Nettogru
 
 Wenn du verschiedene Maßnahmen untersuchen möchtest, speichere die Konfigurationen als [Varianten](variants.qmd). Für eine spätere Deklaration findest du den Abgleich mit Projektunterlagen unter [Qualitätssicherung](declaration.qmd#qualitaetssicherung).
 
-[^modell]: Grafiken des Projektteams; ergänzende Unterlagen: [PEExcel-Schulung, Folien 7–16 und 30](downloads/schulung.pdf). Hinweise zur Datenübernahme unter [Daten vorbereiten](interfaces.qmd).
+[^modell]: Grafiken des Projektteams; ergänzende Unterlagen: [PEXL-Schulung, Folien 7–16 und 30](downloads/schulung.pdf). Hinweise zur Datenübernahme unter [Daten vorbereiten](interfaces.qmd).

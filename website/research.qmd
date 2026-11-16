@@ -2,9 +2,9 @@
 title: "Methodik und Forschung"
 ---
 
-PEExcel setzt die Bewertungsmethodik des **klimaaktiv Standards für klimaneutrale Plus-Energie-Quartiere** in einem Berechnungs- und Nachweiswerkzeug um. Der Standard definiert quantitative Anforderungen an die Primärenergie- und Treibhausgasbilanz von Gebäuden und Quartieren. Die wissenschaftlichen Grundlagen, die Herleitung der Zielwerte sowie die Bilanzierungsregeln werden im [Online-Hintergrundbericht zum klimaaktiv Standard](https://simonschaluppe.github.io/peq-higrube/) ausführlich beschrieben.
+PEXL setzt die Bewertungsmethodik des **klimaaktiv Standards für klimaneutrale Plus-Energie-Quartiere** in einem Berechnungs- und Nachweiswerkzeug um. Der Standard definiert quantitative Anforderungen an die Primärenergie- und Treibhausgasbilanz von Gebäuden und Quartieren. Die wissenschaftlichen Grundlagen, die Herleitung der Zielwerte sowie die Bilanzierungsregeln werden im [Online-Hintergrundbericht zum klimaaktiv Standard](https://simonschaluppe.github.io/peq-higrube/) ausführlich beschrieben.
 
-PEExcel verbindet Gebäudebetrieb, stündliche Energieflüsse, erneuerbare Erzeugung, standortbezogene Mobilität, Lebenszyklusemissionen und Kontextfaktoren zu einem integrierten Bewertungsmodell. Das Werkzeug unterstützt die Untersuchung von Planungsvarianten, die quantitative Bewertung der Zielerreichung und die nachvollziehbare Nachweisführung.
+PEXL verbindet Gebäudebetrieb, stündliche Energieflüsse, erneuerbare Erzeugung, standortbezogene Mobilität, Lebenszyklusemissionen und Kontextfaktoren zu einem integrierten Bewertungsmodell. Das Werkzeug unterstützt die Untersuchung von Planungsvarianten, die quantitative Bewertung der Zielerreichung und die nachvollziehbare Nachweisführung.
 
 ## Grundlagen zum Standard
 
@@ -18,7 +18,7 @@ PEExcel verbindet Gebäudebetrieb, stündliche Energieflüsse, erneuerbare Erzeu
 | Jahr | Publikation | Schwerpunkt |
 |---|---|---|
 | 2023 | Schneider et al. – [A Quantitative Positive Energy District Definition with Contextual Targets](https://www.mdpi.com/2075-5309/13/5/1210) | Definition und kontextbezogene Ziele nach Dichte und Standort |
-| 2024 | Schneider et al. – [PEExcel: A Fast One-Stop-Shop Assessment and Simulation Framework for Positive Energy Districts](https://doi.org/10.26868/29761662.2024.11) | Framework und Anwendung |
+| 2024 | Schneider et al. – [PEXL: A Fast One-Stop-Shop Assessment and Simulation Framework for Positive Energy Districts](https://doi.org/10.26868/29761662.2024.11) | Framework und Anwendung |
 | 2024 | Schneider et al. – [Can Urban Retrofitting Achieve a Positive Energy Balance?](https://doi.org/10.1109/i-COSTE63786.2024.11024809) | Urbaner Bestand |
 | 2025 | Bruckner et al. – [Lessons Learned from Four Real-Life Case Studies](https://doi.org/10.3390/en18030560) | Energiebilanzen realer PED-Fallstudien |
 | 2025 | Schneider & Baptista – [Annual Hourly E-Mobility Modelling and Assessment in Climate Neutral Positive Energy Districts](https://doi.org/10.1109/EEEIC/ICPSEurope64998.2025.11169136) | Stündliche E-Mobilität |

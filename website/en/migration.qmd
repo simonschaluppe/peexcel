@@ -2,12 +2,12 @@
 title: "Migrating to a new tool version"
 ---
 
-To continue an existing project in a newer PEExcel version, transfer saved variants through a **project export file**. This preserves your inputs while allowing you to benefit from improvements and fixes. Moving to the current released version is often useful before a new work phase. The [download page](download.qmd) lists versions and release notes.
+To continue an existing project in a newer PEXL version, transfer saved variants through a **project export file**. This preserves your inputs while allowing you to benefit from improvements and fixes. Moving to the current released version is often useful before a new work phase. The [download page](download.qmd) lists versions and release notes.
 
 This guide first exports variants from the old workbook, then imports them into the new version.[^migration] Keep the old workbook: it retains the previous editing and calculation state for comparison.
 
 ::: {.excel-operation}
-**Where in PEExcel?** Use the **klimaaktiv PEQ** ribbon, **Projekt-Varianten** group: [Aktuelle Eingabe speichern]{.excel-action} (save current inputs), [Varianten]{.excel-action} (variants) and [Projekt-Datei importieren]{.excel-action} (import project file).
+**Where in PEXL?** Use the **klimaaktiv PEQ** ribbon, **Projekt-Varianten** group: [Aktuelle Eingabe speichern]{.excel-action} (save current inputs), [Varianten]{.excel-action} (variants) and [Projekt-Datei importieren]{.excel-action} (import project file).
 :::
 
 ## 1. Open variant management
@@ -74,4 +74,4 @@ Use newly calculated results for further work. Keep previous results in the old 
 
 See [managing variants](variants.qmd) for organising project states and [quality assurance](declaration.qmd#qualitaetssicherung) for subsequent verification.
 
-[^migration]: PEExcel training dated 14 October 2026, [slide 25: project export](../downloads/schulung.pdf#page=25). Screenshots supplied by the project team.
+[^migration]: PEXL training dated 14 October 2026, [slide 25: project export](../downloads/schulung.pdf#page=25). Screenshots supplied by the project team.

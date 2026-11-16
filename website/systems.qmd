@@ -9,6 +9,10 @@ title: "Speicher und Flexibilität"
 
 Energieflexibilität verknüpft die zeitliche Verfügbarkeit erneuerbarer Energie mit dem Betrieb des Quartiers. Lokale PV-Überschüsse und externe Flexibilitätssignale können für zusätzliche Konditionierung und Speicherladung genutzt werden. Diese **flexible Überdeckung** bleibt dabei eine von der **Deckung der Mindestbedarfe** getrennte Größe.
 
+Flexible Konditionierung kann Energieaufnahme in Stunden mit erneuerbaren Überschüssen oder günstigeren Primärenergie- und CO₂-Faktoren verschieben. Vorheizen im Winter und Vorkühlen im Sommer können zugleich den Wärmeaustausch mit der Umgebung und damit den Energiebedarf erhöhen. Entscheidend ist die gemeinsame Auswertung von Energiemenge, Zeitpunkt und Bewertung.
+
+**Nutzerflexibilität** bezeichnet hier die Bereitschaft, zeitweise Abweichungen von den Heiz- und Kühlsolltemperaturen zuzulassen. Das eingestellte Komfortband begrenzt diese Abweichungen; mögliche Auswirkungen auf den Komfort sind projektspezifisch zu beurteilen.
+
 ## Wie die Speicher zusammenwirken
 
 ![Zusammenspiel von Wärmepumpen, thermischer Gebäudemasse, stationärer Batterie und gepoolter E-Mobilität. Bei einem Freigabesignal werden nutzbare Speicher beladen; außerhalb der Freigabe können sie Bedarfe decken. Die Grafik zeigt das Prinzip, keinen für jedes Quartier identischen Fahrplan.](illustrations/userflexmodel.svg){.manual-figure}
@@ -18,10 +22,12 @@ Das Modell unterscheidet zwei Signaltypen für die flexible Nutzung:
 - **Lokale PV-Überschüsse** zeigen an, dass vor Ort erzeugter PV-Strom für zusätzliche Anwendungen verfügbar ist.
 - **Ein externes Freigabesignal** erlaubt flexible Nutzung auf Grundlage einer externen Zeitreihe. Das im Tool hinterlegte Signal basiert auf Windkraftüberschüssen in Österreich. Für eigene Untersuchungen können externe Freigaben auch aus anderen Quellen abgeleitet werden, etwa aus stündlichen CO₂-Intensitäten.
 
+In der Praxis kann eine solche Freigabe aus einem Steuer- oder Regelsignal oder einem dynamischen Strompreis abgeleitet werden. Im Modell bildet eine hinterlegte Zeitreihe diese Betriebsentscheidung ab; sie ist keine direkte Anbindung an eine reale Regelung. Ein günstiger Preis bedeutet nicht automatisch geringe CO₂-Intensität oder Netzdienlichkeit. Signalquelle und Entscheidungskriterium daher getrennt dokumentieren.
+
 Die **Flexibilitätspotenziale** des Quartiers bestimmen, wie eine Freigabe genutzt werden kann. Ob tatsächlich Energie aufgenommen wird, hängt von verfügbarem Überschuss beziehungsweise Bezug, Anlagenleistung und Speicherzustand ab.
 
 
-![Stromflüsse: Deckungsreihenfolge, Mindestbedarfe und flexible Speicherladung. Quelle: PEExcel-Schulung; die tatsächlich aktiven Pfade hängen von der Modellkonfiguration ab.](media/manual/dispatch.png){.manual-figure}
+![Stromflüsse: Deckungsreihenfolge, Mindestbedarfe und flexible Speicherladung. Quelle: PEXL-Schulung; die tatsächlich aktiven Pfade hängen von der Modellkonfiguration ab.](media/manual/dispatch.png){.manual-figure}
 
 
 | Flexibilitätspotenzial | Was wird getan? | Was begrenzt die Nutzung? | Was zeigt die Wirkung? |
@@ -80,7 +86,7 @@ Flexible Ladung und bidirektionale Nutzung hängen von Standzeiten, Ladeleistung
 
 ## Dynamische Bewertung
 
-![Methodik: Importe, Exporte und zeitabhängige Bewertung der Energieträger. Quelle: PEExcel-Schulung.](media/manual/dynamic-assessment.png){.manual-figure}
+![Methodik: Importe, Exporte und zeitabhängige Bewertung der Energieträger. Quelle: PEXL-Schulung.](media/manual/dynamic-assessment.png){.manual-figure}
 
 Stündliche Konversionsfaktoren bewerten den zeitlichen Energieeinsatz. Physische Einsparung, zeitliche Verschiebung und Verbesserung einer bewerteten Bilanz sind deshalb getrennt auszuweisen.
 
@@ -93,7 +99,7 @@ Das Freigabesignal erlaubt den flexiblen Betrieb innerhalb der eingestellten Gre
 :::
 
 ::: {.declaration-note}
-**Für die Deklaration:** ausgewiesene Vorgaben für Freigaben, Leistungen und Konversionsfaktoren verwenden. Freie Modellannahmen sind möglich, begründen aber keinen automatischen Nachweisstatus.
+**Deklaration:** ausgewiesene Vorgaben für Freigaben, Leistungen und Konversionsfaktoren verwenden. Freie Modellannahmen sind möglich, begründen aber keinen automatischen Nachweisstatus.
 :::
 
 [Flexibilität Schritt für Schritt analysieren](flexibility.qmd)

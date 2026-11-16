@@ -19,12 +19,13 @@ project:
     - downloads/**
     - tutorials/**
 website:
-  title: PEExcel
+  title: PEXL
   description: Quartiere modellieren und den klimaaktiv Plus-Energie-Standard anwenden.
   search: true
+  page-navigation: true
   navbar:
     logo: media/logo.png
-    logo-alt: "PEExcel Logo"
+    logo-alt: "PEXL Logo"
     left:
       - {href: excel-overview.qmd, text: Starten}
       - {href: model.qmd, text: Modellieren}
@@ -84,7 +85,7 @@ website:
           - research.qmd
           - {href: about.qmd, text: "Projekt, Kontakt und Nutzung"}
   page-footer:
-    left: "PEExcel · FH Technikum Wien · klimaaktiv Plus-Energie-Quartiere"
+    left: "PEXL · FH Technikum Wien · klimaaktiv Plus-Energie-Quartiere"
     right:
       - {href: about.qmd, text: Kontakt & Nutzung}
       - {href: 'https://github.com/simonschaluppe/peexcel', text: GitHub}

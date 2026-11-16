@@ -17,7 +17,7 @@ Meaningful comparison requires aligned boundaries, reference areas, time bases a
 ## Creating and saving a variant
 
 ::: {.excel-operation}
-**Where in PEExcel?**
+**Where in PEXL?**
 
 1. Set project and variant names, clearly distinguishing baseline and measure.
 2. Configure inputs on technical sheets and calculate.

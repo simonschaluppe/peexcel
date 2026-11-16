@@ -2,6 +2,6 @@
 title: "Using the tool"
 ---
 
-The current English guide is [Getting started with PEExcel](excel-overview.qmd).
+The current English guide is [Getting started with PEXL](excel-overview.qmd).
 
 [Excel navigation](excel-navigation.qmd) · [Presets](presets.qmd) · [Quality assurance](declaration.qmd#qualitaetssicherung)

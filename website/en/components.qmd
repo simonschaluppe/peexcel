@@ -29,7 +29,7 @@ In the second reference model, the basement ceiling separates heated from unheat
 **LCA:** [☁ THG]{.excel-menu .teal} → [Baulich]{.excel-section} (construction).
 
 ::: {.excel-operation}
-**Where in PEExcel?** Assign category, construction and quantity for external walls, windows, roof, basement ceiling/foundation and intermediate floors. Check additional construction measures, grouped measures and overall LCA input for overlap. A component outside the thermal envelope can still have relevant manufacturing emissions.
+**Where in PEXL?** Assign category, construction and quantity for external walls, windows, roof, basement ceiling/foundation and intermediate floors. Check additional construction measures, grouped measures and overall LCA input for overlap. A component outside the thermal envelope can still have relevant manufacturing emissions.
 :::
 
 [LCA and Eco2soft import](climate.qmd#eco2soft)

@@ -77,4 +77,4 @@ Insbesondere technische Leistungen, Systemanteile, Sollwerte, Verluste und Aktiv
 **Für die Deklaration:** Beispielwerte und Schätzungen sind durch geeignete Projektangaben zu ersetzen. Als Deklarationswerte gekennzeichnete Parameter sind für die Nachweisführung verbindlich, können jedoch in freien Modellvarianten abweichend eingestellt werden.
 :::
 
-Quelle: [PEExcel-Schulung, Folien 8, 29 und 34](downloads/schulung.pdf#page=34).
+Quelle: [PEXL-Schulung, Folien 8, 29 und 34](downloads/schulung.pdf#page=34).

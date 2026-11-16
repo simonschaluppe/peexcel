@@ -1,8 +1,8 @@
 ---
-title: "Erste Schritte mit PEExcel"
+title: "Erste Schritte mit PEXL"
 ---
 
-PEExcel ist das Berechnungs- und Nachweiswerkzeug für den klimaaktiv Standard für Plus-Energie-Quartiere. Es verbindet Gebäudebetrieb, Energieversorgung, motorisierte Individualmobilität und Lebenszyklusemissionen in einem stündlichen Bewertungsmodell.
+PEXL ist das Berechnungs- und Nachweiswerkzeug für den klimaaktiv Standard für Plus-Energie-Quartiere. Es verbindet Gebäudebetrieb, Energieversorgung, motorisierte Individualmobilität und Lebenszyklusemissionen in einem stündlichen Bewertungsmodell.
 
 Mit dem Excel-Tool können Projektvarianten untersucht, berechnet und anhand ihrer Energie- und Treibhausgasbilanzen verglichen sowie die Nachweise für eine [Deklaration](projekte-nachweisen.qmd) erstellt werden.
 
@@ -36,9 +36,11 @@ Das Blatt [▶]{.excel-menu .darkred} ("Quick Start") bietet einen schnellen Zug
 
 ### 3. Konfiguration festlegen
 
-Wähle geeignete [Presets](presets.qmd), beispielsweise für Gebäudehülle, Heizsystem oder Photovoltaik.
+Wähle in den entsprechenden **roten Dropdownfeldern** geeignete [Presets](presets.qmd), beispielsweise für Gebäudehülle, Heizsystem oder Photovoltaik. Die Quick-Start-Ansicht oben zeigt die Schnellauswahl.
 
+::: {.callout-note collapse=true title="Forschung / Experte"}
 Presets übernehmen mehrere zusammengehörige Parameter. Die resultierenden Eingaben müssen anschließend auf ihre Eignung für das untersuchte Projekt geprüft werden.
+:::
 
 Projektspezifische Änderungen erfolgen in den jeweiligen Fachblättern.
 
@@ -53,7 +55,9 @@ Projektspezifische Änderungen erfolgen in den jeweiligen Fachblättern.
 4. Bei Bedarf Blatt [📈]{.excel-menu .red} ("Dashboard") für [stündliche Auswertungen](excel-dashboard.qmd) verwenden.
 :::
 
-Bei manuellem Berechnungsmodus sind die Ergebnisse erst nach einer erneuten Berechnung aktuell.
+::: {.callout-warning collapse=true title="Achtung"}
+**Excel-Performance:** Unter **Formeln → Berechnungsoptionen → Manuell** kannst du automatische Neuberechnungen nach jeder Eingabe vermeiden. Nach den Änderungen mit <kbd>F9</kbd> neu berechnen, bevor du Ergebnisse auswertest oder eine Variante exportierst. Bis dahin können angezeigte Ergebnisse veraltet sein. Die Einstellung gilt für alle geöffneten Arbeitsmappen. Bei Bedarf unter demselben Menü wieder **Automatisch** wählen.[^excel-calculation]
+:::
 
 ### 5. Variante speichern und vergleichen
 
@@ -71,4 +75,6 @@ Für die weitere Bearbeitung bieten sich drei Zugänge an:
 
 Für bestehende Projekte beschreibt [Migration](migration.qmd) die Übernahme von Eingaben zwischen Toolversionen.
 
-Quelle: [PEExcel-Schulung, insbesondere Folien 3, 7–8 und 24–30](downloads/schulung.pdf#page=7).
+Quelle: [PEXL-Schulung, insbesondere Folien 3, 7–8 und 24–30](downloads/schulung.pdf#page=7).
+
+[^excel-calculation]: [Microsoft: Excel calculation performance](https://learn.microsoft.com/en-us/office/vba/excel/concepts/excel-performance/excel-improving-calculation-performance).

@@ -42,4 +42,4 @@ Technical documentation for modelling, result analysis and preparing a klimaakti
 
 [Sheet navigator and notation](excel-navigation.qmd) · [Presets](presets.qmd) · [Migration](migration.qmd) · [Variants](variants.qmd) · [Results](results.qmd) · [Excel dashboard](excel-dashboard.qmd) · [Comparison](comparison.qmd) · [Batch simulation](batch.qmd)
 
-Screenshots and technical terminology follow PEExcel training. Additional research examples cite their sources on the relevant pages.
+Screenshots and technical terminology follow PEXL training. Additional research examples cite their sources on the relevant pages.

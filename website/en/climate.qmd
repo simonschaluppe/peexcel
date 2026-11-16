@@ -5,10 +5,12 @@ title: "Life-cycle assessment"
 {{< include _includes/preset-help-climate.qmd >}}
 
 ::: {.excel-operation}
-**Where in PEExcel?** [☁ THG]{.excel-menu .teal} (**Graue Emissionen, Ökobilanz**), also called “Global Warming Potential” in the manual.
+**Where in PEXL?** [☁ THG]{.excel-menu .teal} (**Graue Emissionen, Ökobilanz**), also called “Global Warming Potential” in the manual.
 :::
 
-Climate-neutral PED assessment extends beyond operational energy. Embodied building emissions and operational greenhouse gas emissions are assessed over a defined study period.
+Climate-neutral PED assessment links cumulative district emissions to a limited remaining climate budget. Embodied and operational emissions are therefore assessed together over the study period. The [budget derivation in the background report (German)](https://simonschaluppe.github.io/peq-higrube/Kapitel/03-zielwert-thg.html) uses a climate-budget approach for **1.5 °C with a 66% probability** and explains national and sectoral allocation. This underpins the assessment budget; it is not a probability assigned to an individual district.
+
+For new construction and refurbishment, assess construction interventions together with operational savings. Retaining components, adding materials and replacing components affect the balance; apply the [accounting rules (German)](https://simonschaluppe.github.io/peq-higrube/Kapitel/04-bilanzregeln.html) of the selected method.
 
 ## Distinguishing three time concepts
 
@@ -22,15 +24,15 @@ A cumulative presentation integrates contributions over time. It is neither a si
 
 ## GHG reduction pathways and life cycle
 
-![GHG reduction pathways to 2050 for different energy carriers. Source: PEExcel training.](../media/manual/decarbonisation.png){.manual-figure}
+![GHG reduction pathways to 2050 for different energy carriers. Source: PEXL training.](../media/manual/decarbonisation.png){.manual-figure}
 
 The method uses 2025–2075 and sectoral decarbonisation pathways to 2050. Decarbonised systems after 2050 are an assessment assumption. The training's budget of 320 kg CO₂eq/m² gross floor area is a cumulative reference, not an annual emissions rate.
 
-![Cumulative emissions from construction, operation and refurbishment, and biogenic storage. Source: PEExcel training.](../media/manual/lifecycle.png){.manual-figure}
+![Cumulative emissions from construction, operation and refurbishment, and biogenic storage. Source: PEXL training.](../media/manual/lifecycle.png){.manual-figure}
 
 The timing of emissions, refurbishment and biogenic storage affects the life-cycle balance. Credits in the diagram are methodological assumptions, not universally transferable material properties.
 
-![Operational-emissions boundary: imports, local PV use and feed-in. Original English figure from PEExcel training, slides 22–23 and 31.](../media/manual/operational-emissions.png){.manual-figure}
+![Operational-emissions boundary: imports, local PV use and feed-in. Original English figure from PEXL training, slides 22–23 and 31.](../media/manual/operational-emissions.png){.manual-figure}
 
 [Training source](../downloads/schulung.pdf#page=31) (German).
 
@@ -47,7 +49,7 @@ Assign constructions and quantities transparently. Interpret embodied and operat
 **Location:** [☁ THG]{.excel-menu .teal} → [Baulich]{.excel-section} (construction).
 
 ::: {.excel-operation}
-**Where in PEExcel?**
+**Where in PEXL?**
 
 1. Under **Baulich**, select constructions or a preset and check quantities.
 2. Add grouped measures or an overall LCA input without counting existing measures twice.
@@ -79,7 +81,7 @@ In the second reference model, the basement ceiling separates heated from unheat
 ## Connecting to Eco2soft {#eco2soft}
 
 ::: {.excel-operation}
-**Where in PEExcel?** Create the appropriate assessment in Eco2soft and export CSV. Align system boundary, reference area, units, fossil/biogenic contributions and replacement assumptions before transfer. After importing, check which components or aggregate results were adopted and review existing inputs for double counting.
+**Where in PEXL?** Create the appropriate assessment in Eco2soft and export CSV. Align system boundary, reference area, units, fossil/biogenic contributions and replacement assumptions before transfer. After importing, check which components or aggregate results were adopted and review existing inputs for double counting.
 :::
 
 Check field mapping in the CSV import dialog. Different boundaries or already recorded components can otherwise cause missing contributions or double counting.

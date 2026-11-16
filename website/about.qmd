@@ -3,11 +3,11 @@ title: "Projekt, Kontakt und Nutzung"
 ---
 
 
-PEExcel wurde von der Forschungsgruppe [Climate-fit Buildings and Districts](https://www.technikum-wien.at/forschungsschwerpunkt-renewable-energy-systems/) an der [FH Technikum Wien](https://www.technikum-wien.at/) entwickelt.
+PEXL wurde von der Forschungsgruppe [Climate-fit Buildings and Districts](https://www.technikum-wien.at/forschungsschwerpunkt-renewable-energy-systems/) an der [FH Technikum Wien](https://www.technikum-wien.at/) entwickelt.
 
 ## Projektkontext und Förderung
 
-Die Entwicklung von PEExcel wurde unter anderem im Rahmen des **Kompetenzteams für Lehre „KlimSta – Klimafitte Stadtsanierung“** sowie der Arbeiten zum **klimaaktiv Qualitätsstandard für Plus-Energie-Quartiere**.
+Die Entwicklung von PEXL wurde unter anderem im Rahmen des **Kompetenzteams für Lehre „KlimSta – Klimafitte Stadtsanierung“** sowie der Arbeiten zum **klimaaktiv Qualitätsstandard für Plus-Energie-Quartiere**.
 
 Das Kompetenzteam KlimSta wurde von der **Stadt Wien – Magistratsabteilung 23 (Wirtschaft, Arbeit und Statistik)** im Rahmen der Ausschreibung „Stiftungsprofessuren und Kompetenzteams für Lehre“ (Call 35) gefördert.
 
