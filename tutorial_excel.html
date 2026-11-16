@@ -8,7 +8,7 @@
 
 <meta name="description" content="Projektexporte laden, Szenarien und Variablen auswählen und Änderungen als Excel-Datei weitergeben.">
 
-<title>Excel-Projekte mit Python bearbeiten – PEExcel</title>
+<title>Excel-Projekte mit Python bearbeiten – PEXL</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -72,6 +72,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./tutorial_zeitreihen.html" rel="next">
+<link href="./python.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -4024,11 +4026,11 @@ return Plotly;
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./media/logo.png" alt="PEExcel Logo" class="navbar-logo light-content">
-    <img src="./media/logo.png" alt="PEExcel Logo" class="navbar-logo dark-content">
+    <img src="./media/logo.png" alt="PEXL Logo" class="navbar-logo light-content">
+    <img src="./media/logo.png" alt="PEXL Logo" class="navbar-logo dark-content">
     </a>
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">PEExcel</span>
+    <span class="navbar-title">PEXL</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Suchen"></div>
@@ -4541,7 +4543,7 @@ return Plotly;
 <section id="lernziel" class="level2">
 <h2 class="anchored" data-anchor-id="lernziel">Lernziel</h2>
 <p>Projektexporte laden, Szenarien und Variablen auswählen und Änderungen als Excel-Datei weitergeben.</p>
-<p><strong>Voraussetzungen:</strong> Gespeicherte PEExcel-Exporte; keine Excel-Installation erforderlich.</p>
+<p><strong>Voraussetzungen:</strong> Gespeicherte PEXL-Exporte; keine Excel-Installation erforderlich.</p>
 <p>Einmalig im Repository installieren: <code>python -m pip install -e ".[publication]"</code>. Zum eigenen Ausführen das Notebook im geklonten Repository öffnen und die Zellen von oben nach unten ausführen. Die Website zeigt gespeicherte Ausgaben; sie führt keinen Python-Code im Browser aus.</p>
 <p><a href="downloads/tutorial_excel.ipynb">Tutorial-Notebook herunterladen</a> · <a href="./python.html">Alle Tutorials</a></p>
 </section>
@@ -5288,11 +5290,23 @@ document.querySelectorAll('iframe[data-fit]').forEach(frame=>{
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./python.html" class="pagination-link" aria-label="Übersicht und Einstieg">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Übersicht und Einstieg</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./tutorial_zeitreihen.html" class="pagination-link" aria-label="Zeitreihenexporte zu einem Projekt verbinden">
+        <span class="nav-page-text">Zeitreihenexporte zu einem Projekt verbinden</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>PEExcel · FH Technikum Wien · klimaaktiv Plus-Energie-Quartiere</p>
+<p>PEXL · FH Technikum Wien · klimaaktiv Plus-Energie-Quartiere</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Thermal envelope and heat flows – PEExcel</title>
+<title>Thermal envelope and heat flows – PEXL</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,6 +36,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./hvac.html" rel="next">
+<link href="./model.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -77,6 +79,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -89,11 +120,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./../media/logo.png" alt="PEExcel logo" class="navbar-logo light-content">
-    <img src="./../media/logo.png" alt="PEExcel logo" class="navbar-logo dark-content">
+    <img src="./../media/logo.png" alt="PEXL logo" class="navbar-logo light-content">
+    <img src="./../media/logo.png" alt="PEXL logo" class="navbar-logo dark-content">
     </a>
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">PEExcel</span>
+    <span class="navbar-title">PEXL</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -176,7 +207,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./excel-overview.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Getting started with PEExcel</span></a>
+ <span class="menu-text">Getting started with PEXL</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -532,7 +563,7 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 <div role="note" class="translation-note" aria-label="Translation information" style="max-width:80rem;margin:0.75rem auto;padding:0.5rem 1rem;font-size:0.875rem;color:#555;">
 
-English translation · 5 November 2026. Original screenshots, interactive tools, catalogues and notebook outputs are shared with the German site and retain their original language.
+English translation · Editorial update 16 November 2026. Original screenshots, interactive tools, catalogues and notebook outputs are shared with the German site and retain their original language.
 
 </div>
 
@@ -584,29 +615,12 @@ English translation · 5 November 2026. Original screenshots, interactive tools,
 <p>Two thermally decoupled model zones</p>
 </div>
 <p>The model distinguishes an <strong>actively cooled zone and a zone without active cooling, thermally decoupled from one another</strong>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<p>Solar gains enter through windows; internal heat gains arise inside the room. Transmission and ventilation are shown as examples of heat removal; their actual direction depends on conditions.</p>
+<p>Solar gains enter through windows; internal heat gains arise inside the room.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="../illustrations/thermisches_modell.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Thermal energy model with two thermally decoupled zones, heat flows and example balances."><img src="../illustrations/thermisches_modell.svg" class="manual-figure img-fluid figure-img" alt="Thermal energy model with two thermally decoupled zones, heat flows and example balances."></a></p>
 <figcaption>Thermal energy model with two thermally decoupled zones, heat flows and example balances.</figcaption>
 </figure>
-</div>
-<!-- Interactive embed paused for page performance.
-<iframe class="peq-lesson" data-fit src="../assets/teaching/index.html" title="Interactive section: components, envelope and heat flows"></iframe>
--->
-<div class="callout callout-style-simple callout-tip callout-titled" title="Explore the model yourself">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Explore the model yourself
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Display components, the balance boundary and heat flows separately and explore their spatial relationships in the interactive section. Its interface is in German.</p>
-<p><a href="../assets/teaching/index.html">Open section view</a> · <a href="../tutorial_gebaeudeschnitt.html">Executable notebook (German)</a></p>
-</div>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled" title="Caution">
 <div class="callout-header d-flex align-content-center">
@@ -623,9 +637,9 @@ English translation · 5 November 2026. Original screenshots, interactive tools,
 </div>
 <section id="excel-bauphysik" class="level2">
 <h2 class="anchored" data-anchor-id="excel-bauphysik">Entering building-physics inputs</h2>
-<p>Describe the areas and properties of components that determine the district’s heat exchange. The interactive view helps distinguish the thermal boundary from component assignment.</p>
+<p>Describe the areas and properties of components that determine the district’s heat exchange.</p>
 <div class="excel-operation">
-<p><strong>Where in PEExcel?</strong> Open <span class="excel-menu darkred">🧱</span> <strong>Bauphysik</strong> (building physics).</p>
+<p><strong>Where in PEXL?</strong> Open <span class="excel-menu darkred">🧱</span> <strong>Bauphysik</strong> (building physics).</p>
 </div>
 <section id="inputs-on-the-building-physics-sheet" class="level3">
 <h3 class="anchored" data-anchor-id="inputs-on-the-building-physics-sheet">Inputs on the building-physics sheet</h3>
@@ -667,7 +681,24 @@ English translation · 5 November 2026. Original screenshots, interactive tools,
 <div class="declaration-note">
 <p><strong>Declaration:</strong> Internal heat gains and user electricity can in principle be modelled freely. For a declaration, use the designated values of the tool version in use.</p>
 </div>
-<p>The section view uses a schematic reference building.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Research / Expert">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Research / Expert
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Combining different component areas:</strong> Inputs are aggregated by component group and orientation. Add only areas with the same boundary condition. For U-values, use <span class="math inline">\(U_\mathrm{eq}=\sum_i A_i U_i/\sum_i A_i\)</span>, preserving the transmission conductance <span class="math inline">\(\sum_i A_i U_i\)</span>.</p>
+<p>Worked example: 100 m² of wall at 0.20 W/(m² K) and 50 m² at 0.40 W/(m² K) give 150 m² at approximately 0.267 W/(m² K). Treat windows and opaque walls separately.</p>
+<p>Window U-values refer to the whole window including the frame; g-values refer to glazing. Weight g-values by glazing area and account for frame fractions and shading separately. Do not combine orientations. This simplification assumes comparable solar exposure and boundary conditions; document component areas and assumptions.</p>
+</div>
+</div>
+</div>
 
 
 </section>
@@ -677,7 +708,7 @@ English translation · 5 November 2026. Original screenshots, interactive tools,
 <div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>Each zone uses a simplified thermal RC model with one thermal mass: heat capacity C represents storage, and resistances R represent heat exchange. No heat exchange is assumed between the two zones. The model supports energy concept assessment; it is not a detailed multi-zone room model. Explanation by the project team; <a href="../downloads/schulung.pdf">PEExcel training, slides 11–14</a> (German).<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>According to the project team, the thermal calculation follows the simplified dynamic approach of ÖNORM B 8110-6. This identifies the methodological basis, not a claim of full compliance with the standard. Each zone uses a simplified thermal RC model with one thermal mass: heat capacity C represents storage, and resistances R represent heat exchange. No heat exchange is assumed between the two zones. The model supports energy concept assessment; it is not a detailed multi-zone room model. Explanation by the project team; <a href="../downloads/schulung.pdf">PEXL training, slides 11–14</a> (German).<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script>
@@ -1146,11 +1177,23 @@ document.querySelectorAll('iframe[data-fit]').forEach(frame=>{
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./model.html" class="pagination-link" aria-label="Modelling the district">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Modelling the district</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./hvac.html" class="pagination-link" aria-label="Heating, cooling, hot water and ventilation">
+        <span class="nav-page-text">Heating, cooling, hot water and ventilation</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>PEExcel · UAS Technikum Wien · klimaaktiv Positive Energy Districts</p>
+<p>PEXL · UAS Technikum Wien · klimaaktiv Positive Energy Districts</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Thermische Hülle und Wärmeflüsse – PEExcel</title>
+<title>Thermische Hülle und Wärmeflüsse – PEXL</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,6 +36,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./hvac.html" rel="next">
+<link href="./model.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -89,6 +91,35 @@ ul.task-list li input[type="checkbox"] {
   });
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -101,11 +132,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./media/logo.png" alt="PEExcel Logo" class="navbar-logo light-content">
-    <img src="./media/logo.png" alt="PEExcel Logo" class="navbar-logo dark-content">
+    <img src="./media/logo.png" alt="PEXL Logo" class="navbar-logo light-content">
+    <img src="./media/logo.png" alt="PEXL Logo" class="navbar-logo dark-content">
     </a>
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">PEExcel</span>
+    <span class="navbar-title">PEXL</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Suchen"></div>
@@ -634,37 +665,20 @@ ul.task-list li input[type="checkbox"] {
 <p>Zwei thermisch entkoppelte Modellzonen</p>
 </div>
 <p>Die thermische Modellierung unterscheidet eine <strong>aktiv gekühlte und eine nicht aktiv gekühlte, thermisch entkoppelte Zone</strong>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<p>Solare Gewinne kommen durch Fenster, interne Wärmegewinne entstehen im Raum. Transmission und Lüftung werden als beispielhafte Wärmeabfuhr gezeigt; ihre tatsächliche Richtung hängt vom Zustand ab.</p>
+<p>Solare Gewinne kommen durch Fenster, interne Wärmegewinne entstehen im Raum.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="illustrations/thermisches_modell.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Thermisches Energiemodell mit zwei thermisch entkoppelten Zonen, Wärmeflüssen und beispielhaften Bilanzen."><img src="illustrations/thermisches_modell.svg" class="manual-figure img-fluid figure-img" alt="Thermisches Energiemodell mit zwei thermisch entkoppelten Zonen, Wärmeflüssen und beispielhaften Bilanzen."></a></p>
 <figcaption>Thermisches Energiemodell mit zwei thermisch entkoppelten Zonen, Wärmeflüssen und beispielhaften Bilanzen.</figcaption>
 </figure>
 </div>
-<!-- Interactive embed paused for page performance.
-<iframe class="peq-lesson" data-fit src="assets/teaching/index.html" title="Interaktive Schnittdarstellung: Bauteile, Hülle und Wärmeflüsse"></iframe>
--->
-<div class="callout callout-style-simple callout-tip callout-titled" title="Das Modell selbst erkunden">
+<div class="callout callout-style-default callout-warning callout-titled" title="Achtung">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tipp</span>Das Modell selbst erkunden
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>In der interaktiven Schnittdarstellung kannst du Bauteile, Bilanzgrenze und Wärmeflüsse einzeln einblenden und ihre räumliche Zuordnung untersuchen.</p>
-<p><a href="assets/teaching/index.html">Schnittdarstellung öffnen</a> · <a href="./tutorial_gebaeudeschnitt.html">Ausführbares Notebook</a></p>
-</div>
-</div>
-<div class="callout callout-style-default callout-important callout-titled" title="Thermische Hülle und Ökobilanz unterscheiden">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Wichtig</span>Thermische Hülle und Ökobilanz unterscheiden
+<span class="screen-reader-only">Warnung</span>Achtung
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -673,9 +687,9 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <section id="excel-bauphysik" class="level2">
 <h2 class="anchored" data-anchor-id="excel-bauphysik">Bauphysik eingeben</h2>
-<p>Beschreibe die Flächen und Eigenschaften der Bauteile, die den Wärmeaustausch des Quartiers bestimmen. Die interaktive Darstellung oben hilft dir dabei, thermische Grenze und Bauteilzuordnung auseinanderzuhalten.</p>
+<p>Beschreibe die Flächen und Eigenschaften der Bauteile, die den Wärmeaustausch des Quartiers bestimmen.</p>
 <div class="excel-operation">
-<p><strong>Wo findest du die Eingaben?</strong> Öffne das Blatt <span class="excel-menu darkred">🧱</span> <strong>Bauphysik</strong>.</p>
+<p><strong>Wo im PEXL?</strong> Öffne das Blatt <span class="excel-menu darkred">🧱</span> <strong>Bauphysik</strong>.</p>
 </div>
 <section id="eingaben-im-bauphysik-blatt" class="level3">
 <h3 class="anchored" data-anchor-id="eingaben-im-bauphysik-blatt">Eingaben im Bauphysik-Blatt</h3>
@@ -717,7 +731,24 @@ ul.task-list li input[type="checkbox"] {
 <div class="declaration-note">
 <p><strong>Deklaration</strong>: Interne Wärmegewinne und Nutzerstrom können im Tool prinzipiell frei modelliert werden. Für die Deklaration gelten die ausgewiesenen Deklarationswerte der verwendeten Toolversion.</p>
 </div>
-<p>Die Schnittdarstellung verwendet ein schematisches Referenzgebäude.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Forschung / Experte">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Hinweis</span>Forschung / Experte
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Unterschiedliche Teilflächen zusammenfassen:</strong> Pro Bauteilgruppe und Orientierung stehen zusammengefasste Eingaben zur Verfügung. Addiere nur Flächen mit gleicher Randbedingung. Für den U-Wert gilt <span class="math inline">\(U_\mathrm{eq}=\sum_i A_i U_i/\sum_i A_i\)</span>; damit bleibt der Transmissionsleitwert <span class="math inline">\(\sum_i A_i U_i\)</span> erhalten.</p>
+<p>Rechenbeispiel: 100 m² Wand mit 0,20 W/(m² K) und 50 m² mit 0,40 W/(m² K) ergeben 150 m² mit rund 0,267 W/(m² K). Fenster und opake Wandflächen getrennt behandeln.</p>
+<p>Bei Fenstern bezieht sich der U-Wert auf das gesamte Fenster einschließlich Rahmen, der g-Wert auf die Verglasung. g-Werte daher nach Glasfläche gewichten; Rahmenanteile und Verschattung separat berücksichtigen. Unterschiedliche Orientierungen nicht zusammenfassen. Die Vereinfachung setzt vergleichbare Besonnung und Randbedingungen voraus; dokumentiere die Teilflächen und Annahmen.</p>
+</div>
+</div>
+</div>
 
 
 </section>
@@ -727,7 +758,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Fußnoten</h2>
 
 <ol>
-<li id="fn1"><p>Jede der beiden Modellzonen wird als vereinfachtes thermisches RC-Ersatzmodell mit einer Speichermasse beschrieben: Die Wärmekapazität C bildet die thermische Speicherung ab, die Widerstände R den Wärmeaustausch. Zwischen aktiv gekühlter und nicht aktiv gekühlter Zone wird kein Wärmeaustausch angesetzt. Das Modell dient der energetischen Konzeptbewertung und ist kein detailliertes Mehrzonen-Raummodell. Erläuterung des Projektteams; ergänzend <a href="downloads/schulung.pdf">PEExcel-Schulung, Folien 11–14</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>Nach fachlicher Einordnung des Projektteams orientiert sich die thermische Berechnung am vereinfachten dynamischen Verfahren der ÖNORM B 8110-6. Dies beschreibt den methodischen Bezug, keinen vollständigen Normkonformitätsnachweis. Jede der beiden Modellzonen wird als vereinfachtes thermisches RC-Ersatzmodell mit einer Speichermasse beschrieben: Die Wärmekapazität C bildet die thermische Speicherung ab, die Widerstände R den Wärmeaustausch. Zwischen aktiv gekühlter und nicht aktiv gekühlter Zone wird kein Wärmeaustausch angesetzt. Das Modell dient der energetischen Konzeptbewertung und ist kein detailliertes Mehrzonen-Raummodell. Erläuterung des Projektteams; ergänzend <a href="downloads/schulung.pdf">PEXL-Schulung, Folien 11–14</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script>
@@ -1180,11 +1211,23 @@ document.querySelectorAll('iframe[data-fit]').forEach(frame=>{
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./model.html" class="pagination-link" aria-label="Das Quartier modellieren">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Das Quartier modellieren</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./hvac.html" class="pagination-link" aria-label="Heizung, Kühlung, Warmwasser und Lüftung">
+        <span class="nav-page-text">Heizung, Kühlung, Warmwasser und Lüftung</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>PEExcel · FH Technikum Wien · klimaaktiv Plus-Energie-Quartiere</p>
+<p>PEXL · FH Technikum Wien · klimaaktiv Plus-Energie-Quartiere</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;

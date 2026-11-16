@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Storage and flexibility – PEExcel</title>
+<title>Storage and flexibility – PEXL</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,6 +36,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./usage.html" rel="next">
+<link href="./pv.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -89,11 +91,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./../media/logo.png" alt="PEExcel logo" class="navbar-logo light-content">
-    <img src="./../media/logo.png" alt="PEExcel logo" class="navbar-logo dark-content">
+    <img src="./../media/logo.png" alt="PEXL logo" class="navbar-logo light-content">
+    <img src="./../media/logo.png" alt="PEXL logo" class="navbar-logo dark-content">
     </a>
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">PEExcel</span>
+    <span class="navbar-title">PEXL</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -176,7 +178,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./excel-overview.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Getting started with PEExcel</span></a>
+ <span class="menu-text">Getting started with PEXL</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -538,7 +540,7 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 <div role="note" class="translation-note" aria-label="Translation information" style="max-width:80rem;margin:0.75rem auto;padding:0.5rem 1rem;font-size:0.875rem;color:#555;">
 
-English translation · 5 November 2026. Original screenshots, interactive tools, catalogues and notebook outputs are shared with the German site and retain their original language.
+English translation · Editorial update 16 November 2026. Original screenshots, interactive tools, catalogues and notebook outputs are shared with the German site and retain their original language.
 
 </div>
 
@@ -584,9 +586,11 @@ English translation · 5 November 2026. Original screenshots, interactive tools,
 </div>
 </div>
 <div class="excel-operation">
-<p><strong>Where in PEExcel?</strong> Sheet <span class="excel-menu darkred">🔋</span> (<strong>Flexibilität und Speicher</strong>).</p>
+<p><strong>Where in PEXL?</strong> Sheet <span class="excel-menu darkred">🔋</span> (<strong>Flexibilität und Speicher</strong>).</p>
 </div>
 <p>Energy flexibility connects the timing of renewable energy availability with district operation. Local PV surpluses and external flexibility signals can enable additional conditioning and storage charging. <strong>Minimum-demand coverage and flexible additional supply</strong> remain separate quantities.</p>
+<p>Flexible conditioning can shift energy uptake to hours with renewable surpluses or lower primary-energy and CO₂ factors. Preheating in winter and precooling in summer can also increase heat exchange with the surroundings and thus energy demand. Evaluate energy quantity, timing and assessment together.</p>
+<p><strong>User flexibility</strong> here means accepting temporary deviations from heating and cooling setpoints. The configured comfort band limits these deviations; assess possible comfort effects for the project.</p>
 <section id="how-storage-options-work-together" class="level2">
 <h2 class="anchored" data-anchor-id="how-storage-options-work-together">How storage options work together</h2>
 <div class="quarto-figure quarto-figure-center">
@@ -600,13 +604,14 @@ English translation · 5 November 2026. Original screenshots, interactive tools,
 <li><strong>Local PV surpluses</strong> indicate that locally generated PV electricity is available for additional applications.</li>
 <li><strong>An external enable signal</strong> permits flexible operation based on an external time series. The signal supplied with the tool is based on wind-power surpluses in Austria. For your own investigations, external enable signals can also be derived from other sources, such as hourly CO₂ intensities.</li>
 </ul>
-<p>The district’s <strong>flexibility potentials</strong> determine how an enable signal can be used. Actual energy uptake depends on available surplus or import, system capacity and storage state. <img src="../media/manual/dispatch.png" class="manual-figure img-fluid" alt="Electricity flows: dispatch order, minimum demands and flexible storage charging. Source: PEExcel training; active paths depend on the configuration."> | Flexibility potential | What happens? | What limits use? | What shows the effect? | |—|—|—|—| | Thermal building mass | Heating or cooling temporarily increases | Effective thermal mass, comfort band and system capacity | Room temperature and subsequent heating/cooling demand | | Hot-water storage | Additional heating of the buffer/storage tank | Volume, upper temperature and charging capacity | Storage state, charging and losses | | Stationary battery | Electricity is stored and used later | Capacity, C-rate and efficiencies | SoC, charging, discharging and full cycles | | Electric vehicles | Flexible charging; district supply when enabled | Presence, charging points, power and minimum SoC | Charging flows and SoC by use |</p>
+<p>In practice, an enable signal may be derived from a control signal or a dynamic electricity price. A supplied time series represents that operating decision in the model; it is not a direct connection to a real controller. A low price does not automatically imply low CO₂ intensity or grid benefit. Document the signal source and decision criterion separately.</p>
+<p>The district’s <strong>flexibility potentials</strong> determine how an enable signal can be used. Actual energy uptake depends on available surplus or import, system capacity and storage state. <img src="../media/manual/dispatch.png" class="manual-figure img-fluid" alt="Electricity flows: dispatch order, minimum demands and flexible storage charging. Source: PEXL training; active paths depend on the configuration."> | Flexibility potential | What happens? | What limits use? | What shows the effect? | |—|—|—|—| | Thermal building mass | Heating or cooling temporarily increases | Effective thermal mass, comfort band and system capacity | Room temperature and subsequent heating/cooling demand | | Hot-water storage | Additional heating of the buffer/storage tank | Volume, upper temperature and charging capacity | Storage state, charging and losses | | Stationary battery | Electricity is stored and used later | Capacity, C-rate and efficiencies | SoC, charging, discharging and full cycles | | Electric vehicles | Flexible charging; district supply when enabled | Presence, charging points, power and minimum SoC | Charging flows and SoC by use |</p>
 <p>Minimum supply remains part of the simulation. Flexible charging uses additional available headroom. A high enabled-time share alone says little about the energy actually shifted.</p>
 </section>
 <section id="excel-flexibilitaet" class="level2">
 <h2 class="anchored" data-anchor-id="excel-flexibilitaet">Enable settings and sources</h2>
 <div class="excel-operation">
-<p><strong>Where in PEExcel?</strong> Check PV-surplus use and <span class="excel-field">Signal verwenden</span> (use signal) separately. Specify which applications may use the signal and their power limits. <a href="./presets.html">Presets</a> provide an initial selection; actual switches and parameters are decisive.</p>
+<p><strong>Where in PEXL?</strong> Check PV-surplus use and <span class="excel-field">Signal verwenden</span> (use signal) separately. Specify which applications may use the signal and their power limits. <a href="./presets.html">Presets</a> provide an initial selection; actual switches and parameters are decisive.</p>
 </div>
 <p>Configure generation on the <a href="./pv.html">PV page</a>. Track conventional grid import, flexible grid import and self-consumption separately in the results.</p>
 </section>
@@ -698,8 +703,8 @@ English translation · 5 November 2026. Original screenshots, interactive tools,
 <h2 class="anchored" data-anchor-id="dynamic-assessment">Dynamic assessment</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../media/manual/dynamic-assessment.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Method: imports, exports and time-dependent assessment of energy carriers. Source: PEExcel training."><img src="../media/manual/dynamic-assessment.png" class="manual-figure img-fluid figure-img" alt="Method: imports, exports and time-dependent assessment of energy carriers. Source: PEExcel training."></a></p>
-<figcaption>Method: imports, exports and time-dependent assessment of energy carriers. Source: PEExcel training.</figcaption>
+<p><a href="../media/manual/dynamic-assessment.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Method: imports, exports and time-dependent assessment of energy carriers. Source: PEXL training."><img src="../media/manual/dynamic-assessment.png" class="manual-figure img-fluid figure-img" alt="Method: imports, exports and time-dependent assessment of energy carriers. Source: PEXL training."></a></p>
+<figcaption>Method: imports, exports and time-dependent assessment of energy carriers. Source: PEXL training.</figcaption>
 </figure>
 </div>
 <p>Hourly conversion factors assess energy use over time. Report physical savings, temporal shifts and improvements in an assessed balance separately.</p>
@@ -1198,11 +1203,23 @@ document.querySelectorAll('iframe[data-fit]').forEach(frame=>{
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./pv.html" class="pagination-link" aria-label="PV inputs">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">PV inputs</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./usage.html" class="pagination-link" aria-label="Use parameters">
+        <span class="nav-page-text">Use parameters</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>PEExcel · UAS Technikum Wien · klimaaktiv Positive Energy Districts</p>
+<p>PEXL · UAS Technikum Wien · klimaaktiv Positive Energy Districts</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;

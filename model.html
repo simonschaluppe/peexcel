@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Das Quartier modellieren – PEExcel</title>
+<title>Das Quartier modellieren – PEXL</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,6 +36,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./envelope.html" rel="next">
+<link href="./presets.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -101,11 +103,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./media/logo.png" alt="PEExcel Logo" class="navbar-logo light-content">
-    <img src="./media/logo.png" alt="PEExcel Logo" class="navbar-logo dark-content">
+    <img src="./media/logo.png" alt="PEXL Logo" class="navbar-logo light-content">
+    <img src="./media/logo.png" alt="PEXL Logo" class="navbar-logo dark-content">
     </a>
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">PEExcel</span>
+    <span class="navbar-title">PEXL</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Suchen"></div>
@@ -629,7 +631,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-<p>PEExcel verbindet die physische Simulation eines Quartiers mit der Bewertung seiner Energie- und Klimawirkung. Du beschreibst Gebäude, Nutzungen und Versorgung, berechnest ihre Wechselwirkungen und vergleichst anschließend die Ergebnisse. Besonders interessant ist das Zusammenspiel: Eine größere PV-Anlage, eine andere Wärmeversorgung oder eine veränderte Nutzung beeinflussen mehrere Energieflüsse gleichzeitig.</p>
+<p>PEXL verbindet die physische Simulation eines Quartiers mit der Bewertung seiner Energie- und Klimawirkung. Du beschreibst Gebäude, Nutzungen und Versorgung, berechnest ihre Wechselwirkungen und vergleichst anschließend die Ergebnisse. PV-Dimensionierung, Wärmeversorgung und Nutzung verändern den zeitlichen Netzstrombezug. Zusammen mit den angesetzten Konversionsfaktoren beeinflusst dies die Primärenergie- und Treibhausgasbilanz des Betriebs.</p>
 <section id="eingaben-simulation-analyse" class="level2">
 <h2 class="anchored" data-anchor-id="eingaben-simulation-analyse">Eingaben → Simulation → Analyse</h2>
 <p>Die folgende Übersicht zeigt dir, wo du im Excel-Tool beginnst und wo du die fachlichen Zusammenhänge nachlesen kannst.</p>
@@ -687,18 +689,18 @@ ul.task-list li input[type="checkbox"] {
 <figcaption>Energiemodell des Quartiers: Quellen, Versorgungssysteme, Speicher und Nutzungen sind über ihre Energieflüsse verbunden.</figcaption>
 </figure>
 </div>
-<p>Die Darstellung hilft dir, eine Maßnahme weiterzudenken: Eine Wärmepumpe verändert nicht nur die Wärmeversorgung, sondern auch den Strombedarf. Dessen zeitliche Verteilung beeinflusst wiederum die Nutzung der <a href="./pv.html">PV-Erzeugung</a> und der <a href="./systems.html">Speicher und Flexibilität</a>. Auch <a href="./mobility.html">Elektromobilität</a> bringt Ladebedarf und verfügbare Speicherkapazität in das Modell ein.</p>
+<p>Eine Wärmepumpe koppelt Wärmeversorgung und Strombedarf; <a href="./pv.html">PV-Erzeugung</a>, Speicher und <a href="./mobility.html">Elektromobilität</a> verändern die verbleibenden Netzflüsse. Über <a href="./systems.html#excel-flexibilitaet">externe Freigabesignale</a> lässt sich modellieren, wann flexible Anwendungen zusätzliche Energie aufnehmen dürfen. Der Variantenvergleich zeigt die Auswirkungen auf Netzbezug, Primärenergie und Treibhausgasemissionen unter den gewählten Bewertungsannahmen.</p>
 </section>
 <section id="ökobilanz-über-den-lebenszyklus" class="level3">
 <h3 class="anchored" data-anchor-id="ökobilanz-über-den-lebenszyklus">Ökobilanz über den Lebenszyklus</h3>
-<p>Die Ökobilanz erweitert den Blick vom laufenden Betrieb auf die Emissionen von Errichtung und Instandsetzung sowie die berücksichtigte biogene Speicherung. Betriebsenergie und bauliche Maßnahmen lassen sich damit gemeinsam über den Betrachtungszeitraum einordnen.</p>
+<p>Eine Bewertung der Klimaneutralität muss neben dem Betrieb auch die grauen Emissionen berücksichtigen. PEXL ermöglicht eine vereinfachte Lebenszyklusbilanz aus Errichtung, Betrieb, Instandsetzung und berücksichtigter biogener Speicherung. Neubau und Sanierung unterscheiden sich hinsichtlich baulicher Eingriffe und verbleibender Einsparpotenziale: Der zusätzliche Materialaufwand ist gemeinsam mit den betrieblichen Einsparungen zu beurteilen.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="media/manual/lifecycle.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Lebenszyklusbetrachtung: Betriebsenergie, Errichtung, Instandsetzung und biogene Speicherung tragen zur zeitlichen Emissionsbilanz bei."><img src="media/manual/lifecycle.png" class="manual-figure img-fluid figure-img" alt="Schematische Lebenszyklusbilanz mit kumulativen Emissionen, betrieblichen Beiträgen und Beiträgen von Errichtung, Instandsetzung und biogener Speicherung."></a></p>
 <figcaption>Lebenszyklusbetrachtung: Betriebsenergie, Errichtung, Instandsetzung und biogene Speicherung tragen zur zeitlichen Emissionsbilanz bei.</figcaption>
 </figure>
 </div>
-<p>Die Bewertungsmethode legt fest, welche Beiträge und zeitlichen Entwicklungen berücksichtigt werden. Die <a href="./climate.html">Ökobilanz-Seite</a> erläutert Betrachtungszeitraum, Dekarbonisierung und Bilanzgrenzen. So kannst du beispielsweise eine betriebliche Einsparung zusammen mit dem baulichen Aufwand einer Maßnahme beurteilen.</p>
+<p>Die Beiträge werden über den Betrachtungszeitraum <strong>kumuliert</strong>, nicht als jährliche Kennzahl in kg CO₂e/m²/a bewertet. Änderungen der Emissionsfaktoren im Zeitverlauf beeinflussen die Summe. Das Budget wird aus einem verbleibenden Klimabudget abgeleitet; die <a href="https://simonschaluppe.github.io/peq-higrube/Kapitel/03-zielwert-thg.html">Herleitung im Hintergrundbericht</a> erläutert Klimaziel und Zuteilungsannahmen. Die <a href="./climate.html">Ökobilanz-Seite</a> ordnet Zeitraum, Dekarbonisierung sowie die für Neubau und Sanierung anzuwendenden Bilanzregeln ein.</p>
 </section>
 </section>
 <section id="quartier-eingeben" class="level2">
@@ -754,7 +756,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Fußnoten</h2>
 
 <ol>
-<li id="fn1"><p>Grafiken des Projektteams; ergänzende Unterlagen: <a href="downloads/schulung.pdf">PEExcel-Schulung, Folien 7–16 und 30</a>. Hinweise zur Datenübernahme unter <a href="./interfaces.html">Daten vorbereiten</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>Grafiken des Projektteams; ergänzende Unterlagen: <a href="downloads/schulung.pdf">PEXL-Schulung, Folien 7–16 und 30</a>. Hinweise zur Datenübernahme unter <a href="./interfaces.html">Daten vorbereiten</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script>
@@ -1207,11 +1209,23 @@ document.querySelectorAll('iframe[data-fit]').forEach(frame=>{
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./presets.html" class="pagination-link" aria-label="Schnellauswahl mit Presets">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Schnellauswahl mit Presets</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./envelope.html" class="pagination-link" aria-label="Thermische Hülle und Wärmeflüsse">
+        <span class="nav-page-text">Thermische Hülle und Wärmeflüsse</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>PEExcel · FH Technikum Wien · klimaaktiv Plus-Energie-Quartiere</p>
+<p>PEXL · FH Technikum Wien · klimaaktiv Plus-Energie-Quartiere</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;

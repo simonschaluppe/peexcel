@@ -8,7 +8,7 @@
 
 <meta name="description" content="Vorhandene elektrische Teilflüsse als saisonale Tagesprofile und chronologische Stundenwerte darstellen.">
 
-<title>Elektrische Flussprofile untersuchen – PEExcel</title>
+<title>Elektrische Flussprofile untersuchen – PEXL</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -72,6 +72,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./tutorial_netzlast.html" rel="next">
+<link href="./assessment.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -4024,11 +4026,11 @@ return Plotly;
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./media/logo.png" alt="PEExcel Logo" class="navbar-logo light-content">
-    <img src="./media/logo.png" alt="PEExcel Logo" class="navbar-logo dark-content">
+    <img src="./media/logo.png" alt="PEXL Logo" class="navbar-logo light-content">
+    <img src="./media/logo.png" alt="PEXL Logo" class="navbar-logo dark-content">
     </a>
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">PEExcel</span>
+    <span class="navbar-title">PEXL</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Suchen"></div>
@@ -4540,7 +4542,7 @@ return Plotly;
 <section id="lernziel" class="level2">
 <h2 class="anchored" data-anchor-id="lernziel">Lernziel</h2>
 <p>Elektrische Teilflüsse als saisonale Tagesprofile und chronologische Stundenwerte untersuchen.</p>
-<p><strong>Voraussetzungen:</strong> Installiertes <code>peexcel</code> mit Publication-Abhängigkeiten und ein PEExcel-Ergebnisexport. Im Checkout: <code>python -m pip install -e ".[publication]"</code>. Keine Excel-Installation und keine Website-Helferskripte erforderlich. Beim heruntergeladenen Notebook <code>SOURCE</code> auf die eigene Datei setzen; das Beispiel liegt im Repository unter <code>data/exports/examples/Aspern PVCheck _ F7.xlsx</code>. Die Website zeigt gespeicherte Ausgaben und führt beim Preview keine Zellen aus.</p>
+<p><strong>Voraussetzungen:</strong> Installiertes <code>peexcel</code> mit Publication-Abhängigkeiten und ein PEXL-Ergebnisexport. Im Checkout: <code>python -m pip install -e ".[publication]"</code>. Keine Excel-Installation und keine Website-Helferskripte erforderlich. Beim heruntergeladenen Notebook <code>SOURCE</code> auf die eigene Datei setzen; das Beispiel liegt im Repository unter <code>data/exports/examples/Aspern PVCheck _ F7.xlsx</code>. Die Website zeigt gespeicherte Ausgaben und führt beim Preview keine Zellen aus.</p>
 <p><a href="downloads/tutorial_stromprofile.ipynb">Tutorial-Notebook herunterladen</a> · <a href="./python.html">Alle Tutorials</a></p>
 </section>
 <section id="datenquelle-und-kanalbestand-prüfen" class="level2">
@@ -5253,11 +5255,23 @@ document.querySelectorAll('iframe[data-fit]').forEach(frame=>{
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./assessment.html" class="pagination-link" aria-label="Primärenergie und Treibhausgase bewerten">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Primärenergie und Treibhausgase bewerten</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./tutorial_netzlast.html" class="pagination-link" aria-label="Netzbezug und PV-Einspeisung analysieren">
+        <span class="nav-page-text">Netzbezug und PV-Einspeisung analysieren</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>PEExcel · FH Technikum Wien · klimaaktiv Plus-Energie-Quartiere</p>
+<p>PEXL · FH Technikum Wien · klimaaktiv Plus-Energie-Quartiere</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;

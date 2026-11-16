@@ -8,7 +8,7 @@
 
 <meta name="description" content="Stündliche Netzaustauschwerte prüfen und mit Wärmekarten sowie Dauerlinien vergleichen.">
 
-<title>Netzbezug und PV-Einspeisung analysieren – PEExcel</title>
+<title>Netzbezug und PV-Einspeisung analysieren – PEXL</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -72,6 +72,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./tutorial_sankey.html" rel="next">
+<link href="./tutorial_stromprofile.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -4027,11 +4029,11 @@ return Plotly;
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./media/logo.png" alt="PEExcel Logo" class="navbar-logo light-content">
-    <img src="./media/logo.png" alt="PEExcel Logo" class="navbar-logo dark-content">
+    <img src="./media/logo.png" alt="PEXL Logo" class="navbar-logo light-content">
+    <img src="./media/logo.png" alt="PEXL Logo" class="navbar-logo dark-content">
     </a>
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">PEExcel</span>
+    <span class="navbar-title">PEXL</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Suchen"></div>
@@ -4543,7 +4545,7 @@ return Plotly;
 <section id="lernziel" class="level2">
 <h2 class="anchored" data-anchor-id="lernziel">Lernziel</h2>
 <p>Stündliche Netzaustauschwerte prüfen und mit Wärmekarten sowie Dauerlinien vergleichen.</p>
-<p><strong>Voraussetzungen:</strong> Gespeicherte PEExcel-Exporte; keine Excel-Installation erforderlich.</p>
+<p><strong>Voraussetzungen:</strong> Gespeicherte PEXL-Exporte; keine Excel-Installation erforderlich.</p>
 <p>Einmalig im Repository installieren: <code>python -m pip install -e ".[publication]"</code>. Zum eigenen Ausführen das Notebook im geklonten Repository öffnen und die Zellen von oben nach unten ausführen. Die Website zeigt gespeicherte Ausgaben; sie führt keinen Python-Code im Browser aus.</p>
 <p><a href="downloads/tutorial_netzlast.ipynb">Tutorial-Notebook herunterladen</a> · <a href="./python.html">Alle Tutorials</a></p>
 </section>
@@ -5177,11 +5179,23 @@ document.querySelectorAll('iframe[data-fit]').forEach(frame=>{
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./tutorial_stromprofile.html" class="pagination-link" aria-label="Elektrische Flussprofile untersuchen">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Elektrische Flussprofile untersuchen</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./tutorial_sankey.html" class="pagination-link" aria-label="Energieflüsse als Sankey-Diagramm lesen">
+        <span class="nav-page-text">Energieflüsse als Sankey-Diagramm lesen</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>PEExcel · FH Technikum Wien · klimaaktiv Plus-Energie-Quartiere</p>
+<p>PEXL · FH Technikum Wien · klimaaktiv Plus-Energie-Quartiere</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;

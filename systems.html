@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Speicher und Flexibilität – PEExcel</title>
+<title>Speicher und Flexibilität – PEXL</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,6 +36,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./usage.html" rel="next">
+<link href="./pv.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -101,11 +103,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./media/logo.png" alt="PEExcel Logo" class="navbar-logo light-content">
-    <img src="./media/logo.png" alt="PEExcel Logo" class="navbar-logo dark-content">
+    <img src="./media/logo.png" alt="PEXL Logo" class="navbar-logo light-content">
+    <img src="./media/logo.png" alt="PEXL Logo" class="navbar-logo dark-content">
     </a>
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">PEExcel</span>
+    <span class="navbar-title">PEXL</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Suchen"></div>
@@ -638,6 +640,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <p><strong>Excel-Ort:</strong> Blatt <span class="excel-menu darkred">🔋</span> (“Flexibilität und Speicher”).</p>
 <p>Energieflexibilität verknüpft die zeitliche Verfügbarkeit erneuerbarer Energie mit dem Betrieb des Quartiers. Lokale PV-Überschüsse und externe Flexibilitätssignale können für zusätzliche Konditionierung und Speicherladung genutzt werden. Diese <strong>flexible Überdeckung</strong> bleibt dabei eine von der <strong>Deckung der Mindestbedarfe</strong> getrennte Größe.</p>
+<p>Flexible Konditionierung kann Energieaufnahme in Stunden mit erneuerbaren Überschüssen oder günstigeren Primärenergie- und CO₂-Faktoren verschieben. Vorheizen im Winter und Vorkühlen im Sommer können zugleich den Wärmeaustausch mit der Umgebung und damit den Energiebedarf erhöhen. Entscheidend ist die gemeinsame Auswertung von Energiemenge, Zeitpunkt und Bewertung.</p>
+<p><strong>Nutzerflexibilität</strong> bezeichnet hier die Bereitschaft, zeitweise Abweichungen von den Heiz- und Kühlsolltemperaturen zuzulassen. Das eingestellte Komfortband begrenzt diese Abweichungen; mögliche Auswirkungen auf den Komfort sind projektspezifisch zu beurteilen.</p>
 <section id="wie-die-speicher-zusammenwirken" class="level2">
 <h2 class="anchored" data-anchor-id="wie-die-speicher-zusammenwirken">Wie die Speicher zusammenwirken</h2>
 <div class="quarto-figure quarto-figure-center">
@@ -651,11 +655,12 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Lokale PV-Überschüsse</strong> zeigen an, dass vor Ort erzeugter PV-Strom für zusätzliche Anwendungen verfügbar ist.</li>
 <li><strong>Ein externes Freigabesignal</strong> erlaubt flexible Nutzung auf Grundlage einer externen Zeitreihe. Das im Tool hinterlegte Signal basiert auf Windkraftüberschüssen in Österreich. Für eigene Untersuchungen können externe Freigaben auch aus anderen Quellen abgeleitet werden, etwa aus stündlichen CO₂-Intensitäten.</li>
 </ul>
+<p>In der Praxis kann eine solche Freigabe aus einem Steuer- oder Regelsignal oder einem dynamischen Strompreis abgeleitet werden. Im Modell bildet eine hinterlegte Zeitreihe diese Betriebsentscheidung ab; sie ist keine direkte Anbindung an eine reale Regelung. Ein günstiger Preis bedeutet nicht automatisch geringe CO₂-Intensität oder Netzdienlichkeit. Signalquelle und Entscheidungskriterium daher getrennt dokumentieren.</p>
 <p>Die <strong>Flexibilitätspotenziale</strong> des Quartiers bestimmen, wie eine Freigabe genutzt werden kann. Ob tatsächlich Energie aufgenommen wird, hängt von verfügbarem Überschuss beziehungsweise Bezug, Anlagenleistung und Speicherzustand ab.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="media/manual/dispatch.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Stromflüsse: Deckungsreihenfolge, Mindestbedarfe und flexible Speicherladung. Quelle: PEExcel-Schulung; die tatsächlich aktiven Pfade hängen von der Modellkonfiguration ab."><img src="media/manual/dispatch.png" class="manual-figure img-fluid figure-img" alt="Stromflüsse: Deckungsreihenfolge, Mindestbedarfe und flexible Speicherladung. Quelle: PEExcel-Schulung; die tatsächlich aktiven Pfade hängen von der Modellkonfiguration ab."></a></p>
-<figcaption>Stromflüsse: Deckungsreihenfolge, Mindestbedarfe und flexible Speicherladung. Quelle: PEExcel-Schulung; die tatsächlich aktiven Pfade hängen von der Modellkonfiguration ab.</figcaption>
+<p><a href="media/manual/dispatch.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Stromflüsse: Deckungsreihenfolge, Mindestbedarfe und flexible Speicherladung. Quelle: PEXL-Schulung; die tatsächlich aktiven Pfade hängen von der Modellkonfiguration ab."><img src="media/manual/dispatch.png" class="manual-figure img-fluid figure-img" alt="Stromflüsse: Deckungsreihenfolge, Mindestbedarfe und flexible Speicherladung. Quelle: PEXL-Schulung; die tatsächlich aktiven Pfade hängen von der Modellkonfiguration ab."></a></p>
+<figcaption>Stromflüsse: Deckungsreihenfolge, Mindestbedarfe und flexible Speicherladung. Quelle: PEXL-Schulung; die tatsächlich aktiven Pfade hängen von der Modellkonfiguration ab.</figcaption>
 </figure>
 </div>
 <table class="caption-top table">
@@ -798,8 +803,8 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="dynamische-bewertung">Dynamische Bewertung</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="media/manual/dynamic-assessment.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Methodik: Importe, Exporte und zeitabhängige Bewertung der Energieträger. Quelle: PEExcel-Schulung."><img src="media/manual/dynamic-assessment.png" class="manual-figure img-fluid figure-img" alt="Methodik: Importe, Exporte und zeitabhängige Bewertung der Energieträger. Quelle: PEExcel-Schulung."></a></p>
-<figcaption>Methodik: Importe, Exporte und zeitabhängige Bewertung der Energieträger. Quelle: PEExcel-Schulung.</figcaption>
+<p><a href="media/manual/dynamic-assessment.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Methodik: Importe, Exporte und zeitabhängige Bewertung der Energieträger. Quelle: PEXL-Schulung."><img src="media/manual/dynamic-assessment.png" class="manual-figure img-fluid figure-img" alt="Methodik: Importe, Exporte und zeitabhängige Bewertung der Energieträger. Quelle: PEXL-Schulung."></a></p>
+<figcaption>Methodik: Importe, Exporte und zeitabhängige Bewertung der Energieträger. Quelle: PEXL-Schulung.</figcaption>
 </figure>
 </div>
 <p>Stündliche Konversionsfaktoren bewerten den zeitlichen Energieeinsatz. Physische Einsparung, zeitliche Verschiebung und Verbesserung einer bewerteten Bilanz sind deshalb getrennt auszuweisen.</p>
@@ -822,7 +827,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="declaration-note">
-<p><strong>Für die Deklaration:</strong> ausgewiesene Vorgaben für Freigaben, Leistungen und Konversionsfaktoren verwenden. Freie Modellannahmen sind möglich, begründen aber keinen automatischen Nachweisstatus.</p>
+<p><strong>Deklaration:</strong> ausgewiesene Vorgaben für Freigaben, Leistungen und Konversionsfaktoren verwenden. Freie Modellannahmen sind möglich, begründen aber keinen automatischen Nachweisstatus.</p>
 </div>
 <p><a href="./flexibility.html">Flexibilität Schritt für Schritt analysieren</a></p>
 <p><strong>Ergebnisprüfung:</strong> <a href="./results.html">Jahreskennwerte</a> und <a href="./excel-dashboard.html">Stundenflüsse/Speicherzustände</a> gemeinsam auswerten.</p>
@@ -1283,11 +1288,23 @@ document.querySelectorAll('iframe[data-fit]').forEach(frame=>{
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./pv.html" class="pagination-link" aria-label="PV-Eingabe">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">PV-Eingabe</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./usage.html" class="pagination-link" aria-label="Nutzungsparameter">
+        <span class="nav-page-text">Nutzungsparameter</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>PEExcel · FH Technikum Wien · klimaaktiv Plus-Energie-Quartiere</p>
+<p>PEXL · FH Technikum Wien · klimaaktiv Plus-Energie-Quartiere</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
