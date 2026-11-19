@@ -9,10 +9,10 @@ REPORT_SCHEMA_VERSION = '1_13_1_dev'
 CHARTS: dict[str, ChartSpec] = {
     'primary_energy_balance': ChartSpec(
         chart_name='primary_energy_balance',
-        tab_name='Primärenergiebedarf',
-        title='Primärenergiebedarf',
-        title_de='Primärenergiebedarf',
-        title_en='Primary energy demand',
+        tab_name='Primärenergiebilanz',
+        title='Primärenergie-Bilanz',
+        title_de='Primärenergie-Bilanz',
+        title_en='Primary energy balance',
         chart_type='stacked_bar_comparison',
         series=(
             SeriesSpec(
@@ -218,10 +218,10 @@ CHARTS: dict[str, ChartSpec] = {
     ),
     'final_energy_balance': ChartSpec(
         chart_name='final_energy_balance',
-        tab_name='Endenergiebedarf',
-        title='Endenergiebedarf',
-        title_de='Endenergiebedarf',
-        title_en='Final energy demand',
+        tab_name='Endenergie-Bilanz',
+        title='Endenergie-Bilanz',
+        title_de='Endenergie-Bilanz',
+        title_en='Final energy balance',
         chart_type='stacked_bar_comparison',
         series=(
             SeriesSpec(
@@ -289,8 +289,8 @@ CHARTS: dict[str, ChartSpec] = {
             ),
             SeriesSpec(
                 var_name='Batt_total_discharge',
-                label_de='Jährliche Entladung',
-                label_en='Annual battery discharge',
+                label_de='Batterie Entladung',
+                label_en='battery discharge',
                 role='Deckung',
                 order=290,
                 color='#BCCF00',

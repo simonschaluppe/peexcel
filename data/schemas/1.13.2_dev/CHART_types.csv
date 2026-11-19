@@ -1,0 +1,8 @@
+﻿chart_name;tab_name;title;chart_type
+primary_energy_balance;Primärenergiebedarf;Primärenergiebedarf;stacked_bar_comparison
+heat_balance;Wärmebilanz;Wärmebilanz;stacked_bar_comparison
+final_energy_balance;Endenergiebedarf;Endenergiebedarf;stacked_bar_comparison
+gwp_ee;Treibhausgasemissionen;Treibhausgasemissionen;build_gwp_chart
+gwp_ee_detail;Treibhausgasemissionen Detail;Treibhausgasemissionen;build_gwp_chart
+district_gwp_ee;District GWP Comparison;District GWP Breakdown (4-Column View);build_four_column_gwp_chart
+multi_chart;Multi-District Overview;District Comparision;build_multi_grid_chart
