@@ -80,6 +80,9 @@ website/assessment.ipynb
 !website/illustrations/programmteam.svg
 
 /.quarto/
+/.audit-tmp/
+**/report/
+!src/pexl/reporting/assets/audit-reference.docx
 **/*.quarto_ipynb
 
 website/batch-python.ipynb
