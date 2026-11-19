@@ -1,0 +1,74 @@
+﻿chart_name;label_de;var_name;role;order;color;pattern
+primary_energy_balance;Nutzerstrom;PEI_el_plugloads;Bedarf;1;#7e1141;
+primary_energy_balance;HKLS Strom;PEI_el_hvac;Bedarf;2;#f34673;
+primary_energy_balance;HKLS Fernwärme;PEI_district_heating;Bedarf;3;#a22110;
+primary_energy_balance;HKLS Erdgas;PEI_natural_gas;Bedarf;4;#227888;
+primary_energy_balance;HKLS Biomasse;PEI_biomass;Bedarf;5;#245826;
+primary_energy_balance;HKLS Sonstige;PEI_other;Bedarf;6;#1b3b4d;
+primary_energy_balance;MIV Fossil;PEI_mob_fossile;Bedarf;7;#da7c14;
+primary_energy_balance;MIV Elektrisch;PEI_mob_el;Bedarf;8;#b8d223;
+primary_energy_balance;Kontext bauliche Dichte negativ;PEI_cf_density_neg;Bedarf;9;#F281BB;/
+primary_energy_balance;Kontext bauliche Dichte positiv;PEI_cf_density_pos;Deckung;3;#F281BB;/
+primary_energy_balance;Lokale Erneuerbare (Netzstrom Substitutionsäquivalent);PEI_sub_PV;Deckung;1;#5FB564;
+primary_energy_balance;Energieflexibilität (Netzstrom Substitutionsäquivalent);PEI_sub_flex;Deckung;2;#e6f283;
+primary_energy_balance;Kontext Sanierung;PEI_cf_renovation;Deckung;5;#d1eff2;/
+primary_energy_balance;Kontext Mobilität;PEI_cf_mobility;Deckung;4;#fbd89a;/
+heat_balance;Transmissionswärmeverl.;QT;Bedarf;;#F281BB;
+heat_balance;Lüftungswärmeverluste;QV;Bedarf;;#88CFDA;
+heat_balance;Nachtlüftung;QVn;Bedarf;;#264350;
+heat_balance;Kühlbedarf (KB);QC;Bedarf;;#00B0F0;
+heat_balance;Solare Gewinne;QS;Deckung;;#FFC560;
+heat_balance;Innere Wärmen;QI;Deckung;;#EEFF49;
+heat_balance;Heizwärmebedarf;QH;Deckung;;#E1320F;
+final_energy_balance;Nutzerstrom, Beleuchtung und Allgemeinstrom;EUI_plugAuxLight;Bedarf;;#EC4298;
+final_energy_balance;Heizen;EUIh_el;Bedarf;;#F57F67;
+final_energy_balance;Kühlen;EUIc_el;Bedarf;;#05b0ef;
+final_energy_balance;Lüftung;EUIv_el;Bedarf;;#3BACBE;
+final_energy_balance;Warmwasser;EUIdhw_el;Bedarf;;#E1320F;
+final_energy_balance;e-Speicher Beladung;Batt_total_charge_input;Bedarf;;#b6c718;
+final_energy_balance;EV Quartiersladung;EUIev_el;Bedarf;;#FFC560;
+final_energy_balance;Jährliche Entladung;Batt_total_discharge;Deckung;;#BCCF00;
+final_energy_balance;WW E-Stab;EUIdhwdirect_el;Deckung;;#ffffff;
+final_energy_balance;Netzstrom → Quartier;Grid_to_min;Deckung;;#950F53;
+final_energy_balance;E-Car Entladung;Eev_to_district;Deckung;;#f9cf91;
+final_energy_balance;3 static;PV_total_direct;Deckung;;#5FB564;
+final_energy_balance;3 flexible;PV_total_flex;Deckung;;#9FD3A2;
+final_energy_balance;PV Netzeinspeisung;PV_to_Egrid;Deckung;;#c4e5cc;/
+final_energy_balance;Flexible Direktdeckung;VRGrid_to_min;Deckung;;#faf2bf;
+final_energy_balance;Flexible Überdeckung;VRGrid_to_flex;Deckung;;#ffffff;
+final_energy_balance;E-Car Ladung Außerhalb des Quartiers;Eev_ext_charge;Deckung;;#F281BB;
+gwp_ee_detail;THG LZ Außenwand;GWP_ee_wall;Baulich;;#f9c0dd;
+gwp_ee_detail;THG LZ Flachdach;GWP_ee_roof_flat;Baulich;;#9fd3a2;
+gwp_ee_detail;THG LZ Steildach;GWP_ee_roof_pitched;Baulich;;#9fd3a2;
+gwp_ee_detail;THG LZ Erdb. Fußboden beheizt;GWP_ee_floor;Baulich;;#418e48;
+gwp_ee_detail;THG LZ Geschossdecke;GWP_ee_ceiling;Baulich;;#2c5e2f;
+gwp_ee_detail;THG LZ Terasse;GWP_ee_terrace;Baulich;;#ffc560;
+gwp_ee_detail;THG LZ Kellerdecke;GWP_ee_basement_ceiling;Baulich;;#2c5e2f;
+gwp_ee_detail;THG LZ Bodenplatte;GWP_ee_fundament;Baulich;;#418e48;
+gwp_ee_detail;THG LZ Außendecke gg. Außenluft;GWP_ee_ceil_to_air;Baulich;;#ffc560;
+gwp_ee_detail;THG LZ Erdb. Wand beheizt;GWP_ee_wall_earth_contacted;Baulich;;#f281bb;
+gwp_ee_detail;THG LZ Innenwand tragend;GWP_ee_internal_wall_load;Baulich;;#a6a6a6;
+gwp_ee_detail;THG LZ Innenwand nicht tragend;GWP_ee_internal_wall_nonload;Baulich;;#d9d9d9;
+gwp_ee_detail;THG LZ Oberste Geschoßdecke;GWP_ee_ceiling_topfloor;Baulich;;#3d5b38;
+gwp_ee_detail;THG LZ Erdb. Wand Keller;GWP_ee_wall_ec_unheated;Baulich;;#950f53;
+gwp_ee_detail;THG LZ Erdb. Fußboden unbeheizt;GWP_ee_basement_floor_unheated;Baulich;;#418e46;
+gwp_ee_detail;THG LZ Stützen;GWP_ee_columns;Baulich;;#595959;
+gwp_ee_detail;THG LZ Innenwand unbeheizt;GWP_ee_internal_wall_unheated;Baulich;;#bfbfbf;
+gwp_ee_detail;THG LZ Zwischendecke unbeheizt / Keller / TG;GWP_ee_unheated_horizontal;Baulich;;#ffffff;/
+gwp_ee_detail;THG LZ Balkone;GWP_ee_balconies;Baulich;;#ffd895;
+gwp_ee_detail;THG LZ Fensterrahmen;GWP_ee_windowframe;Baulich;;#000000;
+gwp_ee_detail;THG LZ Fensterglas;GWP_ee_windowglazing;Baulich;;#88cfda;
+gwp_ee_detail;THG LZ Garage Decken;GWP_ee_garage_horizontal;Baulich;;#418e46;
+gwp_ee_detail;THG LZ Garage Stützen;GWP_ee_garage_columns;Baulich;;#595959;
+gwp_ee_detail;THG LZ Sonstige 1;GWP_ee_other_1;Baulich;;#7f7f7f;x
+gwp_ee_detail;THG LZ Sonstige 2;GWP_ee_other_2;Baulich;;#7f7f7f;x
+gwp_ee_detail;THG LZ Sonstige 3;GWP_ee_other_3;Baulich;;#7f7f7f;x
+gwp_ee_detail;THG LZ PV-Anlage;GWP_ee_PV;Baulich;;#e9ff0d;
+gwp_ee_detail;THG LZ Erdwärmesonden;GWP_ee_boreholes;Baulich;;#e1320f;
+gwp_ee_detail;THG LZ Lüftungsanlage 1;GWP_ee_ahu_1;Baulich;;#88ced8;
+gwp_ee_detail;THG LZ Lüftungsanlage 2;GWP_ee_ahu_2;Baulich;;#88ced8;
+gwp_ee_detail;THG LZ Pufferspeicher;GWP_ee_buffer_storage;Baulich;;#c47d00;
+gwp_ee_detail;THG LZ E-Batterie;GWP_ee_BESS;Baulich;;#b87500;
+gwp_ee_detail;THG LZ Energiesystem 1;GWP_ee_energy_1;Baulich;;#ffc560;
+gwp_ee_detail;THG LZ Energiesystem 2;GWP_ee_energy_2;Baulich;;#418e46;
+gwp_ee_detail;THG LZ Solarthermie;GWP_ee_solarthermal;Baulich;;#418e46;
