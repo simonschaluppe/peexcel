@@ -81,7 +81,7 @@ def materialize(source, chart_name: str, *, language="de", unit=None) -> dict[st
             f"Unknown chart {chart_name!r}. Available: {', '.join(charts)}"
         ) from exc
 
-    from .gwp import resolve
+    from .gwp import legacy_detail_meta, resolve
     spec, overrides, provenance = resolve(spec, values)
     raw_series = list(_field(spec, "series", ()) or ())
     raw_series.sort(key=lambda s: _field(s, "order", 0) or 0)
@@ -93,12 +93,12 @@ def materialize(source, chart_name: str, *, language="de", unit=None) -> dict[st
             raise ValueError(f"Chart {chart_name!r} contains a series without var_name")
 
         attr_name = ATTR_NAME_MAP.get(var_name)
-        if attr_name is None:
+        variable_meta = getattr(SCHEMA_META, attr_name) if attr_name else legacy_detail_meta(var_name)
+        if variable_meta is None:
             raise KeyError(
                 f"Chart {chart_name!r} references unknown variable {var_name!r}"
             )
 
-        variable_meta = getattr(SCHEMA_META, attr_name)
         series.append(
             {
                 "var_name": var_name,

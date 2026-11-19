@@ -31,6 +31,15 @@ LEGACY_TES = (
 )
 
 
+def legacy_detail_meta(var_name):
+    """Find metadata for historical components retained in scenario.legacy."""
+    if var_name in (*LEGACY_CONSTRUCTION, *LEGACY_TES):
+        from pexl.schema.generated.excel_1_13_1_dev import ATTR_NAME_MAP, SCHEMA_META
+
+        return getattr(SCHEMA_META, ATTR_NAME_MAP[var_name])
+    return None
+
+
 def _read(row, key):
     return row.get(key)
 
@@ -46,7 +55,7 @@ def resolve(spec, frame):
     """
     if getattr(spec, 'chart_name', None) not in REPORTS:
         return spec, {}, {}
-    from pexl.schema.current import CHARTS, ATTR_NAME_MAP, SCHEMA_META
+    from pexl.schema.current import CHARTS, ATTR_NAME_MAP
     current_components = tuple(s.var_name for s in CHARTS['gwp_ee_detail'].series
                                if s.role != 'Balance Variable')
     current_totals = tuple(k for k in ATTR_NAME_MAP if k.startswith('GWP_ee_total'))
@@ -65,15 +74,16 @@ def resolve(spec, frame):
 
     detail = spec.chart_name == 'gwp_ee_detail'
     if detail and 'legacy' in families.values():
-        legacy_series = tuple(SeriesSpec(
-            var_name=key, label_de='Legacy: ' + (getattr(SCHEMA_META, ATTR_NAME_MAP[key]).label_de or key),
-            label_en='Legacy: ' + (getattr(getattr(SCHEMA_META, ATTR_NAME_MAP[key]), "label_en", None) or key),
-            role='Baulich', order=i,
-            color='#9fd3a2' if key in LEGACY_CONSTRUCTION else '#e9b44c')
-            for i, key in enumerate((*LEGACY_CONSTRUCTION, *LEGACY_TES)))
+        legacy_series = []
+        for i, key in enumerate((*LEGACY_CONSTRUCTION, *LEGACY_TES)):
+            meta = legacy_detail_meta(key)
+            legacy_series.append(SeriesSpec(
+                var_name=key, label_de='Legacy: ' + (meta.label_de or key),
+                label_en='Legacy: ' + (meta.label_en or key), role='Baulich', order=i,
+                color='#9fd3a2' if key in LEGACY_CONSTRUCTION else '#e9b44c'))
         active = tuple(s for s in spec.series
                        if s.role == 'Balance Variable' or 'current' in families.values())
-        spec = replace(spec, series=active + legacy_series)
+        spec = replace(spec, series=active + tuple(legacy_series))
     if 'legacy' in families.values():
         spec = replace(spec, title=spec.title + ' [Legacy-Fallback enthalten]',
                        title_de=(spec.title_de or spec.title) + ' [Legacy-Fallback enthalten]',

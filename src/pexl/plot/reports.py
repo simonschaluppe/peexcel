@@ -15,9 +15,9 @@ _GWP_AXIS = (
 )
 
 _GWP_BANDS = (
-    {"name": "L3", "y0": 195, "y1": 320, "color": "#CFDCE0"},
-    {"name": "L2", "y0": 70, "y1": 195, "color": "#93B9C6"},
-    {"name": "L1", "y0": 0, "y1": 70, "color": "#73A8BB"},
+    {"name": "ghg budget",  "y0": 0, "y1": 320,  "color": "#93B9C6"},# "#CFDCE0"},
+    {"name": "L2",          "y0": 70, "y1": 195, "color": "#93B9C6"},
+    {"name": "L1",          "y0": 0, "y1": 70,   "color": "#73A8BB"},
 )
 
 
@@ -148,7 +148,7 @@ def _empty_chart(report: dict, message: str) -> go.Figure:
 
 def render(report: dict, *, 
            annotate: bool = False, 
-           budget: float | None = None, 
+           budget: float | None = 320, 
            language: str | None = None,
            legend_position: str = "below"
            ) -> go.Figure:
@@ -372,12 +372,20 @@ def _stacked_bar_comparison(report: dict) -> go.Figure:
     return fig
 
 
-def _add_gwp_bands(fig: go.Figure, variants: list[str]) -> None:
-    """Add the L1-L3 GWP reference bands used by the PEExcel charts."""
-    if not variants:
-        return
 
-    for band in _GWP_BANDS:
+
+def _gwp(report: dict) -> go.Figure:
+    """Render the two-column embodied/operational GWP chart."""
+    fig = go.Figure()
+    variants = report["frame"]["Variant"].tolist()
+
+    x_axis = [
+        [variant for variant in variants for _ in (0, 1)],
+        ["EE", "OE"] * len(variants),
+    ]
+
+    for index, band in enumerate(_GWP_BANDS):
+        if index != 0: continue
         fig.add_hrect(
             y0=band["y0"],
             y1=band["y1"],
@@ -391,24 +399,11 @@ def _add_gwp_bands(fig: go.Figure, variants: list[str]) -> None:
             go.Bar(
                 x=[[variants[0]], ["EE"]],
                 y=[None],
-                name=band["name"],
+                name=chart_text(band["name"], report["language"]),
                 marker={"color": band["color"]},
                 showlegend=True,
             )
         )
-
-
-def _gwp(report: dict) -> go.Figure:
-    """Render the two-column embodied/operational GWP chart."""
-    fig = go.Figure()
-    variants = report["frame"]["Variant"].tolist()
-
-    x_axis = [
-        [variant for variant in variants for _ in (0, 1)],
-        ["EE", "OE"] * len(variants),
-    ]
-
-    _add_gwp_bands(fig, variants)
 
     def add_group(role: str, is_oe: bool) -> None:
         for series in _series_for_role(report, role):
@@ -432,8 +427,8 @@ def _gwp(report: dict) -> go.Figure:
                 )
             )
 
-    add_group("Baulich", False)
-    add_group("Betrieblich", True)
+    add_group("Baulich", is_oe=False)
+    add_group("Betrieblich", is_oe=True)
 
     for series in _series_for_role(report, "Balance Variable"):
         values = _values(report, series)
@@ -447,7 +442,7 @@ def _gwp(report: dict) -> go.Figure:
                 mode="markers+text",
                 marker={
                     "symbol": "diamond",
-                    "color": series.get("color") or "#7B8E1D",
+                    "color": series.get("color") or "#3BACBE",
                     "size": 8,
                 },
                 text=[f"  {value:.1f}" for value in values],
