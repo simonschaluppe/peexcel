@@ -21,7 +21,9 @@ from build_building_sector_results import check_roundtrip, inspect_sources, dige
 
 @pytest.fixture(scope='module')
 def sample():
-    return Project.from_excel(ROOT / 'data/exports/typologies/building_sector/annual-00001.xlsx', unknown='raise')
+    # Load the historical source as the viewer does. The round-trip test still
+    # checks the freshly written export with strict schema validation.
+    return Project.from_excel(ROOT / 'data/exports/typologies/building_sector/annual-00001.xlsx')
 
 
 def test_roundtrip_checks_all_values_and_identities(sample, tmp_path):
@@ -86,7 +88,9 @@ def test_gwp_overview_uses_current_components_and_exported_net(sample):
     parts = [s['var_name'] for s in r['series'] if s['role'] != 'Balance Variable']
     assert (r['frame'][parts].sum(axis=1)-r['frame'].GWP_lc_total).abs().max() < 1e-8
     assert all(source['family'] == 'current' for source in r['sources'].values())
-    assert len(plotly.render(r).data) == 8
+    figure = plotly.render(r)
+    assert len(figure.data) == 5
+    assert all(list(trace.x) == r['frame']['Variant'].tolist() for trace in figure.data)
 
 
 def test_generic_plots_use_schema_and_scenario_identity(sample):
@@ -145,7 +149,9 @@ def test_browser_context_and_gwp_match_current_python(sample):
     figure = plotly.render(report)
     for browser_trace, native_trace in zip(actual['small']['data'], figure.data):
         if browser_trace.get('meta'):
+            assert browser_trace['x'] == list(native_trace.x)
             assert browser_trace['y'] == pytest.approx(list(native_trace.y))
     assert len(actual['large']['data']) == 5
+    assert actual['large']['data'][-1]['x'] == list(range(101))
     for trace in actual['large']['data']:
         assert all(item[2] is not None for item in trace['customdata'] if item is not None)

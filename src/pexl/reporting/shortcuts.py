@@ -1,6 +1,5 @@
 """Named annual figures using the same preparation as explicit reporting calls."""
 from .analysis import variables
-from .materialize import materialize
 
 
 def primary_energy_scatter_plot(source, *, color=None, symbol=None, size=None,
@@ -35,136 +34,85 @@ def density_balance_scatter_plot(source, *, color=None, language="de"):
     return scatter(**data, x="FSI", y="PEI_balance", color=color)
 
 
-def heat_balance_plot(source, *, language="de", unit=None, annotate=False,
-                        budget=None, legend_position="below"):
-    """Draw annual heat demand and supply using its schema report.
+def heat_balance_plot(source, *, language="de", unit=None, annotate=None,
+                      budget=None, legend_position=None):
+    """Draw the annual heat demand and supply report.
 
-    ``source`` accepts a scenario-row DataFrame, Project, Scenario or view.
-    The report resolves contribution columns, labels, roles and existing
-    fallbacks. ``language`` selects German/English labels and fixed chart text.
-    ``unit`` optionally converts compatible energy prefixes. ``annotate`` adds
-    supported balance annotations; ``budget`` is only supported by the
-    two-column gwp_ee chart. ``legend_position`` is "below" or "right".
-    Returns an editable Plotly Figure. Inputs are not modified. For editable
-    report data use reporting.materialize(source, "heat_balance").
+    See ``pexl.plot.reports.chart`` for rendering options.
     """
-    from pexl.plot.reports import render
-    report = materialize(source, "heat_balance", language=language, unit=unit)
-    return render(report, annotate=annotate, budget=budget,
-                  legend_position=legend_position)
+    from pexl.plot.reports import chart
+
+    return chart(source, "heat_balance", language=language, unit=unit,
+                 annotate=annotate, budget=budget, legend_position=legend_position)
 
 
-def final_energy_balance_plot(source, *, language="de", unit=None, annotate=False,
-                        budget=None, legend_position="below"):
-    """Draw annual final-energy demand and supply using its schema report.
+def final_energy_balance_plot(source, *, language="de", unit=None, annotate=None,
+                              budget=None, legend_position=None):
+    """Draw the annual final-energy demand and supply report.
 
-    ``source`` accepts a scenario-row DataFrame, Project, Scenario or view.
-    The report resolves contribution columns, labels, roles and existing
-    fallbacks. ``language`` selects German/English labels and fixed chart text.
-    ``unit`` optionally converts compatible energy prefixes. ``annotate`` adds
-    supported balance annotations; ``budget`` is only supported by the
-    two-column gwp_ee chart. ``legend_position`` is "below" or "right".
-    Returns an editable Plotly Figure. Inputs are not modified. For editable
-    report data use reporting.materialize(source, "final_energy_balance").
+    See ``pexl.plot.reports.chart`` for rendering options.
     """
-    from pexl.plot.reports import render
-    report = materialize(source, "final_energy_balance", language=language, unit=unit)
-    return render(report, annotate=annotate, budget=budget,
-                  legend_position=legend_position)
+    from pexl.plot.reports import chart
+
+    return chart(source, "final_energy_balance", language=language, unit=unit,
+                 annotate=annotate, budget=budget, legend_position=legend_position)
 
 
-def primary_energy_balance_plot(source, *, language="de", unit=None, annotate=False,
-                        budget=None, legend_position="below"):
-    """Draw annual primary-energy demand and supply using its schema report.
+def primary_energy_balance_plot(source, *, language="de", unit=None, annotate=None,
+                                budget=None, legend_position=None):
+    """Draw the annual primary-energy demand and supply report.
 
-    ``source`` accepts a scenario-row DataFrame, Project, Scenario or view.
-    The report resolves contribution columns, labels, roles and existing
-    fallbacks. ``language`` selects German/English labels and fixed chart text.
-    ``unit`` optionally converts compatible energy prefixes. ``annotate`` adds
-    supported balance annotations; ``budget`` is only supported by the
-    two-column gwp_ee chart. ``legend_position`` is "below" or "right".
-    Returns an editable Plotly Figure. Inputs are not modified. For editable
-    report data use reporting.materialize(source, "primary_energy_balance").
+    See ``pexl.plot.reports.chart`` for rendering options.
     """
-    from pexl.plot.reports import render
-    report = materialize(source, "primary_energy_balance", language=language, unit=unit)
-    return render(report, annotate=annotate, budget=budget,
-                  legend_position=legend_position)
+    from pexl.plot.reports import chart
+
+    return chart(source, "primary_energy_balance", language=language, unit=unit,
+                 annotate=annotate, budget=budget, legend_position=legend_position)
 
 
-def gwp_ee_plot(source, *, language="de", unit=None, annotate=False,
-                        budget=None, legend_position="below"):
-    """Draw lifecycle embodied and operational GWP using its schema report.
+def gwp_ee_plot(source, *, language="de", unit=None, annotate=None,
+                budget=None, legend_position=None):
+    """Draw the lifecycle GWP overview with one stack per variant.
 
-    ``source`` accepts a scenario-row DataFrame, Project, Scenario or view.
-    The report resolves contribution columns, labels, roles and existing
-    fallbacks. ``language`` selects German/English labels and fixed chart text.
-    ``unit`` optionally converts compatible energy prefixes. ``annotate`` adds
-    supported balance annotations; ``budget`` is only supported by the
-    two-column gwp_ee chart. ``legend_position`` is "below" or "right".
-    Returns an editable Plotly Figure. Inputs are not modified. For editable
-    report data use reporting.materialize(source, "gwp_ee").
+    See ``pexl.plot.reports.chart`` for rendering options.
     """
-    from pexl.plot.reports import render
-    report = materialize(source, "gwp_ee", language=language, unit=unit)
-    return render(report, annotate=annotate, budget=budget,
-                  legend_position=legend_position)
+    from pexl.plot.reports import chart
+
+    return chart(source, "gwp_ee", language=language, unit=unit,
+                 annotate=annotate, budget=budget, legend_position=legend_position)
 
 
-def gwp_ee_detail_plot(source, *, language="de", unit=None, annotate=False,
-                        budget=None, legend_position="below"):
-    """Draw embodied GWP components using its schema report.
+def gwp_ee_detail_plot(source, *, language="de", unit=None, annotate=None,
+                       budget=None, legend_position=None):
+    """Draw the embodied GWP breakdown by component.
 
-    ``source`` accepts a scenario-row DataFrame, Project, Scenario or view.
-    The report resolves contribution columns, labels, roles and existing
-    fallbacks. ``language`` selects German/English labels and fixed chart text.
-    ``unit`` optionally converts compatible energy prefixes. ``annotate`` adds
-    supported balance annotations; ``budget`` is only supported by the
-    two-column gwp_ee chart. ``legend_position`` is "below" or "right".
-    Returns an editable Plotly Figure. Inputs are not modified. For editable
-    report data use reporting.materialize(source, "gwp_ee_detail").
+    See ``pexl.plot.reports.chart`` for rendering options.
     """
-    from pexl.plot.reports import render
-    report = materialize(source, "gwp_ee_detail", language=language, unit=unit)
-    return render(report, annotate=annotate, budget=budget,
-                  legend_position=legend_position)
+    from pexl.plot.reports import chart
+
+    return chart(source, "gwp_ee_detail", language=language, unit=unit,
+                 annotate=annotate, budget=budget, legend_position=legend_position)
 
 
-def gwp_ee_fossil_biogenic_plot(source, *, language="de", unit=None, annotate=False,
-                        budget=None, legend_position="below"):
-    """Draw fossil and biogenic embodied GWP using its schema report.
+def gwp_ee_fossil_biogenic_plot(source, *, language="de", unit=None, annotate=None,
+                                budget=None, legend_position=None):
+    """Draw fossil and biogenic embodied GWP.
 
-    ``source`` accepts a scenario-row DataFrame, Project, Scenario or view.
-    The report resolves contribution columns, labels, roles and existing
-    fallbacks. ``language`` selects German/English labels and fixed chart text.
-    ``unit`` optionally converts compatible energy prefixes. ``annotate`` adds
-    supported balance annotations; ``budget`` is only supported by the
-    two-column gwp_ee chart. ``legend_position`` is "below" or "right".
-    Returns an editable Plotly Figure. Inputs are not modified. For editable
-    report data use reporting.materialize(source, "gwp_ee_fossil_biogenic").
+    See ``pexl.plot.reports.chart`` for rendering options.
     """
-    from pexl.plot.reports import render
-    report = materialize(source, "gwp_ee_fossil_biogenic", language=language, unit=unit)
-    return render(report, annotate=annotate, budget=budget,
-                  legend_position=legend_position)
+    from pexl.plot.reports import chart
+
+    return chart(source, "gwp_ee_fossil_biogenic", language=language, unit=unit,
+                 annotate=annotate, budget=budget, legend_position=legend_position)
 
 
-def district_gwp_ee_plot(source, *, language="de", unit=None, annotate=False,
-                        budget=None, legend_position="below"):
-    """Draw construction, systems, mobility and operational GWP using its schema report.
+def district_gwp_ee_plot(source, *, language="de", unit=None, annotate=None,
+                         budget=None, legend_position=None):
+    """Draw the four-column lifecycle GWP breakdown.
 
-    ``source`` accepts a scenario-row DataFrame, Project, Scenario or view.
-    The report resolves contribution columns, labels, roles and existing
-    fallbacks. ``language`` selects German/English labels and fixed chart text.
-    ``unit`` optionally converts compatible energy prefixes. ``annotate`` adds
-    supported balance annotations; ``budget`` is only supported by the
-    two-column gwp_ee chart. ``legend_position`` is "below" or "right".
-    Returns an editable Plotly Figure. Inputs are not modified. For editable
-    report data use reporting.materialize(source, "district_gwp_ee").
+    See ``pexl.plot.reports.chart`` for rendering options.
     """
-    from pexl.plot.reports import render
-    report = materialize(source, "district_gwp_ee", language=language, unit=unit)
-    return render(report, annotate=annotate, budget=budget,
-                  legend_position=legend_position)
+    from pexl.plot.reports import chart
 
-
+    return chart(source, "district_gwp_ee", language=language, unit=unit,
+                 annotate=annotate, budget=budget, legend_position=legend_position)

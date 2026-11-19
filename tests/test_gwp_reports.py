@@ -39,10 +39,10 @@ def as_legacy(project):
 
 def test_schema_regeneration_matches_registry():
     from pexl.schema.report_codegen import generate_report_module_text
-    folder = ROOT / 'data/schemas/1.13.1_dev'
+    folder = ROOT / 'data/schemas/1.13.3'
     text = generate_report_module_text(pd.read_csv(folder/'CHART_types.csv', sep=';'),
                                       pd.read_csv(folder/'CHART_metadata.csv', sep=';'),
-                                      version='1_13_1_dev')
+                                      version='1_13_3')
     namespace = {}
     exec(text, namespace)
     assert namespace['CHARTS'] == CHARTS
@@ -51,7 +51,7 @@ def test_schema_regeneration_matches_registry():
 
 def test_current_totals_precede_legacy_and_keep_mobility(current):
     s = current[0]
-    assert s.v.GWP_ee_total_construction != s.v.legacy_GWP_ee_lc_construction
+    assert s.v.GWP_ee_total_construction != s.legacy['legacy_GWP_ee_lc_construction']
     r = reporting.gwp_ee(current)
     assert r['frame']['GWP_ee_total_construction'][0] == s.v.GWP_ee_total_construction
     assert 'GWP_ee_total' not in r['frame']  # do not add a subtotal again
@@ -92,13 +92,14 @@ def test_legacy_fallback_is_coarse_and_nonmutating(current):
     s = project[0]
     before = deepcopy(s.as_dict())
     r = reporting.gwp_ee(project)
-    assert r['frame']['GWP_ee_total_construction'][0] == s.v.legacy_GWP_ee_lc_construction
-    assert r['frame']['GWP_lc_total'][0] == s.v.legacy_GWP_lc_total
+    assert r['frame']['GWP_ee_total_construction'][0] == s.legacy['legacy_GWP_ee_lc_construction']
+    assert r['frame']['GWP_lc_total'][0] == s.legacy['legacy_GWP_lc_total']
     assert r['sources'][s.column_name]['fields']['GWP_ee_total_TES'] == 'legacy_GWP_ee_lc_tga'
     detail = reporting.gwp_ee_detail(project)
     assert {x['var_name'] for x in detail['series']} == set(LEGACY_CONSTRUCTION+LEGACY_TES) | {'GWP_ee_total'}
     assert 'Legacy' in detail['title']
-    assert detail['frame']['GWP_ee_total'][0] == pytest.approx(s.v.legacy_GWP_ee_lc_construction+s.v.legacy_GWP_ee_lc_tga)
+    assert detail['frame']['GWP_ee_total'][0] == pytest.approx(
+        s.legacy['legacy_GWP_ee_lc_construction'] + s.legacy['legacy_GWP_ee_lc_tga'])
     assert s.as_dict() == before
     with pytest.raises(ValueError, match='fossil/biogenic'):
         reporting.gwp_ee_fossil_biogenic(project)
@@ -110,8 +111,8 @@ def test_mixed_detail_has_only_structural_zeroes(current, caplog):
     r = reporting.gwp_ee_detail(current)
     assert r['frame'].loc[0, list(LEGACY_CONSTRUCTION+LEGACY_TES)].eq(0).all()
     assert r['frame'].loc[1, 'GWP_ee_wall'] == 0
-    assert r['frame'].loc[1, 'legacy_GWP_ee_lc_walls'] == old.v.legacy_GWP_ee_lc_walls
-    old.v.legacy_GWP_ee_lc_walls = None
+    assert r['frame'].loc[1, 'legacy_GWP_ee_lc_walls'] == old.legacy['legacy_GWP_ee_lc_walls']
+    old.legacy['legacy_GWP_ee_lc_walls'] = None
     report = reporting.gwp_ee_detail(current)
     assert pd.isna(report['frame'].loc[1, 'legacy_GWP_ee_lc_walls'])
     assert 'missing legacy' in caplog.text

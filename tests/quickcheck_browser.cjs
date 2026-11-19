@@ -73,6 +73,18 @@ const assert = require('node:assert/strict');
     }
     const pe=q.compose('pe',[s],800);
     for(const t of pe.data.filter(t=>t.meta))assert(t.y[0]===Math.abs(s.values[t.meta.column]),'PE rendering differs from Python absolute convention');
+    const thg=q.compose('thg',scenarios.slice(0,3),390);
+    for(const t of thg.data){
+     assert(t.x.length===Math.min(n,3)&&!Array.isArray(t.x[0]),'Expected one GWP stack per scenario');
+     assert(t.y.every((v,i)=>v===scenarios[i].values[t.meta.column]),'GWP contribution changed');
+    }
+    const budget=thg.layout.shapes.find(shape=>shape.type==='line');
+    assert(budget.y0===thg.layout.shapes[0].y1,'Reference line and GWP band disagree');
+    if(n>100){
+     const large=q.compose('thg',scenarios.slice(0,101),800);
+     const total=large.data.find(t=>t.mode==='markers');
+     assert(total.x.every((x,i)=>x===i),'GWP marker is offset from its stack');
+    }
     q.selection.clear();q.dataset.defaults.forEach(i=>q.selection.add(i));await q.update();
     return {scenarios:n,initializationMs:q.initializationMs,filterMedianMs:sampleTimes[50],filterP95Ms:sampleTimes[95],renderMs,
      heap:performance.memory?{used:performance.memory.usedJSHeapSize,total:performance.memory.totalJSHeapSize}:null,
