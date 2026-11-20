@@ -23,6 +23,7 @@ website:
   description: Quartiere modellieren und den klimaaktiv Plus-Energie-Standard anwenden.
   search: true
   page-navigation: true
+  comments: false
   navbar:
     logo: media/logo.png
     logo-alt: "PEXL Logo"
@@ -97,7 +98,7 @@ format:
     lightbox: true
     code-fold: true
     css: styles.css
-    include-after-body: _resize.html
+    include-after-body: [_resize.html, _hypothesis.html]
 
 comments:
   hypothesis:
