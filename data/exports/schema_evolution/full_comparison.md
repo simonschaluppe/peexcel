@@ -1,7 +1,7 @@
 # Schema Diff
 
 - **Old:** `C:\Users\schneids\code\peexcel\data\schemas\v1.06`
-- **New:** `C:\Users\schneids\code\peexcel\data\schemas\1.13.1_dev`
+- **New:** `C:\Users\schneids\code\peexcel\data\schemas\1.13.3`
 - **Key:** `None`
 
 ## Dataset files
@@ -24,7 +24,7 @@
 
 ### Rows
 Old count: 999
-New count: 698
+New count: 707
 - **New Error count: 0**
 - Added/~~Removed~~ var_name:
    - ACH_night_m3
@@ -65,6 +65,7 @@ New count: 698
   - COMP_fu_energy_2
   - COMP_fu_solarthermal
   - COMP_name_BESS
+  - COMP_name_HCDHW
   - COMP_name_PV
   - COMP_name_ahu_1
   - COMP_name_ahu_2
@@ -77,6 +78,7 @@ New count: 698
   - COMP_name_ceiling
   - COMP_name_ceiling_topfloor
   - COMP_name_columns
+  - COMP_name_electric
   - COMP_name_energy_1
   - COMP_name_energy_2
   - COMP_name_floor
@@ -89,11 +91,13 @@ New count: 698
   - COMP_name_other_1
   - COMP_name_other_2
   - COMP_name_other_3
+  - COMP_name_plumbing
   - COMP_name_roof_flat
   - COMP_name_roof_pitched
   - COMP_name_solarthermal
   - COMP_name_terrace
   - COMP_name_unheated_horizontal
+  - COMP_name_ventilation
   - COMP_name_wall
   - COMP_name_wall_earth_contacted
   - COMP_name_wall_ec_unheated
@@ -127,6 +131,11 @@ New count: 698
   - construction_type
   - density_NFApPers_schoolprim
   - density_NFApPers_schoolsec
+  - ee_sysbound_A1A3
+  - ee_sysbound_B4
+  - ee_sysbound_C1C4
+  - ee_sysbound_MIM
+  - ee_sysbound_PV
   - fc_schoolprim
   - fc_schoolsec
   - heat_capacity_effective_m2
@@ -388,7 +397,7 @@ New count: 698
 
 ### Rows
 Old count: 508
-New count: 512
+New count: 432
 - **New Error count: 0**
 - Added/~~Removed~~ var_name:
    - Batt_charging_losses
@@ -404,6 +413,10 @@ New count: 512
   - Eh_th
   - GWP_ee_BESS
   - GWP_ee_PV
+  - GWP_ee_TES_base_HCDHW
+  - GWP_ee_TES_base_electro
+  - GWP_ee_TES_base_plumbing
+  - GWP_ee_TES_base_ventilation
   - GWP_ee_ahu_1
   - GWP_ee_ahu_2
   - GWP_ee_balconies
@@ -448,8 +461,6 @@ New count: 512
   - GWP_ee_windowglazing
   - PEI_cf_density_neg
   - PEI_cf_density_pos
-  - PEI_importexport_balance_test
-  - PEI_virtual_balance_test
   - PEI_virtual_demand
   - PEI_virtual_supply
   - PV_peak_grid_feedin
@@ -510,104 +521,22 @@ New count: 512
   - dTc_winter
   - dTu_summer
   - dTu_winter
-  - legacy_GWP_ee_ceilings_biogenic
-  - legacy_GWP_ee_ceilings_fossile
-  - legacy_GWP_ee_con_build
-  - legacy_GWP_ee_con_tga
-  - legacy_GWP_ee_direct_biogenic
-  - legacy_GWP_ee_direct_fossile
-  - legacy_GWP_ee_general_bigonenic
-  - legacy_GWP_ee_general_fossile
-  - legacy_GWP_ee_ground_biogenic
-  - legacy_GWP_ee_ground_fossile
-  - legacy_GWP_ee_lc_battery
-  - legacy_GWP_ee_lc_biogenic
-  - legacy_GWP_ee_lc_boreholes
-  - legacy_GWP_ee_lc_ceil
-  - legacy_GWP_ee_lc_ceilings_biogenic
-  - legacy_GWP_ee_lc_ceilings_fossile
-  - legacy_GWP_ee_lc_construction
-  - legacy_GWP_ee_lc_direct
-  - legacy_GWP_ee_lc_direct_biogenic
-  - legacy_GWP_ee_lc_direct_fossile
-  - legacy_GWP_ee_lc_fossil
-  - legacy_GWP_ee_lc_general
-  - legacy_GWP_ee_lc_general_biogenic
-  - legacy_GWP_ee_lc_general_fossile
-  - legacy_GWP_ee_lc_ground
-  - legacy_GWP_ee_lc_ground_biogenic
-  - legacy_GWP_ee_lc_ground_fossile
-  - legacy_GWP_ee_lc_other
-  - legacy_GWP_ee_lc_other_biogenic
-  - legacy_GWP_ee_lc_other_fossile
-  - legacy_GWP_ee_lc_pv
-  - legacy_GWP_ee_lc_roof
-  - legacy_GWP_ee_lc_roof_biogenic
-  - legacy_GWP_ee_lc_roof_fossile
-  - legacy_GWP_ee_lc_solarthermal
-  - legacy_GWP_ee_lc_storage
-  - legacy_GWP_ee_lc_tga
-  - legacy_GWP_ee_lc_tga_general
-  - legacy_GWP_ee_lc_tga_other
-  - legacy_GWP_ee_lc_ventilation
-  - legacy_GWP_ee_lc_walls
-  - legacy_GWP_ee_lc_walls_biogenic
-  - legacy_GWP_ee_lc_walls_fossil
-  - legacy_GWP_ee_lc_windows
-  - legacy_GWP_ee_lc_windows_biogenic
-  - legacy_GWP_ee_lc_windows_fossile
-  - legacy_GWP_ee_other_biogenic
-  - legacy_GWP_ee_other_fossile
-  - legacy_GWP_ee_rep_build
-  - legacy_GWP_ee_rep_tga
-  - legacy_GWP_ee_roof_biogenic
-  - legacy_GWP_ee_roof_fossile
-  - legacy_GWP_ee_tga_battery_biogenic
-  - legacy_GWP_ee_tga_battery_fossile
-  - legacy_GWP_ee_tga_boreholes_biogenic
-  - legacy_GWP_ee_tga_boreholes_fossile
-  - legacy_GWP_ee_tga_general_biogenic
-  - legacy_GWP_ee_tga_general_fossile
-  - legacy_GWP_ee_tga_other_biogenic
-  - legacy_GWP_ee_tga_other_fossile
-  - legacy_GWP_ee_tga_pv_biogenic
-  - legacy_GWP_ee_tga_pv_fossile
-  - legacy_GWP_ee_tga_solarthermal_biogenic
-  - legacy_GWP_ee_tga_solarthermal_fossile
-  - legacy_GWP_ee_tga_storage_biogenic
-  - legacy_GWP_ee_tga_storage_fossile
-  - legacy_GWP_ee_tga_ventilation_biogenic
-  - legacy_GWP_ee_tga_ventilation_fossile
-  - legacy_GWP_ee_walls_biogenic
-  - legacy_GWP_ee_walls_fossile
-  - legacy_GWP_ee_windows_bigenic
-  - legacy_GWP_ee_windows_fossile
-  - legacy_GWP_lc_EE_total
-  - legacy_GWP_lc_OE_total
-  - legacy_GWP_lc_total
-  - legacy_GWP_life_battery
-  - legacy_GWP_life_ceilings
-  - legacy_GWP_life_direct
-  - legacy_GWP_life_general
-  - legacy_GWP_life_ground
-  - legacy_GWP_life_other
-  - legacy_GWP_life_roof
-  - legacy_GWP_life_solarthermal
-  - legacy_GWP_life_storage
-  - legacy_GWP_life_tga_boreholes
-  - legacy_GWP_life_tga_general
-  - legacy_GWP_life_tga_other
-  - legacy_GWP_life_tga_pv
-  - legacy_GWP_life_tga_ventilation
-  - legacy_GWP_life_walls
-  - legacy_GWP_life_windows
+  - declaration_achieved_cnped
+  - declaration_achieved_ped
+  - declaration_achieved_pedm
   - test_EUI_balance
-  - test_GWP_sum
+  - test_PEI_importexport_balance
+  - test_PEI_virtual_balance
+  - test_flex_used_is_flex_to_building_plus_flex_to_EV
+  - test_flexible_dispatch_additional_sum
+  - test_flexible_dispatch_sum
+  - test_ghg_oe_plus_ee_is_total
+  - test_grid_import_is_GridToEV_plus_GridToBuilding
+  - test_grid_to_min_is_sum
   - test_heat_balance
   - test_heat_balance_seasonal_mismatch
   - test_heat_balance_summer
   - test_heat_balance_winter
-  - test_legacy_GWP_sum
   - ~~Edhw_1_th~~
   - ~~Edhw_2_th~~
   - ~~Edhw_th~~
@@ -722,13 +651,13 @@ _No value changes._
 
 - Status: **added**
 - Rows: {'count': 89}
-- Columns: ['chart_name', 'label_de', 'var_name', 'role', 'order', 'color', 'pattern']
+- Columns: ['chart_name', 'label_de', 'var_name', 'role', 'order', 'color', 'pattern', 'label_en']
 
 ## CHART_types
 
 - Status: **added**
 - Rows: {'count': 8}
-- Columns: ['chart_name', 'tab_name', 'title', 'chart_type']
+- Columns: ['chart_name', 'tab_name', 'title', 'chart_type', 'title_de', 'title_en']
 
 ## SIM
 
@@ -761,5 +690,5 @@ _No value changes._
 ```
 **New:**
 ```json
-{'IN': {'empty_var_name_count': 98}, 'OUT': {'empty_var_name_count': 103}, 'SIM': {'empty_var_name_count': None}, 'CHART_metadata': {'empty_var_name_count': None}, 'CHART_types': {'empty_var_name_count': None}}
+{'IN': {'empty_var_name_count': 96}, 'OUT': {'empty_var_name_count': 82}, 'SIM': {'empty_var_name_count': None}, 'CHART_metadata': {'empty_var_name_count': None}, 'CHART_types': {'empty_var_name_count': None}}
 ```

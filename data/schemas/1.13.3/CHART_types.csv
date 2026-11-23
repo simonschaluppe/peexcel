@@ -1,9 +1,8 @@
-chart_name;tab_name;title;chart_type;title_de;title_en
-primary_energy_balance;Primärenergie-Bilanz;Primärenergie-Bilanz;stacked_bar_comparison;;Primary energy demand
-heat_balance;Wärmebilanz;Wärmebilanz;stacked_bar_comparison;;Heat balance
-final_energy_balance;Endenergie-Bilanz;Endenergie-Bilanz;stacked_bar_comparison;;Final energy demand
-gwp_ee;Treibhausgasemissionen;Treibhausgasemissionen;build_gwp_chart;Treibhausgasemissionen;Greenhouse gas emissions
-gwp_ee_detail;Treibhausgasemissionen Detail;Graue Emissionen: Bauteile und technische Systeme;embodied_gwp;Graue Emissionen: Bauteile und technische Systeme;Embodied emissions: building components and technical systems
-district_gwp_ee;District GWP Comparison;THG-Bilanz: Bau, Technik, Mobilität und Betrieb;build_four_column_gwp_chart;THG-Bilanz: Bau, Technik, Mobilität und Betrieb;GHG balance: construction, systems, mobility and operation
-gwp_ee_fossil_biogenic;Graue Emissionen fossil/biogen;Graue Emissionen: fossil und biogen;embodied_gwp;Graue Emissionen: fossil und biogen;Embodied emissions: fossil and biogenic
-multi_chart;Multi-District Overview;District Comparision;build_multi_grid_chart;;District comparison
+﻿chart_name;tab_name;title;chart_type
+primary_energy_balance;Primärenergie-Bilanz;Primärenergie-Bilanz;stacked_bar_comparison
+heat_balance;Wärmebilanz;Wärmebilanz;stacked_bar_comparison
+final_energy_balance;Endenergie-Bilanz;Endenergiie-Bilanz;stacked_bar_comparison
+gwp_ee;THG-Bilanz;THG-Bilanz;build_gwp_chart
+gwp_ee_detail;THG-Bilanz;THG-Bilanz;build_gwp_chart
+district_gwp_ee;District GWP Comparison;District GWP Breakdown (4-Column View);build_four_column_gwp_chart
+multi_chart;Multi-District Overview;District Comparision;build_multi_grid_chart

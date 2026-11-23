@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Iterable
+from typing import Any, Iterable, Literal
 
 import json
 import pandas as pd
@@ -15,6 +15,14 @@ TABLE_KEYS: dict[str, str] = {
     "OUT": "var_name",
     "SIM": "var_name",
     "CHART_types": "chart_name",
+}
+
+# Excel schema columns that contain formulas; compare independently of the
+# general metadata/value-change report and its output cap.
+FORMULA_COLUMNS: dict[str, str] = {
+    "IN": "Formel",
+    "OUT": "Formel",
+    "SIM": "Formula",
 }
 
 DEFAULT_COMPARE_COLS: dict[str, list[str]] = {
@@ -217,6 +225,16 @@ def _diff_table(
         max_changes=max_value_changes,
     )
 
+    # First-class, *untruncated* formula diff. This remains available even if
+    # compare_cols omits the formula column, and reports missing columns.
+    formula_diff = _diff_formulas_by_key(
+        old_norm,
+        new_norm,
+        key_col=key_col,
+        keys=common_keys,
+        formula_col=FORMULA_COLUMNS.get(table_name),
+    )
+
     return {
         "columns": {
             "added": added_cols,
@@ -239,7 +257,58 @@ def _diff_table(
             "value_errors": value_changes["errors"],
             "value_changes": value_changes["changes"],
             "truncated": value_changes["truncated"],
+            "formula_column": formula_diff["column"],
+            "formula_status": formula_diff["status"],
+            "formula_missing_in": formula_diff["missing_in"],
+            "formula_change_count": formula_diff["count"],
+            "formula_changes": formula_diff["changes"],
         },
+    }
+
+
+def _diff_formulas_by_key(
+    old_df: pd.DataFrame,
+    new_df: pd.DataFrame,
+    *,
+    key_col: str,
+    keys: list[str],
+    formula_col: str | None,
+) -> dict[str, Any]:
+    """Compare formula definitions across common variables, without truncation."""
+    if formula_col is None:
+        return {
+            "column": None, "status": "not_applicable",
+            "missing_in": [], "count": 0, "changes": [],
+        }
+
+    missing_in = [
+        version for version, df in (("old", old_df), ("new", new_df))
+        if formula_col not in df.columns
+    ]
+    if missing_in:
+        return {
+            "column": formula_col, "status": "unavailable",
+            "missing_in": missing_in, "count": 0, "changes": [],
+        }
+
+    old_idx = old_df.set_index(key_col)
+    new_idx = new_df.set_index(key_col)
+    changes: list[dict[str, str]] = []
+
+    for key in keys:
+        old_val = str(old_idx.at[key, formula_col])
+        new_val = str(new_idx.at[key, formula_col])
+        if old_val != new_val:
+            changes.append({
+                key_col: key,
+                "column": formula_col,
+                "old": old_val,
+                "new": new_val,
+            })
+
+    return {
+        "column": formula_col, "status": "compared",
+        "missing_in": [], "count": len(changes), "changes": changes,
     }
 
 
@@ -271,7 +340,7 @@ def _diff_values_by_key(
             old_val = str(old_row.get(c, ""))
             new_val = str(new_row.get(c, ""))
 
-            if new_val.find("#") != -1:
+            if "#" in new_val and "=" not in new_val:
                 error_count += 1
                 errors.append(
                         {
@@ -355,7 +424,9 @@ def schema_diff_to_markdown(report: dict, *, value_format: Literal["table", "ite
     Render a schema diff report (from diff_schema_dirs) to Markdown.
 
     format="table": value changes rendered as a Markdown table (current behavior)
-    format="items": value changes rendered as grouped bullet items (better for long var_name/formulas)
+    format="items": changes rendered as grouped bullet items (better for long formulas)
+
+    Formula changes are reported separately and are never truncated.
     """
     meta = report.get("meta", {})
     header = "\n".join(
@@ -458,10 +529,13 @@ def _render_table_section(tname: str, t: dict, *, value_format: Literal["table",
     rows_md = "\n".join(row_lines)
 
     error_md = _render_errors(e)
-
+    formula_md = _render_formula_changes(ch, value_format=value_format)
     value_md = _render_value_changes(ch, value_format=value_format)
 
-    return "\n\n".join([f"## {tname}", columns_md, rows_md, error_md, value_md])
+    return "\n\n".join(
+        part for part in (f"## {tname}", columns_md, rows_md, error_md, formula_md, value_md)
+        if part
+    )
 
 def _render_errors(e: dict):
     lines = ["### Potential Errors (#)","","| var_name | column | error |", "|---|---|---|"]
@@ -474,21 +548,70 @@ def _render_errors(e: dict):
         lines = ["### Potential Errors (#)", "- None"]
     return "\n".join(lines)
 
-def _render_value_changes(ch: dict, *, value_format: Literal["table", "items"]) -> str:
+def _render_formula_changes(
+    ch: dict, *, value_format: Literal["table", "items", "None"]
+) -> str:
+    status = ch.get("formula_status", "not_applicable")
+    if status == "not_applicable":
+        return ""
+
+    column = ch.get("formula_column")
+    lines = [
+        "### Formula changes",
+        f"- Column: `{column}`",
+        f"- Change count: {ch.get('formula_change_count', 0)}",
+    ]
+    if status == "unavailable":
+        missing = ", ".join(ch.get("formula_missing_in", []))
+        lines.append(f"- ⚠ Formula comparison unavailable (missing in: {missing})")
+        return "\n".join(lines)
+
+    changes = ch.get("formula_changes", [])
+    if not changes:
+        return "\n".join(lines + ["", "_No formula changes._"])
+
+    # Formula changes have their own uncapped list, regardless of value_format.
+    rendered = (
+        _render_changes_table(changes) if value_format == "table"
+        else _render_changes_items(changes)
+    )
+    return "\n".join(lines + ["", rendered])
+
+
+def _render_value_changes(ch: dict, *, value_format: Literal["table", "items", "None"]) -> str:
+    # Keep formula entries in the JSON value_changes for existing consumers,
+    # but avoid displaying them twice in the Markdown report.
+    formula_col = (
+        ch.get("formula_column") if ch.get("formula_status") == "compared"
+        else None
+    )
+    formula_in_generic_diff = formula_col in ch.get("compared_columns", [])
+    other_count = ch.get("value_change_count", 0) - (
+        ch.get("formula_change_count", 0) if formula_in_generic_diff else 0
+    )
+    changes = [
+        c for c in (ch.get("value_changes", []) or [])
+        if c.get("column") != formula_col
+    ]
+
     header_lines = [
-        "### Value changes",
-        f"- Compared columns: {ch.get("compared_columns", [])}",
-        f"- Error count: {ch.get("value_error_count")}",
-        f"- Change count: {ch.get("value_change_count")}",
+        "### Other value changes",
+        f"- Compared columns: {ch.get('compared_columns', [])}",
+        f"- Error count: {ch.get('value_error_count')}",
+        f"- Change count: {other_count}",
     ]
     if ch.get("truncated"):
         header_lines.append("- ⚠ Output truncated")
 
     header = "\n".join(header_lines)
 
-    changes = ch.get("value_changes", []) or []
     if not changes:
-        return "\n\n".join([header, "_No value changes._"])
+        note = (
+            "_No other value changes shown (output truncated)._"
+            if other_count > 0 and ch.get("truncated")
+            else "_No other value changes._"
+        )
+        return "\n\n".join([header, note])
 
     if value_format == "table":
         return "\n\n".join([header, _render_changes_table(changes)])
