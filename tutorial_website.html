@@ -495,13 +495,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./batch-python.html" class="sidebar-item-text sidebar-link">
+  <a href="./tutorial_batch.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Batchsimulation mit Python</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./assessment.html" class="sidebar-item-text sidebar-link">
+  <a href="./tutorial_bewertung.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Primärenergie und Treibhausgase bewerten</span></a>
   </div>
 </li>
@@ -661,9 +661,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="quellen-und-ergebnisse-unterscheiden">1. Quellen und Ergebnisse unterscheiden</h2>
 <p><code>website/tutorial_*.ipynb</code> sind redaktionell gepflegte deutsche Tutorials mit Quarto-Kopf und gespeicherten Ausgaben. Die ursprünglichen <code>notebooks/howto_*</code> bleiben eigenständige Arbeitsnotebooks. Es gibt keine generierte Notebook-Seitenkopie zwischen diesen beiden Beständen. Für Berechnung, Import und Grafik verwenden beide die Paketfunktionen.</p>
 <p>Quarto muss separat installiert sein. Der Website-Build rendert gespeicherte Ergebnisse und führt die Tutorialzellen nicht aus. Neue oder geänderte Analyse-Tutorials deshalb vorher im passenden Kernel ausführen und speichern.</p>
-<div id="bb0eb439" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-23T19:01:30.481172Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-23T19:01:30.480989Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-23T19:01:32.401123Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-23T19:01:32.400510Z&quot;}}" data-execution_count="1">
+<div id="website-local-setup" class="cell">
 <details class="code-fold">
-<summary>Python-Code anzeigen</summary>
+<summary>Vorbereitung für lokale Ausführung</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -679,14 +679,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>OUTPUT <span class="op">=</span> ROOT <span class="op">/</span> <span class="st">"notebooks/local_exports/tutorials"</span></span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>OUTPUT.mkdir(parents<span class="op">=</span><span class="va">True</span>, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> nbformat</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> yaml</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>config <span class="op">=</span> yaml.safe_load((ROOT <span class="op">/</span> <span class="st">"website/_quarto.yml"</span>).read_text(encoding<span class="op">=</span><span class="st">"utf-8"</span>))</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>tutorials <span class="op">=</span> <span class="bu">sorted</span>((ROOT <span class="op">/</span> <span class="st">"website"</span>).glob(<span class="st">"tutorial_*.ipynb"</span>))</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> pfad <span class="kw">in</span> tutorials:</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    nbformat.validate(nbformat.read(pfad, as_version<span class="op">=</span><span class="dv">4</span>))</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Direkt gerenderte Tutorialquellen:"</span>, <span class="bu">len</span>(tutorials))</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Render-Auswahl:"</span>, config[<span class="st">"project"</span>][<span class="st">"render"</span>])</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> yaml</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
+</div>
+<div id="bb0eb439" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-23T19:01:30.481172Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-23T19:01:30.480989Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-23T19:01:32.401123Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-23T19:01:32.400510Z&quot;}}" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>config <span class="op">=</span> yaml.safe_load((ROOT <span class="op">/</span> <span class="st">"website/_quarto.yml"</span>).read_text(encoding<span class="op">=</span><span class="st">"utf-8"</span>))</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>tutorials <span class="op">=</span> <span class="bu">sorted</span>((ROOT <span class="op">/</span> <span class="st">"website"</span>).glob(<span class="st">"tutorial_*.ipynb"</span>))</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> pfad <span class="kw">in</span> tutorials:</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    nbformat.validate(nbformat.read(pfad, as_version<span class="op">=</span><span class="dv">4</span>))</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Direkt gerenderte Tutorialquellen:"</span>, <span class="bu">len</span>(tutorials))</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Render-Auswahl:"</span>, config[<span class="st">"project"</span>][<span class="st">"render"</span>])</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Direkt gerenderte Tutorialquellen: 12
 Render-Auswahl: ['*.qmd', 'tutorial_*.ipynb', '!downloads/**', '!en/**']</code></pre>
@@ -702,17 +704,14 @@ Render-Auswahl: ['*.qmd', 'tutorial_*.ipynb', '!downloads/**', '!en/**']</code><
 <h2 class="anchored" data-anchor-id="ressourcen-und-seiten-bauen">3. Ressourcen und Seiten bauen</h2>
 <p>Der Asset-Schritt bereitet Downloads und bestehende Lehrmodule vor. Danach rendert Quarto. Die folgenden Schalter bleiben für das normale Durchlaufen dieses Tutorials ausgeschaltet; so erzeugt die Dokumentation keine rekursiven Website-Builds. Falls ein Pre-render-Hook aktiv ist, übernimmt dieser den Asset-Schritt; die Konfiguration unten berücksichtigt das.</p>
 <div id="43c88355" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-23T19:01:32.403505Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-23T19:01:32.403220Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-23T19:01:32.408305Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-23T19:01:32.407798Z&quot;}}" data-execution_count="2">
-<details class="code-fold">
-<summary>Python-Code anzeigen</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> subprocess</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>BUILD_AUSFUEHREN <span class="op">=</span> <span class="va">False</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> BUILD_AUSFUEHREN:</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> config[<span class="st">"project"</span>].get(<span class="st">"pre-render"</span>):</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        subprocess.run([sys.executable, <span class="st">"scripts/website_assets.py"</span>], cwd<span class="op">=</span>ROOT, check<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    subprocess.run([<span class="st">"quarto"</span>, <span class="st">"render"</span>, <span class="st">"website"</span>], cwd<span class="op">=</span>ROOT, check<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Build nicht gestartet. Für den bewussten lokalen Build BUILD_AUSFUEHREN = True setzen."</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> subprocess</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>BUILD_AUSFUEHREN <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> BUILD_AUSFUEHREN:</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> config[<span class="st">"project"</span>].get(<span class="st">"pre-render"</span>):</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        subprocess.run([sys.executable, <span class="st">"scripts/website_assets.py"</span>], cwd<span class="op">=</span>ROOT, check<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    subprocess.run([<span class="st">"quarto"</span>, <span class="st">"render"</span>, <span class="st">"website"</span>], cwd<span class="op">=</span>ROOT, check<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Build nicht gestartet. Für den bewussten lokalen Build BUILD_AUSFUEHREN = True setzen."</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Build nicht gestartet. Für den bewussten lokalen Build BUILD_AUSFUEHREN = True setzen.</code></pre>
 </div>
@@ -721,7 +720,7 @@ Render-Auswahl: ['*.qmd', 'tutorial_*.ipynb', '!downloads/**', '!en/**']</code><
 <section id="vorschau-und-abnahme" class="level2">
 <h2 class="anchored" data-anchor-id="vorschau-und-abnahme">4. Vorschau und Abnahme</h2>
 <p>Nach dem Build im Repository ausführen:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> http.server 8765 <span class="at">--bind</span> 127.0.0.1 <span class="at">--directory</span> website/_site</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> http.server 8765 <span class="at">--bind</span> 127.0.0.1 <span class="at">--directory</span> website/_site</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Dann <code>http://127.0.0.1:8765/python.html</code> öffnen. Übersicht, Seitenleiste, Suche und Downloads prüfen. Diagramme müssen sichtbar und bedienbar sein; Code muss aufklappbar bleiben. Die Seite auch bei schmaler Breite prüfen. Website-Tests mit <code>python -m pytest tests/test_website.py tests/test_tutorials.py</code> ausführen.</p>
 </section>
 <section id="veröffentlichung-getrennt-durchführen" class="level2">

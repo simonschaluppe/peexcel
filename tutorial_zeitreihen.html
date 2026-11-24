@@ -498,13 +498,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./batch-python.html" class="sidebar-item-text sidebar-link">
+  <a href="./tutorial_batch.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Batchsimulation mit Python</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./assessment.html" class="sidebar-item-text sidebar-link">
+  <a href="./tutorial_bewertung.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Primärenergie und Treibhausgase bewerten</span></a>
   </div>
 </li>
@@ -661,9 +661,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="quelldateien-auswählen" class="level2">
 <h2 class="anchored" data-anchor-id="quelldateien-auswählen">1. Quelldateien auswählen</h2>
 <p>Das Beispiel startet mit dem versionierten F7-Export. Ergänze <code>DATEIEN</code> um weitere Exporte mit eindeutigen Szenarionamen. Es werden keine Dateien aus persönlichen Ordnern automatisch eingesammelt.</p>
-<div id="376ff0f1" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-23T18:55:45.329377Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-23T18:55:45.329005Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-23T18:55:50.154763Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-23T18:55:50.153545Z&quot;}}" data-execution_count="1">
+<div id="zeitreihen-local-setup" class="cell">
 <details class="code-fold">
-<summary>Python-Code anzeigen</summary>
+<summary>Vorbereitung für lokale Ausführung</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -678,12 +678,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>sys.path.insert(<span class="dv">0</span>, <span class="bu">str</span>(ROOT <span class="op">/</span> <span class="st">"scripts"</span>))</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>OUTPUT <span class="op">=</span> ROOT <span class="op">/</span> <span class="st">"notebooks/local_exports/tutorials"</span></span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>OUTPUT.mkdir(parents<span class="op">=</span><span class="va">True</span>, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pexl <span class="im">import</span> Project</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>DATEIEN <span class="op">=</span> [ROOT <span class="op">/</span> <span class="st">"data/exports/Aspern PVCheck _ F7.xlsx"</span>]</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> DATEIEN <span class="kw">and</span> <span class="bu">all</span>(p.is_file() <span class="cf">for</span> p <span class="kw">in</span> DATEIEN)</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>projekt <span class="op">=</span> Project.from_files(DATEIEN)</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Importwarnungen:"</span>, projekt.warnings)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pexl <span class="im">import</span> Project</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
+</div>
+<div id="376ff0f1" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-23T18:55:45.329377Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-23T18:55:45.329005Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-23T18:55:50.154763Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-23T18:55:50.153545Z&quot;}}" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>DATEIEN <span class="op">=</span> [ROOT <span class="op">/</span> <span class="st">"data/exports/Aspern PVCheck _ F7.xlsx"</span>]</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> DATEIEN <span class="kw">and</span> <span class="bu">all</span>(p.is_file() <span class="cf">for</span> p <span class="kw">in</span> DATEIEN)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>projekt <span class="op">=</span> Project.from_files(DATEIEN)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Importwarnungen:"</span>, projekt.warnings)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Importwarnungen: []</code></pre>
 </div>
@@ -693,17 +695,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="vollständigkeit-prüfen">2. Vollständigkeit prüfen</h2>
 <p><code>Project.from_files</code> führt alle Szenarien zusammen und lehnt doppelte Schlüssel ab. Jahresergebnisse allein genügen für Stundenanalysen nicht: jede ausgewählte Variante braucht Zeitreihen.</p>
 <div id="6d0d51e4" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-23T18:55:50.158771Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-23T18:55:50.158068Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-23T18:55:50.184340Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-23T18:55:50.183348Z&quot;}}" data-execution_count="2">
-<details class="code-fold">
-<summary>Python-Code anzeigen</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>zeilen <span class="op">=</span> []</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> szenario <span class="kw">in</span> projekt:</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> szenario.timeseries <span class="kw">is</span> <span class="va">None</span>:</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="ss">f"Zeitreihe fehlt: </span><span class="sc">{</span>szenario<span class="sc">.</span>column_name<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    frame <span class="op">=</span> szenario.timeseries.to_frame()</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(frame) <span class="op">==</span> <span class="dv">8760</span>, szenario.column_name</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    zeilen.append({<span class="st">"Szenario"</span>: szenario.column_name, <span class="st">"Stunden"</span>: <span class="bu">len</span>(frame), <span class="st">"Kanäle"</span>: <span class="bu">len</span>(frame.columns)})</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>display(pd.DataFrame(zeilen))</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>zeilen <span class="op">=</span> []</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> szenario <span class="kw">in</span> projekt:</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> szenario.timeseries <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="ss">f"Zeitreihe fehlt: </span><span class="sc">{</span>szenario<span class="sc">.</span>column_name<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    frame <span class="op">=</span> szenario.timeseries.to_frame()</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(frame) <span class="op">==</span> <span class="dv">8760</span>, szenario.column_name</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    zeilen.append({<span class="st">"Szenario"</span>: szenario.column_name, <span class="st">"Stunden"</span>: <span class="bu">len</span>(frame), <span class="st">"Kanäle"</span>: <span class="bu">len</span>(frame.columns)})</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>display(pd.DataFrame(zeilen))</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 
@@ -735,19 +734,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="optional-einen-lokalen-zwischenstand-speichern">3. Optional einen lokalen Zwischenstand speichern</h2>
 <p>Pickle erhält hier das Python-Projekt einschließlich Zeitreihen. Es ist kein langfristiges Austauschformat: zum Wiederherstellen dieselbe Paketversion verwenden und nur selbst erzeugte, vertrauenswürdige Dateien laden. Alternativ das Projekt jederzeit mit <code>Project.from_files(DATEIEN)</code> aus den Originalexporten neu aufbauen.</p>
 <div id="217d7bdb" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-23T18:55:50.187891Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-23T18:55:50.187394Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-23T18:55:50.237949Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-23T18:55:50.236890Z&quot;}}" data-execution_count="3">
-<details class="code-fold">
-<summary>Python-Code anzeigen</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pickle</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>zwischenspeicher <span class="op">=</span> OUTPUT <span class="op">/</span> <span class="st">"tutorial_zeitreihen.pkl"</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> zwischenspeicher.<span class="bu">open</span>(<span class="st">"wb"</span>) <span class="im">as</span> f:</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    pickle.dump(projekt, f, protocol<span class="op">=</span>pickle.HIGHEST_PROTOCOL)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> zwischenspeicher.<span class="bu">open</span>(<span class="st">"rb"</span>) <span class="im">as</span> f:</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    wiederhergestellt <span class="op">=</span> pickle.load(f)</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> wiederhergestellt.column_names() <span class="op">==</span> projekt.column_names()</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> links, rechts <span class="kw">in</span> <span class="bu">zip</span>(projekt, wiederhergestellt):</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    pd.testing.assert_frame_equal(links.timeseries.to_frame(), rechts.timeseries.to_frame())</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Szenarien und Zeitreihen unverändert wiederhergestellt."</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pickle</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>zwischenspeicher <span class="op">=</span> OUTPUT <span class="op">/</span> <span class="st">"tutorial_zeitreihen.pkl"</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> zwischenspeicher.<span class="bu">open</span>(<span class="st">"wb"</span>) <span class="im">as</span> f:</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    pickle.dump(projekt, f, protocol<span class="op">=</span>pickle.HIGHEST_PROTOCOL)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> zwischenspeicher.<span class="bu">open</span>(<span class="st">"rb"</span>) <span class="im">as</span> f:</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    wiederhergestellt <span class="op">=</span> pickle.load(f)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> wiederhergestellt.column_names() <span class="op">==</span> projekt.column_names()</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> links, rechts <span class="kw">in</span> <span class="bu">zip</span>(projekt, wiederhergestellt):</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    pd.testing.assert_frame_equal(links.timeseries.to_frame(), rechts.timeseries.to_frame())</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Szenarien und Zeitreihen unverändert wiederhergestellt."</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Szenarien und Zeitreihen unverändert wiederhergestellt.</code></pre>
 </div>

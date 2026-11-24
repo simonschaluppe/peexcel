@@ -501,13 +501,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./batch-python.html" class="sidebar-item-text sidebar-link">
+  <a href="./tutorial_batch.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Batchsimulation mit Python</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./assessment.html" class="sidebar-item-text sidebar-link">
+  <a href="./tutorial_bewertung.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Primärenergie und Treibhausgase bewerten</span></a>
   </div>
 </li>
@@ -666,9 +666,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="szenario-und-darstellungsannahmen" class="level2">
 <h2 class="anchored" data-anchor-id="szenario-und-darstellungsannahmen">1. Szenario und Darstellungsannahmen</h2>
 <p>Das Beispiel verwendet die versionierte Entwicklungsdatei. Der Renderer zeichnet eine schematische Anordnung; er ersetzt keinen Gebäudeplan. Grundriss, Abstände und Bauteilpositionen sind Darstellungsannahmen.</p>
-<div id="0096c23e" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-23T18:54:36.204383Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-23T18:54:36.203718Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-23T18:54:39.231580Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-23T18:54:39.229878Z&quot;}}" data-execution_count="1">
+<div id="gebaeudeschnitt-local-setup" class="cell">
 <details class="code-fold">
-<summary>Python-Code anzeigen</summary>
+<summary>Vorbereitung für lokale Ausführung</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -685,20 +685,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>OUTPUT.mkdir(parents<span class="op">=</span><span class="va">True</span>, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pexl <span class="im">import</span> Project</span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pexl.spatial <span class="im">import</span> section_layout_from_scenario, render_svg</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> SVG</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>projekt <span class="op">=</span> Project.example()</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>szenario <span class="op">=</span> projekt.scenarios[<span class="dv">0</span>]</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>schnitt <span class="op">=</span> section_layout_from_scenario(szenario, seed<span class="op">=</span><span class="dv">42</span>)</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Variante:"</span>, szenario.column_name)</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>display(SVG(render_svg(schnitt)))</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> SVG</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
+</div>
+<div id="0096c23e" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-23T18:54:36.204383Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-23T18:54:36.203718Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-23T18:54:39.231580Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-23T18:54:39.229878Z&quot;}}" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>projekt <span class="op">=</span> Project.example()</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>szenario <span class="op">=</span> projekt.scenarios[<span class="dv">0</span>]</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>schnitt <span class="op">=</span> section_layout_from_scenario(szenario, seed<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Variante:"</span>, szenario.column_name)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>display(SVG(render_svg(schnitt)))</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Variante: Beispiel | Alle Energiesysteme</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="tutorial_gebaeudeschnitt_files/figure-html/cell-2-output-2.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="tutorial_gebaeudeschnitt_files/figure-html/cell-2-output-2.svg" class="img-fluid figure-img"></a></p>
+<p><a href="tutorial_gebaeudeschnitt_files/figure-html/cell-3-output-2.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="tutorial_gebaeudeschnitt_files/figure-html/cell-3-output-2.svg" class="img-fluid figure-img"></a></p>
 </figure>
 </div>
 </div>
@@ -708,15 +710,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="stil-ändern-geometrie-erhalten">2. Stil ändern, Geometrie erhalten</h2>
 <p>Der Lehrstil reduziert Dekoration. Derselbe Schnitt bleibt die Eingabe; die Änderung betrifft die Darstellung, nicht die Energiekennzahlen.</p>
 <div id="8aacae06" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-23T18:54:39.237262Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-23T18:54:39.236287Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-23T18:54:39.274366Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-23T18:54:39.273198Z&quot;}}" data-execution_count="2">
-<details class="code-fold">
-<summary>Python-Code anzeigen</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>display(SVG(render_svg(schnitt, style<span class="op">=</span><span class="st">"teaching"</span>)))</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>display(pd.DataFrame(schnitt[<span class="st">"assumptions"</span>]))</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>display(SVG(render_svg(schnitt, style<span class="op">=</span><span class="st">"teaching"</span>)))</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>display(pd.DataFrame(schnitt[<span class="st">"assumptions"</span>]))</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="tutorial_gebaeudeschnitt_files/figure-html/cell-3-output-1.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="tutorial_gebaeudeschnitt_files/figure-html/cell-3-output-1.svg" class="img-fluid figure-img"></a></p>
+<p><a href="tutorial_gebaeudeschnitt_files/figure-html/cell-4-output-1.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="tutorial_gebaeudeschnitt_files/figure-html/cell-4-output-1.svg" class="img-fluid figure-img"></a></p>
 </figure>
 </div>
 </div>
@@ -789,12 +788,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="svg-weiterverwenden">3. SVG weiterverwenden</h2>
 <p>SVG speichert die Zeichnung als Vektorgrafik. Für reproduzierbare Vergleiche Szenario, Parameter und Annahmen mit dokumentieren.</p>
 <div id="687f2fe0" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-23T18:54:39.277604Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-23T18:54:39.277054Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-23T18:54:39.299974Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-23T18:54:39.298795Z&quot;}}" data-execution_count="3">
-<details class="code-fold">
-<summary>Python-Code anzeigen</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>datei <span class="op">=</span> OUTPUT <span class="op">/</span> <span class="st">"tutorial_gebaeudeschnitt.svg"</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>datei.write_text(render_svg(schnitt, style<span class="op">=</span><span class="st">"teaching"</span>), encoding<span class="op">=</span><span class="st">"utf-8"</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"SVG gespeichert:"</span>, datei.name)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>datei <span class="op">=</span> OUTPUT <span class="op">/</span> <span class="st">"tutorial_gebaeudeschnitt.svg"</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>datei.write_text(render_svg(schnitt, style<span class="op">=</span><span class="st">"teaching"</span>), encoding<span class="op">=</span><span class="st">"utf-8"</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"SVG gespeichert:"</span>, datei.name)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>SVG gespeichert: tutorial_gebaeudeschnitt.svg</code></pre>
 </div>
@@ -804,15 +800,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="interaktive-lehransicht">4. Interaktive Lehransicht</h2>
 <p>Das vorhandene Lehrmodul verwendet dieselben räumlichen Funktionen. Es zeigt ausdrücklich vorbereitete Lehrbeispiele, nicht automatisch die oben gewählte Variante. Es wird als abgeschlossene HTML-Anwendung eingebettet. Probiere Hülle, Kellerzone und einzelne Wärmeflüsse aus.</p>
 <div id="dde63296" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-23T18:54:39.303077Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-23T18:54:39.302561Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-23T18:54:39.362675Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-23T18:54:39.361362Z&quot;}}" data-execution_count="4">
-<details class="code-fold">
-<summary>Python-Code anzeigen</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> section_teaching_preview <span class="im">import</span> build_preview</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> HTML</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> html <span class="im">import</span> escape</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>lehrdatei <span class="op">=</span> build_preview(OUTPUT <span class="op">/</span> <span class="st">"lehrschnitt"</span>)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>display(HTML(<span class="st">'&lt;iframe title="Interaktiver Lehrschnitt" style="width:100%;height:850px;border:0" srcdoc="'</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>             <span class="op">+</span> escape(lehrdatei.read_text(encoding<span class="op">=</span><span class="st">"utf-8"</span>), quote<span class="op">=</span><span class="va">True</span>) <span class="op">+</span> <span class="st">'"&gt;&lt;/iframe&gt;'</span>))</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> section_teaching_preview <span class="im">import</span> build_preview</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> HTML</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> html <span class="im">import</span> escape</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>lehrdatei <span class="op">=</span> build_preview(OUTPUT <span class="op">/</span> <span class="st">"lehrschnitt"</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>display(HTML(<span class="st">'&lt;iframe title="Interaktiver Lehrschnitt" style="width:100%;height:850px;border:0" srcdoc="'</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>             <span class="op">+</span> escape(lehrdatei.read_text(encoding<span class="op">=</span><span class="st">"utf-8"</span>), quote<span class="op">=</span><span class="va">True</span>) <span class="op">+</span> <span class="st">'"&gt;&lt;/iframe&gt;'</span>))</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>C:\Users\schneids\AppData\Roaming\Python\Python313\site-packages\IPython\core\display.py:447: UserWarning: Consider using IPython.display.IFrame instead
   warnings.warn("Consider using IPython.display.IFrame instead")</code></pre>
@@ -924,40 +917,37 @@ const blob=new Blob([new XMLSerializer().serializeToString(clone)],{type:'image/
 <p>The current schema defines <code>scenario.v</code>. With <code>unknown="ignore"</code>, export names outside that schema remain in <code>scenario.legacy</code> for manual inspection only. They are not selected, calculated or written by the current-schema exporter. Version labels alone do not establish compatibility. Renamed fields in Python functions must still be maintained when the current schema changes.</p>
 <p>Missing optional PV sizing omits PV geometry; <code>assumptions</code> explains the limitation. Missing required floor area raises <code>ValueError</code>. Inspect units and physical meaning before copying a legacy value. For example, assign <code>scenario.v.PV_module_area = 40.0</code> (m²) only when justified. This changes the in-memory scenario, not the source workbook. <code>scenario.v.PV_roof_share = scenario.legacy["PV_roof_area_percentage"]</code> is appropriate only after checking equal units and meaning; no automatic migration occurs.</p>
 <div id="1adf6195" class="cell">
-<details class="code-fold">
-<summary>Python-Code anzeigen</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> copy <span class="im">import</span> deepcopy</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pexl <span class="im">import</span> Project</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pexl.spatial <span class="im">import</span> section_layout_from_scenario</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>repo <span class="op">=</span> <span class="bu">next</span>(p <span class="cf">for</span> p <span class="kw">in</span> (Path.cwd(), <span class="op">*</span>Path.cwd().parents) <span class="cf">if</span> (p <span class="op">/</span> <span class="st">"src/pexl"</span>).is_dir())</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>older <span class="op">=</span> Project.from_excel(repo <span class="op">/</span> <span class="st">"data/exports/examples/ka_examples_v1.09.xlsx"</span>, unknown<span class="op">=</span><span class="st">"ignore"</span>)</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="op">*</span>older.warnings, sep<span class="op">=</span><span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>successes, skipped <span class="op">=</span> [], []</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> candidate <span class="kw">in</span> older:</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>        result <span class="op">=</span> section_layout_from_scenario(candidate)</span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">ValueError</span> <span class="im">as</span> error:</span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>        skipped.append((candidate.column_name, <span class="bu">str</span>(error)))</span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>        successes.append(candidate)</span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="bu">len</span>(successes)<span class="sc">}</span><span class="ss"> successful; </span><span class="sc">{</span><span class="bu">len</span>(skipped)<span class="sc">}</span><span class="ss"> skipped"</span>)</span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name, reason <span class="kw">in</span> skipped:</span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(name, reason)</span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"For missing floor area: supply candidate.v.NFA_total in m², consistent with known usage areas, then retry."</span>)</span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>example <span class="op">=</span> deepcopy(successes[<span class="dv">0</span>])</span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Legacy fields:"</span>, <span class="bu">list</span>(example.legacy))</span>
-<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Demonstrate missing optional sizing without altering the loaded project.</span></span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>example.v.PV_is_used <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>example.v.PV_module_area <span class="op">=</span> example.v.PV_kWp <span class="op">=</span> example.v.PV_m2_per_kWp <span class="op">=</span> <span class="va">None</span></span>
-<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(section_layout_from_scenario(example)[<span class="st">"assumptions"</span>])</span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Illustrative expert input, not an inferred value for the original project:</span></span>
-<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>example.v.PV_module_area <span class="op">=</span> <span class="fl">40.0</span></span>
-<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>completed <span class="op">=</span> section_layout_from_scenario(example)</span>
-<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="kw">not</span> <span class="bu">any</span>(n[<span class="st">"code"</span>] <span class="op">==</span> <span class="st">"unknown_pv_area"</span> <span class="cf">for</span> n <span class="kw">in</span> completed[<span class="st">"assumptions"</span>])</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> copy <span class="im">import</span> deepcopy</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pexl <span class="im">import</span> Project</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pexl.spatial <span class="im">import</span> section_layout_from_scenario</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>repo <span class="op">=</span> <span class="bu">next</span>(p <span class="cf">for</span> p <span class="kw">in</span> (Path.cwd(), <span class="op">*</span>Path.cwd().parents) <span class="cf">if</span> (p <span class="op">/</span> <span class="st">"src/pexl"</span>).is_dir())</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>older <span class="op">=</span> Project.from_excel(repo <span class="op">/</span> <span class="st">"data/exports/examples/ka_examples_v1.09.xlsx"</span>, unknown<span class="op">=</span><span class="st">"ignore"</span>)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="op">*</span>older.warnings, sep<span class="op">=</span><span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>successes, skipped <span class="op">=</span> [], []</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> candidate <span class="kw">in</span> older:</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>        result <span class="op">=</span> section_layout_from_scenario(candidate)</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">ValueError</span> <span class="im">as</span> error:</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>        skipped.append((candidate.column_name, <span class="bu">str</span>(error)))</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>        successes.append(candidate)</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="bu">len</span>(successes)<span class="sc">}</span><span class="ss"> successful; </span><span class="sc">{</span><span class="bu">len</span>(skipped)<span class="sc">}</span><span class="ss"> skipped"</span>)</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name, reason <span class="kw">in</span> skipped:</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(name, reason)</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"For missing floor area: supply candidate.v.NFA_total in m², consistent with known usage areas, then retry."</span>)</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>example <span class="op">=</span> deepcopy(successes[<span class="dv">0</span>])</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Legacy fields:"</span>, <span class="bu">list</span>(example.legacy))</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Demonstrate missing optional sizing without altering the loaded project.</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>example.v.PV_is_used <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>example.v.PV_module_area <span class="op">=</span> example.v.PV_kWp <span class="op">=</span> example.v.PV_m2_per_kWp <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(section_layout_from_scenario(example)[<span class="st">"assumptions"</span>])</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Illustrative expert input, not an inferred value for the original project:</span></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>example.v.PV_module_area <span class="op">=</span> <span class="fl">40.0</span></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>completed <span class="op">=</span> section_layout_from_scenario(example)</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="kw">not</span> <span class="bu">any</span>(n[<span class="st">"code"</span>] <span class="op">==</span> <span class="st">"unknown_pv_area"</span> <span class="cf">for</span> n <span class="kw">in</span> completed[<span class="st">"assumptions"</span>])</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 

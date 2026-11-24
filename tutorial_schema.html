@@ -495,13 +495,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./batch-python.html" class="sidebar-item-text sidebar-link">
+  <a href="./tutorial_batch.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Batchsimulation mit Python</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./assessment.html" class="sidebar-item-text sidebar-link">
+  <a href="./tutorial_bewertung.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Primärenergie und Treibhausgase bewerten</span></a>
   </div>
 </li>
@@ -659,9 +659,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="version-und-quelle-festlegen" class="level2">
 <h2 class="anchored" data-anchor-id="version-und-quelle-festlegen">1. Version und Quelle festlegen</h2>
 <p>Ein neues Excel-Schema verändert Variablendefinitionen, Zeitreihen und Berichte. Wir verwenden einen vorhandenen Schemaexport und schreiben ausschließlich in einen lokalen Prüfbereich. Das aktive Paket-Schema wird dabei nicht überschrieben.</p>
-<div id="b06c0466" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-23T18:55:20.883506Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-23T18:55:20.883354Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-23T18:55:21.694180Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-23T18:55:21.693521Z&quot;}}" data-execution_count="1">
+<div id="schema-local-setup" class="cell">
 <details class="code-fold">
-<summary>Python-Code anzeigen</summary>
+<summary>Vorbereitung für lokale Ausführung</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -677,15 +677,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>OUTPUT <span class="op">=</span> ROOT <span class="op">/</span> <span class="st">"notebooks/local_exports/tutorials"</span></span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>OUTPUT.mkdir(parents<span class="op">=</span><span class="va">True</span>, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pexl <span class="im">import</span> schema</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pexl.schema.current <span class="im">import</span> SCHEMA_VERSION</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>VERSION <span class="op">=</span> <span class="st">"1.13.1_dev"</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>QUELLE <span class="op">=</span> ROOT <span class="op">/</span> <span class="ss">f"data/exports/schema_</span><span class="sc">{</span>VERSION<span class="sc">}</span><span class="ss">.xlsx"</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>ALT <span class="op">=</span> ROOT <span class="op">/</span> <span class="st">"data/schemas/v1_12_7"</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>PRUEFUNG <span class="op">=</span> OUTPUT <span class="op">/</span> <span class="st">"schema_pruefung"</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> QUELLE.is_file() <span class="kw">and</span> ALT.is_dir()</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Aktives Schema:"</span>, SCHEMA_VERSION)</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Zu prüfender Export:"</span>, QUELLE.name)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pexl.schema.current <span class="im">import</span> SCHEMA_VERSION</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
+</div>
+<div id="b06c0466" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-23T18:55:20.883506Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-23T18:55:20.883354Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-23T18:55:21.694180Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-23T18:55:21.693521Z&quot;}}" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>VERSION <span class="op">=</span> <span class="st">"1.13.1_dev"</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>QUELLE <span class="op">=</span> ROOT <span class="op">/</span> <span class="ss">f"data/exports/schema_</span><span class="sc">{</span>VERSION<span class="sc">}</span><span class="ss">.xlsx"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>ALT <span class="op">=</span> ROOT <span class="op">/</span> <span class="st">"data/schemas/v1_12_7"</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>PRUEFUNG <span class="op">=</span> OUTPUT <span class="op">/</span> <span class="st">"schema_pruefung"</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> QUELLE.is_file() <span class="kw">and</span> ALT.is_dir()</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Aktives Schema:"</span>, SCHEMA_VERSION)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Zu prüfender Export:"</span>, QUELLE.name)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Aktives Schema: 1_13_1_dev
 Zu prüfender Export: schema_1.13.1_dev.xlsx</code></pre>
@@ -696,16 +698,13 @@ Zu prüfender Export: schema_1.13.1_dev.xlsx</code></pre>
 <h2 class="anchored" data-anchor-id="bindings-getrennt-erzeugen">2. Bindings getrennt erzeugen</h2>
 <p><code>dataset_dir</code> und <code>generated_dir</code> sind beide ausdrücklich gesetzt. Ohne <code>generated_dir</code> würde die Funktion in das Paketverzeichnis schreiben. Wiederholung ersetzt nur Dateien im lokalen Prüfbereich.</p>
 <div id="4537925e" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-23T18:55:21.697463Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-23T18:55:21.697015Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-23T18:55:23.464493Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-23T18:55:23.463975Z&quot;}}" data-execution_count="2">
-<details class="code-fold">
-<summary>Python-Code anzeigen</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ergebnis <span class="op">=</span> schema.create(</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    QUELLE, dataset_dir<span class="op">=</span>PRUEFUNG <span class="op">/</span> <span class="st">"daten"</span>, generated_dir<span class="op">=</span>PRUEFUNG <span class="op">/</span> <span class="st">"generated"</span>,</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    version<span class="op">=</span>VERSION, replace_files<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>display(pd.Series({<span class="st">"Schema"</span>: ergebnis.schema_module.name,</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Zeitreihen"</span>: ergebnis.timeseries_module.name,</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Reports"</span>: ergebnis.report_module.name}))</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ergebnis <span class="op">=</span> schema.create(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    QUELLE, dataset_dir<span class="op">=</span>PRUEFUNG <span class="op">/</span> <span class="st">"daten"</span>, generated_dir<span class="op">=</span>PRUEFUNG <span class="op">/</span> <span class="st">"generated"</span>,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    version<span class="op">=</span>VERSION, replace_files<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>display(pd.Series({<span class="st">"Schema"</span>: ergebnis.schema_module.name,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Zeitreihen"</span>: ergebnis.timeseries_module.name,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Reports"</span>: ergebnis.report_module.name}))</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <pre><code>Schema             excel_1_13_1_dev.py
 Zeitreihen    timeseries_1_13_1_dev.py
@@ -718,16 +717,13 @@ dtype: object</code></pre>
 <h2 class="anchored" data-anchor-id="unterschiede-prüfen">3. Unterschiede prüfen</h2>
 <p>Die vorhandene Vergleichsfunktion prüft die Dataset-Verzeichnisse. Hinzugefügte oder entfernte Variablen, Einheiten und Metadaten müssen fachlich geprüft werden; erfolgreiche Codegenerierung allein reicht nicht.</p>
 <div id="db277409" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-23T18:55:23.466368Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-23T18:55:23.466037Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-23T18:55:23.635238Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-23T18:55:23.634832Z&quot;}}" data-execution_count="3">
-<details class="code-fold">
-<summary>Python-Code anzeigen</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pexl.validate.schema <span class="im">import</span> diff_schema_dirs, schema_diff_to_markdown</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> Markdown</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>unterschiede <span class="op">=</span> diff_schema_dirs(old_dir<span class="op">=</span>ALT, new_dir<span class="op">=</span>ergebnis.dataset_dir)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>vergleich <span class="op">=</span> schema_diff_to_markdown(unterschiede, value_format<span class="op">=</span><span class="st">"None"</span>)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>(PRUEFUNG <span class="op">/</span> <span class="st">"vergleich.md"</span>).write_text(vergleich, encoding<span class="op">=</span><span class="st">"utf-8"</span>)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># In der Seite nur einen Auszug anzeigen; der vollständige Bericht liegt lokal vor.</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>display(Markdown(vergleich[:<span class="dv">5000</span>]))</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pexl.validate.schema <span class="im">import</span> diff_schema_dirs, schema_diff_to_markdown</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> Markdown</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>unterschiede <span class="op">=</span> diff_schema_dirs(old_dir<span class="op">=</span>ALT, new_dir<span class="op">=</span>ergebnis.dataset_dir)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>vergleich <span class="op">=</span> schema_diff_to_markdown(unterschiede, value_format<span class="op">=</span><span class="st">"None"</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>(PRUEFUNG <span class="op">/</span> <span class="st">"vergleich.md"</span>).write_text(vergleich, encoding<span class="op">=</span><span class="st">"utf-8"</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># In der Seite nur einen Auszug anzeigen; der vollständige Bericht liegt lokal vor.</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>display(Markdown(vergleich[:<span class="dv">5000</span>]))</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <section id="schema-diff" class="level1 cell-output cell-output-display cell-output-markdown">
 <h1>Schema Diff</h1>
 <ul>

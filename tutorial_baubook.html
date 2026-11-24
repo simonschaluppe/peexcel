@@ -72,7 +72,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./batch-python.html" rel="next">
+<link href="./tutorial_batch.html" rel="next">
 <link href="./tutorial_zeitreihen.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -495,13 +495,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./batch-python.html" class="sidebar-item-text sidebar-link">
+  <a href="./tutorial_batch.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Batchsimulation mit Python</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./assessment.html" class="sidebar-item-text sidebar-link">
+  <a href="./tutorial_bewertung.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Primärenergie und Treibhausgase bewerten</span></a>
   </div>
 </li>
@@ -661,9 +661,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Zusätzlich wird <code>requests</code> benötigt (<code>python -m pip install requests</code>). Lege lokal eine nicht versionierte <code>credentials.json</code> im Repository an:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span><span class="dt">"user"</span><span class="fu">:</span> <span class="st">"DEIN_BENUTZERNAME"</span><span class="fu">,</span> <span class="dt">"api_key"</span><span class="fu">:</span> <span class="st">"DEIN_API_SCHLUESSEL"</span><span class="fu">}</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Dieses Tutorial enthält keine gespeicherten API-Antworten. Die folgenden Zellen benötigen deinen Zugang; sie wurden für die Website nicht gegen den Dienst ausgeführt. Zugangsdaten und Sitzungstoken nicht ausgeben.</p>
-<div id="15ade204" class="cell">
+<div id="baubook-local-setup" class="cell">
 <details class="code-fold">
-<summary>Python-Code anzeigen</summary>
+<summary>Vorbereitung für lokale Ausführung</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -678,53 +678,46 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>sys.path.insert(<span class="dv">0</span>, <span class="bu">str</span>(ROOT <span class="op">/</span> <span class="st">"scripts"</span>))</span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>OUTPUT <span class="op">=</span> ROOT <span class="op">/</span> <span class="st">"notebooks/local_exports/tutorials"</span></span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>OUTPUT.mkdir(parents<span class="op">=</span><span class="va">True</span>, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pexl.io <span class="im">import</span> baubook</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>ZUGANG <span class="op">=</span> ROOT <span class="op">/</span> <span class="st">"credentials.json"</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>benutzer, schluessel <span class="op">=</span> baubook.load_credentials(ZUGANG)</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>session <span class="op">=</span> baubook.create_baubook_session(benutzer, schluessel)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pexl.io <span class="im">import</span> baubook</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
+</div>
+<div id="15ade204" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ZUGANG <span class="op">=</span> ROOT <span class="op">/</span> <span class="st">"credentials.json"</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>benutzer, schluessel <span class="op">=</span> baubook.load_credentials(ZUGANG)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>session <span class="op">=</span> baubook.create_baubook_session(benutzer, schluessel)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="eine-kleine-produktmenge-prüfen" class="level2">
 <h2 class="anchored" data-anchor-id="eine-kleine-produktmenge-prüfen">2. Eine kleine Produktmenge prüfen</h2>
 <p>Zuerst fünf Produkte laden. <code>json_normalize</code> wandelt die API-Antwort in eine Tabelle um; die tatsächlichen Spalten ergeben sich aus den gelieferten Daten.</p>
 <div id="bf18858a" class="cell">
-<details class="code-fold">
-<summary>Python-Code anzeigen</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>antwort <span class="op">=</span> baubook.get_products(session, b_size<span class="op">=</span><span class="dv">5</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>produkte <span class="op">=</span> pd.json_normalize(antwort[<span class="st">"items"</span>])</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Produkte in dieser Antwort:"</span>, <span class="bu">len</span>(produkte))</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>display(produkte.head())</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>antwort <span class="op">=</span> baubook.get_products(session, b_size<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>produkte <span class="op">=</span> pd.json_normalize(antwort[<span class="st">"items"</span>])</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Produkte in dieser Antwort:"</span>, <span class="bu">len</span>(produkte))</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>display(produkte.head())</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="kategorien-nachschlagen" class="level2">
 <h2 class="anchored" data-anchor-id="kategorien-nachschlagen">3. Kategorien nachschlagen</h2>
 <p>Kategorien können Unterkategorien enthalten. Die API-Bezeichnungen bleiben erhalten; sie werden nicht durch ein zusätzliches lokales Kategorieschema ersetzt.</p>
 <div id="6bb33646" class="cell">
-<details class="code-fold">
-<summary>Python-Code anzeigen</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>kategorien <span class="op">=</span> baubook.get_categories(session)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>display(pd.DataFrame([</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"ID"</span>: key, <span class="st">"Bezeichnung"</span>: value.get(<span class="st">"Titel"</span>, {}).get(<span class="st">"de"</span>, <span class="st">""</span>)}</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> key, value <span class="kw">in</span> kategorien.items()</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>]))</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>kategorien <span class="op">=</span> baubook.get_categories(session)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>display(pd.DataFrame([</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"ID"</span>: key, <span class="st">"Bezeichnung"</span>: value.get(<span class="st">"Titel"</span>, {}).get(<span class="st">"de"</span>, <span class="st">""</span>)}</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> key, value <span class="kw">in</span> kategorien.items()</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>]))</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="referenzwerte-und-export" class="level2">
 <h2 class="anchored" data-anchor-id="referenzwerte-und-export">4. Referenzwerte und Export</h2>
 <p>Referenzwerte getrennt von Produktdatensätzen prüfen. Ein Tabellenauszug ist noch keine Zuordnung zu Bauteilen oder eine fertige Ökobilanz. Einheiten und Gültigkeitsbereiche aus den Antwortfeldern übernehmen.</p>
 <div id="711cfec8" class="cell">
-<details class="code-fold">
-<summary>Python-Code anzeigen</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>referenzwerte <span class="op">=</span> baubook.get_reference_values(session, <span class="st">"ZG"</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>referenzen <span class="op">=</span> pd.DataFrame.from_dict(referenzwerte[<span class="st">"items"</span>], orient<span class="op">=</span><span class="st">"index"</span>).reset_index(names<span class="op">=</span><span class="st">"reference_id"</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>display(referenzen.head())</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>produkte.to_excel(OUTPUT <span class="op">/</span> <span class="st">"tutorial_baubook_produkte.xlsx"</span>, index<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>referenzen.to_excel(OUTPUT <span class="op">/</span> <span class="st">"tutorial_baubook_referenzwerte.xlsx"</span>, index<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>session.close()</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>referenzwerte <span class="op">=</span> baubook.get_reference_values(session, <span class="st">"ZG"</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>referenzen <span class="op">=</span> pd.DataFrame.from_dict(referenzwerte[<span class="st">"items"</span>], orient<span class="op">=</span><span class="st">"index"</span>).reset_index(names<span class="op">=</span><span class="st">"reference_id"</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>display(referenzen.head())</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>produkte.to_excel(OUTPUT <span class="op">/</span> <span class="st">"tutorial_baubook_produkte.xlsx"</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>referenzen.to_excel(OUTPUT <span class="op">/</span> <span class="st">"tutorial_baubook_referenzwerte.xlsx"</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>session.close()</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="ergebnis-und-grenzen" class="level2">
@@ -1219,7 +1212,7 @@ document.querySelectorAll('iframe[data-fit]').forEach(frame=>{
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./batch-python.html" class="pagination-link" aria-label="Batchsimulation mit Python">
+      <a href="./tutorial_batch.html" class="pagination-link" aria-label="Batchsimulation mit Python">
         <span class="nav-page-text">Batchsimulation mit Python</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
