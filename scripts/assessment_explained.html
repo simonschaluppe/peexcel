@@ -70,18 +70,19 @@ function readContext(){
 function compose(key, selected, width){
  if(selected.length>100)return composeLarge(key,selected,width);
  const fig=structuredClone(dataset.templates[key]);
+ const names=selected.map((s,index)=>width<700?String(index+1):safe(s.name));
  for(const trace of fig.data){
-  if(!trace.meta){trace.x=[[width<700?'1':safe(selected[0].name)],['EE']];continue;}
-  const {column,role}=trace.meta;
-  const slots=trace.x[1], count=slots.length;
-  trace.x=[[],[]];trace.y=[];trace.customdata=[];
+  const {column}=trace.meta;
+  const slots=key==='pe'?trace.x[1]:[null];
+  trace.x=key==='pe'?[[],[]]:[];trace.y=[];trace.customdata=[];
   for(const [index,s] of selected.entries()){
    let v=s.values[column];
    if(key==='pe' && v!==null)v=Math.abs(v);
    for(const slot of slots){
-    trace.x[0].push(width<700?String(index+1):safe(s.name));trace.x[1].push(slot);
+    if(key==='pe'){trace.x[0].push(names[index]);trace.x[1].push(slot);}
+    else trace.x.push(names[index]);
     trace.customdata.push(safe(s.name));
-    trace.y.push(key==='thg'&&count===2?((role==='Baulich'&&slot==='EE'||role==='Betrieblich'&&slot==='OE')?v:0):v);
+    trace.y.push(v);
    }
   }
   trace.text=trace.y.map(x=>x===null?'':number(x));
@@ -93,9 +94,9 @@ function compose(key, selected, width){
  fig.layout.legend={orientation:'h',y:-0.55,font:{size:10}};
  fig.layout.showlegend=false;
  fig.layout.xaxis={...fig.layout.xaxis,tickangle:selected.length>3?-65:0,automargin:true,tickfont:{size:10}};
+ if(key==='thg')fig.layout.xaxis.categoryarray=names;
  fig.layout.yaxis={...fig.layout.yaxis,autorange:true};
  delete fig.layout.yaxis.range;
- if(width<700)(fig.layout.annotations||[]).forEach(a=>{if(a.xref==='paper')a.text='Referenzbudget: 320';});
  fig.layout.paper_bgcolor='white';fig.layout.plot_bgcolor='white';
  return fig;
 }
@@ -103,10 +104,11 @@ function composeLarge(key, selected, width){
  // Exact individual report contributions, stacked as WebGL line segments.
  // No sampling or aggregation: zoom reveals every scenario and contribution.
  const source=dataset.templates[key], data=[], bases={};
+ const stride=key==='pe'?2:1;
  for(const template of source.data){
   if(!template.meta)continue;
   const {column,role}=template.meta, balance=template.type==='scatter';
-  const slot=key==='pe'?(role==='Deckung'?1:0):(role==='Betrieblich'?1:0);
+  const slot=key==='pe'&&role==='Deckung'?1:0;
   const t={type:'scattergl',mode:balance?'markers':'lines',name:template.name,
    legendgroup:template.legendgroup,x:[],y:[],customdata:[],connectgaps:false,
    line:{color:template.marker.color,width:3},marker:{color:template.marker.color,size:5,symbol:balance?'diamond':'circle'},
@@ -114,7 +116,7 @@ function composeLarge(key, selected, width){
   selected.forEach((s,i)=>{
    const raw=s.values[column], v=key==='pe'?Math.abs(raw):raw;
    if(!Number.isFinite(raw))return;
-   const x=2*i+slot, info=[safe(s.name),role,v];
+   const x=stride*i+slot, info=[safe(s.name),role,v];
    if(balance){t.x.push(x);t.y.push(v);t.customdata.push(info);return;}
    const group=slot+':'+(v<0?'negative':'positive');
    if(!bases[group])bases[group]=new Float64Array(selected.length);
@@ -125,7 +127,7 @@ function composeLarge(key, selected, width){
  const layout=structuredClone(source.layout), step=Math.max(1,Math.ceil(selected.length/10));
  layout.width=width;layout.height=620;layout.margin={t:55,b:70,l:65,r:20};layout.showlegend=false;
  layout.xaxis={type:'linear',title:{text:'Szenarioindex · hineinzoomen für Einzelwerte'},tickvals:[],ticktext:[]};
- for(let i=0;i<selected.length;i+=step){layout.xaxis.tickvals.push(2*i);layout.xaxis.ticktext.push(String(i+1));}
+ for(let i=0;i<selected.length;i+=step){layout.xaxis.tickvals.push(stride*i);layout.xaxis.ticktext.push(String(i+1));}
  layout.yaxis={...layout.yaxis,autorange:true};delete layout.yaxis.range;
  layout.paper_bgcolor='white';layout.plot_bgcolor='white';layout.dragmode='zoom';
  return {data,layout};

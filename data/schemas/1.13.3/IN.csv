@@ -424,6 +424,7 @@
 🔧;pv;preset;;;;;preset_recorded_PV_system;5;Vorauswahl PV im Quartier;;;
 🌞;pv;is_used;;;;;PV_is_used;2;PV Nutzung;bool;;
 🌞;pv;mode;;;;;PV_mode;2;PV Modus;;;🌞PV!D5
+🌞;pv;;;;;;PV_mode_is_simple;0;PV Modus ist vereinfacht;;;
 🌞;pv;name;;;;;PV_simplified_name;2;PV Profil Name (vereinfacht);text;;🌞PV!D12
 🌞;pv;pv_roof_share;;;;;PV_roof_share;;PV-Anteil Dachfläche;ratio;;
 🌞;pv;area;;;;;PV_m2_per_kWp;1;Spezifische PV Fläche;m²/kWp;;
@@ -432,8 +433,8 @@
 🌞;pv;pv_scale;;;;;PV_scale_simple;;PV Skalierung Vereinfacht;ratio;;
 🌞;pv;name;;;;;PV_profile_name;2;PV Profil Name (importiert);text;;🌞PV!D20
 🌞;pv;pv_scale;;;;;PV_scale;2;PV Skalierung detailliert (importiertes Ertragsprofil);ratio;;🌞PV!D21
-🌞;pv;index;;;;;PV_id;0;PV Profil ID;int;;"VERGLEICH(WENN(PV_mode=""Vereinfacht"";PV_simplified_name;PV_profile_name);pv_profile_names;0)"
-🌞;pv;pv_scale;;;;;PV_scale_sim;0;PV Skalierung Simulation;ratio;;"WENN(PV_mode=""Vereinfacht"";N490;PV_scale)"
+🌞;pv;index;;;;;PV_id;0;PV Profil ID;int;;"VERGLEICH(WENN(PV_mode_is_simple;PV_simplified_name;PV_profile_name);pv_profile_names;0)"
+🌞;pv;pv_scale;;;;;PV_scale_sim;0;PV Skalierung Simulation;ratio;;"WENN(PV_mode_is_simple;PV_scale_simple;PV_scale)"
 🌞;pv;efficiency;;;;;PV_efficiency;1;PV Gesamteffizienz;;;🌞PV!D28
 🔧;flexibility;preset;;;;;preset_recorded_flexibility_system;5;Vorauswahl Flexibilität im Quartier;;;
 🔋;flexibility;flexible_PV_use;;;;;FLEX_PV_is_used;2;Flex PV Nutzung;bool;;

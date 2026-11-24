@@ -20,6 +20,22 @@ Erklären, was eine Funktion leistet, wofür sie nützlich ist, wo sie zu finden
 
 ## Darstellung und Bildablage
 
+### Code in Online-Tutorials
+
+Seit 24.11.2026 gilt für alle veröffentlichten Notebook-Tutorials: Inhaltliche
+Codezellen werden standardmäßig offen angezeigt (`format.html.code-fold: false`).
+Nur die technische Vorbereitung wird mit `#| code-fold: true` eingeklappt und
+mit `#| code-summary: "Vorbereitung für lokale Ausführung"` beschriftet
+(englisch: „Setup for local execution“). Enthält die erste Zelle bereits
+Datenimport, Beispielparameter oder Auswertungen, diese in eine folgende,
+sichtbare Zelle verschieben. Bestehende Ausgaben bleiben bei der inhaltlichen Zelle.
+Code wird weder entfernt noch beim Website-Build neu ausgeführt. Downloadbare
+Notebooks behalten denselben ausführbaren Ablauf. Vor Veröffentlichung das
+gerenderte HTML prüfen: genau eine eingeklappte Vorbereitung, alle inhaltlichen
+Codeblöcke sichtbar. Die englische Website verlinkt dieselben deutschen Tutorials.
+
+### Abbildungen und Erläuterungen
+
 - Ein kurzer grüner PEExcel-Hinweis mit Icon kann am Anfang den Ort im Menüband oder Arbeitsblatt erklären. Grüne Blöcke ansonsten sparsam für kompakte Bedienrezepte, nicht als durchgängiger Hintergrund langer Tutorials.
 - Bestehende Klassen wiederverwenden: `excel-operation` für kurze Bedienhinweise, `excel-action` für tatsächliche Klickbefehle, `excel-menu` für Blatt-/Menübezeichnungen. Erklärungen und Abbildungen im normalen Seitenfluss.
 - Zusammenhängende Erläuterungen statt Telegrammstil. Technische Begriffe präzise verwenden; notwendige fachliche Rückfragen vor der Umsetzung klären.

@@ -68,13 +68,19 @@ CHART_TEXT = {
     "hour": LocalizedText("Tagesstunde", "Hour of day"),
     "time": LocalizedText("Zeit", "Time"),
     "all": LocalizedText("Gesamter Zeitraum", "Full period"),
+    "ghg budget": LocalizedText("THG-Budget", "GHG-Budget"),
 }
 
 
 def chart_text(key, language="de"):
     if language not in ("de", "en"):
         raise ValueError("language must be 'de' or 'en'")
-    return CHART_TEXT[key].get(language)
+
+    text = CHART_TEXT.get(key)
+    if text is None:
+        return key
+    
+    return text.get(language) or key
 
 
 PRIMARY_ENERGY_LABELS = {

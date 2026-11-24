@@ -129,7 +129,7 @@ def browser_data(project):
     for key, report in reports.items():
         sample = dict(report, frame=report['frame'].iloc[:1].copy())
         sample['frame']['Variant'] = 'Szenario'
-        figure = plotly.render(sample, **({'budget': 320} if key == 'thg' else {})).to_dict()
+        figure = plotly.render(sample, annotate=False).to_dict()
         labels = {s['label']: s for s in report['series']}
         fields = {s['var_name']: s for s in report['series']}
         for trace in figure['data']:
@@ -170,7 +170,8 @@ def browser_data(project):
 def build(output=None, *, source=None, project=None):
     output = Path(output or ROOT / 'notebooks/local_exports/assessment_explained/index.html')
     source = Path(source) if source is not None else SECTOR
-    project = project if project is not None else Project.from_excel(source, unknown='raise' if source == SECTOR else 'ignore')
+    # Historical exports can carry extra OUT fields. The reports validate their own inputs.
+    project = project if project is not None else Project.from_excel(source)
     data = browser_data(project)
     data['source'] = {'file': source.name, 'sha256': hashlib.sha256(source.read_bytes()).hexdigest() if source.exists() else None}
     notebook = nbformat.read(ROOT / 'notebooks/howto_assessment_explained.ipynb', as_version=4)

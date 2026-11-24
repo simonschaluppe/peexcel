@@ -48,3 +48,4 @@ pexl = "pexl.cli:main"
 
 [tool.setuptools.package-data]
 "pexl.spatial" = ["data/*.json"]
+"pexl.reporting" = ["assets/*.docx"]

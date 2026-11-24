@@ -2,10 +2,13 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Iterable
+from typing import Any, Iterable, Literal
 
 import json
+import re
 import pandas as pd
+from openpyxl.formula import Tokenizer
+from openpyxl.formula.tokenizer import TokenizerError
 
 from pexl.io.csv_io import read_dataset_dir, normalize_table
 
@@ -15,6 +18,14 @@ TABLE_KEYS: dict[str, str] = {
     "OUT": "var_name",
     "SIM": "var_name",
     "CHART_types": "chart_name",
+}
+
+# Excel schema columns that contain formulas; compare independently of the
+# general metadata/value-change report and its output cap.
+FORMULA_COLUMNS: dict[str, str] = {
+    "IN": "Formel",
+    "OUT": "Formel",
+    "SIM": "Formula",
 }
 
 DEFAULT_COMPARE_COLS: dict[str, list[str]] = {
@@ -208,6 +219,24 @@ def _diff_table(
         # fallback: compare all common columns except key
         cols_to_compare = [c for c in common_cols if c != key_col]
 
+    # Classify formula changes independently of the generic diff cap.
+    # Local relative A1-reference movements are retained as relocations,
+    # but do not count as actual formula changes.
+    formula_diff = _diff_formulas_by_key(
+        old_norm,
+        new_norm,
+        key_col=key_col,
+        keys=common_keys,
+        formula_col=FORMULA_COLUMNS.get(table_name),
+    )
+
+    # Suppress local-reference-only differences from the generic diff too.
+    # This keeps schema_evolution.ipynb's value_changes free of noise.
+    formula_col = formula_diff["column"]
+    ignored_changes = {
+        (str(item[key_col]), formula_col)
+        for item in formula_diff["relocations"]
+    }
     value_changes = _diff_values_by_key(
         old_norm,
         new_norm,
@@ -215,6 +244,7 @@ def _diff_table(
         keys=common_keys,
         cols=cols_to_compare,
         max_changes=max_value_changes,
+        ignored_changes=ignored_changes,
     )
 
     return {
@@ -226,7 +256,6 @@ def _diff_table(
         "rows": {
             "old_count": len(old_norm),
             "new_count": len(new_norm),
-            "new_errors": value_changes["error_count"],
             "var_name_added": added_keys,
             "var_name_removed": removed_keys,
             "duplicate_keys_old": old_dupes,
@@ -234,12 +263,134 @@ def _diff_table(
         },
         "changes": {
             "compared_columns": cols_to_compare,
-            "value_error_count": value_changes["error_count"],
             "value_change_count": value_changes["change_count"],
-            "value_errors": value_changes["errors"],
             "value_changes": value_changes["changes"],
             "truncated": value_changes["truncated"],
+            "formula_column": formula_diff["column"],
+            "formula_status": formula_diff["status"],
+            "formula_missing_in": formula_diff["missing_in"],
+            "formula_change_count": formula_diff["count"],
+            "formula_changes": formula_diff["changes"],
+            "formula_relocation_count": len(formula_diff["relocations"]),
+            "formula_relocations": formula_diff["relocations"],
         },
+    }
+
+
+# A single, unqualified relative A1 reference (e.g. N83, AB105).
+# References with '$' and sheet-qualified ranges are deliberately NOT masked.
+_LOCAL_A1_REF = re.compile(r"[A-Z]{1,3}[1-9][0-9]*", re.IGNORECASE)
+
+
+def _formula_signature(formula: str) -> str | None:
+    """Mask only unqualified *relative* A1 coordinates in a formula.
+
+    Formula cells in schema CSVs can lack the leading '='. It is added only
+    for tokenization; the original presence of '=' is retained in the signature.
+
+    Examples:
+      N83 * N105                   -> <REF> * <REF>
+      SUMME(N112:N115) * N111      -> SUMME(<REF>:<REF>) * <REF>
+      IN!N83                       -> IN!N83            (cross-sheet: literal)
+      SUMME(IN!N83:N90)            -> unchanged         (cross-sheet range)
+      $N$83                        -> $N$83             (absolute: literal)
+      Table[Column N83]            -> unchanged         (structured reference)
+      "N83"                        -> unchanged         (string constant)
+
+    This is deliberately pattern-based, not semantic dependency analysis:
+    changing a local reference to another local reference is suppressed even
+    if the referenced variable is different. If tokenization fails, return
+    None, which conservatively makes the diff report the change.
+    """
+    raw = str(formula).strip()
+    if not raw:
+        return raw
+
+    has_equal = raw.startswith("=")
+    try:
+        tokens = Tokenizer(raw if has_equal else "=" + raw).items
+    except (TokenizerError, ValueError, IndexError):
+        return None
+
+    parts: list[str] = []
+    for token in tokens:
+        value = token.value
+        if token.type == "OPERAND" and token.subtype == "RANGE":
+            # Tokenizer keeps sheet-qualified ranges, including the second
+            # endpoint of Sheet!N83:N90, as ONE operand. Preserve them.
+            # A local range is a colon-separated chain of bare A1 refs.
+            cells = value.split(":")
+            if all(_LOCAL_A1_REF.fullmatch(cell) for cell in cells):
+                value = ":".join("<REF>" for _ in cells)
+        parts.append(value)
+    return ("=" if has_equal else "") + "".join(parts)
+
+
+def _is_local_reference_only_change(old: str, new: str) -> bool:
+    """True when all modifications are to local relative A1 coordinates."""
+    if old == new:
+        return False
+    old_sig = _formula_signature(old)
+    new_sig = _formula_signature(new)
+    return old_sig is not None and old_sig == new_sig
+
+
+def _diff_formulas_by_key(
+    old_df: pd.DataFrame,
+    new_df: pd.DataFrame,
+    *,
+    key_col: str,
+    keys: list[str],
+    formula_col: str | None,
+) -> dict[str, Any]:
+    """Separate substantive changes from local-reference-only changes."""
+    empty = {
+        "column": formula_col,
+        "status": "not_applicable" if formula_col is None else "unavailable",
+        "missing_in": [],
+        "count": 0,
+        "changes": [],
+        "relocations": [],
+    }
+    if formula_col is None:
+        return empty
+
+    missing_in = [
+        version for version, df in (("old", old_df), ("new", new_df))
+        if formula_col not in df.columns
+    ]
+    if missing_in:
+        return {**empty, "missing_in": missing_in}
+
+    old_idx = old_df.set_index(key_col)
+    new_idx = new_df.set_index(key_col)
+    changes: list[dict[str, str]] = []
+    relocations: list[dict[str, str]] = []
+
+    for key in keys:
+        old_val = str(old_idx.at[key, formula_col])
+        new_val = str(new_idx.at[key, formula_col])
+        if old_val == new_val:
+            continue
+
+        change = {
+            key_col: key,
+            "column": formula_col,
+            "old": old_val,
+            "new": new_val,
+        }
+        if _is_local_reference_only_change(old_val, new_val):
+            relocations.append(change)
+        else:
+            changes.append(change)
+
+    return {
+        "column": formula_col,
+        "status": "compared",
+        "missing_in": [],
+        "count": len(changes),
+        "changes": changes,
+        "relocations": relocations,
     }
 
 
@@ -251,14 +402,13 @@ def _diff_values_by_key(
     keys: list[str],
     cols: list[str],
     max_changes: int,
+    ignored_changes: set[tuple[str, str]] | None = None,
 ) -> dict[str, Any]:
+    ignored_changes = ignored_changes or set()
     # Index by key for fast lookups (assumes canonical schema => unique)
     old_idx = old_df.set_index(key_col, drop=False)
     new_idx = new_df.set_index(key_col, drop=False)
     
-    errors: list[dict[str, str]] = []
-    error_count = 0
-
     changes: list[dict[str, str]] = []
     change_count = 0
     truncated = False
@@ -271,18 +421,7 @@ def _diff_values_by_key(
             old_val = str(old_row.get(c, ""))
             new_val = str(new_row.get(c, ""))
 
-            if new_val.find("#") != -1:
-                error_count += 1
-                errors.append(
-                        {
-                            key_col: k,
-                            "column": c,
-                            "old": old_val,
-                            "new": new_val,
-                        }
-                    )
-                
-            if old_val != new_val: # change
+            if old_val != new_val and (str(k), c) not in ignored_changes:
                 change_count += 1
                 if len(changes) < max_changes:
                     changes.append(
@@ -297,8 +436,6 @@ def _diff_values_by_key(
                     truncated = True
 
     return {
-        "error_count": error_count,
-        "errors": errors,
         "change_count": change_count,
         "changes": changes,
         "truncated": truncated,
@@ -355,7 +492,10 @@ def schema_diff_to_markdown(report: dict, *, value_format: Literal["table", "ite
     Render a schema diff report (from diff_schema_dirs) to Markdown.
 
     format="table": value changes rendered as a Markdown table (current behavior)
-    format="items": value changes rendered as grouped bullet items (better for long var_name/formulas)
+    format="items": other value changes rendered as grouped bullet items.
+
+    Formula changes are always displayed in a side-by-side version table,
+    independent of value_format and without truncation.
     """
     meta = report.get("meta", {})
     header = "\n".join(
@@ -364,14 +504,19 @@ def schema_diff_to_markdown(report: dict, *, value_format: Literal["table", "ite
             "",
             f"- **Old:** `{meta.get('old_dir')}`",
             f"- **New:** `{meta.get('new_dir')}`",
-            f"- **Key:** `{meta.get('key_col')}`",
         ]
     )
 
     files_md = _render_files_section(report)
 
     tables_md = "\n\n".join(
-        _render_table_section(tname, t, value_format=value_format)
+        _render_table_section(
+            tname,
+            t,
+            value_format=value_format,
+            old_version=Path(str(meta.get("old_dir", "old"))).name,
+            new_version=Path(str(meta.get("new_dir", "new"))).name,
+        )
         for tname, t in (report.get("tables", {}) or {}).items()
     )
 
@@ -412,7 +557,14 @@ def _render_files_section(report: dict) -> str:
 
     return "\n".join(lines)
 
-def _render_table_section(tname: str, t: dict, *, value_format: Literal["table", "items"]) -> str:
+def _render_table_section(
+    tname: str,
+    t: dict,
+    *,
+    value_format: Literal["table", "items", "None"],
+    old_version: str,
+    new_version: str,
+) -> str:
     
     if t.get("detail") == "structural":
         status = t.get("status", "common")
@@ -431,64 +583,130 @@ def _render_table_section(tname: str, t: dict, *, value_format: Literal["table",
     cols = t.get("columns", {}) or {}
     rows = t.get("rows", {}) or {}
     ch = t.get("changes", {}) or {}
-    e = ch.get("value_errors",  {})
 
-
-    columns_md = "\n".join(
-        [
-            "### Columns",
-            f"- Added: {cols.get('added', [])}",
-            f"- Removed: {cols.get('removed', [])}",
-            f"- Common count: {cols.get('common_count')}",
-        ]
-    )
+    column_lines = ["### Columns", f"- Common: {cols.get('common_count', 0)}"]
+    if cols.get("added"):
+        column_lines.append(f"- Added: {', '.join(cols['added'])}")
+    if cols.get("removed"):
+        column_lines.append(f"- Removed: {', '.join(cols['removed'])}")
+    columns_md = "\n".join(column_lines)
 
     row_lines = [
         "### Rows",
-        f"Old count: {rows.get('old_count')}",
-        f"New count: {rows.get('new_count')}",
-        f"- **New Error count: {rows.get('new_errors')}**",
-        f"- Added/~~Removed~~ var_name:\n {"\n".join("  - "+r for r in rows.get('var_name_added', []))}",
-        f"{"\n".join("  - ~~"+r+"~~" for r in rows.get('var_name_removed', []))}\n",
+        f"- Count: {rows.get('old_count', 0)} → {rows.get('new_count', 0)}",
     ]
+    if rows.get("var_name_added"):
+        row_lines.extend([
+            "- Added variables:",
+            *(f"  - `{name}`" for name in rows["var_name_added"]),
+        ])
+    if rows.get("var_name_removed"):
+        row_lines.extend([
+            "- Removed variables:",
+            *(f"  - `{name}`" for name in rows["var_name_removed"]),
+        ])
     if rows.get("duplicate_keys_old"):
         row_lines.append(f"- ⚠ Duplicates (old): {rows['duplicate_keys_old']}")
     if rows.get("duplicate_keys_new"):
         row_lines.append(f"- ⚠ Duplicates (new): {rows['duplicate_keys_new']}")
     rows_md = "\n".join(row_lines)
 
-    error_md = _render_errors(e)
-
+    formula_md = _render_formula_changes(ch, old_version=old_version, new_version=new_version)
     value_md = _render_value_changes(ch, value_format=value_format)
 
-    return "\n\n".join([f"## {tname}", columns_md, rows_md, error_md, value_md])
+    return "\n\n".join(
+        part for part in (f"## {tname}", columns_md, rows_md, formula_md, value_md)
+        if part
+    )
 
-def _render_errors(e: dict):
-    lines = ["### Potential Errors (#)","","| var_name | column | error |", "|---|---|---|"]
-    for error in e:
+def _render_formula_changes(
+    ch: dict, *, old_version: str, new_version: str
+) -> str:
+    """Render substantive formula edits as a side-by-side version table.
+
+    Raw export formulas may omit their initial '='. Restore it for display
+    only; keep the underlying diff data exactly as exported.
+    """
+    status = ch.get("formula_status", "not_applicable")
+    if status == "not_applicable":
+        return ""
+
+    lines = [
+        "### Formula changes",
+        f"- Changed: {ch.get('formula_change_count', 0)}",
+        f"- Local relative-reference changes suppressed: {ch.get('formula_relocation_count', 0)}",
+    ]
+    if status == "unavailable":
+        missing = ", ".join(ch.get("formula_missing_in", []))
+        lines.append(f"- ⚠ Comparison unavailable (`{ch.get('formula_column')}` missing in: {missing})")
+        return "\n".join(lines)
+
+    changes = ch.get("formula_changes", [])
+    if not changes:
+        return "\n".join(lines + ["", "_No formula changes._"])
+
+    lines += [
+        "",
+        f"| var_name | { _md_escape(old_version) } | { _md_escape(new_version) } |",
+        "|---|---|---|",
+    ]
+    for change in changes:
         lines.append(
-            f"| {error.get('var_name')} | {error.get('column')} | "
-            f"{_md_escape(error.get('new',''))} |"
+            f"| {_md_escape(change.get('var_name', ''))} | "
+            f"{_md_formula(change.get('old', ''))} | "
+            f"{_md_formula(change.get('new', ''))} |"
         )
-    if not e:
-        lines = ["### Potential Errors (#)", "- None"]
     return "\n".join(lines)
 
-def _render_value_changes(ch: dict, *, value_format: Literal["table", "items"]) -> str:
+
+def _md_formula(value: str) -> str:
+    """Add the Excel '=' prefix and format formula safely in a Markdown table."""
+    formula = str(value).strip()
+    if not formula:
+        return "—"
+    if not formula.startswith("="):
+        formula = "=" + formula
+    formula = formula.replace("|", r"\|").replace("\r", "").replace("\n", r"\n")
+    # A longer code fence allows backticks within formula text.
+    fence = "`" * (max((len(m.group()) for m in re.finditer(r"`+", formula)), default=0) + 1)
+    return f"{fence}{formula}{fence}"
+
+
+def _render_value_changes(ch: dict, *, value_format: Literal["table", "items", "None"]) -> str:
+    # Keep formula entries in the JSON value_changes for existing consumers,
+    # but avoid displaying them twice in the Markdown report.
+    formula_col = (
+        ch.get("formula_column") if ch.get("formula_status") == "compared"
+        else None
+    )
+    formula_in_generic_diff = formula_col in ch.get("compared_columns", [])
+    other_count = ch.get("value_change_count", 0) - (
+        ch.get("formula_change_count", 0) if formula_in_generic_diff else 0
+    )
+    changes = [
+        c for c in (ch.get("value_changes", []) or [])
+        if c.get("column") != formula_col
+    ]
+    if other_count == 0 and not ch.get("truncated"):
+        return ""
+
     header_lines = [
-        "### Value changes",
-        f"- Compared columns: {ch.get("compared_columns", [])}",
-        f"- Error count: {ch.get("value_error_count")}",
-        f"- Change count: {ch.get("value_change_count")}",
+        "### Other value changes",
+        f"- Compared columns: {[c for c in ch.get('compared_columns', []) if c != formula_col]}",
+        f"- Change count: {other_count}",
     ]
     if ch.get("truncated"):
         header_lines.append("- ⚠ Output truncated")
 
     header = "\n".join(header_lines)
 
-    changes = ch.get("value_changes", []) or []
     if not changes:
-        return "\n\n".join([header, "_No value changes._"])
+        note = (
+            "_No other value changes shown (output truncated)._"
+            if other_count > 0 and ch.get("truncated")
+            else "_No other value changes._"
+        )
+        return "\n\n".join([header, note])
 
     if value_format == "table":
         return "\n\n".join([header, _render_changes_table(changes)])

@@ -4,9 +4,9 @@
   "tables": {
     "IN": {
       "original_rows": 803,
-      "kept_rows": 707,
+      "kept_rows": 708,
       "excluded_rows": {
-        "empty_var_name_count": 96,
+        "empty_var_name_count": 95,
         "empty_var_name_sample": [
           {
             "export_row": "3",

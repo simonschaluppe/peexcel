@@ -20,3 +20,4 @@ Diese Leitlinien gelten für das gesamte Repository.
 - Das Notebook erklärt den vollständigen betroffenen Arbeitsablauf und die Erweiterungen mit nachvollziehbaren Beispielen.
 - Dieselben Implementierungsfunktionen wie Anwendung, Skript oder CLI verwenden; keine zweite Implementierung im Notebook pflegen.
 - Das Notebook ist Teil der Abnahme. Eine README allein genügt nicht.
+- Online-Tutorials: reine Vorbereitungszellen (Imports, Repository-Suche, Pfadeinrichtung) standardmäßig einklappen; Beschriftung „Vorbereitung für lokale Ausführung“ bzw. „Setup for local execution“. Inhaltliche Codezellen standardmäßig sichtbar lassen (`code-fold: false` auf Dokumentebene, `#| code-fold: true` nur für Setup). Gemischte Zellen trennen, damit Datenimport, Beispielparameter, Analyse und Diagrammerzeugung sichtbar bleiben. Ausführbaren Code und gespeicherte Ergebnisse erhalten; dieselbe Darstellung gilt für neue und überarbeitete Tutorials und ihre Downloads.

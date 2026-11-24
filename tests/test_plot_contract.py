@@ -21,7 +21,9 @@ def test_named_report_project_view_and_compatibility(project):
     b = reporting.materialize(project.view, 'primary_energy_balance')
     pd.testing.assert_frame_equal(a['frame'], b['frame'])
     assert a['series'] == b['series']
-    assert reports.render(a, annotate=True).to_json() == reports.chart(project, 'primary_energy_balance').to_json()
+    expected = reports.render(a).to_json()
+    assert reports.chart(project, 'primary_energy_balance').to_json() == expected
+    assert reporting.primary_energy_balance_plot(project).to_json() == expected
     from pexl.plot.plotly import render
     assert render is reports.render
 

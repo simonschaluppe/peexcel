@@ -471,6 +471,7 @@ class ExcelNamedVariables:
         self.preset_recorded_PV_system: object | None = None
         self.PV_is_used: object | None = None
         self.PV_mode: object | None = None
+        self.PV_mode_is_simple: object | None = None
         self.PV_simplified_name: object | None = None
         self.PV_roof_share: object | None = None
         self.PV_m2_per_kWp: object | None = None
@@ -876,7 +877,7 @@ class ExcelNamedVariables:
         self.EUI_plugloads: object | None = None
         self.EUI_auxiliary: object | None = None
         self.EUI_lighting: object | None = None
-        self.test_EUI_balance: object | None = None
+        self.test_user_electricity: object | None = None
         self.EUIh_el: object | None = None
         self.EUIh_el_aux: object | None = None
         self.EUIc_el: object | None = None
@@ -918,16 +919,16 @@ class ExcelNamedVariables:
         self.VRGrid_to_Ev_min: object | None = None
         self.VRGrid_to_Eev_min: object | None = None
         self.VRGrid_to_min: object | None = None
-        self.test_flexible_dispatch_sum: object | None = None
+        self.test_flex_direct_use: object | None = None
         self.VRGrid_to_Eh_flex: object | None = None
         self.VRGrid_to_Ec_flex: object | None = None
         self.VRGrid_to_Edhw_flex: object | None = None
         self.VRGrid_to_Batt: object | None = None
         self.VRGrid_to_Eev_flex: object | None = None
         self.VRGrid_to_flex: object | None = None
-        self.test_flexible_dispatch_additional_sum: object | None = None
+        self.test_flex_storage: object | None = None
         self.VRGrid_to_building: object | None = None
-        self.test_flex_used_is_flex_to_building_plus_flex_to_EV: object | None = None
+        self.test_flex_building_and_miv: object | None = None
         self.Eev_to_plugloads: object | None = None
         self.Eev_to_HVAC: object | None = None
         self.Eev_to_Eh_min: object | None = None
@@ -8413,6 +8414,23 @@ class Meta:
             entity_key=None,
             formula='🌞PV!D5',
         )
+        self.PV_mode_is_simple = VariableMeta(
+            var_name='PV_mode_is_simple',
+            attr_name='PV_mode_is_simple',
+            icon='🌞',
+            label_de='PV Modus ist vereinfacht',
+            unit=None,
+            comment=None,
+            source='IN',
+            ka=0,
+            domain='pv',
+            measure=None,
+            spatial_scope=None,
+            temporal_scope=None,
+            entity_group=None,
+            entity_key=None,
+            formula=None,
+        )
         self.PV_simplified_name = VariableMeta(
             var_name='PV_simplified_name',
             attr_name='PV_simplified_name',
@@ -8564,7 +8582,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
-            formula='VERGLEICH(WENN(PV_mode="Vereinfacht";PV_simplified_name;PV_profile_name);pv_profile_names;0)',
+            formula='VERGLEICH(WENN(PV_mode_is_simple;PV_simplified_name;PV_profile_name);pv_profile_names;0)',
         )
         self.PV_scale_sim = VariableMeta(
             var_name='PV_scale_sim',
@@ -8581,7 +8599,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
-            formula='WENN(PV_mode="Vereinfacht";N490;PV_scale)',
+            formula='WENN(PV_mode_is_simple;PV_scale_simple;PV_scale)',
         )
         self.PV_efficiency = VariableMeta(
             var_name='PV_efficiency',
@@ -14402,7 +14420,7 @@ class Meta:
             attr_name='test_heat_balance_seasonal_mismatch',
             icon='☑',
             label_de='Wärmebilanz Diff Sommer Winter',
-            unit='False',
+            unit='True',
             comment=None,
             source='OUT',
             ka=4,
@@ -15298,9 +15316,9 @@ class Meta:
             entity_key=None,
             formula='SUMME(sim[Elight])/1000',
         )
-        self.test_EUI_balance = VariableMeta(
-            var_name='test_EUI_balance',
-            attr_name='test_EUI_balance',
+        self.test_user_electricity = VariableMeta(
+            var_name='test_user_electricity',
+            attr_name='test_user_electricity',
             icon='☑',
             label_de='Nutzerstrom Bilanz',
             unit='True',
@@ -16012,9 +16030,9 @@ class Meta:
             entity_key=None,
             formula='VRGrid_to_plugloads+VRGrid_to_Eh_min+VRGrid_to_Ec_min+VRGrid_to_Edhw_min+VRGrid_to_Ev_min+VRGrid_to_Eev_min',
         )
-        self.test_flexible_dispatch_sum = VariableMeta(
-            var_name='test_flexible_dispatch_sum',
-            attr_name='test_flexible_dispatch_sum',
+        self.test_flex_direct_use = VariableMeta(
+            var_name='test_flex_direct_use',
+            attr_name='test_flex_direct_use',
             icon='☑',
             label_de='Flexibler Netzstrom vollständig',
             unit='True',
@@ -16131,9 +16149,9 @@ class Meta:
             entity_key=None,
             formula='VRGrid_to_Eh_flex+VRGrid_to_Ec_flex+VRGrid_to_Edhw_flex+VRGrid_to_Batt+VRGrid_to_Eev_flex',
         )
-        self.test_flexible_dispatch_additional_sum = VariableMeta(
-            var_name='test_flexible_dispatch_additional_sum',
-            attr_name='test_flexible_dispatch_additional_sum',
+        self.test_flex_storage = VariableMeta(
+            var_name='test_flex_storage',
+            attr_name='test_flex_storage',
             icon='☑',
             label_de='Flexibler Netzstrom vollständig',
             unit='True',
@@ -16165,9 +16183,9 @@ class Meta:
             entity_key=None,
             formula='SUMME(sim[VRGrid_to_building])/1000',
         )
-        self.test_flex_used_is_flex_to_building_plus_flex_to_EV = VariableMeta(
-            var_name='test_flex_used_is_flex_to_building_plus_flex_to_EV',
-            attr_name='test_flex_used_is_flex_to_building_plus_flex_to_EV',
+        self.test_flex_building_and_miv = VariableMeta(
+            var_name='test_flex_building_and_miv',
+            attr_name='test_flex_building_and_miv',
             icon='☑',
             label_de='Flexible Deckung Gebäude + MIV = Quartier',
             unit='True',
@@ -17030,7 +17048,7 @@ class Meta:
             temporal_scope='annual',
             entity_group='context_factor',
             entity_key='density',
-            formula='MIN(context_factor_density;0)',
+            formula='MAX(-context_factor_density;0)',
         )
         self.PEI_virtual_supply = VariableMeta(
             var_name='PEI_virtual_supply',
@@ -17156,7 +17174,7 @@ class Meta:
             attr_name='test_PEI_virtual_balance',
             icon='☑',
             label_de='PE-Bilanz Summe = Virtuelle Deckung - Virtueller Bedarf',
-            unit='False',
+            unit='True',
             comment=None,
             source='OUT',
             ka=3,
@@ -17343,7 +17361,7 @@ class Meta:
             attr_name='test_PEI_importexport_balance',
             icon='☑',
             label_de='PE-Bilanz Virtuell = Import/Export',
-            unit='True',
+            unit='False',
             comment=None,
             source='OUT',
             ka=3,
@@ -18560,7 +18578,7 @@ class Meta:
             temporal_scope='pro Jahr',
             entity_group=None,
             entity_key=None,
-            formula='mobility_is_included*K422*GWP_mobility_car_gpPKm/1000/GFA_total',
+            formula='mobility_is_included*K418*GWP_mobility_car_gpPKm/1000/GFA_total',
         )
         self.GWP_oe_mob = VariableMeta(
             var_name='GWP_oe_mob',
@@ -18900,7 +18918,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
-            formula='(K372+K371)-GWP_lc_total',
+            formula='(K368+K367)-GWP_lc_total',
         )
         self.cost_E_grid = VariableMeta(
             var_name='cost_E_grid',
@@ -19070,7 +19088,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
-            formula='K387+K388',
+            formula='K383+K384',
         )
         self.PV_own_consumption_direct = VariableMeta(
             var_name='PV_own_consumption_direct',
@@ -19291,7 +19309,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
-            formula='K410+K406+K405',
+            formula='K406+K402+K401',
         )
         self.mob_annual_milage_district = VariableMeta(
             var_name='mob_annual_milage_district',
@@ -19308,7 +19326,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
-            formula='SUMME(K414:K417)',
+            formula='SUMME(K410:K413)',
         )
         self.mob_annual_mileage_PAX = VariableMeta(
             var_name='mob_annual_mileage_PAX',
@@ -19342,7 +19360,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
-            formula='mobility_is_included*K421*EV_demand_kWhpkm*per_NFA',
+            formula='mobility_is_included*K417*EV_demand_kWhpkm*per_NFA',
         )
         self.EUI_mob_fossile = VariableMeta(
             var_name='EUI_mob_fossile',
@@ -19359,7 +19377,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
-            formula='mobility_is_included*K422*fossile_demand_kWhpkm*per_NFA',
+            formula='mobility_is_included*K418*fossile_demand_kWhpkm*per_NFA',
         )
         self.EV_FEC = VariableMeta(
             var_name='EV_FEC',
@@ -19376,7 +19394,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
-            formula='WENNFEHLER(SUMME(sim[Eev_Cmin];sim[Eev_flex_final])/K432;0)',
+            formula='WENNFEHLER(SUMME(sim[Eev_Cmin];sim[Eev_flex_final])/K428;0)',
         )
         self.UED_mob_el_total = VariableMeta(
             var_name='UED_mob_el_total',
@@ -19393,7 +19411,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
-            formula='mobility_is_included*K427*EV_share*EV_demand_kWhpkm*per_NFA',
+            formula='mobility_is_included*K423*EV_share*EV_demand_kWhpkm*per_NFA',
         )
         self.UED_mob_el_other = VariableMeta(
             var_name='UED_mob_el_other',
@@ -19410,7 +19428,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
-            formula='mobility_is_included*(K434-UED_mob_el_target)',
+            formula='mobility_is_included*(K430-UED_mob_el_target)',
         )
         self.EUIev_el_total = VariableMeta(
             var_name='EUIev_el_total',
@@ -19461,7 +19479,7 @@ class Meta:
             temporal_scope=None,
             entity_group=None,
             entity_key=None,
-            formula='Qdhw_storage_charge+Qheb_th',
+            formula='Qdhw_storage_charge+Eh_th',
         )
         self.Ec_th = VariableMeta(
             var_name='Ec_th',
@@ -20980,6 +20998,7 @@ ATTR_NAME_MAP: dict[str, str] = {
     'preset_recorded_PV_system': 'preset_recorded_PV_system',
     'PV_is_used': 'PV_is_used',
     'PV_mode': 'PV_mode',
+    'PV_mode_is_simple': 'PV_mode_is_simple',
     'PV_simplified_name': 'PV_simplified_name',
     'PV_roof_share': 'PV_roof_share',
     'PV_m2_per_kWp': 'PV_m2_per_kWp',
@@ -21385,7 +21404,7 @@ ATTR_NAME_MAP: dict[str, str] = {
     'EUI_plugloads': 'EUI_plugloads',
     'EUI_auxiliary': 'EUI_auxiliary',
     'EUI_lighting': 'EUI_lighting',
-    'test_EUI_balance': 'test_EUI_balance',
+    'test_user_electricity': 'test_user_electricity',
     'EUIh_el': 'EUIh_el',
     'EUIh_el_aux': 'EUIh_el_aux',
     'EUIc_el': 'EUIc_el',
@@ -21427,16 +21446,16 @@ ATTR_NAME_MAP: dict[str, str] = {
     'VRGrid_to_Ev_min': 'VRGrid_to_Ev_min',
     'VRGrid_to_Eev_min': 'VRGrid_to_Eev_min',
     'VRGrid_to_min': 'VRGrid_to_min',
-    'test_flexible_dispatch_sum': 'test_flexible_dispatch_sum',
+    'test_flex_direct_use': 'test_flex_direct_use',
     'VRGrid_to_Eh_flex': 'VRGrid_to_Eh_flex',
     'VRGrid_to_Ec_flex': 'VRGrid_to_Ec_flex',
     'VRGrid_to_Edhw_flex': 'VRGrid_to_Edhw_flex',
     'VRGrid_to_Batt': 'VRGrid_to_Batt',
     'VRGrid_to_Eev_flex': 'VRGrid_to_Eev_flex',
     'VRGrid_to_flex': 'VRGrid_to_flex',
-    'test_flexible_dispatch_additional_sum': 'test_flexible_dispatch_additional_sum',
+    'test_flex_storage': 'test_flex_storage',
     'VRGrid_to_building': 'VRGrid_to_building',
-    'test_flex_used_is_flex_to_building_plus_flex_to_EV': 'test_flex_used_is_flex_to_building_plus_flex_to_EV',
+    'test_flex_building_and_miv': 'test_flex_building_and_miv',
     'Eev_to_plugloads': 'Eev_to_plugloads',
     'Eev_to_HVAC': 'Eev_to_HVAC',
     'Eev_to_Eh_min': 'Eev_to_Eh_min',
