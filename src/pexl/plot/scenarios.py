@@ -45,21 +45,24 @@ def scatter(frame, x, y, *, color=None, symbol=None, size=None,
 
 
 def distribution(frame, variable, *, by=None, color=None, kind="box",
-                 hover_name=None, labels=None, language="de"):
+                 facet=None, facet_wrap=3, hover_name=None, labels=None, language="de"):
     """Draw a box or violin distribution of annual scenario values.
 
     ``variable`` selects the numeric column. ``by`` optionally creates groups
     and ``color`` optionally distinguishes another category. ``kind`` is
     ``box`` or ``violin``. Labels may be supplied by reporting.variables.
+    ``facet`` names the column that defines panels with shared value axes.
+    ``facet_wrap`` sets the number of panels per row (0 for a single row).
     ``hover_name`` selects a scenario-label column; otherwise the index is used.
     Distributions are unweighted simulated variants, not stock estimates.
     Returns an editable Plotly Figure without modifying the frame.
     """
     if kind not in ("box", "violin"):
         raise ValueError("kind must be 'box' or 'violin'")
-    frame = _prepare(frame, [variable, by, color, hover_name], language)
+    frame = _prepare(frame, [variable, by, color, facet, hover_name], language)
     hover = frame[hover_name] if hover_name else frame.index.map(str)
     figure = getattr(px, kind)(frame, x=by, y=variable, color=color,
+                              facet_col=facet, facet_col_wrap=facet_wrap if facet is not None else None,
                               hover_name=hover, labels=labels, points=False)
     return _finish(figure, language)
 

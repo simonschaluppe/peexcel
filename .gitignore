@@ -26,6 +26,7 @@ ka_project_backup*
 .idea
 .vscode
 docs/Meetings/
+data/exports/typologies/
 data/Excel Files/
 data/sankey
 !data/sankey/*sankey*

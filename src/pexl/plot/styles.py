@@ -1,3 +1,7 @@
+from numbers import Real
+
+import pandas as pd
+import plotly.graph_objects as go
 from matplotlib.colors import LinearSegmentedColormap
 
 
@@ -113,3 +117,42 @@ def color_for(var_name: str) -> str | None:
         return None
 
     return COLORS[group]
+
+
+def style_boxes(figure, *, colors=None, language="de"):
+    """Style vertical, overlay-mode box plots in place, including facets.
+
+    ``colors`` maps box trace names to (fill, outline) colors. The boxes use
+    slim outlines and outlier dots, with inset red median lines and triangular
+    mean markers. Numeric group positions are expected to be one unit apart.
+    """
+    colors = colors or {}
+    width = 0.6
+    median_half_width = width * 0.45
+    mean_label = "Mittelwert" if language == "de" else "Mean"
+    for trace in list(figure.data):
+        if trace.type != "box" or trace.x is None or trace.y is None:
+            continue
+        fill, outline = colors.get(trace.name, ("#b9d7ea", "#36648b"))
+        trace.update(fillcolor=fill, line=dict(color=outline, width=0.6),
+                     width=width, boxpoints="outliers",
+                     marker=dict(color=outline, size=3, opacity=0.4))
+        stats = pd.DataFrame({"group": trace.x, "value": trace.y}).dropna()
+        stats = stats.groupby("group")["value"].agg(["median", "mean"])
+        for center, median in stats["median"].items():
+            if isinstance(center, Real):
+                endpoints = dict(x0=center - median_half_width, x1=center + median_half_width)
+            else:
+                endpoints = dict(x0=center, x1=center, x0shift=-median_half_width,
+                                 x1shift=median_half_width)
+            figure.add_shape(type="line", xref=trace.xaxis or "x", yref=trace.yaxis or "y",
+                             y0=median, y1=median, line=dict(color="#b22222", width=1),
+                             **endpoints)
+        figure.add_trace(go.Scatter(
+            x=stats.index, y=stats["mean"], mode="markers",
+            marker=dict(symbol="triangle-up", size=6, color=outline),
+            xaxis=trace.xaxis, yaxis=trace.yaxis, showlegend=False,
+            hovertemplate=f"{mean_label}: %{{y:.1f}}<extra></extra>",
+        ))
+    figure.update_layout(template="plotly_white", boxmode="overlay")
+    figure.update_yaxes(gridcolor="#e6e6e6")
