@@ -1,10 +1,10 @@
 ```{=html}
 <section id="in-catalog" class="schema-catalog" data-source="IN" aria-label="IN-Katalog">
-<p><strong>698 IN-Variablen</strong> aus Schema <code>1_13_1_dev</code>.
+<p><strong>708 IN-Variablen</strong> aus Schema <code>1_13_3</code>.
 Vollständiger Definitionsbestand, keine Projektwerte. Auch Hilfsgrößen sind enthalten.</p>
 <p class="catalog-note">Metadatenlücken: 13 ohne Domäne,
-116 ohne Einheit, 1 ohne deutsches Label und
-588 ohne zusätzliche Beschreibung. „Nicht hinterlegt“ bedeutet nicht „dimensionslos“.</p>
+117 ohne Einheit, 1 ohne deutsches Label und
+598 ohne zusätzliche Beschreibung. „Nicht hinterlegt“ bedeutet nicht „dimensionslos“.</p>
 <form class="catalog-controls" hidden>
 <div class="catalog-search"><label for="in-query">Parameter suchen</label>
 <input id="in-query" type="search" placeholder="z. B. PV, Batterie oder Variablenname" aria-describedby="in-search-help"></div>
@@ -12,11 +12,11 @@ Vollständiger Definitionsbestand, keine Projektwerte. Auch Hilfsgrößen sind e
 <option value="legacy">Altbestand (21)</option>
 <option value="battery">Batterie (14)</option>
 <option value="assessment">Bewertung (2)</option>
-<option value="declaration">Deklaration (11)</option>
+<option value="declaration">Deklaration (16)</option>
 <option value="flexibility">Flexibilität (24)</option>
 <option value="geometry">Geometrie (26)</option>
 <option value="heating">Heizung (41)</option>
-<option value="construction">Konstruktion (77)</option>
+<option value="construction">Konstruktion (81)</option>
 <option value="cooling">Kühlung (46)</option>
 <option value="lca">Lebenszyklus (32)</option>
 <option value="Ventilation">Lüftung (2)</option>
@@ -25,7 +25,7 @@ Vollständiger Definitionsbestand, keine Projektwerte. Auch Hilfsgrößen sind e
 <option value="usage">Nutzung (98)</option>
 <option value="primary_energy">Primärenergie (23)</option>
 <option value="project">Projekt (8)</option>
-<option value="pv">pv (14)</option>
+<option value="pv">pv (15)</option>
 <option value="district">Quartier (13)</option>
 <option value="solar_gains">Solare Gewinne (40)</option>
 <option value="thermal_hull">Thermische Hülle (21)</option>
@@ -227,19 +227,39 @@ Vollständiger Definitionsbestand, keine Projektwerte. Auch Hilfsgrößen sind e
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>grid_name</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
 </tbody></table></div></details>
 <details class="out-domain" id="in-domain-3" data-domain="declaration">
-<summary>Deklaration <span class="out-domain-count">(11)</span></summary>
+<summary>Deklaration <span class="out-domain-count">(16)</span></summary>
 <p>Schema-Domäne: <code>declaration</code></p>
 <div class="catalog-table" role="region" aria-label="Parameter: declaration" tabindex="0">
 <table><thead><tr><th scope="col">Parameter / Variablenname</th><th scope="col">Einheit</th>
 <th scope="col">Zuordnung und Beschreibung</th></tr></thead><tbody>
+<tr id="in-ee_sysbound_A1A3" data-entity="">
+<th scope="row"><span class="catalog-icon" aria-hidden="true">🔧</span> <a href="#in-ee_sysbound_A1A3">A1-A3 Errichtung Gebäude</a><br><code>ee_sysbound_A1A3</code></th>
+<td>bool</td><td><span class="catalog-measure">ee_boundary</span>
+<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>ee_boundary</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
 <tr id="in-cfd_A" data-entity="">
 <th scope="row"><span class="catalog-icon" aria-hidden="true">🔧</span> <a href="#in-cfd_A">Ausnutzungsfaktor Erneuerbare</a><br><code>cfd_A</code></th>
 <td>kWhEE/m²GF</td><td><span class="catalog-measure">A</span>
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>A</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
+<tr id="in-ee_sysbound_B4" data-entity="">
+<th scope="row"><span class="catalog-icon" aria-hidden="true">🔧</span> <a href="#in-ee_sysbound_B4">B4 Instandhaltung Gebäude</a><br><code>ee_sysbound_B4</code></th>
+<td>bool</td><td><span class="catalog-measure">ee_boundary</span>
+<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>ee_boundary</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
+<tr id="in-ee_sysbound_C1C4" data-entity="">
+<th scope="row"><span class="catalog-icon" aria-hidden="true">🔧</span> <a href="#in-ee_sysbound_C1C4">C1-C4 Entsorgung Gebäude</a><br><code>ee_sysbound_C1C4</code></th>
+<td>bool</td><td><span class="catalog-measure">ee_boundary</span>
+<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>ee_boundary</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
 <tr id="in-cfd_EUI" data-entity="">
 <th scope="row"><span class="catalog-icon" aria-hidden="true">🔧</span> <a href="#in-cfd_EUI">Energieintensität Bedarf</a><br><code>cfd_EUI</code></th>
 <td>kWhEE/m²NGFa</td><td><span class="catalog-measure">EUI</span>
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>EUI</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Energy End Use Intensity</dd></dl></details></td></tr>
+<tr id="in-ee_sysbound_PV" data-entity="">
+<th scope="row"><span class="catalog-icon" aria-hidden="true">🔧</span> <a href="#in-ee_sysbound_PV">Errichtung PV-Anlage</a><br><code>ee_sysbound_PV</code></th>
+<td>bool</td><td><span class="catalog-measure">ee_boundary</span>
+<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>ee_boundary</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
+<tr id="in-ee_sysbound_MIM" data-entity="">
+<th scope="row"><span class="catalog-icon" aria-hidden="true">🔧</span> <a href="#in-ee_sysbound_MIM">Herstellung MIV</a><br><code>ee_sysbound_MIM</code></th>
+<td>bool</td><td><span class="catalog-measure">ee_boundary</span>
+<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>ee_boundary</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
 <tr id="in-cfr_budget" data-entity="">
 <th scope="row"><span class="catalog-icon" aria-hidden="true">🔧</span> <a href="#in-cfr_budget">Kontextfaktor Sanierung</a><br><code>cfr_budget</code></th>
 <td>kWhPE/m²NGFa</td><td><span class="catalog-measure">context factor</span>
@@ -663,7 +683,7 @@ Vollständiger Definitionsbestand, keine Projektwerte. Auch Hilfsgrößen sind e
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>generation_efficiency_inverse</dd><dt>Entity Group</dt><dd>heating</dd><dt>Entity Key</dt><dd>system_4</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
 </tbody></table></div></details>
 <details class="out-domain" id="in-domain-7" data-domain="construction">
-<summary>Konstruktion <span class="out-domain-count">(77)</span></summary>
+<summary>Konstruktion <span class="out-domain-count">(81)</span></summary>
 <p>Schema-Domäne: <code>construction</code></p>
 <div class="catalog-table" role="region" aria-label="Parameter: construction" tabindex="0">
 <table><thead><tr><th scope="col">Parameter / Variablenname</th><th scope="col">Einheit</th>
@@ -970,6 +990,22 @@ Vollständiger Definitionsbestand, keine Projektwerte. Auch Hilfsgrößen sind e
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>component_type</dd><dt>Entity Group</dt><dd>component</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
 <tr id="in-COMP_name_solarthermal" data-entity="component">
 <th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#in-COMP_name_solarthermal">Typ Solarthermie</a><br><code>COMP_name_solarthermal</code></th>
+<td>text</td><td><span class="catalog-measure">component_type</span>
+<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>component_type</dd><dt>Entity Group</dt><dd>component</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
+<tr id="in-COMP_name_electric" data-entity="component">
+<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#in-COMP_name_electric">Typ TGA Basis Elektro</a><br><code>COMP_name_electric</code></th>
+<td>text</td><td><span class="catalog-measure">component_type</span>
+<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>component_type</dd><dt>Entity Group</dt><dd>component</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
+<tr id="in-COMP_name_HCDHW" data-entity="component">
+<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#in-COMP_name_HCDHW">Typ TGA Basis Heizen/Kühlen/Warmwasser</a><br><code>COMP_name_HCDHW</code></th>
+<td>text</td><td><span class="catalog-measure">component_type</span>
+<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>component_type</dd><dt>Entity Group</dt><dd>component</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
+<tr id="in-COMP_name_ventilation" data-entity="component">
+<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#in-COMP_name_ventilation">Typ TGA Basis Lüftung</a><br><code>COMP_name_ventilation</code></th>
+<td>text</td><td><span class="catalog-measure">component_type</span>
+<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>component_type</dd><dt>Entity Group</dt><dd>component</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
+<tr id="in-COMP_name_plumbing" data-entity="component">
+<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#in-COMP_name_plumbing">Typ TGA Basis Sanitär</a><br><code>COMP_name_plumbing</code></th>
 <td>text</td><td><span class="catalog-measure">component_type</span>
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>component_type</dd><dt>Entity Group</dt><dd>component</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
 <tr id="in-preset_recorded_construction_type" data-entity="">
@@ -1841,15 +1877,15 @@ Vollständiger Definitionsbestand, keine Projektwerte. Auch Hilfsgrößen sind e
 <tr id="in-mob_motorization_perNFA_work" data-entity="mobility">
 <th scope="row"><span class="catalog-icon" aria-hidden="true">🚗</span> <a href="#in-mob_motorization_perNFA_work">Autos pro Nutzung Arbeit</a><br><code>mob_motorization_perNFA_work</code></th>
 <td>1/100m²</td><td><span class="catalog-measure">Nicht hinterlegt</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>Nicht hinterlegt</dd><dt>Entity Group</dt><dd>mobility</dd><dt>Entity Key</dt><dd>retail</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>just for battery size, not mileage</dd></dl></details></td></tr>
+<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>Nicht hinterlegt</dd><dt>Entity Group</dt><dd>mobility</dd><dt>Entity Key</dt><dd>retail</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>for battery size and embodied emissions, not mileage</dd></dl></details></td></tr>
 <tr id="in-mob_motorization_perNFA_retail" data-entity="mobility">
 <th scope="row"><span class="catalog-icon" aria-hidden="true">🚗</span> <a href="#in-mob_motorization_perNFA_retail">Autos pro Nutzung Einkaufen</a><br><code>mob_motorization_perNFA_retail</code></th>
 <td>1/100m²</td><td><span class="catalog-measure">Nicht hinterlegt</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>Nicht hinterlegt</dd><dt>Entity Group</dt><dd>mobility</dd><dt>Entity Key</dt><dd>work</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>just for battery size, not mileage</dd></dl></details></td></tr>
+<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>Nicht hinterlegt</dd><dt>Entity Group</dt><dd>mobility</dd><dt>Entity Key</dt><dd>work</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>for battery size and embodied emissions, not mileage</dd></dl></details></td></tr>
 <tr id="in-mob_motorization_perNFA_residential" data-entity="mobility">
 <th scope="row"><span class="catalog-icon" aria-hidden="true">🚗</span> <a href="#in-mob_motorization_perNFA_residential">Autos pro Nutzung Wohnen</a><br><code>mob_motorization_perNFA_residential</code></th>
 <td>1/100m²</td><td><span class="catalog-measure">Nicht hinterlegt</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>Nicht hinterlegt</dd><dt>Entity Group</dt><dd>mobility</dd><dt>Entity Key</dt><dd>education</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>just for battery size, not mileage</dd></dl></details></td></tr>
+<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>Nicht hinterlegt</dd><dt>Entity Group</dt><dd>mobility</dd><dt>Entity Key</dt><dd>education</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>for battery size and embodied emissions, not mileage</dd></dl></details></td></tr>
 <tr id="in-density_NFApPers_schoolprim" data-entity="usage">
 <th scope="row"><span class="catalog-icon" aria-hidden="true">🚗</span> <a href="#in-density_NFApPers_schoolprim">Belegungsdichte Ausbildung Primär</a><br><code>density_NFApPers_schoolprim</code></th>
 <td>m²NF/Pers</td><td><span class="catalog-measure">occupancy</span>
@@ -2330,7 +2366,7 @@ Vollständiger Definitionsbestand, keine Projektwerte. Auch Hilfsgrößen sind e
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>scenario_name</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
 </tbody></table></div></details>
 <details class="out-domain" id="in-domain-16" data-domain="pv">
-<summary>pv <span class="out-domain-count">(14)</span></summary>
+<summary>pv <span class="out-domain-count">(15)</span></summary>
 <p>Schema-Domäne: <code>pv</code></p>
 <div class="catalog-table" role="region" aria-label="Parameter: pv" tabindex="0">
 <table><thead><tr><th scope="col">Parameter / Variablenname</th><th scope="col">Einheit</th>
@@ -2347,6 +2383,10 @@ Vollständiger Definitionsbestand, keine Projektwerte. Auch Hilfsgrößen sind e
 <th scope="row"><span class="catalog-icon" aria-hidden="true">🌞</span> <a href="#in-PV_mode">PV Modus</a><br><code>PV_mode</code></th>
 <td>Nicht hinterlegt</td><td><span class="catalog-measure">mode</span>
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>mode</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
+<tr id="in-PV_mode_is_simple" data-entity="">
+<th scope="row"><span class="catalog-icon" aria-hidden="true">🌞</span> <a href="#in-PV_mode_is_simple">PV Modus ist vereinfacht</a><br><code>PV_mode_is_simple</code></th>
+<td>Nicht hinterlegt</td><td><span class="catalog-measure">Nicht hinterlegt</span>
+<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>Nicht hinterlegt</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
 <tr id="in-PV_is_used" data-entity="">
 <th scope="row"><span class="catalog-icon" aria-hidden="true">🌞</span> <a href="#in-PV_is_used">PV Nutzung</a><br><code>PV_is_used</code></th>
 <td>bool</td><td><span class="catalog-measure">is_used</span>

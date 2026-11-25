@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Available standard cases and actual values from PEXL 1.13.1-Dev.">
+<meta name="description" content="Available standard cases and actual values from the current PEXL schema.">
 
 <title>Preset catalogue – PEXL</title>
 <style>
@@ -535,7 +535,7 @@ English translation · Editorial update 16 November 2026. Original screenshots, 
 
 <div>
   <div class="description">
-    Available standard cases and actual values from PEXL 1.13.1-Dev.
+    Available standard cases and actual values from the current PEXL schema.
   </div>
 </div>
 
@@ -552,7 +552,7 @@ English translation · Editorial update 16 November 2026. Original screenshots, 
 </header>
 
 
-<p>Presets set several inputs together. Look up <strong>actual values from the current Excel export</strong> and find suitable standard cases here. The <a href="./presets.html">guide</a> explains selection in the tool.</p>
+<p>Presets set several inputs together. The catalogue opens with the current PEXL version. Select the version of your verification tool to look up its stored values. The <a href="./presets.html">guide</a> explains selection in the tool.</p>
 <p><strong>Reading the tables:</strong> Open an input group, then a preset’s values. Blank cells mean <strong>do not set</strong>; existing inputs remain. An explicit zero is applied. Numbers show stored values: a share of <code>0.3</code> means 30%, and an efficiency of <code>4.5</code> means 450%.</p>
 <div class="callout callout-style-default callout-warning callout-titled" title="Caution">
 <div class="callout-header d-flex align-content-center">
@@ -564,12 +564,13 @@ English translation · Editorial update 16 November 2026. Original screenshots, 
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The development version also contains DEFAULT/selection columns, test entries and standard cases without values. They remain visible for completeness. A table name or declaration label does not confirm technical suitability. Check values and notes before applying.</p>
+<p>The Excel export also contains DEFAULT/selection columns, test entries and standard cases without values. They remain visible for completeness. A table name or declaration label does not confirm technical suitability. Check values and notes before applying.</p>
 </div>
 </div>
 <p>The existing searchable catalogue below is shared unchanged with the German site. Preset names, input labels and controls remain in German so they match the workbook.</p>
-<section class="schema-catalog" data-source="PRESET" data-item-label="Preset-Spalten">
-<p><strong>Stand: 1.13.1_dev · 26 Tabellen · 285 Preset-Spalten</strong><br>Excel-Export: 2026-10-28 23:09:01. Entwicklungsstand, noch nicht als Release freigegeben.</p>
+<div hidden="" data-preset-versions="" data-current="1_13_3"><label for="preset-version">Version</label> <select id="preset-version" class="form-select w-auto d-inline-block"><option value="1_13_3">1.13.3</option><option value="1_13_2_dev">1.13.2_dev</option><option value="1_13_1_dev">1.13.1_dev</option><option value="v1_12_7">v1.12.7</option><option value="v1_11_6">v1.11.6</option></select><p data-preset-version-status="" role="status" hidden=""></p></div>
+<div id="preset-catalog-content"><section class="schema-catalog" data-source="PRESET" data-item-label="Preset-Spalten">
+<p><strong>Stand: 1.13.3 · 26 Tabellen · 285 Preset-Spalten</strong><br>Excel-Export: 2026-11-23 10:38:55.</p>
 <form class="catalog-controls" hidden=""><label>Presets und Werte suchen<input id="preset-query" type="search" placeholder="z. B. Wärmepumpe oder Nutzerstrom"></label><label>Eingabegruppe<select id="preset-domain"><option value="*">Alle Gruppen</option>
 <option value="renovation">Neubau und Sanierung</option>
 <option value="hulls">Hüllqualität nach Baualter</option>
@@ -5741,31 +5742,31 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[Einheit
 <dl>
 <dt><span data-in-var="DHW_demand_residential_kWhm2">WWWB Wohnen</span> <code>DHW_demand_residential_kWhm2</code></dt>
 <dd>
-12.775013425521916 <span class="text-muted">[kWh/m²NGFa] · D4</span>
+12.75 <span class="text-muted">[kWh/m²NGFa] · D4</span>
 </dd>
 <dt><span data-in-var="DHW_demand_office_kWhm2">WWWB Büro</span> <code>DHW_demand_office_kWhm2</code></dt>
 <dd>
-3.026406693789821 <span class="text-muted">[kWh/m²NGFa] · D5</span>
+3.03 <span class="text-muted">[kWh/m²NGFa] · D5</span>
 </dd>
 <dt><span data-in-var="DHW_demand_schoolsec_kWhm2">WWWB Bildung sekundär</span> <code>DHW_demand_schoolsec_kWhm2</code></dt>
 <dd>
-3.362336654159658 <span class="text-muted">[kWh/m²NGFa] · D6</span>
+3.75 <span class="text-muted">[kWh/m²NGFa] · D6</span>
 </dd>
 <dt><span data-in-var="DHW_demand_schoolprim_kWhm2">WWWB Bildung primär</span> <code>DHW_demand_schoolprim_kWhm2</code></dt>
 <dd>
-3.362336654159658 <span class="text-muted">[kWh/m²NGFa] · D7</span>
+3.75 <span class="text-muted">[kWh/m²NGFa] · D7</span>
 </dd>
 <dt><span data-in-var="DHW_demand_retailfood_kWhm2">WWWB Handel Lebensmittel</span> <code>DHW_demand_retailfood_kWhm2</code></dt>
 <dd>
-6.339990710636322 <span class="text-muted">[kWh/m²NGFa] · D8</span>
+6.375 <span class="text-muted">[kWh/m²NGFa] · D8</span>
 </dd>
 <dt><span data-in-var="DHW_demand_retailother_kWhm2">WWWB Handel sonstiger</span> <code>DHW_demand_retailother_kWhm2</code></dt>
 <dd>
-6.339990710636322 <span class="text-muted">[kWh/m²NGFa] · D9</span>
+6.375 <span class="text-muted">[kWh/m²NGFa] · D9</span>
 </dd>
 <dt><span data-in-var="DHW_demand_other_kWhm2">WWWB Sonstige Nutzung</span> <code>DHW_demand_other_kWhm2</code></dt>
 <dd>
-6.339990710636322 <span class="text-muted">[kWh/m²NGFa] · D10</span>
+0 <span class="text-muted">[kWh/m²NGFa] · D10</span>
 </dd>
 </dl>
 </details></td>
@@ -5775,36 +5776,36 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[Einheit
 <span class="small">Spaltenname: OIB RL6 v2023</span></th>
 <td><details class="out-meta">
 <summary>
-0 gesetzte Werte · vollständige Belegung ansehen
+7 gesetzte Werte · vollständige Belegung ansehen
 </summary>
 <dl>
 <dt><span data-in-var="DHW_demand_residential_kWhm2">WWWB Wohnen</span> <code>DHW_demand_residential_kWhm2</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[kWh/m²NGFa] · E4</span>
+12.775013425521916 <span class="text-muted">[kWh/m²NGFa] · E4</span>
 </dd>
 <dt><span data-in-var="DHW_demand_office_kWhm2">WWWB Büro</span> <code>DHW_demand_office_kWhm2</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[kWh/m²NGFa] · E5</span>
+3.026406693789821 <span class="text-muted">[kWh/m²NGFa] · E5</span>
 </dd>
 <dt><span data-in-var="DHW_demand_schoolsec_kWhm2">WWWB Bildung sekundär</span> <code>DHW_demand_schoolsec_kWhm2</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[kWh/m²NGFa] · E6</span>
+3.362336654159658 <span class="text-muted">[kWh/m²NGFa] · E6</span>
 </dd>
 <dt><span data-in-var="DHW_demand_schoolprim_kWhm2">WWWB Bildung primär</span> <code>DHW_demand_schoolprim_kWhm2</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[kWh/m²NGFa] · E7</span>
+3.362336654159658 <span class="text-muted">[kWh/m²NGFa] · E7</span>
 </dd>
 <dt><span data-in-var="DHW_demand_retailfood_kWhm2">WWWB Handel Lebensmittel</span> <code>DHW_demand_retailfood_kWhm2</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[kWh/m²NGFa] · E8</span>
+6.339990710636322 <span class="text-muted">[kWh/m²NGFa] · E8</span>
 </dd>
 <dt><span data-in-var="DHW_demand_retailother_kWhm2">WWWB Handel sonstiger</span> <code>DHW_demand_retailother_kWhm2</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[kWh/m²NGFa] · E9</span>
+6.339990710636322 <span class="text-muted">[kWh/m²NGFa] · E9</span>
 </dd>
 <dt><span data-in-var="DHW_demand_other_kWhm2">WWWB Sonstige Nutzung</span> <code>DHW_demand_other_kWhm2</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[kWh/m²NGFa] · E10</span>
+6.339990710636322 <span class="text-muted">[kWh/m²NGFa] · E10</span>
 </dd>
 </dl>
 </details></td>
@@ -5814,36 +5815,36 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[kWh/m²
 <span class="small">Spaltenname: OIB RL6 v2025</span></th>
 <td><details class="out-meta">
 <summary>
-0 gesetzte Werte · vollständige Belegung ansehen
+7 gesetzte Werte · vollständige Belegung ansehen
 </summary>
 <dl>
 <dt><span data-in-var="DHW_demand_residential_kWhm2">WWWB Wohnen</span> <code>DHW_demand_residential_kWhm2</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[kWh/m²NGFa] · F4</span>
+12.75 <span class="text-muted">[kWh/m²NGFa] · F4</span>
 </dd>
 <dt><span data-in-var="DHW_demand_office_kWhm2">WWWB Büro</span> <code>DHW_demand_office_kWhm2</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[kWh/m²NGFa] · F5</span>
+3.03 <span class="text-muted">[kWh/m²NGFa] · F5</span>
 </dd>
 <dt><span data-in-var="DHW_demand_schoolsec_kWhm2">WWWB Bildung sekundär</span> <code>DHW_demand_schoolsec_kWhm2</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[kWh/m²NGFa] · F6</span>
+3.75 <span class="text-muted">[kWh/m²NGFa] · F6</span>
 </dd>
 <dt><span data-in-var="DHW_demand_schoolprim_kWhm2">WWWB Bildung primär</span> <code>DHW_demand_schoolprim_kWhm2</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[kWh/m²NGFa] · F7</span>
+3.75 <span class="text-muted">[kWh/m²NGFa] · F7</span>
 </dd>
 <dt><span data-in-var="DHW_demand_retailfood_kWhm2">WWWB Handel Lebensmittel</span> <code>DHW_demand_retailfood_kWhm2</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[kWh/m²NGFa] · F8</span>
+6.375 <span class="text-muted">[kWh/m²NGFa] · F8</span>
 </dd>
 <dt><span data-in-var="DHW_demand_retailother_kWhm2">WWWB Handel sonstiger</span> <code>DHW_demand_retailother_kWhm2</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[kWh/m²NGFa] · F9</span>
+6.375 <span class="text-muted">[kWh/m²NGFa] · F9</span>
 </dd>
 <dt><span data-in-var="DHW_demand_other_kWhm2">WWWB Sonstige Nutzung</span> <code>DHW_demand_other_kWhm2</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[kWh/m²NGFa] · F10</span>
+0 <span class="text-muted">[kWh/m²NGFa] · F10</span>
 </dd>
 </dl>
 </details></td>
@@ -5858,27 +5859,27 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[kWh/m²
 <dl>
 <dt><span data-in-var="DHW_demand_residential_kWhm2">WWWB Wohnen</span> <code>DHW_demand_residential_kWhm2</code></dt>
 <dd>
-12.775013425521916 <span class="text-muted">[kWh/m²NGFa] · G4</span>
+12.75 <span class="text-muted">[kWh/m²NGFa] · G4</span>
 </dd>
 <dt><span data-in-var="DHW_demand_office_kWhm2">WWWB Büro</span> <code>DHW_demand_office_kWhm2</code></dt>
 <dd>
-3.026406693789821 <span class="text-muted">[kWh/m²NGFa] · G5</span>
+3.03 <span class="text-muted">[kWh/m²NGFa] · G5</span>
 </dd>
 <dt><span data-in-var="DHW_demand_schoolsec_kWhm2">WWWB Bildung sekundär</span> <code>DHW_demand_schoolsec_kWhm2</code></dt>
 <dd>
-3.362336654159658 <span class="text-muted">[kWh/m²NGFa] · G6</span>
+3.75 <span class="text-muted">[kWh/m²NGFa] · G6</span>
 </dd>
 <dt><span data-in-var="DHW_demand_schoolprim_kWhm2">WWWB Bildung primär</span> <code>DHW_demand_schoolprim_kWhm2</code></dt>
 <dd>
-3.362336654159658 <span class="text-muted">[kWh/m²NGFa] · G7</span>
+3.75 <span class="text-muted">[kWh/m²NGFa] · G7</span>
 </dd>
 <dt><span data-in-var="DHW_demand_retailfood_kWhm2">WWWB Handel Lebensmittel</span> <code>DHW_demand_retailfood_kWhm2</code></dt>
 <dd>
-6.339990710636322 <span class="text-muted">[kWh/m²NGFa] · G8</span>
+6.375 <span class="text-muted">[kWh/m²NGFa] · G8</span>
 </dd>
 <dt><span data-in-var="DHW_demand_retailother_kWhm2">WWWB Handel sonstiger</span> <code>DHW_demand_retailother_kWhm2</code></dt>
 <dd>
-6.339990710636322 <span class="text-muted">[kWh/m²NGFa] · G9</span>
+6.375 <span class="text-muted">[kWh/m²NGFa] · G9</span>
 </dd>
 <dt><span data-in-var="DHW_demand_other_kWhm2">WWWB Sonstige Nutzung</span> <code>DHW_demand_other_kWhm2</code></dt>
 <dd>
@@ -7989,7 +7990,7 @@ Vereinfacht <span class="text-muted">[Einheit nicht hinterlegt] · S6</span>
 <dd>
 Nein <span class="text-muted">[bool] · D4</span>
 </dd>
-<dt><span data-in-var="Batt_c_rate">Maximale Be/Entladeleistung </span> <code>Batt_c_rate</code></dt>
+<dt><span data-in-var="Batt_c_rate">Maximale Be/Entladeleistung</span> <code>Batt_c_rate</code></dt>
 <dd>
 0.5 <span class="text-muted">[ratio] · D5</span>
 </dd>
@@ -8003,7 +8004,7 @@ Nein <span class="text-muted">[bool] · D4</span>
 </dd>
 <dt><span data-in-var="Batt_cap_kWh">Batterie Kapazität</span> <code>Batt_cap_kWh</code></dt>
 <dd>
-8.032499999999997 <span class="text-muted">[kWh] · D8</span>
+6.8608 <span class="text-muted">[kWh] · D8</span>
 </dd>
 </dl>
 </details></td>
@@ -8020,7 +8021,7 @@ Nein <span class="text-muted">[bool] · D4</span>
 <dd>
 Nein <span class="text-muted">[bool] · E4</span>
 </dd>
-<dt><span data-in-var="Batt_c_rate">Maximale Be/Entladeleistung </span> <code>Batt_c_rate</code></dt>
+<dt><span data-in-var="Batt_c_rate">Maximale Be/Entladeleistung</span> <code>Batt_c_rate</code></dt>
 <dd>
 Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[ratio] · E5</span>
 </dd>
@@ -8051,7 +8052,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[kWh] ·
 <dd>
 Ja <span class="text-muted">[bool] · F4</span>
 </dd>
-<dt><span data-in-var="Batt_c_rate">Maximale Be/Entladeleistung </span> <code>Batt_c_rate</code></dt>
+<dt><span data-in-var="Batt_c_rate">Maximale Be/Entladeleistung</span> <code>Batt_c_rate</code></dt>
 <dd>
 0.5 <span class="text-muted">[ratio] · F5</span>
 </dd>
@@ -8065,7 +8066,7 @@ Ja <span class="text-muted">[bool] · F4</span>
 </dd>
 <dt><span data-in-var="Batt_cap_kWh">Batterie Kapazität</span> <code>Batt_cap_kWh</code></dt>
 <dd>
-8.032499999999997 <span class="text-muted">[kWh] · F8</span>
+6.8608 <span class="text-muted">[kWh] · F8</span>
 </dd>
 </dl>
 </details></td>
@@ -8082,7 +8083,7 @@ Ja <span class="text-muted">[bool] · F4</span>
 <dd>
 Ja <span class="text-muted">[bool] · G4</span>
 </dd>
-<dt><span data-in-var="Batt_c_rate">Maximale Be/Entladeleistung </span> <code>Batt_c_rate</code></dt>
+<dt><span data-in-var="Batt_c_rate">Maximale Be/Entladeleistung</span> <code>Batt_c_rate</code></dt>
 <dd>
 1 <span class="text-muted">[ratio] · G5</span>
 </dd>
@@ -8096,7 +8097,7 @@ Ja <span class="text-muted">[bool] · G4</span>
 </dd>
 <dt><span data-in-var="Batt_cap_kWh">Batterie Kapazität</span> <code>Batt_cap_kWh</code></dt>
 <dd>
-16.064999999999994 <span class="text-muted">[kWh] · G8</span>
+13.7216 <span class="text-muted">[kWh] · G8</span>
 </dd>
 </dl>
 </details></td>
@@ -8413,36 +8414,36 @@ System 1 <span class="text-muted">[text] · H7</span>
 <span class="small">Spaltenname: DEFAULT</span></th>
 <td><details class="out-meta">
 <summary>
-0 gesetzte Werte · vollständige Belegung ansehen
+7 gesetzte Werte · vollständige Belegung ansehen
 </summary>
 <dl>
 <dt><span data-in-var="plugloads_residential">Nutzerstrom Wohnen</span> <code>plugloads_residential</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[kWh/m²NFA] · D5</span>
+26.748 <span class="text-muted">[kWh/m²NFA] · D5</span>
 </dd>
 <dt><span data-in-var="plugloads_office">Nutzerstrom Büro</span> <code>plugloads_office</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[kWh/m²NFA] · D6</span>
+19.498 <span class="text-muted">[kWh/m²NFA] · D6</span>
 </dd>
 <dt><span data-in-var="plugloads_schoolsec">Nutzerstrom Bildung sekundär</span> <code>plugloads_schoolsec</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[kWh/m²NFA] · D7</span>
+1.749 <span class="text-muted">[kWh/m²NFA] · D7</span>
 </dd>
 <dt><span data-in-var="plugloads_schoolprim">Nutzerstrom Bildung primär</span> <code>plugloads_schoolprim</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[kWh/m²NFA] · D8</span>
+1.749 <span class="text-muted">[kWh/m²NFA] · D8</span>
 </dd>
 <dt><span data-in-var="plugloads_retailfood">Nutzerstrom Handel Lebensmittel</span> <code>plugloads_retailfood</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[kWh/m²NFA] · D9</span>
+5.249 <span class="text-muted">[kWh/m²NFA] · D9</span>
 </dd>
 <dt><span data-in-var="plugloads_retailother">Nutzerstrom Handel sonstiger</span> <code>plugloads_retailother</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[kWh/m²NFA] · D10</span>
+5.249 <span class="text-muted">[kWh/m²NFA] · D10</span>
 </dd>
 <dt><span data-in-var="plugloads_other">Nutzerstrom Sonstige Nutzung</span> <code>plugloads_other</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[kWh/m²NFA] · D11</span>
+0 <span class="text-muted">[kWh/m²NFA] · D11</span>
 </dd>
 </dl>
 </details></td>
@@ -8450,7 +8451,8 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[kWh/m²
 <tr id="preset-plugloads-d0b17126d391" class="even" data-entity="">
 <th data-quarto-table-cell-role="th" scope="row"><a href="#preset-plugloads-d0b17126d391">Deklaration</a><br>
 <span class="small">Spaltenname: Deklaration</span></th>
-<td><p>Einheit laut Presettabelle: kWh/m²NGFa</p>
+<td><p>Gemäß Energieausweis 2025</p>
+<p>Einheit laut Presettabelle: kWh/m²NGFa</p>
 <details class="out-meta">
 <summary>
 7 gesetzte Werte · vollständige Belegung ansehen
@@ -8458,27 +8460,27 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[kWh/m²
 <dl>
 <dt><span data-in-var="plugloads_residential">Nutzerstrom Wohnen</span> <code>plugloads_residential</code></dt>
 <dd>
-20.528603115343714 <span class="text-muted">[kWh/m²NFA] · E5</span>
+26.748 <span class="text-muted">[kWh/m²NFA] · E5</span>
 </dd>
 <dt><span data-in-var="plugloads_office">Nutzerstrom Büro</span> <code>plugloads_office</code></dt>
 <dd>
-24.636542311280923 <span class="text-muted">[kWh/m²NFA] · E6</span>
+19.498 <span class="text-muted">[kWh/m²NFA] · E6</span>
 </dd>
 <dt><span data-in-var="plugloads_schoolsec">Nutzerstrom Bildung sekundär</span> <code>plugloads_schoolsec</code></dt>
 <dd>
-12 <span class="text-muted">[kWh/m²NFA] · E7</span>
+1.749 <span class="text-muted">[kWh/m²NFA] · E7</span>
 </dd>
 <dt><span data-in-var="plugloads_schoolprim">Nutzerstrom Bildung primär</span> <code>plugloads_schoolprim</code></dt>
 <dd>
-5.6000000000000005 <span class="text-muted">[kWh/m²NFA] · E8</span>
+1.749 <span class="text-muted">[kWh/m²NFA] · E8</span>
 </dd>
 <dt><span data-in-var="plugloads_retailfood">Nutzerstrom Handel Lebensmittel</span> <code>plugloads_retailfood</code></dt>
 <dd>
-24.63654231128234 <span class="text-muted">[kWh/m²NFA] · E9</span>
+5.249 <span class="text-muted">[kWh/m²NFA] · E9</span>
 </dd>
 <dt><span data-in-var="plugloads_retailother">Nutzerstrom Handel sonstiger</span> <code>plugloads_retailother</code></dt>
 <dd>
-3.538793249728852 <span class="text-muted">[kWh/m²NFA] · E10</span>
+5.249 <span class="text-muted">[kWh/m²NFA] · E10</span>
 </dd>
 <dt><span data-in-var="plugloads_other">Nutzerstrom Sonstige Nutzung</span> <code>plugloads_other</code></dt>
 <dd>
@@ -8565,6 +8567,46 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[kWh/m²
 <dt><span data-in-var="plugloads_other">Nutzerstrom Sonstige Nutzung</span> <code>plugloads_other</code></dt>
 <dd>
 1 <span class="text-muted">[kWh/m²NFA] · G11</span>
+</dd>
+</dl>
+</details></td>
+</tr>
+<tr id="preset-plugloads-023e33504ab9" class="odd" data-entity="">
+<th data-quarto-table-cell-role="th" scope="row"><a href="#preset-plugloads-023e33504ab9">2019</a><br>
+<span class="small">Spaltenname: 2019</span></th>
+<td><p>Für Studienzwecke</p>
+<details class="out-meta">
+<summary>
+7 gesetzte Werte · vollständige Belegung ansehen
+</summary>
+<dl>
+<dt><span data-in-var="plugloads_residential">Nutzerstrom Wohnen</span> <code>plugloads_residential</code></dt>
+<dd>
+20.528603115343714 <span class="text-muted">[kWh/m²NFA] · H5</span>
+</dd>
+<dt><span data-in-var="plugloads_office">Nutzerstrom Büro</span> <code>plugloads_office</code></dt>
+<dd>
+24.636542311280923 <span class="text-muted">[kWh/m²NFA] · H6</span>
+</dd>
+<dt><span data-in-var="plugloads_schoolsec">Nutzerstrom Bildung sekundär</span> <code>plugloads_schoolsec</code></dt>
+<dd>
+12 <span class="text-muted">[kWh/m²NFA] · H7</span>
+</dd>
+<dt><span data-in-var="plugloads_schoolprim">Nutzerstrom Bildung primär</span> <code>plugloads_schoolprim</code></dt>
+<dd>
+5.6000000000000005 <span class="text-muted">[kWh/m²NFA] · H8</span>
+</dd>
+<dt><span data-in-var="plugloads_retailfood">Nutzerstrom Handel Lebensmittel</span> <code>plugloads_retailfood</code></dt>
+<dd>
+24.63654231128234 <span class="text-muted">[kWh/m²NFA] · H9</span>
+</dd>
+<dt><span data-in-var="plugloads_retailother">Nutzerstrom Handel sonstiger</span> <code>plugloads_retailother</code></dt>
+<dd>
+3.538793249728852 <span class="text-muted">[kWh/m²NFA] · H10</span>
+</dd>
+<dt><span data-in-var="plugloads_other">Nutzerstrom Sonstige Nutzung</span> <code>plugloads_other</code></dt>
+<dd>
+0 <span class="text-muted">[kWh/m²NFA] · H11</span>
 </dd>
 </dl>
 </details></td>
@@ -8921,7 +8963,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 <span class="small">Spaltenname: Bet</span></th>
 <td><details class="out-meta">
 <summary>
-20 gesetzte Werte · vollständige Belegung ansehen
+24 gesetzte Werte · vollständige Belegung ansehen
 </summary>
 <dl>
 <dt><span data-in-var="construction_name">Bauweise Name</span> <code>construction_name</code></dt>
@@ -8930,7 +8972,7 @@ Neubau konventionell Stahlbeton <span class="text-muted">[text] · G3</span>
 </dd>
 <dt><span data-in-var="construction_description">Bauweise Beschreibung</span> <code>construction_description</code></dt>
 <dd>
-Bet <span class="text-muted">[text] · G4</span>
+Bet_PHniv <span class="text-muted">[text] · G4</span>
 </dd>
 <dt><span data-in-var="construction_type">Bauweise Type</span> <code>construction_type</code></dt>
 <dd>
@@ -8974,7 +9016,7 @@ KDu 01 a Kellerdecke massiv, unterseitig gedämmt <span class="text-muted">[text
 </dd>
 <dt><span data-in-var="COMP_name_fundament">Bauweise Bodenplatte</span> <code>COMP_name_fundament</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · G18</span>
+Erdberührter Fußboden Keller <span class="text-muted">[text] · G18</span>
 </dd>
 <dt><span data-in-var="COMP_name_ceil_to_air">Bauweise Außendecke gg. Außenluft</span> <code>COMP_name_ceil_to_air</code></dt>
 <dd>
@@ -9014,7 +9056,7 @@ Erdberührte Wand Keller <span class="text-muted">[text] · G24</span>
 </dd>
 <dt><span data-in-var="COMP_name_unheated_horizontal">Bauweise Zwischendecke unbeheizt / Keller / TG</span> <code>COMP_name_unheated_horizontal</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · G28</span>
+1_UG_TG_TW_01 Trennwand zu TG STB 100kg/m³ TG (tragend + Brandschutz) <span class="text-muted">[text] · G28</span>
 </dd>
 <dt><span data-in-var="COMP_name_balconies">Bauweise Balkone</span> <code>COMP_name_balconies</code></dt>
 <dd>
@@ -9030,11 +9072,11 @@ Dreifach-Wärmeschutzglas,&nbsp;Argon,&nbsp;40&nbsp;&lt;&nbsp;Scheibenstärke <s
 </dd>
 <dt><span data-in-var="COMP_name_garage_horizontal">Bauweise Garage Decken</span> <code>COMP_name_garage_horizontal</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · G32</span>
+1_UG_TG_TW_01 Trennwand zu TG STB 100kg/m³ TG (tragend + Brandschutz) <span class="text-muted">[text] · G32</span>
 </dd>
 <dt><span data-in-var="COMP_name_garage_columns">Bauweise Garage Stützen</span> <code>COMP_name_garage_columns</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · G33</span>
+1_UG_TG_Stü_01 Stützen <span class="text-muted">[text] · G33</span>
 </dd>
 <dt><span data-in-var="COMP_name_other_1">Bauweise Sonstige</span> <code>COMP_name_other_1</code></dt>
 <dd>
@@ -9056,7 +9098,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 <span class="small">Spaltenname: Zie</span></th>
 <td><details class="out-meta">
 <summary>
-20 gesetzte Werte · vollständige Belegung ansehen
+24 gesetzte Werte · vollständige Belegung ansehen
 </summary>
 <dl>
 <dt><span data-in-var="construction_name">Bauweise Name</span> <code>construction_name</code></dt>
@@ -9065,7 +9107,7 @@ Neubau konventionell Ziegel <span class="text-muted">[text] · H3</span>
 </dd>
 <dt><span data-in-var="construction_description">Bauweise Beschreibung</span> <code>construction_description</code></dt>
 <dd>
-Zie <span class="text-muted">[text] · H4</span>
+Zie_PHniv <span class="text-muted">[text] · H4</span>
 </dd>
 <dt><span data-in-var="construction_type">Bauweise Type</span> <code>construction_type</code></dt>
 <dd>
@@ -9109,7 +9151,7 @@ KDu 01 a Kellerdecke massiv, unterseitig gedämmt <span class="text-muted">[text
 </dd>
 <dt><span data-in-var="COMP_name_fundament">Bauweise Bodenplatte</span> <code>COMP_name_fundament</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · H18</span>
+Erdberührter Fußboden Keller <span class="text-muted">[text] · H18</span>
 </dd>
 <dt><span data-in-var="COMP_name_ceil_to_air">Bauweise Außendecke gg. Außenluft</span> <code>COMP_name_ceil_to_air</code></dt>
 <dd>
@@ -9149,7 +9191,7 @@ Erdberührte Wand Keller <span class="text-muted">[text] · H24</span>
 </dd>
 <dt><span data-in-var="COMP_name_unheated_horizontal">Bauweise Zwischendecke unbeheizt / Keller / TG</span> <code>COMP_name_unheated_horizontal</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · H28</span>
+1_UG_TG_TW_01 Trennwand zu TG STB 100kg/m³ TG (tragend + Brandschutz) <span class="text-muted">[text] · H28</span>
 </dd>
 <dt><span data-in-var="COMP_name_balconies">Bauweise Balkone</span> <code>COMP_name_balconies</code></dt>
 <dd>
@@ -9165,11 +9207,11 @@ Dreifach-Wärmeschutzglas,&nbsp;Argon,&nbsp;40&nbsp;&lt;&nbsp;Scheibenstärke <s
 </dd>
 <dt><span data-in-var="COMP_name_garage_horizontal">Bauweise Garage Decken</span> <code>COMP_name_garage_horizontal</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · H32</span>
+1_UG_TG_TW_01 Trennwand zu TG STB 100kg/m³ TG (tragend + Brandschutz) <span class="text-muted">[text] · H32</span>
 </dd>
 <dt><span data-in-var="COMP_name_garage_columns">Bauweise Garage Stützen</span> <code>COMP_name_garage_columns</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · H33</span>
+1_UG_TG_Stü_01 Stützen <span class="text-muted">[text] · H33</span>
 </dd>
 <dt><span data-in-var="COMP_name_other_1">Bauweise Sonstige</span> <code>COMP_name_other_1</code></dt>
 <dd>
@@ -9191,7 +9233,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 <span class="small">Spaltenname: Hol</span></th>
 <td><details class="out-meta">
 <summary>
-20 gesetzte Werte · vollständige Belegung ansehen
+24 gesetzte Werte · vollständige Belegung ansehen
 </summary>
 <dl>
 <dt><span data-in-var="construction_name">Bauweise Name</span> <code>construction_name</code></dt>
@@ -9200,7 +9242,7 @@ Neubau Holzbauweise <span class="text-muted">[text] · I3</span>
 </dd>
 <dt><span data-in-var="construction_description">Bauweise Beschreibung</span> <code>construction_description</code></dt>
 <dd>
-Hol <span class="text-muted">[text] · I4</span>
+Hol_PHniv <span class="text-muted">[text] · I4</span>
 </dd>
 <dt><span data-in-var="construction_type">Bauweise Type</span> <code>construction_type</code></dt>
 <dd>
@@ -9244,7 +9286,7 @@ KDh 01 a <span class="text-muted">[text] · I17</span>
 </dd>
 <dt><span data-in-var="COMP_name_fundament">Bauweise Bodenplatte</span> <code>COMP_name_fundament</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · I18</span>
+Erdberührter Fußboden Keller <span class="text-muted">[text] · I18</span>
 </dd>
 <dt><span data-in-var="COMP_name_ceil_to_air">Bauweise Außendecke gg. Außenluft</span> <code>COMP_name_ceil_to_air</code></dt>
 <dd>
@@ -9284,7 +9326,7 @@ Erdberührte Wand Keller <span class="text-muted">[text] · I24</span>
 </dd>
 <dt><span data-in-var="COMP_name_unheated_horizontal">Bauweise Zwischendecke unbeheizt / Keller / TG</span> <code>COMP_name_unheated_horizontal</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · I28</span>
+1_UG_TG_TW_01 Trennwand zu TG STB 100kg/m³ TG (tragend + Brandschutz) <span class="text-muted">[text] · I28</span>
 </dd>
 <dt><span data-in-var="COMP_name_balconies">Bauweise Balkone</span> <code>COMP_name_balconies</code></dt>
 <dd>
@@ -9300,11 +9342,11 @@ Dreifach-Wärmeschutzglas,&nbsp;Argon,&nbsp;40&nbsp;&lt;&nbsp;Scheibenstärke <s
 </dd>
 <dt><span data-in-var="COMP_name_garage_horizontal">Bauweise Garage Decken</span> <code>COMP_name_garage_horizontal</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · I32</span>
+1_UG_TG_TW_01 Trennwand zu TG STB 100kg/m³ TG (tragend + Brandschutz) <span class="text-muted">[text] · I32</span>
 </dd>
 <dt><span data-in-var="COMP_name_garage_columns">Bauweise Garage Stützen</span> <code>COMP_name_garage_columns</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · I33</span>
+1_UG_TG_Stü_01 Stützen <span class="text-muted">[text] · I33</span>
 </dd>
 <dt><span data-in-var="COMP_name_other_1">Bauweise Sonstige</span> <code>COMP_name_other_1</code></dt>
 <dd>
@@ -9326,7 +9368,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 <span class="small">Spaltenname: Lei</span></th>
 <td><details class="out-meta">
 <summary>
-20 gesetzte Werte · vollständige Belegung ansehen
+24 gesetzte Werte · vollständige Belegung ansehen
 </summary>
 <dl>
 <dt><span data-in-var="construction_name">Bauweise Name</span> <code>construction_name</code></dt>
@@ -9335,7 +9377,7 @@ Neubau Leichtbau <span class="text-muted">[text] · J3</span>
 </dd>
 <dt><span data-in-var="construction_description">Bauweise Beschreibung</span> <code>construction_description</code></dt>
 <dd>
-Lei <span class="text-muted">[text] · J4</span>
+Lei_PHniv <span class="text-muted">[text] · J4</span>
 </dd>
 <dt><span data-in-var="construction_type">Bauweise Type</span> <code>construction_type</code></dt>
 <dd>
@@ -9379,7 +9421,7 @@ KDl 01 a Leichtbau-Kellerdecke <span class="text-muted">[text] · J17</span>
 </dd>
 <dt><span data-in-var="COMP_name_fundament">Bauweise Bodenplatte</span> <code>COMP_name_fundament</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · J18</span>
+Erdberührter Fußboden Keller <span class="text-muted">[text] · J18</span>
 </dd>
 <dt><span data-in-var="COMP_name_ceil_to_air">Bauweise Außendecke gg. Außenluft</span> <code>COMP_name_ceil_to_air</code></dt>
 <dd>
@@ -9419,7 +9461,7 @@ Erdberührte Wand Keller <span class="text-muted">[text] · J24</span>
 </dd>
 <dt><span data-in-var="COMP_name_unheated_horizontal">Bauweise Zwischendecke unbeheizt / Keller / TG</span> <code>COMP_name_unheated_horizontal</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · J28</span>
+1_UG_TG_TW_01 Trennwand zu TG STB 100kg/m³ TG (tragend + Brandschutz) <span class="text-muted">[text] · J28</span>
 </dd>
 <dt><span data-in-var="COMP_name_balconies">Bauweise Balkone</span> <code>COMP_name_balconies</code></dt>
 <dd>
@@ -9435,11 +9477,11 @@ Dreifach-Wärmeschutzglas,&nbsp;Argon,&nbsp;40&nbsp;&lt;&nbsp;Scheibenstärke <s
 </dd>
 <dt><span data-in-var="COMP_name_garage_horizontal">Bauweise Garage Decken</span> <code>COMP_name_garage_horizontal</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · J32</span>
+1_UG_TG_TW_01 Trennwand zu TG STB 100kg/m³ TG (tragend + Brandschutz) <span class="text-muted">[text] · J32</span>
 </dd>
 <dt><span data-in-var="COMP_name_garage_columns">Bauweise Garage Stützen</span> <code>COMP_name_garage_columns</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · J33</span>
+1_UG_TG_Stü_01 Stützen <span class="text-muted">[text] · J33</span>
 </dd>
 <dt><span data-in-var="COMP_name_other_1">Bauweise Sonstige</span> <code>COMP_name_other_1</code></dt>
 <dd>
@@ -9461,7 +9503,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 <span class="small">Spaltenname: Hyb</span></th>
 <td><details class="out-meta">
 <summary>
-20 gesetzte Werte · vollständige Belegung ansehen
+24 gesetzte Werte · vollständige Belegung ansehen
 </summary>
 <dl>
 <dt><span data-in-var="construction_name">Bauweise Name</span> <code>construction_name</code></dt>
@@ -9470,7 +9512,7 @@ Neubau Hybrid <span class="text-muted">[text] · K3</span>
 </dd>
 <dt><span data-in-var="construction_description">Bauweise Beschreibung</span> <code>construction_description</code></dt>
 <dd>
-Hyb <span class="text-muted">[text] · K4</span>
+Hyb_PHniv <span class="text-muted">[text] · K4</span>
 </dd>
 <dt><span data-in-var="construction_type">Bauweise Type</span> <code>construction_type</code></dt>
 <dd>
@@ -9514,7 +9556,7 @@ KDu 01 a Kellerdecke massiv, unterseitig gedämmt <span class="text-muted">[text
 </dd>
 <dt><span data-in-var="COMP_name_fundament">Bauweise Bodenplatte</span> <code>COMP_name_fundament</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · K18</span>
+Erdberührter Fußboden Keller <span class="text-muted">[text] · K18</span>
 </dd>
 <dt><span data-in-var="COMP_name_ceil_to_air">Bauweise Außendecke gg. Außenluft</span> <code>COMP_name_ceil_to_air</code></dt>
 <dd>
@@ -9554,7 +9596,7 @@ Erdberührte Wand Keller <span class="text-muted">[text] · K24</span>
 </dd>
 <dt><span data-in-var="COMP_name_unheated_horizontal">Bauweise Zwischendecke unbeheizt / Keller / TG</span> <code>COMP_name_unheated_horizontal</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · K28</span>
+1_UG_TG_TW_01 Trennwand zu TG STB 100kg/m³ TG (tragend + Brandschutz) <span class="text-muted">[text] · K28</span>
 </dd>
 <dt><span data-in-var="COMP_name_balconies">Bauweise Balkone</span> <code>COMP_name_balconies</code></dt>
 <dd>
@@ -9570,11 +9612,11 @@ Dreifach-Wärmeschutzglas,&nbsp;Argon,&nbsp;40&nbsp;&lt;&nbsp;Scheibenstärke <s
 </dd>
 <dt><span data-in-var="COMP_name_garage_horizontal">Bauweise Garage Decken</span> <code>COMP_name_garage_horizontal</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · K32</span>
+1_UG_TG_TW_01 Trennwand zu TG STB 100kg/m³ TG (tragend + Brandschutz) <span class="text-muted">[text] · K32</span>
 </dd>
 <dt><span data-in-var="COMP_name_garage_columns">Bauweise Garage Stützen</span> <code>COMP_name_garage_columns</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · K33</span>
+1_UG_TG_Stü_01 Stützen <span class="text-muted">[text] · K33</span>
 </dd>
 <dt><span data-in-var="COMP_name_other_1">Bauweise Sonstige</span> <code>COMP_name_other_1</code></dt>
 <dd>
@@ -9596,7 +9638,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 <span class="small">Spaltenname: Beteco</span></th>
 <td><details class="out-meta">
 <summary>
-20 gesetzte Werte · vollständige Belegung ansehen
+24 gesetzte Werte · vollständige Belegung ansehen
 </summary>
 <dl>
 <dt><span data-in-var="construction_name">Bauweise Name</span> <code>construction_name</code></dt>
@@ -9605,7 +9647,7 @@ Neubau Beton ökologisch <span class="text-muted">[text] · L3</span>
 </dd>
 <dt><span data-in-var="construction_description">Bauweise Beschreibung</span> <code>construction_description</code></dt>
 <dd>
-Beteco <span class="text-muted">[text] · L4</span>
+Beteco_PHniv <span class="text-muted">[text] · L4</span>
 </dd>
 <dt><span data-in-var="construction_type">Bauweise Type</span> <code>construction_type</code></dt>
 <dd>
@@ -9649,7 +9691,7 @@ KDu 01 b Kellerdecke massiv, unterseitig gedämmt <span class="text-muted">[text
 </dd>
 <dt><span data-in-var="COMP_name_fundament">Bauweise Bodenplatte</span> <code>COMP_name_fundament</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · L18</span>
+Erdberührter Fußboden Keller <span class="text-muted">[text] · L18</span>
 </dd>
 <dt><span data-in-var="COMP_name_ceil_to_air">Bauweise Außendecke gg. Außenluft</span> <code>COMP_name_ceil_to_air</code></dt>
 <dd>
@@ -9689,7 +9731,7 @@ Erdberührte Wand Keller <span class="text-muted">[text] · L24</span>
 </dd>
 <dt><span data-in-var="COMP_name_unheated_horizontal">Bauweise Zwischendecke unbeheizt / Keller / TG</span> <code>COMP_name_unheated_horizontal</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · L28</span>
+1_UG_TG_TW_01 Trennwand zu TG STB 100kg/m³ TG (tragend + Brandschutz) <span class="text-muted">[text] · L28</span>
 </dd>
 <dt><span data-in-var="COMP_name_balconies">Bauweise Balkone</span> <code>COMP_name_balconies</code></dt>
 <dd>
@@ -9705,11 +9747,11 @@ Dreifach-Wärmeschutzglas,&nbsp;Argon,&nbsp;40&nbsp;&lt;&nbsp;Scheibenstärke <s
 </dd>
 <dt><span data-in-var="COMP_name_garage_horizontal">Bauweise Garage Decken</span> <code>COMP_name_garage_horizontal</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · L32</span>
+1_UG_TG_TW_01 Trennwand zu TG STB 100kg/m³ TG (tragend + Brandschutz) <span class="text-muted">[text] · L32</span>
 </dd>
 <dt><span data-in-var="COMP_name_garage_columns">Bauweise Garage Stützen</span> <code>COMP_name_garage_columns</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · L33</span>
+1_UG_TG_Stü_01 Stützen <span class="text-muted">[text] · L33</span>
 </dd>
 <dt><span data-in-var="COMP_name_other_1">Bauweise Sonstige</span> <code>COMP_name_other_1</code></dt>
 <dd>
@@ -9731,7 +9773,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 <span class="small">Spaltenname: Zieeco</span></th>
 <td><details class="out-meta">
 <summary>
-20 gesetzte Werte · vollständige Belegung ansehen
+24 gesetzte Werte · vollständige Belegung ansehen
 </summary>
 <dl>
 <dt><span data-in-var="construction_name">Bauweise Name</span> <code>construction_name</code></dt>
@@ -9740,7 +9782,7 @@ Neubau Ziegel ökologisch <span class="text-muted">[text] · M3</span>
 </dd>
 <dt><span data-in-var="construction_description">Bauweise Beschreibung</span> <code>construction_description</code></dt>
 <dd>
-Zieeco <span class="text-muted">[text] · M4</span>
+Zieeco_PHniv <span class="text-muted">[text] · M4</span>
 </dd>
 <dt><span data-in-var="construction_type">Bauweise Type</span> <code>construction_type</code></dt>
 <dd>
@@ -9784,7 +9826,7 @@ KDu 01 b Kellerdecke massiv, unterseitig gedämmt <span class="text-muted">[text
 </dd>
 <dt><span data-in-var="COMP_name_fundament">Bauweise Bodenplatte</span> <code>COMP_name_fundament</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · M18</span>
+Erdberührter Fußboden Keller <span class="text-muted">[text] · M18</span>
 </dd>
 <dt><span data-in-var="COMP_name_ceil_to_air">Bauweise Außendecke gg. Außenluft</span> <code>COMP_name_ceil_to_air</code></dt>
 <dd>
@@ -9824,7 +9866,7 @@ Erdberührte Wand Keller <span class="text-muted">[text] · M24</span>
 </dd>
 <dt><span data-in-var="COMP_name_unheated_horizontal">Bauweise Zwischendecke unbeheizt / Keller / TG</span> <code>COMP_name_unheated_horizontal</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · M28</span>
+1_UG_TG_TW_01 Trennwand zu TG STB 100kg/m³ TG (tragend + Brandschutz) <span class="text-muted">[text] · M28</span>
 </dd>
 <dt><span data-in-var="COMP_name_balconies">Bauweise Balkone</span> <code>COMP_name_balconies</code></dt>
 <dd>
@@ -9840,11 +9882,11 @@ Dreifach-Wärmeschutzglas,&nbsp;Argon,&nbsp;40&nbsp;&lt;&nbsp;Scheibenstärke <s
 </dd>
 <dt><span data-in-var="COMP_name_garage_horizontal">Bauweise Garage Decken</span> <code>COMP_name_garage_horizontal</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · M32</span>
+1_UG_TG_TW_01 Trennwand zu TG STB 100kg/m³ TG (tragend + Brandschutz) <span class="text-muted">[text] · M32</span>
 </dd>
 <dt><span data-in-var="COMP_name_garage_columns">Bauweise Garage Stützen</span> <code>COMP_name_garage_columns</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · M33</span>
+1_UG_TG_Stü_01 Stützen <span class="text-muted">[text] · M33</span>
 </dd>
 <dt><span data-in-var="COMP_name_other_1">Bauweise Sonstige</span> <code>COMP_name_other_1</code></dt>
 <dd>
@@ -9866,7 +9908,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 <span class="small">Spaltenname: Holeco</span></th>
 <td><details class="out-meta">
 <summary>
-20 gesetzte Werte · vollständige Belegung ansehen
+24 gesetzte Werte · vollständige Belegung ansehen
 </summary>
 <dl>
 <dt><span data-in-var="construction_name">Bauweise Name</span> <code>construction_name</code></dt>
@@ -9875,7 +9917,7 @@ Neubau Holz Ökologisch <span class="text-muted">[text] · N3</span>
 </dd>
 <dt><span data-in-var="construction_description">Bauweise Beschreibung</span> <code>construction_description</code></dt>
 <dd>
-Holeco <span class="text-muted">[text] · N4</span>
+Holeco_PHniv <span class="text-muted">[text] · N4</span>
 </dd>
 <dt><span data-in-var="construction_type">Bauweise Type</span> <code>construction_type</code></dt>
 <dd>
@@ -9919,7 +9961,7 @@ KDh 01 b <span class="text-muted">[text] · N17</span>
 </dd>
 <dt><span data-in-var="COMP_name_fundament">Bauweise Bodenplatte</span> <code>COMP_name_fundament</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · N18</span>
+Erdberührter Fußboden Keller <span class="text-muted">[text] · N18</span>
 </dd>
 <dt><span data-in-var="COMP_name_ceil_to_air">Bauweise Außendecke gg. Außenluft</span> <code>COMP_name_ceil_to_air</code></dt>
 <dd>
@@ -9959,7 +10001,7 @@ Erdberührte Wand Keller <span class="text-muted">[text] · N24</span>
 </dd>
 <dt><span data-in-var="COMP_name_unheated_horizontal">Bauweise Zwischendecke unbeheizt / Keller / TG</span> <code>COMP_name_unheated_horizontal</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · N28</span>
+1_UG_TG_TW_01 Trennwand zu TG STB 100kg/m³ TG (tragend + Brandschutz) <span class="text-muted">[text] · N28</span>
 </dd>
 <dt><span data-in-var="COMP_name_balconies">Bauweise Balkone</span> <code>COMP_name_balconies</code></dt>
 <dd>
@@ -9975,11 +10017,11 @@ Dreifach-Wärmeschutzglas,&nbsp;Argon,&nbsp;40&nbsp;&lt;&nbsp;Scheibenstärke <s
 </dd>
 <dt><span data-in-var="COMP_name_garage_horizontal">Bauweise Garage Decken</span> <code>COMP_name_garage_horizontal</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · N32</span>
+1_UG_TG_TW_01 Trennwand zu TG STB 100kg/m³ TG (tragend + Brandschutz) <span class="text-muted">[text] · N32</span>
 </dd>
 <dt><span data-in-var="COMP_name_garage_columns">Bauweise Garage Stützen</span> <code>COMP_name_garage_columns</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · N33</span>
+1_UG_TG_Stü_01 Stützen <span class="text-muted">[text] · N33</span>
 </dd>
 <dt><span data-in-var="COMP_name_other_1">Bauweise Sonstige</span> <code>COMP_name_other_1</code></dt>
 <dd>
@@ -10001,7 +10043,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 <span class="small">Spaltenname: Leieco</span></th>
 <td><details class="out-meta">
 <summary>
-20 gesetzte Werte · vollständige Belegung ansehen
+24 gesetzte Werte · vollständige Belegung ansehen
 </summary>
 <dl>
 <dt><span data-in-var="construction_name">Bauweise Name</span> <code>construction_name</code></dt>
@@ -10010,7 +10052,7 @@ Neubau Leichtbau Ökologisch <span class="text-muted">[text] · O3</span>
 </dd>
 <dt><span data-in-var="construction_description">Bauweise Beschreibung</span> <code>construction_description</code></dt>
 <dd>
-Leieco <span class="text-muted">[text] · O4</span>
+Leieco_PHniv <span class="text-muted">[text] · O4</span>
 </dd>
 <dt><span data-in-var="construction_type">Bauweise Type</span> <code>construction_type</code></dt>
 <dd>
@@ -10054,7 +10096,7 @@ KDl 01 b Leichtbau-Kellerdecke <span class="text-muted">[text] · O17</span>
 </dd>
 <dt><span data-in-var="COMP_name_fundament">Bauweise Bodenplatte</span> <code>COMP_name_fundament</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · O18</span>
+Erdberührter Fußboden Keller <span class="text-muted">[text] · O18</span>
 </dd>
 <dt><span data-in-var="COMP_name_ceil_to_air">Bauweise Außendecke gg. Außenluft</span> <code>COMP_name_ceil_to_air</code></dt>
 <dd>
@@ -10094,7 +10136,7 @@ Erdberührte Wand Keller <span class="text-muted">[text] · O24</span>
 </dd>
 <dt><span data-in-var="COMP_name_unheated_horizontal">Bauweise Zwischendecke unbeheizt / Keller / TG</span> <code>COMP_name_unheated_horizontal</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · O28</span>
+1_UG_TG_TW_01 Trennwand zu TG STB 100kg/m³ TG (tragend + Brandschutz) <span class="text-muted">[text] · O28</span>
 </dd>
 <dt><span data-in-var="COMP_name_balconies">Bauweise Balkone</span> <code>COMP_name_balconies</code></dt>
 <dd>
@@ -10110,11 +10152,11 @@ Dreifach-Wärmeschutzglas,&nbsp;Argon,&nbsp;40&nbsp;&lt;&nbsp;Scheibenstärke <s
 </dd>
 <dt><span data-in-var="COMP_name_garage_horizontal">Bauweise Garage Decken</span> <code>COMP_name_garage_horizontal</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · O32</span>
+1_UG_TG_TW_01 Trennwand zu TG STB 100kg/m³ TG (tragend + Brandschutz) <span class="text-muted">[text] · O32</span>
 </dd>
 <dt><span data-in-var="COMP_name_garage_columns">Bauweise Garage Stützen</span> <code>COMP_name_garage_columns</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · O33</span>
+1_UG_TG_Stü_01 Stützen <span class="text-muted">[text] · O33</span>
 </dd>
 <dt><span data-in-var="COMP_name_other_1">Bauweise Sonstige</span> <code>COMP_name_other_1</code></dt>
 <dd>
@@ -10136,7 +10178,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 <span class="small">Spaltenname: Hybeco</span></th>
 <td><details class="out-meta">
 <summary>
-20 gesetzte Werte · vollständige Belegung ansehen
+24 gesetzte Werte · vollständige Belegung ansehen
 </summary>
 <dl>
 <dt><span data-in-var="construction_name">Bauweise Name</span> <code>construction_name</code></dt>
@@ -10145,7 +10187,7 @@ Neubau Hybridbauweise Ökologisch <span class="text-muted">[text] · P3</span>
 </dd>
 <dt><span data-in-var="construction_description">Bauweise Beschreibung</span> <code>construction_description</code></dt>
 <dd>
-Hybeco <span class="text-muted">[text] · P4</span>
+Hybeco_PHniv <span class="text-muted">[text] · P4</span>
 </dd>
 <dt><span data-in-var="construction_type">Bauweise Type</span> <code>construction_type</code></dt>
 <dd>
@@ -10189,7 +10231,7 @@ KDu 01 b Kellerdecke massiv, unterseitig gedämmt <span class="text-muted">[text
 </dd>
 <dt><span data-in-var="COMP_name_fundament">Bauweise Bodenplatte</span> <code>COMP_name_fundament</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · P18</span>
+Erdberührter Fußboden Keller <span class="text-muted">[text] · P18</span>
 </dd>
 <dt><span data-in-var="COMP_name_ceil_to_air">Bauweise Außendecke gg. Außenluft</span> <code>COMP_name_ceil_to_air</code></dt>
 <dd>
@@ -10229,7 +10271,7 @@ Erdberührte Wand Keller <span class="text-muted">[text] · P24</span>
 </dd>
 <dt><span data-in-var="COMP_name_unheated_horizontal">Bauweise Zwischendecke unbeheizt / Keller / TG</span> <code>COMP_name_unheated_horizontal</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · P28</span>
+1_UG_TG_TW_01 Trennwand zu TG STB 100kg/m³ TG (tragend + Brandschutz) <span class="text-muted">[text] · P28</span>
 </dd>
 <dt><span data-in-var="COMP_name_balconies">Bauweise Balkone</span> <code>COMP_name_balconies</code></dt>
 <dd>
@@ -10245,11 +10287,11 @@ Dreifach-Wärmeschutzglas,&nbsp;Argon,&nbsp;40&nbsp;&lt;&nbsp;Scheibenstärke <s
 </dd>
 <dt><span data-in-var="COMP_name_garage_horizontal">Bauweise Garage Decken</span> <code>COMP_name_garage_horizontal</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · P32</span>
+1_UG_TG_TW_01 Trennwand zu TG STB 100kg/m³ TG (tragend + Brandschutz) <span class="text-muted">[text] · P32</span>
 </dd>
 <dt><span data-in-var="COMP_name_garage_columns">Bauweise Garage Stützen</span> <code>COMP_name_garage_columns</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · P33</span>
+1_UG_TG_Stü_01 Stützen <span class="text-muted">[text] · P33</span>
 </dd>
 <dt><span data-in-var="COMP_name_other_1">Bauweise Sonstige</span> <code>COMP_name_other_1</code></dt>
 <dd>
@@ -10271,7 +10313,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 <span class="small">Spaltenname: EPS</span></th>
 <td><details class="out-meta">
 <summary>
-13 gesetzte Werte · vollständige Belegung ansehen
+17 gesetzte Werte · vollständige Belegung ansehen
 </summary>
 <dl>
 <dt><span data-in-var="construction_name">Bauweise Name</span> <code>construction_name</code></dt>
@@ -10280,7 +10322,7 @@ Sanierung Konventionell EPS Dämmstoff <span class="text-muted">[text] · Q3</sp
 </dd>
 <dt><span data-in-var="construction_description">Bauweise Beschreibung</span> <code>construction_description</code></dt>
 <dd>
-EPS <span class="text-muted">[text] · Q4</span>
+EPS_PHniv <span class="text-muted">[text] · Q4</span>
 </dd>
 <dt><span data-in-var="construction_type">Bauweise Type</span> <code>construction_type</code></dt>
 <dd>
@@ -10304,11 +10346,11 @@ Flachdach_EPS <span class="text-muted">[text] · Q12</span>
 </dd>
 <dt><span data-in-var="COMP_name_roof_pitched">Bauweise Steildach</span> <code>COMP_name_roof_pitched</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · Q13</span>
+F15 EPS <span class="text-muted">[text] · Q13</span>
 </dd>
 <dt><span data-in-var="COMP_name_floor">Bauweise Erdb. Fußboden beheizt</span> <code>COMP_name_floor</code></dt>
 <dd>
-San_ADm 01 a_EPS_Stahlbetondecke über Außenluft, Distanzboden <span class="text-muted">[text] · Q14</span>
+F39_EPS <span class="text-muted">[text] · Q14</span>
 </dd>
 <dt><span data-in-var="COMP_name_ceiling">Bauweise Geschossdecke</span> <code>COMP_name_ceiling</code></dt>
 <dd>
@@ -10316,7 +10358,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_terrace">Bauweise Terasse</span> <code>COMP_name_terrace</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · Q16</span>
+F25_EPS <span class="text-muted">[text] · Q16</span>
 </dd>
 <dt><span data-in-var="COMP_name_basement_ceiling">Bauweise Kellerdecke</span> <code>COMP_name_basement_ceiling</code></dt>
 <dd>
@@ -10328,7 +10370,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_ceil_to_air">Bauweise Außendecke gg. Außenluft</span> <code>COMP_name_ceil_to_air</code></dt>
 <dd>
-F48_EPS <span class="text-muted">[text] · Q19</span>
+San_ADm 01 a_EPS_Stahlbetondecke über Außenluft, Distanzboden <span class="text-muted">[text] · Q19</span>
 </dd>
 <dt><span data-in-var="COMP_name_wall_earth_contacted">Bauweise Erdb. Wand beheizt</span> <code>COMP_name_wall_earth_contacted</code></dt>
 <dd>
@@ -10344,7 +10386,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_ceiling_topfloor">Bauweise Oberste Geschoßdecke</span> <code>COMP_name_ceiling_topfloor</code></dt>
 <dd>
-F15 EPS <span class="text-muted">[text] · Q23</span>
+Oberste GD_EPS_GFP <span class="text-muted">[text] · Q23</span>
 </dd>
 <dt><span data-in-var="COMP_name_wall_ec_unheated">Bauweise Erdb. Wand Keller</span> <code>COMP_name_wall_ec_unheated</code></dt>
 <dd>
@@ -10368,7 +10410,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_balconies">Bauweise Balkone</span> <code>COMP_name_balconies</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · Q29</span>
+F48_EPS <span class="text-muted">[text] · Q29</span>
 </dd>
 <dt><span data-in-var="COMP_name_windowframe">Bauweise Fensterrahmen</span> <code>COMP_name_windowframe</code></dt>
 <dd>
@@ -10388,7 +10430,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_other_1">Bauweise Sonstige</span> <code>COMP_name_other_1</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · Q34</span>
+Innendämmung_EPS_verputzt <span class="text-muted">[text] · Q34</span>
 </dd>
 <dt><span data-in-var="COMP_name_other_2">Bauweise Sonstige 2</span> <code>COMP_name_other_2</code></dt>
 <dd>
@@ -10406,7 +10448,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 <span class="small">Spaltenname: Steinw</span></th>
 <td><details class="out-meta">
 <summary>
-13 gesetzte Werte · vollständige Belegung ansehen
+17 gesetzte Werte · vollständige Belegung ansehen
 </summary>
 <dl>
 <dt><span data-in-var="construction_name">Bauweise Name</span> <code>construction_name</code></dt>
@@ -10415,7 +10457,7 @@ Sanierung Konventionell Steinwolledämmung <span class="text-muted">[text] · R3
 </dd>
 <dt><span data-in-var="construction_description">Bauweise Beschreibung</span> <code>construction_description</code></dt>
 <dd>
-Steinw <span class="text-muted">[text] · R4</span>
+Steinw_PHniv <span class="text-muted">[text] · R4</span>
 </dd>
 <dt><span data-in-var="construction_type">Bauweise Type</span> <code>construction_type</code></dt>
 <dd>
@@ -10439,11 +10481,11 @@ F20_Steinwolle <span class="text-muted">[text] · R12</span>
 </dd>
 <dt><span data-in-var="COMP_name_roof_pitched">Bauweise Steildach</span> <code>COMP_name_roof_pitched</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · R13</span>
+F15 Steinwolle <span class="text-muted">[text] · R13</span>
 </dd>
 <dt><span data-in-var="COMP_name_floor">Bauweise Erdb. Fußboden beheizt</span> <code>COMP_name_floor</code></dt>
 <dd>
-San_ADm 01 a_Steinwolle_Stahlbetondecke über Außenluft, Distanzboden <span class="text-muted">[text] · R14</span>
+F39_Steinwolle <span class="text-muted">[text] · R14</span>
 </dd>
 <dt><span data-in-var="COMP_name_ceiling">Bauweise Geschossdecke</span> <code>COMP_name_ceiling</code></dt>
 <dd>
@@ -10451,7 +10493,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_terrace">Bauweise Terasse</span> <code>COMP_name_terrace</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · R16</span>
+F25_Steinwolle <span class="text-muted">[text] · R16</span>
 </dd>
 <dt><span data-in-var="COMP_name_basement_ceiling">Bauweise Kellerdecke</span> <code>COMP_name_basement_ceiling</code></dt>
 <dd>
@@ -10463,7 +10505,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_ceil_to_air">Bauweise Außendecke gg. Außenluft</span> <code>COMP_name_ceil_to_air</code></dt>
 <dd>
-F48_Steinwolle <span class="text-muted">[text] · R19</span>
+San_ADm 01 a_Steinwolle_Stahlbetondecke über Außenluft, Distanzboden <span class="text-muted">[text] · R19</span>
 </dd>
 <dt><span data-in-var="COMP_name_wall_earth_contacted">Bauweise Erdb. Wand beheizt</span> <code>COMP_name_wall_earth_contacted</code></dt>
 <dd>
@@ -10479,7 +10521,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_ceiling_topfloor">Bauweise Oberste Geschoßdecke</span> <code>COMP_name_ceiling_topfloor</code></dt>
 <dd>
-F15 Steinwolle <span class="text-muted">[text] · R23</span>
+F28_Steinwolle <span class="text-muted">[text] · R23</span>
 </dd>
 <dt><span data-in-var="COMP_name_wall_ec_unheated">Bauweise Erdb. Wand Keller</span> <code>COMP_name_wall_ec_unheated</code></dt>
 <dd>
@@ -10503,7 +10545,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_balconies">Bauweise Balkone</span> <code>COMP_name_balconies</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · R29</span>
+F48_Steinwolle <span class="text-muted">[text] · R29</span>
 </dd>
 <dt><span data-in-var="COMP_name_windowframe">Bauweise Fensterrahmen</span> <code>COMP_name_windowframe</code></dt>
 <dd>
@@ -10523,7 +10565,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_other_1">Bauweise Sonstige</span> <code>COMP_name_other_1</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · R34</span>
+Innendämmung_Steinwolle_GKP <span class="text-muted">[text] · R34</span>
 </dd>
 <dt><span data-in-var="COMP_name_other_2">Bauweise Sonstige 2</span> <code>COMP_name_other_2</code></dt>
 <dd>
@@ -10541,7 +10583,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 <span class="small">Spaltenname: Glasw</span></th>
 <td><details class="out-meta">
 <summary>
-13 gesetzte Werte · vollständige Belegung ansehen
+17 gesetzte Werte · vollständige Belegung ansehen
 </summary>
 <dl>
 <dt><span data-in-var="construction_name">Bauweise Name</span> <code>construction_name</code></dt>
@@ -10550,7 +10592,7 @@ Sanierung Konventionell Glaswolledämmung <span class="text-muted">[text] · S3<
 </dd>
 <dt><span data-in-var="construction_description">Bauweise Beschreibung</span> <code>construction_description</code></dt>
 <dd>
-Glasw <span class="text-muted">[text] · S4</span>
+Glasw_PHniv <span class="text-muted">[text] · S4</span>
 </dd>
 <dt><span data-in-var="construction_type">Bauweise Type</span> <code>construction_type</code></dt>
 <dd>
@@ -10574,11 +10616,11 @@ F19 Glaswolle, KVH <span class="text-muted">[text] · S12</span>
 </dd>
 <dt><span data-in-var="COMP_name_roof_pitched">Bauweise Steildach</span> <code>COMP_name_roof_pitched</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · S13</span>
+F14 Glaswolle, keine Vorsatzschale innen, bleibt Bestand <span class="text-muted">[text] · S13</span>
 </dd>
 <dt><span data-in-var="COMP_name_floor">Bauweise Erdb. Fußboden beheizt</span> <code>COMP_name_floor</code></dt>
 <dd>
-AD_hinterlüftet_Glaswolle_Faserzement <span class="text-muted">[text] · S14</span>
+F40_Glaswolle <span class="text-muted">[text] · S14</span>
 </dd>
 <dt><span data-in-var="COMP_name_ceiling">Bauweise Geschossdecke</span> <code>COMP_name_ceiling</code></dt>
 <dd>
@@ -10586,7 +10628,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_terrace">Bauweise Terasse</span> <code>COMP_name_terrace</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · S16</span>
+F25_EPS <span class="text-muted">[text] · S16</span>
 </dd>
 <dt><span data-in-var="COMP_name_basement_ceiling">Bauweise Kellerdecke</span> <code>COMP_name_basement_ceiling</code></dt>
 <dd>
@@ -10598,7 +10640,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_ceil_to_air">Bauweise Außendecke gg. Außenluft</span> <code>COMP_name_ceil_to_air</code></dt>
 <dd>
-F48_Steinwolle <span class="text-muted">[text] · S19</span>
+AD_hinterlüftet_Glaswolle_Faserzement <span class="text-muted">[text] · S19</span>
 </dd>
 <dt><span data-in-var="COMP_name_wall_earth_contacted">Bauweise Erdb. Wand beheizt</span> <code>COMP_name_wall_earth_contacted</code></dt>
 <dd>
@@ -10614,7 +10656,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_ceiling_topfloor">Bauweise Oberste Geschoßdecke</span> <code>COMP_name_ceiling_topfloor</code></dt>
 <dd>
-F14 Glaswolle, keine Vorsatzschale innen, bleibt Bestand <span class="text-muted">[text] · S23</span>
+Oberste GD_Glaswolle_Dibo <span class="text-muted">[text] · S23</span>
 </dd>
 <dt><span data-in-var="COMP_name_wall_ec_unheated">Bauweise Erdb. Wand Keller</span> <code>COMP_name_wall_ec_unheated</code></dt>
 <dd>
@@ -10638,7 +10680,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_balconies">Bauweise Balkone</span> <code>COMP_name_balconies</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · S29</span>
+F48_Steinwolle <span class="text-muted">[text] · S29</span>
 </dd>
 <dt><span data-in-var="COMP_name_windowframe">Bauweise Fensterrahmen</span> <code>COMP_name_windowframe</code></dt>
 <dd>
@@ -10658,7 +10700,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_other_1">Bauweise Sonstige</span> <code>COMP_name_other_1</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · S34</span>
+Innendämmung_Glaswolle_GKP <span class="text-muted">[text] · S34</span>
 </dd>
 <dt><span data-in-var="COMP_name_other_2">Bauweise Sonstige 2</span> <code>COMP_name_other_2</code></dt>
 <dd>
@@ -10676,7 +10718,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 <span class="small">Spaltenname: Mineralsch</span></th>
 <td><details class="out-meta">
 <summary>
-13 gesetzte Werte · vollständige Belegung ansehen
+17 gesetzte Werte · vollständige Belegung ansehen
 </summary>
 <dl>
 <dt><span data-in-var="construction_name">Bauweise Name</span> <code>construction_name</code></dt>
@@ -10685,7 +10727,7 @@ Sanierung Konventionell Mineraldämmung <span class="text-muted">[text] · T3</s
 </dd>
 <dt><span data-in-var="construction_description">Bauweise Beschreibung</span> <code>construction_description</code></dt>
 <dd>
-Mineralsch <span class="text-muted">[text] · T4</span>
+Mineralsch_PHniv <span class="text-muted">[text] · T4</span>
 </dd>
 <dt><span data-in-var="construction_type">Bauweise Type</span> <code>construction_type</code></dt>
 <dd>
@@ -10709,11 +10751,11 @@ F25_Schaumglas <span class="text-muted">[text] · T12</span>
 </dd>
 <dt><span data-in-var="COMP_name_roof_pitched">Bauweise Steildach</span> <code>COMP_name_roof_pitched</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · T13</span>
+F14 Zellulose, keine Vorsatzschale innen, bleibt Bestand <span class="text-muted">[text] · T13</span>
 </dd>
 <dt><span data-in-var="COMP_name_floor">Bauweise Erdb. Fußboden beheizt</span> <code>COMP_name_floor</code></dt>
 <dd>
-San_ADh 01 a_Steinwolle_Massivholzdecke über Außenluft, Nassestrich <span class="text-muted">[text] · T14</span>
+F38_Perlite <span class="text-muted">[text] · T14</span>
 </dd>
 <dt><span data-in-var="COMP_name_ceiling">Bauweise Geschossdecke</span> <code>COMP_name_ceiling</code></dt>
 <dd>
@@ -10721,7 +10763,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_terrace">Bauweise Terasse</span> <code>COMP_name_terrace</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · T16</span>
+F25_Schaumglas <span class="text-muted">[text] · T16</span>
 </dd>
 <dt><span data-in-var="COMP_name_basement_ceiling">Bauweise Kellerdecke</span> <code>COMP_name_basement_ceiling</code></dt>
 <dd>
@@ -10733,7 +10775,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_ceil_to_air">Bauweise Außendecke gg. Außenluft</span> <code>COMP_name_ceil_to_air</code></dt>
 <dd>
-F48_Mineralschaum <span class="text-muted">[text] · T19</span>
+San_ADh 01 a_Steinwolle_Massivholzdecke über Außenluft, Nassestrich <span class="text-muted">[text] · T19</span>
 </dd>
 <dt><span data-in-var="COMP_name_wall_earth_contacted">Bauweise Erdb. Wand beheizt</span> <code>COMP_name_wall_earth_contacted</code></dt>
 <dd>
@@ -10749,7 +10791,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_ceiling_topfloor">Bauweise Oberste Geschoßdecke</span> <code>COMP_name_ceiling_topfloor</code></dt>
 <dd>
-F14 Zellulose, keine Vorsatzschale innen, bleibt Bestand <span class="text-muted">[text] · T23</span>
+Oberste GD_Perlite_GFP <span class="text-muted">[text] · T23</span>
 </dd>
 <dt><span data-in-var="COMP_name_wall_ec_unheated">Bauweise Erdb. Wand Keller</span> <code>COMP_name_wall_ec_unheated</code></dt>
 <dd>
@@ -10773,7 +10815,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_balconies">Bauweise Balkone</span> <code>COMP_name_balconies</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · T29</span>
+F48_Mineralschaum <span class="text-muted">[text] · T29</span>
 </dd>
 <dt><span data-in-var="COMP_name_windowframe">Bauweise Fensterrahmen</span> <code>COMP_name_windowframe</code></dt>
 <dd>
@@ -10793,7 +10835,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_other_1">Bauweise Sonstige</span> <code>COMP_name_other_1</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · T34</span>
+Innendämmung_CASiplatte_ver <span class="text-muted">[text] · T34</span>
 </dd>
 <dt><span data-in-var="COMP_name_other_2">Bauweise Sonstige 2</span> <code>COMP_name_other_2</code></dt>
 <dd>
@@ -10811,7 +10853,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 <span class="small">Spaltenname: Hanf</span></th>
 <td><details class="out-meta">
 <summary>
-13 gesetzte Werte · vollständige Belegung ansehen
+17 gesetzte Werte · vollständige Belegung ansehen
 </summary>
 <dl>
 <dt><span data-in-var="construction_name">Bauweise Name</span> <code>construction_name</code></dt>
@@ -10820,7 +10862,7 @@ Sanierung Ökologisch Hanfdämmung <span class="text-muted">[text] · U3</span>
 </dd>
 <dt><span data-in-var="construction_description">Bauweise Beschreibung</span> <code>construction_description</code></dt>
 <dd>
-Hanf <span class="text-muted">[text] · U4</span>
+Hanf_PHniv <span class="text-muted">[text] · U4</span>
 </dd>
 <dt><span data-in-var="construction_type">Bauweise Type</span> <code>construction_type</code></dt>
 <dd>
@@ -10844,11 +10886,11 @@ Flachdach_Hanf <span class="text-muted">[text] · U12</span>
 </dd>
 <dt><span data-in-var="COMP_name_roof_pitched">Bauweise Steildach</span> <code>COMP_name_roof_pitched</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · U13</span>
+F14 Hanf, keine Vorsatzschale innen, bleibt Bestand <span class="text-muted">[text] · U13</span>
 </dd>
 <dt><span data-in-var="COMP_name_floor">Bauweise Erdb. Fußboden beheizt</span> <code>COMP_name_floor</code></dt>
 <dd>
-San_ADh 01 b_Hanf_Massivholzdecke über Außenluft, Nassestrich <span class="text-muted">[text] · U14</span>
+F40_Hanf <span class="text-muted">[text] · U14</span>
 </dd>
 <dt><span data-in-var="COMP_name_ceiling">Bauweise Geschossdecke</span> <code>COMP_name_ceiling</code></dt>
 <dd>
@@ -10856,7 +10898,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_terrace">Bauweise Terasse</span> <code>COMP_name_terrace</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · U16</span>
+F25_Holzfaser <span class="text-muted">[text] · U16</span>
 </dd>
 <dt><span data-in-var="COMP_name_basement_ceiling">Bauweise Kellerdecke</span> <code>COMP_name_basement_ceiling</code></dt>
 <dd>
@@ -10868,7 +10910,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_ceil_to_air">Bauweise Außendecke gg. Außenluft</span> <code>COMP_name_ceil_to_air</code></dt>
 <dd>
-F48_Hanf_WDVS <span class="text-muted">[text] · U19</span>
+San_ADh 01 b_Hanf_Massivholzdecke über Außenluft, Nassestrich <span class="text-muted">[text] · U19</span>
 </dd>
 <dt><span data-in-var="COMP_name_wall_earth_contacted">Bauweise Erdb. Wand beheizt</span> <code>COMP_name_wall_earth_contacted</code></dt>
 <dd>
@@ -10884,7 +10926,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_ceiling_topfloor">Bauweise Oberste Geschoßdecke</span> <code>COMP_name_ceiling_topfloor</code></dt>
 <dd>
-F14 Hanf, keine Vorsatzschale innen, bleibt Bestand <span class="text-muted">[text] · U23</span>
+F29_Hanf <span class="text-muted">[text] · U23</span>
 </dd>
 <dt><span data-in-var="COMP_name_wall_ec_unheated">Bauweise Erdb. Wand Keller</span> <code>COMP_name_wall_ec_unheated</code></dt>
 <dd>
@@ -10908,7 +10950,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_balconies">Bauweise Balkone</span> <code>COMP_name_balconies</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · U29</span>
+F48_Hanf_WDVS <span class="text-muted">[text] · U29</span>
 </dd>
 <dt><span data-in-var="COMP_name_windowframe">Bauweise Fensterrahmen</span> <code>COMP_name_windowframe</code></dt>
 <dd>
@@ -10928,7 +10970,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_other_1">Bauweise Sonstige</span> <code>COMP_name_other_1</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · U34</span>
+Innendämmung_CASiplatte_ver <span class="text-muted">[text] · U34</span>
 </dd>
 <dt><span data-in-var="COMP_name_other_2">Bauweise Sonstige 2</span> <code>COMP_name_other_2</code></dt>
 <dd>
@@ -10946,7 +10988,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 <span class="small">Spaltenname: Holzf</span></th>
 <td><details class="out-meta">
 <summary>
-13 gesetzte Werte · vollständige Belegung ansehen
+17 gesetzte Werte · vollständige Belegung ansehen
 </summary>
 <dl>
 <dt><span data-in-var="construction_name">Bauweise Name</span> <code>construction_name</code></dt>
@@ -10955,7 +10997,7 @@ Sanierung Ökologisch Holzfaserdämmung <span class="text-muted">[text] · V3</s
 </dd>
 <dt><span data-in-var="construction_description">Bauweise Beschreibung</span> <code>construction_description</code></dt>
 <dd>
-Holzf <span class="text-muted">[text] · V4</span>
+Holzf_PHniv <span class="text-muted">[text] · V4</span>
 </dd>
 <dt><span data-in-var="construction_type">Bauweise Type</span> <code>construction_type</code></dt>
 <dd>
@@ -10979,11 +11021,11 @@ F19 Holzfaser <span class="text-muted">[text] · V12</span>
 </dd>
 <dt><span data-in-var="COMP_name_roof_pitched">Bauweise Steildach</span> <code>COMP_name_roof_pitched</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · V13</span>
+F15 Holzfaser <span class="text-muted">[text] · V13</span>
 </dd>
 <dt><span data-in-var="COMP_name_floor">Bauweise Erdb. Fußboden beheizt</span> <code>COMP_name_floor</code></dt>
 <dd>
-San_ADh 01 b_Holzfaser_Massivholzdecke über Außenluft, Nassestrich <span class="text-muted">[text] · V14</span>
+F39_Holzfaser <span class="text-muted">[text] · V14</span>
 </dd>
 <dt><span data-in-var="COMP_name_ceiling">Bauweise Geschossdecke</span> <code>COMP_name_ceiling</code></dt>
 <dd>
@@ -10991,7 +11033,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_terrace">Bauweise Terasse</span> <code>COMP_name_terrace</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · V16</span>
+F25_Holzfaser <span class="text-muted">[text] · V16</span>
 </dd>
 <dt><span data-in-var="COMP_name_basement_ceiling">Bauweise Kellerdecke</span> <code>COMP_name_basement_ceiling</code></dt>
 <dd>
@@ -11003,7 +11045,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_ceil_to_air">Bauweise Außendecke gg. Außenluft</span> <code>COMP_name_ceil_to_air</code></dt>
 <dd>
-F48_Holzfaser_WDVS <span class="text-muted">[text] · V19</span>
+San_ADh 01 b_Holzfaser_Massivholzdecke über Außenluft, Nassestrich <span class="text-muted">[text] · V19</span>
 </dd>
 <dt><span data-in-var="COMP_name_wall_earth_contacted">Bauweise Erdb. Wand beheizt</span> <code>COMP_name_wall_earth_contacted</code></dt>
 <dd>
@@ -11019,7 +11061,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_ceiling_topfloor">Bauweise Oberste Geschoßdecke</span> <code>COMP_name_ceiling_topfloor</code></dt>
 <dd>
-F15 Holzfaser <span class="text-muted">[text] · V23</span>
+F28_Holzfaser <span class="text-muted">[text] · V23</span>
 </dd>
 <dt><span data-in-var="COMP_name_wall_ec_unheated">Bauweise Erdb. Wand Keller</span> <code>COMP_name_wall_ec_unheated</code></dt>
 <dd>
@@ -11043,7 +11085,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_balconies">Bauweise Balkone</span> <code>COMP_name_balconies</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · V29</span>
+F48_Holzfaser_WDVS <span class="text-muted">[text] · V29</span>
 </dd>
 <dt><span data-in-var="COMP_name_windowframe">Bauweise Fensterrahmen</span> <code>COMP_name_windowframe</code></dt>
 <dd>
@@ -11063,7 +11105,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_other_1">Bauweise Sonstige</span> <code>COMP_name_other_1</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · V34</span>
+Innendämmung_Holzfaserplatte_ver <span class="text-muted">[text] · V34</span>
 </dd>
 <dt><span data-in-var="COMP_name_other_2">Bauweise Sonstige 2</span> <code>COMP_name_other_2</code></dt>
 <dd>
@@ -11081,7 +11123,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 <span class="small">Spaltenname: Zellu</span></th>
 <td><details class="out-meta">
 <summary>
-13 gesetzte Werte · vollständige Belegung ansehen
+17 gesetzte Werte · vollständige Belegung ansehen
 </summary>
 <dl>
 <dt><span data-in-var="construction_name">Bauweise Name</span> <code>construction_name</code></dt>
@@ -11090,7 +11132,7 @@ Sanierung Ökologisch Zellulosedämmung <span class="text-muted">[text] · W3</s
 </dd>
 <dt><span data-in-var="construction_description">Bauweise Beschreibung</span> <code>construction_description</code></dt>
 <dd>
-Zellu <span class="text-muted">[text] · W4</span>
+Zellu_PHniv <span class="text-muted">[text] · W4</span>
 </dd>
 <dt><span data-in-var="construction_type">Bauweise Type</span> <code>construction_type</code></dt>
 <dd>
@@ -11114,11 +11156,11 @@ Flachdach_Zellulose <span class="text-muted">[text] · W12</span>
 </dd>
 <dt><span data-in-var="COMP_name_roof_pitched">Bauweise Steildach</span> <code>COMP_name_roof_pitched</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · W13</span>
+F14 Zellulose, keine Vorsatzschale innen, bleibt Bestand <span class="text-muted">[text] · W13</span>
 </dd>
 <dt><span data-in-var="COMP_name_floor">Bauweise Erdb. Fußboden beheizt</span> <code>COMP_name_floor</code></dt>
 <dd>
-San_ADh 01 b_Zellulose_Massivholzdecke über Außenluft, Nassestrich <span class="text-muted">[text] · W14</span>
+F40_Zellulose <span class="text-muted">[text] · W14</span>
 </dd>
 <dt><span data-in-var="COMP_name_ceiling">Bauweise Geschossdecke</span> <code>COMP_name_ceiling</code></dt>
 <dd>
@@ -11126,7 +11168,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_terrace">Bauweise Terasse</span> <code>COMP_name_terrace</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · W16</span>
+F25_Holzfaser <span class="text-muted">[text] · W16</span>
 </dd>
 <dt><span data-in-var="COMP_name_basement_ceiling">Bauweise Kellerdecke</span> <code>COMP_name_basement_ceiling</code></dt>
 <dd>
@@ -11138,7 +11180,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_ceil_to_air">Bauweise Außendecke gg. Außenluft</span> <code>COMP_name_ceil_to_air</code></dt>
 <dd>
-F48_Holzfaser_WDVS <span class="text-muted">[text] · W19</span>
+San_ADh 01 b_Zellulose_Massivholzdecke über Außenluft, Nassestrich <span class="text-muted">[text] · W19</span>
 </dd>
 <dt><span data-in-var="COMP_name_wall_earth_contacted">Bauweise Erdb. Wand beheizt</span> <code>COMP_name_wall_earth_contacted</code></dt>
 <dd>
@@ -11154,7 +11196,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_ceiling_topfloor">Bauweise Oberste Geschoßdecke</span> <code>COMP_name_ceiling_topfloor</code></dt>
 <dd>
-F14 Zellulose, keine Vorsatzschale innen, bleibt Bestand <span class="text-muted">[text] · W23</span>
+Oberste GD_StaffelZellulose <span class="text-muted">[text] · W23</span>
 </dd>
 <dt><span data-in-var="COMP_name_wall_ec_unheated">Bauweise Erdb. Wand Keller</span> <code>COMP_name_wall_ec_unheated</code></dt>
 <dd>
@@ -11178,7 +11220,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_balconies">Bauweise Balkone</span> <code>COMP_name_balconies</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · W29</span>
+F48_Holzfaser_WDVS <span class="text-muted">[text] · W29</span>
 </dd>
 <dt><span data-in-var="COMP_name_windowframe">Bauweise Fensterrahmen</span> <code>COMP_name_windowframe</code></dt>
 <dd>
@@ -11198,7 +11240,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_other_1">Bauweise Sonstige</span> <code>COMP_name_other_1</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · W34</span>
+Innendämmung_Zellulose_GKP <span class="text-muted">[text] · W34</span>
 </dd>
 <dt><span data-in-var="COMP_name_other_2">Bauweise Sonstige 2</span> <code>COMP_name_other_2</code></dt>
 <dd>
@@ -11216,7 +11258,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 <span class="small">Spaltenname: Stroh</span></th>
 <td><details class="out-meta">
 <summary>
-13 gesetzte Werte · vollständige Belegung ansehen
+17 gesetzte Werte · vollständige Belegung ansehen
 </summary>
 <dl>
 <dt><span data-in-var="construction_name">Bauweise Name</span> <code>construction_name</code></dt>
@@ -11225,7 +11267,7 @@ Sanierung Ökologisch Strohdämmung <span class="text-muted">[text] · X3</span>
 </dd>
 <dt><span data-in-var="construction_description">Bauweise Beschreibung</span> <code>construction_description</code></dt>
 <dd>
-Stroh <span class="text-muted">[text] · X4</span>
+Stroh_PHniv <span class="text-muted">[text] · X4</span>
 </dd>
 <dt><span data-in-var="construction_type">Bauweise Type</span> <code>construction_type</code></dt>
 <dd>
@@ -11249,11 +11291,11 @@ F19 Stroh <span class="text-muted">[text] · X12</span>
 </dd>
 <dt><span data-in-var="COMP_name_roof_pitched">Bauweise Steildach</span> <code>COMP_name_roof_pitched</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · X13</span>
+F14 Stroh, keine Vorsatzschale innen, bleibt Bestand <span class="text-muted">[text] · X13</span>
 </dd>
 <dt><span data-in-var="COMP_name_floor">Bauweise Erdb. Fußboden beheizt</span> <code>COMP_name_floor</code></dt>
 <dd>
-San_ADh 01 b_Stroh_Massivholzdecke über Außenluft, Nassestrich <span class="text-muted">[text] · X14</span>
+F40_Stroh <span class="text-muted">[text] · X14</span>
 </dd>
 <dt><span data-in-var="COMP_name_ceiling">Bauweise Geschossdecke</span> <code>COMP_name_ceiling</code></dt>
 <dd>
@@ -11261,7 +11303,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_terrace">Bauweise Terasse</span> <code>COMP_name_terrace</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · X16</span>
+F25_Holzfaser <span class="text-muted">[text] · X16</span>
 </dd>
 <dt><span data-in-var="COMP_name_basement_ceiling">Bauweise Kellerdecke</span> <code>COMP_name_basement_ceiling</code></dt>
 <dd>
@@ -11273,7 +11315,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_ceil_to_air">Bauweise Außendecke gg. Außenluft</span> <code>COMP_name_ceil_to_air</code></dt>
 <dd>
-F48_Holzfaser_WDVS <span class="text-muted">[text] · X19</span>
+San_ADh 01 b_Stroh_Massivholzdecke über Außenluft, Nassestrich <span class="text-muted">[text] · X19</span>
 </dd>
 <dt><span data-in-var="COMP_name_wall_earth_contacted">Bauweise Erdb. Wand beheizt</span> <code>COMP_name_wall_earth_contacted</code></dt>
 <dd>
@@ -11289,7 +11331,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_ceiling_topfloor">Bauweise Oberste Geschoßdecke</span> <code>COMP_name_ceiling_topfloor</code></dt>
 <dd>
-F14 Stroh, keine Vorsatzschale innen, bleibt Bestand <span class="text-muted">[text] · X23</span>
+F29_Stroh <span class="text-muted">[text] · X23</span>
 </dd>
 <dt><span data-in-var="COMP_name_wall_ec_unheated">Bauweise Erdb. Wand Keller</span> <code>COMP_name_wall_ec_unheated</code></dt>
 <dd>
@@ -11313,7 +11355,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_balconies">Bauweise Balkone</span> <code>COMP_name_balconies</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · X29</span>
+F48_Holzfaser_WDVS <span class="text-muted">[text] · X29</span>
 </dd>
 <dt><span data-in-var="COMP_name_windowframe">Bauweise Fensterrahmen</span> <code>COMP_name_windowframe</code></dt>
 <dd>
@@ -11333,7 +11375,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_other_1">Bauweise Sonstige</span> <code>COMP_name_other_1</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · X34</span>
+Innendämmung_CASiplatte_ver <span class="text-muted">[text] · X34</span>
 </dd>
 <dt><span data-in-var="COMP_name_other_2">Bauweise Sonstige 2</span> <code>COMP_name_other_2</code></dt>
 <dd>
@@ -11351,7 +11393,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 <span class="small">Spaltenname: Flachs</span></th>
 <td><details class="out-meta">
 <summary>
-13 gesetzte Werte · vollständige Belegung ansehen
+17 gesetzte Werte · vollständige Belegung ansehen
 </summary>
 <dl>
 <dt><span data-in-var="construction_name">Bauweise Name</span> <code>construction_name</code></dt>
@@ -11360,7 +11402,7 @@ Sanierung Ökologisch Flachsdämmung <span class="text-muted">[text] · Y3</span
 </dd>
 <dt><span data-in-var="construction_description">Bauweise Beschreibung</span> <code>construction_description</code></dt>
 <dd>
-Flachs <span class="text-muted">[text] · Y4</span>
+Flachs_PHniv <span class="text-muted">[text] · Y4</span>
 </dd>
 <dt><span data-in-var="construction_type">Bauweise Type</span> <code>construction_type</code></dt>
 <dd>
@@ -11384,11 +11426,11 @@ F19 Flachs <span class="text-muted">[text] · Y12</span>
 </dd>
 <dt><span data-in-var="COMP_name_roof_pitched">Bauweise Steildach</span> <code>COMP_name_roof_pitched</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · Y13</span>
+F14 Flachs, keine Vorsatzschale innen, bleibt Bestand <span class="text-muted">[text] · Y13</span>
 </dd>
 <dt><span data-in-var="COMP_name_floor">Bauweise Erdb. Fußboden beheizt</span> <code>COMP_name_floor</code></dt>
 <dd>
-San_ADh 01 b_Flachs_Massivholzdecke über Außenluft, Nassestrich <span class="text-muted">[text] · Y14</span>
+F40_Flachs <span class="text-muted">[text] · Y14</span>
 </dd>
 <dt><span data-in-var="COMP_name_ceiling">Bauweise Geschossdecke</span> <code>COMP_name_ceiling</code></dt>
 <dd>
@@ -11396,7 +11438,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_terrace">Bauweise Terasse</span> <code>COMP_name_terrace</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · Y16</span>
+F25_Holzfaser <span class="text-muted">[text] · Y16</span>
 </dd>
 <dt><span data-in-var="COMP_name_basement_ceiling">Bauweise Kellerdecke</span> <code>COMP_name_basement_ceiling</code></dt>
 <dd>
@@ -11408,7 +11450,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_ceil_to_air">Bauweise Außendecke gg. Außenluft</span> <code>COMP_name_ceil_to_air</code></dt>
 <dd>
-F48_Holzfaser_WDVS <span class="text-muted">[text] · Y19</span>
+San_ADh 01 b_Flachs_Massivholzdecke über Außenluft, Nassestrich <span class="text-muted">[text] · Y19</span>
 </dd>
 <dt><span data-in-var="COMP_name_wall_earth_contacted">Bauweise Erdb. Wand beheizt</span> <code>COMP_name_wall_earth_contacted</code></dt>
 <dd>
@@ -11424,7 +11466,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_ceiling_topfloor">Bauweise Oberste Geschoßdecke</span> <code>COMP_name_ceiling_topfloor</code></dt>
 <dd>
-F14 Flachs, keine Vorsatzschale innen, bleibt Bestand <span class="text-muted">[text] · Y23</span>
+Oberste GD_StaffelFlachs <span class="text-muted">[text] · Y23</span>
 </dd>
 <dt><span data-in-var="COMP_name_wall_ec_unheated">Bauweise Erdb. Wand Keller</span> <code>COMP_name_wall_ec_unheated</code></dt>
 <dd>
@@ -11448,7 +11490,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_balconies">Bauweise Balkone</span> <code>COMP_name_balconies</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · Y29</span>
+F48_Holzfaser_WDVS <span class="text-muted">[text] · Y29</span>
 </dd>
 <dt><span data-in-var="COMP_name_windowframe">Bauweise Fensterrahmen</span> <code>COMP_name_windowframe</code></dt>
 <dd>
@@ -11468,7 +11510,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_other_1">Bauweise Sonstige</span> <code>COMP_name_other_1</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · Y34</span>
+Innendämmung_CASiplatte_ver <span class="text-muted">[text] · Y34</span>
 </dd>
 <dt><span data-in-var="COMP_name_other_2">Bauweise Sonstige 2</span> <code>COMP_name_other_2</code></dt>
 <dd>
@@ -11482,20 +11524,20 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </details></td>
 </tr>
 <tr id="preset-construction_type-b3e92d346dd5" class="odd" data-entity="">
-<th data-quarto-table-cell-role="th" scope="row"><a href="#preset-construction_type-b3e92d346dd5">0</a><br>
+<th data-quarto-table-cell-role="th" scope="row"><a href="#preset-construction_type-b3e92d346dd5">Öko_IBOPlus</a><br>
 <span class="small">Spaltenname: Öko_IBOPlus</span></th>
 <td><details class="out-meta">
 <summary>
-6 gesetzte Werte · vollständige Belegung ansehen
+17 gesetzte Werte · vollständige Belegung ansehen
 </summary>
 <dl>
 <dt><span data-in-var="construction_name">Bauweise Name</span> <code>construction_name</code></dt>
 <dd>
-0 <span class="text-muted">[text] · Z3</span>
+Öko_IBOPlus <span class="text-muted">[text] · Z3</span>
 </dd>
 <dt><span data-in-var="construction_description">Bauweise Beschreibung</span> <code>construction_description</code></dt>
 <dd>
-Öko_IBOPlus <span class="text-muted">[text] · Z4</span>
+Öko_IBOPlus_PHniv <span class="text-muted">[text] · Z4</span>
 </dd>
 <dt><span data-in-var="construction_type">Bauweise Type</span> <code>construction_type</code></dt>
 <dd>
@@ -11507,7 +11549,7 @@ Passivhaus <span class="text-muted">[text] · Z9</span>
 </dd>
 <dt><span data-in-var="COMP_name_wall">Bauweise Außenwand</span> <code>COMP_name_wall</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · Z10</span>
+F02 Stroh, Putzträger Holzfaser <span class="text-muted">[text] · Z10</span>
 </dd>
 <dt><span data-in-var="COMP_name_windows">Bauweise Fenster</span> <code>COMP_name_windows</code></dt>
 <dd>
@@ -11515,15 +11557,15 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_roof_flat">Bauweise Flachdach</span> <code>COMP_name_roof_flat</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · Z12</span>
+F19 Stroh <span class="text-muted">[text] · Z12</span>
 </dd>
 <dt><span data-in-var="COMP_name_roof_pitched">Bauweise Steildach</span> <code>COMP_name_roof_pitched</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · Z13</span>
+F14 Stroh, keine Vorsatzschale innen, bleibt Bestand <span class="text-muted">[text] · Z13</span>
 </dd>
 <dt><span data-in-var="COMP_name_floor">Bauweise Erdb. Fußboden beheizt</span> <code>COMP_name_floor</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · Z14</span>
+F40_Stroh <span class="text-muted">[text] · Z14</span>
 </dd>
 <dt><span data-in-var="COMP_name_ceiling">Bauweise Geschossdecke</span> <code>COMP_name_ceiling</code></dt>
 <dd>
@@ -11531,11 +11573,11 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_terrace">Bauweise Terasse</span> <code>COMP_name_terrace</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · Z16</span>
+F25_Holzfaser <span class="text-muted">[text] · Z16</span>
 </dd>
 <dt><span data-in-var="COMP_name_basement_ceiling">Bauweise Kellerdecke</span> <code>COMP_name_basement_ceiling</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · Z17</span>
+F36 Stroh <span class="text-muted">[text] · Z17</span>
 </dd>
 <dt><span data-in-var="COMP_name_fundament">Bauweise Bodenplatte</span> <code>COMP_name_fundament</code></dt>
 <dd>
@@ -11543,11 +11585,11 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_ceil_to_air">Bauweise Außendecke gg. Außenluft</span> <code>COMP_name_ceil_to_air</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · Z19</span>
+San_ADh 01 b_Stroh_Massivholzdecke über Außenluft, Nassestrich <span class="text-muted">[text] · Z19</span>
 </dd>
 <dt><span data-in-var="COMP_name_wall_earth_contacted">Bauweise Erdb. Wand beheizt</span> <code>COMP_name_wall_earth_contacted</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · Z20</span>
+EAW_F45_XPS <span class="text-muted">[text] · Z20</span>
 </dd>
 <dt><span data-in-var="COMP_name_internal_wall_nonload">Bauweise Innenwand nicht tragend</span> <code>COMP_name_internal_wall_nonload</code></dt>
 <dd>
@@ -11559,7 +11601,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_ceiling_topfloor">Bauweise Oberste Geschoßdecke</span> <code>COMP_name_ceiling_topfloor</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · Z23</span>
+F29_Stroh <span class="text-muted">[text] · Z23</span>
 </dd>
 <dt><span data-in-var="COMP_name_wall_ec_unheated">Bauweise Erdb. Wand Keller</span> <code>COMP_name_wall_ec_unheated</code></dt>
 <dd>
@@ -11583,7 +11625,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_balconies">Bauweise Balkone</span> <code>COMP_name_balconies</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · Z29</span>
+F48_Holzfaser_WDVS <span class="text-muted">[text] · Z29</span>
 </dd>
 <dt><span data-in-var="COMP_name_windowframe">Bauweise Fensterrahmen</span> <code>COMP_name_windowframe</code></dt>
 <dd>
@@ -11603,7 +11645,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_other_1">Bauweise Sonstige</span> <code>COMP_name_other_1</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · Z34</span>
+Innendämmung_CASiplatte_ver <span class="text-muted">[text] · Z34</span>
 </dd>
 <dt><span data-in-var="COMP_name_other_2">Bauweise Sonstige 2</span> <code>COMP_name_other_2</code></dt>
 <dd>
@@ -11616,33 +11658,33 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dl>
 </details></td>
 </tr>
-<tr id="preset-construction_type-f1be4aac7b5f" class="even" data-entity="">
-<th data-quarto-table-cell-role="th" scope="row"><a href="#preset-construction_type-f1be4aac7b5f">Test</a><br>
-<span class="small">Spaltenname: Spalte2</span></th>
+<tr id="preset-construction_type-82cb99ec017d" class="even" data-entity="">
+<th data-quarto-table-cell-role="th" scope="row"><a href="#preset-construction_type-82cb99ec017d">Bestand</a><br>
+<span class="small">Spaltenname: Bestand</span></th>
 <td><details class="out-meta">
 <summary>
-2 gesetzte Werte · vollständige Belegung ansehen
+9 gesetzte Werte · vollständige Belegung ansehen
 </summary>
 <dl>
 <dt><span data-in-var="construction_name">Bauweise Name</span> <code>construction_name</code></dt>
 <dd>
-Test <span class="text-muted">[text] · AA3</span>
+Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · AA3</span>
 </dd>
 <dt><span data-in-var="construction_description">Bauweise Beschreibung</span> <code>construction_description</code></dt>
 <dd>
-Bet_aspern <span class="text-muted">[text] · AA4</span>
+Bestand_Min <span class="text-muted">[text] · AA4</span>
 </dd>
 <dt><span data-in-var="construction_type">Bauweise Type</span> <code>construction_type</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · AA5</span>
+Sanierung <span class="text-muted">[text] · AA5</span>
 </dd>
 <dt><span data-in-var="construction_quality">Bauweise Qualität</span> <code>construction_quality</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · AA9</span>
+Ohne thermisch <span class="text-muted">[text] · AA9</span>
 </dd>
 <dt><span data-in-var="COMP_name_wall">Bauweise Außenwand</span> <code>COMP_name_wall</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · AA10</span>
+AWBest_verputzt_reinigenstreicheninklGerüst <span class="text-muted">[text] · AA10</span>
 </dd>
 <dt><span data-in-var="COMP_name_windows">Bauweise Fenster</span> <code>COMP_name_windows</code></dt>
 <dd>
@@ -11650,11 +11692,11 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_roof_flat">Bauweise Flachdach</span> <code>COMP_name_roof_flat</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · AA12</span>
+DABest_FlachdachAbdichtung_Abdichtung+Kiesneu <span class="text-muted">[text] · AA12</span>
 </dd>
 <dt><span data-in-var="COMP_name_roof_pitched">Bauweise Steildach</span> <code>COMP_name_roof_pitched</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · AA13</span>
+DABest_SteildachZiegel_übersteigen20prozDachziegelersetzten <span class="text-muted">[text] · AA13</span>
 </dd>
 <dt><span data-in-var="COMP_name_floor">Bauweise Erdb. Fußboden beheizt</span> <code>COMP_name_floor</code></dt>
 <dd>
@@ -11666,11 +11708,11 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_terrace">Bauweise Terasse</span> <code>COMP_name_terrace</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · AA16</span>
+TEBest_Terrasse_Abdichtung+Belag neu <span class="text-muted">[text] · AA16</span>
 </dd>
 <dt><span data-in-var="COMP_name_basement_ceiling">Bauweise Kellerdecke</span> <code>COMP_name_basement_ceiling</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · AA17</span>
+KEBest_KellerdeckeMineralisch_AbbürstenNeustreichen <span class="text-muted">[text] · AA17</span>
 </dd>
 <dt><span data-in-var="COMP_name_fundament">Bauweise Bodenplatte</span> <code>COMP_name_fundament</code></dt>
 <dd>
@@ -11722,7 +11764,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 </dd>
 <dt><span data-in-var="COMP_name_windowframe">Bauweise Fensterrahmen</span> <code>COMP_name_windowframe</code></dt>
 <dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · AA30</span>
+FEBest_Holzfenster_Einstellen_NeueDichtungen <span class="text-muted">[text] · AA30</span>
 </dd>
 <dt><span data-in-var="COMP_name_windowglazing">Bauweise Fensterglas</span> <code>COMP_name_windowglazing</code></dt>
 <dd>
@@ -11747,141 +11789,6 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] �
 <dt><span data-in-var="COMP_name_other_3">Bauweise Sonstige 3</span> <code>COMP_name_other_3</code></dt>
 <dd>
 Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · AA36</span>
-</dd>
-</dl>
-</details></td>
-</tr>
-<tr id="preset-construction_type-6d542705fdf9" class="odd" data-entity="">
-<th data-quarto-table-cell-role="th" scope="row"><a href="#preset-construction_type-6d542705fdf9">test save construction ()</a><br>
-<span class="small">Spaltenname: test save construction ()</span></th>
-<td><details class="out-meta">
-<summary>
-9 gesetzte Werte · vollständige Belegung ansehen
-</summary>
-<dl>
-<dt><span data-in-var="construction_name">Bauweise Name</span> <code>construction_name</code></dt>
-<dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · AB3</span>
-</dd>
-<dt><span data-in-var="construction_description">Bauweise Beschreibung</span> <code>construction_description</code></dt>
-<dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · AB4</span>
-</dd>
-<dt><span data-in-var="construction_type">Bauweise Type</span> <code>construction_type</code></dt>
-<dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · AB5</span>
-</dd>
-<dt><span data-in-var="construction_quality">Bauweise Qualität</span> <code>construction_quality</code></dt>
-<dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · AB9</span>
-</dd>
-<dt><span data-in-var="COMP_name_wall">Bauweise Außenwand</span> <code>COMP_name_wall</code></dt>
-<dd>
-AW_verputzt_Mineralschaumplatte_Sil <span class="text-muted">[text] · AB10</span>
-</dd>
-<dt><span data-in-var="COMP_name_windows">Bauweise Fenster</span> <code>COMP_name_windows</code></dt>
-<dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · AB11</span>
-</dd>
-<dt><span data-in-var="COMP_name_roof_flat">Bauweise Flachdach</span> <code>COMP_name_roof_flat</code></dt>
-<dd>
-F19 Flachs <span class="text-muted">[text] · AB12</span>
-</dd>
-<dt><span data-in-var="COMP_name_roof_pitched">Bauweise Steildach</span> <code>COMP_name_roof_pitched</code></dt>
-<dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · AB13</span>
-</dd>
-<dt><span data-in-var="COMP_name_floor">Bauweise Erdb. Fußboden beheizt</span> <code>COMP_name_floor</code></dt>
-<dd>
-San_ADh 01 b_Flachs_Massivholzdecke über Außenluft, Nassestrich <span class="text-muted">[text] · AB14</span>
-</dd>
-<dt><span data-in-var="COMP_name_ceiling">Bauweise Geschossdecke</span> <code>COMP_name_ceiling</code></dt>
-<dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · AB15</span>
-</dd>
-<dt><span data-in-var="COMP_name_terrace">Bauweise Terasse</span> <code>COMP_name_terrace</code></dt>
-<dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · AB16</span>
-</dd>
-<dt><span data-in-var="COMP_name_basement_ceiling">Bauweise Kellerdecke</span> <code>COMP_name_basement_ceiling</code></dt>
-<dd>
-KD_unten_GKP_Flachs <span class="text-muted">[text] · AB17</span>
-</dd>
-<dt><span data-in-var="COMP_name_fundament">Bauweise Bodenplatte</span> <code>COMP_name_fundament</code></dt>
-<dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · AB18</span>
-</dd>
-<dt><span data-in-var="COMP_name_ceil_to_air">Bauweise Außendecke gg. Außenluft</span> <code>COMP_name_ceil_to_air</code></dt>
-<dd>
-F48_Holzfaser_WDVS <span class="text-muted">[text] · AB19</span>
-</dd>
-<dt><span data-in-var="COMP_name_wall_earth_contacted">Bauweise Erdb. Wand beheizt</span> <code>COMP_name_wall_earth_contacted</code></dt>
-<dd>
-EAW_F45_XPS <span class="text-muted">[text] · AB20</span>
-</dd>
-<dt><span data-in-var="COMP_name_internal_wall_nonload">Bauweise Innenwand nicht tragend</span> <code>COMP_name_internal_wall_nonload</code></dt>
-<dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · AB21</span>
-</dd>
-<dt><span data-in-var="COMP_name_internal_wall_load">Bauweise Innenwand tragend</span> <code>COMP_name_internal_wall_load</code></dt>
-<dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · AB22</span>
-</dd>
-<dt><span data-in-var="COMP_name_ceiling_topfloor">Bauweise Oberste Geschoßdecke</span> <code>COMP_name_ceiling_topfloor</code></dt>
-<dd>
-F14 Flachs, keine Vorsatzschale innen, bleibt Bestand <span class="text-muted">[text] · AB23</span>
-</dd>
-<dt><span data-in-var="COMP_name_wall_ec_unheated">Bauweise Erdb. Wand Keller</span> <code>COMP_name_wall_ec_unheated</code></dt>
-<dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · AB24</span>
-</dd>
-<dt><span data-in-var="COMP_name_basement_floor_unheated">Bauweise Erdb. Fußboden unbeheizt</span> <code>COMP_name_basement_floor_unheated</code></dt>
-<dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · AB25</span>
-</dd>
-<dt><span data-in-var="COMP_name_columns">Bauweise Stützen</span> <code>COMP_name_columns</code></dt>
-<dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · AB26</span>
-</dd>
-<dt><span data-in-var="COMP_name_internal_wall_unheated">Bauweise Innenwand unbeheizt</span> <code>COMP_name_internal_wall_unheated</code></dt>
-<dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · AB27</span>
-</dd>
-<dt><span data-in-var="COMP_name_unheated_horizontal">Bauweise Zwischendecke unbeheizt / Keller / TG</span> <code>COMP_name_unheated_horizontal</code></dt>
-<dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · AB28</span>
-</dd>
-<dt><span data-in-var="COMP_name_balconies">Bauweise Balkone</span> <code>COMP_name_balconies</code></dt>
-<dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · AB29</span>
-</dd>
-<dt><span data-in-var="COMP_name_windowframe">Bauweise Fensterrahmen</span> <code>COMP_name_windowframe</code></dt>
-<dd>
-Holz-Rahmen Fichte &gt;= 91 Stockrahmentiefe &lt; 109 <span class="text-muted">[text] · AB30</span>
-</dd>
-<dt><span data-in-var="COMP_name_windowglazing">Bauweise Fensterglas</span> <code>COMP_name_windowglazing</code></dt>
-<dd>
-Dreifach-Wärmeschutzglas,&nbsp;Argon,&nbsp;40&nbsp;&lt;&nbsp;Scheibenstärke <span class="text-muted">[text] · AB31</span>
-</dd>
-<dt><span data-in-var="COMP_name_garage_horizontal">Bauweise Garage Decken</span> <code>COMP_name_garage_horizontal</code></dt>
-<dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · AB32</span>
-</dd>
-<dt><span data-in-var="COMP_name_garage_columns">Bauweise Garage Stützen</span> <code>COMP_name_garage_columns</code></dt>
-<dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · AB33</span>
-</dd>
-<dt><span data-in-var="COMP_name_other_1">Bauweise Sonstige</span> <code>COMP_name_other_1</code></dt>
-<dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · AB34</span>
-</dd>
-<dt><span data-in-var="COMP_name_other_2">Bauweise Sonstige 2</span> <code>COMP_name_other_2</code></dt>
-<dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · AB35</span>
-</dd>
-<dt><span data-in-var="COMP_name_other_3">Bauweise Sonstige 3</span> <code>COMP_name_other_3</code></dt>
-<dd>
-Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[text] · AB36</span>
 </dd>
 </dl>
 </details></td>
@@ -12008,7 +11915,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[m²] ·
 </dd>
 <dt><span data-in-var="COMP_area_wall">FU Außenwand</span> <code>COMP_area_wall</code></dt>
 <dd>
-123.17571 <span class="text-muted">[m² FU] · E30</span>
+161.69126280315575 <span class="text-muted">[m² FU] · E30</span>
 </dd>
 <dt><span data-in-var="COMP_area_windows">FU Fenster</span> <code>COMP_area_windows</code></dt>
 <dd>
@@ -12016,7 +11923,7 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[m²] ·
 </dd>
 <dt><span data-in-var="COMP_area_roof_flat">FU Flachdach</span> <code>COMP_area_roof_flat</code></dt>
 <dd>
-133.87499999999997 <span class="text-muted">[m² FU] · E32</span>
+85.76 <span class="text-muted">[m² FU] · E32</span>
 </dd>
 <dt><span data-in-var="COMP_area_roof_pitched">FU Steildach</span> <code>COMP_area_roof_pitched</code></dt>
 <dd>
@@ -12024,11 +11931,11 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[m²] ·
 </dd>
 <dt><span data-in-var="COMP_area_floor">FU Erdb. Fußboden beheizt</span> <code>COMP_area_floor</code></dt>
 <dd>
-133.87499999999997 <span class="text-muted">[m² FU] · E34</span>
+85.76 <span class="text-muted">[m² FU] · E34</span>
 </dd>
 <dt><span data-in-var="COMP_area_ceilings">FU Geschossdecke</span> <code>COMP_area_ceilings</code></dt>
 <dd>
-0 <span class="text-muted">[m² FU] · E35</span>
+85.71999999999998 <span class="text-muted">[m² FU] · E35</span>
 </dd>
 <dt><span data-in-var="COMP_area_terrace">FU Terasse</span> <code>COMP_area_terrace</code></dt>
 <dd>
@@ -12088,11 +11995,11 @@ Nicht gesetzt – vorhandenen Wert beibehalten <span class="text-muted">[m²] ·
 </dd>
 <dt><span data-in-var="COMP_area_windowframe">FU Fensterrahmen</span> <code>COMP_area_windowframe</code></dt>
 <dd>
-6.5210669999999995 <span class="text-muted">[m² FU] · E50</span>
+4.484621159053274 <span class="text-muted">[m² FU] · E50</span>
 </dd>
 <dt><span data-in-var="COMP_area_windowglazing">FU Fensterglas</span> <code>COMP_area_windowglazing</code></dt>
 <dd>
-15.215822999999995 <span class="text-muted">[m² FU] · E51</span>
+10.464116037790971 <span class="text-muted">[m² FU] · E51</span>
 </dd>
 </dl>
 </details></td>
@@ -30506,7 +30413,7 @@ Ja <span class="text-muted">[bool] · G4</span>
 </tbody>
 </table>
 </div></details>
-<p>Quelle: <code>data/exports/schemas/schema_1.13.1_dev.xlsx</code><br>Inhaltskennung: <code>cf9f4f69a9386a34</code></p><noscript>Ohne JavaScript lassen sich alle Gruppen und Werte manuell aufklappen.</noscript></section>
+<p>Quelle: <code>data/exports/schemas/schema_1.13.3.xlsx</code><br>Inhaltskennung: <code>8c661eeb0e35ba4f</code></p><noscript>Ohne JavaScript lassen sich alle Gruppen und Werte manuell aufklappen.</noscript></section></div>
 <script src="../output-catalog.js"></script>
 
 

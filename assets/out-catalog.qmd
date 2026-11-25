@@ -1,18 +1,19 @@
 ```{=html}
 <section id="out-catalog" class="schema-catalog" data-source="OUT" aria-label="OUT-Katalog">
-<p><strong>512 OUT-Variablen</strong> aus Schema <code>1_13_1_dev</code>.
+<p><strong>432 OUT-Variablen</strong> aus Schema <code>1_13_3</code>.
 Vollständiger Definitionsbestand, keine Projektwerte. Auch Hilfsgrößen sind enthalten.</p>
-<p class="catalog-note">Metadatenlücken: 70 ohne Domäne,
-36 ohne Einheit, 16 ohne deutsches Label und
-512 ohne zusätzliche Beschreibung. „Nicht hinterlegt“ bedeutet nicht „dimensionslos“.</p>
+<p class="catalog-note">Metadatenlücken: 31 ohne Domäne,
+23 ohne Einheit, 0 ohne deutsches Label und
+432 ohne zusätzliche Beschreibung. „Nicht hinterlegt“ bedeutet nicht „dimensionslos“.</p>
 <form class="catalog-controls" hidden>
 <div class="catalog-search"><label for="out-query">Kennzahl suchen</label>
 <input id="out-query" type="search" placeholder="z. B. PV, Batterie oder Variablenname" aria-describedby="out-search-help"></div>
 <div><label for="out-domain">Domäne</label><select id="out-domain"><option value="*">Alle Domänen</option>
+<option value="declaration">Deklaration (3)</option>
 <option value="final_energy">Endenergie (2)</option>
 <option value="final_energy_balance">Endenergiebilanz (15)</option>
 <option value="energy_dispatch">Energieverteilung (16)</option>
-<option value="embodied_emissions">Graue Emissionen (53)</option>
+<option value="flexible_grid_use">flexible_grid_use (3)</option>
 <option value="heating">Heizung (17)</option>
 <option value="comfort">Komfort (8)</option>
 <option value="cooling">Kühlung (14)</option>
@@ -21,12 +22,12 @@ Vollständiger Definitionsbestand, keine Projektwerte. Auch Hilfsgrößen sind e
 <option value="pe_import_export_balance">Primärenergie: Import und Export (10)</option>
 <option value="primary_energy_balance">Primärenergiebilanz (25)</option>
 <option value="electricity_end_use">Stromanwendungen (7)</option>
-<option value="electricity_dispatch">Stromflüsse (48)</option>
-<option value="GWP">Treibhausgasbilanz (84)</option>
+<option value="electricity_dispatch">Stromflüsse (50)</option>
+<option value="GWP">Treibhausgasbilanz (88)</option>
 <option value="dhw">Warmwasser (32)</option>
 <option value="weather">Wetter (3)</option>
 <option value="heat_balance">Wärmebilanz (96)</option>
-<option value="">Ohne Domänenzuordnung (70)</option>
+<option value="">Ohne Domänenzuordnung (31)</option>
 </select></div><div><label for="out-entity">Entity Group</label><select id="out-entity"><option value="*">Alle Gruppen</option><option value="">Ohne Zuordnung</option>
 <option value="component">component</option>
 <option value="context_factor">context_factor</option>
@@ -54,7 +55,26 @@ Vollständiger Definitionsbestand, keine Projektwerte. Auch Hilfsgrößen sind e
 </form>
 <p id="out-count" role="status" aria-live="polite">Alle Domänen unten aufklappbar.</p>
 <p id="out-empty" hidden>Keine passenden OUT-Variablen. Suchbegriff oder Filter zurücksetzen.</p>
-<details class="out-domain" id="out-domain-0" data-domain="final_energy">
+<details class="out-domain" id="out-domain-0" data-domain="declaration">
+<summary>Deklaration <span class="out-domain-count">(3)</span></summary>
+<p>Schema-Domäne: <code>declaration</code></p>
+<div class="catalog-table" role="region" aria-label="Kennzahl: declaration" tabindex="0">
+<table><thead><tr><th scope="col">Kennzahl / Variablenname</th><th scope="col">Einheit</th>
+<th scope="col">Zuordnung und Beschreibung</th></tr></thead><tbody>
+<tr id="out-declaration_achieved_cnped" data-entity="">
+<th scope="row"><a href="#out-declaration_achieved_cnped">Deklarationsziele erreicht (knPEQ)</a><br><code>declaration_achieved_cnped</code></th>
+<td>Nicht hinterlegt</td><td><span class="catalog-measure">achieved</span>
+<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>achieved</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>district</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
+<tr id="out-declaration_achieved_ped" data-entity="">
+<th scope="row"><a href="#out-declaration_achieved_ped">Deklarationsziele erreicht (PEQ)</a><br><code>declaration_achieved_ped</code></th>
+<td>Nicht hinterlegt</td><td><span class="catalog-measure">achieved</span>
+<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>achieved</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>district</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
+<tr id="out-declaration_achieved_pedm" data-entity="">
+<th scope="row"><a href="#out-declaration_achieved_pedm">Deklarationsziele erreicht (PEQ+M)</a><br><code>declaration_achieved_pedm</code></th>
+<td>Nicht hinterlegt</td><td><span class="catalog-measure">achieved</span>
+<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>achieved</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>district</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
+</tbody></table></div></details>
+<details class="out-domain" id="out-domain-1" data-domain="final_energy">
 <summary>Endenergie <span class="out-domain-count">(2)</span></summary>
 <p>Schema-Domäne: <code>final_energy</code></p>
 <div class="catalog-table" role="region" aria-label="Kennzahl: final_energy" tabindex="0">
@@ -69,7 +89,7 @@ Vollständiger Definitionsbestand, keine Projektwerte. Auch Hilfsgrößen sind e
 <td>kWh/m²NGFa</td><td><span class="catalog-measure">Heizenergiebedarf</span>
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>Heizenergiebedarf</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
 </tbody></table></div></details>
-<details class="out-domain" id="out-domain-1" data-domain="final_energy_balance">
+<details class="out-domain" id="out-domain-2" data-domain="final_energy_balance">
 <summary>Endenergiebilanz <span class="out-domain-count">(15)</span></summary>
 <p>Schema-Domäne: <code>final_energy_balance</code></p>
 <div class="catalog-table" role="region" aria-label="Kennzahl: final_energy_balance" tabindex="0">
@@ -137,7 +157,7 @@ E-Stab</a><br><code>EUIdhwdirect_el</code></th>
 <td>kWh/m²NGFa</td><td><span class="catalog-measure">dhw_demand</span>
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>dhw_demand</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
 </tbody></table></div></details>
-<details class="out-domain" id="out-domain-2" data-domain="energy_dispatch">
+<details class="out-domain" id="out-domain-3" data-domain="energy_dispatch">
 <summary>Energieverteilung <span class="out-domain-count">(16)</span></summary>
 <p>Schema-Domäne: <code>energy_dispatch</code></p>
 <div class="catalog-table" role="region" aria-label="Kennzahl: energy_dispatch" tabindex="0">
@@ -208,227 +228,26 @@ E-Stab</a><br><code>EUIdhwdirect_el</code></th>
 <td>kWh/m²NGFa</td><td><span class="catalog-measure">other_use</span>
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>other_use</dd><dt>Entity Group</dt><dd>energy_use</dd><dt>Entity Key</dt><dd>dhw_demand</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>static</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
 </tbody></table></div></details>
-<details class="out-domain" id="out-domain-3" data-domain="embodied_emissions">
-<summary>Graue Emissionen <span class="out-domain-count">(53)</span></summary>
-<p>Schema-Domäne: <code>embodied_emissions</code></p>
-<div class="catalog-table" role="region" aria-label="Kennzahl: embodied_emissions" tabindex="0">
+<details class="out-domain" id="out-domain-4" data-domain="flexible_grid_use">
+<summary>flexible_grid_use <span class="out-domain-count">(3)</span></summary>
+<p>Schema-Domäne: <code>flexible_grid_use</code></p>
+<div class="catalog-table" role="region" aria-label="Kennzahl: flexible_grid_use" tabindex="0">
 <table><thead><tr><th scope="col">Kennzahl / Variablenname</th><th scope="col">Einheit</th>
 <th scope="col">Zuordnung und Beschreibung</th></tr></thead><tbody>
-<tr id="out-legacy_GWP_ee_lc_construction" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_ee_lc_construction">Baulich</a><br><code>legacy_GWP_ee_lc_construction</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_life_direct" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_life_direct">Baulich 
-Direkteingabe Lebensdauer</a><br><code>legacy_GWP_life_direct</code></th>
-<td>Jahre</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_lc_general" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_ee_lc_general">Baulich Allgemein</a><br><code>legacy_GWP_ee_lc_general</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_general_bigonenic" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_ee_general_bigonenic">Baulich Allgemein biogen</a><br><code>legacy_GWP_ee_general_bigonenic</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_general_fossile" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_ee_general_fossile">Baulich Allgemein fossil</a><br><code>legacy_GWP_ee_general_fossile</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_life_general" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_life_general">Baulich Allgemein Lebensdauer</a><br><code>legacy_GWP_life_general</code></th>
-<td>Jahre</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_other_biogenic" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_ee_other_biogenic">Baulich Andere biogen</a><br><code>legacy_GWP_ee_other_biogenic</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_other_fossile" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_ee_other_fossile">Baulich Andere fossil</a><br><code>legacy_GWP_ee_other_fossile</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_life_other" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_life_other">Baulich Andere Lebensdauer</a><br><code>legacy_GWP_life_other</code></th>
-<td>Jahre</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_lc_biogenic" data-entity="">
-<th scope="row"><a href="#out-legacy_GWP_ee_lc_biogenic">Baulich Biogen</a><br><code>legacy_GWP_ee_lc_biogenic</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">Nicht hinterlegt</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>Nicht hinterlegt</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_lc_direct" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_ee_lc_direct">Baulich Direkteingabe</a><br><code>legacy_GWP_ee_lc_direct</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_direct_biogenic" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_ee_direct_biogenic">Baulich Direkteingabe biogen</a><br><code>legacy_GWP_ee_direct_biogenic</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_direct_fossile" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_ee_direct_fossile">Baulich Direkteingabe fossil</a><br><code>legacy_GWP_ee_direct_fossile</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_con_build" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_ee_con_build">Baulich Errichtung</a><br><code>legacy_GWP_ee_con_build</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_lc_fossil" data-entity="">
-<th scope="row"><a href="#out-legacy_GWP_ee_lc_fossil">Baulich Fossil</a><br><code>legacy_GWP_ee_lc_fossil</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">Nicht hinterlegt</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>Nicht hinterlegt</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_rep_build" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_ee_rep_build">Baulich Instandsetzung</a><br><code>legacy_GWP_ee_rep_build</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_lc_other" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_ee_lc_other">Baulich Sammel-Maßnahmen</a><br><code>legacy_GWP_ee_lc_other</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_lc_walls" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_ee_lc_walls">Bauteil Außenwand</a><br><code>legacy_GWP_ee_lc_walls</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_walls_biogenic" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_ee_walls_biogenic">Bauteil Außenwand biogen</a><br><code>legacy_GWP_ee_walls_biogenic</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_walls_fossile" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_ee_walls_fossile">Bauteil Außenwand fossil</a><br><code>legacy_GWP_ee_walls_fossile</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_life_walls" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_life_walls">Bauteil Außenwand Lebensdauer</a><br><code>legacy_GWP_life_walls</code></th>
-<td>Jahre</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_lc_roof" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_ee_lc_roof">Bauteil Dach</a><br><code>legacy_GWP_ee_lc_roof</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_roof_biogenic" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_ee_roof_biogenic">Bauteil Dach biogen</a><br><code>legacy_GWP_ee_roof_biogenic</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_roof_fossile" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_ee_roof_fossile">Bauteil Dach fossil</a><br><code>legacy_GWP_ee_roof_fossile</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_life_roof" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_life_roof">Bauteil Dach Lebensdauer</a><br><code>legacy_GWP_life_roof</code></th>
-<td>Jahre</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_lc_ground" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_ee_lc_ground">Bauteil Decke gegen Erdreich / Keller</a><br><code>legacy_GWP_ee_lc_ground</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_ground_biogenic" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_ee_ground_biogenic">Bauteil Decke gegen Erdreich / Keller biogen</a><br><code>legacy_GWP_ee_ground_biogenic</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_ground_fossile" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_ee_ground_fossile">Bauteil Decke gegen Erdreich / Keller fossil</a><br><code>legacy_GWP_ee_ground_fossile</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_life_ground" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_life_ground">Bauteil Decke gegen Erdreich / Keller Lebensdauer</a><br><code>legacy_GWP_life_ground</code></th>
-<td>Jahre</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_lc_windows" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_ee_lc_windows">Bauteil Fenster</a><br><code>legacy_GWP_ee_lc_windows</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_windows_bigenic" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_ee_windows_bigenic">Bauteil Fenster biogen</a><br><code>legacy_GWP_ee_windows_bigenic</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_windows_fossile" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_ee_windows_fossile">Bauteil Fenster fossil</a><br><code>legacy_GWP_ee_windows_fossile</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_life_windows" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_life_windows">Bauteil Fenster Lebensdauer</a><br><code>legacy_GWP_life_windows</code></th>
-<td>Jahre</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_lc_ceil" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_ee_lc_ceil">Bauteil Zwischengeschoßdecken</a><br><code>legacy_GWP_ee_lc_ceil</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_ceilings_biogenic" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_ee_ceilings_biogenic">Bauteil Zwischengeschoßdecken biogen</a><br><code>legacy_GWP_ee_ceilings_biogenic</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_ceilings_fossile" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_ee_ceilings_fossile">Bauteil Zwischengeschoßdecken fossil</a><br><code>legacy_GWP_ee_ceilings_fossile</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_life_ceilings" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_life_ceilings">Bauteil Zwischengeschoßdecken Lebensdauer</a><br><code>legacy_GWP_life_ceilings</code></th>
-<td>Jahre</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_lc_ceilings_biogenic" data-entity="">
-<th scope="row"><a href="#out-legacy_GWP_ee_lc_ceilings_biogenic">Nicht hinterlegt</a><br><code>legacy_GWP_ee_lc_ceilings_biogenic</code></th>
-<td>Nicht hinterlegt</td><td><span class="catalog-measure">Nicht hinterlegt</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>Nicht hinterlegt</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_lc_ceilings_fossile" data-entity="">
-<th scope="row"><a href="#out-legacy_GWP_ee_lc_ceilings_fossile">Nicht hinterlegt</a><br><code>legacy_GWP_ee_lc_ceilings_fossile</code></th>
-<td>Nicht hinterlegt</td><td><span class="catalog-measure">Nicht hinterlegt</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>Nicht hinterlegt</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_lc_direct_biogenic" data-entity="">
-<th scope="row"><a href="#out-legacy_GWP_ee_lc_direct_biogenic">Nicht hinterlegt</a><br><code>legacy_GWP_ee_lc_direct_biogenic</code></th>
-<td>Nicht hinterlegt</td><td><span class="catalog-measure">Nicht hinterlegt</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>Nicht hinterlegt</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_lc_direct_fossile" data-entity="">
-<th scope="row"><a href="#out-legacy_GWP_ee_lc_direct_fossile">Nicht hinterlegt</a><br><code>legacy_GWP_ee_lc_direct_fossile</code></th>
-<td>Nicht hinterlegt</td><td><span class="catalog-measure">Nicht hinterlegt</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>Nicht hinterlegt</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_lc_general_biogenic" data-entity="">
-<th scope="row"><a href="#out-legacy_GWP_ee_lc_general_biogenic">Nicht hinterlegt</a><br><code>legacy_GWP_ee_lc_general_biogenic</code></th>
-<td>Nicht hinterlegt</td><td><span class="catalog-measure">Nicht hinterlegt</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>Nicht hinterlegt</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_lc_general_fossile" data-entity="">
-<th scope="row"><a href="#out-legacy_GWP_ee_lc_general_fossile">Nicht hinterlegt</a><br><code>legacy_GWP_ee_lc_general_fossile</code></th>
-<td>Nicht hinterlegt</td><td><span class="catalog-measure">Nicht hinterlegt</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>Nicht hinterlegt</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_lc_ground_biogenic" data-entity="">
-<th scope="row"><a href="#out-legacy_GWP_ee_lc_ground_biogenic">Nicht hinterlegt</a><br><code>legacy_GWP_ee_lc_ground_biogenic</code></th>
-<td>Nicht hinterlegt</td><td><span class="catalog-measure">Nicht hinterlegt</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>Nicht hinterlegt</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_lc_ground_fossile" data-entity="">
-<th scope="row"><a href="#out-legacy_GWP_ee_lc_ground_fossile">Nicht hinterlegt</a><br><code>legacy_GWP_ee_lc_ground_fossile</code></th>
-<td>Nicht hinterlegt</td><td><span class="catalog-measure">Nicht hinterlegt</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>Nicht hinterlegt</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_lc_other_biogenic" data-entity="">
-<th scope="row"><a href="#out-legacy_GWP_ee_lc_other_biogenic">Nicht hinterlegt</a><br><code>legacy_GWP_ee_lc_other_biogenic</code></th>
-<td>Nicht hinterlegt</td><td><span class="catalog-measure">Nicht hinterlegt</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>Nicht hinterlegt</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_lc_other_fossile" data-entity="">
-<th scope="row"><a href="#out-legacy_GWP_ee_lc_other_fossile">Nicht hinterlegt</a><br><code>legacy_GWP_ee_lc_other_fossile</code></th>
-<td>Nicht hinterlegt</td><td><span class="catalog-measure">Nicht hinterlegt</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>Nicht hinterlegt</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_lc_roof_biogenic" data-entity="">
-<th scope="row"><a href="#out-legacy_GWP_ee_lc_roof_biogenic">Nicht hinterlegt</a><br><code>legacy_GWP_ee_lc_roof_biogenic</code></th>
-<td>Nicht hinterlegt</td><td><span class="catalog-measure">Nicht hinterlegt</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>Nicht hinterlegt</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_lc_roof_fossile" data-entity="">
-<th scope="row"><a href="#out-legacy_GWP_ee_lc_roof_fossile">Nicht hinterlegt</a><br><code>legacy_GWP_ee_lc_roof_fossile</code></th>
-<td>Nicht hinterlegt</td><td><span class="catalog-measure">Nicht hinterlegt</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>Nicht hinterlegt</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_lc_walls_biogenic" data-entity="">
-<th scope="row"><a href="#out-legacy_GWP_ee_lc_walls_biogenic">Nicht hinterlegt</a><br><code>legacy_GWP_ee_lc_walls_biogenic</code></th>
-<td>Nicht hinterlegt</td><td><span class="catalog-measure">Nicht hinterlegt</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>Nicht hinterlegt</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_lc_walls_fossil" data-entity="">
-<th scope="row"><a href="#out-legacy_GWP_ee_lc_walls_fossil">Nicht hinterlegt</a><br><code>legacy_GWP_ee_lc_walls_fossil</code></th>
-<td>Nicht hinterlegt</td><td><span class="catalog-measure">Nicht hinterlegt</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>Nicht hinterlegt</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_lc_windows_biogenic" data-entity="">
-<th scope="row"><a href="#out-legacy_GWP_ee_lc_windows_biogenic">Nicht hinterlegt</a><br><code>legacy_GWP_ee_lc_windows_biogenic</code></th>
-<td>Nicht hinterlegt</td><td><span class="catalog-measure">Nicht hinterlegt</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>Nicht hinterlegt</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_lc_windows_fossile" data-entity="">
-<th scope="row"><a href="#out-legacy_GWP_ee_lc_windows_fossile">Nicht hinterlegt</a><br><code>legacy_GWP_ee_lc_windows_fossile</code></th>
-<td>Nicht hinterlegt</td><td><span class="catalog-measure">Nicht hinterlegt</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>Nicht hinterlegt</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
+<tr id="out-test_flex_building_and_miv" data-entity="">
+<th scope="row"><span class="catalog-icon" aria-hidden="true">☑</span> <a href="#out-test_flex_building_and_miv">Flexible Deckung Gebäude + MIV = Quartier</a><br><code>test_flex_building_and_miv</code></th>
+<td>True</td><td><span class="catalog-measure">test</span>
+<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>test</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>district</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
+<tr id="out-test_flex_direct_use" data-entity="">
+<th scope="row"><span class="catalog-icon" aria-hidden="true">☑</span> <a href="#out-test_flex_direct_use">Flexibler Netzstrom vollständig</a><br><code>test_flex_direct_use</code></th>
+<td>True</td><td><span class="catalog-measure">test</span>
+<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>test</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>district</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
+<tr id="out-test_flex_storage" data-entity="">
+<th scope="row"><span class="catalog-icon" aria-hidden="true">☑</span> <a href="#out-test_flex_storage">Flexibler Netzstrom vollständig</a><br><code>test_flex_storage</code></th>
+<td>True</td><td><span class="catalog-measure">test</span>
+<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>test</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>district</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
 </tbody></table></div></details>
-<details class="out-domain" id="out-domain-4" data-domain="heating">
+<details class="out-domain" id="out-domain-5" data-domain="heating">
 <summary>Heizung <span class="out-domain-count">(17)</span></summary>
 <p>Schema-Domäne: <code>heating</code></p>
 <div class="catalog-table" role="region" aria-label="Kennzahl: heating" tabindex="0">
@@ -503,7 +322,7 @@ Direkteingabe Lebensdauer</a><br><code>legacy_GWP_life_direct</code></th>
 <td>kWh Wärmeverluste/m²NGFa</td><td><span class="catalog-measure">Nicht hinterlegt</span>
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>Nicht hinterlegt</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
 </tbody></table></div></details>
-<details class="out-domain" id="out-domain-5" data-domain="comfort">
+<details class="out-domain" id="out-domain-6" data-domain="comfort">
 <summary>Komfort <span class="out-domain-count">(8)</span></summary>
 <p>Schema-Domäne: <code>comfort</code></p>
 <div class="catalog-table" role="region" aria-label="Kennzahl: comfort" tabindex="0">
@@ -542,7 +361,7 @@ Direkteingabe Lebensdauer</a><br><code>legacy_GWP_life_direct</code></th>
 <td>K</td><td><span class="catalog-measure">temperature_difference</span>
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>temperature_difference</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>uncooled</dd><dt>Zeitlicher Bezug</dt><dd>winter</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
 </tbody></table></div></details>
-<details class="out-domain" id="out-domain-6" data-domain="cooling">
+<details class="out-domain" id="out-domain-7" data-domain="cooling">
 <summary>Kühlung <span class="out-domain-count">(14)</span></summary>
 <p>Schema-Domäne: <code>cooling</code></p>
 <div class="catalog-table" role="region" aria-label="Kennzahl: cooling" tabindex="0">
@@ -605,7 +424,7 @@ Direkteingabe Lebensdauer</a><br><code>legacy_GWP_life_direct</code></th>
 <td>kWh Umweltwärme Zufuhr/m²NGFa</td><td><span class="catalog-measure">Nicht hinterlegt</span>
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>Nicht hinterlegt</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
 </tbody></table></div></details>
-<details class="out-domain" id="out-domain-7" data-domain="mobility">
+<details class="out-domain" id="out-domain-8" data-domain="mobility">
 <summary>Mobilität <span class="out-domain-count">(3)</span></summary>
 <p>Schema-Domäne: <code>mobility</code></p>
 <div class="catalog-table" role="region" aria-label="Kennzahl: mobility" tabindex="0">
@@ -624,7 +443,7 @@ Direkteingabe Lebensdauer</a><br><code>legacy_GWP_life_direct</code></th>
 <td>StatPAX</td><td><span class="catalog-measure">occupancy</span>
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>occupancy</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>StatPAX</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
 </tbody></table></div></details>
-<details class="out-domain" id="out-domain-8" data-domain="useful_energy">
+<details class="out-domain" id="out-domain-9" data-domain="useful_energy">
 <summary>Nutzenergie <span class="out-domain-count">(9)</span></summary>
 <p>Schema-Domäne: <code>useful_energy</code></p>
 <div class="catalog-table" role="region" aria-label="Kennzahl: useful_energy" tabindex="0">
@@ -667,7 +486,7 @@ Direkteingabe Lebensdauer</a><br><code>legacy_GWP_life_direct</code></th>
 <td>kWh/m²NGFa</td><td><span class="catalog-measure">dhw_demand</span>
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>dhw_demand</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>district</dd><dt>Zeitlicher Bezug</dt><dd>annual</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
 </tbody></table></div></details>
-<details class="out-domain" id="out-domain-9" data-domain="pe_import_export_balance">
+<details class="out-domain" id="out-domain-10" data-domain="pe_import_export_balance">
 <summary>Primärenergie: Import und Export <span class="out-domain-count">(10)</span></summary>
 <p>Schema-Domäne: <code>pe_import_export_balance</code></p>
 <div class="catalog-table" role="region" aria-label="Kennzahl: pe_import_export_balance" tabindex="0">
@@ -714,7 +533,7 @@ Direkteingabe Lebensdauer</a><br><code>legacy_GWP_life_direct</code></th>
 <td>kWhPEges./m²NGFa</td><td><span class="catalog-measure">Nicht hinterlegt</span>
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>Nicht hinterlegt</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>export</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
 </tbody></table></div></details>
-<details class="out-domain" id="out-domain-10" data-domain="primary_energy_balance">
+<details class="out-domain" id="out-domain-11" data-domain="primary_energy_balance">
 <summary>Primärenergiebilanz <span class="out-domain-count">(25)</span></summary>
 <p>Schema-Domäne: <code>primary_energy_balance</code></p>
 <div class="catalog-table" role="region" aria-label="Kennzahl: primary_energy_balance" tabindex="0">
@@ -804,13 +623,13 @@ Direkteingabe Lebensdauer</a><br><code>legacy_GWP_life_direct</code></th>
 <th scope="row"><a href="#out-PEI_balance">PE-Bilanz Netzäquivalent</a><br><code>PEI_balance</code></th>
 <td>kWhPEges./m²NGFa</td><td><span class="catalog-measure">balance</span>
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>balance</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>annual</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-PEI_virtual_balance_test" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☑</span> <a href="#out-PEI_virtual_balance_test">PE-Bilanz Summe = Virtuelle Deckung - Virtueller Bedarf</a><br><code>PEI_virtual_balance_test</code></th>
+<tr id="out-test_PEI_virtual_balance" data-entity="">
+<th scope="row"><span class="catalog-icon" aria-hidden="true">☑</span> <a href="#out-test_PEI_virtual_balance">PE-Bilanz Summe = Virtuelle Deckung - Virtueller Bedarf</a><br><code>test_PEI_virtual_balance</code></th>
 <td>True</td><td><span class="catalog-measure">test</span>
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>test</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>district</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-PEI_importexport_balance_test" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☑</span> <a href="#out-PEI_importexport_balance_test">PE-Bilanz Virtuell = Import/Export</a><br><code>PEI_importexport_balance_test</code></th>
-<td>True</td><td><span class="catalog-measure">test</span>
+<tr id="out-test_PEI_importexport_balance" data-entity="">
+<th scope="row"><span class="catalog-icon" aria-hidden="true">☑</span> <a href="#out-test_PEI_importexport_balance">PE-Bilanz Virtuell = Import/Export</a><br><code>test_PEI_importexport_balance</code></th>
+<td>False</td><td><span class="catalog-measure">test</span>
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>test</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>district</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
 <tr id="out-PEI_virtual_supply" data-entity="">
 <th scope="row"><a href="#out-PEI_virtual_supply">PE-Deckung (inkl. Kontextfaktoren)</a><br><code>PEI_virtual_supply</code></th>
@@ -821,7 +640,7 @@ Direkteingabe Lebensdauer</a><br><code>legacy_GWP_life_direct</code></th>
 <td>kWhPEges./m²NGFa</td><td><span class="catalog-measure">demand</span>
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>demand</dd><dt>Entity Group</dt><dd>storage</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>annual</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
 </tbody></table></div></details>
-<details class="out-domain" id="out-domain-11" data-domain="electricity_end_use">
+<details class="out-domain" id="out-domain-12" data-domain="electricity_end_use">
 <summary>Stromanwendungen <span class="out-domain-count">(7)</span></summary>
 <p>Schema-Domäne: <code>electricity_end_use</code></p>
 <div class="catalog-table" role="region" aria-label="Kennzahl: electricity_end_use" tabindex="0">
@@ -847,8 +666,8 @@ Direkteingabe Lebensdauer</a><br><code>legacy_GWP_life_direct</code></th>
 <th scope="row"><a href="#out-EUI_plugloads">Nutzerstrom</a><br><code>EUI_plugloads</code></th>
 <td>kWh/m²NGFa</td><td><span class="catalog-measure">plugloads</span>
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>plugloads</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>district</dd><dt>Zeitlicher Bezug</dt><dd>annual</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-test_EUI_balance" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☑</span> <a href="#out-test_EUI_balance">Nutzerstrom Bilanz</a><br><code>test_EUI_balance</code></th>
+<tr id="out-test_user_electricity" data-entity="">
+<th scope="row"><span class="catalog-icon" aria-hidden="true">☑</span> <a href="#out-test_user_electricity">Nutzerstrom Bilanz</a><br><code>test_user_electricity</code></th>
 <td>True</td><td><span class="catalog-measure">test</span>
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>test</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>district</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
 <tr id="out-EUI_el_total" data-entity="">
@@ -856,8 +675,8 @@ Direkteingabe Lebensdauer</a><br><code>legacy_GWP_life_direct</code></th>
 <td>kWh/m²NGFa</td><td><span class="catalog-measure">total</span>
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>total</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
 </tbody></table></div></details>
-<details class="out-domain" id="out-domain-12" data-domain="electricity_dispatch">
-<summary>Stromflüsse <span class="out-domain-count">(48)</span></summary>
+<details class="out-domain" id="out-domain-13" data-domain="electricity_dispatch">
+<summary>Stromflüsse <span class="out-domain-count">(50)</span></summary>
 <p>Schema-Domäne: <code>electricity_dispatch</code></p>
 <div class="catalog-table" role="region" aria-label="Kennzahl: electricity_dispatch" tabindex="0">
 <table><thead><tr><th scope="col">Kennzahl / Variablenname</th><th scope="col">Einheit</th>
@@ -1002,6 +821,14 @@ Direkteingabe Lebensdauer</a><br><code>legacy_GWP_life_direct</code></th>
 <th scope="row"><span class="catalog-icon" aria-hidden="true">🔌</span> <a href="#out-Grid_to_Edhw_min">Netzstrom → Warmwasser</a><br><code>Grid_to_Edhw_min</code></th>
 <td>kWh/m²NGFa</td><td><span class="catalog-measure">grid_use</span>
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>grid_use</dd><dt>Entity Group</dt><dd>energy_use</dd><dt>Entity Key</dt><dd>dhw_demand</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>static</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
+<tr id="out-test_grid_to_min_is_sum" data-entity="">
+<th scope="row"><span class="catalog-icon" aria-hidden="true">☑</span> <a href="#out-test_grid_to_min_is_sum">Netzstrombilanz</a><br><code>test_grid_to_min_is_sum</code></th>
+<td>True</td><td><span class="catalog-measure">test</span>
+<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>test</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>district</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
+<tr id="out-test_grid_import_is_GridToEV_plus_GridToBuilding" data-entity="">
+<th scope="row"><span class="catalog-icon" aria-hidden="true">☑</span> <a href="#out-test_grid_import_is_GridToEV_plus_GridToBuilding">Netzstrombilanz Gebäude + MIV = Insgesamt</a><br><code>test_grid_import_is_GridToEV_plus_GridToBuilding</code></th>
+<td>True</td><td><span class="catalog-measure">test</span>
+<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>test</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>district</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
 <tr id="out-PV_total" data-entity="">
 <th scope="row"><span class="catalog-icon" aria-hidden="true">🌞</span> <a href="#out-PV_total">PV Ertrag</a><br><code>PV_total</code></th>
 <td>kWh/m²NGFa</td><td><span class="catalog-measure">PV_use</span>
@@ -1055,8 +882,8 @@ Direkteingabe Lebensdauer</a><br><code>legacy_GWP_life_direct</code></th>
 <td>kWh/m²NGFa</td><td><span class="catalog-measure">PV_use</span>
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>PV_use</dd><dt>Entity Group</dt><dd>energy_use</dd><dt>Entity Key</dt><dd>dhw_demand</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>flexible</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
 </tbody></table></div></details>
-<details class="out-domain" id="out-domain-13" data-domain="GWP">
-<summary>Treibhausgasbilanz <span class="out-domain-count">(84)</span></summary>
+<details class="out-domain" id="out-domain-14" data-domain="GWP">
+<summary>Treibhausgasbilanz <span class="out-domain-count">(88)</span></summary>
 <p>Schema-Domäne: <code>GWP</code></p>
 <div class="catalog-table" role="region" aria-label="Kennzahl: GWP" tabindex="0">
 <table><thead><tr><th scope="col">Kennzahl / Variablenname</th><th scope="col">Einheit</th>
@@ -1265,6 +1092,22 @@ Direkteingabe Lebensdauer</a><br><code>legacy_GWP_life_direct</code></th>
 <th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-GWP_ee_balconies">THG LZ Balkone</a><br><code>GWP_ee_balconies</code></th>
 <td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">embodied_emissions</span>
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>embodied_emissions</dd><dt>Entity Group</dt><dd>component</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>district</dd><dt>Zeitlicher Bezug</dt><dd>2025-2075</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
+<tr id="out-GWP_ee_TES_base_electro" data-entity="component">
+<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-GWP_ee_TES_base_electro">THG LZ Basis Elektro</a><br><code>GWP_ee_TES_base_electro</code></th>
+<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">embodied_emissions</span>
+<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>embodied_emissions</dd><dt>Entity Group</dt><dd>component</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>district</dd><dt>Zeitlicher Bezug</dt><dd>2025-2075</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
+<tr id="out-GWP_ee_TES_base_HCDHW" data-entity="component">
+<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-GWP_ee_TES_base_HCDHW">THG LZ Basis Heizen/Kühlen/Warmwasser</a><br><code>GWP_ee_TES_base_HCDHW</code></th>
+<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">embodied_emissions</span>
+<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>embodied_emissions</dd><dt>Entity Group</dt><dd>component</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>district</dd><dt>Zeitlicher Bezug</dt><dd>2025-2075</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
+<tr id="out-GWP_ee_TES_base_ventilation" data-entity="component">
+<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-GWP_ee_TES_base_ventilation">THG LZ Basis Lüftung</a><br><code>GWP_ee_TES_base_ventilation</code></th>
+<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">embodied_emissions</span>
+<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>embodied_emissions</dd><dt>Entity Group</dt><dd>component</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>district</dd><dt>Zeitlicher Bezug</dt><dd>2025-2075</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
+<tr id="out-GWP_ee_TES_base_plumbing" data-entity="component">
+<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-GWP_ee_TES_base_plumbing">THG LZ Basis Sanitär</a><br><code>GWP_ee_TES_base_plumbing</code></th>
+<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">embodied_emissions</span>
+<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>embodied_emissions</dd><dt>Entity Group</dt><dd>component</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>district</dd><dt>Zeitlicher Bezug</dt><dd>2025-2075</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
 <tr id="out-GWP_ee_fundament" data-entity="component">
 <th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-GWP_ee_fundament">THG LZ Bodenplatte</a><br><code>GWP_ee_fundament</code></th>
 <td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">embodied_emissions</span>
@@ -1398,7 +1241,7 @@ Direkteingabe Lebensdauer</a><br><code>legacy_GWP_life_direct</code></th>
 <td>GWP 100S (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">total_emissions</span>
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>total_emissions</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>district</dd><dt>Zeitlicher Bezug</dt><dd>2025-2075</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
 </tbody></table></div></details>
-<details class="out-domain" id="out-domain-14" data-domain="dhw">
+<details class="out-domain" id="out-domain-15" data-domain="dhw">
 <summary>Warmwasser <span class="out-domain-count">(32)</span></summary>
 <p>Schema-Domäne: <code>dhw</code></p>
 <div class="catalog-table" role="region" aria-label="Kennzahl: dhw" tabindex="0">
@@ -1533,7 +1376,7 @@ Direkteingabe Lebensdauer</a><br><code>legacy_GWP_life_direct</code></th>
 <td>kWh Wärmeverluste/m²NGFa</td><td><span class="catalog-measure">Nicht hinterlegt</span>
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>Nicht hinterlegt</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
 </tbody></table></div></details>
-<details class="out-domain" id="out-domain-15" data-domain="weather">
+<details class="out-domain" id="out-domain-16" data-domain="weather">
 <summary>Wetter <span class="out-domain-count">(3)</span></summary>
 <p>Schema-Domäne: <code>weather</code></p>
 <div class="catalog-table" role="region" aria-label="Kennzahl: weather" tabindex="0">
@@ -1552,7 +1395,7 @@ Direkteingabe Lebensdauer</a><br><code>legacy_GWP_life_direct</code></th>
 <td>°C</td><td><span class="catalog-measure">temperature</span>
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>temperature</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
 </tbody></table></div></details>
-<details class="out-domain" id="out-domain-16" data-domain="heat_balance">
+<details class="out-domain" id="out-domain-17" data-domain="heat_balance">
 <summary>Wärmebilanz <span class="out-domain-count">(96)</span></summary>
 <p>Schema-Domäne: <code>heat_balance</code></p>
 <div class="catalog-table" role="region" aria-label="Kennzahl: heat_balance" tabindex="0">
@@ -1943,8 +1786,8 @@ Direkteingabe Lebensdauer</a><br><code>legacy_GWP_life_direct</code></th>
 <td>False</td><td><span class="catalog-measure">test</span>
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>test</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>district</dd><dt>Zeitlicher Bezug</dt><dd>summer</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
 </tbody></table></div></details>
-<details class="out-domain" id="out-domain-17" data-domain="">
-<summary>Ohne Domänenzuordnung <span class="out-domain-count">(70)</span></summary>
+<details class="out-domain" id="out-domain-18" data-domain="">
+<summary>Ohne Domänenzuordnung <span class="out-domain-count">(31)</span></summary>
 <div class="catalog-table" role="region" aria-label="Kennzahl: Nicht hinterlegt" tabindex="0">
 <table><thead><tr><th scope="col">Kennzahl / Variablenname</th><th scope="col">Einheit</th>
 <th scope="col">Zuordnung und Beschreibung</th></tr></thead><tbody>
@@ -1956,10 +1799,6 @@ Direkteingabe Lebensdauer</a><br><code>legacy_GWP_life_direct</code></th>
 <th scope="row"><span class="catalog-icon" aria-hidden="true">🔋</span> <a href="#out-Batt_FEC">Batterie Volladezyklen</a><br><code>Batt_FEC</code></th>
 <td>x</td><td><span class="catalog-measure">battery</span>
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>battery</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_lc_EE_total" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_lc_EE_total">EE THG-Emissionen 2025-2075</a><br><code>legacy_GWP_lc_EE_total</code></th>
-<td>GWP 100S (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Betrieb 2025-2075</dd><dt>Zeitlicher Bezug</dt><dd>2025-2050</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
 <tr id="out-UED_mob_el_target" data-entity="">
 <th scope="row"><span class="catalog-icon" aria-hidden="true">🚗</span> <a href="#out-UED_mob_el_target">EE-Bedarf Zielverkehr Elektrisch</a><br><code>UED_mob_el_target</code></th>
 <td>kWh/m²NGFa</td><td><span class="catalog-measure">mobility</span>
@@ -1972,10 +1811,6 @@ Direkteingabe Lebensdauer</a><br><code>legacy_GWP_life_direct</code></th>
 <th scope="row"><a href="#out-EUI_self_sufficiency">Energie-Autonomie</a><br><code>EUI_self_sufficiency</code></th>
 <td>Nicht hinterlegt</td><td><span class="catalog-measure">PV</span>
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>PV</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_con_tga" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_ee_con_tga">Errichtung TGA</a><br><code>legacy_GWP_ee_con_tga</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
 <tr id="out-EUIev_el_total" data-entity="">
 <th scope="row"><span class="catalog-icon" aria-hidden="true">🚗</span> <a href="#out-EUIev_el_total">EV Jährliche Beladung</a><br><code>EUIev_el_total</code></th>
 <td>Nicht hinterlegt</td><td><span class="catalog-measure">mobility</span>
@@ -2012,10 +1847,6 @@ Direkteingabe Lebensdauer</a><br><code>legacy_GWP_life_direct</code></th>
 <th scope="row"><span class="catalog-icon" aria-hidden="true">🚗</span> <a href="#out-UED_mob_el_total">Gesamtverkehr elektrisch</a><br><code>UED_mob_el_total</code></th>
 <td>kWh/m²NGFa</td><td><span class="catalog-measure">mobility</span>
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>mobility</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Real</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_rep_tga" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_ee_rep_tga">Instandsetzung TGA</a><br><code>legacy_GWP_ee_rep_tga</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
 <tr id="out-Batt_total_discharge" data-entity="">
 <th scope="row"><span class="catalog-icon" aria-hidden="true">🔋</span> <a href="#out-Batt_total_discharge">Jährliche Entladung</a><br><code>Batt_total_discharge</code></th>
 <td>kWh/m²NGFa</td><td><span class="catalog-measure">battery</span>
@@ -2032,18 +1863,10 @@ Direkteingabe Lebensdauer</a><br><code>legacy_GWP_life_direct</code></th>
 <th scope="row"><span class="catalog-icon" aria-hidden="true">💸</span> <a href="#out-cost_PV_to_Egrid">Kosten Netzeinspeisung</a><br><code>cost_PV_to_Egrid</code></th>
 <td>€</td><td><span class="catalog-measure">Stromkosten</span>
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>Stromkosten</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-test_GWP_sum" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☑</span> <a href="#out-test_GWP_sum">OE + EE = LCA</a><br><code>test_GWP_sum</code></th>
+<tr id="out-test_ghg_oe_plus_ee_is_total" data-entity="">
+<th scope="row"><span class="catalog-icon" aria-hidden="true">☑</span> <a href="#out-test_ghg_oe_plus_ee_is_total">OE + EE = LCA</a><br><code>test_ghg_oe_plus_ee_is_total</code></th>
 <td>True</td><td><span class="catalog-measure">THG-Bilanz</span>
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>test</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-test_legacy_GWP_sum" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☑</span> <a href="#out-test_legacy_GWP_sum">OE + EE = LCA</a><br><code>test_legacy_GWP_sum</code></th>
-<td>True</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>test</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_lc_OE_total" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_lc_OE_total">OE THG-Emissionen 2025-2075</a><br><code>legacy_GWP_lc_OE_total</code></th>
-<td>GWP 100S (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Betrieb 2025-2075</dd><dt>Zeitlicher Bezug</dt><dd>2025-2050</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
 <tr id="out-fPE_eff" data-entity="">
 <th scope="row"><a href="#out-fPE_eff">PE Faktor Netzstrom Effektiv</a><br><code>fPE_eff</code></th>
 <td>Nicht hinterlegt</td><td><span class="catalog-measure">Nicht hinterlegt</span>
@@ -2084,142 +1907,6 @@ Direkteingabe Lebensdauer</a><br><code>legacy_GWP_life_direct</code></th>
 <th scope="row"><span class="catalog-icon" aria-hidden="true">💸</span> <a href="#out-cost_total">Summe Kosten</a><br><code>cost_total</code></th>
 <td>€</td><td><span class="catalog-measure">Stromkosten</span>
 <details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>Stromkosten</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_lc_tga" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_ee_lc_tga">TGA</a><br><code>legacy_GWP_ee_lc_tga</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_lc_tga_general" data-entity="">
-<th scope="row"><a href="#out-legacy_GWP_ee_lc_tga_general">TGA Allgemein</a><br><code>legacy_GWP_ee_lc_tga_general</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_tga_general_biogenic" data-entity="">
-<th scope="row"><a href="#out-legacy_GWP_ee_tga_general_biogenic">TGA Allgemein biogen</a><br><code>legacy_GWP_ee_tga_general_biogenic</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_tga_general_fossile" data-entity="">
-<th scope="row"><a href="#out-legacy_GWP_ee_tga_general_fossile">TGA Allgemein fossil</a><br><code>legacy_GWP_ee_tga_general_fossile</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_life_tga_general" data-entity="">
-<th scope="row"><a href="#out-legacy_GWP_life_tga_general">TGA Allgemein Lebensdauer</a><br><code>legacy_GWP_life_tga_general</code></th>
-<td>Jahre</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_tga_other_biogenic" data-entity="">
-<th scope="row"><a href="#out-legacy_GWP_ee_tga_other_biogenic">TGA Andere biogen</a><br><code>legacy_GWP_ee_tga_other_biogenic</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_tga_other_fossile" data-entity="">
-<th scope="row"><a href="#out-legacy_GWP_ee_tga_other_fossile">TGA Andere fossil</a><br><code>legacy_GWP_ee_tga_other_fossile</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_life_tga_other" data-entity="">
-<th scope="row"><a href="#out-legacy_GWP_life_tga_other">TGA Andere Lebensdauer</a><br><code>legacy_GWP_life_tga_other</code></th>
-<td>Jahre</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_lc_battery" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_ee_lc_battery">TGA E-Batterie</a><br><code>legacy_GWP_ee_lc_battery</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_tga_battery_biogenic" data-entity="">
-<th scope="row"><a href="#out-legacy_GWP_ee_tga_battery_biogenic">TGA E-Batterie biogen</a><br><code>legacy_GWP_ee_tga_battery_biogenic</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_tga_battery_fossile" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_ee_tga_battery_fossile">TGA E-Batterie fossil</a><br><code>legacy_GWP_ee_tga_battery_fossile</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_life_battery" data-entity="">
-<th scope="row"><a href="#out-legacy_GWP_life_battery">TGA E-Batterie Lebensdauer</a><br><code>legacy_GWP_life_battery</code></th>
-<td>Jahre</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_lc_boreholes" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_ee_lc_boreholes">TGA Erdsonden</a><br><code>legacy_GWP_ee_lc_boreholes</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_tga_boreholes_biogenic" data-entity="">
-<th scope="row"><a href="#out-legacy_GWP_ee_tga_boreholes_biogenic">TGA Erdsonden biogen</a><br><code>legacy_GWP_ee_tga_boreholes_biogenic</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_tga_boreholes_fossile" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_ee_tga_boreholes_fossile">TGA Erdsonden fossil</a><br><code>legacy_GWP_ee_tga_boreholes_fossile</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_life_tga_boreholes" data-entity="">
-<th scope="row"><a href="#out-legacy_GWP_life_tga_boreholes">TGA Erdsonden Lebensdauer</a><br><code>legacy_GWP_life_tga_boreholes</code></th>
-<td>Jahre</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_lc_ventilation" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_ee_lc_ventilation">TGA Lüftung</a><br><code>legacy_GWP_ee_lc_ventilation</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_tga_ventilation_biogenic" data-entity="">
-<th scope="row"><a href="#out-legacy_GWP_ee_tga_ventilation_biogenic">TGA Lüftung biogen</a><br><code>legacy_GWP_ee_tga_ventilation_biogenic</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_tga_ventilation_fossile" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_ee_tga_ventilation_fossile">TGA Lüftung fossil</a><br><code>legacy_GWP_ee_tga_ventilation_fossile</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_life_tga_ventilation" data-entity="">
-<th scope="row"><a href="#out-legacy_GWP_life_tga_ventilation">TGA Lüftung Lebensdauer</a><br><code>legacy_GWP_life_tga_ventilation</code></th>
-<td>Jahre</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_lc_pv" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_ee_lc_pv">TGA PV</a><br><code>legacy_GWP_ee_lc_pv</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_tga_pv_biogenic" data-entity="">
-<th scope="row"><a href="#out-legacy_GWP_ee_tga_pv_biogenic">TGA PV biogen</a><br><code>legacy_GWP_ee_tga_pv_biogenic</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_tga_pv_fossile" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_ee_tga_pv_fossile">TGA PV fossil</a><br><code>legacy_GWP_ee_tga_pv_fossile</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_life_tga_pv" data-entity="">
-<th scope="row"><a href="#out-legacy_GWP_life_tga_pv">TGA PV Lebensdauer</a><br><code>legacy_GWP_life_tga_pv</code></th>
-<td>Jahre</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_lc_tga_other" data-entity="">
-<th scope="row"><a href="#out-legacy_GWP_ee_lc_tga_other">TGA Sammel-Maßnahmen</a><br><code>legacy_GWP_ee_lc_tga_other</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_lc_solarthermal" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_ee_lc_solarthermal">TGA Solarthermie</a><br><code>legacy_GWP_ee_lc_solarthermal</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_tga_solarthermal_biogenic" data-entity="">
-<th scope="row"><a href="#out-legacy_GWP_ee_tga_solarthermal_biogenic">TGA Solarthermie biogen</a><br><code>legacy_GWP_ee_tga_solarthermal_biogenic</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_tga_solarthermal_fossile" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_ee_tga_solarthermal_fossile">TGA Solarthermie fossil</a><br><code>legacy_GWP_ee_tga_solarthermal_fossile</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_life_solarthermal" data-entity="">
-<th scope="row"><a href="#out-legacy_GWP_life_solarthermal">TGA Solarthermie Lebensdauer</a><br><code>legacy_GWP_life_solarthermal</code></th>
-<td>Jahre</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_lc_storage" data-entity="">
-<th scope="row"><a href="#out-legacy_GWP_ee_lc_storage">TGA Speicher</a><br><code>legacy_GWP_ee_lc_storage</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_tga_storage_biogenic" data-entity="">
-<th scope="row"><a href="#out-legacy_GWP_ee_tga_storage_biogenic">TGA Speicher biogen</a><br><code>legacy_GWP_ee_tga_storage_biogenic</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_ee_tga_storage_fossile" data-entity="">
-<th scope="row"><a href="#out-legacy_GWP_ee_tga_storage_fossile">TGA Speicher fossil</a><br><code>legacy_GWP_ee_tga_storage_fossile</code></th>
-<td>GWP 100A (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_life_storage" data-entity="">
-<th scope="row"><a href="#out-legacy_GWP_life_storage">TGA Speicher Lebensdauer</a><br><code>legacy_GWP_life_storage</code></th>
-<td>Jahre</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Graue Emissionen</dd><dt>Zeitlicher Bezug</dt><dd>Nicht hinterlegt</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
-<tr id="out-legacy_GWP_lc_total" data-entity="">
-<th scope="row"><span class="catalog-icon" aria-hidden="true">☁</span> <a href="#out-legacy_GWP_lc_total">THG-Emissionen 2025-2075</a><br><code>legacy_GWP_lc_total</code></th>
-<td>GWP 100S (kgCO2equiv/m²BGF)</td><td><span class="catalog-measure">THG-Bilanz</span>
-<details class="out-meta"><summary>Metadaten anzeigen</summary><dl><dt>Größentyp (measure)</dt><dd>THG-Bilanz</dd><dt>Entity Group</dt><dd>Nicht hinterlegt</dd><dt>Entity Key</dt><dd>Nicht hinterlegt</dd><dt>Räumlicher Bezug</dt><dd>Betrieb 2025-2075</dd><dt>Zeitlicher Bezug</dt><dd>2025-2050</dd><dt>Zusätzliche Beschreibung</dt><dd>Nicht hinterlegt</dd></dl></details></td></tr>
 <tr id="out-Batt_charge_losses" data-entity="">
 <th scope="row"><span class="catalog-icon" aria-hidden="true">🔋</span> <a href="#out-Batt_charge_losses">Verluste Beladung</a><br><code>Batt_charge_losses</code></th>
 <td>kWh/m²NGFa</td><td><span class="catalog-measure">battery</span>
