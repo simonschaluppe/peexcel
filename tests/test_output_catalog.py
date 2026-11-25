@@ -9,7 +9,9 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
 import output_catalog
+from pexl.i18n import domain_text
 from pexl.schema import current
+from pexl.schema._presets import load_preset_catalogs
 
 
 class CatalogParser(HTMLParser):
@@ -88,6 +90,49 @@ def test_navigation_separates_excel_python_and_project():
     assert 'research.qmd' in about['contents']
     assert '!assets/**' in config['project']['render']
     assert 'output-catalog.js' in config['project']['resources']
+    assert config['project']['pre-render'] == ['python ../scripts/output_catalog.py']
+
+
+def test_preset_catalog_defaults_to_current_and_renders_historical_exports(tmp_path):
+    catalogs = load_preset_catalogs(output_catalog.SCHEMA_EXPORTS)
+    active, *historical = catalogs
+    assert active['version_key'] == current.SCHEMA_VERSION
+    assert {data['tool_version'] for data in catalogs} >= {'1.13.1_dev', 'v1.12.7', 'v1.11.6'}
+    assert all(not field['in_schema'] for data in historical for table in data['tables']
+               for field in table['variables'].values())
+    catalog = output_catalog.build_presets(tmp_path).read_text(encoding='utf-8')
+    assert f'data-current="{current.SCHEMA_VERSION}"' in catalog
+    assert f'Stand: {active["tool_version"]}' in catalog
+    for data in historical:
+        key = data['version_key']
+        assert f'value="{key}"' in catalog
+        fragment = (tmp_path / 'preset-versions' / f'{key}.html').read_text(encoding='utf-8')
+        assert f'Stand: {data["tool_version"]}' in fragment
+        assert data['source'].name in fragment
+
+
+def test_active_preset_export_must_exist_and_match_its_metadata(tmp_path):
+    from openpyxl import Workbook
+
+    version = current.SCHEMA_VERSION
+    with pytest.raises(ValueError, match=f'Expected one Excel schema export for {version}'):
+        load_preset_catalogs(tmp_path)
+    workbook = Workbook()
+    workbook.active.title = 'META'
+    workbook['META'].append(['key', 'value'])
+    workbook['META'].append(['tool_version', '0.0.0'])
+    presets = workbook.create_sheet('example')
+    presets.append(['var_name', 'PRESETS>', 'Default'])
+    presets.append(['Example', None, 0])
+    workbook.save(tmp_path / f'schema_{version}.xlsx')
+    with pytest.raises(ValueError, match=f'expected META.tool_version matching {version}'):
+        load_preset_catalogs(tmp_path)
+
+
+def test_domain_text_is_shared_and_preserves_untranslated_keys():
+    assert domain_text('heat_balance') == 'Wärmebilanz'
+    assert domain_text('heat_balance', 'en') == 'Heat balance'
+    assert domain_text('new_domain') == 'new_domain'
 
 
 def test_both_catalogs_have_unique_ids_and_keep_existing_out_anchors():

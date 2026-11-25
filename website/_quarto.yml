@@ -7,8 +7,8 @@ project:
     - "!downloads/**"
     - "!assets/**"
     - "!en/**"
-  # pre-render:
-  #  - python ../scripts/website_assets.py
+  pre-render:
+    - python ../scripts/output_catalog.py
   post-render:
     - python ../scripts/render_english_site.py
   resources:

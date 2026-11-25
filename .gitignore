@@ -34,6 +34,7 @@ excel/development/
 !excel/development/ka_PEQ_Nachweistool_dev.xlsb
 Excel Files/PEExcel Archive/
 notebooks/local_exports/
+notebooks/teaching/ndk/output/
 **/ribbon/
 **/Intern/
 **/__pycache__/

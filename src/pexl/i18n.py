@@ -15,8 +15,6 @@ Language = Literal["de", "en"]
 #   preserve canonical schema keys, scenario names and recorded preset names.
 # - Localize reporting.materialize, plot/export labels, temporal inventories and
 #   spatial teaching labels through the same public Python APIs as notebooks.
-# - Replace output_catalog.DOMAIN_LABELS as a separate translation dictionary;
-#   preserve actual schema domain/source values (including BOTH semantics).
 # - Supply browser labels/locales from the same language source for the catalog,
 #   Quick-Check and teaching viewers; no independently maintained JS dictionary.
 # - Cover number/date formatting, search normalization and German-only heuristics
@@ -41,6 +39,56 @@ class LocalizedText:
     def get(self, language: Language) -> str:
         """Return the text in the requested language."""
         return getattr(self, language)
+
+
+# Shared display names for the canonical domain keys supplied by the schema.
+_DOMAIN_TEXT = {
+    "heat_balance": LocalizedText("Wärmebilanz", "Heat balance"),
+    "GWP": LocalizedText("Treibhausgasbilanz", "Greenhouse gas balance"),
+    "embodied_emissions": LocalizedText("Graue Emissionen", "Embodied emissions"),
+    "electricity_dispatch": LocalizedText("Stromflüsse", "Electricity dispatch"),
+    "dhw": LocalizedText("Warmwasser", "Domestic hot water"),
+    "primary_energy_balance": LocalizedText("Primärenergiebilanz", "Primary energy balance"),
+    "heating": LocalizedText("Heizung", "Heating"),
+    "energy_dispatch": LocalizedText("Energieverteilung", "Energy dispatch"),
+    "final_energy_balance": LocalizedText("Endenergiebilanz", "Final energy balance"),
+    "cooling": LocalizedText("Kühlung", "Cooling"),
+    "pe_import_export_balance": LocalizedText("Primärenergie: Import und Export", "Primary energy import and export"),
+    "useful_energy": LocalizedText("Nutzenergie", "Useful energy"),
+    "comfort": LocalizedText("Komfort", "Comfort"),
+    "electricity_end_use": LocalizedText("Stromanwendungen", "Electricity end use"),
+    "weather": LocalizedText("Wetter", "Weather"),
+    "mobility": LocalizedText("Mobilität", "Mobility"),
+    "final_energy": LocalizedText("Endenergie", "Final energy"),
+    "GHG": LocalizedText("Treibhausgase", "Greenhouse gases"),
+    "PV": LocalizedText("Photovoltaik", "Photovoltaics"),
+    "Ventilation": LocalizedText("Lüftung", "Ventilation"),
+    "ventilation": LocalizedText("Lüftung", "Ventilation"),
+    "assessment": LocalizedText("Bewertung", "Assessment"),
+    "battery": LocalizedText("Batterie", "Battery"),
+    "construction": LocalizedText("Konstruktion", "Construction"),
+    "declaration": LocalizedText("Deklaration", "Declaration"),
+    "district": LocalizedText("Quartier", "District"),
+    "flexibility": LocalizedText("Flexibilität", "Flexibility"),
+    "geometry": LocalizedText("Geometrie", "Geometry"),
+    "lca": LocalizedText("Lebenszyklus", "Life cycle"),
+    "legacy": LocalizedText("Altbestand", "Legacy"),
+    "primary_energy": LocalizedText("Primärenergie", "Primary energy"),
+    "project": LocalizedText("Projekt", "Project"),
+    "solar_gains": LocalizedText("Solare Gewinne", "Solar gains"),
+    "thermal_hull": LocalizedText("Thermische Hülle", "Thermal envelope"),
+    "tool": LocalizedText("Werkzeug", "Tool"),
+    "usage": LocalizedText("Nutzung", "Use"),
+}
+_NO_DOMAIN = LocalizedText("Ohne Domänenzuordnung", "No domain assigned")
+
+
+def domain_text(domain: str | None, language: Language = "de") -> str:
+    """Return a domain's display name, falling back to its schema key."""
+    if not domain:
+        return _NO_DOMAIN.get(language)
+    text = _DOMAIN_TEXT.get(domain)
+    return text.get(language) if text else domain
 
 
 # Shared reference-chart vocabulary. Keys are semantic, never translated IDs.
