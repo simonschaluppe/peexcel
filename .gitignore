@@ -98,3 +98,7 @@ website/en/*.html
 !website/illustrations/pv/*.svg
 !website/illustrations/hvac/*.png
 !website/illustrations/hvac/*.svg
+!website/illustrations/ribbon/
+!website/illustrations/ribbon/*.png
+!website/illustrations/ribbon1.12.7.png
+!website/illustrations/ribbon1.14.1_dev.png

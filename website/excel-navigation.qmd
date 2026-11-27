@@ -16,6 +16,67 @@ Für die Anwendung lassen sich die Arbeitsblätter in drei Gruppen einteilen:
 
 Die folgende Übersicht zeigt, wo die jeweiligen Einstellungen zu finden sind und welche Kapitel sie erläutern.
 
+## Das Menüband im Überblick {#menueband}
+
+Über das Menüband wählst du Voreinstellungen, speicherst Varianten und rufst Ergebnisse auf. Die Nummern verweisen auf die Funktionstabelle.
+
+### Offizielle Version 1.13.3 {#ribbon-133}
+
+Von links nach rechts findest du **Start und Schnellauswahl** (1–2), **Neues Projekt** (3–4), **Aktuelle Variante** (5–7), **Variantenverwaltung** (8–13) und **Nachweis** (14–15). In der Gruppe *Aktuelle Variante* siehst du auch den Projektnamen, das Erstellungsdatum und die Tool-Version.
+
+Die Ausschnitte stammen aus 1.14.1_dev und zeigen die mit der offiziellen Version 1.13.3 gemeinsamen Bereiche.
+
+![Start, Schnellauswahl und neues Projekt (1–4).](illustrations/ribbon/start.png){.manual-figure}
+
+![Aktuelle Variante und Variantenverwaltung (5–13).](illustrations/ribbon/variants.png){.manual-figure}
+
+![Nachweisstatus und Deklarationsabweichungen (14–15).](illustrations/ribbon/verification.png){.manual-figure}
+
+### Weitere Versionsansichten
+
+::: {.callout-note collapse="true" #ribbon-dev}
+## 1.14.1_dev – Diagnose und Expertenmodus
+
+![Diagnose und Expertenmodus (16–21).](illustrations/ribbon/development.png){.manual-figure}
+
+Rechts neben **Nachweis** schließen in diesem Entwicklungsstand die Gruppen **Diagnose** (16–17) und **Expertenmodus** (18–21) an.
+:::
+
+::: {.callout-note collapse="true" #ribbon-127}
+## 1.12.7 – Projekt-Varianten
+
+![Menüband in 1.12.7. Da keine Variante geladen ist, sind Projekt- und Variantenname leer.](illustrations/ribbon/legacy.png){.manual-figure}
+
+Auf **Start und Schnellauswahl** (1–2) folgt die Gruppe **Projekt-Varianten**. Hier findest du **Varianten** (22), **Variante laden** (5), **Aktuelle Eingabe speichern** (6) und **Projekt-Datei importieren** (13). Projekt- und Variantenname hängen von der geladenen Variante ab.
+:::
+
+### Funktionen im Menüband
+
+| Nr. | Befehl oder Anzeige | Verwendung | Versionshinweis |
+|---:|---|---|---|
+| 1 | Start | Zum Startblatt wechseln. |  |
+| 2 | Schnellauswahl | Ein Symbolmenü öffnen und eine [Voreinstellung](presets.qmd) für den jeweiligen Eingabebereich wählen. |  |
+| 3 | Neues Projekt anlegen | Ein Projekt beginnen. |  |
+| 4 | Basisvergleich anlegen | Einen Basisvergleich für das Projekt anlegen. |  |
+| 5 | Variante auswählen | Über das Dropdown mit dem Variantennamen (im Bild „Basis“) eine gespeicherte Variante laden. | In [1.12.7](#ribbon-127) „Variante laden“. |
+| 6 | Änderungen speichern | Die aktuellen Eingaben der Variante speichern. | In [1.12.7](#ribbon-127) „Aktuelle Eingabe speichern“. |
+| 7 | Zeitreihen exportieren | Die Zeitreihen der aktuellen Variante ausgeben. |  |
+| 8 | Simulieren | Die [Simulation](variants.qmd) starten. |  |
+| 9 | Vergleichen | Die [Ergebnisse mehrerer Varianten](comparison.qmd) gegenüberstellen. |  |
+| 10 | Eingabe übernehmen | Eingaben in die Variantenverwaltung übernehmen. |  |
+| 11 | Löschen | Eine Variante aus dem Projekt entfernen. |  |
+| 12 | Exportieren | Variantendaten für die Weitergabe exportieren. |  |
+| 13 | Importieren | Variantendaten aus einer Projektdatei einlesen. | In [1.12.7](#ribbon-127) „Projekt-Datei importieren“. |
+| 14 | Nachweis | Den angezeigten Status für PEQ, PEQ+M und KNPEQ zusammen mit den Kennwerten ablesen. |  |
+| 15 | Deklarationsabweichungen | Abweichungen für die [Deklaration](declaration.qmd) einsehen. |  |
+| 16 | Fehler zurückverfolgen | Die Ursache eines Modellfehlers nachverfolgen. | Nur in [1.14.1_dev](#ribbon-dev). |
+| 17 | Modell prüfen | Die Modellprüfung starten. | Nur in [1.14.1_dev](#ribbon-dev). |
+| 18 | Entwicklerblätter | Die Arbeitsblätter für die Modellentwicklung aufrufen. | Nur in [1.14.1_dev](#ribbon-dev). |
+| 19 | Batchsimulation | Die [Simulation mehrerer Varianten](batch.qmd) aufrufen. | Nur in [1.14.1_dev](#ribbon-dev). |
+| 20 | Protokoll | Das Protokoll einsehen. | Nur in [1.14.1_dev](#ribbon-dev). |
+| 21 | THG-Komponenten | Die THG-Komponenten aufrufen. | Nur in [1.14.1_dev](#ribbon-dev). |
+| 22 | Varianten | Die Variantenübersicht aufrufen. | Im Menüband von [1.12.7](#ribbon-127). |
+
 ## Blattnavigator
 
 | Excel-Blatt | Beschreibung und Anleitung |

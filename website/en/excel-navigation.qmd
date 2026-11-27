@@ -14,6 +14,67 @@ PEXL is organised into input groups, calculation and evaluation. Thematic techni
 
 The overview below locates settings and links to their explanations. Original worksheet names remain visible to match the German workbook.
 
+## Ribbon overview {#menueband}
+
+Use the ribbon to choose presets, manage variants and check results. The numbers below refer to the command table. German labels match the workbook.
+
+### Official release 1.13.3 {#ribbon-133}
+
+From left to right, the ribbon provides **Start** and **Schnellauswahl** (home and presets, 1–2), **Neues Projekt** (new project, 3–4), **Aktuelle Variante** (current variant, 5–7), **Variantenverwaltung** (variant management, 8–13) and **Nachweis** (verification, 14–15). The current variant group also displays the project name, creation date and tool version.
+
+The following sections are taken from 1.14.1_dev and show the controls shared with release 1.13.3.
+
+![Start, presets and new project (1–4).](../illustrations/ribbon/start.png){.manual-figure}
+
+![Current variant and variant management (5–13).](../illustrations/ribbon/variants.png){.manual-figure}
+
+![Verification status and declaration deviations (14–15).](../illustrations/ribbon/verification.png){.manual-figure}
+
+### Other versions
+
+::: {.callout-note collapse="true" #ribbon-dev}
+## 1.14.1_dev – diagnostics and expert mode
+
+![Diagnostics and expert mode (16–21).](../illustrations/ribbon/development.png){.manual-figure}
+
+Two additional groups appear to the right of **Nachweis** in this development version. **Diagnose** contains the error tracing and model checks (16–17). **Expertenmodus** provides access to developer worksheets, batch simulation, the log and greenhouse gas components (18–21).
+:::
+
+::: {.callout-note collapse="true" #ribbon-127}
+## 1.12.7 – project variants
+
+![Ribbon in 1.12.7. No variant is loaded, so the project and variant names are blank.](../illustrations/ribbon/legacy.png){.manual-figure}
+
+After **Start** and **Schnellauswahl** (1–2), the **Projekt-Varianten** group contains **Varianten** (22), **Variante laden** (5), **Aktuelle Eingabe speichern** (6) and **Projekt-Datei importieren** (13). The project and variant names depend on the loaded variant.
+:::
+
+### Ribbon commands and indicators
+
+| No. | Workbook label | What it does | Version note |
+|---:|---|---|---|
+| 1 | Start | Go to the start sheet. |  |
+| 2 | Schnellauswahl | Open an icon menu and choose a [preset](presets.qmd) for that input group. |  |
+| 3 | Neues Projekt anlegen | Create a project. |  |
+| 4 | Basisvergleich anlegen | Set up a baseline comparison for the project. |  |
+| 5 | Variante auswählen | Open the dropdown showing the current variant name and select a saved variant to load. | **Variante laden** in [1.12.7](#ribbon-127). |
+| 6 | Änderungen speichern | Save the current inputs for the variant. | **Aktuelle Eingabe speichern** in [1.12.7](#ribbon-127). |
+| 7 | Zeitreihen exportieren | Export the time series for the current variant. |  |
+| 8 | Simulieren | Run the [simulation](variants.qmd). |  |
+| 9 | Vergleichen | [Compare results](comparison.qmd) across variants. |  |
+| 10 | Eingabe übernehmen | Transfer inputs to the variant manager. |  |
+| 11 | Löschen | Remove a variant from the project. |  |
+| 12 | Exportieren | Export variant data for sharing. |  |
+| 13 | Importieren | Import variant data from a project file. | **Projekt-Datei importieren** in [1.12.7](#ribbon-127). |
+| 14 | Nachweis | Read the PEQ, PEQ+M and KNPEQ status indicators alongside the calculated values. |  |
+| 15 | Deklarationsabweichungen | Review deviations relevant to the [declaration](declaration.qmd). |  |
+| 16 | Fehler zurückverfolgen | Trace a model error to its source. | [1.14.1_dev](#ribbon-dev) only. |
+| 17 | Modell prüfen | Run the model check. | [1.14.1_dev](#ribbon-dev) only. |
+| 18 | Entwicklerblätter | Open the worksheets used for model development. | [1.14.1_dev](#ribbon-dev) only. |
+| 19 | Batchsimulation | Open [batch simulation](batch.qmd) to run multiple variants. | [1.14.1_dev](#ribbon-dev) only. |
+| 20 | Protokoll | View the log. | [1.14.1_dev](#ribbon-dev) only. |
+| 21 | THG-Komponenten | Open the greenhouse gas components. | [1.14.1_dev](#ribbon-dev) only. |
+| 22 | Varianten | Open the variant overview. | Appears in [1.12.7](#ribbon-127). |
+
 ## Sheet navigator
 
 | Excel sheet | Description and guide |

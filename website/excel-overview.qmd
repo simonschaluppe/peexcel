@@ -36,6 +36,8 @@ Das Blatt [▶]{.excel-menu .darkred} ("Quick Start") bietet einen schnellen Zug
 
 ### 3. Konfiguration festlegen
 
+Die [Übersicht zum Menüband](excel-navigation.qmd#menueband) zeigt, wo du Presets auswählst, Varianten speicherst und Nachweisergebnisse findest.
+
 Wähle in den entsprechenden **roten Dropdownfeldern** geeignete [Presets](presets.qmd), beispielsweise für Gebäudehülle, Heizsystem oder Photovoltaik. Die Quick-Start-Ansicht oben zeigt die Schnellauswahl.
 
 ::: {.callout-note collapse=true title="Forschung / Experte"}

@@ -34,6 +34,8 @@ Select the basic project and geometry parameters. Alternatively, [load a saved v
 
 ### 3. Set the configuration
 
+The [ribbon overview](excel-navigation.qmd#menueband) shows where to choose presets, save variants and check verification results.
+
 Choose suitable [presets](presets.qmd) in the corresponding **red drop-down fields**, for example for the envelope, heating system or PV. The Quick Start screenshot above shows the selection fields.
 
 ::: {.callout-note collapse=true title="Research / Expert"}
